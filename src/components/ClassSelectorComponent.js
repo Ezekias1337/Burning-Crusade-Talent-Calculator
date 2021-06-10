@@ -94,8 +94,8 @@ class ClassSelector extends Component {
                 <div className="col mt-5 hovereffect" style={{height: "130px", width: "130px" }}>
                     <img src={playableClass.classIcon} alt={playableClass.playableClassName} className="classIcon img-fluid" style={{border: `2px solid ${playableClass.classColor}`}}/>
                     <h3 style={{color: playableClass.classColor}}>{playableClass.playableClassName}</h3>
-                    <div class="overlay" style={{height: "130px", width: "130px" }}>
-                        <a class="info" href="#">Select</a>
+                    <div class="overlay" style={{height: "115px", width: "105px" }}>
+                        <a class="info" href="#" style={{color: playableClass.classColor, boxShadow: `0 0 5px ${playableClass.classColor}`, border: `2px solid ${playableClass.classColor}`}}>Select</a>
                     </div>
                 </div>
             );
