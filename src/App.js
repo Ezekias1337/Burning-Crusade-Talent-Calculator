@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import { Navbar, NavbarBrand } from 'reactstrap';
+import ClassSelector from './components/ClassSelectorComponent';
 import './App.css';
 
 class App extends Component {
@@ -12,6 +12,7 @@ class App extends Component {
                   <NavbarBrand href="/">Burning Crusade Talent Calculator</NavbarBrand>
               </div>
               </Navbar>
+              <ClassSelector />
           </div>
       );
   }
