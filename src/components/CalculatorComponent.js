@@ -27,7 +27,7 @@ class CalculatorComponent extends Component {
                     </div>
 
                     <div className="row talent-frame ml-3 mr-3">
-                        <div style={{backgroundImage: `url(${process.env.PUBLIC_URL + 'assets/images/talents/Hunter/Background/BeastMastery.jpg'})`}} className="col-xs-12 col-md-4 talent-frame talent-bg mx-auto" id="Col 1">
+                        <div style={{backgroundImage: `url(${process.env.PUBLIC_URL + 'assets/images/talents/Hunter/Background/BeastMastery.jpg'})`}} className="col-xs-12 col-md-4 talent-frame talent-bg" id="Col 1">
                             <h5 id="spec1">Beast Mastery</h5>
                             <div className="row talent-row">
                                 <img className="talentButton active-talent req-active" src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg"/>

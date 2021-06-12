@@ -42,11 +42,9 @@
 }
 
 
-.talent-button{
+.talent-row{
   display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+  justify-content: center;
 }
 
 
@@ -56,7 +54,19 @@
   background-size: cover;
 }
 
-
+.talentPoints{
+  background-color: #000;
+  border: #333;
+  border-radius: 3px !important;
+  color: #787878;
+  cursor: pointer;
+  font-size: 11px;
+  position: relative;
+  user-select: none;
+  left: -15px;
+  bottom: -25px;
+  max-height: 20px;
+  }
 
 
 .html{
