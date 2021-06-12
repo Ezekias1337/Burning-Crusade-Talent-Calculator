@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
 import ClassSelector from './components/ClassSelectorComponent';
+import CalculatorComponent from './components/CalculatorComponent';
 import './App.css';
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
               </div>
               </Navbar>
               <ClassSelector />
+              <CalculatorComponent />
           </div>
       );
   }

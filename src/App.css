@@ -36,6 +36,33 @@
   background-image: "../public/assets/images/Item_Hover.png";
 }
 
+.talent-frame {
+  border: 1px solid #e1eef4;
+  color: #e1eef4;
+}
+
+
+.talent-button{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+
+.talent-bg{
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+
+.html{
+  cursor: "../public/assets/images/Wow_Cursor.gif", "../public/assets/images/Wow_Cursor.cur", auto;
+}
+
 .hovereffect {
   width:100%;
   height:100%;
@@ -68,7 +95,6 @@
   
   .hovereffect h2 {
   text-transform:uppercase;
-  color:#fff;
   text-align:center;
   position:relative;
   font-size:17px;
