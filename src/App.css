@@ -46,15 +46,19 @@
   display: flex;
   justify-content: center;
 }
+.talentButton {
+   margin-top: 10px;
+   margin-left: 5px;
+   border-radius: 3px;
 
+ }
 
-
-.talent-bg{
+.talent-bg {
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.talentPoints{
+.talentPoints {
   background-color: #000;
   border: #333;
   border-radius: 3px !important;
@@ -63,11 +67,35 @@
   font-size: 11px;
   position: relative;
   user-select: none;
-  left: -15px;
-  bottom: -25px;
+  left: -5px;
+  bottom: -35px;
   max-height: 20px;
   }
 
+.silverArrow {
+  position: absolute;
+  object-position: bottom;
+}
+
+.goldArrow {
+  position: absolute;
+  object-position: bottom;
+}
+
+.active-talent{
+  border: 2px solid rgba(64,191,64,0.8);
+  border-radius: 3px;
+}
+
+.inactive-talent{
+  border: 2px solid #C2C4C6;
+  border-radius: 3px;
+}
+
+.maxeds{
+  border: 2px solid #ffd100;
+  border-radius: 3px;
+}
 
 .html{
   cursor: "../public/assets/images/Wow_Cursor.gif", "../public/assets/images/Wow_Cursor.cur", auto;

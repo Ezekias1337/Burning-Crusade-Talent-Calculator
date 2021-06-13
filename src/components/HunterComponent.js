@@ -58,7 +58,11 @@ class HunterComponent extends Component {
                                 <span className="talentPoints req-15-s1">0/2</span>
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec1/Ferocity.jpg"/>
                                 <span className="talentPoints req-15-s1">0/5</span>
+                                
                             </div>
+
+                            <img src="assets/images/DownSilver.png" style={{width: "10px", height: "55px", right: "133px"}}  className="silverArrow"></img>
+
                             <div className="row talent-row">
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec1/SpiritBond.jpg"/>
                                 <span className="talentPoints req-20-s1">0/2</span>
@@ -67,6 +71,9 @@ class HunterComponent extends Component {
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec1/BestialDiscipline.jpg"/>
                                 <span className="talentPoints req-20-s1">0/2</span>
                             </div>
+
+                            <img src="assets/images/DownSilver.png" style={{width: "10px", height: "55px", left: "155px"}}  className="silverArrow"></img>
+
                             <div className="row talent-row">
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec1/AnimalHandler.jpg"/>
                                 <span className="talentPoints req-25-s1">0/2</span>
