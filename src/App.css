@@ -101,6 +101,14 @@
   cursor: "../public/assets/images/Wow_Cursor.gif", "../public/assets/images/Wow_Cursor.cur", auto;
 }
 
+.req-inactive{
+  filter: grayscale(100%);
+}
+
+.req-active{
+  filter: grayscale(0%);
+}
+
 .hovereffect {
   width:100%;
   height:100%;
