@@ -61,8 +61,6 @@ class HunterComponent extends Component {
                                 
                             </div>
 
-                            <img src="assets/images/DownSilver.png" style={{width: "10px", height: "55px", right: "133px"}}  className="silverArrow"></img>
-
                             <div className="row talent-row">
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec1/SpiritBond.jpg"/>
                                 <span className="talentPoints req-20-s1">0/2</span>
@@ -71,8 +69,6 @@ class HunterComponent extends Component {
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec1/BestialDiscipline.jpg"/>
                                 <span className="talentPoints req-20-s1">0/2</span>
                             </div>
-
-                            <img src="assets/images/DownSilver.png" style={{width: "10px", height: "55px", left: "155px"}}  className="silverArrow"></img>
 
                             <div className="row talent-row">
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec1/AnimalHandler.jpg"/>
@@ -107,33 +103,33 @@ class HunterComponent extends Component {
                             </div>
                             <div className="row talent-row">
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/ImprovedHuntersMark.jpg"/>
-                                <span className="talentPoints req-05-s1">0/2</span>
+                                <span className="talentPoints req-05-s1">0/5</span>
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/Efficiency.jpg"/>
-                                <span className="talentPoints req-05-s1">0/3</span>
+                                <span className="talentPoints req-05-s1">0/5</span>
                             </div>
                             <div className="row talent-row">
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/GoForTheThroat.jpg"/>
                                 <span className="talentPoints req-10-s1">0/2</span>
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/ImprovedArcaneShot.jpg"/>
-                                <span className="talentPoints req-10-s1">0/1</span>
+                                <span className="talentPoints req-10-s1">0/5</span>
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/AimedShot.jpg"/>
-                                <span className="talentPoints req-10-s1">0/5</span>
+                                <span className="talentPoints req-10-s1">0/1</span>
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/RapidKilling.jpg"/>
-                                <span className="talentPoints req-10-s1">0/5</span>
+                                <span className="talentPoints req-10-s1">0/2</span>
                             </div>
                             <div className="row talent-row">
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/ImprovedStings.jpg"/>
-                                <span className="talentPoints req-15-s1">0/2</span>
+                                <span className="talentPoints req-15-s1">0/5</span>
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/MortalShots.jpg"/>
                                 <span className="talentPoints req-15-s1">0/5</span>
                             </div>
                             <div className="row talent-row">
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/ConcussiveBarrage.jpg"/>
-                                <span className="talentPoints req-20-s1">0/2</span>
+                                <span className="talentPoints req-20-s1">0/3</span>
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/ScatterShot.jpg"/>
                                 <span className="talentPoints req-20-s1">0/1</span>
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg"/>
-                                <span className="talentPoints req-20-s1">0/2</span>
+                                <span className="talentPoints req-20-s1">0/3</span>
                             </div>
                             <div className="row talent-row">
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/CombatExperience.jpg"/>
@@ -162,19 +158,19 @@ class HunterComponent extends Component {
                             <h5 id="spec3">Survival</h5>
                             <div className="row talent-row">
                                 <img className="talentButton active-talent req-active" src="assets/images/talents/Hunter/Progression/spec3/MonsterSlaying.jpg"/>
-                                <span className="talentPoints req-00-s1">0/5</span>
+                                <span className="talentPoints req-00-s1">0/3</span>
                                 <img className="talentButton active-talent req-active" src="assets/images/talents/Hunter/Progression/spec3/HumanoidSlaying.jpg"/>
-                                <span className="talentPoints req-00-s1">0/5</span>
+                                <span className="talentPoints req-00-s1">0/3</span>
                                 <img className="talentButton active-talent req-active" src="assets/images/talents/Hunter/Progression/spec3/HawkEye.jpg"/>
-                                <span className="talentPoints req-00-s1">0/5</span>
+                                <span className="talentPoints req-00-s1">0/3</span>
                                 <img className="talentButton active-talent req-active" src="assets/images/talents/Hunter/Progression/spec3/SavageStrikes.jpg"/>
-                                <span className="talentPoints req-00-s1">0/5</span>
+                                <span className="talentPoints req-00-s1">0/2</span>
                             </div>
                             <div className="row talent-row">
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/Entrapment.jpg"/>
-                                <span className="talentPoints req-05-s1">0/2</span>
-                                <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/Deflection.jpg"/>
                                 <span className="talentPoints req-05-s1">0/3</span>
+                                <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/Deflection.jpg"/>
+                                <span className="talentPoints req-05-s1">0/5</span>
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/ImprovedWingClip.jpg"/>
                                 <span className="talentPoints req-05-s1">0/3</span>
                             </div>
@@ -182,29 +178,29 @@ class HunterComponent extends Component {
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/CleverTraps.jpg"/>
                                 <span className="talentPoints req-10-s1">0/2</span>
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/Survivalist.jpg"/>
-                                <span className="talentPoints req-10-s1">0/1</span>
-                                <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/Deterrence.jpg"/>
                                 <span className="talentPoints req-10-s1">0/5</span>
+                                <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/Deterrence.jpg"/>
+                                <span className="talentPoints req-10-s1">0/1</span>
                             </div>
                             <div className="row talent-row">
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/TrapMastery.jpg"/>
                                 <span className="talentPoints req-15-s1">0/2</span>
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/Surefooted.jpg"/>
-                                <span className="talentPoints req-15-s1">0/5</span>
+                                <span className="talentPoints req-15-s1">0/3</span>
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/ImprovedFeignDeath.jpg"/>
-                                <span className="talentPoints req-15-s1">0/5</span>
+                                <span className="talentPoints req-15-s1">0/2</span>
                             </div>
                             <div className="row talent-row">
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/SurvivalInstincts.jpg"/>
                                 <span className="talentPoints req-20-s1">0/2</span>
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/KillerInstinct.jpg"/>
-                                <span className="talentPoints req-20-s1">0/1</span>
+                                <span className="talentPoints req-20-s1">0/3</span>
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/CounterAttack.jpg"/>
-                                <span className="talentPoints req-20-s1">0/2</span>
+                                <span className="talentPoints req-20-s1">0/1</span>
                             </div>
                             <div className="row talent-row">
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/Resourcefulness.jpg"/>
-                                <span className="talentPoints req-25-s1">0/2</span>
+                                <span className="talentPoints req-25-s1">0/3</span>
                                 <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/LightningReflexes.jpg"/>
                                 <span className="talentPoints req-25-s1">0/5</span>
                             </div>

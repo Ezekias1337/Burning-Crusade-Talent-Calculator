@@ -102,13 +102,24 @@ class ClassSelector extends Component {
         })
         
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        {classSelector}
+            
+            <React.Fragment>
+                <div className="container">
+                    <div className="row">
+                        <div className="col">
+                            <h1 style={{color: "#e1eef4"}} className="mt-2">Select a Class</h1>
+                        </div>
                     </div>
                 </div>
-            </div>
+                
+                <div className="container">
+                    <div className="row">
+                        <div className="col">
+                            {classSelector}
+                        </div>
+                    </div>
+                </div>
+            </React.Fragment>
         );
     }
 }
