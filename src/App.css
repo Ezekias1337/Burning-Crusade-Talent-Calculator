@@ -40,7 +40,6 @@
 
 .talent-row{
   display: flex;
-  justify-content: center;
 }
 
 .talentButton {
@@ -64,8 +63,8 @@
   font-size: 11px;
   position: relative;
   user-select: none;
-  left: -5px;
-  bottom: -35px;
+  left: 1.3rem;
+  bottom: 0.5rem;
   max-height: 17px;
   }
 
