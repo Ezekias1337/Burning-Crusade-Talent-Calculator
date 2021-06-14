@@ -85,7 +85,7 @@ class HunterComponent extends Component {
                                 <div className="col col-xs-3">
                                     <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec1/Ferocity.jpg"/>
                                     <span className="talentPoints req-15-s1">0/5</span>
-                                    <img style={{}}  src="assets/images/DownSilver.png" />
+                                    <img style={{position: "absolute", left: "2.35rem", height: "6.7rem", width: ".8rem"}}  src="assets/images/DownSilverMedium.png" />
                                 </div>
                                 <div className="col col-xs-3"></div>
                             </div>
@@ -98,6 +98,7 @@ class HunterComponent extends Component {
                                 <div className="col col-xs-3">
                                     <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec1/Intimidation.jpg"/>
                                     <span className="talentPoints req-20-s1">0/1</span>
+                                    <img style={{position: "absolute", left: "2.35rem", height: "6.7rem", width: ".8rem"}}  src="assets/images/DownSilverMedium.png" />
                                 </div>
                                 <div className="col col-xs-3"></div>
                                 <div className="col col-xs-3">
@@ -127,6 +128,7 @@ class HunterComponent extends Component {
                                 <div className="col col-xs-3">
                                     <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec1/BestialWrath.jpg"/>
                                     <span className="talentPoints req-30-s1">0/1</span>
+                                    <img style={{position: "absolute", left: "2.35rem", height: "6.7rem", width: ".8rem"}}  src="assets/images/DownSilverMedium.png" />
                                 </div>
                                 <div className="col col-xs-3">
                                     <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec1/CatlikeReflexes.jpg"/>
@@ -192,6 +194,7 @@ class HunterComponent extends Component {
                                 <div className="col col-xs-3">
                                     <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/AimedShot.jpg"/>
                                     <span className="talentPoints req-10-s1">0/1</span>
+                                    <img style={{position: "absolute", left: "2.35rem", height: "2.1rem", width: ".8rem"}}  src="assets/images/DownSilverSmall.png" />
                                 </div>
                                 <div className="col col-xs-3">
                                     <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/RapidKilling.jpg"/>
@@ -218,10 +221,12 @@ class HunterComponent extends Component {
                                 <div className="col col-xs-3">
                                     <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/ScatterShot.jpg"/>
                                     <span className="talentPoints req-20-s1">0/1</span>
+                                    <img style={{position: "absolute", left: "2.35rem", height: "6.7rem", width: ".8rem"}}  src="assets/images/DownSilverMedium.png" />
                                 </div>
                                 <div className="col col-xs-3">
                                     <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg"/>
                                     <span className="talentPoints req-20-s1">0/3</span>
+                                    <img style={{position: "absolute", left: "2.35rem", height: "6.7rem", width: ".8rem"}}  src="assets/images/DownSilverMedium.png" />
                                 </div>
                                 <div className="col col-xs-3"></div>
                             </div>
@@ -258,6 +263,7 @@ class HunterComponent extends Component {
                                 <div className="col col-xs-3">
                                     <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec2/MasterMarksman.jpg"/>
                                     <span className="talentPoints req-35-s1">0/5</span>
+                                    <img style={{position: "absolute", left: "2.35rem", height: "2.1rem", width: ".8rem"}}  src="assets/images/DownSilverSmall.png" />
                                 </div>
                                 <div className="col col-xs-3"></div>
                                 <div className="col col-xs-3"></div>
@@ -319,6 +325,7 @@ class HunterComponent extends Component {
                                 <div className="col col-xs-3">
                                     <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/Deterrence.jpg"/>
                                     <span className="talentPoints req-10-s1">0/1</span>
+                                    <img style={{position: "absolute", left: "2.35rem", height: "6.7rem", width: ".8rem"}}  src="assets/images/DownSilverMedium.png" />
                                 </div>
                                 <div className="col col-xs-3"></div>
                             </div>
@@ -345,6 +352,7 @@ class HunterComponent extends Component {
                                 <div className="col col-xs-3">
                                     <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/KillerInstinct.jpg"/>
                                     <span className="talentPoints req-20-s1">0/3</span>
+                                    <img style={{position: "absolute", left: "2.3rem", height: "6.7rem", width: ".8rem"}}  src="assets/images/DownSilverMedium.png" />
                                 </div>
                                 <div className="col col-xs-3">
                                     <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/CounterAttack.jpg"/>
@@ -384,6 +392,7 @@ class HunterComponent extends Component {
                                 <div className="col col-xs-3">
                                     <img className="talentButton inactive-talent req-inactive" src="assets/images/talents/Hunter/Progression/spec3/MasterTactician.jpg"/>
                                     <span className="talentPoints req-35-s1">0/5</span>
+                                    <img style={{position: "absolute", left: "2.35rem", height: "2.1rem", width: ".8rem"}}  src="assets/images/DownSilverSmall.png" />
                                 </div>
                                 <div className="col col-xs-3"></div>
                                 <div className="col col-xs-3"></div>
