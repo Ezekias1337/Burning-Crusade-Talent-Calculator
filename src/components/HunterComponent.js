@@ -3,8 +3,38 @@ import React, { Component } from 'react';
 class HunterComponent extends Component {
     constructor(props){
         super(props);
-        this.state = [];
+        this.state = {};
     }
+
+    addEventListenerIcons() {
+        window.event.currentTarget.addEventListener("click", addPointGlobal(window.event.srcElement.nextElementSibling))
+
+        function addPointGlobal(button) {
+            let onePointArray = ["0/1", "1/1"];
+            let twoPointArray = ["0/2", "1/2", "2/2"];
+            let threePointArray = ["0/3", "1/3", "2/3", "3/3"];
+            let fourPointArray = ["0/4", "1/4", "2/4", "3/4", "4/4"];
+            let fivePointArray = ["0/5", "1/5", "2/5", "3/5", "4/5", "5/5"];
+
+            console.log(button);
+            
+        }
+
+        function addPointSpec1() {
+            
+        }
+
+        function addPointSpec2() {
+            
+        }
+
+        function addPointSpec3() {
+            
+        }
+
+    }
+
+    
 
     render () {
         return (
@@ -30,17 +60,16 @@ class HunterComponent extends Component {
                         <div style={{backgroundImage: `url(${process.env.PUBLIC_URL + 'assets/images/talents/Hunter/Background/BeastMastery.jpg'})`}} className="col-xs-12 col-md-4 talent-frame talent-bg" id="Col 1">
                             <h5 id="spec1">Beast Mastery</h5>
                             <div className="row talent-row">
-                            {/*This col is for spacing*/} <div className="col col-xs-3"></div>
-                                
+                                <div className="col col-xs-3"></div>
                                 <div className="col col-xs-3">
-                                    <img className="talentButton active-talent req-active" src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg"/>
+                                    <img onClick={this.addEventListenerIcons} className="talentButton active-talent req-active" src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg"/>
                                     <span className="talentPoints req-00-s1">0/5</span>
                                 </div>
                                 <div className="col col-xs-3">
                                     <img className="talentButton active-talent req-active" src="assets/images/talents/Hunter/Progression/spec1/EnduranceTraining.jpg"/>
                                     <span className="talentPoints req-00-s1">0/5</span>
                                 </div>
-                            {/*This col is for spacing*/} <div className="col col-xs-3"></div>
+                                <div className="col col-xs-3"></div>
                             </div>
                             <div className="row talent-row">
                                 <div className="col col-xs-3">
@@ -414,5 +443,6 @@ class HunterComponent extends Component {
         );
     }
 }
+    
 
 export default HunterComponent;
