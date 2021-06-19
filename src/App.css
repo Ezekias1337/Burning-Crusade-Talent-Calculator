@@ -46,7 +46,7 @@
    margin-top: 10px;
    margin-left: 5px;
    border-radius: 3px;
-
+   display: inline-block;
  }
 
 .talent-bg {
@@ -68,15 +68,108 @@
   max-height: 17px;
   }
 
-.silverArrow {
-  position: absolute;
-  object-position: bottom;
-}
+  @media only screen and (min-width: 576px) { 
+    .smArrow {
+      position: absolute;
+      left: 2.31rem; 
+      height: 2.1rem; 
+      width: .8rem;
+    }
+    
+  }
 
-.goldArrow {
-  position: absolute;
-  object-position: bottom;
-}
+  @media only screen and (min-width: 768px) { 
+    .smArrow {
+      position: absolute;
+      left: 2.55rem; 
+      height: 2.1rem; 
+      width: .8rem;
+    }
+    
+  }
+
+  @media only screen and (min-width: 992px) { 
+    .smArrow {
+      position: absolute;
+      left: 2.2rem; 
+      height: 2.1rem; 
+      width: .8rem;
+    }
+    
+  }
+
+  @media only screen and (min-width: 1200px) { 
+    .smArrow {
+      position: absolute;
+      left: 2.6rem; 
+      height: 2.1rem; 
+      width: .8rem;
+    }
+    
+  }
+
+  @media only screen and (min-width: 1400px) { 
+    .smArrow {
+      position: absolute;
+      left: 2.31rem; 
+      height: 2.1rem; 
+      width: .8rem;
+    }
+    
+  }
+
+  @media only screen and (min-width: 576px) {
+    .medArrow {
+      position: absolute; 
+      left: 2.33rem; 
+      height: 6.7rem;
+      width: .8rem;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .medArrow {
+      position: absolute; 
+      left: 2.55rem; 
+      height: 6.7rem;
+      width: .8rem;
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    .medArrow {
+      position: absolute; 
+      left: 2.2rem; 
+      height: 6.7rem;
+      width: .8rem;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    .medArrow {
+      position: absolute; 
+      left: 2.6rem; 
+      height: 6.7rem;
+      width: .8rem;
+    }
+  }
+
+  @media only screen and (min-width: 1400px) {
+    .medArrow {
+      position: absolute; 
+      left: 2.33rem; 
+      height: 6.7rem;
+      width: .8rem;
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    .lgArrow{
+
+    }
+  }
+
+ 
 
 .active-talent{
   border: 2px solid rgba(64,191,64,0.8);
