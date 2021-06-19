@@ -63,7 +63,7 @@ class HunterComponent extends Component {
                                 <div className="col col-xs-3"></div>
                                 <div className="col col-xs-3">
                                     <img onClick={this.addEventListenerIcons} className="talentButton active-talent req-active" src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg"/>
-                                    <span className="talentPoints req-00-s1">0/5</span>
+                                    <span className="talentPoints req-00-s1 pb-3 mt-3">0/5</span>
                                 </div>
                                 <div className="col col-xs-3">
                                     <img className="talentButton active-talent req-active" src="assets/images/talents/Hunter/Progression/spec1/EnduranceTraining.jpg"/>

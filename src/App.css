@@ -57,15 +57,13 @@
 .talentPoints {
   background-color: #000;
   border: #333;
-  border-radius: 5px !important;
+  border-radius: .5em !important;
   color: #787878;
   cursor: pointer;
-  font-size: 11px;
+  font-size: .7rem;
   position: relative;
   user-select: none;
-  left: 1.3rem;
-  bottom: 0.5rem;
-  max-height: 17px;
+  
   }
 
 .silverArrow {
