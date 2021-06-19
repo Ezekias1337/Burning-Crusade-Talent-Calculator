@@ -37,14 +37,23 @@
   color: #e1eef4;
 }
 
+.frame-wrappe{
+  position: relative;
+}
 
-.talent-row{
+.talent-row {
   display: flex;
 }
 
+.talent-row-inner {
+  position: relative;
+}
+
 .talentButton {
-   margin-top: 10px;
-   margin-left: 5px;
+   margin-top: .7rem;
+   margin-bottom: .7rem;
+   margin-left: .15rem;
+   margin-right: .15rem;
    border-radius: 3px;
    display: inline-block;
  }
@@ -57,117 +66,44 @@
 .talentPoints {
   background-color: #000;
   border: #333;
-  border-radius: 5px !important;
+  border-radius: 3px !important;
   color: #787878;
   cursor: pointer;
-  font-size: 11px;
-  position: relative;
+  font-size: .6rem;
+  position: absolute;
   user-select: none;
-  left: 1.3rem;
-  bottom: 0.5rem;
-  max-height: 17px;
+  left: 60%;
+  bottom: -1%;
+  z-index: 2;
   }
 
-  @media only screen and (min-width: 576px) { 
-    .smArrow {
-      position: absolute;
-      left: 2.31rem; 
-      height: 2.1rem; 
-      width: .8rem;
-    }
+.arrowWrapper {
+
+}
+
+   
+.smArrow {
+  position: absolute; 
+  left: 45%;
+  top: 85%;
+  height: 1.3rem;
+  width: .8rem;
+  z-index: 1;
+}
     
-  }
+.medArrow {
+  position: absolute; 
+  left: 45%;
+  top: 85%;
+  height: 5.2rem;
+  width: .8rem;
+  z-index: 1;
+}
 
-  @media only screen and (min-width: 768px) { 
-    .smArrow {
-      position: absolute;
-      left: 2.55rem; 
-      height: 2.1rem; 
-      width: .8rem;
-    }
-    
-  }
+.lgArrow{
 
-  @media only screen and (min-width: 992px) { 
-    .smArrow {
-      position: absolute;
-      left: 2.2rem; 
-      height: 2.1rem; 
-      width: .8rem;
-    }
-    
-  }
-
-  @media only screen and (min-width: 1200px) { 
-    .smArrow {
-      position: absolute;
-      left: 2.6rem; 
-      height: 2.1rem; 
-      width: .8rem;
-    }
-    
-  }
-
-  @media only screen and (min-width: 1400px) { 
-    .smArrow {
-      position: absolute;
-      left: 2.31rem; 
-      height: 2.1rem; 
-      width: .8rem;
-    }
-    
-  }
-
-  @media only screen and (min-width: 576px) {
-    .medArrow {
-      position: absolute; 
-      left: 2.33rem; 
-      height: 6.7rem;
-      width: .8rem;
-    }
-  }
-
-  @media only screen and (min-width: 768px) {
-    .medArrow {
-      position: absolute; 
-      left: 2.55rem; 
-      height: 6.7rem;
-      width: .8rem;
-    }
-  }
-
-  @media only screen and (min-width: 992px) {
-    .medArrow {
-      position: absolute; 
-      left: 2.2rem; 
-      height: 6.7rem;
-      width: .8rem;
-    }
-  }
-
-  @media only screen and (min-width: 1200px) {
-    .medArrow {
-      position: absolute; 
-      left: 2.6rem; 
-      height: 6.7rem;
-      width: .8rem;
-    }
-  }
-
-  @media only screen and (min-width: 1400px) {
-    .medArrow {
-      position: absolute; 
-      left: 2.33rem; 
-      height: 6.7rem;
-      width: .8rem;
-    }
-  }
-
-  @media only screen and (min-width: 992px) {
-    .lgArrow{
-
-    }
-  }
+}
+  
 
  
 

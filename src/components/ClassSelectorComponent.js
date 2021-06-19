@@ -107,14 +107,14 @@ class ClassSelector extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col">
-                            <h1 style={{color: "#e1eef4"}} className="mt-2">Select a Class</h1>
+                            <h1 style={{color: "#e1eef4"}} className="mt-2 ml-3">Select a Class</h1>
                         </div>
                     </div>
                 </div>
                 
                 <div className="container">
                     <div className="row">
-                        <div className="col">
+                        <div style={{left: "29.5%"}} className="col col-sm-6">
                             {classSelector}
                         </div>
                     </div>
