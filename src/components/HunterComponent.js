@@ -1,14 +1,21 @@
 import { contains } from "jquery";
 import React, { Component } from "react";
+let i = 0;
+let iSpec1 = 0;
+let iSpec2 = 0;
+let iSpec3 = 0;
 
 class HunterComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+        
+    };
   }
 
   talentClick() {
     let valueString;
+    let specString;
     let onePointArray = ["0/1", "1/1"];
     let twoPointArray = ["0/2", "1/2", "2/2"];
     let threePointArray = ["0/3", "1/3", "2/3", "3/3"];
@@ -17,6 +24,10 @@ class HunterComponent extends Component {
     let individualPointTracker;
 
     valueString = window.event.srcElement.nextElementSibling.innerText;
+    specString = window.event.srcElement.className.slice(0, 5);
+
+    
+    
     
     function addPointSpec1() {}
 
@@ -24,7 +35,26 @@ class HunterComponent extends Component {
 
     function addPointSpec3() {}
 
+    if(i >= 61){
+        alert("You have ran out of talent points!");
+        i = i - 1;
+    }
+
     if(window.event.button === 0) {
+        if(specString[4] === "1"){
+            console.log("Point used in spec 1");
+            iSpec1 = iSpec1 + 1;
+            document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
+            
+        } else if(specString[4] === "2"){
+            console.log("Point used in spec 2");
+            iSpec2 = iSpec2 + 1;
+            document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
+        } else if(specString[4] === "3"){
+            console.log("Point used in spec 3")
+            iSpec3 = iSpec3 + 1;
+            document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
+        }
         console.log(`You Left Clicked: !`);
         console.log(window.event.srcElement.nextElementSibling);
         switch(valueString[2]){
@@ -35,9 +65,29 @@ class HunterComponent extends Component {
                 if(typeof(individualPointTracker[0]) !== "undefined"){
                     window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
-                    alert("You've already maxed out this talent!")
+                    alert("You've already maxed out this talent!");
+                    i = i - 1;
+                    if(specString[4] === "1"){
+                        console.log("Point taken back Spec 1");
+                        iSpec1 = iSpec1 - 1;
+                        console.log(`iSpec1: ${iSpec1}`)
+                        document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
+                    } else if(specString[4] === "2"){
+                        console.log("Point taken back Spec 2");
+                        iSpec2 = iSpec2 - 1;
+                        console.log(`iSpec2: ${iSpec2}`)
+                        document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
+                    } else if(specString[4] === "3"){
+                        console.log("Point taken back Spec 3");
+                        iSpec3 = iSpec3 - 1;
+                        console.log(`iSpec3: ${iSpec3}`)
+                        document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
+                    }
                 }
                 console.log("One Point Potential");
+                i = i + 1;
+                document.getElementById("total-points").innerText = i;
+                console.log(i);
                 break;
             case "2":
                 individualPointTracker = twoPointArray.filter(
@@ -46,9 +96,29 @@ class HunterComponent extends Component {
                 if(typeof(individualPointTracker[0]) !== "undefined"){
                     window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
-                    alert("You've already maxed out this talent!")
+                    alert("You've already maxed out this talent!");
+                    i = i - 1;
+                    if(specString[4] === "1"){
+                        console.log("Point taken back Spec 1");
+                        iSpec1 = iSpec1 - 1;
+                        console.log(`iSpec1: ${iSpec1}`)
+                        document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
+                    } else if(specString[4] === "2"){
+                        console.log("Point taken back Spec 2");
+                        iSpec2 = iSpec2 - 1;
+                        console.log(`iSpec2: ${iSpec2}`)
+                        document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
+                    } else if(specString[4] === "3"){
+                        console.log("Point taken back Spec 3");
+                        iSpec3 = iSpec3 - 1;
+                        console.log(`iSpec3: ${iSpec3}`)
+                        document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
+                    }
                 }
                 console.log("Two Point Potential");
+                i = i + 1;
+                document.getElementById("total-points").innerText = i;
+                console.log(i);
                 break;
             case "3":
                 individualPointTracker = threePointArray.filter(
@@ -57,9 +127,29 @@ class HunterComponent extends Component {
                 if(typeof(individualPointTracker[0]) !== "undefined"){
                     window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
-                    alert("You've already maxed out this talent!")
+                    alert("You've already maxed out this talent!");
+                    i = i - 1;
+                    if(specString[4] === "1"){
+                        console.log("Point taken back Spec 1");
+                        iSpec1 = iSpec1 - 1;
+                        console.log(`iSpec1: ${iSpec1}`)
+                        document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
+                    } else if(specString[4] === "2"){
+                        console.log("Point taken back Spec 2");
+                        iSpec2 = iSpec2 - 1;
+                        console.log(`iSpec2: ${iSpec2}`)
+                        document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
+                    } else if(specString[4] === "3"){
+                        console.log("Point taken back Spec 3");
+                        iSpec3 = iSpec3 - 1;
+                        console.log(`iSpec3: ${iSpec3}`)
+                        document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
+                    }
                 }
                 console.log("Three Point Potential");
+                i = i + 1;
+                document.getElementById("total-points").innerText = i;
+                console.log(i);
                 break;
             case "4":
                 individualPointTracker = fourPointArray.filter(
@@ -68,9 +158,29 @@ class HunterComponent extends Component {
                 if(typeof(individualPointTracker[0]) !== "undefined"){
                     window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
-                    alert("You've already maxed out this talent!")
+                    alert("You've already maxed out this talent!");
+                    i = i - 1;
+                    if(specString[4] === "1"){
+                        console.log("Point taken back Spec 1");
+                        iSpec1 = iSpec1 - 1;
+                        console.log(`iSpec1: ${iSpec1}`)
+                        document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
+                    } else if(specString[4] === "2"){
+                        console.log("Point taken back Spec 2");
+                        iSpec2 = iSpec2 - 1;
+                        console.log(`iSpec2: ${iSpec2}`)
+                        document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
+                    } else if(specString[4] === "3"){
+                        console.log("Point taken back Spec 3");
+                        iSpec3 = iSpec3 - 1;
+                        console.log(`iSpec3: ${iSpec3}`)
+                        document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
+                    }
                 }
                 console.log("Four Point Potential");
+                i = i + 1;
+                document.getElementById("total-points").innerText = i;
+                console.log(i);
                 break;
             case "5":
                 individualPointTracker = fivePointArray.filter(
@@ -79,13 +189,53 @@ class HunterComponent extends Component {
                 if(typeof(individualPointTracker[0]) !== "undefined"){
                     window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
-                    alert("You've already maxed out this talent!")
+                    alert("You've already maxed out this talent!");
+                    i = i - 1;
+                    if(specString[4] === "1"){
+                        console.log("Point taken back Spec 1");
+                        iSpec1 = iSpec1 - 1;
+                        console.log(`iSpec1: ${iSpec1}`)
+                        document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
+                    } else if(specString[4] === "2"){
+                        console.log("Point taken back Spec 2");
+                        iSpec2 = iSpec2 - 1;
+                        console.log(`iSpec2: ${iSpec2}`)
+                        document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
+                    } else if(specString[4] === "3"){
+                        console.log("Point taken back Spec 3");
+                        iSpec3 = iSpec3 - 1;
+                        console.log(`iSpec3: ${iSpec3}`)
+                        document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
+                    }
                 }
                 console.log("Five Point Potential");
+                i = i + 1;
+                document.getElementById("total-points").innerText = i;
+                console.log(i);
                 break;
-                
-        }
+        }  
     } else if(window.event.button === 2) {
+        if(specString[4] === "1"){
+            console.log("Point taken from spec 1");
+            if(iSpec1 > 0){
+                iSpec1 = iSpec1 - 1;
+            }
+            
+            document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
+            
+        } else if(specString[4] === "2"){
+            console.log("Point taken from spec 2");
+            if(iSpec2 > 0){
+                iSpec2 = iSpec2 - 1;
+            }
+            document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
+        } else if(specString[4] === "3"){
+            console.log("Point taken from spec 3")
+            if(iSpec3 > 0){
+                iSpec3 = iSpec3 - 1;
+                document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
+            }
+        }
         console.log(`You Right Clicked: !`);
         console.log(window.event.srcElement.nextElementSibling);
         switch(valueString[2]){
@@ -96,10 +246,49 @@ class HunterComponent extends Component {
                 if(typeof(individualPointTracker[0]) !== "undefined"){
                     
                     window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+                    if(specString[4] === "1"){
+                        console.log("Point taken back Spec 1");
+                        
+                        console.log(`iSpec1: ${iSpec1}`)
+                        document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
+                    } else if(specString[4] === "2"){
+                        console.log("Point taken back Spec 2");
+                       
+                        console.log(`iSpec2: ${iSpec2}`)
+                        document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
+                    } else if(specString[4] === "3"){
+                        console.log("Point taken back Spec 3");
+                        
+                        console.log(`iSpec3: ${iSpec3}`)
+                        document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
+                    }
                 } else {
                     alert("You have no points in this talent to remove!")
+                    i = i + 1;
+                    
+                    if(specString[4] === "1"){
+                        console.log("Point added back Spec 1");
+                        console.log(`iSpec1: ${iSpec1}`)
+                        document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
+                    } else if(specString[4] === "2"){
+                        console.log("Point added back Spec 2");
+                        console.log(`iSpec2: ${iSpec2}`)
+                        document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
+                    } else if(specString[4] === "3"){
+                        console.log("Point added back Spec 3");
+                        
+                        console.log(`iSpec3: ${iSpec3}`)
+                        document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
+                    }
+                
+
                 }
                 console.log("One Point Potential");
+                if(i >= 1){
+                    i = i - 1;
+                }
+                document.getElementById("total-points").innerText = i;
+                console.log(i);
                 break;
             case "2":
                 individualPointTracker = twoPointArray.reverse().filter(
@@ -110,8 +299,14 @@ class HunterComponent extends Component {
                     window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
                     alert("You have no points in this talent to remove!")
+                    i = i + 1;
                 }
                 console.log("Two Point Potential");
+                if(i >= 1){
+                    i = i - 1;
+                }
+                document.getElementById("total-points").innerText = i;
+                console.log(i);
                 break;
             case "3":
                 individualPointTracker = threePointArray.reverse().filter(
@@ -122,8 +317,14 @@ class HunterComponent extends Component {
                     window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
                     alert("You have no points in this talent to remove!")
+                    i = i + 1;
                 }
                 console.log("Three Point Potential");
+                if(i >= 1){
+                    i = i - 1;
+                }
+                document.getElementById("total-points").innerText = i;
+                console.log(i);
                 break;
             case "4":
                 individualPointTracker = fourPointArray.reverse().filter(
@@ -134,8 +335,14 @@ class HunterComponent extends Component {
                     window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
                     alert("You have no points in this talent to remove!")
+                    i = i + 1;
                 }
                 console.log("Four Point Potential");
+                if(i >= 1){
+                    i = i - 1;
+                }
+                document.getElementById("total-points").innerText = i;
+                console.log(i);
                 break;
             case "5":
                 individualPointTracker = fivePointArray.reverse().filter(
@@ -146,12 +353,17 @@ class HunterComponent extends Component {
                     window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
                     alert("You have no points in this talent to remove!")
+                    i = i + 1;
                 }
                 console.log("Five Point Potential");
+                if(i >= 1){
+                    i = i - 1;
+                }
+                document.getElementById("total-points").innerText = i;
+                console.log(i);
                 break;
-        }
+        }  
     }
-
 }
 
   resetPoints(){
@@ -224,17 +436,17 @@ class HunterComponent extends Component {
         <div style={{ maxWidth: "1150px" }} className="row">
           <div className="col">
             <h5 style={{ color: "#e1eef4" }} id="point-counter1">
-              Spec 1:  
+              Spec 1: 0 
             </h5>
           </div>
           <div className="col">
             <h5 style={{ color: "#e1eef4" }} id="point-counter2">
-              Spec 2:  
+              Spec 2: 0
             </h5>
           </div>
           <div className="col">
             <h5 style={{ color: "#e1eef4" }} id="point-counter3">
-              Spec 3:  
+              Spec 3: 0
             </h5>
           </div>
         </div>
@@ -256,7 +468,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton active-talent req-active"
+                  className="spec1 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg"
                 />
                 <span className="talentPoints req-00-s1">0/5</span>
@@ -264,7 +476,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton active-talent req-active"
+                  className="spec1 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec1/EnduranceTraining.jpg"
                 />
                 <span className="talentPoints req-00-s1">0/5</span>
@@ -275,7 +487,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/FocusedFire.jpg"
                 />
                 <span className="talentPoints req-05-s1">0/2</span>
@@ -283,7 +495,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectMonkey.jpg"
                 />
                 <span className="talentPoints req-05-s1">0/3</span>
@@ -291,7 +503,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/ThickHide.jpg"
                 />
                 <span className="talentPoints req-05-s1">0/3</span>
@@ -299,7 +511,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/ImprovedRevivePet.jpg"
                 />
                 <span className="talentPoints req-05-s1">0/2</span>
@@ -309,7 +521,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/Pathfinding.jpg"
                 />
                 <span className="talentPoints req-10-s1">0/2</span>
@@ -317,7 +529,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/BestialSwiftness.jpg"
                 />
                 <span className="talentPoints req-10-s1">0/1</span>
@@ -325,7 +537,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/UnleashedFury.jpg"
                 />
                 <span className="talentPoints req-10-s1">0/5</span>
@@ -337,7 +549,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/ImprovedMendPet.jpg"
                 />
                 <span className="talentPoints req-15-s1">0/2</span>
@@ -345,7 +557,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                   <img
                     onMouseDown={this.talentClick}
-                    className="talentButton inactive-talent req-inactive"
+                    className="spec1 talentButton inactive-talent req-inactive"
                     src="assets/images/talents/Hunter/Progression/spec1/Ferocity.jpg"
                   />
                   <span className="talentPoints req-15-s1">0/5</span>
@@ -362,7 +574,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/SpiritBond.jpg"
                 />
                 <span className="talentPoints req-20-s1">0/2</span>
@@ -370,7 +582,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/Intimidation.jpg"
                 />
                 <span className="talentPoints req-20-s1">0/1</span>
@@ -383,7 +595,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/BestialDiscipline.jpg"
                 />
                 <span className="talentPoints req-20-s1">0/2</span>
@@ -394,7 +606,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/AnimalHandler.jpg"
                 />
                 <span className="talentPoints req-25-s1">0/2</span>
@@ -403,7 +615,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/Frenzy.jpg"
                 />
                 <span className="talentPoints req-25-s1">0/5</span>
@@ -414,7 +626,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/FerociousInspiration.jpg"
                 />
                 <span className="talentPoints req-30-s1">0/3</span>
@@ -422,7 +634,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/BestialWrath.jpg"
                 />
                 <span className="talentPoints req-30-s1">0/1</span>
@@ -434,7 +646,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/CatlikeReflexes.jpg"
                 />
                 <span className="talentPoints req-30-s1">0/3</span>
@@ -447,7 +659,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/SerpentsSwiftness.jpg"
                 />
                 <span className="talentPoints req-35-s1">0/5</span>
@@ -459,7 +671,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/BeastWithin.jpg"
                 />
                 <span className="talentPoints req-40-s1">0/1</span>
@@ -484,7 +696,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton active-talent req-active"
+                  className="spec2 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec2/ImprovedConcussiveShot.jpg"
                 />
                 <span className="talentPoints req-00-s1">0/5</span>
@@ -492,7 +704,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton active-talent req-active"
+                  className="spec2 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec2/LethalShots.jpg"
                 />
                 <span className="talentPoints req-00-s1">0/5</span>
@@ -504,7 +716,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/ImprovedHuntersMark.jpg"
                 />
                 <span className="talentPoints req-05-s1">0/5</span>
@@ -512,7 +724,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/Efficiency.jpg"
                 />
                 <span className="talentPoints req-05-s1">0/5</span>
@@ -523,7 +735,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/GoForTheThroat.jpg"
                 />
                 <span className="talentPoints req-10-s1">0/2</span>
@@ -531,7 +743,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/ImprovedArcaneShot.jpg"
                 />
                 <span className="talentPoints req-10-s1">0/5</span>
@@ -539,7 +751,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/AimedShot.jpg"
                 />
                 <span className="talentPoints req-10-s1">0/1</span>
@@ -551,7 +763,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/RapidKilling.jpg"
                 />
                 <span className="talentPoints req-10-s1">0/2</span>
@@ -562,7 +774,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/ImprovedStings.jpg"
                 />
                 <span className="talentPoints req-15-s1">0/5</span>
@@ -570,7 +782,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/MortalShots.jpg"
                 />
                 <span className="talentPoints req-15-s1">0/5</span>
@@ -581,7 +793,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/ConcussiveBarrage.jpg"
                 />
                 <span className="talentPoints req-20-s1">0/3</span>
@@ -589,7 +801,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/ScatterShot.jpg"
                 />
                 <span className="talentPoints req-20-s1">0/1</span>
@@ -601,7 +813,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg"
                 />
                 <span className="talentPoints req-20-s1">0/3</span>
@@ -616,7 +828,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/CombatExperience.jpg"
                 />
                 <span className="talentPoints req-25-s1">0/2</span>
@@ -626,7 +838,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/RangedWeaponSpecialization.jpg"
                 />
                 <span className="talentPoints req-25-s1">0/5</span>
@@ -636,7 +848,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/CarefulAim.jpg"
                 />
                 <span className="talentPoints req-30-s1">0/3</span>
@@ -644,7 +856,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/TrueshotAura.jpg"
                 />
                 <span className="talentPoints req-30-s1">0/1</span>
@@ -652,7 +864,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg"
                 />
                 <span className="talentPoints req-30-s1">0/3</span>
@@ -664,7 +876,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/MasterMarksman.jpg"
                 />
                 <span className="talentPoints req-35-s1">0/5</span>
@@ -681,7 +893,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/SilencingShot.jpg"
                 />
                 <span className="talentPoints req-40-s1">0/1</span>
@@ -705,7 +917,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton active-talent req-active"
+                  className="spec3 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec3/MonsterSlaying.jpg"
                 />
                 <span className="talentPoints req-00-s1">0/3</span>
@@ -713,7 +925,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton active-talent req-active"
+                  className="spec3 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec3/HumanoidSlaying.jpg"
                 />
                 <span className="talentPoints req-00-s1">0/3</span>
@@ -721,7 +933,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton active-talent req-active"
+                  className="spec3 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec3/HawkEye.jpg"
                 />
                 <span className="talentPoints req-00-s1">0/3</span>
@@ -729,7 +941,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton active-talent req-active"
+                  className="spec3 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec3/SavageStrikes.jpg"
                 />
                 <span className="talentPoints req-00-s1">0/2</span>
@@ -739,7 +951,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/Entrapment.jpg"
                 />
                 <span className="talentPoints req-05-s1">0/3</span>
@@ -747,7 +959,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/Deflection.jpg"
                 />
                 <span className="talentPoints req-05-s1">0/5</span>
@@ -755,7 +967,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/ImprovedWingClip.jpg"
                 />
                 <span className="talentPoints req-05-s1">0/3</span>
@@ -766,7 +978,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/CleverTraps.jpg"
                 />
                 <span className="talentPoints req-10-s1">0/2</span>
@@ -774,7 +986,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/Survivalist.jpg"
                 />
                 <span className="talentPoints req-10-s1">0/5</span>
@@ -782,7 +994,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/Deterrence.jpg"
                 />
                 <span className="talentPoints req-10-s1">0/1</span>
@@ -797,7 +1009,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/TrapMastery.jpg"
                 />
                 <span className="talentPoints req-15-s1">0/2</span>
@@ -805,7 +1017,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/Surefooted.jpg"
                 />
                 <span className="talentPoints req-15-s1">0/3</span>
@@ -814,7 +1026,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/ImprovedFeignDeath.jpg"
                 />
                 <span className="talentPoints req-15-s1">0/2</span>
@@ -824,7 +1036,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/SurvivalInstincts.jpg"
                 />
                 <span className="talentPoints req-20-s1">0/2</span>
@@ -832,7 +1044,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/KillerInstinct.jpg"
                 />
                 <span className="talentPoints req-20-s1">0/3</span>
@@ -844,7 +1056,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/CounterAttack.jpg"
                 />
                 <span className="talentPoints req-20-s1">0/1</span>
@@ -855,7 +1067,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/Resourcefulness.jpg"
                 />
                 <span className="talentPoints req-25-s1">0/3</span>
@@ -864,7 +1076,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/LightningReflexes.jpg"
                 />
                 <span className="talentPoints req-25-s1">0/5</span>
@@ -875,7 +1087,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/ThrillOfTheHunt.jpg"
                 />
                 <span className="talentPoints req-30-s1">0/3</span>
@@ -883,7 +1095,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/WyvernSting.jpg"
                 />
                 <span className="talentPoints req-30-s1">0/1</span>
@@ -891,7 +1103,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/ExposeWeakness.jpg"
                 />
                 <span className="talentPoints req-30-s1">0/3</span>
@@ -903,7 +1115,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/MasterTactician.jpg"
                 />
                 <span className="talentPoints req-35-s1">0/5</span>
@@ -920,7 +1132,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3">
                 <img
                   onMouseDown={this.talentClick}
-                  className="talentButton inactive-talent req-inactive"
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/Readiness.jpg"
                 />
                 <span className="talentPoints req-40-s1">0/1</span>
