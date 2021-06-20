@@ -7,10 +7,6 @@ class HunterComponent extends Component {
     this.state = {};
   }
 
-  
-
-
-    
   talentClick() {
     let valueString;
     let onePointArray = ["0/1", "1/1"];
@@ -21,10 +17,6 @@ class HunterComponent extends Component {
     let individualPointTracker;
 
     valueString = window.event.srcElement.nextElementSibling.innerText;
-    
-    
-    
-    
     
     function addPointSpec1() {}
 
@@ -161,20 +153,72 @@ class HunterComponent extends Component {
     }
 
 }
-  
 
+  resetPoints(){
+      let z;
+      let y;
+      
+      let spanArray = document.querySelectorAll(".talentPoints");
+      let spanArrayPotential1 = [];
+      let spanArrayPotential2 = [];
+      let spanArrayPotential3 = [];
+      let spanArrayPotential4 = [];
+      let spanArrayPotential5 = [];
+
+      let onePointArray = ["0/1", "1/1"];
+      let twoPointArray = ["0/2", "1/2", "2/2"];
+      let threePointArray = ["0/3", "1/3", "2/3", "3/3"];
+      let fourPointArray = ["0/4", "1/4", "2/4", "3/4", "4/4"];
+      let fivePointArray = ["0/5", "1/5", "2/5", "3/5", "4/5", "5/5"];
+
+      for(z = 0; z < spanArray.length; z++){
+        if(spanArray[z].innerText[2] === "1"){
+            spanArrayPotential1.push(spanArray[z]);
+        } if(spanArray[z].innerText[2] === "2"){
+            spanArrayPotential2.push(spanArray[z]);
+        } if(spanArray[z].innerText[2] === "3"){
+            spanArrayPotential3.push(spanArray[z]);
+        } if(spanArray[z].innerText[2] === "4"){
+            spanArrayPotential4.push(spanArray[z]);
+        } if(spanArray[z].innerText[2] === "5"){
+            spanArrayPotential5.push(spanArray[z]);
+        }
+      }
+
+      for(y = 0; y < spanArrayPotential1.length; y++){
+        spanArrayPotential1[y].innerText = onePointArray[0];
+      } for(y = 0; y < spanArrayPotential2.length; y++){
+        spanArrayPotential2[y].innerText = twoPointArray[0];
+      } for(y = 0; y < spanArrayPotential3.length; y++){
+        spanArrayPotential3[y].innerText = threePointArray[0];
+      } for(y = 0; y < spanArrayPotential4.length; y++){
+        spanArrayPotential4[y].innerText = fourPointArray[0];
+      } for(y = 0; y < spanArrayPotential5.length; y++){
+        spanArrayPotential5[y].innerText = fivePointArray[0];
+      }
+      
+    console.log("Reset Points!")
+
+  }
+  
   render() {
     return (
-      <div onContextMenu={(e) => e.preventDefault()} className="frame-wrapper">
-        <div className="col" style={{ color: "#e1eef4", marginLeft: "15px" }}>
-          <h5 style={{ maxWidth: "1150px" }} style={{ color: "#e1eef4" }}>
-            Points Spent: 
-          </h5>
-          <h5 id="total-points" style={{ color: "#e1eef4" }}>
-            0
-          </h5>
+      <div style={{position: "relative"}} onContextMenu={(e) => e.preventDefault()} className="frame-wrapper">
+        <div className="row">
+            <div className="col-sm-3"></div>
+            <div className="col-sm-6" style={{ color: "#e1eef4"}}>
+                <h5 style={{ color: "#e1eef4", left: "50%" }}>
+                    Points Spent: 
+                </h5>
+                <h5 id="total-points" style={{ color: "#e1eef4" }}>
+                    0
+                </h5>
+            </div>
+            <div className="col-sm-3"></div>
         </div>
-        <button type="button" className="btn btn-success ml-4 mb-4 mt-2">
+
+        
+        <button onClick={this.resetPoints} type="button" className="mx-auto btn btn-success ml-4 mb-4 mt-2">
           Reset
         </button>
         <div style={{ maxWidth: "1150px" }} className="row">

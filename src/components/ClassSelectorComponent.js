@@ -91,7 +91,7 @@ class ClassSelector extends Component {
     render() {
         const classSelector = this.state.classes.map(playableClass => {
             return (
-                <div className="col mt-5 hovereffect" style={{height: "130px", width: "130px" }}>
+                <div className="ml-2 mr-1 col mt-5 hovereffect" style={{height: "130px", width: "130px" }}>
                     <img src={playableClass.classIcon} alt={playableClass.playableClassName} className="classIcon img-fluid" style={{border: `2px solid ${playableClass.classColor}`}}/>
                     <h4 style={{color: playableClass.classColor}}>{playableClass.playableClassName}</h4>
                     <div class="overlay" style={{height: "110px", width: "135px" }}>
@@ -103,7 +103,7 @@ class ClassSelector extends Component {
         
         return (
             
-            <React.Fragment>
+            <div style={{position: "relative"}}>
                 <div className="container">
                     <div className="row">
                         <div className="col">
@@ -112,14 +112,16 @@ class ClassSelector extends Component {
                     </div>
                 </div>
                 
-                <div className="container">
+                <div className="container mx-auto">
                     <div className="row">
-                        <div className="col col-sm-6">
+                        <div className="col col-sm-3"></div>
+                        <div className="col col-sm-6 mb-4">
                             {classSelector}
                         </div>
+                        <div className="col col-sm-3"></div>
                     </div>
                 </div>
-            </React.Fragment>
+            </div>
         );
     }
 }
