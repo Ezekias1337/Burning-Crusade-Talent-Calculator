@@ -408,8 +408,17 @@ class HunterComponent extends Component {
       } for(y = 0; y < spanArrayPotential5.length; y++){
         spanArrayPotential5[y].innerText = fivePointArray[0];
       }
+    i = 0;
+    iSpec1 = 0;
+    iSpec2 = 0;
+    iSpec3 = 0;
       
-    console.log("Reset Points!")
+    document.getElementById("total-points").innerText = `${i}`;
+    document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
+    document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
+    document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
+    
+    console.log("Reset Points!");
 
   }
   
