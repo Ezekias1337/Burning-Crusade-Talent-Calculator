@@ -4,6 +4,7 @@ let i = 0;
 let iSpec1 = 0;
 let iSpec2 = 0;
 let iSpec3 = 0;
+let loopHappenedBefore = false;
 
 class HunterComponent extends Component {
   constructor(props) {
@@ -22,8 +23,10 @@ class HunterComponent extends Component {
     let fourPointArray = ["0/4", "1/4", "2/4", "3/4", "4/4"];
     let fivePointArray = ["0/5", "1/5", "2/5", "3/5", "4/5", "5/5"];
     let individualPointTracker;
-
+    
+    //Get inner text of span element sibling to button user clicks
     valueString = window.event.srcElement.nextElementSibling.innerText;
+    //Get inner text of element button user clicks and slice to determine spec1, 2, or 3
     specString = window.event.srcElement.className.slice(0, 5);
 
     
@@ -35,38 +38,59 @@ class HunterComponent extends Component {
 
     function addPointSpec3() {}
 
-    if(i >= 61){
-        alert("You have ran out of talent points!");
-        i = i - 1;
-    }
+    
+    
 
+    //Path taken if user left clicks the button
     if(window.event.button === 0) {
+     
+      
+      
+      //if user clicked button in spec 1 tree update point counter for spec 1
         if(specString[4] === "1"){
             console.log("Point used in spec 1");
             iSpec1 = iSpec1 + 1;
             document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
             
-        } else if(specString[4] === "2"){
+        } 
+        //if user clicked button in spec 2 tree update point counter for spec 2
+        else if(specString[4] === "2"){
             console.log("Point used in spec 2");
             iSpec2 = iSpec2 + 1;
             document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
-        } else if(specString[4] === "3"){
+        } 
+        //if user clicked button in spec 3 tree update point counter for spec 3
+        else if(specString[4] === "3"){
             console.log("Point used in spec 3")
             iSpec3 = iSpec3 + 1;
             document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
         }
         console.log(`You Left Clicked: !`);
         console.log(window.event.srcElement.nextElementSibling);
+        
+        /*This switch takes the 3rd char (2nd index) of valueString 
+        (inner text of sibling span) as it's argument. Commenting Case 1 only for clarity*/ 
         switch(valueString[2]){
+            //Path taken if talent point has max one point
             case "1":
+                //Return first value in array that is greater than current value
                 individualPointTracker = onePointArray.filter(
                     (bracket) => 
                     bracket > window.event.srcElement.nextElementSibling.innerText);
+                /*As long as above function was successful (meaning there are more
+                elements of onepoint array greater than current value) update the span elements inner
+                text*/
                 if(typeof(individualPointTracker[0]) !== "undefined"){
                     window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
-                } else {
+                } 
+                
+                //Path taken if above arrow function failed
+                else {
                     alert("You've already maxed out this talent!");
+                    //take away one point from i (global point counter)
                     i = i - 1;
+                    /*Here will update spec specific point counter to where it 
+                    should be (since user already maxed talent)*/
                     if(specString[4] === "1"){
                         console.log("Point taken back Spec 1");
                         iSpec1 = iSpec1 - 1;
@@ -85,7 +109,9 @@ class HunterComponent extends Component {
                     }
                 }
                 console.log("One Point Potential");
+                
                 i = i + 1;
+                
                 document.getElementById("total-points").innerText = i;
                 console.log(i);
                 break;
@@ -214,7 +240,114 @@ class HunterComponent extends Component {
                 console.log(i);
                 break;
         }  
-    } else if(window.event.button === 2) {
+        
+      //A Level 70 Player won't have more than 61 talent points
+      //if statement alerts user and resets the counter back a point along with the span element
+      if(i > 61){
+        alert("You don't have any more talent points available!");
+        console.log(`The value of loopHappenedBefore is ${loopHappenedBefore}`);
+        i = 61;
+        
+        console.log(specString)
+        if(specString[4] === "1") {
+          if(loopHappenedBefore === false){
+          iSpec1 = iSpec1 - 1;
+          i = 61;
+          loopHappenedBefore = true;
+          document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
+          document.getElementById("total-points").innerText = `${i}`;
+          
+        } else {
+          iSpec1 = iSpec1 - 1;
+          i = 61;
+          document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
+          document.getElementById("total-points").innerText = `${i}`;
+          
+        }
+
+        } if(specString[4] === "2") {
+          if(loopHappenedBefore === false){
+            iSpec2 = iSpec2 - 1;
+            i = 61;
+            loopHappenedBefore = true;
+            document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
+            document.getElementById("total-points").innerText = `${i}`;
+            
+          } else {
+            iSpec2 = iSpec2 - 1;
+            i = 61;
+            document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
+            document.getElementById("total-points").innerText = `${i}`;
+            
+          }
+        } if(specString[4] === "3") {
+          if(loopHappenedBefore === false){
+            iSpec3 = iSpec3 - 1;
+            i = 61;
+            loopHappenedBefore = true;
+            document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
+            document.getElementById("total-points").innerText = `${i}`;
+            
+          } else {
+            iSpec3 = iSpec3 - 1;
+            i = 61;
+            document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
+            document.getElementById("total-points").innerText = `${i}`;
+            
+          }
+        } 
+
+        
+
+        switch(valueString[2]) {
+        case "1":
+          individualPointTracker = onePointArray.reverse().filter(
+            (bracket) => 
+            bracket < window.event.srcElement.nextElementSibling.innerText);
+          if(typeof(individualPointTracker[0]) !== "undefined"){
+            window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+          }
+          break;
+        case "2":
+          individualPointTracker = twoPointArray.reverse().filter(
+            (bracket) => 
+            bracket < window.event.srcElement.nextElementSibling.innerText);
+          if(typeof(individualPointTracker[0]) !== "undefined"){
+            window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+          }
+          break;
+        case "3":
+          individualPointTracker = threePointArray.reverse().filter(
+            (bracket) => 
+            bracket < window.event.srcElement.nextElementSibling.innerText);
+          if(typeof(individualPointTracker[0]) !== "undefined"){
+            window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+          }
+          break;
+        case "4":
+          individualPointTracker = fourPointArray.reverse().filter(
+            (bracket) => 
+            bracket < window.event.srcElement.nextElementSibling.innerText);
+          if(typeof(individualPointTracker[0]) !== "undefined"){
+            window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+          }
+          break;
+        case "5":
+          individualPointTracker = fivePointArray.reverse().filter(
+            (bracket) => 
+            bracket < window.event.srcElement.nextElementSibling.innerText);
+          if(typeof(individualPointTracker[0]) !== "undefined"){
+            window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+          }
+          break;
+        }
+
+      } 
+    } 
+    
+      //Path taken if user right clicks the button
+      else if(window.event.button === 2) {
+        //if user right clicked talent in spec1 subtract one point from point tracker if > 0
         if(specString[4] === "1"){
             console.log("Point taken from spec 1");
             if(iSpec1 > 0){
@@ -238,14 +371,22 @@ class HunterComponent extends Component {
         }
         console.log(`You Right Clicked: !`);
         console.log(window.event.srcElement.nextElementSibling);
+        
+        /*This switch takes the 3rd char (2nd index) of valueString 
+        (inner text of sibling span) as it's argument. Commenting Case 1 only for clarity*/
         switch(valueString[2]){
             case "1":
+                /* First reverses onePointArray, then returns first element of array
+                less than current span elements value*/
                 individualPointTracker = onePointArray.reverse().filter(
                     (bracket) => 
                     bracket < window.event.srcElement.nextElementSibling.innerText);
+                /*As long as above function was successful (meaning there are more
+                elements of onepoint array lesser than current value) update the span elements inner
+                text*/
                 if(typeof(individualPointTracker[0]) !== "undefined"){
-                    
                     window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+                    //Check which spec tree user clicked in before updating value
                     if(specString[4] === "1"){
                         console.log("Point taken back Spec 1");
                         
@@ -383,6 +524,9 @@ class HunterComponent extends Component {
       let fourPointArray = ["0/4", "1/4", "2/4", "3/4", "4/4"];
       let fivePointArray = ["0/5", "1/5", "2/5", "3/5", "4/5", "5/5"];
 
+      /* Iterate through array of all talent buttons and split them
+      into separate arrays based off the 3rd char of the string*/
+      
       for(z = 0; z < spanArray.length; z++){
         if(spanArray[z].innerText[2] === "1"){
             spanArrayPotential1.push(spanArray[z]);
@@ -397,6 +541,8 @@ class HunterComponent extends Component {
         }
       }
 
+      /* Iterate through all of separate arrays and set their value
+      back to their original values (index[0] of their respective valuePointArray) */
       for(y = 0; y < spanArrayPotential1.length; y++){
         spanArrayPotential1[y].innerText = onePointArray[0];
       } for(y = 0; y < spanArrayPotential2.length; y++){
@@ -408,11 +554,13 @@ class HunterComponent extends Component {
       } for(y = 0; y < spanArrayPotential5.length; y++){
         spanArrayPotential5[y].innerText = fivePointArray[0];
       }
+    //Resets all counter variables to 0/false
     i = 0;
     iSpec1 = 0;
     iSpec2 = 0;
     iSpec3 = 0;
-      
+    loopHappenedBefore = false;
+    //Resets inner text value of DOM counters back to 0.
     document.getElementById("total-points").innerText = `${i}`;
     document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
     document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
