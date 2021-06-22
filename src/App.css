@@ -56,7 +56,19 @@
    margin-right: .15rem;
    border-radius: 3px;
    display: inline-block;
+   z-index: 0;
+   position: relative;
+  }
+
+ .talentHover{
+   z-index: 1;
+   position: absolute;
+   top: 22%;
+   left: 28%;
+   width: 36px;
+   height: 36px;
  }
+ 
 
 .talent-bg {
   background-repeat: no-repeat;
