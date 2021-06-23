@@ -6,7 +6,6 @@ let iSpec1 = 0;
 let iSpec2 = 0;
 let iSpec3 = 0;
 let loopHappenedBefore = false;
-let isButtonMousedOver = false;
 
 class HunterComponent extends Component {
   constructor(props) {
@@ -17,22 +16,37 @@ class HunterComponent extends Component {
   }
 
   displayMouseOverlay(){
-    if(window.event.target.getElementsByTagName('img')[1]){
-      window.event.target.getElementsByTagName('img')[1].style.display = "block";
+    
+    
+    if(window.event.target.getElementsByTagName('img')[0]){
+      window.event.target.getElementsByTagName('img')[0].style.display = "inline";
     } 
+
+    //window.event.target.getElementsByTagName('img')[0]
+
   }
 
   displayMouseOverlayInnerElement(){
-    window.event.target.nextElementSibling.style.display = "block";
+    /*window.event.target.nextElementSibling.style.display = "block";*/
+    //window.event.target.style.display = "inline";
+    window.event.target.previousElementSibling.style.display = "inline";
   }
 
   hideMouseOverlay(){
-    window.event.target.nextElementSibling.style.display = "none";
+    /*window.event.target.nextElementSibling.style.display = "none";*/
+    console.log(window.event.target.previousElementSibling)
+    window.event.target.previousElementSibling.style.display = "none";
+  }
+
+  hideMouseOverlayInnerElement(){
+    /*window.event.target.nextElementSibling.style.display = "none";*/
+    window.event.target.style.display = "none";
   }
 
   talentClick() {
     let valueString;
     let specString;
+    let pointRequirementString;
     let onePointArray = ["0/1", "1/1"];
     let twoPointArray = ["0/2", "1/2", "2/2"];
     let threePointArray = ["0/3", "1/3", "2/3", "3/3"];
@@ -41,9 +55,14 @@ class HunterComponent extends Component {
     let individualPointTracker;
     
     //Get inner text of span element sibling to button user clicks
-    valueString = window.event.srcElement.nextElementSibling.innerText;
+    valueString = window.event.srcElement.nextElementSibling.nextElementSibling.innerText;
     //Get inner text of element button user clicks and slice to determine spec1, 2, or 3
-    specString = window.event.srcElement.className.slice(0, 5);
+    specString = window.event.srcElement.nextElementSibling.className;
+    console.log(`specString: ${specString}`)
+    //
+    pointRequirementString = window.event.srcElement.nextElementSibling.className;
+    console.log(`The value of pointRequirementString is: ${pointRequirementString}`)
+
 
     //Path taken if user left clicks the button
     if(window.event.button === 0) {
@@ -54,8 +73,7 @@ class HunterComponent extends Component {
         if(specString[4] === "1"){
             console.log("Point used in spec 1");
             iSpec1 = iSpec1 + 1;
-            document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
-            
+            document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`; 
         } 
         //if user clicked button in spec 2 tree update point counter for spec 2
         else if(specString[4] === "2"){
@@ -74,18 +92,20 @@ class HunterComponent extends Component {
         
         /*This switch takes the 3rd char (2nd index) of valueString 
         (inner text of sibling span) as it's argument. Commenting Case 1 only for clarity*/ 
+        console.log("Code write before switch")
+        console.log(valueString[2])
         switch(valueString[2]){
             //Path taken if talent point has max one point
             case "1":
                 //Return first value in array that is greater than current value
                 individualPointTracker = onePointArray.filter(
                     (bracket) => 
-                    bracket > window.event.srcElement.nextElementSibling.innerText);
+                    bracket > window.event.srcElement.nextElementSibling.nextElementSibling.innerText);
                 /*As long as above function was successful (meaning there are more
                 elements of onepoint array greater than current value) update the span elements inner
                 text*/
                 if(typeof(individualPointTracker[0]) !== "undefined"){
-                    window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+                  window.event.srcElement.nextElementSibling.nextElementSibling.innerText = individualPointTracker[0];
                 } 
                 
                 //Path taken if above arrow function failed
@@ -122,9 +142,9 @@ class HunterComponent extends Component {
             case "2":
                 individualPointTracker = twoPointArray.filter(
                     (bracket) => 
-                    bracket > window.event.srcElement.nextElementSibling.innerText);
+                    bracket > window.event.srcElement.nextElementSibling.nextElementSibling.innerText);
                 if(typeof(individualPointTracker[0]) !== "undefined"){
-                    window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+                  window.event.srcElement.nextElementSibling.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
                     alert("You've already maxed out this talent!");
                     i = i - 1;
@@ -153,9 +173,9 @@ class HunterComponent extends Component {
             case "3":
                 individualPointTracker = threePointArray.filter(
                     (bracket) => 
-                    bracket > window.event.srcElement.nextElementSibling.innerText);
+                    bracket > window.event.srcElement.nextElementSibling.nextElementSibling.innerText);
                 if(typeof(individualPointTracker[0]) !== "undefined"){
-                    window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+                  window.event.srcElement.nextElementSibling.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
                     alert("You've already maxed out this talent!");
                     i = i - 1;
@@ -184,9 +204,9 @@ class HunterComponent extends Component {
             case "4":
                 individualPointTracker = fourPointArray.filter(
                     (bracket) => 
-                    bracket > window.event.srcElement.nextElementSibling.innerText);
+                    bracket > window.event.srcElement.nextElementSibling.nextElementSibling.innerText);
                 if(typeof(individualPointTracker[0]) !== "undefined"){
-                    window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+                  window.event.srcElement.nextElementSibling.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
                     alert("You've already maxed out this talent!");
                     i = i - 1;
@@ -212,12 +232,15 @@ class HunterComponent extends Component {
                 document.getElementById("total-points").innerText = i;
                 console.log(i);
                 break;
-            case "5":
-                individualPointTracker = fivePointArray.filter(
+            case "5":   
+            
+            individualPointTracker = fivePointArray.filter(
                     (bracket) => 
-                    bracket > window.event.srcElement.nextElementSibling.innerText);
-                if(typeof(individualPointTracker[0]) !== "undefined"){
-                    window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+                    bracket > window.event.srcElement.nextElementSibling.nextElementSibling.innerText);
+                    console.log(individualPointTracker)
+                if(typeof(individualPointTracker[0]) != "undefined"){
+                    
+                    window.event.srcElement.nextElementSibling.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
                     alert("You've already maxed out this talent!");
                     i = i - 1;
@@ -347,6 +370,9 @@ class HunterComponent extends Component {
         }
 
       } 
+
+
+
     } 
     
       //Path taken if user right clicks the button
@@ -384,12 +410,12 @@ class HunterComponent extends Component {
                 less than current span elements value*/
                 individualPointTracker = onePointArray.reverse().filter(
                     (bracket) => 
-                    bracket < window.event.srcElement.nextElementSibling.innerText);
+                    bracket < window.event.srcElement.nextElementSibling.nextElementSibling.innerText);
                 /*As long as above function was successful (meaning there are more
                 elements of onepoint array lesser than current value) update the span elements inner
                 text*/
                 if(typeof(individualPointTracker[0]) !== "undefined"){
-                    window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+                  window.event.srcElement.nextElementSibling.nextElementSibling.innerText = individualPointTracker[0];
                     //Check which spec tree user clicked in before updating value
                     if(specString[4] === "1"){
                         console.log("Point taken back Spec 1");
@@ -438,10 +464,10 @@ class HunterComponent extends Component {
             case "2":
                 individualPointTracker = twoPointArray.reverse().filter(
                     (bracket) => 
-                    bracket < window.event.srcElement.nextElementSibling.innerText);
+                    bracket < window.event.srcElement.nextElementSibling.nextElementSibling.innerText);
                 if(typeof(individualPointTracker[0]) !== "undefined"){
                     
-                    window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+                  window.event.srcElement.nextElementSibling.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
                     alert("You have no points in this talent to remove!")
                     i = i + 1;
@@ -456,10 +482,10 @@ class HunterComponent extends Component {
             case "3":
                 individualPointTracker = threePointArray.reverse().filter(
                     (bracket) => 
-                    bracket < window.event.srcElement.nextElementSibling.innerText);
+                    bracket < window.event.srcElement.nextElementSibling.nextElementSibling.innerText);
                 if(typeof(individualPointTracker[0]) !== "undefined"){
                     
-                    window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+                  window.event.srcElement.nextElementSibling.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
                     alert("You have no points in this talent to remove!")
                     i = i + 1;
@@ -474,10 +500,10 @@ class HunterComponent extends Component {
             case "4":
                 individualPointTracker = fourPointArray.reverse().filter(
                     (bracket) => 
-                    bracket < window.event.srcElement.nextElementSibling.innerText);
+                    bracket < window.event.srcElement.nextElementSibling.nextElementSibling.innerText);
                 if(typeof(individualPointTracker[0]) !== "undefined"){
                     
-                    window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+                  window.event.srcElement.nextElementSibling.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
                     alert("You have no points in this talent to remove!")
                     i = i + 1;
@@ -492,10 +518,10 @@ class HunterComponent extends Component {
             case "5":
                 individualPointTracker = fivePointArray.reverse().filter(
                     (bracket) => 
-                    bracket < window.event.srcElement.nextElementSibling.innerText);
+                    bracket < window.event.srcElement.nextElementSibling.nextElementSibling.innerText);
                 if(typeof(individualPointTracker[0]) !== "undefined"){
                     
-                    window.event.srcElement.nextElementSibling.innerText = individualPointTracker[0];
+                    window.event.srcElement.nextElementSibling.nextElementSibling.innerText = individualPointTracker[0];
                 } else {
                     alert("You have no points in this talent to remove!")
                     i = i + 1;
@@ -545,7 +571,7 @@ class HunterComponent extends Component {
         }
       }
 
-      /* Iterate through all of separate arrays and set their value
+      /* Iterate through all of separate arrays of span elements and set their value
       back to their original values (index[0] of their respective valuePointArray) */
       for(y = 0; y < spanArrayPotential1.length; y++){
         spanArrayPotential1[y].innerText = onePointArray[0];
@@ -627,162 +653,180 @@ class HunterComponent extends Component {
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
+                
 
                 <span className="talentPoints req-00-s1">0/5</span>
               </div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec1/EnduranceTraining.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
+                
                 <span className="talentPoints req-00-s1">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/FocusedFire.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-05-s1">0/2</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-05-s1">0/2</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectMonkey.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-05-s1">0/3</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-05-s1">0/3</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/ThickHide.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-05-s1">0/3</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-05-s1">0/3</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/ImprovedRevivePet.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
+                
                 <span className="talentPoints req-05-s1">0/2</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/Pathfinding.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-10-s1">0/2</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-10-s1">0/2</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/BestialSwiftness.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-10-s1">0/1</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-10-s1">0/1</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/UnleashedFury.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
+                
                 <span className="talentPoints req-10-s1">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
@@ -790,37 +834,41 @@ class HunterComponent extends Component {
             <div className="row talent-row">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/ImprovedMendPet.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
+                
                 <span className="talentPoints req-15-s1">0/2</span>
               </div>
               <div className="col col-xs-3">
-                  <img
+                   <img 
+                    onMouseEnter={this.displayMouseOverlayInnerElement}
+                    onMouseLeave={this.hideMouseOverlayInnerElement}
                     onMouseDown={this.talentClick}
+                    className="talentHover"
+                    src="assets/images/Item_Hover.png"
+                    style={{display: "none"}}
+                  />
+                  <img
                     onMouseEnter={this.displayMouseOverlay}
                     onMouseLeave={this.hideMouseOverlay}
                     className="spec1 talentButton inactive-talent req-inactive"
                     src="assets/images/talents/Hunter/Progression/spec1/Ferocity.jpg"
                     alt=""
                   />
-                  <img 
-                    onMouseEnter={this.displayMouseOverlayInnerElement}
-                    className="talentHover"
-                    src="assets/images/Item_Hover.png"
-                    style={{display: "none"}}
-                  />
+                 
                   <span className="talentPoints req-15-s1">0/5</span>
                   <img
                     className="medArrow"
@@ -834,37 +882,41 @@ class HunterComponent extends Component {
 
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/SpiritBond.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-20-s1">0/2</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-20-s1">0/2</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/Intimidation.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
+                
                 <span className="talentPoints req-20-s1">0/1</span>
                 <img
                   className="medArrow"
@@ -874,95 +926,105 @@ class HunterComponent extends Component {
               </div>
               <div style={{ zIndex: "0" }} className="col col-xs-3"></div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/BestialDiscipline.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
+                
                 <span className="talentPoints req-20-s1">0/2</span>
               </div>
             </div>
 
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/AnimalHandler.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
+                
                 <span className="talentPoints req-25-s1">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/Frenzy.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
+                
                 <span className="talentPoints req-25-s1">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/FerociousInspiration.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-30-s1">0/3</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-30-s1">0/3</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/BestialWrath.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
+                
                 <span className="talentPoints req-30-s1">0/1</span>
                 <img
                   className="medArrow"
@@ -971,20 +1033,22 @@ class HunterComponent extends Component {
                 />
               </div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/CatlikeReflexes.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
+                
                 <span className="talentPoints req-30-s1">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
@@ -993,20 +1057,22 @@ class HunterComponent extends Component {
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/SerpentsSwiftness.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
+                
                 <span className="talentPoints req-35-s1">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
@@ -1014,20 +1080,22 @@ class HunterComponent extends Component {
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/BeastWithin.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
+                
                 <span className="talentPoints req-40-s1">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
@@ -1048,130 +1116,144 @@ class HunterComponent extends Component {
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec2/ImprovedConcussiveShot.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-00-s2">0/5</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-00-s1">0/5</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec2/LethalShots.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-00-s1">0/5</span>
+                
+                <span className="talentPoints req-00-s2">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/ImprovedHuntersMark.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-05-s2">0/5</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-05-s1">0/5</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/Efficiency.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-05-s1">0/5</span>
+                
+                <span className="talentPoints req-05-s2">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/GoForTheThroat.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-10-s2">0/2</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-10-s1">0/2</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/ImprovedArcaneShot.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-10-s2">0/5</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-10-s1">0/5</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/AimedShot.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-10-s1">0/1</span>
+                
+                <span className="talentPoints req-10-s2">0/1</span>
                 <img
                   className="smArrow"
                   src="assets/images/DownSilverSmall.png"
@@ -1179,95 +1261,105 @@ class HunterComponent extends Component {
                 />
               </div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/RapidKilling.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-10-s1">0/2</span>
+                
+                <span className="talentPoints req-10-s2">0/2</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/ImprovedStings.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-15-s2">0/5</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-15-s1">0/5</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/MortalShots.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-15-s1">0/5</span>
+                
+                <span className="talentPoints req-15-s2">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/ConcussiveBarrage.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-20-s2">0/3</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-20-s1">0/3</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/ScatterShot.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-20-s1">0/1</span>
+                
+                <span className="talentPoints req-20-s2">0/1</span>
                 <img
                   className="medArrow"
                   src="assets/images/DownSilverMedium.png"
@@ -1275,21 +1367,23 @@ class HunterComponent extends Component {
                 />
               </div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-20-s1">0/3</span>
+                
+                <span className="talentPoints req-20-s2">0/3</span>
                 <img
                   className="medArrow"
                   src="assets/images/DownSilverMedium.png"
@@ -1300,114 +1394,126 @@ class HunterComponent extends Component {
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/CombatExperience.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-25-s1">0/2</span>
+                
+                <span className="talentPoints req-25-s2">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/RangedWeaponSpecialization.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-25-s1">0/5</span>
+                
+                <span className="talentPoints req-25-s2">0/5</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/CarefulAim.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-30-s2">0/3</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-30-s1">0/3</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/TrueshotAura.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-30-s2">0/1</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-30-s1">0/1</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-30-s1">0/3</span>
+                
+                <span className="talentPoints req-30-s2">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/MasterMarksman.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-35-s1">0/5</span>
+                
+                <span className="talentPoints req-35-s2">0/5</span>
                 <img
                   className="smArrow"
                   src="assets/images/DownSilverSmall.png"
@@ -1420,21 +1526,23 @@ class HunterComponent extends Component {
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/SilencingShot.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-40-s1">0/1</span>
+                
+                <span className="talentPoints req-40-s2">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -1453,179 +1561,199 @@ class HunterComponent extends Component {
             <h5 id="spec3">Survival</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec3/MonsterSlaying.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-00-s3">0/3</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-00-s1">0/3</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec3/HumanoidSlaying.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-00-s3">0/3</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-00-s1">0/3</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec3/HawkEye.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-00-s3">0/3</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-00-s1">0/3</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec3/SavageStrikes.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-00-s1">0/2</span>
+                
+                <span className="talentPoints req-00-s3">0/2</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/Entrapment.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-05-s3">0/3</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-05-s1">0/3</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/Deflection.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-05-s3">0/5</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-05-s1">0/5</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/ImprovedWingClip.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-05-s1">0/3</span>
+                
+                <span className="talentPoints req-05-s3">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/CleverTraps.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-10-s3">0/2</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-10-s1">0/2</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/Survivalist.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-10-s3">0/5</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-10-s1">0/5</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/Deterrence.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-10-s1">0/1</span>
+                
+                <span className="talentPoints req-10-s3">0/1</span>
                 <img
                   className="medArrow"
                   src="assets/images/DownSilverMedium.png"
@@ -1636,92 +1764,102 @@ class HunterComponent extends Component {
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/TrapMastery.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-15-s3">0/2</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-15-s1">0/2</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/Surefooted.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-15-s3">0/3</span>
+              </div>
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-15-s1">0/3</span>
-              </div>
-              <div className="col col-xs-3"></div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/ImprovedFeignDeath.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-15-s1">0/2</span>
+                
+                <span className="talentPoints req-15-s3">0/2</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/SurvivalInstincts.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-20-s3">0/2</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-20-s1">0/2</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/KillerInstinct.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-20-s1">0/3</span>
+                
+                <span className="talentPoints req-20-s3">0/3</span>
                 <img
                   className="medArrow"
                   src="assets/images/DownSilverMedium.png"
@@ -1729,134 +1867,148 @@ class HunterComponent extends Component {
                 />
               </div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/CounterAttack.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-20-s1">0/1</span>
+                
+                <span className="talentPoints req-20-s3">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/Resourcefulness.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-25-s3">0/3</span>
+              </div>
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-25-s1">0/3</span>
-              </div>
-              <div className="col col-xs-3"></div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/LightningReflexes.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-25-s1">0/5</span>
+                
+                <span className="talentPoints req-25-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/ThrillOfTheHunt.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-30-s3">0/3</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-30-s1">0/3</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/WyvernSting.jpg"
                   alt=""
                 />
+                
+                <span className="talentPoints req-30-s3">0/1</span>
+              </div>
+              <div className="col col-xs-3">
                 <img 
                   onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={this.talentClick}
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
                 />
-                <span className="talentPoints req-30-s1">0/1</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseDown={this.talentClick}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/ExposeWeakness.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-30-s1">0/3</span>
+                
+                <span className="talentPoints req-30-s3">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/MasterTactician.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-35-s1">0/5</span>
+                
+                <span className="talentPoints req-35-s3">0/5</span>
                 <img
                   className="smArrow"
                   src="assets/images/DownSilverSmall.png"
@@ -1869,21 +2021,23 @@ class HunterComponent extends Component {
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
-                <img
+                <img 
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{display: "none"}}
+                />
+                <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec3/Readiness.jpg"
                   alt=""
                 />
-                <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{display: "none"}}
-                />
-                <span className="talentPoints req-40-s1">0/1</span>
+                
+                <span className="talentPoints req-40-s3">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
