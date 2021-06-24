@@ -539,7 +539,13 @@ class HunterComponent extends Component {
                 console.log(i);
                  // If Point is maxed out, change the class to give yellow border
                  if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
-                  window.event.srcElement.nextElementSibling.className = "spec1 talentButton maxeds req-active"
+                  if(specString[4] === "1"){
+                    window.event.srcElement.nextElementSibling.className = "spec1 talentButton maxeds req-active"
+                  } if(specString[4] === "2"){
+                    window.event.srcElement.nextElementSibling.className = "spec2 talentButton maxeds req-active"
+                  } if(specString[4] === "3"){
+                    window.event.srcElement.nextElementSibling.className = "spec3 talentButton maxeds req-active"
+                  }
                 }
                 break;
             case "2":
@@ -574,7 +580,13 @@ class HunterComponent extends Component {
                 console.log(i);
                  // If Point is maxed out, change the class to give yellow border
                  if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
-                  window.event.srcElement.nextElementSibling.className = "spec1 talentButton maxeds req-active"
+                  if(specString[4] === "1"){
+                    window.event.srcElement.nextElementSibling.className = "spec1 talentButton maxeds req-active"
+                  } if(specString[4] === "2"){
+                    window.event.srcElement.nextElementSibling.className = "spec2 talentButton maxeds req-active"
+                  } if(specString[4] === "3"){
+                    window.event.srcElement.nextElementSibling.className = "spec3 talentButton maxeds req-active"
+                  }
                 }
                 break;
             case "3":
@@ -609,7 +621,13 @@ class HunterComponent extends Component {
                 console.log(i);
                  // If Point is maxed out, change the class to give yellow border
                  if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
-                  window.event.srcElement.nextElementSibling.className = "spec1 talentButton maxeds req-active"
+                  if(specString[4] === "1"){
+                    window.event.srcElement.nextElementSibling.className = "spec1 talentButton maxeds req-active"
+                  } if(specString[4] === "2"){
+                    window.event.srcElement.nextElementSibling.className = "spec2 talentButton maxeds req-active"
+                  } if(specString[4] === "3"){
+                    window.event.srcElement.nextElementSibling.className = "spec3 talentButton maxeds req-active"
+                  }
                 }
                 break;
             case "4":
@@ -644,7 +662,13 @@ class HunterComponent extends Component {
                 console.log(i);
                  // If Point is maxed out, change the class to give yellow border
                  if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
-                  window.event.srcElement.nextElementSibling.className = "spec1 talentButton maxeds req-active"
+                  if(specString[4] === "1"){
+                    window.event.srcElement.nextElementSibling.className = "spec1 talentButton maxeds req-active"
+                  } if(specString[4] === "2"){
+                    window.event.srcElement.nextElementSibling.className = "spec2 talentButton maxeds req-active"
+                  } if(specString[4] === "3"){
+                    window.event.srcElement.nextElementSibling.className = "spec3 talentButton maxeds req-active"
+                  }
                 }
                 break;
             case "5":   
@@ -683,7 +707,13 @@ class HunterComponent extends Component {
                 console.log(i);
                 // If Point is maxed out, change the class to give yellow border
                 if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
-                  window.event.srcElement.nextElementSibling.className = "spec1 talentButton maxeds req-active"
+                  if(specString[4] === "1"){
+                    window.event.srcElement.nextElementSibling.className = "spec1 talentButton maxeds req-active"
+                  } if(specString[4] === "2"){
+                    window.event.srcElement.nextElementSibling.className = "spec2 talentButton maxeds req-active"
+                  } if(specString[4] === "3"){
+                    window.event.srcElement.nextElementSibling.className = "spec3 talentButton maxeds req-active"
+                  }
                 }
                 break;
           
@@ -791,10 +821,6 @@ class HunterComponent extends Component {
         }
 
       } 
-
-          
-
-
     } 
     
       //Path taken if user right clicks the button
@@ -807,6 +833,118 @@ class HunterComponent extends Component {
             }
             
             document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
+
+            if(iSpec1 < 40){
+              spec1Req40 = document.getElementsByClassName("req-40-s1");
+              
+              for(let g = 0; g < spec1Req40.length; g++){
+                spec1Req40Output.push(spec1Req40[g].previousElementSibling) 
+              }
+              console.log(spec1Req40Output)
+              for(let g = 0; g < spec1Req40Output.length; g++){
+                if(spec1Req40Output[g].className.includes("active-talent")){
+                  spec1Req40Output[g].className = "spec1 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
+            
+            if(iSpec1 < 35){
+              spec1Req35 = document.getElementsByClassName("req-35-s1");
+              
+              for(let g = 0; g < spec1Req35.length; g++){
+                spec1Req35Output.push(spec1Req35[g].previousElementSibling) 
+              }
+              console.log(spec1Req35Output)
+              for(let g = 0; g < spec1Req35Output.length; g++){
+                if(spec1Req35Output[g].className.includes("active-talent")){
+                  spec1Req35Output[g].className = "spec1 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
+            
+            if(iSpec1 < 30){
+              spec1Req30 = document.getElementsByClassName("req-30-s1");
+              
+              for(let g = 0; g < spec1Req30.length; g++){
+                spec1Req30Output.push(spec1Req30[g].previousElementSibling) 
+              }
+              console.log(spec1Req30Output)
+              for(let g = 0; g < spec1Req30Output.length; g++){
+                if(spec1Req30Output[g].className.includes("active-talent")){
+                  spec1Req30Output[g].className = "spec1 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
+            
+            if(iSpec1 < 25){
+              spec1Req25 = document.getElementsByClassName("req-25-s1");
+              
+              for(let g = 0; g < spec1Req25.length; g++){
+                spec1Req25Output.push(spec1Req25[g].previousElementSibling) 
+              }
+              console.log(spec1Req25Output)
+              for(let g = 0; g < spec1Req25Output.length; g++){
+                if(spec1Req25Output[g].className.includes("active-talent")){
+                  spec1Req25Output[g].className = "spec1 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
+
+            if(iSpec1 < 20){
+              spec1Req20 = document.getElementsByClassName("req-20-s1");
+              
+              for(let g = 0; g < spec1Req20.length; g++){
+                spec1Req20Output.push(spec1Req20[g].previousElementSibling) 
+              }
+              console.log(spec1Req20Output)
+              for(let g = 0; g < spec1Req20Output.length; g++){
+                if(spec1Req20Output[g].className.includes("active-talent")){
+                  spec1Req20Output[g].className = "spec1 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
+
+            if(iSpec1 < 15){
+              spec1Req15 = document.getElementsByClassName("req-15-s1");
+              
+              for(let g = 0; g < spec1Req15.length; g++){
+                spec1Req15Output.push(spec1Req15[g].previousElementSibling) 
+              }
+              console.log(spec1Req15Output)
+              for(let g = 0; g < spec1Req15Output.length; g++){
+                if(spec1Req15Output[g].className.includes("active-talent")){
+                  spec1Req15Output[g].className = "spec1 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
+
+            if(iSpec1 < 10){
+              spec1Req10 = document.getElementsByClassName("req-10-s1");
+              
+              for(let g = 0; g < spec1Req10.length; g++){
+                spec1Req10Output.push(spec1Req10[g].previousElementSibling) 
+              }
+              console.log(spec1Req10Output)
+              for(let g = 0; g < spec1Req10Output.length; g++){
+                if(spec1Req10Output[g].className.includes("active-talent")){
+                  spec1Req10Output[g].className = "spec1 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
+
+            if(iSpec1 < 5){
+              spec1Req5 = document.getElementsByClassName("req-05-s1");
+              
+              for(let g = 0; g < spec1Req5.length; g++){
+                spec1Req5Output.push(spec1Req5[g].previousElementSibling) 
+              }
+              console.log(spec1Req5Output)
+              for(let g = 0; g < spec1Req5Output.length; g++){
+                if(spec1Req5Output[g].className.includes("active-talent")){
+                  spec1Req5Output[g].className = "spec1 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
             
         } else if(specString[4] === "2"){
             console.log("Point taken from spec 2");
@@ -814,11 +952,236 @@ class HunterComponent extends Component {
                 iSpec2 = iSpec2 - 1;
             }
             document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
+
+            if(iSpec2 < 40){
+              spec2Req40 = document.getElementsByClassName("req-40-s2");
+              
+              for(let g = 0; g < spec2Req40.length; g++){
+                spec2Req40Output.push(spec2Req40[g].previousElementSibling) 
+              }
+              console.log(spec2Req40Output)
+              for(let g = 0; g < spec2Req40Output.length; g++){
+                if(spec2Req40Output[g].className.includes("active-talent")){
+                  spec2Req40Output[g].className = "spec2 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
+            
+            if(iSpec2 < 35){
+              spec2Req35 = document.getElementsByClassName("req-35-s2");
+              
+              for(let g = 0; g < spec2Req35.length; g++){
+                spec2Req35Output.push(spec2Req35[g].previousElementSibling) 
+              }
+              console.log(spec2Req35Output)
+              for(let g = 0; g < spec2Req35Output.length; g++){
+                if(spec2Req35Output[g].className.includes("active-talent")){
+                  spec2Req35Output[g].className = "spec2 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
+            
+            if(iSpec2 < 30){
+              spec2Req30 = document.getElementsByClassName("req-30-s2");
+              
+              for(let g = 0; g < spec2Req30.length; g++){
+                spec2Req30Output.push(spec2Req30[g].previousElementSibling) 
+              }
+              console.log(spec2Req30Output)
+              for(let g = 0; g < spec2Req30Output.length; g++){
+                if(spec2Req30Output[g].className.includes("active-talent")){
+                  spec2Req30Output[g].className = "spec2 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
+            
+            if(iSpec2 < 25){
+              spec2Req25 = document.getElementsByClassName("req-25-s2");
+              
+              for(let g = 0; g < spec2Req25.length; g++){
+                spec2Req25Output.push(spec2Req25[g].previousElementSibling) 
+              }
+              console.log(spec2Req25Output)
+              for(let g = 0; g < spec2Req25Output.length; g++){
+                if(spec2Req25Output[g].className.includes("active-talent")){
+                  spec2Req25Output[g].className = "spec2 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
+
+            if(iSpec2 < 20){
+              spec2Req20 = document.getElementsByClassName("req-20-s2");
+              
+              for(let g = 0; g < spec2Req20.length; g++){
+                spec2Req20Output.push(spec2Req20[g].previousElementSibling) 
+              }
+              console.log(spec2Req20Output)
+              for(let g = 0; g < spec2Req20Output.length; g++){
+                if(spec2Req20Output[g].className.includes("active-talent")){
+                  spec2Req20Output[g].className = "spec2 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
+
+            if(iSpec2 < 15){
+              spec2Req15 = document.getElementsByClassName("req-15-s2");
+              
+              for(let g = 0; g < spec2Req15.length; g++){
+                spec2Req15Output.push(spec2Req15[g].previousElementSibling) 
+              }
+              console.log(spec2Req15Output)
+              for(let g = 0; g < spec2Req15Output.length; g++){
+                if(spec2Req15Output[g].className.includes("active-talent")){
+                  spec2Req15Output[g].className = "spec2 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
+
+            if(iSpec2 < 10){
+              spec2Req10 = document.getElementsByClassName("req-10-s2");
+              
+              for(let g = 0; g < spec2Req10.length; g++){
+                spec2Req10Output.push(spec2Req10[g].previousElementSibling) 
+              }
+              console.log(spec2Req10Output)
+              for(let g = 0; g < spec2Req10Output.length; g++){
+                if(spec2Req10Output[g].className.includes("active-talent")){
+                  spec2Req10Output[g].className = "spec2 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
+
+            if(iSpec2 < 5){
+              spec2Req5 = document.getElementsByClassName("req-05-s2");
+              
+              for(let g = 0; g < spec2Req5.length; g++){
+                spec2Req5Output.push(spec2Req5[g].previousElementSibling) 
+              }
+              console.log(spec2Req5Output)
+              for(let g = 0; g < spec2Req5Output.length; g++){
+                if(spec2Req5Output[g].className.includes("active-talent")){
+                  spec2Req5Output[g].className = "spec2 talentButton inactive-talent req-inactive";
+                }
+              }
+            }
+
         } else if(specString[4] === "3"){
             console.log("Point taken from spec 3")
             if(iSpec3 > 0){
                 iSpec3 = iSpec3 - 1;
                 document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
+
+                if(iSpec3 < 40){
+                  spec3Req40 = document.getElementsByClassName("req-40-s3");
+                  
+                  for(let g = 0; g < spec3Req40.length; g++){
+                    spec3Req40Output.push(spec3Req40[g].previousElementSibling) 
+                  }
+                  console.log(spec3Req40Output)
+                  for(let g = 0; g < spec3Req40Output.length; g++){
+                    if(spec3Req40Output[g].className.includes("active-talent")){
+                      spec3Req40Output[g].className = "spec3 talentButton inactive-talent req-inactive";
+                    }
+                  }
+                }
+                
+                if(iSpec3 < 35){
+                  spec3Req35 = document.getElementsByClassName("req-35-s3");
+                  
+                  for(let g = 0; g < spec3Req35.length; g++){
+                    spec3Req35Output.push(spec3Req35[g].previousElementSibling) 
+                  }
+                  console.log(spec3Req35Output)
+                  for(let g = 0; g < spec3Req35Output.length; g++){
+                    if(spec3Req35Output[g].className.includes("active-talent")){
+                      spec3Req35Output[g].className = "spec3 talentButton inactive-talent req-inactive";
+                    }
+                  }
+                }
+                
+                if(iSpec3 < 30){
+                  spec3Req30 = document.getElementsByClassName("req-30-s3");
+                  
+                  for(let g = 0; g < spec3Req30.length; g++){
+                    spec3Req30Output.push(spec3Req30[g].previousElementSibling) 
+                  }
+                  console.log(spec3Req30Output)
+                  for(let g = 0; g < spec3Req30Output.length; g++){
+                    if(spec3Req30Output[g].className.includes("active-talent")){
+                      spec3Req30Output[g].className = "spec3 talentButton inactive-talent req-inactive";
+                    }
+                  }
+                }
+                
+                if(iSpec3 < 25){
+                  spec3Req25 = document.getElementsByClassName("req-25-s3");
+                  
+                  for(let g = 0; g < spec3Req25.length; g++){
+                    spec3Req25Output.push(spec3Req25[g].previousElementSibling) 
+                  }
+                  console.log(spec3Req25Output)
+                  for(let g = 0; g < spec3Req25Output.length; g++){
+                    if(spec3Req25Output[g].className.includes("active-talent")){
+                      spec3Req25Output[g].className = "spec3 talentButton inactive-talent req-inactive";
+                    }
+                  }
+                }
+    
+                if(iSpec3 < 20){
+                  spec3Req20 = document.getElementsByClassName("req-20-s3");
+                  
+                  for(let g = 0; g < spec3Req20.length; g++){
+                    spec3Req20Output.push(spec3Req20[g].previousElementSibling) 
+                  }
+                  console.log(spec3Req20Output)
+                  for(let g = 0; g < spec3Req20Output.length; g++){
+                    if(spec3Req20Output[g].className.includes("active-talent")){
+                      spec3Req20Output[g].className = "spec3 talentButton inactive-talent req-inactive";
+                    }
+                  }
+                }
+    
+                if(iSpec3 < 15){
+                  spec3Req15 = document.getElementsByClassName("req-15-s3");
+                  
+                  for(let g = 0; g < spec3Req15.length; g++){
+                    spec3Req15Output.push(spec3Req15[g].previousElementSibling) 
+                  }
+                  console.log(spec3Req15Output)
+                  for(let g = 0; g < spec3Req15Output.length; g++){
+                    if(spec3Req15Output[g].className.includes("active-talent")){
+                      spec3Req15Output[g].className = "spec3 talentButton inactive-talent req-inactive";
+                    }
+                  }
+                }
+    
+                if(iSpec3 < 10){
+                  spec3Req10 = document.getElementsByClassName("req-10-s3");
+                  
+                  for(let g = 0; g < spec3Req10.length; g++){
+                    spec3Req10Output.push(spec3Req10[g].previousElementSibling) 
+                  }
+                  console.log(spec3Req10Output)
+                  for(let g = 0; g < spec3Req10Output.length; g++){
+                    if(spec3Req10Output[g].className.includes("active-talent")){
+                      spec3Req10Output[g].className = "spec3 talentButton inactive-talent req-inactive";
+                    }
+                  }
+                }
+    
+                if(iSpec3 < 5){
+                  spec3Req5 = document.getElementsByClassName("req-05-s3");
+                  
+                  for(let g = 0; g < spec3Req5.length; g++){
+                    spec3Req5Output.push(spec3Req5[g].previousElementSibling) 
+                  }
+                  console.log(spec3Req5Output)
+                  for(let g = 0; g < spec3Req5Output.length; g++){
+                    if(spec3Req5Output[g].className.includes("active-talent")){
+                      spec3Req5Output[g].className = "spec3 talentButton inactive-talent req-inactive";
+                    }
+                  }
+                }
             }
         }
         console.log(`You Right Clicked: !`);
@@ -882,6 +1245,16 @@ class HunterComponent extends Component {
                 }
                 document.getElementById("total-points").innerText = i;
                 console.log(i);
+                // If Point is not maxed out, change the class to give green border
+                 
+                if(specString[4] === "1"){
+                  window.event.srcElement.nextElementSibling.className = "spec1 talentButton active-talent req-active"
+                } if(specString[4] === "2"){
+                  window.event.srcElement.nextElementSibling.className = "spec2 talentButton active-talent req-active"
+                } if(specString[4] === "3"){
+                  window.event.srcElement.nextElementSibling.className = "spec3 talentButton active-talent req-active"
+                }
+
                 break;
             case "2":
                 individualPointTracker = twoPointArray.reverse().filter(
@@ -900,6 +1273,15 @@ class HunterComponent extends Component {
                 }
                 document.getElementById("total-points").innerText = i;
                 console.log(i);
+                // If Point is not maxed out, change the class to give green border
+                 
+                if(specString[4] === "1"){
+                  window.event.srcElement.nextElementSibling.className = "spec1 talentButton active-talent req-active"
+                } if(specString[4] === "2"){
+                  window.event.srcElement.nextElementSibling.className = "spec2 talentButton active-talent req-active"
+                } if(specString[4] === "3"){
+                  window.event.srcElement.nextElementSibling.className = "spec3 talentButton active-talent req-active"
+                }
                 break;
             case "3":
                 individualPointTracker = threePointArray.reverse().filter(
@@ -918,6 +1300,15 @@ class HunterComponent extends Component {
                 }
                 document.getElementById("total-points").innerText = i;
                 console.log(i);
+                // If Point is not maxed out, change the class to give green border
+                 
+                if(specString[4] === "1"){
+                  window.event.srcElement.nextElementSibling.className = "spec1 talentButton active-talent req-active"
+                } if(specString[4] === "2"){
+                  window.event.srcElement.nextElementSibling.className = "spec2 talentButton active-talent req-active"
+                } if(specString[4] === "3"){
+                  window.event.srcElement.nextElementSibling.className = "spec3 talentButton active-talent req-active"
+                }
                 break;
             case "4":
                 individualPointTracker = fourPointArray.reverse().filter(
@@ -936,6 +1327,14 @@ class HunterComponent extends Component {
                 }
                 document.getElementById("total-points").innerText = i;
                 console.log(i);
+                // If Point is not maxed out, change the class to give green border
+                if(specString[4] === "1"){
+                  window.event.srcElement.nextElementSibling.className = "spec1 talentButton active-talent req-active"
+                } if(specString[4] === "2"){
+                  window.event.srcElement.nextElementSibling.className = "spec2 talentButton active-talent req-active"
+                } if(specString[4] === "3"){
+                  window.event.srcElement.nextElementSibling.className = "spec3 talentButton active-talent req-active"
+                }
                 break;
             case "5":
                 individualPointTracker = fivePointArray.reverse().filter(
@@ -954,6 +1353,17 @@ class HunterComponent extends Component {
                 }
                 document.getElementById("total-points").innerText = i;
                 console.log(i);
+                // If Point is not maxed out, change the class to give green border
+                 
+                if(specString[4] === "1"){
+                  window.event.srcElement.nextElementSibling.className = "spec1 talentButton active-talent req-active"
+                } if(specString[4] === "2"){
+                  window.event.srcElement.nextElementSibling.className = "spec2 talentButton active-talent req-active"
+                } if(specString[4] === "3"){
+                  window.event.srcElement.nextElementSibling.className = "spec3 talentButton active-talent req-active"
+                }
+                
+
                 break;
         }  
     }
