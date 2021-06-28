@@ -1,6 +1,44 @@
 import { contains } from "jquery";
 import React, { Component } from "react";
 
+/* 
+    bug  1
+    when clicking on talent that is maxed out, if one point away from threshold,
+    talent buttons in new point threshold become active (in talent click function)
+*/
+
+/* 
+    bug  2
+    specs 2 and 3 (in turnArrowGoldOnClick function)
+    there is no code to turn the below arrow gold directly
+*/
+
+/* 
+    bug 3
+    specs 2 and 3 need to add logical not check to make sure
+    maxed out talents arent reset to green when iSpec is incremented
+    
+*/
+
+/* 
+    bug 4
+    in Spec 2 (most likely need to change logic for 2/3) if you 
+    get to 30 points the specs which have an arrow and pioReq span element,
+    the icons are turning green, but they shouldn't.
+    
+*/
+
+/* 
+    bug 5
+    right clicking and setting button to inactive doesn't revert
+    arrow color (in talent click function)
+*/
+
+/* 
+    bug 6
+    reset Button does not reset arrow colors to silver
+*/
+
 let i = 0;
 let iSpec1 = 0;
 let iSpec2 = 0;
@@ -27,7 +65,7 @@ class HunterComponent extends Component {
   }
 
   displayMouseOverlayInnerElement(){
-    /*window.event.target.nextElementSibling.style.display = "block";*/
+    /*window.event.xtarget.nextElementSibling.style.display = "block";*/
     //window.event.target.style.display = "inline";
     window.event.target.previousElementSibling.style.display = "inline";
   }
@@ -53,6 +91,7 @@ class HunterComponent extends Component {
     let fourPointArray = ["0/4", "1/4", "2/4", "3/4", "4/4"];
     let fivePointArray = ["0/5", "1/5", "2/5", "3/5", "4/5", "5/5"];
     let individualPointTracker;
+    let arrowChecker;
 
     let spec1Req5 = [];
     let spec1Req10 = [];
@@ -108,6 +147,8 @@ class HunterComponent extends Component {
     let spec3Req35Output = [];
     let spec3Req40Output = [];
 
+    
+    
     function addGreenBorderSpec1(){
       if(iSpec1 >= 40){
         //Gather all elements in tree with 40 point requirement
@@ -119,8 +160,12 @@ class HunterComponent extends Component {
         }
         //Iterate through array to update their class (to update green border color)
         for(let g = 0; g < spec1Req40Output.length; g++){
-          if(spec1Req40Output[g].className.includes("inactive-talent")){
+          if(spec1Req40Output[g].className.includes("inactive-talent") && !(spec1Req40Output[g].nextElementSibling.id.includes("prioReq"))){
             spec1Req40Output[g].className = "spec1 talentButton active-talent req-active";
+          }
+
+          if(spec1Req40Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec1();
           }
         }
       }
@@ -133,8 +178,12 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec1Req35Output.length; g++){
-          if(spec1Req35Output[g].className.includes("inactive-talent")){
+          if(spec1Req35Output[g].className.includes("inactive-talent") && !(spec1Req35Output[g].nextElementSibling.id.includes("prioReq1Spec1"))){
             spec1Req35Output[g].className = "spec1 talentButton active-talent req-active";
+          }
+
+          if(spec1Req35Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec1();
           }
         }
       }
@@ -147,8 +196,12 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec1Req30Output.length; g++){
-          if(spec1Req30Output[g].className.includes("inactive-talent")){
+          if(spec1Req30Output[g].className.includes("inactive-talent") && !(spec1Req30Output[g].nextElementSibling.id.includes("prioReq1Spec1"))){
             spec1Req30Output[g].className = "spec1 talentButton active-talent req-active";
+          }
+
+          if(spec1Req30Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec1();
           }
         }
       }
@@ -161,8 +214,12 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec1Req25Output.length; g++){
-          if(spec1Req25Output[g].className.includes("inactive-talent")){
+          if(spec1Req25Output[g].className.includes("inactive-talent") && !(spec1Req25Output[g].nextElementSibling.id.includes("prioReq1Spec1"))){
             spec1Req25Output[g].className = "spec1 talentButton active-talent req-active";
+          }
+
+          if(spec1Req25Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec1();
           }
         }
       }
@@ -175,8 +232,12 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec1Req20Output.length; g++){
-          if(spec1Req20Output[g].className.includes("inactive-talent")){
+          if(spec1Req20Output[g].className.includes("inactive-talent") && !(spec1Req20Output[g].nextElementSibling.id.includes("prioReq1Spec1"))){
             spec1Req20Output[g].className = "spec1 talentButton active-talent req-active";
+          }
+
+          if(spec1Req20Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec1();
           }
         }
       }
@@ -189,8 +250,12 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec1Req15Output.length; g++){
-          if(spec1Req15Output[g].className.includes("inactive-talent")){
+          if(spec1Req15Output[g].className.includes("inactive-talent") && !(spec1Req15Output[g].nextElementSibling.id.includes("prioReq1Spec1"))){
             spec1Req15Output[g].className = "spec1 talentButton active-talent req-active";
+          }
+
+          if(spec1Req15Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec1();
           }
         }
       }
@@ -203,8 +268,12 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec1Req10Output.length; g++){
-          if(spec1Req10Output[g].className.includes("inactive-talent")){
+          if(spec1Req10Output[g].className.includes("inactive-talent") && !(spec1Req10Output[g].nextElementSibling.id.includes("prioReq1Spec1"))){
             spec1Req10Output[g].className = "spec1 talentButton active-talent req-active";
+          }
+
+          if(spec1Req10Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec1();
           }
         }
       }
@@ -217,8 +286,12 @@ class HunterComponent extends Component {
         }
         console.log(spec1Req5Output)
         for(let g = 0; g < spec1Req5Output.length; g++){
-          if(spec1Req5Output[g].className.includes("inactive-talent")){
+          if(spec1Req5Output[g].className.includes("inactive-talent") && !(spec1Req5Output[g].nextElementSibling.id.includes("prioReq1Spec1"))){
             spec1Req5Output[g].className = "spec1 talentButton active-talent req-active";
+          }
+
+          if(spec1Req5Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec1();
           }
         }
       }
@@ -238,6 +311,9 @@ class HunterComponent extends Component {
           if(spec2Req40Output[g].className.includes("inactive-talent")){
             spec2Req40Output[g].className = "spec2 talentButton active-talent req-active";
           }
+          if(spec2Req40Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec2();
+          }
         }
       }
       
@@ -251,6 +327,9 @@ class HunterComponent extends Component {
         for(let g = 0; g < spec2Req35Output.length; g++){
           if(spec2Req35Output[g].className.includes("inactive-talent")){
             spec2Req35Output[g].className = "spec2 talentButton active-talent req-active";
+          }
+          if(spec2Req35Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec2();
           }
         }
       }
@@ -266,6 +345,9 @@ class HunterComponent extends Component {
           if(spec2Req30Output[g].className.includes("inactive-talent")){
             spec2Req30Output[g].className = "spec2 talentButton active-talent req-active";
           }
+          if(spec2Req30Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec2();
+          }
         }
       }
       
@@ -279,6 +361,9 @@ class HunterComponent extends Component {
         for(let g = 0; g < spec2Req25Output.length; g++){
           if(spec2Req25Output[g].className.includes("inactive-talent")){
             spec2Req25Output[g].className = "spec2 talentButton active-talent req-active";
+          }
+          if(spec2Req25Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec2();
           }
         }
       }
@@ -294,6 +379,9 @@ class HunterComponent extends Component {
           if(spec2Req20Output[g].className.includes("inactive-talent")){
             spec2Req20Output[g].className = "spec2 talentButton active-talent req-active";
           }
+          if(spec2Req20Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec2();
+          }
         }
       }
       
@@ -308,7 +396,12 @@ class HunterComponent extends Component {
           if(spec2Req15Output[g].className.includes("inactive-talent")){
             spec2Req15Output[g].className = "spec2 talentButton active-talent req-active";
           }
+          if(spec2Req15Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec2();
+          }
         }
+        
+
       }
       
       if(iSpec2 >= 10){
@@ -321,6 +414,9 @@ class HunterComponent extends Component {
         for(let g = 0; g < spec2Req10Output.length; g++){
           if(spec2Req10Output[g].className.includes("inactive-talent")){
             spec2Req10Output[g].className = "spec2 talentButton active-talent req-active";
+          }
+          if(spec2Req10Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec2();
           }
         }
       }
@@ -335,6 +431,9 @@ class HunterComponent extends Component {
         for(let g = 0; g < spec2Req5Output.length; g++){
           if(spec2Req5Output[g].className.includes("inactive-talent")){
             spec2Req5Output[g].className = "spec2 talentButton active-talent req-active";
+          }
+          if(spec2Req5Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec2();
           }
         }
       }
@@ -822,6 +921,2551 @@ class HunterComponent extends Component {
       window.event.srcElement.nextElementSibling.className = "spec3 talentButton active-talent req-active";
     }
 
+    function turnArrowSilver(){
+      
+    }
+
+    function turnArrowGoldOnClick(){
+      
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
+          arrowChecker = window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className;
+          console.log("arrowChecker is: ")
+          console.log(arrowChecker)
+
+          console.log(window.event.srcElement.nextElementSibling.nextElementSibling.id);
+          //////////////////////////////////////////////////////////////////////////////////////////////
+          if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1")){
+            if(document.getElementById("prioReq1Spec1").previousElementSibling.className.includes("req-active")){
+              if(arrowChecker.includes("sm")){
+                window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownGoldSmall.png"
+              } if(arrowChecker.includes("med")){
+                window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownGoldMedium.png"
+              } if(arrowChecker.includes("lg")){
+                window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownGold.png"
+              }
+            }
+
+            if(document.getElementById("prioReq1Spec1").previousElementSibling.className.includes("req-inactive") && i >=25){
+              document.getElementById("prioReq1Spec1").previousElementSibling.className = "spec1 talentButton active-talent req-active";
+              if(arrowChecker.includes("sm")){
+                window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownGoldSmall.png"
+              } if(arrowChecker.includes("med")){
+                window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownGoldMedium.png"
+              } if(arrowChecker.includes("lg")){
+                window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownGold.png"
+              }
+            }
+            
+          }
+
+          //////////////////////////////////////////////////////////////////////////////////////////////
+
+          //////////////////////////////////////////////////////////////////////////////////////////////
+
+          //////////////////////////////////////////////////////////////////////////////////////////////
+
+          //////////////////////////////////////////////////////////////////////////////////////////////
+
+          //////////////////////////////////////////////////////////////////////////////////////////////
+
+          //////////////////////////////////////////////////////////////////////////////////////////////
+
+          //////////////////////////////////////////////////////////////////////////////////////////////
+
+          //////////////////////////////////////////////////////////////////////////////////////////////
+
+          //////////////////////////////////////////////////////////////////////////////////////////////
+
+        }
+    }
+
+
+  }
+  //If Arrow should turn gold because iSpec1/2/3 is high enough, but
+  //element clicked wasnt the arrow connected to arrow
+  function turnArrowGoldIndirectlySpec1(){
+    console.log("Arrow Gold Indirectly");
+    console.log(window.event.srcElement.nextElementSibling.nextElementSibling)
+    //counter variable
+    let g;
+    //This variable determines which if statement we enter
+    let reqVariable;
+
+
+
+    if(iSpec1 >= 40){
+      reqVariable = 40;
+    } else if(iSpec1 >= 35){
+      reqVariable = 35;
+    } else if(iSpec1 >= 30){
+      reqVariable = 30;
+    } else if(iSpec1 >= 25){
+      reqVariable = 25;
+    } else if(iSpec1 >= 20){
+      reqVariable = 20;
+    } else if(iSpec1 >= 15){
+      reqVariable = 15;
+    } else if(iSpec1 >= 10){
+      reqVariable = 10;
+    } else if(iSpec1 >= 5){
+      reqVariable = 5;
+    }
+
+    console.log(`Yo the Reqvariable is here! ${reqVariable}`);
+
+    //Commenting reqVariable = 5 case only
+    //////////////////////////////////////////////////////////////////////////////////
+
+    if(reqVariable === 5){
+      //iterate through elements with this class name
+      for(g = 0; g < document.getElementsByClassName("req-5-s1").length; g++){
+        if(spec1Req5Output[g].nextElementSibling){
+          //only execute if the id includes prioReq... and if the button above it is maxed out (yellow border)
+          if(spec1Req5Output[g].nextElementSibling.id.includes("prioReq1Spec1") && document.querySelector('[id*="subsReq1Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            //applying this class name enables the button and gives green border
+            if(!spec1Req5Output[g].className.includes("maxeds")){
+              spec1Req5Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec1");
+            //switch determines class name of arrow, and replaces it with gold equivalent
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec1Req5Output[g].nextElementSibling.id.includes("prioReq2Spec1") && document.querySelector('[id*="subsReq2Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req5Output[g].className.includes("maxeds")){
+              spec1Req5Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec1Req5Output[g].nextElementSibling.id.includes("prioReq3Spec1") && document.querySelector('[id*="subsReq3Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req5Output[g].className.includes("maxeds")){
+              spec1Req5Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec1Req5Output[g].nextElementSibling.id.includes("prioReq4Spec1") && document.querySelector('[id*="subsReq4Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req5Output[g].className.includes("maxeds")){
+              spec1Req5Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+
+        }
+      }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
+
+    if(reqVariable === 10){
+      for(g = 0; g < document.getElementsByClassName("req-10-s1").length; g++){
+        if(spec1Req10Output[g].nextElementSibling){
+          if(spec1Req10Output[g].nextElementSibling.id.includes("prioReq1Spec1") && document.querySelector('[id*="subsReq1Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req10Output[g].className.includes("maxeds")){
+              spec1Req10Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec1Req10Output[g].nextElementSibling.id.includes("prioReq2Spec1") && document.querySelector('[id*="subsReq2Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req10Output[g].className.includes("maxeds")){
+              spec1Req10Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec1Req10Output[g].nextElementSibling.id.includes("prioReq3Spec1") && document.querySelector('[id*="subsReq3Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req10Output[g].className.includes("maxeds")){
+              spec1Req10Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec1Req10Output[g].nextElementSibling.id.includes("prioReq4Spec1") && document.querySelector('[id*="subsReq4Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req10Output[g].className.includes("maxeds")){
+              spec1Req10Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+
+        }
+      }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
+
+    if(reqVariable === 15){
+      for(g = 0; g < document.getElementsByClassName("req-15-s1").length; g++){
+        if(spec1Req15Output[g].nextElementSibling){
+          if(spec1Req15Output[g].nextElementSibling.id.includes("prioReq1Spec1") && document.querySelector('[id*="subsReq1Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req15Output[g].className.includes("maxeds")){
+              spec1Req15Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec1Req15Output[g].nextElementSibling.id.includes("prioReq2Spec1") && document.querySelector('[id*="subsReq2Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req15Output[g].className.includes("maxeds")){
+              spec1Req15Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec1Req15Output[g].nextElementSibling.id.includes("prioReq3Spec1") && document.querySelector('[id*="subsReq3Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req15Output[g].className.includes("maxeds")){
+              spec1Req15Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec1Req15Output[g].nextElementSibling.id.includes("prioReq4Spec1") && document.querySelector('[id*="subsReq4Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req15Output[g].className.includes("maxeds")){
+              spec1Req15Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+
+        }
+      }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
+    
+    if(reqVariable === 20){
+      for(g = 0; g < document.getElementsByClassName("req-20-s1").length; g++){
+        if(spec1Req20Output[g].nextElementSibling){
+          if(spec1Req20Output[g].nextElementSibling.id.includes("prioReq1Spec1") && document.querySelector('[id*="subsReq1Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req20Output[g].className.includes("maxeds")){
+              spec1Req20Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec1Req20Output[g].nextElementSibling.id.includes("prioReq2Spec1") && document.querySelector('[id*="subsReq2Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req20Output[g].className.includes("maxeds")){
+              spec1Req20Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec1Req20Output[g].nextElementSibling.id.includes("prioReq3Spec1") && document.querySelector('[id*="subsReq3Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req20Output[g].className.includes("maxeds")){
+              spec1Req20Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec1Req20Output[g].nextElementSibling.id.includes("prioReq4Spec1") && document.querySelector('[id*="subsReq4Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req20Output[g].className.includes("maxeds")){
+              spec1Req20Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+
+        }
+      }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
+      
+    if(reqVariable === 25){
+        for(g = 0; g < document.getElementsByClassName("req-25-s1").length; g++){
+          if(spec1Req25Output[g].nextElementSibling){
+            if(spec1Req25Output[g].nextElementSibling.id.includes("prioReq1Spec1") && document.querySelector('[id*="subsReq1Spec1"]').previousElementSibling.className.includes("maxeds")){
+              console.log("The arrow above me should be gold")
+              if(!spec1Req25Output[g].className.includes("maxeds")){
+                spec1Req25Output[g].className = "spec1 talentButton active-talent req-active";
+                }
+              let arrow;
+              arrow = document.getElementById("arrwReq1Spec1");
+              
+              switch(arrow.className) {
+                case "smArrow":
+                  arrow.src = "assets/images/DownGoldSmall.png"
+                  break;
+                case "medArrow":
+                  arrow.src = "assets/images/DownGoldMedium.png"
+                  break;
+                case "lgArrow":
+                  arrow.src = "assets/images/DownGoldLarge.png"
+                  break;
+
+                default:
+                  console.log("No arrow class match");
+              }
+            }
+
+            if(spec1Req25Output[g].nextElementSibling.id.includes("prioReq2Spec1") && document.querySelector('[id*="subsReq2Spec1"]').previousElementSibling.className.includes("maxeds")){
+              console.log("The arrow above me should be gold")
+              if(!spec1Req25Output[g].className.includes("maxeds")){
+                spec1Req25Output[g].className = "spec1 talentButton active-talent req-active";
+                }
+              let arrow;
+              arrow = document.getElementById("arrwReq2Spec1");
+              
+              switch(arrow.className) {
+                case "smArrow":
+                  arrow.src = "assets/images/DownGoldSmall.png"
+                  break;
+                case "medArrow":
+                  arrow.src = "assets/images/DownGoldMedium.png"
+                  break;
+                case "lgArrow":
+                  arrow.src = "assets/images/DownGoldLarge.png"
+                  break;
+
+                default:
+                  console.log("No arrow class match");
+              }
+            }
+
+            if(spec1Req25Output[g].nextElementSibling.id.includes("prioReq3Spec1") && document.querySelector('[id*="subsReq3Spec1"]').previousElementSibling.className.includes("maxeds")){
+              console.log("The arrow above me should be gold")
+              if(!spec1Req25Output[g].className.includes("maxeds")){
+                spec1Req25Output[g].className = "spec1 talentButton active-talent req-active";
+                }
+              let arrow;
+              arrow = document.getElementById("arrwReq3Spec1");
+              
+              switch(arrow.className) {
+                case "smArrow":
+                  arrow.src = "assets/images/DownGoldSmall.png"
+                  break;
+                case "medArrow":
+                  arrow.src = "assets/images/DownGoldMedium.png"
+                  break;
+                case "lgArrow":
+                  arrow.src = "assets/images/DownGoldLarge.png"
+                  break;
+
+                default:
+                  console.log("No arrow class match");
+              }
+            }
+            if(spec1Req25Output[g].nextElementSibling.id.includes("prioReq4Spec1") && document.querySelector('[id*="subsReq4Spec1"]').previousElementSibling.className.includes("maxeds")){
+              console.log("The arrow above me should be gold")
+              if(!spec1Req25Output[g].className.includes("maxeds")){
+                spec1Req25Output[g].className = "spec1 talentButton active-talent req-active";
+                }
+              let arrow;
+              arrow = document.getElementById("arrwReq4Spec1");
+              
+              switch(arrow.className) {
+                case "smArrow":
+                  arrow.src = "assets/images/DownGoldSmall.png"
+                  break;
+                case "medArrow":
+                  arrow.src = "assets/images/DownGoldMedium.png"
+                  break;
+                case "lgArrow":
+                  arrow.src = "assets/images/DownGoldLarge.png"
+                  break;
+
+                default:
+                  console.log("No arrow class match");
+              }
+            }
+
+
+          }
+        }
+      }
+
+          //////////////////////////////////////////////////////////////////////////////////
+      
+    if(reqVariable === 30){
+      for(g = 0; g < document.getElementsByClassName("req-30-s1").length; g++){
+        if(spec1Req30Output[g].nextElementSibling){
+          if(spec1Req30Output[g].nextElementSibling.id.includes("prioReq1Spec1") && document.querySelector('[id*="subsReq1Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req30Output[g].className.includes("maxeds")){
+              spec1Req30Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec1Req30Output[g].nextElementSibling.id.includes("prioReq2Spec1") && document.querySelector('[id*="subsReq2Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req30Output[g].className.includes("maxeds")){
+              spec1Req30Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+            
+          }
+
+          if(spec1Req30Output[g].nextElementSibling.id.includes("prioReq3Spec1") && document.querySelector('[id*="subsReq3Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req30Output[g].className.includes("maxeds")){
+              spec1Req30Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec1Req30Output[g].nextElementSibling.id.includes("prioReq4Spec1") && document.querySelector('[id*="subsReq4Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req30Output[g].className.includes("maxeds")){
+              spec1Req30Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+        }
+      }
+    }
+
+        //////////////////////////////////////////////////////////////////////////////////
+      
+        if(reqVariable === 35){
+          for(g = 0; g < document.getElementsByClassName("req-35-s1").length; g++){
+            if(spec1Req35Output[g].nextElementSibling){
+              if(spec1Req35Output[g].nextElementSibling.id.includes("prioReq1Spec1") && document.querySelector('[id*="subsReq1Spec1"]').previousElementSibling.className.includes("maxeds")){
+                console.log("The arrow above me should be gold")
+                if(!spec1Req35Output[g].className.includes("maxeds")){
+                  spec1Req35Output[g].className = "spec1 talentButton active-talent req-active";
+                  }
+                let arrow;
+                arrow = document.getElementById("arrwReq1Spec1");
+                
+                switch(arrow.className) {
+                  case "smArrow":
+                    arrow.src = "assets/images/DownGoldSmall.png"
+                    break;
+                  case "medArrow":
+                    arrow.src = "assets/images/DownGoldMedium.png"
+                    break;
+                  case "lgArrow":
+                    arrow.src = "assets/images/DownGoldLarge.png"
+                    break;
+  
+                  default:
+                    console.log("No arrow class match");
+                }
+              }
+  
+              if(spec1Req35Output[g].nextElementSibling.id.includes("prioReq2Spec1") && document.querySelector('[id*="subsReq2Spec1"]').previousElementSibling.className.includes("maxeds")){
+                console.log("The arrow above me should be gold")
+                if(!spec1Req35Output[g].className.includes("maxeds")){
+                  spec1Req35Output[g].className = "spec1 talentButton active-talent req-active";
+                  }
+                let arrow;
+                arrow = document.getElementById("arrwReq2Spec1");
+                
+                switch(arrow.className) {
+                  case "smArrow":
+                    arrow.src = "assets/images/DownGoldSmall.png"
+                    break;
+                  case "medArrow":
+                    arrow.src = "assets/images/DownGoldMedium.png"
+                    break;
+                  case "lgArrow":
+                    arrow.src = "assets/images/DownGoldLarge.png"
+                    break;
+  
+                  default:
+                    console.log("No arrow class match");
+                }
+              }
+  
+              if(spec1Req35Output[g].nextElementSibling.id.includes("prioReq3Spec1") && document.querySelector('[id*="subsReq3Spec1"]').previousElementSibling.className.includes("maxeds")){
+                console.log("The arrow above me should be gold 35")
+                if(!spec1Req35Output[g].className.includes("maxeds")){
+                  spec1Req35Output[g].className = "spec1 talentButton active-talent req-active";
+                  }
+                let arrow;
+                arrow = document.getElementById("arrwReq3Spec1");
+                
+                switch(arrow.className) {
+                  case "smArrow":
+                    arrow.src = "assets/images/DownGoldSmall.png"
+                    break;
+                  case "medArrow":
+                    arrow.src = "assets/images/DownGoldMedium.png"
+                    break;
+                  case "lgArrow":
+                    arrow.src = "assets/images/DownGoldLarge.png"
+                    break;
+  
+                  default:
+                    console.log("No arrow class match");
+                }
+              }
+              if(spec1Req35Output[g].nextElementSibling.id.includes("prioReq4Spec1") && document.querySelector('[id*="subsReq4Spec1"]').previousElementSibling.className.includes("maxeds")){
+                console.log("The arrow above me should be gold")
+                if(!spec1Req35Output[g].className.includes("maxeds")){
+                  spec1Req35Output[g].className = "spec1 talentButton active-talent req-active";
+                  }
+                let arrow;
+                arrow = document.getElementById("arrwReq4Spec1");
+                
+                switch(arrow.className) {
+                  case "smArrow":
+                    arrow.src = "assets/images/DownGoldSmall.png"
+                    break;
+                  case "medArrow":
+                    arrow.src = "assets/images/DownGoldMedium.png"
+                    break;
+                  case "lgArrow":
+                    arrow.src = "assets/images/DownGoldLarge.png"
+                    break;
+  
+                  default:
+                    console.log("No arrow class match");
+                }
+              }
+            }
+          }
+        }
+
+            //////////////////////////////////////////////////////////////////////////////////
+      
+    if(reqVariable === 40){
+      for(g = 0; g < document.getElementsByClassName("req-40-s1").length; g++){
+        if(spec1Req40Output[g].nextElementSibling){
+          if(spec1Req40Output[g].nextElementSibling.id.includes("prioReq1Spec1") && document.querySelector('[id*="subsReq1Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req40Output[g].className.includes("maxeds")){
+              spec1Req40Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec1Req40Output[g].nextElementSibling.id.includes("prioReq2Spec1") && document.querySelector('[id*="subsReq2Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req40Output[g].className.includes("maxeds")){
+              spec1Req40Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec1Req40Output[g].nextElementSibling.id.includes("prioReq3Spec1") && document.querySelector('[id*="subsReq3Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req40Output[g].className.includes("maxeds")){
+              spec1Req40Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec1");
+            
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec1Req40Output[g].nextElementSibling.id.includes("prioReq4Spec1") && document.querySelector('[id*="subsReq4Spec1"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            if(!spec1Req40Output[g].className.includes("maxeds")){
+              spec1Req40Output[g].className = "spec1 talentButton active-talent req-active";
+              }
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec1");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+
+        }
+      }
+    }
+
+  }
+
+  function turnArrowGoldIndirectlySpec2(){
+    console.log("Arrow Gold Indirectly");
+    console.log(window.event.srcElement.nextElementSibling.nextElementSibling)
+    //counter variable
+    let g;
+    //This variable determines which if statement we enter
+    let reqVariable;
+
+    if(iSpec2 >= 40){
+      reqVariable = 40;
+    } else if(iSpec2 >= 35){
+      reqVariable = 35;
+    } else if(iSpec2 >= 30){
+      reqVariable = 30;
+    } else if(iSpec2 >= 25){
+      reqVariable = 25;
+    } else if(iSpec2 >= 20){
+      reqVariable = 20;
+    } else if(iSpec2 >= 15){
+      reqVariable = 15;
+    } else if(iSpec2 >= 10){
+      reqVariable = 10;
+    } else if(iSpec2 >= 5){
+      reqVariable = 5;
+    }
+
+    //Commenting reqVariable = 5 case only
+    //////////////////////////////////////////////////////////////////////////////////
+
+    if(reqVariable === 5){
+      //iterate through elements with this class name
+      for(g = 0; g < document.getElementsByClassName("req-5-s2").length; g++){
+        if(spec2Req5Output[g].nextElementSibling){
+          //only execute if the id includes prioReq... and if the button above it is maxed out (yellow border)
+          if(spec2Req5Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            //applying this class name enables the button and gives green border
+            spec2Req5Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec2");
+            //switch determines class name of arrow, and replaces it with gold equivalent
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec2Req5Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req5Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec2Req5Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req5Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec2Req5Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req5Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+
+        }
+      }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
+
+    if(reqVariable === 10){
+      for(g = 0; g < document.getElementsByClassName("req-10-s2").length; g++){
+        if(spec2Req10Output[g].nextElementSibling){
+          if(spec2Req10Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req10Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec2Req10Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req10Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec2Req10Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req10Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec2Req10Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req10Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+
+        }
+      }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
+
+    if(reqVariable === 15){
+      for(g = 0; g < document.getElementsByClassName("req-15-s2").length; g++){
+        if(spec2Req15Output[g].nextElementSibling){
+          if(spec2Req15Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req15Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec2Req15Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req15Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec2Req15Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req15Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec2Req15Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req15Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+
+        }
+      }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
+    
+    if(reqVariable === 20){
+      for(g = 0; g < document.getElementsByClassName("req-20-s2").length; g++){
+        if(spec2Req20Output[g].nextElementSibling){
+          if(spec2Req20Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req20Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec2Req20Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req20Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec2Req20Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req20Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec2Req20Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req20Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+
+        }
+      }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
+      
+    if(reqVariable === 25){
+        for(g = 0; g < document.getElementsByClassName("req-25-s2").length; g++){
+          if(spec2Req25Output[g].nextElementSibling){
+            if(spec2Req25Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
+              console.log("The arrow above me should be gold")
+              spec2Req25Output[g].className = "spec2 talentButton active-talent req-active";
+              let arrow;
+              arrow = document.getElementById("arrwReq1Spec2");
+              
+              switch(arrow.className) {
+                case "smArrow":
+                  arrow.src = "assets/images/DownGoldSmall.png"
+                  break;
+                case "medArrow":
+                  arrow.src = "assets/images/DownGoldMedium.png"
+                  break;
+                case "lgArrow":
+                  arrow.src = "assets/images/DownGoldLarge.png"
+                  break;
+
+                default:
+                  console.log("No arrow class match");
+              }
+            }
+
+            if(spec2Req25Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
+              console.log("The arrow above me should be gold")
+              spec2Req25Output[g].className = "spec2 talentButton active-talent req-active";
+              let arrow;
+              arrow = document.getElementById("arrwReq2Spec2");
+              
+              switch(arrow.className) {
+                case "smArrow":
+                  arrow.src = "assets/images/DownGoldSmall.png"
+                  break;
+                case "medArrow":
+                  arrow.src = "assets/images/DownGoldMedium.png"
+                  break;
+                case "lgArrow":
+                  arrow.src = "assets/images/DownGoldLarge.png"
+                  break;
+
+                default:
+                  console.log("No arrow class match");
+              }
+            }
+
+            if(spec2Req25Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
+              console.log("The arrow above me should be gold")
+              spec2Req25Output[g].className = "spec2 talentButton active-talent req-active";
+              let arrow;
+              arrow = document.getElementById("arrwReq3Spec2");
+              
+              switch(arrow.className) {
+                case "smArrow":
+                  arrow.src = "assets/images/DownGoldSmall.png"
+                  break;
+                case "medArrow":
+                  arrow.src = "assets/images/DownGoldMedium.png"
+                  break;
+                case "lgArrow":
+                  arrow.src = "assets/images/DownGoldLarge.png"
+                  break;
+
+                default:
+                  console.log("No arrow class match");
+              }
+            }
+            if(spec2Req25Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
+              console.log("The arrow above me should be gold")
+              spec2Req25Output[g].className = "spec2 talentButton active-talent req-active";
+              let arrow;
+              arrow = document.getElementById("arrwReq4Spec2");
+              
+              switch(arrow.className) {
+                case "smArrow":
+                  arrow.src = "assets/images/DownGoldSmall.png"
+                  break;
+                case "medArrow":
+                  arrow.src = "assets/images/DownGoldMedium.png"
+                  break;
+                case "lgArrow":
+                  arrow.src = "assets/images/DownGoldLarge.png"
+                  break;
+
+                default:
+                  console.log("No arrow class match");
+              }
+            }
+
+
+          }
+        }
+      }
+
+          //////////////////////////////////////////////////////////////////////////////////
+      
+    if(reqVariable === 30){
+      for(g = 0; g < document.getElementsByClassName("req-30-s2").length; g++){
+        if(spec2Req30Output[g].nextElementSibling){
+          if(spec2Req30Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req30Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec2Req30Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req30Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec2Req30Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req30Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec2Req30Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req30Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+        }
+      }
+    }
+
+        //////////////////////////////////////////////////////////////////////////////////
+      
+        if(reqVariable === 35){
+          for(g = 0; g < document.getElementsByClassName("req-35-s2").length; g++){
+            if(spec2Req35Output[g].nextElementSibling){
+              if(spec2Req35Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
+                console.log("The arrow above me should be gold")
+                spec2Req35Output[g].className = "spec2 talentButton active-talent req-active";
+                let arrow;
+                arrow = document.getElementById("arrwReq1Spec2");
+                
+                switch(arrow.className) {
+                  case "smArrow":
+                    arrow.src = "assets/images/DownGoldSmall.png"
+                    break;
+                  case "medArrow":
+                    arrow.src = "assets/images/DownGoldMedium.png"
+                    break;
+                  case "lgArrow":
+                    arrow.src = "assets/images/DownGoldLarge.png"
+                    break;
+  
+                  default:
+                    console.log("No arrow class match");
+                }
+              }
+  
+              if(spec2Req35Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
+                console.log("The arrow above me should be gold")
+                spec2Req35Output[g].className = "spec2 talentButton active-talent req-active";
+                let arrow;
+                arrow = document.getElementById("arrwReq2Spec2");
+                
+                switch(arrow.className) {
+                  case "smArrow":
+                    arrow.src = "assets/images/DownGoldSmall.png"
+                    break;
+                  case "medArrow":
+                    arrow.src = "assets/images/DownGoldMedium.png"
+                    break;
+                  case "lgArrow":
+                    arrow.src = "assets/images/DownGoldLarge.png"
+                    break;
+  
+                  default:
+                    console.log("No arrow class match");
+                }
+              }
+  
+              if(spec2Req35Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
+                console.log("The arrow above me should be gold")
+                spec2Req35Output[g].className = "spec2 talentButton active-talent req-active";
+                let arrow;
+                arrow = document.getElementById("arrwReq3Spec2");
+                
+                switch(arrow.className) {
+                  case "smArrow":
+                    arrow.src = "assets/images/DownGoldSmall.png"
+                    break;
+                  case "medArrow":
+                    arrow.src = "assets/images/DownGoldMedium.png"
+                    break;
+                  case "lgArrow":
+                    arrow.src = "assets/images/DownGoldLarge.png"
+                    break;
+  
+                  default:
+                    console.log("No arrow class match");
+                }
+              }
+              if(spec2Req35Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
+                console.log("The arrow above me should be gold")
+                spec2Req35Output[g].className = "spec2 talentButton active-talent req-active";
+                let arrow;
+                arrow = document.getElementById("arrwReq4Spec2");
+                
+                switch(arrow.className) {
+                  case "smArrow":
+                    arrow.src = "assets/images/DownGoldSmall.png"
+                    break;
+                  case "medArrow":
+                    arrow.src = "assets/images/DownGoldMedium.png"
+                    break;
+                  case "lgArrow":
+                    arrow.src = "assets/images/DownGoldLarge.png"
+                    break;
+  
+                  default:
+                    console.log("No arrow class match");
+                }
+              }
+            }
+          }
+        }
+
+            //////////////////////////////////////////////////////////////////////////////////
+      
+    if(reqVariable === 40){
+      for(g = 0; g < document.getElementsByClassName("req-40-s2").length; g++){
+        if(spec2Req40Output[g].nextElementSibling){
+          if(spec2Req40Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req40Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec2Req40Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req40Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec2Req40Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec2Req40Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec2Req40Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            console.log("yo yo, what's up")
+            spec2Req40Output[g].className = "spec2 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec2");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+        }
+      }
+    }
+  }
+
+  function turnArrowGoldIndirectlySpec3(){
+    console.log("Arrow Gold Indirectly");
+    console.log(window.event.srcElement.nextElementSibling.nextElementSibling)
+    //counter variable
+    let g;
+    //This variable determines which if statement we enter
+    let reqVariable;
+
+    if(iSpec3 >= 40){
+      reqVariable = 40;
+    } else if(iSpec3 >= 35){
+      reqVariable = 35;
+    } else if(iSpec3 >= 30){
+      reqVariable = 30;
+    } else if(iSpec3 >= 25){
+      reqVariable = 25;
+    } else if(iSpec3 >= 20){
+      reqVariable = 20;
+    } else if(iSpec3 >= 15){
+      reqVariable = 15;
+    } else if(iSpec3 >= 10){
+      reqVariable = 10;
+    } else if(iSpec3 >= 5){
+      reqVariable = 5;
+    }
+
+    //Commenting reqVariable = 5 case only
+    //////////////////////////////////////////////////////////////////////////////////
+
+    if(reqVariable === 5){
+      //iterate through elements with this class name
+      for(g = 0; g < document.getElementsByClassName("req-5-s3").length; g++){
+        if(spec2Req5Output[g].nextElementSibling){
+          //only execute if the id includes prioReq... and if the button above it is maxed out (yellow border)
+          if(spec3Req5Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            //applying this class name enables the button and gives green border
+            spec3Req5Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec3");
+            //switch determines class name of arrow, and replaces it with gold equivalent
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec3Req5Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req5Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec3Req5Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req5Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec3Req5Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req5Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+
+        }
+      }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
+
+    if(reqVariable === 10){
+      for(g = 0; g < document.getElementsByClassName("req-10-s3").length; g++){
+        if(spec3Req10Output[g].nextElementSibling){
+          if(spec3Req10Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req10Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec3Req10Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req10Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec3Req10Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req10Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec3Req10Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req10Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+
+        }
+      }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
+
+    if(reqVariable === 15){
+      for(g = 0; g < document.getElementsByClassName("req-15-s3").length; g++){
+        if(spec3Req15Output[g].nextElementSibling){
+          if(spec3Req15Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req15Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec3Req15Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req15Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec3Req15Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req15Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec3Req15Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req15Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+
+        }
+      }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
+    
+    if(reqVariable === 20){
+      for(g = 0; g < document.getElementsByClassName("req-20-s3").length; g++){
+        if(spec3Req20Output[g].nextElementSibling){
+          if(spec3Req20Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req20Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec3Req20Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req20Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec3Req20Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req20Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec3Req20Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req20Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+
+        }
+      }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
+      
+    if(reqVariable === 25){
+        for(g = 0; g < document.getElementsByClassName("req-25-s3").length; g++){
+          if(spec3Req25Output[g].nextElementSibling){
+            if(spec3Req25Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
+              console.log("The arrow above me should be gold")
+              spec3Req25Output[g].className = "spec3 talentButton active-talent req-active";
+              let arrow;
+              arrow = document.getElementById("arrwReq1Spec3");
+              
+              switch(arrow.className) {
+                case "smArrow":
+                  arrow.src = "assets/images/DownGoldSmall.png"
+                  break;
+                case "medArrow":
+                  arrow.src = "assets/images/DownGoldMedium.png"
+                  break;
+                case "lgArrow":
+                  arrow.src = "assets/images/DownGoldLarge.png"
+                  break;
+
+                default:
+                  console.log("No arrow class match");
+              }
+            }
+
+            if(spec3Req25Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
+              console.log("The arrow above me should be gold")
+              spec3Req25Output[g].className = "spec3 talentButton active-talent req-active";
+              let arrow;
+              arrow = document.getElementById("arrwReq2Spec3");
+              
+              switch(arrow.className) {
+                case "smArrow":
+                  arrow.src = "assets/images/DownGoldSmall.png"
+                  break;
+                case "medArrow":
+                  arrow.src = "assets/images/DownGoldMedium.png"
+                  break;
+                case "lgArrow":
+                  arrow.src = "assets/images/DownGoldLarge.png"
+                  break;
+
+                default:
+                  console.log("No arrow class match");
+              }
+            }
+
+            if(spec3Req25Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
+              console.log("The arrow above me should be gold")
+              spec3Req25Output[g].className = "spec3 talentButton active-talent req-active";
+              let arrow;
+              arrow = document.getElementById("arrwReq3Spec3");
+              
+              switch(arrow.className) {
+                case "smArrow":
+                  arrow.src = "assets/images/DownGoldSmall.png"
+                  break;
+                case "medArrow":
+                  arrow.src = "assets/images/DownGoldMedium.png"
+                  break;
+                case "lgArrow":
+                  arrow.src = "assets/images/DownGoldLarge.png"
+                  break;
+
+                default:
+                  console.log("No arrow class match");
+              }
+            }
+            if(spec3Req25Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
+              console.log("The arrow above me should be gold")
+              spec3Req25Output[g].className = "spec3 talentButton active-talent req-active";
+              let arrow;
+              arrow = document.getElementById("arrwReq4Spec3");
+              
+              switch(arrow.className) {
+                case "smArrow":
+                  arrow.src = "assets/images/DownGoldSmall.png"
+                  break;
+                case "medArrow":
+                  arrow.src = "assets/images/DownGoldMedium.png"
+                  break;
+                case "lgArrow":
+                  arrow.src = "assets/images/DownGoldLarge.png"
+                  break;
+
+                default:
+                  console.log("No arrow class match");
+              }
+            }
+
+
+          }
+        }
+      }
+
+          //////////////////////////////////////////////////////////////////////////////////
+      
+    if(reqVariable === 30){
+      for(g = 0; g < document.getElementsByClassName("req-30-s3").length; g++){
+        if(spec3Req30Output[g].nextElementSibling){
+          if(spec3Req30Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req30Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec3Req30Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req30Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec3Req30Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req30Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec3Req30Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req30Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+        }
+      }
+    }
+
+        //////////////////////////////////////////////////////////////////////////////////
+      
+        if(reqVariable === 35){
+          for(g = 0; g < document.getElementsByClassName("req-35-s3").length; g++){
+            if(spec3Req35Output[g].nextElementSibling){
+              if(spec3Req35Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
+                console.log("The arrow above me should be gold")
+                spec3Req35Output[g].className = "spec3 talentButton active-talent req-active";
+                let arrow;
+                arrow = document.getElementById("arrwReq1Spec3");
+                
+                switch(arrow.className) {
+                  case "smArrow":
+                    arrow.src = "assets/images/DownGoldSmall.png"
+                    break;
+                  case "medArrow":
+                    arrow.src = "assets/images/DownGoldMedium.png"
+                    break;
+                  case "lgArrow":
+                    arrow.src = "assets/images/DownGoldLarge.png"
+                    break;
+  
+                  default:
+                    console.log("No arrow class match");
+                }
+              }
+  
+              if(spec3Req35Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
+                console.log("The arrow above me should be gold")
+                spec3Req35Output[g].className = "spec3 talentButton active-talent req-active";
+                let arrow;
+                arrow = document.getElementById("arrwReq2Spec3");
+                
+                switch(arrow.className) {
+                  case "smArrow":
+                    arrow.src = "assets/images/DownGoldSmall.png"
+                    break;
+                  case "medArrow":
+                    arrow.src = "assets/images/DownGoldMedium.png"
+                    break;
+                  case "lgArrow":
+                    arrow.src = "assets/images/DownGoldLarge.png"
+                    break;
+  
+                  default:
+                    console.log("No arrow class match");
+                }
+              }
+  
+              if(spec3Req35Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
+                console.log("The arrow above me should be gold")
+                spec3Req35Output[g].className = "spec3 talentButton active-talent req-active";
+                let arrow;
+                arrow = document.getElementById("arrwReq3Spec3");
+                
+                switch(arrow.className) {
+                  case "smArrow":
+                    arrow.src = "assets/images/DownGoldSmall.png"
+                    break;
+                  case "medArrow":
+                    arrow.src = "assets/images/DownGoldMedium.png"
+                    break;
+                  case "lgArrow":
+                    arrow.src = "assets/images/DownGoldLarge.png"
+                    break;
+  
+                  default:
+                    console.log("No arrow class match");
+                }
+              }
+              if(spec3Req35Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
+                console.log("The arrow above me should be gold")
+                spec3Req35Output[g].className = "spec3 talentButton active-talent req-active";
+                let arrow;
+                arrow = document.getElementById("arrwReq4Spec3");
+                
+                switch(arrow.className) {
+                  case "smArrow":
+                    arrow.src = "assets/images/DownGoldSmall.png"
+                    break;
+                  case "medArrow":
+                    arrow.src = "assets/images/DownGoldMedium.png"
+                    break;
+                  case "lgArrow":
+                    arrow.src = "assets/images/DownGoldLarge.png"
+                    break;
+  
+                  default:
+                    console.log("No arrow class match");
+                }
+              }
+            }
+          }
+        }
+
+            //////////////////////////////////////////////////////////////////////////////////
+      
+    if(reqVariable === 40){
+      for(g = 0; g < document.getElementsByClassName("req-40-s3").length; g++){
+        if(spec3Req40Output[g].nextElementSibling){
+          if(spec3Req40Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req40Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq1Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec3Req40Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req40Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq2Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+
+          if(spec3Req40Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req40Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq3Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+          if(spec3Req40Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
+            console.log("The arrow above me should be gold")
+            spec3Req40Output[g].className = "spec3 talentButton active-talent req-active";
+            let arrow;
+            arrow = document.getElementById("arrwReq4Spec3");
+            
+            switch(arrow.className) {
+              case "smArrow":
+                arrow.src = "assets/images/DownGoldSmall.png"
+                break;
+              case "medArrow":
+                arrow.src = "assets/images/DownGoldMedium.png"
+                break;
+              case "lgArrow":
+                arrow.src = "assets/images/DownGoldLarge.png"
+                break;
+
+              default:
+                console.log("No arrow class match");
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  
+
+
     //Get inner text of span element sibling to button user clicks
     valueString = window.event.srcElement.nextElementSibling.nextElementSibling.innerText;
     //Get inner text of element button user clicks and slice to determine spec1, 2, or 3
@@ -916,6 +3560,7 @@ class HunterComponent extends Component {
                 console.log(i);
                  // If Point is maxed out, change the class to give yellow border
                  addYellowBorder();
+                 turnArrowGoldOnClick();
                 break;
             case "2":
                 individualPointTracker = twoPointArray.filter(
@@ -949,6 +3594,7 @@ class HunterComponent extends Component {
                 console.log(i);
                  // If Point is maxed out, change the class to give yellow border
                  addYellowBorder();
+                 turnArrowGoldOnClick();
                 break;
             case "3":
                 individualPointTracker = threePointArray.filter(
@@ -981,7 +3627,8 @@ class HunterComponent extends Component {
                 document.getElementById("total-points").innerText = i;
                 console.log(i);
                  // If Point is maxed out, change the class to give yellow border
-                 addYellowBorder();
+                  addYellowBorder();
+                  turnArrowGoldOnClick();
                 break;
             case "4":
                 individualPointTracker = fourPointArray.filter(
@@ -1015,6 +3662,7 @@ class HunterComponent extends Component {
                 console.log(i);
                  // If Point is maxed out, change the class to give yellow border
                  addYellowBorder();
+                 turnArrowGoldOnClick();
                 break;
             case "5":   
             
@@ -1052,6 +3700,7 @@ class HunterComponent extends Component {
                 console.log(i);
                 // If Point is maxed out, change the class to give yellow border
                 addYellowBorder();
+                turnArrowGoldOnClick();
                 break;
           
         }  
@@ -1231,22 +3880,15 @@ class HunterComponent extends Component {
                     alert("You have no points in this talent to remove!")
                     i = i + 1;
                     if(specString[4] === "1"){
-                      iSpec1 = iSpec1 + 1;
-                      document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`
+                     
                       addGreenBorderSpec1();
                       
-
-
                     } if(specString[4] === "2"){
-                      iSpec2 = iSpec2 + 1;
-                      document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`
-
+                      
                       addGreenBorderSpec2();
 
                     } if(specString[4] === "3"){
-                      iSpec3 = iSpec3 + 1;
-                      document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`
-
+                      
                       addGreenBorderSpec3();
                     }
                     
@@ -1297,22 +3939,16 @@ class HunterComponent extends Component {
                     alert("You have no points in this talent to remove!")
                     i = i + 1;
                     if(specString[4] === "1"){
-                      iSpec1 = iSpec1 + 1;
-                      document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`
                       
                       addGreenBorderSpec1();
 
 
                     } if(specString[4] === "2"){
-                      iSpec2 = iSpec2 + 1;
-                      document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`
-
+                     
                       addGreenBorderSpec2();
 
                     } if(specString[4] === "3"){
-                      iSpec3 = iSpec3 + 1;
-                      document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`
-
+                     
                       addGreenBorderSpec3();
                     }
                 }
@@ -1344,22 +3980,16 @@ class HunterComponent extends Component {
                     alert("You have no points in this talent to remove!")
                     i = i + 1;
                     if(specString[4] === "1"){
-                      iSpec1 = iSpec1 + 1;
-                      document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`
                       
                       addGreenBorderSpec1();
 
 
                     } if(specString[4] === "2"){
-                      iSpec2 = iSpec2 + 1;
-                      document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`
-
+                      
                       addGreenBorderSpec2();
 
                     } if(specString[4] === "3"){
-                      iSpec3 = iSpec3 + 1;
-                      document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`
-
+                     
                       addGreenBorderSpec3();
                     }
                 }
@@ -1392,22 +4022,16 @@ class HunterComponent extends Component {
                     alert("You have no points in this talent to remove!")
                     i = i + 1;
                     if(specString[4] === "1"){
-                      iSpec1 = iSpec1 + 1;
-                      document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`
                       
                       addGreenBorderSpec1();
 
 
                     } if(specString[4] === "2"){
-                      iSpec2 = iSpec2 + 1;
-                      document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`
-
+                      
                       addGreenBorderSpec2();
 
                     } if(specString[4] === "3"){
-                      iSpec3 = iSpec3 + 1;
-                      document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`
-
+                      
                       addGreenBorderSpec3();
                     }
                 }
@@ -1438,21 +4062,17 @@ class HunterComponent extends Component {
                     alert("You have no points in this talent to remove!")
                     i = i + 1;
                     if(specString[4] === "1"){
-                      iSpec1 = iSpec1 + 1;
-                      document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`
-                      
+
                       addGreenBorderSpec1();
 
 
                     } if(specString[4] === "2"){
-                      iSpec2 = iSpec2 + 1;
-                      document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`
+                      
 
                       addGreenBorderSpec2();
 
                     } if(specString[4] === "3"){
-                      iSpec3 = iSpec3 + 1;
-                      document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`
+                      
 
                       addGreenBorderSpec3();
                     }
@@ -1842,13 +4462,15 @@ class HunterComponent extends Component {
                     className="spec1 talentButton inactive-talent req-inactive"
                     src="assets/images/talents/Hunter/Progression/spec1/Ferocity.jpg"
                     alt=""
+                    
                   />
                  
-                  <span className="talentPoints req-15-s1">0/5</span>
+                  <span id="subsReq1Spec1" className="talentPoints req-15-s1">0/5</span>
                   <img
                     className="medArrow"
                     src="assets/images/DownSilverMedium.png"
                     alt=""
+                    id="arrwReq1Spec1"
                   />
               </div>
 
@@ -1890,13 +4512,15 @@ class HunterComponent extends Component {
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/Intimidation.jpg"
                   alt=""
+                  
                 />
                 
-                <span className="talentPoints req-20-s1">0/1</span>
+                <span id="subsReq2Spec1" className="talentPoints req-20-s1">0/1</span>
                 <img
                   className="medArrow"
                   src="assets/images/DownSilverMedium.png"
                   alt=""
+                  id="arrwReq2Spec1"
                 />
               </div>
               <div style={{ zIndex: "0" }} className="col col-xs-3"></div>
@@ -1957,9 +4581,10 @@ class HunterComponent extends Component {
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/Frenzy.jpg"
                   alt=""
+                  
                 />
                 
-                <span className="talentPoints req-25-s1">0/5</span>
+                <span id="prioReq1Spec1" className="talentPoints req-25-s1">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -1998,13 +4623,15 @@ class HunterComponent extends Component {
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/BestialWrath.jpg"
                   alt=""
+                  
                 />
                 
-                <span className="talentPoints req-30-s1">0/1</span>
+                <span id="subsReq3Spec1 prioReq2Spec1" className="talentPoints req-30-s1">0/1</span>
                 <img
                   className="medArrow"
                   src="assets/images/DownSilverMedium.png"
                   alt=""
+                  id="arrwReq3Spec1"
                 />
               </div>
               <div className="col col-xs-3">
@@ -2069,9 +4696,10 @@ class HunterComponent extends Component {
                   className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec1/BeastWithin.jpg"
                   alt=""
+                  
                 />
                 
-                <span className="talentPoints req-40-s1">0/1</span>
+                <span id="prioReq3Spec1" className="talentPoints req-40-s1">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -2226,13 +4854,15 @@ class HunterComponent extends Component {
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/AimedShot.jpg"
                   alt=""
+                  
                 />
                 
-                <span className="talentPoints req-10-s2">0/1</span>
+                <span id="subsReq1Spec2" className="talentPoints req-10-s2">0/1</span>
                 <img
                   className="smArrow"
                   src="assets/images/DownSilverSmall.png"
                   alt=""
+                  id="arrwReq1Spec2"
                 />
               </div>
               <div className="col col-xs-3">
@@ -2293,7 +4923,7 @@ class HunterComponent extends Component {
                   alt=""
                 />
                 
-                <span className="talentPoints req-15-s2">0/5</span>
+                <span id="prioReq1Spec2" className="talentPoints req-15-s2">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -2334,11 +4964,12 @@ class HunterComponent extends Component {
                   alt=""
                 />
                 
-                <span className="talentPoints req-20-s2">0/1</span>
+                <span id="subsReq2Spec2" className="talentPoints req-20-s2">0/1</span>
                 <img
                   className="medArrow"
                   src="assets/images/DownSilverMedium.png"
                   alt=""
+                  id="arrwReq2Spec2"
                 />
               </div>
               <div className="col col-xs-3">
@@ -2356,13 +4987,15 @@ class HunterComponent extends Component {
                   className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg"
                   alt=""
+                  
                 />
                 
-                <span className="talentPoints req-20-s2">0/3</span>
+                <span id="subsReq3Spec2" className="talentPoints req-20-s2">0/3</span>
                 <img
                   className="medArrow"
                   src="assets/images/DownSilverMedium.png"
                   alt=""
+                  id="arrwReq3Spec2"
                 />
               </div>
               <div className="col col-xs-3"></div>
@@ -2446,7 +5079,7 @@ class HunterComponent extends Component {
                   alt=""
                 />
                 
-                <span className="talentPoints req-30-s2">0/1</span>
+                <span id="prioReq2Spec2" className="talentPoints req-30-s2">0/1</span>
               </div>
               <div className="col col-xs-3">
                 <img 
@@ -2465,7 +5098,7 @@ class HunterComponent extends Component {
                   alt=""
                 />
                 
-                <span className="talentPoints req-30-s2">0/3</span>
+                <span id="prioReq3Spec2" className="talentPoints req-30-s2">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -2488,11 +5121,12 @@ class HunterComponent extends Component {
                   alt=""
                 />
                 
-                <span className="talentPoints req-35-s2">0/5</span>
+                <span id="subsReq4Spec2" className="talentPoints req-35-s2">0/5</span>
                 <img
                   className="smArrow"
                   src="assets/images/DownSilverSmall.png"
                   alt=""
+                  id="arrwReq4Spec2"
                 />
               </div>
               <div className="col col-xs-3"></div>
@@ -2517,7 +5151,7 @@ class HunterComponent extends Component {
                   alt=""
                 />
                 
-                <span className="talentPoints req-40-s2">0/1</span>
+                <span id="prioReq4Spec2" className="talentPoints req-40-s2">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -2728,11 +5362,12 @@ class HunterComponent extends Component {
                   alt=""
                 />
                 
-                <span className="talentPoints req-10-s3">0/1</span>
+                <span id="subsReq1Spec3" className="talentPoints req-10-s3">0/1</span>
                 <img
                   className="medArrow"
                   src="assets/images/DownSilverMedium.png"
                   alt=""
+                  id="arrwReq1Spec3"
                 />
               </div>
               <div className="col col-xs-3"></div>
@@ -2834,11 +5469,12 @@ class HunterComponent extends Component {
                   alt=""
                 />
                 
-                <span className="talentPoints req-20-s3">0/3</span>
+                <span id="subsReq2Spec3" className="talentPoints req-20-s3">0/3</span>
                 <img
                   className="medArrow"
                   src="assets/images/DownSilverMedium.png"
                   alt=""
+                  id="arrwReq2Spec3"
                 />
               </div>
               <div className="col col-xs-3">
@@ -2858,7 +5494,7 @@ class HunterComponent extends Component {
                   alt=""
                 />
                 
-                <span className="talentPoints req-20-s3">0/1</span>
+                <span id="prioReq1Spec3" className="talentPoints req-20-s3">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -2941,7 +5577,7 @@ class HunterComponent extends Component {
                   alt=""
                 />
                 
-                <span className="talentPoints req-30-s3">0/1</span>
+                <span id="prioReq2Spec3" className="talentPoints req-30-s3">0/1</span>
               </div>
               <div className="col col-xs-3">
                 <img 
@@ -2983,11 +5619,12 @@ class HunterComponent extends Component {
                   alt=""
                 />
                 
-                <span className="talentPoints req-35-s3">0/5</span>
+                <span id="subsReq3Spec3" className="talentPoints req-35-s3">0/5</span>
                 <img
                   className="smArrow"
                   src="assets/images/DownSilverSmall.png"
                   alt=""
+                  id="arrwReq3Spec3"
                 />
               </div>
               <div className="col col-xs-3"></div>
@@ -3012,7 +5649,7 @@ class HunterComponent extends Component {
                   alt=""
                 />
                 
-                <span className="talentPoints req-40-s3">0/1</span>
+                <span id="prioReq3Spec3" className="talentPoints req-40-s3">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>

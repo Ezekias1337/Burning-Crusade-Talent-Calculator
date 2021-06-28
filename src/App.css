@@ -65,8 +65,8 @@
    position: absolute;
    top: 22%;
    left: 28%;
-   width: 36px;
-   height: 36px;
+   width: 38px;
+   height: 38px;
  }
  
 
@@ -132,7 +132,8 @@
 }
 
 .html{
-  cursor: "../public/assets/images/Wow_Cursor.gif", "../public/assets/images/Wow_Cursor.cur", auto;
+  cursor: url("./images/Wow_Cursor.gif"), url("./images/Wow_Cursor.cur"), auto;
+  
 }
 
 .req-inactive{
