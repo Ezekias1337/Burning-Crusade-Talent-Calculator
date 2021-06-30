@@ -1,6 +1,8 @@
 import { contains } from "jquery";
 import React, { Component } from "react";
 
+
+
 /* 
     bug  1
     when clicking on talent that is maxed out, if one point away from threshold,
@@ -15,27 +17,12 @@ import React, { Component } from "react";
 
 /* 
     bug 3
-    specs 2 and 3 need to add logical not check to make sure
-    maxed out talents arent reset to green when iSpec is incremented
-    
-*/
-
-/* 
-    bug 4
-    in Spec 2 (most likely need to change logic for 2/3) if you 
-    get to 30 points the specs which have an arrow and pioReq span element,
-    the icons are turning green, but they shouldn't.
-    
-*/
-
-/* 
-    bug 5
     right clicking and setting button to inactive doesn't revert
     arrow color (in talent click function)
 */
 
 /* 
-    bug 6
+    bug 4
     reset Button does not reset arrow colors to silver
 */
 
@@ -160,7 +147,7 @@ class HunterComponent extends Component {
         }
         //Iterate through array to update their class (to update green border color)
         for(let g = 0; g < spec1Req40Output.length; g++){
-          if(spec1Req40Output[g].className.includes("inactive-talent") && !(spec1Req40Output[g].nextElementSibling.id.includes("prioReq"))){
+          if(spec1Req40Output[g].className.includes("inactive-talent") && !(spec1Req40Output[g].nextElementSibling.id.includes("prioReq")) && !(spec1Req40Output[g].className.includes("maxeds"))){
             spec1Req40Output[g].className = "spec1 talentButton active-talent req-active";
           }
 
@@ -178,7 +165,7 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec1Req35Output.length; g++){
-          if(spec1Req35Output[g].className.includes("inactive-talent") && !(spec1Req35Output[g].nextElementSibling.id.includes("prioReq1Spec1"))){
+          if(spec1Req35Output[g].className.includes("inactive-talent") && !(spec1Req35Output[g].nextElementSibling.id.includes("prioReq1Spec1"))  && !(spec1Req35Output[g].className.includes("maxeds"))){
             spec1Req35Output[g].className = "spec1 talentButton active-talent req-active";
           }
 
@@ -196,7 +183,7 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec1Req30Output.length; g++){
-          if(spec1Req30Output[g].className.includes("inactive-talent") && !(spec1Req30Output[g].nextElementSibling.id.includes("prioReq1Spec1"))){
+          if(spec1Req30Output[g].className.includes("inactive-talent") && !(spec1Req30Output[g].nextElementSibling.id.includes("prioReq1Spec1"))  && !(spec1Req30Output[g].className.includes("maxeds"))){
             spec1Req30Output[g].className = "spec1 talentButton active-talent req-active";
           }
 
@@ -214,7 +201,7 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec1Req25Output.length; g++){
-          if(spec1Req25Output[g].className.includes("inactive-talent") && !(spec1Req25Output[g].nextElementSibling.id.includes("prioReq1Spec1"))){
+          if(spec1Req25Output[g].className.includes("inactive-talent") && !(spec1Req25Output[g].nextElementSibling.id.includes("prioReq1Spec1"))  && !(spec1Req25Output[g].className.includes("maxeds"))){
             spec1Req25Output[g].className = "spec1 talentButton active-talent req-active";
           }
 
@@ -232,7 +219,7 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec1Req20Output.length; g++){
-          if(spec1Req20Output[g].className.includes("inactive-talent") && !(spec1Req20Output[g].nextElementSibling.id.includes("prioReq1Spec1"))){
+          if(spec1Req20Output[g].className.includes("inactive-talent") && !(spec1Req20Output[g].nextElementSibling.id.includes("prioReq1Spec1"))  && !(spec1Req20Output[g].className.includes("maxeds"))){
             spec1Req20Output[g].className = "spec1 talentButton active-talent req-active";
           }
 
@@ -250,7 +237,7 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec1Req15Output.length; g++){
-          if(spec1Req15Output[g].className.includes("inactive-talent") && !(spec1Req15Output[g].nextElementSibling.id.includes("prioReq1Spec1"))){
+          if(spec1Req15Output[g].className.includes("inactive-talent") && !(spec1Req15Output[g].nextElementSibling.id.includes("prioReq1Spec1"))  && !(spec1Req15Output[g].className.includes("maxeds"))){
             spec1Req15Output[g].className = "spec1 talentButton active-talent req-active";
           }
 
@@ -268,7 +255,7 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec1Req10Output.length; g++){
-          if(spec1Req10Output[g].className.includes("inactive-talent") && !(spec1Req10Output[g].nextElementSibling.id.includes("prioReq1Spec1"))){
+          if(spec1Req10Output[g].className.includes("inactive-talent") && !(spec1Req10Output[g].nextElementSibling.id.includes("prioReq1Spec1"))  && !(spec1Req10Output[g].className.includes("maxeds"))){
             spec1Req10Output[g].className = "spec1 talentButton active-talent req-active";
           }
 
@@ -286,7 +273,7 @@ class HunterComponent extends Component {
         }
         console.log(spec1Req5Output)
         for(let g = 0; g < spec1Req5Output.length; g++){
-          if(spec1Req5Output[g].className.includes("inactive-talent") && !(spec1Req5Output[g].nextElementSibling.id.includes("prioReq1Spec1"))){
+          if(spec1Req5Output[g].className.includes("inactive-talent") && !(spec1Req5Output[g].nextElementSibling.id.includes("prioReq1Spec1"))  && !(spec1Req5Output[g].className.includes("maxeds"))){
             spec1Req5Output[g].className = "spec1 talentButton active-talent req-active";
           }
 
@@ -308,7 +295,7 @@ class HunterComponent extends Component {
         }
         //Iterate through array to update their class (to update green border color)
         for(let g = 0; g < spec2Req40Output.length; g++){
-          if(spec2Req40Output[g].className.includes("inactive-talent")){
+          if(spec2Req40Output[g].className.includes("inactive-talent") && !(spec2Req40Output[g].nextElementSibling.id.includes("prioReq")) && !(spec2Req40Output[g].className.includes("maxeds"))){
             spec2Req40Output[g].className = "spec2 talentButton active-talent req-active";
           }
           if(spec2Req40Output[g].nextElementSibling){
@@ -325,7 +312,7 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec2Req35Output.length; g++){
-          if(spec2Req35Output[g].className.includes("inactive-talent")){
+          if(spec2Req35Output[g].className.includes("inactive-talent") && !(spec2Req35Output[g].nextElementSibling.id.includes("prioReq")) && !(spec2Req35Output[g].className.includes("maxeds"))){
             spec2Req35Output[g].className = "spec2 talentButton active-talent req-active";
           }
           if(spec2Req35Output[g].nextElementSibling){
@@ -342,12 +329,12 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec2Req30Output.length; g++){
-          if(spec2Req30Output[g].className.includes("inactive-talent")){
+          if(spec2Req30Output[g].className.includes("inactive-talent") && !(spec2Req30Output[g].nextElementSibling.id.includes("prioReq")) && !(spec2Req30Output[g].className.includes("maxeds"))){
             spec2Req30Output[g].className = "spec2 talentButton active-talent req-active";
           }
-          if(spec2Req30Output[g].nextElementSibling){
+          /*if(spec2Req30Output[g].nextElementSibling){
             turnArrowGoldIndirectlySpec2();
-          }
+          }*/
         }
       }
       
@@ -359,7 +346,7 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec2Req25Output.length; g++){
-          if(spec2Req25Output[g].className.includes("inactive-talent")){
+          if(spec2Req25Output[g].className.includes("inactive-talent") && !(spec2Req25Output[g].nextElementSibling.id.includes("prioReq")) && !(spec2Req25Output[g].className.includes("maxeds"))){
             spec2Req25Output[g].className = "spec2 talentButton active-talent req-active";
           }
           if(spec2Req25Output[g].nextElementSibling){
@@ -376,7 +363,7 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec2Req20Output.length; g++){
-          if(spec2Req20Output[g].className.includes("inactive-talent")){
+          if(spec2Req20Output[g].className.includes("inactive-talent") && !(spec2Req20Output[g].nextElementSibling.id.includes("prioReq")) && !(spec2Req20Output[g].className.includes("maxeds"))){
             spec2Req20Output[g].className = "spec2 talentButton active-talent req-active";
           }
           if(spec2Req20Output[g].nextElementSibling){
@@ -393,7 +380,7 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec2Req15Output.length; g++){
-          if(spec2Req15Output[g].className.includes("inactive-talent")){
+          if(spec2Req15Output[g].className.includes("inactive-talent") && !(spec2Req15Output[g].nextElementSibling.id.includes("prioReq")) && !(spec2Req15Output[g].className.includes("maxeds"))){
             spec2Req15Output[g].className = "spec2 talentButton active-talent req-active";
           }
           if(spec2Req15Output[g].nextElementSibling){
@@ -412,7 +399,7 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec2Req10Output.length; g++){
-          if(spec2Req10Output[g].className.includes("inactive-talent")){
+          if(spec2Req10Output[g].className.includes("inactive-talent") && !(spec2Req10Output[g].nextElementSibling.id.includes("prioReq")) && !(spec2Req10Output[g].className.includes("maxeds"))){
             spec2Req10Output[g].className = "spec2 talentButton active-talent req-active";
           }
           if(spec2Req10Output[g].nextElementSibling){
@@ -429,7 +416,7 @@ class HunterComponent extends Component {
         }
         console.log(spec2Req5Output)
         for(let g = 0; g < spec2Req5Output.length; g++){
-          if(spec2Req5Output[g].className.includes("inactive-talent")){
+          if(spec2Req5Output[g].className.includes("inactive-talent") && !(spec2Req5Output[g].nextElementSibling.id.includes("prioReq")) && !(spec2Req5Output[g].className.includes("maxeds"))){
             spec2Req5Output[g].className = "spec2 talentButton active-talent req-active";
           }
           if(spec2Req5Output[g].nextElementSibling){
@@ -450,8 +437,12 @@ class HunterComponent extends Component {
         }
         //Iterate through array to update their class (to update green border color)
         for(let g = 0; g < spec3Req40Output.length; g++){
-          if(spec3Req40Output[g].className.includes("inactive-talent")){
+          if(spec3Req40Output[g].className.includes("inactive-talent") && !(spec3Req40Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req40Output[g].className.includes("maxeds"))){
             spec3Req40Output[g].className = "spec3 talentButton active-talent req-active";
+          }
+
+          if(spec3Req40Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec3();
           }
         }
       }
@@ -464,8 +455,12 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec3Req35Output.length; g++){
-          if(spec3Req35Output[g].className.includes("inactive-talent")){
+          if(spec3Req35Output[g].className.includes("inactive-talent") && !(spec3Req35Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req35Output[g].className.includes("maxeds"))){
             spec3Req35Output[g].className = "spec3 talentButton active-talent req-active";
+          }
+
+          if(spec3Req35Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec3();
           }
         }
       }
@@ -478,8 +473,11 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec3Req30Output.length; g++){
-          if(spec3Req30Output[g].className.includes("inactive-talent")){
+          if(spec3Req30Output[g].className.includes("inactive-talent") && !(spec3Req30Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req30Output[g].className.includes("maxeds"))){
             spec3Req30Output[g].className = "spec3 talentButton active-talent req-active";
+          }
+          if(spec3Req30Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec3();
           }
         }
       }
@@ -492,8 +490,11 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec3Req25Output.length; g++){
-          if(spec3Req25Output[g].className.includes("inactive-talent")){
+          if(spec3Req25Output[g].className.includes("inactive-talent") && !(spec3Req25Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req25Output[g].className.includes("maxeds"))){
             spec3Req25Output[g].className = "spec3 talentButton active-talent req-active";
+          }
+          if(spec3Req25Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec3();
           }
         }
       }
@@ -506,8 +507,12 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec3Req20Output.length; g++){
-          if(spec3Req20Output[g].className.includes("inactive-talent")){
+          if(spec3Req20Output[g].className.includes("inactive-talent") && !(spec3Req20Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req20Output[g].className.includes("maxeds"))){
             spec3Req20Output[g].className = "spec3 talentButton active-talent req-active";
+          }
+          
+          if(spec3Req20Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec3();
           }
         }
       }
@@ -520,8 +525,12 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec3Req15Output.length; g++){
-          if(spec3Req15Output[g].className.includes("inactive-talent")){
+          if(spec3Req15Output[g].className.includes("inactive-talent") && !(spec3Req15Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req15Output[g].className.includes("maxeds"))){
             spec3Req15Output[g].className = "spec3 talentButton active-talent req-active";
+          }
+
+          if(spec3Req15Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec3();
           }
         }
       }
@@ -534,8 +543,12 @@ class HunterComponent extends Component {
         }
         
         for(let g = 0; g < spec3Req10Output.length; g++){
-          if(spec3Req10Output[g].className.includes("inactive-talent")){
+          if(spec3Req10Output[g].className.includes("inactive-talent") && !(spec3Req10Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req10Output[g].className.includes("maxeds"))){
             spec3Req10Output[g].className = "spec3 talentButton active-talent req-active";
+          }
+
+          if(spec3Req10Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec3();
           }
         }
       }
@@ -548,8 +561,12 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req5Output)
         for(let g = 0; g < spec3Req5Output.length; g++){
-          if(spec3Req5Output[g].className.includes("inactive-talent")){
+          if(spec3Req5Output[g].className.includes("inactive-talent") && !(spec3Req5Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req5Output[g].className.includes("maxeds"))){
             spec3Req5Output[g].className = "spec3 talentButton active-talent req-active";
+          }
+
+          if(spec3Req5Output[g].nextElementSibling){
+            turnArrowGoldIndirectlySpec3();
           }
         }
       }
@@ -792,7 +809,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req40Output)
         for(let g = 0; g < spec3Req40Output.length; g++){
-          if(spec3Req40Output[g].className.includes("active-talent")){
+          if(spec3Req40Output[g].className.includes("inactive-talent") && !(spec3Req40Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req40Output[g].className.includes("maxeds"))){
             spec3Req40Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -806,7 +823,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req35Output)
         for(let g = 0; g < spec3Req35Output.length; g++){
-          if(spec3Req35Output[g].className.includes("active-talent")){
+          if(spec3Req35Output[g].className.includes("inactive-talent") && !(spec3Req35Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req35Output[g].className.includes("maxeds"))){
             spec3Req35Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -820,7 +837,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req30Output)
         for(let g = 0; g < spec3Req30Output.length; g++){
-          if(spec3Req30Output[g].className.includes("active-talent")){
+          if(spec3Req30Output[g].className.includes("inactive-talent") && !(spec3Req30Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req30Output[g].className.includes("maxeds"))){
             spec3Req30Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -834,7 +851,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req25Output)
         for(let g = 0; g < spec3Req25Output.length; g++){
-          if(spec3Req25Output[g].className.includes("active-talent")){
+          if(spec3Req25Output[g].className.includes("inactive-talent") && !(spec3Req25Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req25Output[g].className.includes("maxeds"))){
             spec3Req25Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -848,7 +865,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req20Output)
         for(let g = 0; g < spec3Req20Output.length; g++){
-          if(spec3Req20Output[g].className.includes("active-talent")){
+          if(spec3Req20Output[g].className.includes("inactive-talent") && !(spec3Req20Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req20Output[g].className.includes("maxeds"))){
             spec3Req20Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -862,7 +879,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req15Output)
         for(let g = 0; g < spec3Req15Output.length; g++){
-          if(spec3Req15Output[g].className.includes("active-talent")){
+          if(spec3Req15Output[g].className.includes("inactive-talent") && !(spec3Req15Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req15Output[g].className.includes("maxeds"))){
             spec3Req15Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -876,7 +893,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req10Output)
         for(let g = 0; g < spec3Req10Output.length; g++){
-          if(spec3Req10Output[g].className.includes("active-talent")){
+          if(spec3Req10Output[g].className.includes("inactive-talent") && !(spec3Req10Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req10Output[g].className.includes("maxeds"))){
             spec3Req10Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -890,7 +907,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req5Output)
         for(let g = 0; g < spec3Req5Output.length; g++){
-          if(spec3Req5Output[g].className.includes("active-talent")){
+          if(spec3Req5Output[g].className.includes("inactive-talent") && !(spec3Req5Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req5Output[g].className.includes("maxeds"))){
             spec3Req5Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -946,8 +963,15 @@ class HunterComponent extends Component {
                 window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownGold.png"
               }
             }
+            
+            /* 
+            
+            let newStr = "talentPoints req-25-s1"
+            let altStr;
+            altStr = newStr.match(/\d+/g);
+            */
 
-            if(document.getElementById("prioReq1Spec1").previousElementSibling.className.includes("req-inactive") && i >=25){
+            if(document.getElementById("prioReq1Spec1").previousElementSibling.className.includes("req-inactive") && iSpec1 >= document.getElementById("prioReq1Spec1").className){
               document.getElementById("prioReq1Spec1").previousElementSibling.className = "spec1 talentButton active-talent req-active";
               if(arrowChecker.includes("sm")){
                 window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownGoldSmall.png"
@@ -1896,7 +1920,9 @@ class HunterComponent extends Component {
           if(spec2Req5Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
             //applying this class name enables the button and gives green border
-            spec2Req5Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req5Output[g].className.includes("maxeds")){
+              spec2Req5Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq1Spec2");
             //switch determines class name of arrow, and replaces it with gold equivalent
@@ -1918,7 +1944,9 @@ class HunterComponent extends Component {
 
           if(spec2Req5Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req5Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req5Output[g].className.includes("maxeds")){
+              spec2Req5Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq2Spec2");
             
@@ -1940,7 +1968,9 @@ class HunterComponent extends Component {
 
           if(spec2Req5Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req5Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req5Output[g].className.includes("maxeds")){
+              spec2Req5Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq3Spec2");
             
@@ -1961,7 +1991,9 @@ class HunterComponent extends Component {
           }
           if(spec2Req5Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req5Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req5Output[g].className.includes("maxeds")){
+              spec2Req5Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq4Spec2");
             
@@ -1993,7 +2025,9 @@ class HunterComponent extends Component {
         if(spec2Req10Output[g].nextElementSibling){
           if(spec2Req10Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req10Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req10Output[g].className.includes("maxeds")){
+              spec2Req10Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq1Spec2");
             
@@ -2015,7 +2049,9 @@ class HunterComponent extends Component {
 
           if(spec2Req10Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req10Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req10Output[g].className.includes("maxeds")){
+              spec2Req10Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq2Spec2");
             
@@ -2037,7 +2073,9 @@ class HunterComponent extends Component {
 
           if(spec2Req10Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req10Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req10Output[g].className.includes("maxeds")){
+              spec2Req10Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq3Spec2");
             
@@ -2058,7 +2096,9 @@ class HunterComponent extends Component {
           }
           if(spec2Req10Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req10Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req10Output[g].className.includes("maxeds")){
+              spec2Req10Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq4Spec2");
             
@@ -2090,7 +2130,9 @@ class HunterComponent extends Component {
         if(spec2Req15Output[g].nextElementSibling){
           if(spec2Req15Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req15Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req15Output[g].className.includes("maxeds")){
+              spec2Req15Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq1Spec2");
             
@@ -2112,7 +2154,9 @@ class HunterComponent extends Component {
 
           if(spec2Req15Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req15Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req15Output[g].className.includes("maxeds")){
+              spec2Req15Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq2Spec2");
             
@@ -2134,7 +2178,9 @@ class HunterComponent extends Component {
 
           if(spec2Req15Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req15Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req15Output[g].className.includes("maxeds")){
+              spec2Req15Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq3Spec2");
             
@@ -2155,7 +2201,9 @@ class HunterComponent extends Component {
           }
           if(spec2Req15Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req15Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req15Output[g].className.includes("maxeds")){
+              spec2Req15Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq4Spec2");
             
@@ -2187,7 +2235,9 @@ class HunterComponent extends Component {
         if(spec2Req20Output[g].nextElementSibling){
           if(spec2Req20Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req20Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req20Output[g].className.includes("maxeds")){
+              spec2Req20Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq1Spec2");
             
@@ -2209,7 +2259,9 @@ class HunterComponent extends Component {
 
           if(spec2Req20Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req20Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req20Output[g].className.includes("maxeds")){
+              spec2Req20Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq2Spec2");
             
@@ -2231,7 +2283,9 @@ class HunterComponent extends Component {
 
           if(spec2Req20Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req20Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req20Output[g].className.includes("maxeds")){
+              spec2Req20Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq3Spec2");
             
@@ -2252,7 +2306,9 @@ class HunterComponent extends Component {
           }
           if(spec2Req20Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req20Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req20Output[g].className.includes("maxeds")){
+              spec2Req20Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq4Spec2");
             
@@ -2284,7 +2340,9 @@ class HunterComponent extends Component {
           if(spec2Req25Output[g].nextElementSibling){
             if(spec2Req25Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
               console.log("The arrow above me should be gold")
-              spec2Req25Output[g].className = "spec2 talentButton active-talent req-active";
+              if(!spec2Req25Output[g].className.includes("maxeds")){
+                spec2Req25Output[g].className = "spec2 talentButton active-talent req-active";
+                }
               let arrow;
               arrow = document.getElementById("arrwReq1Spec2");
               
@@ -2306,7 +2364,9 @@ class HunterComponent extends Component {
 
             if(spec2Req25Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
               console.log("The arrow above me should be gold")
-              spec2Req25Output[g].className = "spec2 talentButton active-talent req-active";
+              if(!spec2Req25Output[g].className.includes("maxeds")){
+                spec2Req25Output[g].className = "spec2 talentButton active-talent req-active";
+                }
               let arrow;
               arrow = document.getElementById("arrwReq2Spec2");
               
@@ -2328,7 +2388,9 @@ class HunterComponent extends Component {
 
             if(spec2Req25Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
               console.log("The arrow above me should be gold")
-              spec2Req25Output[g].className = "spec2 talentButton active-talent req-active";
+              if(!spec2Req25Output[g].className.includes("maxeds")){
+                spec2Req25Output[g].className = "spec2 talentButton active-talent req-active";
+                }
               let arrow;
               arrow = document.getElementById("arrwReq3Spec2");
               
@@ -2349,7 +2411,9 @@ class HunterComponent extends Component {
             }
             if(spec2Req25Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
               console.log("The arrow above me should be gold")
-              spec2Req25Output[g].className = "spec2 talentButton active-talent req-active";
+              if(!spec2Req25Output[g].className.includes("maxeds")){
+                spec2Req25Output[g].className = "spec2 talentButton active-talent req-active";
+                }
               let arrow;
               arrow = document.getElementById("arrwReq4Spec2");
               
@@ -2381,7 +2445,10 @@ class HunterComponent extends Component {
         if(spec2Req30Output[g].nextElementSibling){
           if(spec2Req30Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req30Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req30Output[g].className.includes("maxeds")){
+              spec2Req30Output[g].className = "spec2 talentButton active-talent req-active";
+              }
+
             let arrow;
             arrow = document.getElementById("arrwReq1Spec2");
             
@@ -2403,7 +2470,10 @@ class HunterComponent extends Component {
 
           if(spec2Req30Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req30Output[g].className = "spec2 talentButton active-talent req-active";
+            
+            if(!spec2Req30Output[g].className.includes("maxeds")){
+              spec2Req30Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq2Spec2");
             
@@ -2425,7 +2495,9 @@ class HunterComponent extends Component {
 
           if(spec2Req30Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req30Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req30Output[g].className.includes("maxeds")){
+              spec2Req30Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq3Spec2");
             
@@ -2446,7 +2518,9 @@ class HunterComponent extends Component {
           }
           if(spec2Req30Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req30Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req30Output[g].className.includes("maxeds")){
+              spec2Req30Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq4Spec2");
             
@@ -2476,7 +2550,9 @@ class HunterComponent extends Component {
             if(spec2Req35Output[g].nextElementSibling){
               if(spec2Req35Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
                 console.log("The arrow above me should be gold")
-                spec2Req35Output[g].className = "spec2 talentButton active-talent req-active";
+                if(!spec2Req35Output[g].className.includes("maxeds")){
+                  spec2Req35Output[g].className = "spec2 talentButton active-talent req-active";
+                  }
                 let arrow;
                 arrow = document.getElementById("arrwReq1Spec2");
                 
@@ -2498,7 +2574,9 @@ class HunterComponent extends Component {
   
               if(spec2Req35Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
                 console.log("The arrow above me should be gold")
-                spec2Req35Output[g].className = "spec2 talentButton active-talent req-active";
+                if(!spec2Req35Output[g].className.includes("maxeds")){
+                  spec2Req35Output[g].className = "spec2 talentButton active-talent req-active";
+                  }
                 let arrow;
                 arrow = document.getElementById("arrwReq2Spec2");
                 
@@ -2520,7 +2598,9 @@ class HunterComponent extends Component {
   
               if(spec2Req35Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
                 console.log("The arrow above me should be gold")
-                spec2Req35Output[g].className = "spec2 talentButton active-talent req-active";
+                if(!spec2Req35Output[g].className.includes("maxeds")){
+                  spec2Req35Output[g].className = "spec2 talentButton active-talent req-active";
+                  }
                 let arrow;
                 arrow = document.getElementById("arrwReq3Spec2");
                 
@@ -2541,7 +2621,9 @@ class HunterComponent extends Component {
               }
               if(spec2Req35Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
                 console.log("The arrow above me should be gold")
-                spec2Req35Output[g].className = "spec2 talentButton active-talent req-active";
+                if(!spec2Req35Output[g].className.includes("maxeds")){
+                  spec2Req35Output[g].className = "spec2 talentButton active-talent req-active";
+                  }
                 let arrow;
                 arrow = document.getElementById("arrwReq4Spec2");
                 
@@ -2571,7 +2653,9 @@ class HunterComponent extends Component {
         if(spec2Req40Output[g].nextElementSibling){
           if(spec2Req40Output[g].nextElementSibling.id.includes("prioReq1Spec2") && document.querySelector('[id*="subsReq1Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req40Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req40Output[g].className.includes("maxeds")){
+              spec2Req40Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq1Spec2");
             
@@ -2593,7 +2677,9 @@ class HunterComponent extends Component {
 
           if(spec2Req40Output[g].nextElementSibling.id.includes("prioReq2Spec2") && document.querySelector('[id*="subsReq2Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req40Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req40Output[g].className.includes("maxeds")){
+              spec2Req40Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq2Spec2");
             
@@ -2615,7 +2701,9 @@ class HunterComponent extends Component {
 
           if(spec2Req40Output[g].nextElementSibling.id.includes("prioReq3Spec2") && document.querySelector('[id*="subsReq3Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec2Req40Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req40Output[g].className.includes("maxeds")){
+              spec2Req40Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq3Spec2");
             
@@ -2637,7 +2725,9 @@ class HunterComponent extends Component {
           if(spec2Req40Output[g].nextElementSibling.id.includes("prioReq4Spec2") && document.querySelector('[id*="subsReq4Spec2"]').previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
             console.log("yo yo, what's up")
-            spec2Req40Output[g].className = "spec2 talentButton active-talent req-active";
+            if(!spec2Req40Output[g].className.includes("maxeds")){
+              spec2Req40Output[g].className = "spec2 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq4Spec2");
             
@@ -2698,7 +2788,9 @@ class HunterComponent extends Component {
           if(spec3Req5Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
             //applying this class name enables the button and gives green border
-            spec3Req5Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req5Output[g].className.includes("maxeds")){
+              spec3Req5Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq1Spec3");
             //switch determines class name of arrow, and replaces it with gold equivalent
@@ -2720,7 +2812,9 @@ class HunterComponent extends Component {
 
           if(spec3Req5Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req5Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req5Output[g].className.includes("maxeds")){
+              spec3Req5Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq2Spec3");
             
@@ -2742,7 +2836,9 @@ class HunterComponent extends Component {
 
           if(spec3Req5Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req5Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req5Output[g].className.includes("maxeds")){
+              spec3Req5Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq3Spec3");
             
@@ -2763,7 +2859,9 @@ class HunterComponent extends Component {
           }
           if(spec3Req5Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req5Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req5Output[g].className.includes("maxeds")){
+              spec3Req5Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq4Spec3");
             
@@ -2795,7 +2893,9 @@ class HunterComponent extends Component {
         if(spec3Req10Output[g].nextElementSibling){
           if(spec3Req10Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req10Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req10Output[g].className.includes("maxeds")){
+              spec3Req10Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq1Spec3");
             
@@ -2817,7 +2917,9 @@ class HunterComponent extends Component {
 
           if(spec3Req10Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req10Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req10Output[g].className.includes("maxeds")){
+              spec3Req10Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq2Spec3");
             
@@ -2839,7 +2941,9 @@ class HunterComponent extends Component {
 
           if(spec3Req10Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req10Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req10Output[g].className.includes("maxeds")){
+              spec3Req10Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq3Spec3");
             
@@ -2860,7 +2964,9 @@ class HunterComponent extends Component {
           }
           if(spec3Req10Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req10Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req10Output[g].className.includes("maxeds")){
+              spec3Req10Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq4Spec3");
             
@@ -2892,7 +2998,9 @@ class HunterComponent extends Component {
         if(spec3Req15Output[g].nextElementSibling){
           if(spec3Req15Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req15Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req15Output[g].className.includes("maxeds")){
+              spec3Req15Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq1Spec3");
             
@@ -2914,7 +3022,9 @@ class HunterComponent extends Component {
 
           if(spec3Req15Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req15Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req15Output[g].className.includes("maxeds")){
+              spec3Req15Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq2Spec3");
             
@@ -2936,7 +3046,9 @@ class HunterComponent extends Component {
 
           if(spec3Req15Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req15Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req15Output[g].className.includes("maxeds")){
+              spec3Req15Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq3Spec3");
             
@@ -2957,7 +3069,9 @@ class HunterComponent extends Component {
           }
           if(spec3Req15Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req15Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req15Output[g].className.includes("maxeds")){
+              spec3Req15Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq4Spec3");
             
@@ -2989,7 +3103,9 @@ class HunterComponent extends Component {
         if(spec3Req20Output[g].nextElementSibling){
           if(spec3Req20Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req20Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req20Output[g].className.includes("maxeds")){
+              spec3Req20Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq1Spec3");
             
@@ -3011,7 +3127,9 @@ class HunterComponent extends Component {
 
           if(spec3Req20Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req20Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req20Output[g].className.includes("maxeds")){
+              spec3Req20Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq2Spec3");
             
@@ -3033,7 +3151,9 @@ class HunterComponent extends Component {
 
           if(spec3Req20Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req20Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req20Output[g].className.includes("maxeds")){
+              spec3Req20Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq3Spec3");
             
@@ -3054,7 +3174,9 @@ class HunterComponent extends Component {
           }
           if(spec3Req20Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req20Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req20Output[g].className.includes("maxeds")){
+              spec3Req20Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq4Spec3");
             
@@ -3086,7 +3208,9 @@ class HunterComponent extends Component {
           if(spec3Req25Output[g].nextElementSibling){
             if(spec3Req25Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
               console.log("The arrow above me should be gold")
-              spec3Req25Output[g].className = "spec3 talentButton active-talent req-active";
+              if(!spec3Req25Output[g].className.includes("maxeds")){
+                spec3Req25Output[g].className = "spec3 talentButton active-talent req-active";
+                }
               let arrow;
               arrow = document.getElementById("arrwReq1Spec3");
               
@@ -3108,7 +3232,9 @@ class HunterComponent extends Component {
 
             if(spec3Req25Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
               console.log("The arrow above me should be gold")
-              spec3Req25Output[g].className = "spec3 talentButton active-talent req-active";
+              if(!spec3Req25Output[g].className.includes("maxeds")){
+                spec3Req25Output[g].className = "spec3 talentButton active-talent req-active";
+                }
               let arrow;
               arrow = document.getElementById("arrwReq2Spec3");
               
@@ -3130,7 +3256,9 @@ class HunterComponent extends Component {
 
             if(spec3Req25Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
               console.log("The arrow above me should be gold")
-              spec3Req25Output[g].className = "spec3 talentButton active-talent req-active";
+              if(!spec3Req25Output[g].className.includes("maxeds")){
+                spec3Req25Output[g].className = "spec3 talentButton active-talent req-active";
+                }
               let arrow;
               arrow = document.getElementById("arrwReq3Spec3");
               
@@ -3151,7 +3279,9 @@ class HunterComponent extends Component {
             }
             if(spec3Req25Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
               console.log("The arrow above me should be gold")
-              spec3Req25Output[g].className = "spec3 talentButton active-talent req-active";
+              if(!spec3Req25Output[g].className.includes("maxeds")){
+                spec3Req25Output[g].className = "spec3 talentButton active-talent req-active";
+                }
               let arrow;
               arrow = document.getElementById("arrwReq4Spec3");
               
@@ -3183,7 +3313,9 @@ class HunterComponent extends Component {
         if(spec3Req30Output[g].nextElementSibling){
           if(spec3Req30Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req30Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req30Output[g].className.includes("maxeds")){
+              spec3Req30Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq1Spec3");
             
@@ -3205,7 +3337,9 @@ class HunterComponent extends Component {
 
           if(spec3Req30Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req30Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req30Output[g].className.includes("maxeds")){
+              spec3Req30Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq2Spec3");
             
@@ -3227,7 +3361,9 @@ class HunterComponent extends Component {
 
           if(spec3Req30Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req30Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req30Output[g].className.includes("maxeds")){
+              spec3Req30Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq3Spec3");
             
@@ -3248,7 +3384,9 @@ class HunterComponent extends Component {
           }
           if(spec3Req30Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req30Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req30Output[g].className.includes("maxeds")){
+              spec3Req30Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq4Spec3");
             
@@ -3278,7 +3416,9 @@ class HunterComponent extends Component {
             if(spec3Req35Output[g].nextElementSibling){
               if(spec3Req35Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
                 console.log("The arrow above me should be gold")
-                spec3Req35Output[g].className = "spec3 talentButton active-talent req-active";
+                if(!spec3Req35Output[g].className.includes("maxeds")){
+                  spec3Req35Output[g].className = "spec3 talentButton active-talent req-active";
+                  }
                 let arrow;
                 arrow = document.getElementById("arrwReq1Spec3");
                 
@@ -3300,7 +3440,9 @@ class HunterComponent extends Component {
   
               if(spec3Req35Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
                 console.log("The arrow above me should be gold")
-                spec3Req35Output[g].className = "spec3 talentButton active-talent req-active";
+                if(!spec3Req35Output[g].className.includes("maxeds")){
+                  spec3Req35Output[g].className = "spec3 talentButton active-talent req-active";
+                  }
                 let arrow;
                 arrow = document.getElementById("arrwReq2Spec3");
                 
@@ -3322,7 +3464,9 @@ class HunterComponent extends Component {
   
               if(spec3Req35Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
                 console.log("The arrow above me should be gold")
-                spec3Req35Output[g].className = "spec3 talentButton active-talent req-active";
+                if(!spec3Req35Output[g].className.includes("maxeds")){
+                  spec3Req35Output[g].className = "spec3 talentButton active-talent req-active";
+                  }
                 let arrow;
                 arrow = document.getElementById("arrwReq3Spec3");
                 
@@ -3343,7 +3487,9 @@ class HunterComponent extends Component {
               }
               if(spec3Req35Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
                 console.log("The arrow above me should be gold")
-                spec3Req35Output[g].className = "spec3 talentButton active-talent req-active";
+                if(!spec3Req35Output[g].className.includes("maxeds")){
+                  spec3Req35Output[g].className = "spec3 talentButton active-talent req-active";
+                  }
                 let arrow;
                 arrow = document.getElementById("arrwReq4Spec3");
                 
@@ -3373,7 +3519,9 @@ class HunterComponent extends Component {
         if(spec3Req40Output[g].nextElementSibling){
           if(spec3Req40Output[g].nextElementSibling.id.includes("prioReq1Spec3") && document.getElementById("subsReq1Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req40Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req40Output[g].className.includes("maxeds")){
+              spec3Req40Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq1Spec3");
             
@@ -3395,7 +3543,9 @@ class HunterComponent extends Component {
 
           if(spec3Req40Output[g].nextElementSibling.id.includes("prioReq2Spec3") && document.getElementById("subsReq2Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req40Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req40Output[g].className.includes("maxeds")){
+              spec3Req40Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq2Spec3");
             
@@ -3417,7 +3567,9 @@ class HunterComponent extends Component {
 
           if(spec3Req40Output[g].nextElementSibling.id.includes("prioReq3Spec3") && document.getElementById("subsReq3Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req40Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req40Output[g].className.includes("maxeds")){
+              spec3Req40Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq3Spec3");
             
@@ -3438,7 +3590,9 @@ class HunterComponent extends Component {
           }
           if(spec3Req40Output[g].nextElementSibling.id.includes("prioReq4Spec3") && document.getElementById("subsReq4Spec3").previousElementSibling.className.includes("maxeds")){
             console.log("The arrow above me should be gold")
-            spec3Req40Output[g].className = "spec3 talentButton active-talent req-active";
+            if(!spec3Req40Output[g].className.includes("maxeds")){
+              spec3Req40Output[g].className = "spec3 talentButton active-talent req-active";
+              }
             let arrow;
             arrow = document.getElementById("arrwReq4Spec3");
             
