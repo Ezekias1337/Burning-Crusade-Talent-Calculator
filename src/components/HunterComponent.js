@@ -15,11 +15,6 @@ import React, { Component } from "react";
     arrow color (in talent click function)
 */
 
-/* 
-    bug 3
-    reset Button does not reset arrow colors to silver
-*/
-
 let i = 0;
 let iSpec1 = 0;
 let iSpec2 = 0;
@@ -803,7 +798,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req40Output)
         for(let g = 0; g < spec3Req40Output.length; g++){
-          if(spec3Req40Output[g].className.includes("inactive-talent") && !(spec3Req40Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req40Output[g].className.includes("maxeds"))){
+          if(spec3Req40Output[g].className.includes("active-talent")){
             spec3Req40Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -817,7 +812,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req35Output)
         for(let g = 0; g < spec3Req35Output.length; g++){
-          if(spec3Req35Output[g].className.includes("inactive-talent") && !(spec3Req35Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req35Output[g].className.includes("maxeds"))){
+          if(spec3Req35Output[g].className.includes("active-talent")){
             spec3Req35Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -831,7 +826,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req30Output)
         for(let g = 0; g < spec3Req30Output.length; g++){
-          if(spec3Req30Output[g].className.includes("inactive-talent") && !(spec3Req30Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req30Output[g].className.includes("maxeds"))){
+          if(spec3Req30Output[g].className.includes("active-talent")){
             spec3Req30Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -845,7 +840,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req25Output)
         for(let g = 0; g < spec3Req25Output.length; g++){
-          if(spec3Req25Output[g].className.includes("inactive-talent") && !(spec3Req25Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req25Output[g].className.includes("maxeds"))){
+          if(spec3Req25Output[g].className.includes("active-talent")){
             spec3Req25Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -859,7 +854,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req20Output)
         for(let g = 0; g < spec3Req20Output.length; g++){
-          if(spec3Req20Output[g].className.includes("inactive-talent") && !(spec3Req20Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req20Output[g].className.includes("maxeds"))){
+          if(spec3Req20Output[g].className.includes("active-talent")){
             spec3Req20Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -873,7 +868,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req15Output)
         for(let g = 0; g < spec3Req15Output.length; g++){
-          if(spec3Req15Output[g].className.includes("inactive-talent") && !(spec3Req15Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req15Output[g].className.includes("maxeds"))){
+          if(spec3Req15Output[g].className.includes("active-talent")){
             spec3Req15Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -887,7 +882,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req10Output)
         for(let g = 0; g < spec3Req10Output.length; g++){
-          if(spec3Req10Output[g].className.includes("inactive-talent") && !(spec3Req10Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req10Output[g].className.includes("maxeds"))){
+          if(spec3Req10Output[g].className.includes("active-talent")){
             spec3Req10Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -901,7 +896,7 @@ class HunterComponent extends Component {
         }
         console.log(spec3Req5Output)
         for(let g = 0; g < spec3Req5Output.length; g++){
-          if(spec3Req5Output[g].className.includes("inactive-talent") && !(spec3Req5Output[g].nextElementSibling.id.includes("prioReq")) && !(spec3Req5Output[g].className.includes("maxeds"))){
+          if(spec3Req5Output[g].className.includes("active-talent")){
             spec3Req5Output[g].className = "spec3 talentButton inactive-talent req-inactive";
           }
         }
@@ -4893,16 +4888,19 @@ class HunterComponent extends Component {
                     if(specString[4] === "1"){
                         console.log("Point taken back Spec 1");
                         iSpec1 = iSpec1 - 1;
+                        removeGreenBorderSpec1();
                         console.log(`iSpec1: ${iSpec1}`)
                         document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
                     } else if(specString[4] === "2"){
                         console.log("Point taken back Spec 2");
                         iSpec2 = iSpec2 - 1;
+                        removeGreenBorderSpec2();
                         console.log(`iSpec2: ${iSpec2}`)
                         document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
                     } else if(specString[4] === "3"){
                         console.log("Point taken back Spec 3");
                         iSpec3 = iSpec3 - 1;
+                        removeGreenBorderSpec3();
                         console.log(`iSpec3: ${iSpec3}`)
                         document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
                     }
@@ -4929,16 +4927,19 @@ class HunterComponent extends Component {
                     if(specString[4] === "1"){
                         console.log("Point taken back Spec 1");
                         iSpec1 = iSpec1 - 1;
+                        removeGreenBorderSpec1();
                         console.log(`iSpec1: ${iSpec1}`)
                         document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
                     } else if(specString[4] === "2"){
                         console.log("Point taken back Spec 2");
                         iSpec2 = iSpec2 - 1;
+                        removeGreenBorderSpec2();
                         console.log(`iSpec2: ${iSpec2}`)
                         document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
                     } else if(specString[4] === "3"){
                         console.log("Point taken back Spec 3");
                         iSpec3 = iSpec3 - 1;
+                        removeGreenBorderSpec3();
                         console.log(`iSpec3: ${iSpec3}`)
                         document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
                     }
@@ -4963,16 +4964,19 @@ class HunterComponent extends Component {
                     if(specString[4] === "1"){
                         console.log("Point taken back Spec 1");
                         iSpec1 = iSpec1 - 1;
+                        removeGreenBorderSpec1();
                         console.log(`iSpec1: ${iSpec1}`)
                         document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
                     } else if(specString[4] === "2"){
                         console.log("Point taken back Spec 2");
                         iSpec2 = iSpec2 - 1;
+                        removeGreenBorderSpec2();
                         console.log(`iSpec2: ${iSpec2}`)
                         document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
                     } else if(specString[4] === "3"){
                         console.log("Point taken back Spec 3");
                         iSpec3 = iSpec3 - 1;
+                        removeGreenBorderSpec3();
                         console.log(`iSpec3: ${iSpec3}`)
                         document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
                     }
@@ -4997,16 +5001,19 @@ class HunterComponent extends Component {
                     if(specString[4] === "1"){
                         console.log("Point taken back Spec 1");
                         iSpec1 = iSpec1 - 1;
+                        removeGreenBorderSpec1();
                         console.log(`iSpec1: ${iSpec1}`)
                         document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
                     } else if(specString[4] === "2"){
                         console.log("Point taken back Spec 2");
                         iSpec2 = iSpec2 - 1;
+                        removeGreenBorderSpec2();
                         console.log(`iSpec2: ${iSpec2}`)
                         document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
                     } else if(specString[4] === "3"){
                         console.log("Point taken back Spec 3");
                         iSpec3 = iSpec3 - 1;
+                        removeGreenBorderSpec3();
                         console.log(`iSpec3: ${iSpec3}`)
                         document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
                     }
@@ -5035,16 +5042,19 @@ class HunterComponent extends Component {
                     if(specString[4] === "1"){
                         console.log("Point taken back Spec 1");
                         iSpec1 = iSpec1 - 1;
+                        removeGreenBorderSpec1();
                         console.log(`iSpec1: ${iSpec1}`)
                         document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
                     } else if(specString[4] === "2"){
                         console.log("Point taken back Spec 2");
                         iSpec2 = iSpec2 - 1;
+                        removeGreenBorderSpec2();
                         console.log(`iSpec2: ${iSpec2}`)
                         document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
                     } else if(specString[4] === "3"){
                         console.log("Point taken back Spec 3");
                         iSpec3 = iSpec3 - 1;
+                        removeGreenBorderSpec3();
                         console.log(`iSpec3: ${iSpec3}`)
                         document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
                     }
@@ -5574,7 +5584,7 @@ class HunterComponent extends Component {
             <div className="col-sm-3"></div>
             <div className="col-sm-6" style={{ color: "#e1eef4"}}>
                 <h5 style={{ color: "#e1eef4", left: "50%" }}>
-                    Points Spent: 
+                    Points Spent: 
                 </h5>
                 <h5 id="total-points" style={{ color: "#e1eef4" }}>
                     0
@@ -5590,17 +5600,17 @@ class HunterComponent extends Component {
         <div style={{ maxWidth: "1150px" }} className="row">
           <div className="col">
             <h5 style={{ color: "#e1eef4" }} id="point-counter1">
-              Spec 1: 0 
+              Spec 1: 0 
             </h5>
           </div>
           <div className="col">
             <h5 style={{ color: "#e1eef4" }} id="point-counter2">
-              Spec 2: 0
+              Spec 2: 0
             </h5>
           </div>
           <div className="col">
             <h5 style={{ color: "#e1eef4" }} id="point-counter3">
-              Spec 3: 0
+              Spec 3: 0
             </h5>
           </div>
         </div>
