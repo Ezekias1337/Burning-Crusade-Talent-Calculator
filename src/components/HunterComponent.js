@@ -5631,7 +5631,8 @@ class HunterComponent extends Component {
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img 
-
+                  onTouchMove={this.displayMouseOverlayInnerElement}
+                  onTouchEnd={this.hideMouseOverlayInnerElement}
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
@@ -5640,6 +5641,8 @@ class HunterComponent extends Component {
                   style={{display: "none"}}
                 />
                 <img
+                  onTouchMove={this.displayMouseOverlay}
+                  onTouchEnd={this.hideMouseOverlay}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
