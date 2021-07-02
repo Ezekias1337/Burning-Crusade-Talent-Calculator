@@ -2,15 +2,8 @@ import { contains } from "jquery";
 import React, { Component } from "react";
 
 
-
 /* 
-    bug  1
-    when clicking on talent that is maxed out, if one point away from threshold,
-    talent buttons in new point threshold become active (in talent click function)
-*/
-
-/* 
-    bug 2
+    bug:
     right clicking and setting button to inactive doesn't revert
     arrow color (in talent click function)
 */
@@ -562,10 +555,61 @@ class HunterComponent extends Component {
     }
 
     function removeGreenBorderSpec1(){
+      let arrowSrc;
+      let arrowSrcSize;
+      let spanID;
+
+      function idMatcherParse(){
+        
+        if(spanID.includes("prioReq1Spec1")){
+          arrowSrc = document.getElementById("arrwReq1Spec1");
+        } else if(spanID.includes("prioReq2Spec1")){
+          arrowSrc = document.getElementById("arrwReq2Spec1");
+        } else if(spanID.includes("prioReq3Spec1")){
+          arrowSrc = document.getElementById("arrwReq3Spec1");
+        } else if(spanID.includes("prioReq4Spec1")){
+          arrowSrc = document.getElementById("arrwReq4Spec1");
+        }
+      }
+
+      function arrowSizeParse(){
+        if (arrowSrc.src.includes("Small")){
+          arrowSrcSize = "sm";
+        } else if (arrowSrc.src.includes("Medium")){
+          arrowSrcSize = "med";
+        } else if (arrowSrc.src.includes("Large")){
+          arrowSrcSize = "lg";
+        }
+
+        switch(arrowSrcSize){
+
+          case "sm":
+            arrowSrc.src = "assets/images/DownSilverSmall.png"
+            break;
+
+          case "med":
+            
+            arrowSrc.src = "assets/images/DownSilverMedium.png"
+            break;
+
+          case "lg":
+            arrowSrc.src = "assets/images/DownSilverLarge.png"
+            break;
+
+        }
+
+      }
+      
+      
       if(iSpec1 < 40){
         spec1Req40 = document.getElementsByClassName("req-40-s1");
         
         for(let g = 0; g < spec1Req40.length; g++){
+          if(spec1Req40[g].id){
+            spanID = spec1Req40[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec1Req40Output.push(spec1Req40[g].previousElementSibling) 
         }
         console.log(spec1Req40Output)
@@ -580,6 +624,11 @@ class HunterComponent extends Component {
         spec1Req35 = document.getElementsByClassName("req-35-s1");
         
         for(let g = 0; g < spec1Req35.length; g++){
+          if(spec1Req35[g].id){
+            spanID = spec1Req35[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec1Req35Output.push(spec1Req35[g].previousElementSibling) 
         }
         console.log(spec1Req35Output)
@@ -594,6 +643,11 @@ class HunterComponent extends Component {
         spec1Req30 = document.getElementsByClassName("req-30-s1");
         
         for(let g = 0; g < spec1Req30.length; g++){
+          if(spec1Req30[g].id){
+            spanID = spec1Req30[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec1Req30Output.push(spec1Req30[g].previousElementSibling) 
         }
         console.log(spec1Req30Output)
@@ -608,6 +662,11 @@ class HunterComponent extends Component {
         spec1Req25 = document.getElementsByClassName("req-25-s1");
         
         for(let g = 0; g < spec1Req25.length; g++){
+          if(spec1Req25[g].id){
+            spanID = spec1Req25[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec1Req25Output.push(spec1Req25[g].previousElementSibling) 
         }
         console.log(spec1Req25Output)
@@ -622,6 +681,11 @@ class HunterComponent extends Component {
         spec1Req20 = document.getElementsByClassName("req-20-s1");
         
         for(let g = 0; g < spec1Req20.length; g++){
+          if(spec1Req20[g].id){
+            spanID = spec1Req20[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec1Req20Output.push(spec1Req20[g].previousElementSibling) 
         }
         console.log(spec1Req20Output)
@@ -636,6 +700,11 @@ class HunterComponent extends Component {
         spec1Req15 = document.getElementsByClassName("req-15-s1");
         
         for(let g = 0; g < spec1Req15.length; g++){
+          if(spec1Req15[g].id){
+            spanID = spec1Req15[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec1Req15Output.push(spec1Req15[g].previousElementSibling) 
         }
         console.log(spec1Req15Output)
@@ -650,6 +719,11 @@ class HunterComponent extends Component {
         spec1Req10 = document.getElementsByClassName("req-10-s1");
         
         for(let g = 0; g < spec1Req10.length; g++){
+          if(spec1Req10[g].id){
+            spanID = spec1Req10[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec1Req10Output.push(spec1Req10[g].previousElementSibling) 
         }
         console.log(spec1Req10Output)
@@ -664,6 +738,11 @@ class HunterComponent extends Component {
         spec1Req5 = document.getElementsByClassName("req-05-s1");
         
         for(let g = 0; g < spec1Req5.length; g++){
+          if(spec1Req5[g].id){
+            spanID = spec1Req5[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec1Req5Output.push(spec1Req5[g].previousElementSibling) 
         }
         console.log(spec1Req5Output)
@@ -676,10 +755,60 @@ class HunterComponent extends Component {
     }
 
     function removeGreenBorderSpec2(){
+      let arrowSrc;
+      let arrowSrcSize;
+      let spanID;
+
+      function idMatcherParse(){
+        
+        if(spanID.includes("prioReq1Spec2")){
+          arrowSrc = document.getElementById("arrwReq1Spec2");
+        } else if(spanID.includes("prioReq2Spec2")){
+          arrowSrc = document.getElementById("arrwReq2Spec2");
+        } else if(spanID.includes("prioReq3Spec2")){
+          arrowSrc = document.getElementById("arrwReq3Spec2");
+        } else if(spanID.includes("prioReq4Spec2")){
+          arrowSrc = document.getElementById("arrwReq4Spec2");
+        }
+      }
+
+      function arrowSizeParse(){
+        if (arrowSrc.src.includes("Small")){
+          arrowSrcSize = "sm";
+        } else if (arrowSrc.src.includes("Medium")){
+          arrowSrcSize = "med";
+        } else if (arrowSrc.src.includes("Large")){
+          arrowSrcSize = "lg";
+        }
+
+        switch(arrowSrcSize){
+
+          case "sm":
+            arrowSrc.src = "assets/images/DownSilverSmall.png"
+            break;
+
+          case "med":
+            
+            arrowSrc.src = "assets/images/DownSilverMedium.png"
+            break;
+
+          case "lg":
+            arrowSrc.src = "assets/images/DownSilverLarge.png"
+            break;
+
+        }
+
+      }
+      
       if(iSpec2 < 40){
         spec2Req40 = document.getElementsByClassName("req-40-s2");
         
         for(let g = 0; g < spec2Req40.length; g++){
+          if(spec2Req40[g].id){
+            spanID = spec2Req40[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec2Req40Output.push(spec2Req40[g].previousElementSibling) 
         }
         console.log(spec2Req40Output)
@@ -694,6 +823,11 @@ class HunterComponent extends Component {
         spec2Req35 = document.getElementsByClassName("req-35-s2");
         
         for(let g = 0; g < spec2Req35.length; g++){
+          if(spec2Req35[g].id){
+            spanID = spec2Req35[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec2Req35Output.push(spec2Req35[g].previousElementSibling) 
         }
         console.log(spec2Req35Output)
@@ -708,6 +842,11 @@ class HunterComponent extends Component {
         spec2Req30 = document.getElementsByClassName("req-30-s2");
         
         for(let g = 0; g < spec2Req30.length; g++){
+          if(spec2Req30[g].id){
+            spanID = spec2Req30[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec2Req30Output.push(spec2Req30[g].previousElementSibling) 
         }
         console.log(spec2Req30Output)
@@ -722,6 +861,11 @@ class HunterComponent extends Component {
         spec2Req25 = document.getElementsByClassName("req-25-s2");
         
         for(let g = 0; g < spec2Req25.length; g++){
+          if(spec2Req25[g].id){
+            spanID = spec2Req25[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec2Req25Output.push(spec2Req25[g].previousElementSibling) 
         }
         console.log(spec2Req25Output)
@@ -736,6 +880,11 @@ class HunterComponent extends Component {
         spec2Req20 = document.getElementsByClassName("req-20-s2");
         
         for(let g = 0; g < spec2Req20.length; g++){
+          if(spec2Req20[g].id){
+            spanID = spec2Req20[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec2Req20Output.push(spec2Req20[g].previousElementSibling) 
         }
         console.log(spec2Req20Output)
@@ -750,6 +899,11 @@ class HunterComponent extends Component {
         spec2Req15 = document.getElementsByClassName("req-15-s2");
         
         for(let g = 0; g < spec2Req15.length; g++){
+          if(spec2Req15[g].id){
+            spanID = spec2Req15[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec2Req15Output.push(spec2Req15[g].previousElementSibling) 
         }
         console.log(spec2Req15Output)
@@ -764,6 +918,11 @@ class HunterComponent extends Component {
         spec2Req10 = document.getElementsByClassName("req-10-s2");
         
         for(let g = 0; g < spec2Req10.length; g++){
+          if(spec2Req10[g].id){
+            spanID = spec2Req10[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec2Req10Output.push(spec2Req10[g].previousElementSibling) 
         }
         console.log(spec2Req10Output)
@@ -778,6 +937,11 @@ class HunterComponent extends Component {
         spec2Req5 = document.getElementsByClassName("req-05-s2");
         
         for(let g = 0; g < spec2Req5.length; g++){
+          if(spec2Req5[g].id){
+            spanID = spec2Req5[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec2Req5Output.push(spec2Req5[g].previousElementSibling) 
         }
         console.log(spec2Req5Output)
@@ -790,10 +954,60 @@ class HunterComponent extends Component {
     }
 
     function removeGreenBorderSpec3(){
+      let arrowSrc;
+      let arrowSrcSize;
+      let spanID;
+
+      function idMatcherParse(){
+        
+        if(spanID.includes("prioReq1Spec3")){
+          arrowSrc = document.getElementById("arrwReq1Spec3");
+        } else if(spanID.includes("prioReq2Spec3")){
+          arrowSrc = document.getElementById("arrwReq2Spec3");
+        } else if(spanID.includes("prioReq3Spec3")){
+          arrowSrc = document.getElementById("arrwReq3Spec3");
+        } else if(spanID.includes("prioReq4Spec3")){
+          arrowSrc = document.getElementById("arrwReq4Spec3");
+        }
+      }
+
+      function arrowSizeParse(){
+        if (arrowSrc.src.includes("Small")){
+          arrowSrcSize = "sm";
+        } else if (arrowSrc.src.includes("Medium")){
+          arrowSrcSize = "med";
+        } else if (arrowSrc.src.includes("Large")){
+          arrowSrcSize = "lg";
+        }
+
+        switch(arrowSrcSize){
+
+          case "sm":
+            arrowSrc.src = "assets/images/DownSilverSmall.png"
+            break;
+
+          case "med":
+            
+            arrowSrc.src = "assets/images/DownSilverMedium.png"
+            break;
+
+          case "lg":
+            arrowSrc.src = "assets/images/DownSilverLarge.png"
+            break;
+
+        }
+
+      }
+      
       if(iSpec3 < 40){
         spec3Req40 = document.getElementsByClassName("req-40-s3");
         
         for(let g = 0; g < spec3Req40.length; g++){
+          if(spec3Req40[g].id){
+            spanID = spec3Req40[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec3Req40Output.push(spec3Req40[g].previousElementSibling) 
         }
         console.log(spec3Req40Output)
@@ -808,6 +1022,11 @@ class HunterComponent extends Component {
         spec3Req35 = document.getElementsByClassName("req-35-s3");
         
         for(let g = 0; g < spec3Req35.length; g++){
+          if(spec3Req35[g].id){
+            spanID = spec3Req35[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec3Req35Output.push(spec3Req35[g].previousElementSibling) 
         }
         console.log(spec3Req35Output)
@@ -822,6 +1041,11 @@ class HunterComponent extends Component {
         spec3Req30 = document.getElementsByClassName("req-30-s3");
         
         for(let g = 0; g < spec3Req30.length; g++){
+          if(spec3Req30[g].id){
+            spanID = spec3Req30[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec3Req30Output.push(spec3Req30[g].previousElementSibling) 
         }
         console.log(spec3Req30Output)
@@ -836,6 +1060,11 @@ class HunterComponent extends Component {
         spec3Req25 = document.getElementsByClassName("req-25-s3");
         
         for(let g = 0; g < spec3Req25.length; g++){
+          if(spec3Req25[g].id){
+            spanID = spec3Req25[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec3Req25Output.push(spec3Req25[g].previousElementSibling) 
         }
         console.log(spec3Req25Output)
@@ -850,6 +1079,11 @@ class HunterComponent extends Component {
         spec3Req20 = document.getElementsByClassName("req-20-s3");
         
         for(let g = 0; g < spec3Req20.length; g++){
+          if(spec3Req20[g].id){
+            spanID = spec3Req20[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec3Req20Output.push(spec3Req20[g].previousElementSibling) 
         }
         console.log(spec3Req20Output)
@@ -864,6 +1098,11 @@ class HunterComponent extends Component {
         spec3Req15 = document.getElementsByClassName("req-15-s3");
         
         for(let g = 0; g < spec3Req15.length; g++){
+          if(spec3Req15[g].id){
+            spanID = spec3Req15[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec3Req15Output.push(spec3Req15[g].previousElementSibling) 
         }
         console.log(spec3Req15Output)
@@ -878,6 +1117,11 @@ class HunterComponent extends Component {
         spec3Req10 = document.getElementsByClassName("req-10-s3");
         
         for(let g = 0; g < spec3Req10.length; g++){
+          if(spec3Req10[g].id){
+            spanID = spec3Req10[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec3Req10Output.push(spec3Req10[g].previousElementSibling) 
         }
         console.log(spec3Req10Output)
@@ -892,6 +1136,11 @@ class HunterComponent extends Component {
         spec3Req5 = document.getElementsByClassName("req-05-s3");
         
         for(let g = 0; g < spec3Req5.length; g++){
+          if(spec3Req5[g].id){
+            spanID = spec3Req5[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
           spec3Req5Output.push(spec3Req5[g].previousElementSibling) 
         }
         console.log(spec3Req5Output)
@@ -927,8 +1176,66 @@ class HunterComponent extends Component {
       window.event.srcElement.nextElementSibling.className = "spec3 talentButton active-talent req-active";
     }
 
-    function turnArrowSilver(){
+    function turnArrowSilverSpec1(){
+      let pointValidation;
+      if(iSpec1 >= 40){
+        pointValidation = 40;
+      } else if(iSpec1 >= 35){
+        pointValidation = 35;
+      } else if(iSpec1 >= 30){
+        pointValidation = 30;
+      } else if(iSpec1 >= 25){
+        pointValidation = 25;
+      } else if(iSpec1 >= 20){
+        pointValidation = 20;
+      } else if(iSpec1 >= 15){
+        pointValidation = 15;
+      } else if(iSpec1 >= 10){
+        pointValidation = 10;
+      } else if(iSpec1 >= 5){
+        pointValidation = 5;
+      }
+
       
+      
+      switch(pointValidation){
+        case 40:
+        
+          break;
+        
+        case 35:
+
+          break;
+        
+        case 30:
+
+          break;  
+
+        case 25:
+
+          break;
+
+        case 20:
+
+          break;
+
+        case 15:
+
+          break;
+
+        case 10:
+
+          break;
+
+        case 5:
+
+          break;
+       
+        default:
+          
+          break;
+        
+      }
     }
 
     function turnArrowGoldOnClick(){
@@ -5185,6 +5492,7 @@ class HunterComponent extends Component {
             
             document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
             removeGreenBorderSpec1();
+            turnArrowSilverSpec1();
             
             
         } else if(specString[4] === "2"){
@@ -5631,8 +5939,6 @@ class HunterComponent extends Component {
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img 
-                  onTouchMove={this.displayMouseOverlayInnerElement}
-                  onTouchEnd={this.hideMouseOverlayInnerElement}
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
@@ -5641,8 +5947,6 @@ class HunterComponent extends Component {
                   style={{display: "none"}}
                 />
                 <img
-                  onTouchMove={this.displayMouseOverlay}
-                  onTouchEnd={this.hideMouseOverlay}
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
