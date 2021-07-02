@@ -5620,7 +5620,7 @@ class HunterComponent extends Component {
             style={{
               backgroundImage: `url(${
                 process.env.PUBLIC_URL +
-                "assets/images/talents/Hunter/Background/BeastMastery.jpg"
+                "/assets/images/talents/Hunter/Background/BeastMastery.jpg"
               })`,
             }}
             className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
@@ -5631,6 +5631,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img 
+
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
@@ -6091,7 +6092,7 @@ class HunterComponent extends Component {
             style={{
               backgroundImage: `url(${
                 process.env.PUBLIC_URL +
-                "assets/images/talents/Hunter/Background/Marksman.jpg"
+                "/assets/images/talents/Hunter/Background/Marksman.jpg"
               })`,
             }}
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
@@ -6543,7 +6544,7 @@ class HunterComponent extends Component {
             style={{
               backgroundImage: `url(${
                 process.env.PUBLIC_URL +
-                "assets/images/talents/Hunter/Background/Survival.jpg"
+                "/assets/images/talents/Hunter/Background/Survival.jpg"
               })`,
             }}
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
