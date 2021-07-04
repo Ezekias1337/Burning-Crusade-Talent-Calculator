@@ -3,6 +3,7 @@ import { Navbar, NavbarBrand } from 'reactstrap';
 import ClassSelector from './components/ClassSelectorComponent';
 import HunterComponent from './components/HunterComponent';
 import FooterComponent from './components/FooterComponent'
+import ReactTooltip from 'react-tooltip';
 import './App.css';
 
 
@@ -21,6 +22,9 @@ class App extends Component {
               <ClassSelector />
               <HunterComponent />
               <FooterComponent />
+              <ReactTooltip 
+                html={true}
+              />
           </div>
       );
   }

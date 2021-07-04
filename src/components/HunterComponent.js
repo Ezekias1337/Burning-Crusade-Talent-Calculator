@@ -1,5 +1,7 @@
 import { contains } from "jquery";
 import React, { Component } from "react";
+import ReactTooltip from 'react-tooltip';
+import { Hunter } from "../talentinfo/Hunter";
 
 
 /* 
@@ -14,12 +16,17 @@ let iSpec2 = 0;
 let iSpec3 = 0;
 let loopHappenedBefore = false;
 
+
 class HunterComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        
+        //spec1ToolTips: Hunter
     };
+  }
+
+  toolTipFunction(){
+    console.log(Hunter[0].toolTip[0]);
   }
 
   displayMouseOverlay(){
@@ -5939,7 +5946,7 @@ class HunterComponent extends Component {
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img 
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseEnter={this.displayMouseOverlayInnerElement, this.toolTipFunction}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={this.talentClick}
                   className="talentHover"
@@ -5952,6 +5959,8 @@ class HunterComponent extends Component {
                   className="spec1 talentButton active-talent req-active"
                   src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg"
                   alt=""
+                  data-tip={Hunter[0].toolTip[0]}
+                  id="1"
                 />
                 
 
@@ -5965,6 +5974,7 @@ class HunterComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{display: "none"}}
+                  id="2"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -7350,5 +7360,9 @@ class HunterComponent extends Component {
     );
   }
 }
+
+<ReactTooltip 
+  html={true}
+/>
 
 export default HunterComponent;
