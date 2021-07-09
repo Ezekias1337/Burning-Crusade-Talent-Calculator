@@ -23,17 +23,20 @@ class HunterComponent extends Component {
     let toolTipSelector;
     let toolTipStepper;
 
+    // Get the element with the tooltip
     toolTipChecker = window.event.target.nextElementSibling.nextElementSibling;
+    // Get the same element as before, but only the id
     toolTipIDChecker = window.event.target.id;
+    // Subtract 1 from IDChecker since value in JS file starts at index[0]
     toolTipStepper = Hunter[toolTipIDChecker - 1];
-    console.log("TooltipStepper", toolTipStepper);
-    console.log(toolTipChecker.innerText);
 
     switch (toolTipChecker.innerText[2]) {
       case "1":
         switch (toolTipChecker.innerText) {
           case "1/1":
-            toolTipSelector = toolTipStepper.toolTip[0];
+            //Assign variable the value of the first element in tooltip array
+            toolTipSelector = toolTipStepper.toolTip[1];
+            // Get Element by the ID and set it's tooltip to the correct element in the array
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -1551,7 +1554,7 @@ class HunterComponent extends Component {
             console.log(altStr);
 
             switch (altStr) {
-              case "5":
+              case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s1");
                 for (button of buttonsArray) {
                   console.log(button.previousElementSibling);
@@ -1735,7 +1738,7 @@ class HunterComponent extends Component {
             console.log(altStr);
 
             switch (altStr) {
-              case "5":
+              case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s1");
                 for (button of buttonsArray) {
                   console.log(button.previousElementSibling);
@@ -1919,7 +1922,7 @@ class HunterComponent extends Component {
             console.log(altStr);
 
             switch (altStr) {
-              case "5":
+              case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s1");
                 for (button of buttonsArray) {
                   console.log(button.previousElementSibling);
@@ -2103,7 +2106,7 @@ class HunterComponent extends Component {
             console.log(altStr);
 
             switch (altStr) {
-              case "5":
+              case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s1");
                 for (button of buttonsArray) {
                   console.log(button.previousElementSibling);
@@ -2287,7 +2290,7 @@ class HunterComponent extends Component {
             console.log(altStr);
 
             switch (altStr) {
-              case "5":
+              case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s2");
                 for (button of buttonsArray) {
                   console.log(button.previousElementSibling);
@@ -2471,7 +2474,7 @@ class HunterComponent extends Component {
             console.log(altStr);
 
             switch (altStr) {
-              case "5":
+              case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s2");
                 for (button of buttonsArray) {
                   console.log(button.previousElementSibling);
@@ -2655,7 +2658,7 @@ class HunterComponent extends Component {
             console.log(altStr);
 
             switch (altStr) {
-              case "5":
+              case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s2");
                 for (button of buttonsArray) {
                   console.log(button.previousElementSibling);
@@ -2839,7 +2842,7 @@ class HunterComponent extends Component {
             console.log(altStr);
 
             switch (altStr) {
-              case "5":
+              case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s2");
                 for (button of buttonsArray) {
                   console.log(button.previousElementSibling);
@@ -3023,7 +3026,7 @@ class HunterComponent extends Component {
             console.log(altStr);
 
             switch (altStr) {
-              case "5":
+              case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s3");
                 for (button of buttonsArray) {
                   console.log(button.previousElementSibling);
@@ -3207,7 +3210,7 @@ class HunterComponent extends Component {
             console.log(altStr);
 
             switch (altStr) {
-              case "5":
+              case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s3");
                 for (button of buttonsArray) {
                   console.log(button.previousElementSibling);
@@ -3391,7 +3394,7 @@ class HunterComponent extends Component {
             console.log(altStr);
 
             switch (altStr) {
-              case "5":
+              case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s3");
                 for (button of buttonsArray) {
                   console.log(button.previousElementSibling);
@@ -3575,7 +3578,7 @@ class HunterComponent extends Component {
             console.log(altStr);
 
             switch (altStr) {
-              case "5":
+              case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s3");
                 for (button of buttonsArray) {
                   console.log(button.previousElementSibling);

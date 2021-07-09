@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import { Navbar, NavbarBrand } from 'reactstrap';
 import ClassSelector from './components/ClassSelectorComponent';
 import HunterComponent from './components/HunterComponent';
@@ -20,7 +26,7 @@ class App extends Component {
               </div>
               </Navbar>
               <ClassSelector />
-              <HunterComponent />
+              
               <FooterComponent />
               <ReactTooltip 
                 html={true}

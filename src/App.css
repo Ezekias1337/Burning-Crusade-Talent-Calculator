@@ -120,11 +120,15 @@
   border-radius: 3px;
 }
 
+
 .inactive-talent{
   border: 2px solid #C2C4C6;
   border-radius: 3px;
   pointer-events: none;
 }
+
+
+
 
 .maxeds{
   border: 2px solid #ffd100;
