@@ -200,6 +200,7 @@ class DruidComponent extends Component {
     let individualPointTracker;
     let arrowChecker;
 
+    let spec1Req0 = [];
     let spec1Req5 = [];
     let spec1Req10 = [];
     let spec1Req15 = [];
@@ -209,6 +210,7 @@ class DruidComponent extends Component {
     let spec1Req35 = [];
     let spec1Req40 = [];
 
+    let spec1Req0Output = [];
     let spec1Req5Output = [];
     let spec1Req10Output = [];
     let spec1Req15Output = [];
@@ -828,15 +830,23 @@ class DruidComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        
+        if (arrowSrc.src.includes("Left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.src.includes("Right")) {
+          arrowSrcSize = "right";
+        } else if (arrowSrc.src.includes("Small")) {
           arrowSrcSize = "sm";
         } else if (arrowSrc.src.includes("Medium")) {
           arrowSrcSize = "med";
         } else if (arrowSrc.src.includes("Large")) {
           arrowSrcSize = "lg";
-        }
+        } 
+
+        console.log("arrowSrcSize", arrowSrcSize)
 
         switch (arrowSrcSize) {
+          
           case "sm":
             arrowSrc.src = "assets/images/DownSilverSmall.png";
             break;
@@ -847,6 +857,14 @@ class DruidComponent extends Component {
 
           case "lg":
             arrowSrc.src = "assets/images/DownSilverLarge.png";
+            break;
+
+          case "left":
+            arrowSrc.src = "assets/images/LeftSilverSmall.png";
+            break;
+
+          case "right":
+            arrowSrc.src = "assets/images/RightSilverSmall.png";
             break;
         }
       }
@@ -1010,6 +1028,26 @@ class DruidComponent extends Component {
           }
         }
       }
+
+      if (iSpec1 < 4) {
+        spec1Req0 = document.getElementsByClassName("req-00-s1");
+
+        for (let g = 0; g < spec1Req0.length; g++) {
+          if (spec1Req0[g].id) {
+            spanID = spec1Req0[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
+          spec1Req0Output.push(spec1Req0[g].previousElementSibling);
+        }
+        console.log(spec1Req0Output);
+        for (let g = 0; g < spec1Req0Output.length; g++) {
+          if (spec1Req0Output[g].className.includes("active-talent") && spec1Req0Output[g].nextElementSibling.id.includes("prio")) {
+            spec1Req0Output[g].className =
+              "spec1 talentButton inactive-talent req-inactive";
+          }
+        }
+      }
     }
 
     function removeGreenBorderSpec2() {
@@ -1018,6 +1056,8 @@ class DruidComponent extends Component {
       let spanID;
 
       function idMatcherParse() {
+        console.log("spanID", spanID)
+        
         if (spanID.includes("prioReq1Spec2")) {
           arrowSrc = document.getElementById("arrwReq1Spec2");
         } else if (spanID.includes("prioReq2Spec2")) {
@@ -1030,15 +1070,25 @@ class DruidComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        
+        if (arrowSrc.src.includes("Left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.src.includes("Right")) {
+          arrowSrcSize = "right";
+          console.log(arrowSrc)
+        } else if (arrowSrc.src.includes("Small")) {
           arrowSrcSize = "sm";
         } else if (arrowSrc.src.includes("Medium")) {
           arrowSrcSize = "med";
+          console.log(arrowSrc)
         } else if (arrowSrc.src.includes("Large")) {
           arrowSrcSize = "lg";
-        }
+        } 
+
+        console.log("arrowSrcSize", arrowSrcSize)
 
         switch (arrowSrcSize) {
+          
           case "sm":
             arrowSrc.src = "assets/images/DownSilverSmall.png";
             break;
@@ -1049,6 +1099,15 @@ class DruidComponent extends Component {
 
           case "lg":
             arrowSrc.src = "assets/images/DownSilverLarge.png";
+            break;
+
+          case "left":
+            arrowSrc.src = "assets/images/LeftSilverSmall.png";
+            break;
+
+          case "right":
+            arrowSrc.src = "assets/images/RightSilverSmall.png";
+            console.log("Lisa Ann")
             break;
         }
       }
@@ -1093,6 +1152,26 @@ class DruidComponent extends Component {
         }
       }
 
+      if (iSpec2 === 30) {
+        spec2Req30 = document.getElementsByClassName("req-30-s2");
+
+        for (let g = 0; g < spec2Req30.length; g++) {
+          if (spec2Req30[g].id) {
+            spanID = spec2Req30[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
+          spec2Req30Output.push(spec2Req30[g].previousElementSibling);
+        }
+        console.log("spec2Req30Output", spec2Req30Output);
+        for (let g = 0; g < spec2Req30Output.length; g++) {
+          if (spec2Req30Output[g].className.includes("active-talent") && spec2Req30Output[g].nextElementSibling.id.includes("prio")) {
+            spec2Req30Output[g].className =
+              "spec2 talentButton inactive-talent req-inactive";
+          } 
+        }
+      }
+
       if (iSpec2 < 30) {
         spec2Req30 = document.getElementsByClassName("req-30-s2");
 
@@ -1104,7 +1183,7 @@ class DruidComponent extends Component {
           }
           spec2Req30Output.push(spec2Req30[g].previousElementSibling);
         }
-        console.log(spec2Req30Output);
+        console.log("spec2Req30Output", spec2Req30Output);
         for (let g = 0; g < spec2Req30Output.length; g++) {
           if (spec2Req30Output[g].className.includes("active-talent")) {
             spec2Req30Output[g].className =
@@ -1517,6 +1596,14 @@ class DruidComponent extends Component {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
             "assets/images/DownGold.png";
         }
+        if (arrowChecker.includes("left")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+            "assets/images/LeftGoldSmall.png";
+        }
+        if (arrowChecker.includes("right")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+            "assets/images/RightGoldSmall.png";
+        }
       }
 
       if (
@@ -1556,6 +1643,28 @@ class DruidComponent extends Component {
             console.log("altStr", altStr);
 
             switch (altStr) {
+              case "00":
+                buttonsArray = document.getElementsByClassName("req-00-s1");
+                for (button of buttonsArray) {
+                  console.log(button.previousElementSibling);
+                  if (
+                    button.previousElementSibling.className.includes(
+                      "req-active"
+                    )
+                  ) {
+                    document.querySelector(
+                      '[id*="prioReq1Spec1"]'
+                    ).previousElementSibling.className =
+                      "spec1 talentButton active-talent req-active";
+                    ArrowGold();
+                    {
+                      break;
+                    }
+                  }
+                }
+
+                break;
+              
               case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s1");
                 for (button of buttonsArray) {
@@ -3819,7 +3928,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -3851,7 +3965,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -3883,7 +4002,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -3914,7 +4038,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -3958,7 +4087,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -3990,7 +4124,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4022,7 +4161,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4053,7 +4197,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4097,7 +4246,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4129,7 +4283,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4161,7 +4320,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4192,7 +4356,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4236,7 +4405,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4268,7 +4442,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4300,7 +4479,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4331,7 +4515,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4375,7 +4564,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4407,7 +4601,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4439,7 +4638,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4470,7 +4674,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4514,7 +4723,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4546,7 +4760,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4578,7 +4797,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4609,7 +4833,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4653,7 +4882,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4685,7 +4919,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4717,7 +4956,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4748,7 +4992,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4792,7 +5041,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4824,7 +5078,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4856,7 +5115,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4887,7 +5151,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4964,7 +5233,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4996,7 +5270,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5028,7 +5307,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5059,7 +5343,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5103,7 +5392,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5135,7 +5429,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5167,7 +5466,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5198,7 +5502,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5242,7 +5551,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5274,7 +5588,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5306,7 +5625,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5337,7 +5661,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5381,7 +5710,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5413,7 +5747,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5445,7 +5784,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5476,7 +5820,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5520,7 +5869,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5552,7 +5906,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5584,7 +5943,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5615,7 +5979,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5660,7 +6029,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5693,7 +6067,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5708,7 +6087,7 @@ class DruidComponent extends Component {
                 .previousElementSibling.className.includes("maxeds")
             ) {
               console.log("The arrow above me should be gold");
-              if (!spec2Req30Output[g].className.includes("maxeds")) {
+              if (spec2Req30Output[g].className.includes("maxeds")) {
                 spec2Req30Output[g].className =
                   "spec2 talentButton active-talent req-active";
               }
@@ -5725,7 +6104,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5756,7 +6140,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5800,7 +6189,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5832,7 +6226,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5864,7 +6263,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5895,7 +6299,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5939,7 +6348,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5971,7 +6385,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6003,7 +6422,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6035,7 +6459,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6112,7 +6541,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6144,7 +6578,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6176,7 +6615,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6207,7 +6651,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6251,7 +6700,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6283,7 +6737,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6315,7 +6774,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6346,7 +6810,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6390,7 +6859,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6422,7 +6896,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6454,7 +6933,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6485,7 +6969,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6529,7 +7018,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6561,7 +7055,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6593,7 +7092,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6624,7 +7128,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6668,7 +7177,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6700,7 +7214,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6732,7 +7251,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6763,7 +7287,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6807,7 +7336,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6839,7 +7373,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6871,7 +7410,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6902,7 +7446,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6946,7 +7495,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6978,7 +7532,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7010,7 +7569,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7041,7 +7605,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7085,7 +7654,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7117,7 +7691,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7149,7 +7728,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7180,7 +7764,12 @@ class DruidComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "leftArrow":
+                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  break;
+                case "rightArrow":
+                  arrow.src = "assets/images/RightGoldSmall.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7985,6 +8574,8 @@ class DruidComponent extends Component {
     let smArrowArray = document.querySelectorAll(".smArrow");
     let medArrowArray = document.querySelectorAll(".medArrow");
     let lgArrowArray = document.querySelectorAll(".lgArrow");
+    let leftArrowArray = document.querySelectorAll(".leftArrow");
+    let rightArrowArray = document.querySelectorAll(".rightArrow");
 
     let spanArrayPotential1 = [];
     let spanArrayPotential2 = [];
@@ -8113,6 +8704,12 @@ class DruidComponent extends Component {
     for (arrow of lgArrowArray) {
       arrow.src = "assets/images/DownSilverLarge.png";
     }
+    for (arrow of leftArrowArray) {
+      arrow.src = "assets/images/LeftSilverSmall.png";
+    }
+    for (arrow of rightArrowArray) {
+      arrow.src = "assets/images/RightSilverSmall.png";
+    }
 
     //Resets all counter variables to 0/false
     i = 0;
@@ -8183,7 +8780,7 @@ class DruidComponent extends Component {
             className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1">Beast Mastery</h5>
+            <h5 id="spec1">Balance</h5>
             <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
                 <img
@@ -8203,7 +8800,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_abolishmagic.jpg"
                   alt=""
                 />
 
@@ -8227,14 +8824,14 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_natureswrath.jpg"
                   alt=""
                 />
 
-                <span id="subsReq1Spec1" className="talentPoints req-00-s1">0/5</span>
+                <span id="subsReq1Spec1" className="talentPoints req-00-s1">0/1</span>
                 <img
-                  className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  className="rightArrow"
+                  src="assets/images/RightSilverSmall.png"
                   alt=""
                   id="arrwReq1Spec1"
                 />
@@ -8257,39 +8854,15 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/EnduranceTraining.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_natureswrath.jpg"
                   alt=""
                 />
 
-                <span id="prioReq1Spec1" className="talentPoints req-05-s1">0/5</span>
+                <span id="prioReq1Spec1" className="talentPoints req-00-s1">0/4</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Druid[2].toolTip[0]}
-                  id="3"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/FocusedFire.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s1">0/2</span>
-              </div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8308,7 +8881,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectMonkey.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_stranglevines.jpg"
                   alt=""
                 />
 
@@ -8332,11 +8905,17 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ThickHide.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/inv_staff_01.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/3</span>
+                <span id="subsReq2Spec1" className="talentPoints req-05-s1">0/2</span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq2Spec1"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8356,12 +8935,16 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedRevivePet.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_starfall.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-05-s1">0/2</span>
               </div>
+              
+              <div className="col col-xs-3"></div>
+              
+
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -8382,12 +8965,13 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Pathfinding.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_thorns.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/2</span>
+                <span className="talentPoints req-10-s1">0/3</span>
               </div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8406,12 +8990,13 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BestialSwiftness.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_insectswarm.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-10-s1">0/1</span>
               </div>
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8430,13 +9015,13 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/UnleashedFury.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_naturetouchgrow.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/5</span>
+                <span className="talentPoints req-10-s1">0/2</span>
               </div>
-              <div className="col col-xs-3"></div>
+
             </div>
             <div className="row talent-row">
               <div className="col col-xs-3"></div>
@@ -8458,11 +9043,11 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedMendPet.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_purge.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s1">0/2</span>
+                <span id="prioReq2Spec1" className="talentPoints req-15-s1">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8482,19 +9067,14 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Ferocity.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/spell_arcane_starfire.jpg"
                   alt=""
                 />
 
                 <span id="" className="talentPoints req-15-s1">
-                  0/5
+                  0/3
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id=""
-                />
+                
               </div>
 
               <div className="col col-xs-3"></div>
@@ -8519,11 +9099,11 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/SpiritBond.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/ability_druid_lunarguidance.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span className="talentPoints req-20-s1">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8543,21 +9123,21 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Intimidation.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_naturesblessing.jpg"
                   alt=""
                 />
 
-                <span id="subsReq2Spec1" className="talentPoints req-20-s1">
+                <span id="subsReq3Spec1" className="talentPoints req-20-s1">
                   0/1
                 </span>
                 <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
                   alt=""
-                  id="arrwReq2Spec1"
+                  id="arrwReq3Spec1"
                 />
               </div>
-              <div style={{ zIndex: "0" }} className="col col-xs-3"></div>
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8576,15 +9156,18 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BestialDiscipline.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_sentinal.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span className="talentPoints req-20-s1">0/3</span>
               </div>
+              <div className="col col-xs-3"></div>
             </div>
 
             <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8603,13 +9186,13 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/AnimalHandler.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_moonglow.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s1">0/2</span>
+                <span id="prioReq3Spec1" className="talentPoints req-25-s1">0/5</span>
               </div>
-              <div className="col col-xs-3"></div>
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8628,12 +9211,12 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Frenzy.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/ability_druid_balanceofpower.jpg"
                   alt=""
                 />
 
                 <span id="" className="talentPoints req-25-s1">
-                  0/5
+                  0/2
                 </span>
               </div>
               <div className="col col-xs-3"></div>
@@ -8657,7 +9240,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/FerociousInspiration.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/ability_druid_dreamstate.jpg"
                   alt=""
                 />
 
@@ -8681,7 +9264,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BestialWrath.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_forceofnature.jpg"
                   alt=""
                 />
 
@@ -8691,12 +9274,7 @@ class DruidComponent extends Component {
                 >
                   0/1
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq3Spec1"
-                />
+                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8716,7 +9294,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/CatlikeReflexes.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_faeriefire.jpg"
                   alt=""
                 />
 
@@ -8726,7 +9304,7 @@ class DruidComponent extends Component {
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
-              <div className="col col-xs-3"></div>
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8745,12 +9323,13 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/SerpentsSwiftness.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/ability_druid_twilightswrath.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-35-s1">0/5</span>
               </div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -8773,7 +9352,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BeastWithin.jpg"
+                  src="assets/images/talents/Druid/Progression/spec1/ability_druid_forceofnature.jpg"
                   alt=""
                 />
 
@@ -8795,7 +9374,7 @@ class DruidComponent extends Component {
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2">Marksmanship</h5>
+            <h5 id="spec2">Feral Combat</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -8816,7 +9395,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedConcussiveShot.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/ability_hunter_pet_hyena.jpg"
                   alt=""
                 />
 
@@ -8840,7 +9419,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec2/LethalShots.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/classic_ability_druid_demoralizingroar.jpg"
                   alt=""
                 />
 
@@ -8849,7 +9428,7 @@ class DruidComponent extends Component {
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8868,11 +9447,11 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedHuntersMark.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/ability_ambush.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8892,15 +9471,12 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/Efficiency.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/ability_druid_bash.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/2</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8919,12 +9495,16 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/GoForTheThroat.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/inv_misc_pelt_bear_03.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span className="talentPoints req-05-s2">0/3</span>
               </div>
+              <div className="col col-xs-3"></div>
+              
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8943,11 +9523,11 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedArcaneShot.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/spell_nature_spiritwolf.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/5</span>
+                <span className="talentPoints req-10-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8967,19 +9547,11 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/AimedShot.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/ability_hunter_pet_bear.jpg"
                   alt=""
                 />
 
-                <span id="subsReq1Spec2" className="talentPoints req-10-s2">
-                  0/1
-                </span>
-                <img
-                  className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
-                  alt=""
-                  id="arrwReq1Spec2"
-                />
+                <span className="talentPoints req-10-s2">0/1</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8999,15 +9571,24 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/RapidKilling.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/inv_misc_monsterclaw_04.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span id="subsReq1Spec2" className="talentPoints req-10-s2">
+                  0/3
+                </span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq1Spec2"
+                />
               </div>
+              <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9026,11 +9607,11 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedStings.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/spell_shadow_vampiricaura.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s2">0/5</span>
+                <span className="talentPoints req-15-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9050,65 +9631,12 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/MortalShots.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/ability_hunter_pet_cat.jpg"
                   alt=""
                 />
 
-                <span id="prioReq1Spec2" className="talentPoints req-15-s2">
-                  0/5
-                </span>
-              </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Druid[31].toolTip[0]}
-                  id="32"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ConcussiveBarrage.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-20-s2">0/3</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Druid[32].toolTip[0]}
-                  id="33"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ScatterShot.jpg"
-                  alt=""
-                />
-
-                <span id="subsReq2Spec2" className="talentPoints req-20-s2">
-                  0/1
+                <span id="subsReq2Spec2" className="talentPoints req-15-s2">
+                  0/3
                 </span>
                 <img
                   className="medArrow"
@@ -9128,6 +9656,58 @@ class DruidComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
+                  data-tip={Druid[31].toolTip[0]}
+                  id="32"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Druid/Progression/spec2/ability_racial_cannibalize.jpg"
+                  alt=""
+                />
+
+                <span id="prioReq1Spec2" className="talentPoints req-15-s2">0/2</span>
+              </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Druid[32].toolTip[0]}
+                  id="33"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Druid/Progression/spec2/ability_druid_ravage.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-20-s2">0/2</span>
+              </div>
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
                   data-tip={Druid[33].toolTip[0]}
                   id="34"
                 />
@@ -9135,23 +9715,15 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/spell_nature_faeriefire.jpg"
                   alt=""
                 />
 
-                <span id="subsReq3Spec2" className="talentPoints req-20-s2">
-                  0/3
+                <span id="subsReq2Spec2" className="talentPoints req-20-s2">
+                  0/1
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq3Spec2"
-                />
+                
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9170,13 +9742,18 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/CombatExperience.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/ability_druid_healinginstincts.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s2">0/2</span>
+                <span className="talentPoints req-20-s2">
+                  0/2
+                </span>
+                
               </div>
-              <div className="col col-xs-3"></div>
+              
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
@@ -9196,14 +9773,14 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/RangedWeaponSpecialization.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/spell_holy_blessingofagility.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s2">0/5</span>
+                <span id="prioReq2Spec2" className="talentPoints req-25-s2">0/5</span>
               </div>
-            </div>
-            <div className="row talent-row talent-row-inner">
+              
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9222,12 +9799,15 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/CarefulAim.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/ability_druid_enrage.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">0/3</span>
+                <span className="talentPoints req-25-s2">0/3</span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9246,13 +9826,12 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/TrueshotAura.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/ability_druid_primaltenacity.jpg"
                   alt=""
                 />
 
-                <span id="prioReq2Spec2" className="talentPoints req-30-s2">
-                  0/1
-                </span>
+                <span className="talentPoints req-30-s2">0/3</span>
+                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9272,18 +9851,26 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/spell_nature_unyeildingstamina.jpg"
                   alt=""
                 />
 
-                <span id="prioReq3Spec2" className="talentPoints req-30-s2">
-                  0/3
+                <span id="subsReq3Spec2 subsReq4Spec2" className="talentPoints req-30-s2">
+                  0/1
                 </span>
+                <img
+                  className="rightArrow"
+                  src="assets/images/RightSilverSmall.png"
+                  alt=""
+                  id="arrwReq3Spec2"
+                />
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq4Spec2"
+                />
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9302,24 +9889,18 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/MasterMarksman.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/spell_nature_unyeildingstamina.jpg"
                   alt=""
                 />
 
-                <span id="subsReq4Spec2" className="talentPoints req-35-s2">
-                  0/5
+                <span id="prioReq3Spec2" className="talentPoints req-30-s2">
+                  0/2
                 </span>
-                <img
-                  className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
-                  alt=""
-                  id="arrwReq4Spec2"
-                />
               </div>
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
@@ -9339,7 +9920,39 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/SilencingShot.jpg"
+                  src="assets/images/talents/Druid/Progression/spec2/ability_druid_predatoryinstincts.jpg"
+                  alt=""
+                />
+
+                <span  className="talentPoints req-35-s2">
+                  0/5
+                </span>
+                
+              </div>
+              
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Druid[41].toolTip[0]}
+                  id="42"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Druid/Progression/spec2/ability_druid_mangle2.jpg"
                   alt=""
                 />
 
@@ -9361,32 +9974,9 @@ class DruidComponent extends Component {
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3">Survival</h5>
+            <h5 id="spec3">Restoration</h5>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Druid[41].toolTip[0]}
-                  id="42"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/MonsterSlaying.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-00-s3">0/3</span>
-              </div>
+            <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9405,11 +9995,11 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/HumanoidSlaying.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_regeneration.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9429,12 +10019,15 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/HawkEye.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/spell_holy_blessingofstamina.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9452,15 +10045,13 @@ class DruidComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/SavageStrikes.jpg"
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_healingtouch (1).jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/2</span>
+                <span className="talentPoints req-05-s3">0/5</span>
               </div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9479,11 +10070,11 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Entrapment.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_healingwavegreater.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s3">0/3</span>
+                <span className="talentPoints req-05-s3">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9503,31 +10094,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Deflection.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s3">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Druid[47].toolTip[0]}
-                  id="48"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ImprovedWingClip.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_wispsplode.jpg"
                   alt=""
                 />
 
@@ -9547,6 +10114,36 @@ class DruidComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
+                  data-tip={Druid[47].toolTip[0]}
+                  id="48"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Druid/Progression/spec3/spell_frost_windwalkon.jpg"
+                  alt=""
+                />
+
+                <span id="subsReq1Spec3" className="talentPoints req-10-s3">0/3</span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq1Spec3"
+                />
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
                   data-tip={Druid[48].toolTip[0]}
                   id="49"
                 />
@@ -9554,11 +10151,11 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/CleverTraps.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/ability_eyeoftheowl.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">0/2</span>
+                <span className="talentPoints req-10-s3">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9578,12 +10175,19 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Survivalist.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_crystalball.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">0/5</span>
+                <span id="subsReq1Spec3" className="talentPoints req-10-s3">
+                  0/1
+                </span>
+                
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9602,23 +10206,12 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Deterrence.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/spell_holy_elunesgrace.jpg"
                   alt=""
                 />
 
-                <span id="subsReq1Spec3" className="talentPoints req-10-s3">
-                  0/1
-                </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq1Spec3"
-                />
+                <span className="talentPoints req-15-s3">0/5</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9637,12 +10230,22 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/TrapMastery.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_rejuvenation.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/2</span>
+                <span id="subsReq2Spec3" className="talentPoints req-15-s3">0/3</span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq2Spec3"
+                />
               </div>
+              
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9661,13 +10264,12 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Surefooted.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_ravenform.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/3</span>
+                <span id="prioReq1Spec3" className="talentPoints req-20-s3">0/1</span>
               </div>
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9686,14 +10288,21 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ImprovedFeignDeath.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_protectionformnature.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/2</span>
+                <span id="subsReq3Spec3" className="talentPoints req-20-s3">
+                  0/35
+                </span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq3Spec3"
+                />
               </div>
-            </div>
-            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9712,12 +10321,17 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/SurvivalInstincts.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_tranquility.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">0/2</span>
+                <span id="prioReq1Spec3" className="talentPoints req-20-s3">
+                  0/2
+                </span>
               </div>
+              
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9736,20 +10350,13 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/KillerInstinct.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/ability_druid_empoweredtouch.jpg"
                   alt=""
                 />
 
-                <span id="subsReq2Spec3" className="talentPoints req-20-s3">
-                  0/3
-                </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq2Spec3"
-                />
+                <span className="talentPoints req-25-s3">0/2</span>
               </div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9768,13 +10375,11 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/CounterAttack.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_resistnature.jpg"
                   alt=""
                 />
 
-                <span id="prioReq1Spec3" className="talentPoints req-20-s3">
-                  0/1
-                </span>
+                <span id="prioReq2Spec3" className="talentPoints req-25-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -9797,13 +10402,12 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Resourcefulness.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_giftofthewaterspirit.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s3">0/3</span>
+                <span className="talentPoints req-30-s3">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9822,15 +10426,14 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/LightningReflexes.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/inv_relics_idolofrejuvenation.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s3">0/5</span>
+                <span id="prioReq3Spec3" className="talentPoints req-30-s3">
+                  0/1
+                </span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9849,12 +10452,16 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ThrillOfTheHunt.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/ability_druid_naturalperfection.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-30-s3">0/3</span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9873,14 +10480,25 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/WyvernSting.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/ability_druid_empoweredrejuvination.jpg"
                   alt=""
                 />
 
-                <span id="prioReq2Spec3" className="talentPoints req-30-s3">
-                  0/1
+                <span id="subsReq4Spec3" className="talentPoints req-35-s3">
+                  0/5
                 </span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq4Spec3"
+                />
               </div>
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9899,76 +10517,11 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ExposeWeakness.jpg"
+                  src="assets/images/talents/Druid/Progression/spec3/ability_druid_treeoflife.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s3">0/3</span>
-              </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Druid[62].toolTip[0]}
-                  id="63"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/MasterTactician.jpg"
-                  alt=""
-                />
-
-                <span id="subsReq3Spec3" className="talentPoints req-35-s3">
-                  0/5
-                </span>
-                <img
-                  className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
-                  alt=""
-                  id="arrwReq3Spec3"
-                />
-              </div>
-              <div className="col col-xs-3"></div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Druid[63].toolTip[0]}
-                  id="64"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Readiness.jpg"
-                  alt=""
-                />
-
-                <span id="prioReq3Spec3" className="talentPoints req-40-s3">
+                <span id="prioReq4Spec3" className="talentPoints req-40-s3">
                   0/1
                 </span>
               </div>

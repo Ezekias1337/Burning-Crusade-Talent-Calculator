@@ -252,7 +252,7 @@ export const Druid = [
     name: "Feral Charge",
     toolTip: [
       "<table style='width: 15rem;'> <tr><td style='color:#40BF40;'>Rank 1</td></tr> <tr> <td> Causes you to charge an enemy, immobilizing and interrupting any spell being cast for 4 sec. Lasts 10 sec. </td> </tr> </table>",
-      "<table style='width: 15rem;'> <tr><td style='color:#ffd100;'>Rank 1</td></tr> <tr> <td> Causes you to charge an enemy, immobilizing and interrupting any spell being cast for 4 sec.. Lasts 10 sec. </td> </tr> </table>",
+      "<table style='width: 15rem;'> <tr><td style='color:#ffd100;'>Rank 1</td></tr> <tr> <td> Causes you to charge an enemy, immobilizing and interrupting any spell being cast for 4 sec. Lasts 10 sec. </td> </tr> </table>",
     ],
   },
   {

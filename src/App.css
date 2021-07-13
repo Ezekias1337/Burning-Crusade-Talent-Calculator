@@ -89,7 +89,21 @@
   z-index: 2;
   }
 
- 
+.leftArrow {
+  position: absolute; 
+  top: 40%;
+  right: 75%;
+  z-index: 1;
+} 
+
+.rightArrow {
+  position: absolute; 
+  top: 40%;
+  left: 75%;
+  z-index: 1;
+} 
+
+
 .smArrow {
   position: absolute; 
   left: 43%;
