@@ -9099,7 +9099,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/ability_golemthunderclap.jpg"
                   alt=""
                 />
 
@@ -9123,7 +9123,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec1/EnduranceTraining.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_nature_sleep.jpg"
                   alt=""
                 />
 
@@ -9132,30 +9132,7 @@ class PaladinComponent extends Component {
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Paladin[2].toolTip[0]}
-                  id="3"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/FocusedFire.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s1">0/2</span>
-              </div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9174,7 +9151,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectMonkey.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_arcane_blink.jpg"
                   alt=""
                 />
 
@@ -9198,36 +9175,13 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ThickHide.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/ability_thunderbolt.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-05-s1">0/3</span>
               </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Paladin[5].toolTip[0]}
-                  id="6"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedRevivePet.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s1">0/2</span>
-              </div>
+              <div className="col col-xs-3"></div> 
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -9248,7 +9202,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Pathfinding.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_holybolt.jpg"
                   alt=""
                 />
 
@@ -9272,7 +9226,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BestialSwiftness.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_auramastery.jpg"
                   alt=""
                 />
 
@@ -9296,13 +9250,36 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/UnleashedFury.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_layonhands.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-10-s1">0/5</span>
               </div>
-              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Paladin[8].toolTip[0]}
+                  id="9"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_unyieldingfaith.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-10-s1">0/5</span>
+              </div>
             </div>
             <div className="row talent-row">
               <div className="col col-xs-3"></div>
@@ -9324,7 +9301,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedMendPet.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_greaterheal.jpg"
                   alt=""
                 />
 
@@ -9348,19 +9325,14 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Ferocity.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_sealofwisdom.jpg"
                   alt=""
                 />
 
-                <span id="subsReq1Spec1" className="talentPoints req-15-s1">
+                <span className="talentPoints req-15-s1">
                   0/5
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq1Spec1"
-                />
+                
               </div>
 
               <div className="col col-xs-3"></div>
@@ -9385,7 +9357,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/SpiritBond.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_pureofheart.jpg"
                   alt=""
                 />
 
@@ -9409,21 +9381,17 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Intimidation.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_heal.jpg"
                   alt=""
                 />
 
-                <span id="subsReq2Spec1" className="talentPoints req-20-s1">
+                <span className="talentPoints req-20-s1">
                   0/1
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq2Spec1"
-                />
+                
               </div>
-              <div style={{ zIndex: "0" }} className="col col-xs-3"></div>
+              
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9442,12 +9410,13 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BestialDiscipline.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_healingaura.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-20-s1">0/2</span>
               </div>
+              <div style={{ zIndex: "0" }} className="col col-xs-3"></div>
             </div>
 
             <div className="row talent-row talent-row-inner">
@@ -9469,7 +9438,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/AnimalHandler.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_purifyingpower.jpg"
                   alt=""
                 />
 
@@ -9494,11 +9463,11 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Frenzy.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_power.jpg"
                   alt=""
                 />
 
-                <span id="prioReq1Spec1" className="talentPoints req-25-s1">
+                <span  className="talentPoints req-25-s1">
                   0/5
                 </span>
               </div>
@@ -9523,7 +9492,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/FerociousInspiration.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_lightsgrace.jpg"
                   alt=""
                 />
 
@@ -9547,22 +9516,17 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BestialWrath.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_searinglight.jpg"
                   alt=""
                 />
 
                 <span
-                  id="subsReq3Spec1 prioReq2Spec1"
+                  
                   className="talentPoints req-30-s1"
                 >
                   0/1
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq3Spec1"
-                />
+                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9582,7 +9546,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/CatlikeReflexes.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_blessedlife.jpg"
                   alt=""
                 />
 
@@ -9592,7 +9556,7 @@ class PaladinComponent extends Component {
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
-              <div className="col col-xs-3"></div>
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9611,12 +9575,13 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/SerpentsSwiftness.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_holyguidance.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-35-s1">0/5</span>
               </div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -9639,11 +9604,11 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BeastWithin.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_divineillumination.jpg"
                   alt=""
                 />
 
-                <span id="prioReq3Spec1" className="talentPoints req-40-s1">
+                <span className="talentPoints req-40-s1">
                   0/1
                 </span>
               </div>
@@ -9679,7 +9644,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedConcussiveShot.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_devotionaura.jpg"
                   alt=""
                 />
 
@@ -9703,7 +9668,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec2/LethalShots.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/ability_defend.jpg"
                   alt=""
                 />
 
@@ -9712,7 +9677,30 @@ class PaladinComponent extends Component {
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
+            <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Paladin[23].toolTip[0]}
+                  id="24"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Paladin/Progression/spec2/ability_rogue_ambush.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-05-s2">0/5</span>
+              </div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9731,12 +9719,13 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedHuntersMark.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_sealofprotection.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-05-s2">0/5</span>
               </div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9755,13 +9744,13 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/Efficiency.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_devotion.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-05-s2">0/5</span>
               </div>
-              <div className="col col-xs-3"></div>
+              
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -9782,7 +9771,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/GoForTheThroat.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_magic_magearmor.jpg"
                   alt=""
                 />
 
@@ -9806,7 +9795,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedArcaneShot.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_sealoffury.jpg"
                   alt=""
                 />
 
@@ -9830,19 +9819,14 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/AimedShot.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/inv_shield_06.jpg"
                   alt=""
                 />
 
-                <span id="subsReq1Spec2" className="talentPoints req-10-s2">
+                <span className="talentPoints req-10-s2">
                   0/1
                 </span>
-                <img
-                  className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
-                  alt=""
-                  id="arrwReq1Spec2"
-                />
+                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9862,7 +9846,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/RapidKilling.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_magic_lesserinvisibilty.jpg"
                   alt=""
                 />
 
@@ -9870,7 +9854,30 @@ class PaladinComponent extends Component {
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
+            <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Paladin[29].toolTip[0]}
+                  id="30"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_stoicism.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-15-s2">0/5</span>
+              </div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9889,7 +9896,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedStings.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_sealofmight.jpg"
                   alt=""
                 />
 
@@ -9913,11 +9920,11 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/MortalShots.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_mindsooth.jpg"
                   alt=""
                 />
 
-                <span id="prioReq1Spec2" className="talentPoints req-15-s2">
+                <span  className="talentPoints req-15-s2">
                   0/5
                 </span>
               </div>
@@ -9942,7 +9949,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ConcussiveBarrage.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_improvedresistanceauras.jpg"
                   alt=""
                 />
 
@@ -9966,19 +9973,14 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ScatterShot.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_nature_lightningshield.jpg"
                   alt=""
                 />
 
-                <span id="subsReq2Spec2" className="talentPoints req-20-s2">
+                <span className="talentPoints req-20-s2">
                   0/1
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq2Spec2"
-                />
+                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9998,19 +10000,14 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_blessingofstrength.jpg"
                   alt=""
                 />
 
-                <span id="subsReq3Spec2" className="talentPoints req-20-s2">
+                <span className="talentPoints req-20-s2">
                   0/3
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq3Spec2"
-                />
+                
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10033,14 +10030,14 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/CombatExperience.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_divineintervention.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-25-s2">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
-              <div className="col col-xs-3"></div>
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10059,12 +10056,13 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/RangedWeaponSpecialization.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/inv_sword_20.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-25-s2">0/5</span>
               </div>
+              <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -10085,7 +10083,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/CarefulAim.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/classic_spell_holy_blessingofprotection.jpg"
                   alt=""
                 />
 
@@ -10109,11 +10107,11 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/TrueshotAura.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/classic_spell_holy_blessingofprotection.jpg"
                   alt=""
                 />
 
-                <span id="prioReq2Spec2" className="talentPoints req-30-s2">
+                <span  className="talentPoints req-30-s2">
                   0/1
                 </span>
               </div>
@@ -10135,17 +10133,18 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_ardentdefender.jpg"
                   alt=""
                 />
 
-                <span id="prioReq3Spec2" className="talentPoints req-30-s2">
+                <span  className="talentPoints req-30-s2">
                   0/3
                 </span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
@@ -10165,21 +10164,16 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/MasterMarksman.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_weaponmastery.jpg"
                   alt=""
                 />
 
-                <span id="subsReq4Spec2" className="talentPoints req-35-s2">
+                <span className="talentPoints req-35-s2">
                   0/5
                 </span>
-                <img
-                  className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
-                  alt=""
-                  id="arrwReq4Spec2"
-                />
+                
               </div>
-              <div className="col col-xs-3"></div>
+              
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -10202,11 +10196,11 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/SilencingShot.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_avengersshield.jpg"
                   alt=""
                 />
 
-                <span id="prioReq4Spec2" className="talentPoints req-40-s2">
+                <span  className="talentPoints req-40-s2">
                   0/1
                 </span>
               </div>
@@ -10223,30 +10217,7 @@ class PaladinComponent extends Component {
           >
             <h5 id="spec3">Retribution</h5>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Paladin[41].toolTip[0]}
-                  id="42"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/MonsterSlaying.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-00-s3">0/3</span>
-              </div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10265,7 +10236,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/HumanoidSlaying.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_fistofjustice.jpg"
                   alt=""
                 />
 
@@ -10289,36 +10260,13 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/HawkEye.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_frost_windwalkon.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-00-s3">0/3</span>
               </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Paladin[44].toolTip[0]}
-                  id="45"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/SavageStrikes.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-00-s3">0/2</span>
-              </div>
+              <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -10339,7 +10287,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Entrapment.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_righteousfury.jpg"
                   alt=""
                 />
 
@@ -10363,7 +10311,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Deflection.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_holysmite.jpg"
                   alt=""
                 />
 
@@ -10387,7 +10335,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ImprovedWingClip.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/ability_parry.jpg"
                   alt=""
                 />
 
@@ -10414,7 +10362,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/CleverTraps.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_vindication.jpg"
                   alt=""
                 />
 
@@ -10438,7 +10386,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Survivalist.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_retributionaura.jpg"
                   alt=""
                 />
 
@@ -10462,21 +10410,42 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Deterrence.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/ability_warrior_innerrage.jpg"
                   alt=""
                 />
 
-                <span id="subsReq1Spec3" className="talentPoints req-10-s3">
+                <span className="talentPoints req-10-s3">
                   0/1
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq1Spec3"
-                />
+                
               </div>
-              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Paladin[50].toolTip[0]}
+                  id="51"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_persuitofjustice.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-10-s3">
+                  0/1
+                </span>
+                
+              </div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -10497,12 +10466,13 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/TrapMastery.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_eyeforaneye.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-15-s3">0/2</span>
               </div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10521,13 +10491,13 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Surefooted.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_auraoflight.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-15-s3">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10546,7 +10516,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ImprovedFeignDeath.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_crusade.jpg"
                   alt=""
                 />
 
@@ -10572,12 +10542,13 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/SurvivalInstincts.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/inv_hammer_04.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-20-s3">0/2</span>
               </div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10596,19 +10567,14 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/KillerInstinct.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_mindvision.jpg"
                   alt=""
                 />
 
-                <span id="subsReq2Spec3" className="talentPoints req-20-s3">
+                <span className="talentPoints req-20-s3">
                   0/3
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq2Spec3"
-                />
+                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10628,17 +10594,18 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/CounterAttack.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_mindvision.jpg"
                   alt=""
                 />
 
-                <span id="prioReq1Spec3" className="talentPoints req-20-s3">
+                <span className="talentPoints req-20-s3">
                   0/1
                 </span>
               </div>
-              <div className="col col-xs-3"></div>
+              
             </div>
             <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10657,13 +10624,13 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Resourcefulness.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/ability_racial_avatar.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-25-s3">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10682,7 +10649,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/LightningReflexes.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_righteousfury.jpg"
                   alt=""
                 />
 
@@ -10709,7 +10676,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ThrillOfTheHunt.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_holysmite.jpg"
                   alt=""
                 />
 
@@ -10733,11 +10700,11 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/WyvernSting.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_prayerofhealing.jpg"
                   alt=""
                 />
 
-                <span id="prioReq2Spec3" className="talentPoints req-30-s3">
+                <span className="talentPoints req-30-s3">
                   0/1
                 </span>
               </div>
@@ -10759,7 +10726,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ExposeWeakness.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_divinepurpose.jpg"
                   alt=""
                 />
 
@@ -10787,19 +10754,14 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/MasterTactician.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_fanaticism.jpg"
                   alt=""
                 />
 
-                <span id="subsReq3Spec3" className="talentPoints req-35-s3">
+                <span className="talentPoints req-35-s3">
                   0/5
                 </span>
-                <img
-                  className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
-                  alt=""
-                  id="arrwReq3Spec3"
-                />
+                
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -10824,11 +10786,11 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Readiness.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_crusaderstrike.jpg"
                   alt=""
                 />
 
-                <span id="prioReq3Spec3" className="talentPoints req-40-s3">
+                <span className="talentPoints req-40-s3">
                   0/1
                 </span>
               </div>
