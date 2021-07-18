@@ -200,7 +200,6 @@ class WarlockComponent extends Component {
     let individualPointTracker;
     let arrowChecker;
 
-    let spec1Req0 = [];
     let spec1Req5 = [];
     let spec1Req10 = [];
     let spec1Req15 = [];
@@ -210,7 +209,6 @@ class WarlockComponent extends Component {
     let spec1Req35 = [];
     let spec1Req40 = [];
 
-    let spec1Req0Output = [];
     let spec1Req5Output = [];
     let spec1Req10Output = [];
     let spec1Req15Output = [];
@@ -421,13 +419,12 @@ class WarlockComponent extends Component {
       }
 
       if (iSpec1 >= 5) {
-        
         spec1Req5 = document.getElementsByClassName("req-05-s1");
-        console.log("spec1Req5", spec1Req5);
+
         for (let g = 0; g < spec1Req5.length; g++) {
           spec1Req5Output.push(spec1Req5[g].previousElementSibling);
         }
-        console.log("spec1Req5Output", spec1Req5Output);
+        console.log(spec1Req5Output);
         for (let g = 0; g < spec1Req5Output.length; g++) {
           if (
             spec1Req5Output[g].className.includes("inactive-talent") &&
@@ -443,7 +440,6 @@ class WarlockComponent extends Component {
           }
         }
       }
-      
     }
 
     function addGreenBorderSpec2() {
@@ -816,7 +812,6 @@ class WarlockComponent extends Component {
       let arrowSrc;
       let arrowSrcSize;
       let spanID;
-      let shouldArrowBeSilver = "";
 
       function idMatcherParse() {
         if (spanID.includes("prioReq1Spec1")) {
@@ -830,78 +825,16 @@ class WarlockComponent extends Component {
         }
       }
 
-      function checkIDReq1Spec1(){
-              if (spanID.includes("prioReq1Spec1") && !(document.getElementById("subsReq1Spec1").previousElementSibling.className.includes("maxeds"))) {
-                console.log("This is when the arrow should still be gold")
-                shouldArrowBeSilver = false;
-                
-                console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-              } else if (document.getElementById("prioReq1Spec1").innerText[0] === "0") {
-                  console.log("This is when the arrow should revert to silver")
-                  shouldArrowBeSilver = true;
-              } 
-      }
-
-      function checkIDReq2Spec1(){
-        if (spanID.includes("prioReq2Spec1") && !(document.getElementById("subsReq2Spec1").previousElementSibling.className.includes("maxeds"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq2Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-      function checkIDReq3Spec1(){
-        if (spanID.includes("prioReq3Spec1") && !(document.getElementById("subsReq3Spec1").previousElementSibling.className.includes("maxeds") || document.getElementById("subsReq3Spec1").previousElementSibling.className.includes("req-active"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq3Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-      function checkIDReq4Spec1(){
-        if (spanID.includes("prioReq4Spec1") && !(document.getElementById("subsReq4Spec1").previousElementSibling.className.includes("maxeds"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq4Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-
-      
       function arrowSizeParse() {
-        
-        
-        console.log("arrowSrc", arrowSrc)
-
-        if (arrowSrc.src.includes("Left")) {
-          arrowSrcSize = "left";
-        } else if (arrowSrc.src.includes("Right")) {
-          arrowSrcSize = "right";
-        } else if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.src.includes("Small")) {
           arrowSrcSize = "sm";
         } else if (arrowSrc.src.includes("Medium")) {
           arrowSrcSize = "med";
         } else if (arrowSrc.src.includes("Large")) {
           arrowSrcSize = "lg";
-        } 
+        }
 
-        if(shouldArrowBeSilver === true) {
-        console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        console.log("arrowSrcSize", arrowSrcSize)
         switch (arrowSrcSize) {
-          
           case "sm":
             arrowSrc.src = "assets/images/DownSilverSmall.png";
             break;
@@ -913,19 +846,7 @@ class WarlockComponent extends Component {
           case "lg":
             arrowSrc.src = "assets/images/DownSilverLarge.png";
             break;
-
-          case "left":
-            arrowSrc.src = "assets/images/LeftSilverSmall.png";
-            break;
-
-          case "right":
-            
-            arrowSrc.src = "assets/images/RightSilverSmall.png";
-            break;
         }
-
-      }
-
       }
 
       if (iSpec1 < 40) {
@@ -975,7 +896,6 @@ class WarlockComponent extends Component {
           if (spec1Req30[g].id) {
             spanID = spec1Req30[g].id;
             idMatcherParse();
-            
             arrowSizeParse();
           }
           spec1Req30Output.push(spec1Req30[g].previousElementSibling);
@@ -996,7 +916,6 @@ class WarlockComponent extends Component {
           if (spec1Req25[g].id) {
             spanID = spec1Req25[g].id;
             idMatcherParse();
-            checkIDReq3Spec1();
             arrowSizeParse();
           }
           spec1Req25Output.push(spec1Req25[g].previousElementSibling);
@@ -1017,7 +936,6 @@ class WarlockComponent extends Component {
           if (spec1Req20[g].id) {
             spanID = spec1Req20[g].id;
             idMatcherParse();
-            
             arrowSizeParse();
           }
           spec1Req20Output.push(spec1Req20[g].previousElementSibling);
@@ -1038,9 +956,7 @@ class WarlockComponent extends Component {
           if (spec1Req15[g].id) {
             spanID = spec1Req15[g].id;
             idMatcherParse();
-            checkIDReq2Spec1();
             arrowSizeParse();
-            
           }
           spec1Req15Output.push(spec1Req15[g].previousElementSibling);
         }
@@ -1092,29 +1008,6 @@ class WarlockComponent extends Component {
           }
         }
       }
-
-      if (iSpec1 < 4) {
-        spec1Req0 = document.getElementsByClassName("req-00-s1");
-
-        for (let g = 0; g < spec1Req0.length; g++) {
-          if (spec1Req0[g].id) {
-            spanID = spec1Req0[g].id;
-            console.log("spanID", spanID)
-            
-            idMatcherParse();
-            arrowSizeParse();
-            checkIDReq1Spec1();
-          }
-          spec1Req0Output.push(spec1Req0[g].previousElementSibling);
-        }
-        console.log(spec1Req0Output);
-        for (let g = 0; g < spec1Req0Output.length; g++) {
-          if (spec1Req0Output[g].className.includes("active-talent") && spec1Req0Output[g].nextElementSibling.id.includes("prio")) {
-            spec1Req0Output[g].className =
-              "spec1 talentButton inactive-talent req-inactive";
-          }
-        }
-      }
     }
 
     function removeGreenBorderSpec2() {
@@ -1123,8 +1016,6 @@ class WarlockComponent extends Component {
       let spanID;
 
       function idMatcherParse() {
-        console.log("spanID", spanID)
-        
         if (spanID.includes("prioReq1Spec2")) {
           arrowSrc = document.getElementById("arrwReq1Spec2");
         } else if (spanID.includes("prioReq2Spec2")) {
@@ -1137,25 +1028,15 @@ class WarlockComponent extends Component {
       }
 
       function arrowSizeParse() {
-        
-        if (arrowSrc.src.includes("Left")) {
-          arrowSrcSize = "left";
-        } else if (arrowSrc.src.includes("Right")) {
-          arrowSrcSize = "right";
-          console.log(arrowSrc)
-        } else if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.src.includes("Small")) {
           arrowSrcSize = "sm";
         } else if (arrowSrc.src.includes("Medium")) {
           arrowSrcSize = "med";
-          console.log(arrowSrc)
         } else if (arrowSrc.src.includes("Large")) {
           arrowSrcSize = "lg";
-        } 
-
-        console.log("arrowSrcSize", arrowSrcSize)
+        }
 
         switch (arrowSrcSize) {
-          
           case "sm":
             arrowSrc.src = "assets/images/DownSilverSmall.png";
             break;
@@ -1166,15 +1047,6 @@ class WarlockComponent extends Component {
 
           case "lg":
             arrowSrc.src = "assets/images/DownSilverLarge.png";
-            break;
-
-          case "left":
-            arrowSrc.src = "assets/images/LeftSilverSmall.png";
-            break;
-
-          case "right":
-            arrowSrc.src = "assets/images/RightSilverSmall.png";
-            console.log("Lisa Ann")
             break;
         }
       }
@@ -1219,26 +1091,6 @@ class WarlockComponent extends Component {
         }
       }
 
-      if (iSpec2 === 30) {
-        spec2Req30 = document.getElementsByClassName("req-30-s2");
-
-        for (let g = 0; g < spec2Req30.length; g++) {
-          if (spec2Req30[g].id) {
-            spanID = spec2Req30[g].id;
-            idMatcherParse();
-            arrowSizeParse();
-          }
-          spec2Req30Output.push(spec2Req30[g].previousElementSibling);
-        }
-        console.log("spec2Req30Output", spec2Req30Output);
-        for (let g = 0; g < spec2Req30Output.length; g++) {
-          if (spec2Req30Output[g].className.includes("active-talent") && spec2Req30Output[g].nextElementSibling.id.includes("prio")) {
-            spec2Req30Output[g].className =
-              "spec2 talentButton inactive-talent req-inactive";
-          } 
-        }
-      }
-
       if (iSpec2 < 30) {
         spec2Req30 = document.getElementsByClassName("req-30-s2");
 
@@ -1250,7 +1102,7 @@ class WarlockComponent extends Component {
           }
           spec2Req30Output.push(spec2Req30[g].previousElementSibling);
         }
-        console.log("spec2Req30Output", spec2Req30Output);
+        console.log(spec2Req30Output);
         for (let g = 0; g < spec2Req30Output.length; g++) {
           if (spec2Req30Output[g].className.includes("active-talent")) {
             spec2Req30Output[g].className =
@@ -1663,14 +1515,6 @@ class WarlockComponent extends Component {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
             "assets/images/DownGoldLarge.png";
         }
-        if (arrowChecker.includes("left")) {
-          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/LeftGoldSmall.png";
-        }
-        if (arrowChecker.includes("right")) {
-          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/RightGoldSmall.png";
-        }
       }
 
       if (
@@ -1707,31 +1551,9 @@ class WarlockComponent extends Component {
               '[id*="prioReq1Spec1"]'
             ).className;
             let altStr = newStr.match(/\d+/g)[0];
-            console.log("altStr", altStr);
+            console.log(altStr);
 
             switch (altStr) {
-              case "00":
-                buttonsArray = document.getElementsByClassName("req-00-s1");
-                for (button of buttonsArray) {
-                  console.log(button.previousElementSibling);
-                  if (
-                    button.previousElementSibling.className.includes(
-                      "req-active"
-                    )
-                  ) {
-                    document.querySelector(
-                      '[id*="prioReq1Spec1"]'
-                    ).previousElementSibling.className =
-                      "spec1 talentButton active-talent req-active";
-                    ArrowGold();
-                    {
-                      break;
-                    }
-                  }
-                }
-
-                break;
-              
               case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s1");
                 for (button of buttonsArray) {
@@ -1745,7 +1567,6 @@ class WarlockComponent extends Component {
                       '[id*="prioReq1Spec1"]'
                     ).previousElementSibling.className =
                       "spec1 talentButton active-talent req-active";
-                    console.log("Orale you know")
                     ArrowGold();
                     {
                       break;
@@ -3995,12 +3816,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4032,12 +3848,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4069,12 +3880,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4105,12 +3911,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4154,12 +3955,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4191,12 +3987,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4228,12 +4019,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4264,12 +4050,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4313,12 +4094,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4350,12 +4126,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4387,12 +4158,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4423,12 +4189,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4472,12 +4233,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4509,12 +4265,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4546,12 +4297,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4582,12 +4328,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4631,12 +4372,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4668,12 +4404,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4705,12 +4436,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4741,12 +4467,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4790,12 +4511,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4827,12 +4543,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4864,12 +4575,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4900,12 +4606,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4949,12 +4650,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -4986,12 +4682,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5023,12 +4714,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5059,12 +4745,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5108,12 +4789,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5145,12 +4821,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5182,12 +4853,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5218,12 +4884,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5300,12 +4961,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5337,12 +4993,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5374,12 +5025,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5410,12 +5056,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5459,12 +5100,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5496,12 +5132,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5533,12 +5164,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5569,12 +5195,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5618,12 +5239,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5655,12 +5271,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5692,12 +5303,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5728,12 +5334,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5777,12 +5378,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5814,12 +5410,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5851,12 +5442,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5887,12 +5473,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5936,12 +5517,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -5973,12 +5549,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6010,12 +5581,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6046,12 +5612,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6096,12 +5657,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6134,12 +5690,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6154,7 +5705,7 @@ class WarlockComponent extends Component {
                 .previousElementSibling.className.includes("maxeds")
             ) {
               console.log("The arrow above me should be gold");
-              if (spec2Req30Output[g].className.includes("maxeds")) {
+              if (!spec2Req30Output[g].className.includes("maxeds")) {
                 spec2Req30Output[g].className =
                   "spec2 talentButton active-talent req-active";
               }
@@ -6171,12 +5722,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6207,12 +5753,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6256,12 +5797,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6293,12 +5829,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6330,12 +5861,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6366,12 +5892,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6415,12 +5936,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6452,12 +5968,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6489,12 +6000,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6526,12 +6032,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6608,12 +6109,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6645,12 +6141,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6682,12 +6173,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6718,12 +6204,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6767,12 +6248,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6804,12 +6280,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6841,12 +6312,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6877,12 +6343,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6926,12 +6387,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -6963,12 +6419,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7000,12 +6451,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7036,12 +6482,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7085,12 +6526,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7122,12 +6558,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7159,12 +6590,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7195,12 +6621,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7244,12 +6665,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7281,12 +6697,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7318,12 +6729,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7354,12 +6760,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7403,12 +6804,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7440,12 +6836,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7477,12 +6868,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7513,12 +6899,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7562,12 +6943,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7599,12 +6975,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7636,12 +7007,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7672,12 +7038,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7721,12 +7082,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7758,12 +7114,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7795,12 +7146,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7831,12 +7177,7 @@ class WarlockComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-                case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
-                  break;
-                case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
-                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7864,13 +7205,12 @@ class WarlockComponent extends Component {
 
     //Path taken if user left clicks the button
     if (window.event.button === 0) {
-      
       //If user tries to add more points to a maxed talent, exit function, preventing user action
       if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
 
-      return
+        return
       }
-
+      
       //if user clicked button in spec 1 tree update point counter for spec 1
       if (specString[4] === "1") {
         console.log("Point used in spec 1");
@@ -8290,46 +7630,49 @@ class WarlockComponent extends Component {
 
     //Path taken if user right clicks the button
     else if (window.event.button === 2) {
+      
+
+
       //this prevents the user from taking away points if they have points in a dependant talent
       //spec 1
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1") && !(document.getElementById("prioReq1Spec1").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec1"]') && !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1") && !(document.getElementById("prioReq2Spec1").innerText[0] === "0")){
+      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec1"]') && !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1") && !(document.getElementById("prioReq3Spec1").innerText[0] === "0")){
+      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec1"]') && !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1") && !(document.getElementById("prioReq4Spec1").innerText[0] === "0")){
+      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec1"]') && !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")){
         
         return
       }
       //spec 2
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2") && !(document.getElementById("prioReq1Spec2").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec2"]') && !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2") && !(document.getElementById("prioReq2Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec2"]') && !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2") && !(document.getElementById("prioReq3Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec2"]') && !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2") && !(document.getElementById("prioReq4Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec2"]') && !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")){
         
         return
       }
       //spec 3
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3") && !(document.getElementById("prioReq1Spec3").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec3"]') && !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3") && !(document.getElementById("prioReq2Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec3"]') && !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3") && !(document.getElementById("prioReq3Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec3"]') && !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3") && !(document.getElementById("prioReq4Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec3"]') && !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")){
         
         return
       }
@@ -8340,6 +7683,169 @@ class WarlockComponent extends Component {
 
         return
       }
+
+      /* This following if statement was added to fix the bug that prevented the arrow
+      from reverting to silver when you took away the points in the subsReq talent
+      */
+
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("Spec")){
+
+        let arrowSrcSize;
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
+          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Small")) {
+            arrowSrcSize = "sm";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Medium")) {
+            arrowSrcSize = "med";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Large")) {
+            arrowSrcSize = "lg";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Left")) {
+            arrowSrcSize = "left";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Right")) {
+            arrowSrcSize = "right";
+          }
+        }
+        
+        
+          switch (arrowSrcSize) {
+            case "sm":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverSmall.png";
+              break;
+
+            case "med":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverMedium.png";
+              break;
+
+            case "lg":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverLarge.png";
+              break;
+
+            case "left":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/LeftSilverSmall.png";
+              break;
+
+            case "right":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/RightSilverSmall.png";
+              break;
+          
+        }
+
+
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1")){
+          
+          document.querySelector('[id*="prioReq1Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1")){
+          
+          document.querySelector('[id*="prioReq2Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1")){
+         
+          document.querySelector('[id*="prioReq3Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1")){
+          
+          document.querySelector('[id*="prioReq4Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        }
+
+
+
+
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2")){
+          
+          document.querySelector('[id*="prioReq1Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2")){
+          
+          document.querySelector('[id*="prioReq2Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2")){
+          
+          document.querySelector('[id*="prioReq3Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2")){
+          
+          document.querySelector('[id*="prioReq4Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        }
+        
+
+
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3")){
+          
+          document.querySelector('[id*="prioReq1Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3")){
+          
+          document.querySelector('[id*="prioReq2Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3")){
+          
+          document.querySelector('[id*="prioReq3Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3")){
+          
+          document.querySelector('[id*="prioReq4Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        }
+
+
+
+
+      }
+
+      /* This following block of code prevents the user from removing points from a talent
+      if doing so would bring the points spent in the spec lower than any of the elements in
+      the spec 
+      */
+
+      pointRequirementString =
+      window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
+        17,
+        19
+      );
+      
+    console.log(
+      pointRequirementString
+    );
+
+    let clickDecider;
+    let arrayOfTalents = Array.from(document.querySelectorAll(".talentPoints"))
+    let arrayOfTalentsFiltered = [];
+
+    arrayOfTalentsFiltered = arrayOfTalents.filter(talent => talent.className.slice(17,19) > pointRequirementString)
+    console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
+    for(let individualTalent of arrayOfTalentsFiltered) {
+      if(individualTalent.className.slice(20,22) === "s1" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec1){
+        clickDecider = false;
+      } 
+      if(individualTalent.className.slice(20,22) === "s2" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec2){
+        clickDecider = false;
+      }
+      if(individualTalent.className.slice(20,22) === "s3" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec3){
+        clickDecider = false;
+      }
+
+
+
+    }
+
+    if(clickDecider === false){
+      return
+    }
+      
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
       //if user right clicked talent in spec1 subtract one point from point tracker if > 0
       if (specString[4] === "1") {
@@ -8699,8 +8205,6 @@ class WarlockComponent extends Component {
     let smArrowArray = document.querySelectorAll(".smArrow");
     let medArrowArray = document.querySelectorAll(".medArrow");
     let lgArrowArray = document.querySelectorAll(".lgArrow");
-    let leftArrowArray = document.querySelectorAll(".leftArrow");
-    let rightArrowArray = document.querySelectorAll(".rightArrow");
 
     let spanArrayPotential1 = [];
     let spanArrayPotential2 = [];
@@ -8760,8 +8264,8 @@ class WarlockComponent extends Component {
       }
 
       if (
-        (spanArray[y].className[17] === "0" &&
-        spanArray[y].className[18] === "0") && !(spanArray[y].id.includes("prio"))
+        spanArray[y].className[17] === "0" &&
+        spanArray[y].className[18] === "0"
       ) {
         console.log(spanArray[y].previousElementSibling);
         if (spanArray[y].previousElementSibling.className[4] === "1") {
@@ -8777,20 +8281,6 @@ class WarlockComponent extends Component {
             "spec3 talentButton active-talent req-active";
         }
       }
-
-      if(spanArray[y].id.includes("prio")){
-        if (spanArray[y].previousElementSibling.className[4] === "1"){
-          spanArray[y].previousElementSibling.className =
-          "spec1 talentButton inactive-talent req-inactive";
-        } if (spanArray[y].previousElementSibling.className[4] === "2"){
-          spanArray[y].previousElementSibling.className =
-          "spec2 talentButton inactive-talent req-inactive";
-        } if (spanArray[y].previousElementSibling.className[4] === "3"){
-          spanArray[y].previousElementSibling.className =
-          "spec1 talentButton inactive-talent req-inactive";
-        }
-      }
-      
     }
 
     /* Iterate through array of all talent buttons and split them
@@ -8842,12 +8332,6 @@ class WarlockComponent extends Component {
     }
     for (arrow of lgArrowArray) {
       arrow.src = "assets/images/DownSilverLarge.png";
-    }
-    for (arrow of leftArrowArray) {
-      arrow.src = "assets/images/LeftSilverSmall.png";
-    }
-    for (arrow of rightArrowArray) {
-      arrow.src = "assets/images/RightSilverSmall.png";
     }
 
     //Resets all counter variables to 0/false
