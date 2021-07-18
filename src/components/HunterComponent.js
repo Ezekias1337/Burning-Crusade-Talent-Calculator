@@ -7205,6 +7205,12 @@ class HunterComponent extends Component {
 
     //Path taken if user left clicks the button
     if (window.event.button === 0) {
+      //If user tries to add more points to a maxed talent, exit function, preventing user action
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
+
+        return
+      }
+      
       //if user clicked button in spec 1 tree update point counter for spec 1
       if (specString[4] === "1") {
         console.log("Point used in spec 1");
@@ -7624,6 +7630,60 @@ class HunterComponent extends Component {
 
     //Path taken if user right clicks the button
     else if (window.event.button === 2) {
+      
+
+
+      //this prevents the user from taking away points if they have points in a dependant talent
+      //spec 1
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1") && !(document.getElementById("prioReq1Spec1").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1") && !(document.getElementById("prioReq2Spec1").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1") && !(document.getElementById("prioReq3Spec1").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1") && !(document.getElementById("prioReq4Spec1").innerText[0] === "0")){
+        
+        return
+      }
+      //spec 2
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2") && !(document.getElementById("prioReq1Spec2").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2") && !(document.getElementById("prioReq2Spec2").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2") && !(document.getElementById("prioReq3Spec2").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2") && !(document.getElementById("prioReq4Spec2").innerText[0] === "0")){
+        
+        return
+      }
+      //spec 3
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3") && !(document.getElementById("prioReq1Spec3").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3") && !(document.getElementById("prioReq2Spec3").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3") && !(document.getElementById("prioReq3Spec3").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3") && !(document.getElementById("prioReq4Spec3").innerText[0] === "0")){
+        
+        return
+      }
+
+      //if user tries to remove points in a talent they spent no points in, exit function to prevent action
+
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === "0"){
+
+        return
+      }
+      
       //if user right clicked talent in spec1 subtract one point from point tracker if > 0
       if (specString[4] === "1") {
         console.log("Point taken from spec 1");
@@ -8172,10 +8232,7 @@ class HunterComponent extends Component {
         <div className="row talent-frame ml-3 mr-3">
           <div
             style={{
-              backgroundImage: `url(${
-                process.env.PUBLIC_URL +
-                "/assets/images/talents/Hunter/Background/BeastMastery.jpg"
-              })`,
+              backgroundImage: "url(/assets/images/talents/Hunter/Background/BeastMastery.jpg)"
             }}
             className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
@@ -8755,10 +8812,7 @@ class HunterComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: `url(${
-                process.env.PUBLIC_URL +
-                "/assets/images/talents/Hunter/Background/Marksman.jpg"
-              })`,
+              backgroundImage: "url(/assets/images/talents/Hunter/Background/Marksman.jpg)"
             }}
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col2"
@@ -9321,10 +9375,7 @@ class HunterComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: `url(${
-                process.env.PUBLIC_URL +
-                "/assets/images/talents/Hunter/Background/Survival.jpg"
-              })`,
+              backgroundImage: "url(/assets/images/talents/Hunter/Background/Survival.jpg)"
             }}
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col3"

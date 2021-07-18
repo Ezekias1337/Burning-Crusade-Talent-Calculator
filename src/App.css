@@ -78,8 +78,8 @@
 .talentPoints {
   background-color: #000;
   border: #333;
-  border-radius: 3px !important;
-  color: #787878;
+  border-radius: 2px !important;
+  color: #ffffff;
   cursor: pointer;
   font-size: .6rem;
   position: absolute;
@@ -123,7 +123,12 @@
 }
 
 .lgArrow{
-
+  position: absolute; 
+  left: 43%;
+  top: 85%;
+  height: 13rem;
+  width: .8rem;
+  z-index: 1;
 }
   
 

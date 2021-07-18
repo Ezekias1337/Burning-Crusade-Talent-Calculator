@@ -816,6 +816,7 @@ class DruidComponent extends Component {
       let arrowSrc;
       let arrowSrcSize;
       let spanID;
+      let shouldArrowBeSilver = "";
 
       function idMatcherParse() {
         if (spanID.includes("prioReq1Spec1")) {
@@ -829,8 +830,61 @@ class DruidComponent extends Component {
         }
       }
 
+      function checkIDReq1Spec1(){
+              if (spanID.includes("prioReq1Spec1") && !(document.getElementById("subsReq1Spec1").previousElementSibling.className.includes("maxeds"))) {
+                console.log("This is when the arrow should still be gold")
+                shouldArrowBeSilver = false;
+                
+                console.log("shouldArrowBeSilver", shouldArrowBeSilver)
+              } else if (document.getElementById("prioReq1Spec1").innerText[0] === "0") {
+                  console.log("This is when the arrow should revert to silver")
+                  shouldArrowBeSilver = true;
+              } 
+      }
+
+      function checkIDReq2Spec1(){
+        if (spanID.includes("prioReq2Spec1") && !(document.getElementById("subsReq2Spec1").previousElementSibling.className.includes("maxeds"))) {
+          console.log("This is when the arrow should still be gold")
+          shouldArrowBeSilver = false;
+          
+          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
+        } else if (document.getElementById("prioReq2Spec1").innerText[0] === "0") {
+            console.log("This is when the arrow should revert to silver")
+            shouldArrowBeSilver = true;
+        } 
+      }
+
+      function checkIDReq3Spec1(){
+        if (spanID.includes("prioReq3Spec1") && !(document.getElementById("subsReq3Spec1").previousElementSibling.className.includes("maxeds") || document.getElementById("subsReq3Spec1").previousElementSibling.className.includes("req-active"))) {
+          console.log("This is when the arrow should still be gold")
+          shouldArrowBeSilver = false;
+          
+          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
+        } else if (document.getElementById("prioReq3Spec1").innerText[0] === "0") {
+            console.log("This is when the arrow should revert to silver")
+            shouldArrowBeSilver = true;
+        } 
+      }
+
+      function checkIDReq4Spec1(){
+        if (spanID.includes("prioReq4Spec1") && !(document.getElementById("subsReq4Spec1").previousElementSibling.className.includes("maxeds"))) {
+          console.log("This is when the arrow should still be gold")
+          shouldArrowBeSilver = false;
+          
+          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
+        } else if (document.getElementById("prioReq4Spec1").innerText[0] === "0") {
+            console.log("This is when the arrow should revert to silver")
+            shouldArrowBeSilver = true;
+        } 
+      }
+
+
+      
       function arrowSizeParse() {
         
+        
+        console.log("arrowSrc", arrowSrc)
+
         if (arrowSrc.src.includes("Left")) {
           arrowSrcSize = "left";
         } else if (arrowSrc.src.includes("Right")) {
@@ -843,8 +897,9 @@ class DruidComponent extends Component {
           arrowSrcSize = "lg";
         } 
 
+        if(shouldArrowBeSilver === true) {
+        console.log("shouldArrowBeSilver", shouldArrowBeSilver)
         console.log("arrowSrcSize", arrowSrcSize)
-
         switch (arrowSrcSize) {
           
           case "sm":
@@ -864,9 +919,13 @@ class DruidComponent extends Component {
             break;
 
           case "right":
+            
             arrowSrc.src = "assets/images/RightSilverSmall.png";
             break;
         }
+
+      }
+
       }
 
       if (iSpec1 < 40) {
@@ -916,6 +975,7 @@ class DruidComponent extends Component {
           if (spec1Req30[g].id) {
             spanID = spec1Req30[g].id;
             idMatcherParse();
+            
             arrowSizeParse();
           }
           spec1Req30Output.push(spec1Req30[g].previousElementSibling);
@@ -936,6 +996,7 @@ class DruidComponent extends Component {
           if (spec1Req25[g].id) {
             spanID = spec1Req25[g].id;
             idMatcherParse();
+            checkIDReq3Spec1();
             arrowSizeParse();
           }
           spec1Req25Output.push(spec1Req25[g].previousElementSibling);
@@ -956,6 +1017,7 @@ class DruidComponent extends Component {
           if (spec1Req20[g].id) {
             spanID = spec1Req20[g].id;
             idMatcherParse();
+            
             arrowSizeParse();
           }
           spec1Req20Output.push(spec1Req20[g].previousElementSibling);
@@ -976,7 +1038,9 @@ class DruidComponent extends Component {
           if (spec1Req15[g].id) {
             spanID = spec1Req15[g].id;
             idMatcherParse();
+            checkIDReq2Spec1();
             arrowSizeParse();
+            
           }
           spec1Req15Output.push(spec1Req15[g].previousElementSibling);
         }
@@ -1035,8 +1099,11 @@ class DruidComponent extends Component {
         for (let g = 0; g < spec1Req0.length; g++) {
           if (spec1Req0[g].id) {
             spanID = spec1Req0[g].id;
+            console.log("spanID", spanID)
+            
             idMatcherParse();
             arrowSizeParse();
+            checkIDReq1Spec1();
           }
           spec1Req0Output.push(spec1Req0[g].previousElementSibling);
         }
@@ -7797,6 +7864,12 @@ class DruidComponent extends Component {
 
     //Path taken if user left clicks the button
     if (window.event.button === 0) {
+      //If user tries to add more points to a maxed talent, exit function, preventing user action
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
+
+        return
+      }
+      
       //if user clicked button in spec 1 tree update point counter for spec 1
       if (specString[4] === "1") {
         console.log("Point used in spec 1");
@@ -8216,6 +8289,57 @@ class DruidComponent extends Component {
 
     //Path taken if user right clicks the button
     else if (window.event.button === 2) {
+      //this prevents the user from taking away points if they have points in a dependant talent
+      //spec 1
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1") && !(document.getElementById("prioReq1Spec1").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1") && !(document.getElementById("prioReq2Spec1").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1") && !(document.getElementById("prioReq3Spec1").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1") && !(document.getElementById("prioReq4Spec1").innerText[0] === "0")){
+        
+        return
+      }
+      //spec 2
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2") && !(document.getElementById("prioReq1Spec2").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2") && !(document.getElementById("prioReq2Spec2").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2") && !(document.getElementById("prioReq3Spec2").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2") && !(document.getElementById("prioReq4Spec2").innerText[0] === "0")){
+        
+        return
+      }
+      //spec 3
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3") && !(document.getElementById("prioReq1Spec3").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3") && !(document.getElementById("prioReq2Spec3").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3") && !(document.getElementById("prioReq3Spec3").innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3") && !(document.getElementById("prioReq4Spec3").innerText[0] === "0")){
+        
+        return
+      }
+
+      //if user tries to remove points in a talent they spent no points in, exit function to prevent action
+
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === "0"){
+
+        return
+      }
+
       //if user right clicked talent in spec1 subtract one point from point tracker if > 0
       if (specString[4] === "1") {
         console.log("Point taken from spec 1");
@@ -8635,8 +8759,8 @@ class DruidComponent extends Component {
       }
 
       if (
-        spanArray[y].className[17] === "0" &&
-        spanArray[y].className[18] === "0"
+        (spanArray[y].className[17] === "0" &&
+        spanArray[y].className[18] === "0") && !(spanArray[y].id.includes("prio"))
       ) {
         console.log(spanArray[y].previousElementSibling);
         if (spanArray[y].previousElementSibling.className[4] === "1") {
@@ -8652,6 +8776,20 @@ class DruidComponent extends Component {
             "spec3 talentButton active-talent req-active";
         }
       }
+
+      if(spanArray[y].id.includes("prio")){
+        if (spanArray[y].previousElementSibling.className[4] === "1"){
+          spanArray[y].previousElementSibling.className =
+          "spec1 talentButton inactive-talent req-inactive";
+        } if (spanArray[y].previousElementSibling.className[4] === "2"){
+          spanArray[y].previousElementSibling.className =
+          "spec2 talentButton inactive-talent req-inactive";
+        } if (spanArray[y].previousElementSibling.className[4] === "3"){
+          spanArray[y].previousElementSibling.className =
+          "spec1 talentButton inactive-talent req-inactive";
+        }
+      }
+      
     }
 
     /* Iterate through array of all talent buttons and split them
@@ -8772,10 +8910,7 @@ class DruidComponent extends Component {
         <div className="row talent-frame ml-3 mr-3">
           <div
             style={{
-              backgroundImage: `url(${
-                process.env.PUBLIC_URL +
-                "/assets/images/talents/Druid/Background/Balance.jpg"
-              })`,
+              backgroundImage: "url(/assets/images/talents/Druid/Background/Balance.jpg)"
             }}
             className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
@@ -9269,7 +9404,7 @@ class DruidComponent extends Component {
                 />
 
                 <span
-                  id="subsReq3Spec1 prioReq2Spec1"
+                  
                   className="talentPoints req-30-s1"
                 >
                   0/1
@@ -9356,7 +9491,7 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq3Spec1" className="talentPoints req-40-s1">
+                <span className="talentPoints req-40-s1">
                   0/1
                 </span>
               </div>
@@ -9366,10 +9501,7 @@ class DruidComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: `url(${
-                process.env.PUBLIC_URL +
-                "/assets/images/talents/Druid/Background/FeralCombat.jpg"
-              })`,
+              backgroundImage: "url(/assets/images/talents/Druid/Background/FeralCombat.jpg)"
             }}
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col2"
@@ -9966,10 +10098,7 @@ class DruidComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: `url(${
-                process.env.PUBLIC_URL +
-                "/assets/images/talents/Druid/Background/Restoration.jpg"
-              })`,
+              backgroundImage: "url(/assets/images/talents/Druid/Background/Restoration.jpg)"
             }}
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col3"
@@ -10293,7 +10422,7 @@ class DruidComponent extends Component {
                 />
 
                 <span id="subsReq3Spec3" className="talentPoints req-20-s3">
-                  0/35
+                  0/5
                 </span>
                 <img
                   className="medArrow"

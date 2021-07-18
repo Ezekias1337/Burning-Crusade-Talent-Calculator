@@ -3,6 +3,10 @@ import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Mage } from "../talentinfo/Mage";
 
+
+//Start debugging on 7807 (preventing user from removing talent points if there are higher point talents that would be ineligible)
+
+
 let i = 0;
 let iSpec1 = 0;
 let iSpec2 = 0;
@@ -1513,7 +1517,7 @@ class MageComponent extends Component {
         }
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGold.png";
+            "assets/images/DownGoldLarge.png";
         }
       }
 
@@ -7205,6 +7209,12 @@ class MageComponent extends Component {
 
     //Path taken if user left clicks the button
     if (window.event.button === 0) {
+      //If user tries to add more points to a maxed talent, exit function, preventing user action
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
+
+        return
+      }
+      
       //if user clicked button in spec 1 tree update point counter for spec 1
       if (specString[4] === "1") {
         console.log("Point used in spec 1");
@@ -7624,6 +7634,223 @@ class MageComponent extends Component {
 
     //Path taken if user right clicks the button
     else if (window.event.button === 2) {
+      
+
+
+      //this prevents the user from taking away points if they have points in a dependant talent
+      //spec 1
+      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec1"]') && !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")){
+        
+        return
+      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec1"]') && !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")){
+        
+        return
+      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec1"]') && !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")){
+        
+        return
+      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec1"]') && !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")){
+        
+        return
+      }
+      //spec 2
+      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec2"]') && !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec2"]') && !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec2"]') && !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec2"]') && !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")){
+        
+        return
+      }
+      //spec 3
+      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec3"]') && !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec3"]') && !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec3"]') && !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")){
+        
+        return
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec3"]') && !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")){
+        
+        return
+      }
+
+      //if user tries to remove points in a talent they spent no points in, exit function to prevent action
+
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === "0"){
+
+        return
+      }
+
+      /* This following if statement was added to fix the bug that prevented the arrow
+      from reverting to silver when you took away the points in the subsReq talent
+      */
+
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("Spec")){
+
+        let arrowSrcSize;
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
+          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Small")) {
+            arrowSrcSize = "sm";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Medium")) {
+            arrowSrcSize = "med";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Large")) {
+            arrowSrcSize = "lg";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Left")) {
+            arrowSrcSize = "left";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Right")) {
+            arrowSrcSize = "right";
+          }
+        }
+        
+        
+          switch (arrowSrcSize) {
+            case "sm":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverSmall.png";
+              break;
+
+            case "med":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverMedium.png";
+              break;
+
+            case "lg":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverLarge.png";
+              break;
+
+            case "left":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/LeftSilverSmall.png";
+              break;
+
+            case "right":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/RightSilverSmall.png";
+              break;
+          
+        }
+
+
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1")){
+          
+          document.querySelector('[id*="prioReq1Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1")){
+          
+          document.querySelector('[id*="prioReq2Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1")){
+         
+          document.querySelector('[id*="prioReq3Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1")){
+          
+          document.querySelector('[id*="prioReq4Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        }
+
+
+
+
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2")){
+          
+          document.querySelector('[id*="prioReq1Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2")){
+          
+          document.querySelector('[id*="prioReq2Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2")){
+          
+          document.querySelector('[id*="prioReq3Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2")){
+          
+          document.querySelector('[id*="prioReq4Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        }
+        
+
+
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3")){
+          
+          document.querySelector('[id*="prioReq1Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3")){
+          
+          document.querySelector('[id*="prioReq2Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3")){
+          
+          document.querySelector('[id*="prioReq3Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        }
+
+        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3")){
+          
+          document.querySelector('[id*="prioReq4Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        }
+
+
+
+
+      }
+
+      /* This following block of code prevents the user from removing points from a talent
+      if doing so would bring the points spent in the spec lower than any of the elements in
+      the spec 
+      */
+
+      pointRequirementString =
+      window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
+        17,
+        19
+      );
+      
+    console.log(
+      pointRequirementString
+    );
+
+    let clickDecider;
+    let arrayOfTalents = Array.from(document.querySelectorAll(".talentPoints"))
+    let arrayOfTalentsFiltered = [];
+
+    arrayOfTalentsFiltered = arrayOfTalents.filter(talent => talent.className.slice(17,19) > pointRequirementString)
+    console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
+    for(let individualTalent of arrayOfTalentsFiltered) {
+      if(individualTalent.className.slice(20,22) === "s1" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec1){
+        clickDecider = false;
+      } 
+      if(individualTalent.className.slice(20,22) === "s2" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec2){
+        clickDecider = false;
+      }
+      if(individualTalent.className.slice(20,22) === "s3" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec3){
+        clickDecider = false;
+      }
+
+
+
+    }
+
+    if(clickDecider === false){
+      return
+    }
+      
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
       //if user right clicked talent in spec1 subtract one point from point tracker if > 0
       if (specString[4] === "1") {
         console.log("Point taken from spec 1");
@@ -8172,18 +8399,14 @@ class MageComponent extends Component {
         <div className="row talent-frame ml-3 mr-3">
           <div
             style={{
-              backgroundImage: `url(${
-                process.env.PUBLIC_URL +
-                "/assets/images/talents/Mage/Background/Arcane.jpg"
-              })`,
+              backgroundImage: "url(/assets/images/talents/Mage/Background/Arcane.jpg)"
             }}
             className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1">Beast Mastery</h5>
+            <h5 id="spec1">Arcane</h5>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
-              <div className="col col-xs-3">
+            <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
@@ -8201,11 +8424,11 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_holy_dispelmagic.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s1">0/5</span>
+                <span className="talentPoints req-00-s1">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8225,7 +8448,31 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec1/EnduranceTraining.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_holy_devotion.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-00-s1">0/5</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Mage[2].toolTip[0]}
+                  id="3"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton active-talent req-active"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_starfall.jpg"
                   alt=""
                 />
 
@@ -8245,30 +8492,6 @@ class MageComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Mage[2].toolTip[0]}
-                  id="3"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/FocusedFire.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s1">0/2</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
                   data-tip={Mage[3].toolTip[0]}
                   id="4"
                 />
@@ -8276,11 +8499,11 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectMonkey.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/inv_wand_01.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/3</span>
+                <span className="talentPoints req-05-s1">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8300,11 +8523,11 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ThickHide.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_astralrecalgroup.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/3</span>
+                <span className="talentPoints req-05-s1">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8324,12 +8547,19 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedRevivePet.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_shadow_manaburn.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/2</span>
+                <span id="subsReq1Spec1" className="talentPoints req-05-s1">0/5</span>
+                <img
+                  className="lgArrow"
+                  src="assets/images/DownSilverLarge.png"
+                  alt=""
+                  id="arrwReq1Spec1"
+                />
               </div>
+              <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -8350,7 +8580,7 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Pathfinding.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_abolishmagic.jpg"
                   alt=""
                 />
 
@@ -8374,12 +8604,13 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BestialSwiftness.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_wispsplode.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/1</span>
+                <span className="talentPoints req-10-s1">0/3</span>
               </div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8398,17 +8629,16 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/UnleashedFury.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_arcane_arcaneresilience.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/5</span>
+                <span className="talentPoints req-10-s1">0/1</span>
               </div>
-              <div className="col col-xs-3"></div>
+              
             </div>
             <div className="row talent-row">
-              <div className="col col-xs-3"></div>
-              <div className="col col-xs-3">
+            <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
@@ -8426,7 +8656,7 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedMendPet.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_shadow_detectlesserinvisibility.jpg"
                   alt=""
                 />
 
@@ -8450,25 +8680,15 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Ferocity.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_frost_iceshock.jpg"
                   alt=""
                 />
 
-                <span id="subsReq1Spec1" className="talentPoints req-15-s1">
-                  0/5
-                </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq1Spec1"
-                />
+                <span className="talentPoints req-15-s1">0/2</span>
               </div>
-
+              
               <div className="col col-xs-3"></div>
-            </div>
-
-            <div className="row talent-row talent-row-inner">
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8487,12 +8707,19 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/SpiritBond.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_shadow_siphonmana.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span className="talentPoints req-15-s1">
+                  0/3
+                </span>
               </div>
+
+              
+            </div>
+
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8511,21 +8738,12 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Intimidation.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_arcane_blink.jpg"
                   alt=""
                 />
 
-                <span id="subsReq2Spec1" className="talentPoints req-20-s1">
-                  0/1
-                </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq2Spec1"
-                />
+                <span className="talentPoints req-20-s1">0/2</span>
               </div>
-              <div style={{ zIndex: "0" }} className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8544,15 +8762,21 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BestialDiscipline.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_enchantarmor.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span id="subsReq2Spec1" className="talentPoints req-20-s1">
+                  0/1
+                </span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq2Spec1"
+                />
               </div>
-            </div>
-
-            <div className="row talent-row talent-row-inner">
+              <div style={{ zIndex: "0" }} className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8571,13 +8795,16 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/AnimalHandler.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_shadow_charm.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s1">0/2</span>
+                <span className="talentPoints req-20-s1">0/5</span>
               </div>
-              <div className="col col-xs-3"></div>
+            </div>
+
+            <div className="row talent-row talent-row-inner">
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8596,17 +8823,12 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Frenzy.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_arcane_prismaticcloak.jpg"
                   alt=""
                 />
 
-                <span id="prioReq1Spec1" className="talentPoints req-25-s1">
-                  0/5
-                </span>
+                <span className="talentPoints req-25-s1">0/2</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8625,11 +8847,17 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/FerociousInspiration.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_shadow_teleport.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s1">0/3</span>
+                <span id="prioReq2Spec1 subsReq3Spec1" className="talentPoints req-25-s1">0/3</span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq3Spec1"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8649,23 +8877,17 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BestialWrath.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_arcane_arcanepotency.jpg"
                   alt=""
                 />
 
-                <span
-                  id="subsReq3Spec1 prioReq2Spec1"
-                  className="talentPoints req-30-s1"
-                >
-                  0/1
+                <span id="prioReq1Spec1" className="talentPoints req-25-s1">
+                  0/3
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq3Spec1"
-                />
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8684,17 +8906,12 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/CatlikeReflexes.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_starfall.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-30-s1">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8713,16 +8930,18 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/SerpentsSwiftness.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_lightning.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s1">0/5</span>
+                <span
+                  id="prioReq3Spec1"
+                  className="talentPoints req-30-s1"
+                >
+                  0/1
+                </span>
+                
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8741,31 +8960,17 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BeastWithin.jpg"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_arcane_arcanetorrent.jpg"
                   alt=""
                 />
 
-                <span id="prioReq3Spec1" className="talentPoints req-40-s1">
-                  0/1
-                </span>
+                <span className="talentPoints req-30-s1">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
-              <div className="col col-xs-3"></div>
             </div>
-          </div>
-          <div
-            style={{
-              backgroundImage: `url(${
-                process.env.PUBLIC_URL +
-                "/assets/images/talents/Mage/Background/Fire.jpg"
-              })`,
-            }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
-            id="Col2"
-          >
-            <h5 id="spec2">Marksmanship</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8783,13 +8988,19 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedConcussiveShot.jpg"
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_arcane_mindmastery.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s2">0/5</span>
+                <span className="talentPoints req-35-s1">0/5</span>
               </div>
+
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8807,15 +9018,27 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec2/LethalShots.jpg"
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_slow.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s2">0/5</span>
+                <span className="talentPoints req-40-s1">
+                  0/1
+                </span>
               </div>
               <div className="col col-xs-3"></div>
+              <div className="col col-xs-3"></div>
             </div>
+          </div>
+          <div
+            style={{
+              backgroundImage: "url(/assets/images/talents/Mage/Background/Fire.jpg)"
+            }}
+            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            id="Col2"
+          >
+            <h5 id="spec2">Fire</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -8835,12 +9058,12 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedHuntersMark.jpg"
+                  className="spec2 talentButton active-talent req-active"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_flamebolt.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-00-s2">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8859,17 +9082,17 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/Efficiency.jpg"
+                  className="spec2 talentButton active-talent req-active"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_meteorstorm.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-00-s2">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3">
+            <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
@@ -8887,11 +9110,11 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/GoForTheThroat.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_incinerate.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span className="talentPoints req-05-s2">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8911,11 +9134,11 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedArcaneShot.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_flare.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8935,20 +9158,15 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/AimedShot.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_fireball.jpg"
                   alt=""
                 />
 
-                <span id="subsReq1Spec2" className="talentPoints req-10-s2">
-                  0/1
-                </span>
-                <img
-                  className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
-                  alt=""
-                  id="arrwReq1Spec2"
-                />
+                <span className="talentPoints req-05-s2">0/3</span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8967,15 +9185,12 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/RapidKilling.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_flameshock.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-10-s2">0/2</span>
               </div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8994,11 +9209,11 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedStings.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_selfdestruct.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s2">0/5</span>
+                <span className="talentPoints req-10-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9018,17 +9233,20 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/MortalShots.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_fireball02.jpg"
                   alt=""
                 />
 
-                <span id="prioReq1Spec2" className="talentPoints req-15-s2">
-                  0/5
+                <span id="subsReq1Spec2" className="talentPoints req-10-s2">
+                  0/1
                 </span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq1Spec2"
+                />
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9047,13 +9265,16 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ConcussiveBarrage.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_fire.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">0/3</span>
+                <span className="talentPoints req-10-s2">0/2</span>
               </div>
-              <div className="col col-xs-3">
+            </div>
+            <div className="row talent-row talent-row-inner">
+              
+            <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
@@ -9071,19 +9292,11 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ScatterShot.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_soulburn.jpg"
                   alt=""
                 />
 
-                <span id="subsReq2Spec2" className="talentPoints req-20-s2">
-                  0/1
-                </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq2Spec2"
-                />
+                <span className="talentPoints req-15-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9103,23 +9316,13 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_firearmor.jpg"
                   alt=""
                 />
 
-                <span id="subsReq3Spec2" className="talentPoints req-20-s2">
-                  0/3
-                </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq3Spec2"
-                />
+                <span className="talentPoints req-15-s2">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9138,14 +9341,18 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/CombatExperience.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_masterofelements.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s2">0/2</span>
+                <span  className="talentPoints req-15-s2">
+                  0/3
+                </span>
               </div>
-              <div className="col col-xs-3"></div>
-              <div className="col col-xs-3"></div>
+
+              
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9164,14 +9371,12 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/RangedWeaponSpecialization.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_playingwithfire.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s2">0/5</span>
+                <span className="talentPoints req-20-s2">0/3</span>
               </div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9190,11 +9395,19 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/CarefulAim.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_nature_wispheal.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">0/3</span>
+                <span id="subsReq2Spec2" className="talentPoints req-20-s2">
+                  0/3
+                </span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq2Spec2"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9214,14 +9427,18 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/TrueshotAura.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_holy_excorcism_02.jpg"
                   alt=""
                 />
-
-                <span id="prioReq2Spec2" className="talentPoints req-30-s2">
+    
+                <span id="prioReq1Spec2" className="talentPoints req-20-s2">
                   0/1
                 </span>
+                
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9240,18 +9457,14 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_burningspeed.jpg"
                   alt=""
                 />
 
-                <span id="prioReq3Spec2" className="talentPoints req-30-s2">
-                  0/3
-                </span>
+                <span className="talentPoints req-25-s2">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9270,25 +9483,16 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/MasterMarksman.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_immolation.jpg"
                   alt=""
                 />
 
-                <span id="subsReq4Spec2" className="talentPoints req-35-s2">
-                  0/5
-                </span>
-                <img
-                  className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
-                  alt=""
-                  id="arrwReq4Spec2"
-                />
+                <span className="talentPoints req-25-s2">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
-              <div className="col col-xs-3"></div>
+              
             </div>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9307,30 +9511,12 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/SilencingShot.jpg"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_burnout.jpg"
                   alt=""
                 />
 
-                <span id="prioReq4Spec2" className="talentPoints req-40-s2">
-                  0/1
-                </span>
+                <span className="talentPoints req-30-s2">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
-              <div className="col col-xs-3"></div>
-            </div>
-          </div>
-          <div
-            style={{
-              backgroundImage: `url(${
-                process.env.PUBLIC_URL +
-                "/assets/images/talents/Mage/Background/Frost.jpg"
-              })`,
-            }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
-            id="Col3"
-          >
-            <h5 id="spec3">Survival</h5>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9348,12 +9534,20 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/MonsterSlaying.jpg"
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_sealoffire.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span id="prioReq2Spec2 subsReq3Spec2" className="talentPoints req-30-s2">
+                  0/1
+                </span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq3Spec2"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9372,13 +9566,20 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/HumanoidSlaying.jpg"
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_moltenblood.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-30-s2">
+                  0/2
+                </span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9396,13 +9597,21 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/HawkEye.jpg"
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_flamebolt.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-35-s2">
+                  0/5
+                </span>
+                
               </div>
+              
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9420,14 +9629,27 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/SavageStrikes.jpg"
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Mage/Progression/spec2/inv_misc_head_dragon_01.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/2</span>
+                <span id="prioReq3Spec2" className="talentPoints req-40-s2">
+                  0/1
+                </span>
               </div>
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3"></div>
             </div>
+          </div>
+          <div
+            style={{
+              backgroundImage: "url(/assets/images/talents/Mage/Background/Frost.jpg)"
+            }}
+            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            id="Col3"
+          >
+            <h5 id="spec3">Frost</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
@@ -9446,12 +9668,12 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Entrapment.jpg"
+                  className="spec3 talentButton active-talent req-active"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_frostward.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9470,12 +9692,12 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Deflection.jpg"
+                  className="spec3 talentButton active-talent req-active"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_frostbolt02.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s3">0/5</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9494,12 +9716,12 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ImprovedWingClip.jpg"
+                  className="spec3 talentButton active-talent req-active"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_ice_magicdamage.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -9522,11 +9744,11 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/CleverTraps.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_iceshard.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">0/2</span>
+                <span className="talentPoints req-05-s3">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9546,11 +9768,11 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Survivalist.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_frostarmor.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">0/5</span>
+                <span className="talentPoints req-05-s3">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9570,13 +9792,11 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Deterrence.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_freezingbreath.jpg"
                   alt=""
                 />
 
-                <span id="subsReq1Spec3" className="talentPoints req-10-s3">
-                  0/1
-                </span>
+                <span id="subsReq1Spec3" className="talentPoints req-05-s3">0/2</span>
                 <img
                   className="medArrow"
                   src="assets/images/DownSilverMedium.png"
@@ -9584,9 +9804,6 @@ class MageComponent extends Component {
                   id="arrwReq1Spec3"
                 />
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9605,12 +9822,14 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/TrapMastery.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_wisp.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/2</span>
+                <span className="talentPoints req-05-s3">0/3</span>
               </div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9629,13 +9848,12 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Surefooted.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_frostbolt.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/3</span>
+                <span className="talentPoints req-10-s3">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9654,14 +9872,13 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ImprovedFeignDeath.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_coldhearted.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/2</span>
+                <span className="talentPoints req-10-s3">0/1</span>
               </div>
-            </div>
-            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9680,12 +9897,18 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/SurvivalInstincts.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_icestorm.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">0/2</span>
+                <span className="talentPoints req-10-s3">
+                  0/3
+                </span>
+                
               </div>
+              
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9704,19 +9927,11 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/KillerInstinct.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_shadow_darkritual.jpg"
                   alt=""
                 />
 
-                <span id="subsReq2Spec3" className="talentPoints req-20-s3">
-                  0/3
-                </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq2Spec3"
-                />
+                <span className="talentPoints req-15-s3">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9736,17 +9951,13 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/CounterAttack.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_stun.jpg"
                   alt=""
                 />
 
-                <span id="prioReq1Spec3" className="talentPoints req-20-s3">
-                  0/1
-                </span>
+                <span className="talentPoints req-15-s3">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9765,13 +9976,15 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Resourcefulness.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_frostshock.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s3">0/3</span>
+                <span id="prioReq1Spec3" className="talentPoints req-15-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9790,15 +10003,12 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/LightningReflexes.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_frozencore.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s3">0/5</span>
+                <span className="talentPoints req-20-s3">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9817,11 +10027,19 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ThrillOfTheHunt.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_wizardmark.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s3">0/3</span>
+                <span id="subsReq2Spec3" className="talentPoints req-20-s3">
+                  0/1
+                </span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq2Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9841,14 +10059,17 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/WyvernSting.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_glacier.jpg"
                   alt=""
                 />
 
-                <span id="prioReq2Spec3" className="talentPoints req-30-s3">
-                  0/1
+                <span className="talentPoints req-20-s3">
+                  0/3
                 </span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9867,15 +10088,12 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ExposeWeakness.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_icefloes.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s3">0/3</span>
+                <span className="talentPoints req-25-s3">0/2</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
@@ -9895,25 +10113,16 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/MasterTactician.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_chillingblast.jpg"
                   alt=""
                 />
 
-                <span id="subsReq3Spec3" className="talentPoints req-35-s3">
-                  0/5
-                </span>
-                <img
-                  className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
-                  alt=""
-                  id="arrwReq3Spec3"
-                />
+                <span className="talentPoints req-25-s3">0/5</span>
               </div>
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
+            <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9932,11 +10141,97 @@ class MageComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Readiness.jpg"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_ice_lament.jpg"
                   alt=""
                 />
 
-                <span id="prioReq3Spec3" className="talentPoints req-40-s3">
+                <span id="prioReq2Spec3" className="talentPoints req-30-s3">
+                  0/1
+                </span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Mage[64].toolTip[0]}
+                  id="65"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_arcticwinds.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-30-s3">0/5</span>
+              </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Mage[65].toolTip[0]}
+                  id="66"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_frostbolt02.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-35-s3">
+                  0/5
+                </span>
+                
+              </div>
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Mage[66].toolTip[0]}
+                  id="67"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_summonwaterelemental_2.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-40-s3">
                   0/1
                 </span>
               </div>
