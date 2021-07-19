@@ -37,17 +37,38 @@
   color: #e1eef4;
 }
 
+.frame-wrappe{
+  position: relative;
+}
 
-.talent-row{
+.talent-row {
   display: flex;
 }
 
+.talent-row-inner {
+  position: relative;
+}
+
 .talentButton {
-   margin-top: 10px;
-   margin-left: 5px;
+   margin-top: .7rem;
+   margin-bottom: .7rem;
+   margin-left: .15rem;
+   margin-right: .15rem;
    border-radius: 3px;
    display: inline-block;
+   z-index: 0;
+   position: relative;
+  }
+
+ .talentHover{
+   z-index: 1;
+   position: absolute;
+   top: 22%;
+   left: 28%;
+   width: 38px;
+   height: 38px;
  }
+ 
 
 .talent-bg {
   background-repeat: no-repeat;
@@ -57,115 +78,59 @@
 .talentPoints {
   background-color: #000;
   border: #333;
-  border-radius: .5em !important;
-  color: #787878;
+  border-radius: 2px !important;
+  color: #ffffff;
   cursor: pointer;
-  font-size: .7rem;
-  position: relative;
+  font-size: .6rem;
+  position: absolute;
   user-select: none;
+  left: 60%;
+  bottom: 5%;
+  z-index: 2;
+  }
+
+.leftArrow {
+  position: absolute; 
+  top: 40%;
+  right: 75%;
+  z-index: 1;
+} 
+
+.rightArrow {
+  position: absolute; 
+  top: 40%;
+  left: 75%;
+  z-index: 1;
+} 
+
+
+.smArrow {
+  position: absolute; 
+  left: 43%;
+  top: 85%;
+  height: 1.3rem;
+  width: .8rem;
+  z-index: 1;
+}
+    
+.medArrow {
+  position: absolute; 
+  left: 45%;
+  top: 85%;
+  height: 5.2rem;
+  width: .8rem;
+  z-index: 1;
+}
+
+.lgArrow{
+  position: absolute; 
+  left: 43%;
+  top: 85%;
+  height: 13rem;
+  width: .8rem;
+  z-index: 1;
+}
   
-  }
-
-  @media only screen and (min-width: 576px) { 
-    .smArrow {
-      position: absolute;
-      left: 2.31rem; 
-      height: 2.1rem; 
-      width: .8rem;
-    }
-    
-  }
-
-  @media only screen and (min-width: 768px) { 
-    .smArrow {
-      position: absolute;
-      left: 2.55rem; 
-      height: 2.1rem; 
-      width: .8rem;
-    }
-    
-  }
-
-  @media only screen and (min-width: 992px) { 
-    .smArrow {
-      position: absolute;
-      left: 2.2rem; 
-      height: 2.1rem; 
-      width: .8rem;
-    }
-    
-  }
-
-  @media only screen and (min-width: 1200px) { 
-    .smArrow {
-      position: absolute;
-      left: 2.6rem; 
-      height: 2.1rem; 
-      width: .8rem;
-    }
-    
-  }
-
-  @media only screen and (min-width: 1400px) { 
-    .smArrow {
-      position: absolute;
-      left: 2.31rem; 
-      height: 2.1rem; 
-      width: .8rem;
-    }
-    
-  }
-
-  @media only screen and (min-width: 576px) {
-    .medArrow {
-      position: absolute; 
-      left: 2.33rem; 
-      height: 6.7rem;
-      width: .8rem;
-    }
-  }
-
-  @media only screen and (min-width: 768px) {
-    .medArrow {
-      position: absolute; 
-      left: 2.55rem; 
-      height: 6.7rem;
-      width: .8rem;
-    }
-  }
-
-  @media only screen and (min-width: 992px) {
-    .medArrow {
-      position: absolute; 
-      left: 2.2rem; 
-      height: 6.7rem;
-      width: .8rem;
-    }
-  }
-
-  @media only screen and (min-width: 1200px) {
-    .medArrow {
-      position: absolute; 
-      left: 2.6rem; 
-      height: 6.7rem;
-      width: .8rem;
-    }
-  }
-
-  @media only screen and (min-width: 1400px) {
-    .medArrow {
-      position: absolute; 
-      left: 2.33rem; 
-      height: 6.7rem;
-      width: .8rem;
-    }
-  }
-
-  @media only screen and (min-width: 992px) {
-    .lgArrow{
-
-    }
-  }
 
  
 
@@ -174,10 +139,15 @@
   border-radius: 3px;
 }
 
+
 .inactive-talent{
   border: 2px solid #C2C4C6;
   border-radius: 3px;
+  pointer-events: none;
 }
+
+
+
 
 .maxeds{
   border: 2px solid #ffd100;
@@ -185,7 +155,8 @@
 }
 
 .html{
-  cursor: "../public/assets/images/Wow_Cursor.gif", "../public/assets/images/Wow_Cursor.cur", auto;
+  cursor: url("./images/Wow_Cursor.gif"), url("./images/Wow_Cursor.cur"), auto;
+  
 }
 
 .req-inactive{
