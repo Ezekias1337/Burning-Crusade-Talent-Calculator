@@ -9,6 +9,8 @@ import RogueComponent from './RogueComponent';
 import ShamanComponent from './ShamanComponent';
 import WarlockComponent from './WarlockComponent';
 import WarriorComponent from './WarriorComponent';
+import RepeatingTile from "../images/Repeating_Tile.PNG"
+import RepeatingTile4 from "../images/Repeating_Tile4.PNG"
 
 class ClassSelector extends Component {
   constructor(props) {

@@ -4,7 +4,9 @@ import ReactTooltip from "react-tooltip";
 import { Hunter } from "../talentinfo/Hunter";
 
 import improvedAspectofTheHawk from '../images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg';
-
+import spec1BG from "../images/talents/Hunter/Background/BeastMastery.jpg"
+import spec2BG from "../images/talents/Hunter/Background/Marksman.jpg"
+import spec3BG from "../images/talents/Hunter/Background/Survival.jpg"
 
 
 let i = 0;
@@ -8399,7 +8401,7 @@ class HunterComponent extends Component {
         <div className="row talent-frame ml-3 mr-3">
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Hunter/Background/BeastMastery.jpg)"
+              backgroundImage: `url(${spec1BG})`
             }}
             className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
@@ -8979,7 +8981,7 @@ class HunterComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Hunter/Background/Marksman.jpg)"
+              backgroundImage: `url(${spec2BG})`
             }}
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col2"
@@ -9542,7 +9544,7 @@ class HunterComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Hunter/Background/Survival.jpg)"
+              backgroundImage: `url(${spec3BG})`
             }}
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col3"
