@@ -3,6 +3,14 @@ import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Priest } from "../talentinfo/Priest";
 
+/* 
+Bug: When removing points, if a talent is maxed out and it's arrow is gold,
+when you decrease iSpec to be low enough to turn its dependant talent
+inactive, it needs to also revert the arrow color
+*/
+
+// line 3702 fixed bug for arrow not turning gold on click spec 3 key is changing to inactive instead of active
+
 //(Adjust section at line 6065)
 let i = 0;
 let iSpec1 = 0;
@@ -817,9 +825,10 @@ class PriestComponent extends Component {
       let arrowSrc;
       let arrowSrcSize;
       let spanID;
-      let shouldArrowBeSilver = "";
 
       function idMatcherParse() {
+        console.log("spanID", spanID)
+        
         if (spanID.includes("prioReq1Spec1")) {
           arrowSrc = document.getElementById("arrwReq1Spec1");
         } else if (spanID.includes("prioReq2Spec1")) {
@@ -831,76 +840,24 @@ class PriestComponent extends Component {
         }
       }
 
-      function checkIDReq1Spec1(){
-              if (spanID.includes("prioReq1Spec1") && !(document.getElementById("subsReq1Spec1").previousElementSibling.className.includes("maxeds"))) {
-                console.log("This is when the arrow should still be gold")
-                shouldArrowBeSilver = false;
-                
-                console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-              } else if (document.getElementById("prioReq1Spec1").innerText[0] === "0") {
-                  console.log("This is when the arrow should revert to silver")
-                  shouldArrowBeSilver = true;
-              } 
-      }
-
-      function checkIDReq2Spec1(){
-        if (spanID.includes("prioReq2Spec1") && !(document.getElementById("subsReq2Spec1").previousElementSibling.className.includes("maxeds"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq2Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-      function checkIDReq3Spec1(){
-        if (spanID.includes("prioReq3Spec1") && !(document.getElementById("subsReq3Spec1").previousElementSibling.className.includes("maxeds") || document.getElementById("subsReq3Spec1").previousElementSibling.className.includes("req-active"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq3Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-      function checkIDReq4Spec1(){
-        if (spanID.includes("prioReq4Spec1") && !(document.getElementById("subsReq4Spec1").previousElementSibling.className.includes("maxeds"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq4Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-
-      
       function arrowSizeParse() {
         
-        
-        console.log("arrowSrc", arrowSrc)
-
         if (arrowSrc.src.includes("Left")) {
           arrowSrcSize = "left";
         } else if (arrowSrc.src.includes("Right")) {
           arrowSrcSize = "right";
+          console.log(arrowSrc)
         } else if (arrowSrc.src.includes("Small")) {
           arrowSrcSize = "sm";
         } else if (arrowSrc.src.includes("Medium")) {
           arrowSrcSize = "med";
+          console.log(arrowSrc)
         } else if (arrowSrc.src.includes("Large")) {
           arrowSrcSize = "lg";
         } 
 
-        if(shouldArrowBeSilver === true) {
-        console.log("shouldArrowBeSilver", shouldArrowBeSilver)
         console.log("arrowSrcSize", arrowSrcSize)
+
         switch (arrowSrcSize) {
           
           case "sm":
@@ -920,13 +877,9 @@ class PriestComponent extends Component {
             break;
 
           case "right":
-            
             arrowSrc.src = "assets/images/RightSilverSmall.png";
             break;
         }
-
-      }
-
       }
 
       if (iSpec1 < 40) {
@@ -969,6 +922,26 @@ class PriestComponent extends Component {
         }
       }
 
+      if (iSpec1 === 30) {
+        spec1Req30 = document.getElementsByClassName("req-30-s1");
+
+        for (let g = 0; g < spec1Req30.length; g++) {
+          if (spec1Req30[g].id) {
+            spanID = spec1Req30[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
+          spec1Req30Output.push(spec1Req30[g].previousElementSibling);
+        }
+        console.log("spec1Req30Output", spec1Req30Output);
+        for (let g = 0; g < spec1Req30Output.length; g++) {
+          if (spec1Req30Output[g].className.includes("active-talent") && spec1Req30Output[g].nextElementSibling.id.includes("prio")) {
+            spec1Req30Output[g].className =
+              "spec1 talentButton inactive-talent req-inactive";
+          } 
+        }
+      }
+
       if (iSpec1 < 30) {
         spec1Req30 = document.getElementsByClassName("req-30-s1");
 
@@ -976,12 +949,11 @@ class PriestComponent extends Component {
           if (spec1Req30[g].id) {
             spanID = spec1Req30[g].id;
             idMatcherParse();
-            
             arrowSizeParse();
           }
           spec1Req30Output.push(spec1Req30[g].previousElementSibling);
         }
-        console.log(spec1Req30Output);
+        console.log("spec1Req30Output", spec1Req30Output);
         for (let g = 0; g < spec1Req30Output.length; g++) {
           if (spec1Req30Output[g].className.includes("active-talent")) {
             spec1Req30Output[g].className =
@@ -997,7 +969,6 @@ class PriestComponent extends Component {
           if (spec1Req25[g].id) {
             spanID = spec1Req25[g].id;
             idMatcherParse();
-            checkIDReq3Spec1();
             arrowSizeParse();
           }
           spec1Req25Output.push(spec1Req25[g].previousElementSibling);
@@ -1018,7 +989,6 @@ class PriestComponent extends Component {
           if (spec1Req20[g].id) {
             spanID = spec1Req20[g].id;
             idMatcherParse();
-            
             arrowSizeParse();
           }
           spec1Req20Output.push(spec1Req20[g].previousElementSibling);
@@ -1039,9 +1009,7 @@ class PriestComponent extends Component {
           if (spec1Req15[g].id) {
             spanID = spec1Req15[g].id;
             idMatcherParse();
-            checkIDReq2Spec1();
             arrowSizeParse();
-            
           }
           spec1Req15Output.push(spec1Req15[g].previousElementSibling);
         }
@@ -1089,29 +1057,6 @@ class PriestComponent extends Component {
         for (let g = 0; g < spec1Req5Output.length; g++) {
           if (spec1Req5Output[g].className.includes("active-talent")) {
             spec1Req5Output[g].className =
-              "spec1 talentButton inactive-talent req-inactive";
-          }
-        }
-      }
-
-      if (iSpec1 < 4) {
-        spec1Req0 = document.getElementsByClassName("req-00-s1");
-
-        for (let g = 0; g < spec1Req0.length; g++) {
-          if (spec1Req0[g].id) {
-            spanID = spec1Req0[g].id;
-            console.log("spanID", spanID)
-            
-            idMatcherParse();
-            arrowSizeParse();
-            checkIDReq1Spec1();
-          }
-          spec1Req0Output.push(spec1Req0[g].previousElementSibling);
-        }
-        console.log(spec1Req0Output);
-        for (let g = 0; g < spec1Req0Output.length; g++) {
-          if (spec1Req0Output[g].className.includes("active-talent") && spec1Req0Output[g].nextElementSibling.id.includes("prio")) {
-            spec1Req0Output[g].className =
               "spec1 talentButton inactive-talent req-inactive";
           }
         }
@@ -1175,7 +1120,6 @@ class PriestComponent extends Component {
 
           case "right":
             arrowSrc.src = "assets/images/RightSilverSmall.png";
-            console.log("Lisa Ann")
             break;
         }
       }
@@ -1369,25 +1313,41 @@ class PriestComponent extends Component {
       function idMatcherParse() {
         if (spanID.includes("prioReq1Spec3")) {
           arrowSrc = document.getElementById("arrwReq1Spec3");
+          console.log(arrowSrc);
         } else if (spanID.includes("prioReq2Spec3")) {
           arrowSrc = document.getElementById("arrwReq2Spec3");
+          console.log(arrowSrc);
         } else if (spanID.includes("prioReq3Spec3")) {
           arrowSrc = document.getElementById("arrwReq3Spec3");
+          console.log(arrowSrc);
         } else if (spanID.includes("prioReq4Spec3")) {
           arrowSrc = document.getElementById("arrwReq4Spec3");
+          console.log(arrowSrc);
         }
+
+        console.log(arrowSrc);
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        
+        if (arrowSrc.src.includes("Left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.src.includes("Right")) {
+          arrowSrcSize = "right";
+          console.log(arrowSrc)
+        } else if (arrowSrc.src.includes("Small")) {
           arrowSrcSize = "sm";
         } else if (arrowSrc.src.includes("Medium")) {
           arrowSrcSize = "med";
+          console.log(arrowSrc)
         } else if (arrowSrc.src.includes("Large")) {
           arrowSrcSize = "lg";
-        }
+        } 
+
+        console.log("arrowSrcSize", arrowSrcSize)
 
         switch (arrowSrcSize) {
+          
           case "sm":
             arrowSrc.src = "assets/images/DownSilverSmall.png";
             break;
@@ -1399,6 +1359,14 @@ class PriestComponent extends Component {
           case "lg":
             arrowSrc.src = "assets/images/DownSilverLarge.png";
             break;
+
+          case "left":
+            arrowSrc.src = "assets/images/LeftSilverSmall.png";
+            break;
+
+          case "right":
+            arrowSrc.src = "assets/images/RightSilverSmall.png";
+            break;
         }
       }
 
@@ -1408,6 +1376,7 @@ class PriestComponent extends Component {
         for (let g = 0; g < spec3Req40.length; g++) {
           if (spec3Req40[g].id) {
             spanID = spec3Req40[g].id;
+            console.log(spanID)
             idMatcherParse();
             arrowSizeParse();
           }
@@ -1662,7 +1631,7 @@ class PriestComponent extends Component {
         }
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGold.png";
+            "assets/images/DownGoldLarge.png";
         }
         if (arrowChecker.includes("left")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
@@ -3402,7 +3371,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3423,7 +3392,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3443,7 +3412,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3463,7 +3432,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3483,7 +3452,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3503,7 +3472,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3523,7 +3492,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3544,7 +3513,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3586,7 +3555,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3607,7 +3576,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3627,7 +3596,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3647,7 +3616,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3667,7 +3636,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3687,7 +3656,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3701,13 +3670,13 @@ class PriestComponent extends Component {
                   console.log(button.previousElementSibling);
                   if (
                     button.previousElementSibling.className.includes(
-                      "req-active"
-                    )
+                      "req-inactive"
+                    ) && iSpec3 >= 35
                   ) {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3728,7 +3697,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3770,7 +3739,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3791,7 +3760,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3811,7 +3780,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3831,7 +3800,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3851,7 +3820,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3871,7 +3840,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3891,7 +3860,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3912,7 +3881,7 @@ class PriestComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -6157,7 +6126,7 @@ class PriestComponent extends Component {
               console.log("The arrow above me should be gold");
               if (spec2Req30Output[g].className.includes("maxeds")) {
                 spec2Req30Output[g].className =
-                  "spec2 talentButton active-talent req-active";
+                  "spec2 talentButton maxeds req-active";
               }
               let arrow;
               arrow = document.getElementById("arrwReq3Spec2");
@@ -7102,7 +7071,7 @@ class PriestComponent extends Component {
                 "prioReq2Spec3"
               ) &&
               document
-                .getElementById("subsReq2Spec3")
+              .querySelector('[id*="subsReq2Spec3"]')
                 .previousElementSibling.className.includes("maxeds")
             ) {
               console.log("The arrow above me should be gold");
@@ -7251,6 +7220,7 @@ class PriestComponent extends Component {
                 case "rightArrow":
                   arrow.src = "assets/images/RightGoldSmall.png";
                   break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7457,7 +7427,7 @@ class PriestComponent extends Component {
                 "prioReq3Spec3"
               ) &&
               document
-                .getElementById("subsReq3Spec3")
+              .querySelector('[id*="subsReq3Spec3"]')
                 .previousElementSibling.className.includes("maxeds")
             ) {
               console.log("The arrow above me should be gold");
@@ -7620,7 +7590,7 @@ class PriestComponent extends Component {
                 .previousElementSibling.className.includes("maxeds")
             ) {
               console.log("The arrow above me should be gold");
-              if (!spec3Req35Output[g].className.includes("maxeds")) {
+              if (spec3Req35Output[g].className.includes("inactive")) {
                 spec3Req35Output[g].className =
                   "spec3 talentButton active-talent req-active";
               }
@@ -7811,7 +7781,7 @@ class PriestComponent extends Component {
                 "prioReq4Spec3"
               ) &&
               document
-                .getElementById("subsReq4Spec3")
+              .querySelector('[id*="subsReq4Spec3"]')
                 .previousElementSibling.className.includes("maxeds")
             ) {
               console.log("The arrow above me should be gold");
@@ -8292,44 +8262,44 @@ class PriestComponent extends Component {
     else if (window.event.button === 2) {
       //this prevents the user from taking away points if they have points in a dependant talent
       //spec 1
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1") && !(document.getElementById("prioReq1Spec1").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1") && !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1") && !(document.getElementById("prioReq2Spec1").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1") && !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1") && !(document.getElementById("prioReq3Spec1").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1") && !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1") && !(document.getElementById("prioReq4Spec1").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1") && !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")){
         
         return
       }
       //spec 2
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2") && !(document.getElementById("prioReq1Spec2").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2") && !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2") && !(document.getElementById("prioReq2Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2") && !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2") && !(document.getElementById("prioReq3Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2") && !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2") && !(document.getElementById("prioReq4Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2") && !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")){
         
         return
       }
       //spec 3
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3") && !(document.getElementById("prioReq1Spec3").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3") && !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3") && !(document.getElementById("prioReq2Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3") && !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3") && !(document.getElementById("prioReq3Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3") && !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3") && !(document.getElementById("prioReq4Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3") && !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")){
         
         return
       }
@@ -8366,6 +8336,14 @@ class PriestComponent extends Component {
         
         
           switch (arrowSrcSize) {
+            case "left":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/LeftSilverSmall.png";
+              break;
+
+            case "right":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/RightSilverSmall.png";
+              break;
+            
             case "sm":
               window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverSmall.png";
               break;
@@ -8377,15 +8355,6 @@ class PriestComponent extends Component {
             case "lg":
               window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverLarge.png";
               break;
-
-            case "left":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/LeftSilverSmall.png";
-              break;
-
-            case "right":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/RightSilverSmall.png";
-              break;
-          
         }
 
 
@@ -9154,7 +9123,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/2</span>
+                <span className="talentPoints req-05-s1">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9178,7 +9147,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/3</span>
+                <span className="talentPoints req-05-s1">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9252,7 +9221,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/2</span>
+                <span className="talentPoints req-10-s1">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9300,7 +9269,13 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/5</span>
+                <span id="subsReq1Spec1" className="talentPoints req-10-s1">0/3</span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq1Spec1"
+                />
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -9329,7 +9304,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s1">0/2</span>
+                <span className="talentPoints req-15-s1">0/3</span>
               </div>
               
               <div className="col col-xs-3">
@@ -9372,8 +9347,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[10].toolTip[0]}
-                  id="11"
+                  data-tip={Priest[11].toolTip[0]}
+                  id="12"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9384,7 +9359,7 @@ class PriestComponent extends Component {
                 />
 
                 <span className="talentPoints req-15-s1">
-                  0/5
+                  0/2
                 </span>
                 
               </div>
@@ -9403,8 +9378,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[11].toolTip[0]}
-                  id="12"
+                  data-tip={Priest[12].toolTip[0]}
+                  id="13"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9414,36 +9389,14 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
-              </div>
-              <div className="col col-xs-3">
+                <span id="subsReq2Spec1" className="talentPoints req-20-s1">0/5</span>
                 <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Priest[12].toolTip[0]}
-                  id="13"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_holy_divinespirit.jpg"
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
                   alt=""
+                  id="arrwReq2Spec1"
                 />
-
-                <span className="talentPoints req-20-s1">
-                  0/1
-                </span>
-                
               </div>
-              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9466,7 +9419,40 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span id="prioReq1Spec1 subsReq3Spec1" className="talentPoints req-20-s1">
+                  0/1
+                </span>
+                <img
+                  className="rightArrow"
+                  src="assets/images/RightSilverSmall.png"
+                  alt=""
+                  id="arrwReq3Spec1"
+                />
+              </div>
+              
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Priest[14].toolTip[0]}
+                  id="15"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Priest/Progression/spec1/spell_holy_divinespirit.jpg"
+                  alt=""
+                />
+
+                <span id="prioReq3Spec1" className="talentPoints req-20-s1">0/2</span>
               </div>
             </div>
 
@@ -9482,8 +9468,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[14].toolTip[0]}
-                  id="15"
+                  data-tip={Priest[15].toolTip[0]}
+                  id="16"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9507,8 +9493,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[15].toolTip[0]}
-                  id="16"
+                  data-tip={Priest[16].toolTip[0]}
+                  id="17"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9536,8 +9522,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[16].toolTip[0]}
-                  id="17"
+                  data-tip={Priest[17].toolTip[0]}
+                  id="18"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9560,8 +9546,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[17].toolTip[0]}
-                  id="18"
+                  data-tip={Priest[18].toolTip[0]}
+                  id="19"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9572,7 +9558,7 @@ class PriestComponent extends Component {
                 />
 
                 <span
-                  
+                  id="prioReq2Spec1"
                   className="talentPoints req-30-s1"
                 >
                   0/1
@@ -9590,8 +9576,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[18].toolTip[0]}
-                  id="19"
+                  data-tip={Priest[19].toolTip[0]}
+                  id="20"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9620,8 +9606,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[19].toolTip[0]}
-                  id="20"
+                  data-tip={Priest[20].toolTip[0]}
+                  id="21"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9649,8 +9635,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[20].toolTip[0]}
-                  id="21"
+                  data-tip={Priest[21].toolTip[0]}
+                  id="22"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9689,8 +9675,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[21].toolTip[0]}
-                  id="22"
+                  data-tip={Priest[22].toolTip[0]}
+                  id="23"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9700,7 +9686,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s2">0/5</span>
+                <span className="talentPoints req-00-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9713,8 +9699,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[21].toolTip[0]}
-                  id="22"
+                  data-tip={Priest[23].toolTip[0]}
+                  id="24"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9724,7 +9710,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s2">0/5</span>
+                <span className="talentPoints req-00-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9737,8 +9723,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[22].toolTip[0]}
-                  id="23"
+                  data-tip={Priest[24].toolTip[0]}
+                  id="25"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9765,8 +9751,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[23].toolTip[0]}
-                  id="24"
+                  data-tip={Priest[25].toolTip[0]}
+                  id="26"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9789,8 +9775,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[24].toolTip[0]}
-                  id="25"
+                  data-tip={Priest[26].toolTip[0]}
+                  id="27"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9800,7 +9786,13 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span id="subsReq1Spec2" className="talentPoints req-05-s2">0/5</span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq1Spec2"
+                />
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -9816,8 +9808,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[25].toolTip[0]}
-                  id="26"
+                  data-tip={Priest[27].toolTip[0]}
+                  id="28"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9827,33 +9819,8 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span className="talentPoints req-10-s2">0/1</span>
               </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Priest[26].toolTip[0]}
-                  id="27"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_blessedrecovery.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-10-s2">0/5</span>
-              </div>
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9872,63 +9839,40 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_blessedrecovery.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-10-s2">0/3</span>
+              </div>
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Priest[29].toolTip[0]}
+                  id="30"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Priest/Progression/spec2/spell_holy_layonhands.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span className="talentPoints req-10-s2">0/3</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Priest[29].toolTip[0]}
-                  id="30"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_purify.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-15-s2">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Priest[29].toolTip[0]}
-                  id="30"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_heal02.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-15-s2">0/5</span>
-              </div>
-              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
@@ -9946,17 +9890,12 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_searinglightpriest.jpg"
+                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_purify.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s2">
-                  0/5
-                </span>
+                <span className="talentPoints req-15-s2">0/2</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9975,11 +9914,11 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_prayerofhealing02.jpg"
+                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_heal02.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">0/3</span>
+                <span className="talentPoints req-15-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9999,15 +9938,17 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/inv_enchant_essenceeternallarge.jpg"
+                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_searinglightpriest.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
-                  0/1
+                <span id="prioReq1Spec2" className="talentPoints req-15-s2">
+                  0/2
                 </span>
-                
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10026,12 +9967,68 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_prayerofhealing02.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-20-s2">0/2</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Priest[34].toolTip[0]}
+                  id="35"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Priest/Progression/spec2/inv_enchant_essenceeternallarge.jpg"
+                  alt=""
+                />
+
+                <span id="subsReq2Spec2" className="talentPoints req-20-s2">
+                  0/1
+                </span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq2Spec2"
+                />
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Priest[35].toolTip[0]}
+                  id="36"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Priest/Progression/spec2/spell_holy_spiritualguidence.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-20-s2">
-                  0/3
+                  0/5
                 </span>
                 
               </div>
@@ -10049,8 +10046,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[34].toolTip[0]}
-                  id="35"
+                  data-tip={Priest[36].toolTip[0]}
+                  id="37"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10075,8 +10072,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[35].toolTip[0]}
-                  id="36"
+                  data-tip={Priest[37].toolTip[0]}
+                  id="38"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10102,8 +10099,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[36].toolTip[0]}
-                  id="37"
+                  data-tip={Priest[38].toolTip[0]}
+                  id="39"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10126,8 +10123,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[37].toolTip[0]}
-                  id="38"
+                  data-tip={Priest[39].toolTip[0]}
+                  id="40"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10137,7 +10134,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">
+                <span id="prioReq2Spec2" className="talentPoints req-30-s2">
                   0/1
                 </span>
               </div>
@@ -10152,8 +10149,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[38].toolTip[0]}
-                  id="39"
+                  data-tip={Priest[40].toolTip[0]}
+                  id="41"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10182,8 +10179,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[39].toolTip[0]}
-                  id="40"
+                  data-tip={Priest[41].toolTip[0]}
+                  id="42"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10214,8 +10211,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[40].toolTip[0]}
-                  id="41"
+                  data-tip={Priest[42].toolTip[0]}
+                  id="43"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10256,8 +10253,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[42].toolTip[0]}
-                  id="43"
+                  data-tip={Priest[43].toolTip[0]}
+                  id="44"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10267,7 +10264,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10280,8 +10277,8 @@ class PriestComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Priest[43].toolTip[0]}
-                  id="44"
+                  data-tip={Priest[44].toolTip[0]}
+                  id="45"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10291,7 +10288,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10342,7 +10339,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s3">0/5</span>
+                <span className="talentPoints req-05-s3">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10366,7 +10363,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s3">0/3</span>
+                <span className="talentPoints req-05-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10393,7 +10390,13 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">0/2</span>
+                <span id="subsReq1Spec3" className="talentPoints req-10-s3">0/2</span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq1Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10496,7 +10499,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/3</span>
+                <span className="talentPoints req-15-s3">0/2</span>
               </div>
               
               <div className="col col-xs-3">
@@ -10521,7 +10524,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/2</span>
+                <span className="talentPoints req-15-s3">0/5</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -10547,7 +10550,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">0/2</span>
+                <span id="prioReq1Spec3" className="talentPoints req-20-s3">0/1</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10571,10 +10574,21 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
-                  0/3
+                <span id="subsReq2Spec3 subsReq3Spec3" className="talentPoints req-20-s3">
+                  0/1
                 </span>
-                
+                <img
+                  className="rightArrow"
+                  src="assets/images/RightSilverSmall.png"
+                  alt=""
+                  id="arrwReq2Spec3"
+                />
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq3Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10598,38 +10612,10 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span  className="talentPoints req-20-s3">
-                  0/1
+                <span id="prioReq2Spec3" className="talentPoints req-20-s3">
+                  0/2
                 </span>
               </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Priest[56].toolTip[0]}
-                  id="57"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_nature_focusedmind.jpg"
-                  alt=""
-                />
-
-                <span  className="talentPoints req-20-s3">
-                  0/1
-                </span>
-              </div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10648,13 +10634,16 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_grimward.jpg"
+                  src="assets/images/talents/Priest/Progression/spec3/spell_nature_focusedmind.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s3">0/3</span>
+                <span  className="talentPoints req-20-s3">
+                  0/3
+                </span>
               </div>
-              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10668,6 +10657,31 @@ class PriestComponent extends Component {
                   style={{ display: "none" }}
                   data-tip={Priest[58].toolTip[0]}
                   id="59"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_grimward.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-25-s3">0/2</span>
+              </div>
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Priest[59].toolTip[0]}
+                  id="60"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10705,9 +10719,15 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span  className="talentPoints req-30-s3">
+                <span id="prioReq3Spec3 subsReq4Spec3" className="talentPoints req-30-s3">
                   0/1
                 </span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq4Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10731,7 +10751,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s3">0/3</span>
+                <span className="talentPoints req-30-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10792,7 +10812,7 @@ class PriestComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s3">
+                <span id="prioReq4Spec3" className="talentPoints req-40-s3">
                   0/1
                 </span>
               </div>

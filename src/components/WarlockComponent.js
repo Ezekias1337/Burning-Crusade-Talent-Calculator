@@ -8500,7 +8500,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/3</span>
+                <span className="talentPoints req-05-s1">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8524,7 +8524,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/3</span>
+                <span className="talentPoints req-05-s1">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8598,7 +8598,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/1</span>
+                <span className="talentPoints req-10-s1">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8622,7 +8622,13 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/5</span>
+                <span id="subsReq1Spec1" className="talentPoints req-10-s1">0/1</span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq1Spec1"
+                />
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -8662,8 +8668,8 @@ class WarlockComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warlock[9].toolTip[0]}
-                  id="10"
+                  data-tip={Warlock[10].toolTip[0]}
+                  id="11"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -8687,8 +8693,8 @@ class WarlockComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warlock[10].toolTip[0]}
-                  id="11"
+                  data-tip={Warlock[11].toolTip[0]}
+                  id="12"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -8699,7 +8705,7 @@ class WarlockComponent extends Component {
                 />
 
                 <span className="talentPoints req-15-s1">
-                  0/5
+                  0/3
                 </span>
                 
               </div>
@@ -8708,30 +8714,6 @@ class WarlockComponent extends Component {
             </div>
 
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warlock[11].toolTip[0]}
-                  id="12"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_shadowembrace.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-20-s1">0/2</span>
-              </div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8750,16 +8732,12 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_requiem.jpg"
+                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_shadowembrace.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">
-                  0/1
-                </span>
-                
+                <span className="talentPoints req-20-s1">0/5</span>
               </div>
-              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8778,18 +8756,21 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_grimward.jpg"
+                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_requiem.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span id="subsReq2Spec1" className="talentPoints req-20-s1">
+                  0/1
+                </span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq2Spec1"
+                />
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-
-            <div className="row talent-row talent-row-inner">
               
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8808,11 +8789,41 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_grimward.jpg"
+                  alt=""
+                />
+
+                <span id="prioReq1Spec1" className="talentPoints req-20-s1">0/1</span>
+              </div>
+              <div className="col col-xs-3"></div>
+            </div>
+
+            <div className="row talent-row talent-row-inner">
+              
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warlock[15].toolTip[0]}
+                  id="16"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_shadetruesight.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s1">0/2</span>
+                <span id="prioReq2Spec1" className="talentPoints req-25-s1">0/5</span>
               </div>
               
               <div className="col col-xs-3"></div>
@@ -8831,8 +8842,8 @@ class WarlockComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warlock[17].toolTip[0]}
-                  id="18"
+                  data-tip={Warlock[16].toolTip[0]}
+                  id="17"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -8843,14 +8854,46 @@ class WarlockComponent extends Component {
                 />
 
                 <span
-                  
+                  id="subsReq3Spec1"
                   className="talentPoints req-30-s1"
                 >
-                  0/1
+                  0/5
                 </span>
-                
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq3Spec1"
+                />
               </div>
               <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warlock[17].toolTip[0]}
+                  id="18"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_darkritual.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-30-s1">0/1</span>
+              </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
+            <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
@@ -8868,38 +8911,11 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_darkritual.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-30-s1">0/3</span>
-              </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-            <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warlock[19].toolTip[0]}
-                  id="20"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_deathscream.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s1">0/5</span>
+                <span className="talentPoints req-35-s1">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -8924,7 +8940,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s1">0/5</span>
+                <span className="talentPoints req-35-s1">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -8952,7 +8968,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s1">
+                <span id="prioReq3Spec1" className="talentPoints req-40-s1">
                   0/1
                 </span>
               </div>
@@ -8991,31 +9007,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s2">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warlock[21].toolTip[0]}
-                  id="22"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_summonimp.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-00-s2">0/5</span>
+                <span className="talentPoints req-00-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9030,6 +9022,30 @@ class WarlockComponent extends Component {
                   style={{ display: "none" }}
                   data-tip={Warlock[22].toolTip[0]}
                   id="23"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton active-talent req-active"
+                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_summonimp.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-00-s2">0/3</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warlock[23].toolTip[0]}
+                  id="24"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9055,8 +9071,8 @@ class WarlockComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warlock[23].toolTip[0]}
-                  id="24"
+                  data-tip={Warlock[24].toolTip[0]}
+                  id="25"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9066,59 +9082,8 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/2</span>
               </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warlock[23].toolTip[0]}
-                  id="24"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_summonvoidwalker.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s2">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warlock[24].toolTip[0]}
-                  id="25"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_holy_magicalsentry.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s2">0/5</span>
-              </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9137,11 +9102,11 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_summonsuccubus.jpg"
+                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_summonvoidwalker.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span className="talentPoints req-05-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9161,12 +9126,15 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_nature_removecurse.jpg"
+                  src="assets/images/talents/Warlock/Progression/spec2/spell_holy_magicalsentry.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/3</span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9185,14 +9153,11 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_antishadow.jpg"
+                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_summonsuccubus.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">
-                  0/1
-                </span>
-                
+                <span className="talentPoints req-10-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9212,15 +9177,18 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_ragingscream.jpg"
+                  src="assets/images/talents/Warlock/Progression/spec2/spell_nature_removecurse.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span id="subsReq1Spec2" className="talentPoints req-10-s2">0/1</span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq1Spec2"
+                />
               </div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9239,11 +9207,14 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_impphaseshift.jpg"
+                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_antishadow.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s2">0/5</span>
+                <span className="talentPoints req-10-s2">
+                  0/3
+                </span>
+                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9263,17 +9234,15 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_shadowworddominate.jpg"
+                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_ragingscream.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s2">
-                  0/5
-                </span>
+                <span className="talentPoints req-10-s2">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9292,11 +9261,11 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_enslavedemon.jpg"
+                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_impphaseshift.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">0/3</span>
+                <span id="prioReq1Spec2" className="talentPoints req-15-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9316,16 +9285,23 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_psychicscream.jpg"
+                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_shadowworddominate.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
-                  0/1
+                <span id="subsReq2Spec2" className="talentPoints req-15-s2">
+                  0/5
                 </span>
-                
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq2Spec2"
+                />
               </div>
               <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9344,18 +9320,12 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/inv_ammo_firetar.jpg"
+                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_enslavedemon.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
-                  0/3
-                </span>
-                
+                <span className="talentPoints req-20-s2">0/2</span>
               </div>
-              
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9374,11 +9344,19 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_manafeed.jpg"
+                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_psychicscream.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s2">0/2</span>
+                <span id="subsReq3Spec2" className="talentPoints req-20-s2">
+                  0/1
+                </span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq3Spec2"
+                />
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9399,13 +9377,15 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_shadowpact.jpg"
+                  src="assets/images/talents/Warlock/Progression/spec2/inv_ammo_firetar.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s2">0/5</span>
+                <span className="talentPoints req-20-s2">
+                  0/2
+                </span>
+                
               </div>
-              <div className="col col-xs-3"></div>
               
             </div>
             <div className="row talent-row talent-row-inner">
@@ -9422,6 +9402,59 @@ class WarlockComponent extends Component {
                   style={{ display: "none" }}
                   data-tip={Warlock[36].toolTip[0]}
                   id="37"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_manafeed.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-25-s2">0/3</span>
+              </div>
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warlock[37].toolTip[0]}
+                  id="38"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_shadowpact.jpg"
+                  alt=""
+                />
+
+                <span id="prioReq2Spec2" className="talentPoints req-25-s2">0/5</span>
+              </div>
+              <div className="col col-xs-3"></div>
+              
+            </div>
+            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warlock[38].toolTip[0]}
+                  id="39"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9444,8 +9477,8 @@ class WarlockComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warlock[37].toolTip[0]}
-                  id="38"
+                  data-tip={Warlock[39].toolTip[0]}
+                  id="40"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9455,7 +9488,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">
+                <span id="prioReq3Spec2" className="talentPoints req-30-s2">
                   0/1
                 </span>
               </div>
@@ -9470,8 +9503,8 @@ class WarlockComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warlock[38].toolTip[0]}
-                  id="39"
+                  data-tip={Warlock[40].toolTip[0]}
+                  id="41"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9500,8 +9533,8 @@ class WarlockComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warlock[39].toolTip[0]}
-                  id="40"
+                  data-tip={Warlock[41].toolTip[0]}
+                  id="42"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9532,8 +9565,8 @@ class WarlockComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warlock[40].toolTip[0]}
-                  id="41"
+                  data-tip={Warlock[42].toolTip[0]}
+                  id="43"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9573,8 +9606,8 @@ class WarlockComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warlock[42].toolTip[0]}
-                  id="43"
+                  data-tip={Warlock[43].toolTip[0]}
+                  id="44"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9584,7 +9617,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9597,8 +9630,8 @@ class WarlockComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warlock[43].toolTip[0]}
-                  id="44"
+                  data-tip={Warlock[44].toolTip[0]}
+                  id="45"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9608,7 +9641,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div> 
             </div>
@@ -9625,8 +9658,8 @@ class WarlockComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warlock[46].toolTip[0]}
-                  id="47"
+                  data-tip={Warlock[45].toolTip[0]}
+                  id="46"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9649,8 +9682,8 @@ class WarlockComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warlock[47].toolTip[0]}
-                  id="48"
+                  data-tip={Warlock[46].toolTip[0]}
+                  id="47"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9660,11 +9693,35 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s3">0/3</span>
+                <span className="talentPoints req-05-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warlock[47].toolTip[0]}
+                  id="48"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_firebolt.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-10-s3">0/2</span>
+              </div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9683,7 +9740,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_firebolt.jpg"
+                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_curse.jpg"
                   alt=""
                 />
 
@@ -9707,38 +9764,19 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_curse.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-10-s3">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warlock[50].toolTip[0]}
-                  id="51"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Warlock/Progression/spec3/spell_fire_flameshock.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">
-                  0/1
+                <span id="subsReq1Spec3" className="talentPoints req-10-s3">
+                  0/5
                 </span>
-                
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq1Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9791,7 +9829,13 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/2</span>
+                <span id="subsReq2Spec3" className="talentPoints req-15-s3">0/2</span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq2Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9815,7 +9859,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/3</span>
+                <span className="talentPoints req-15-s3">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9840,7 +9884,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/2</span>
+                <span className="talentPoints req-15-s3">0/3</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -9866,7 +9910,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">0/2</span>
+                <span id="prioReq2Spec3" className="talentPoints req-20-s3">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9890,10 +9934,15 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
-                  0/3
+                <span id="subsReq3Spec3" className="talentPoints req-20-s3">
+                  0/5
                 </span>
-                
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq3Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9917,7 +9966,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
+                <span id="prioReq1Spec3" className="talentPoints req-20-s3">
                   0/1
                 </span>
               </div>
@@ -10022,7 +10071,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s3">
+                <span id="prioReq3Spec3" className="talentPoints req-30-s3">
                   0/1
                 </span>
               </div>
@@ -10076,10 +10125,15 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s3">
+                <span id="subsReq4Spec3" className="talentPoints req-35-s3">
                   0/5
                 </span>
-                
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq4Spec3"
+                />
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -10108,7 +10162,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s3">
+                <span id="prioReq4Spec3" className="talentPoints req-40-s3">
                   0/1
                 </span>
               </div>

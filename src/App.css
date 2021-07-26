@@ -89,6 +89,15 @@
   z-index: 2;
   }
 
+.angleArrow {
+  position: absolute;
+  z-index: 1;
+  width: 4.5rem;
+  height: 3.3rem;
+  top: 45%;
+  left: 74%;
+}
+
 .leftArrow {
   position: absolute; 
   top: 40%;
@@ -106,9 +115,9 @@
 
 .smArrow {
   position: absolute; 
-  left: 43%;
+  left: 45%;
   top: 85%;
-  height: 1.3rem;
+  height: 1.7rem;
   width: .8rem;
   z-index: 1;
 }
@@ -117,7 +126,7 @@
   position: absolute; 
   left: 45%;
   top: 85%;
-  height: 5.2rem;
+  height: 5.6rem;
   width: .8rem;
   z-index: 1;
 }
@@ -131,6 +140,14 @@
   z-index: 1;
 }
   
+.lgArrowPaladin{
+  position: absolute; 
+  left: 43%;
+  top: 85%;
+  height: 9.2rem;
+  width: .8rem;
+  z-index: 1;
+}
 
  
 

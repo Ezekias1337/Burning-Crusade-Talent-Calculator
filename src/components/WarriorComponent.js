@@ -8424,7 +8424,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s1">0/5</span>
+                <span className="talentPoints req-00-s1">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8437,8 +8437,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[0].toolTip[0]}
-                  id="1"
+                  data-tip={Warrior[1].toolTip[0]}
+                  id="2"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -8461,8 +8461,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[1].toolTip[0]}
-                  id="2"
+                  data-tip={Warrior[2].toolTip[0]}
+                  id="3"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -8472,7 +8472,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s1">0/5</span>
+                <span className="talentPoints req-00-s1">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -8488,8 +8488,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[2].toolTip[0]}
-                  id="3"
+                  data-tip={Warrior[3].toolTip[0]}
+                  id="4"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -8512,8 +8512,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[3].toolTip[0]}
-                  id="4"
+                  data-tip={Warrior[4].toolTip[0]}
+                  id="5"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -8523,7 +8523,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/3</span>
+                <span className="talentPoints req-05-s1">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8536,8 +8536,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[4].toolTip[0]}
-                  id="5"
+                  data-tip={Warrior[5].toolTip[0]}
+                  id="6"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -8622,7 +8622,13 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/5</span>
+                <span id="subsReq1Spec1" className="talentPoints req-10-s1">0/3</span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq1Spec1"
+                />
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -8650,7 +8656,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s1">0/2</span>
+                <span className="talentPoints req-15-s1">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8674,8 +8680,8 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s1">
-                  0/5
+                <span id="prioReq1Spec1" className="talentPoints req-15-s1">
+                  0/2
                 </span>
                 
               </div>
@@ -8706,7 +8712,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span className="talentPoints req-20-s1">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8730,37 +8736,15 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">
+                <span id="subsReq2Spec1" className="talentPoints req-20-s1">
                   0/1
                 </span>
-                
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warrior[12].toolTip[0]}
-                  id="13"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/inv_mace_01.jpg"
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
                   alt=""
+                  id="arrwReq2Spec1"
                 />
-
-                <span className="talentPoints req-20-s1">
-                  0/1
-                </span>
-                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8780,11 +8764,38 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warrior/Progression/spec1/inv_mace_01.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-20-s1">
+                  0/5
+                </span>
+                
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[14].toolTip[0]}
+                  id="15"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Warrior/Progression/spec1/inv_sword_27.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span className="talentPoints req-20-s1">0/5</span>
               </div>
             </div>
 
@@ -8800,8 +8811,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[14].toolTip[0]}
-                  id="15"
+                  data-tip={Warrior[15].toolTip[0]}
+                  id="16"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -8825,8 +8836,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[15].toolTip[0]}
-                  id="16"
+                  data-tip={Warrior[16].toolTip[0]}
+                  id="17"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -8837,60 +8848,8 @@ class WarriorComponent extends Component {
                 />
 
                 <span className="talentPoints req-25-s1">
-                  0/5
+                  0/3
                 </span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warrior[15].toolTip[0]}
-                  id="16"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_improveddisciplines.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-25-s1">
-                  0/5
-                </span>
-              </div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warrior[16].toolTip[0]}
-                  id="17"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_bloodfrenzy.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-30-s1">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8910,18 +8869,16 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_savageblow.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_improveddisciplines.jpg"
                   alt=""
                 />
 
-                <span
-                  
-                  className="talentPoints req-30-s1"
-                >
-                  0/1
+                <span className="talentPoints req-25-s1">
+                  0/3
                 </span>
-                
               </div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8940,16 +8897,12 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_hunter_harass.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_bloodfrenzy.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s1">0/3</span>
+                <span className="talentPoints req-30-s1">0/2</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8972,7 +8925,70 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s1">0/5</span>
+                <span
+                  id="prioReq2Spec1 subsReq3Spec1"
+                  className="talentPoints req-30-s1"
+                >
+                  0/1
+                </span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq3Spec1"
+                />
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[20].toolTip[0]}
+                  id="21"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_hunter_harass.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-30-s1">0/2</span>
+              </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[21].toolTip[0]}
+                  id="22"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_savageblow.jpg"
+                  alt=""
+                />
+
+                <span id="prioReq3Spec1" className="talentPoints req-35-s1">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -8990,8 +9006,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[20].toolTip[0]}
-                  id="21"
+                  data-tip={Warrior[22].toolTip[0]}
+                  id="23"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9030,8 +9046,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[21].toolTip[0]}
-                  id="22"
+                  data-tip={Warrior[23].toolTip[0]}
+                  id="24"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9054,8 +9070,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[22].toolTip[0]}
-                  id="23"
+                  data-tip={Warrior[24].toolTip[0]}
+                  id="25"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9082,8 +9098,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[23].toolTip[0]}
-                  id="24"
+                  data-tip={Warrior[25].toolTip[0]}
+                  id="26"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9106,8 +9122,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[24].toolTip[0]}
-                  id="25"
+                  data-tip={Warrior[26].toolTip[0]}
+                  id="27"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9133,8 +9149,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[25].toolTip[0]}
-                  id="26"
+                  data-tip={Warrior[27].toolTip[0]}
+                  id="28"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9144,58 +9160,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warrior[26].toolTip[0]}
-                  id="27"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/spell_shadow_deathscream.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-10-s2">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warrior[27].toolTip[0]}
-                  id="28"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/spell_shadow_summonimp.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-10-s2">
-                  0/1
-                </span>
-                
+                <span className="talentPoints req-10-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9215,11 +9180,62 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warrior/Progression/spec2/spell_shadow_deathscream.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-10-s2">0/1</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[29].toolTip[0]}
+                  id="30"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warrior/Progression/spec2/spell_shadow_summonimp.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-10-s2">
+                  0/3
+                </span>
+                
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[30].toolTip[0]}
+                  id="31"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Warrior/Progression/spec2/spell_nature_focusedmind.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span className="talentPoints req-10-s2">0/5</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -9234,8 +9250,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[29].toolTip[0]}
-                  id="30"
+                  data-tip={Warrior[31].toolTip[0]}
+                  id="32"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9258,8 +9274,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[29].toolTip[0]}
-                  id="30"
+                  data-tip={Warrior[32].toolTip[0]}
+                  id="33"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9269,89 +9285,8 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s2">0/5</span>
+                <span className="talentPoints req-15-s2">0/2</span>
               </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warrior[30].toolTip[0]}
-                  id="31"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/spell_shadow_unholyfrenzy.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-15-s2">
-                  0/5
-                </span>
-              </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warrior[31].toolTip[0]}
-                  id="32"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/ability_warrior_decisivestrike.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-20-s2">0/3</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warrior[32].toolTip[0]}
-                  id="33"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/ability_rogue_slicedice.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-20-s2">
-                  0/1
-                </span>
-                
-              </div>
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9370,12 +9305,104 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warrior/Progression/spec2/spell_shadow_unholyfrenzy.jpg"
+                  alt=""
+                />
+
+                <span id="subsReq1Spec2" className="talentPoints req-15-s2">
+                  0/5
+                </span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq1Spec2"
+                />
+              </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[34].toolTip[0]}
+                  id="35"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warrior/Progression/spec2/ability_warrior_decisivestrike.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-20-s2">0/2</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[35].toolTip[0]}
+                  id="36"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warrior/Progression/spec2/ability_rogue_slicedice.jpg"
+                  alt=""
+                />
+
+                <span id="subsReq2Spec2" className="talentPoints req-20-s2">
+                  0/1
+                </span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq2Spec2"
+                />
+              </div>
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[36].toolTip[0]}
+                  id="37"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Warrior/Progression/spec2/ability_warrior_weaponmastery.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-20-s2">
-                  0/3
+                  0/2
                 </span>
                 
               </div>
@@ -9393,8 +9420,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[34].toolTip[0]}
-                  id="35"
+                  data-tip={Warrior[37].toolTip[0]}
+                  id="38"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9418,8 +9445,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[35].toolTip[0]}
-                  id="36"
+                  data-tip={Warrior[38].toolTip[0]}
+                  id="39"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9429,7 +9456,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s2">0/5</span>
+                <span id="prioReq1Spec2" className="talentPoints req-25-s2">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
               
@@ -9446,8 +9473,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[36].toolTip[0]}
-                  id="37"
+                  data-tip={Warrior[39].toolTip[0]}
+                  id="40"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9470,8 +9497,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[37].toolTip[0]}
-                  id="38"
+                  data-tip={Warrior[40].toolTip[0]}
+                  id="41"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9481,9 +9508,15 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">
+                <span id="prioReq2Spec2 subsReq3Spec2" className="talentPoints req-30-s2">
                   0/1
                 </span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq3Spec2"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9496,8 +9529,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[38].toolTip[0]}
-                  id="39"
+                  data-tip={Warrior[41].toolTip[0]}
+                  id="42"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9508,7 +9541,7 @@ class WarriorComponent extends Component {
                 />
 
                 <span className="talentPoints req-30-s2">
-                  0/3
+                  0/2
                 </span>
               </div>
               <div className="col col-xs-3"></div>
@@ -9527,8 +9560,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[39].toolTip[0]}
-                  id="40"
+                  data-tip={Warrior[42].toolTip[0]}
+                  id="43"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9559,8 +9592,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[40].toolTip[0]}
-                  id="41"
+                  data-tip={Warrior[43].toolTip[0]}
+                  id="44"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9570,7 +9603,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s2">
+                <span id="prioReq3Spec2" className="talentPoints req-40-s2">
                   0/1
                 </span>
               </div>
@@ -9598,8 +9631,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[41].toolTip[0]}
-                  id="42"
+                  data-tip={Warrior[44].toolTip[0]}
+                  id="45"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9609,7 +9642,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9622,8 +9655,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[42].toolTip[0]}
-                  id="43"
+                  data-tip={Warrior[45].toolTip[0]}
+                  id="46"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9646,8 +9679,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[43].toolTip[0]}
-                  id="44"
+                  data-tip={Warrior[46].toolTip[0]}
+                  id="47"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9657,36 +9690,12 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warrior[46].toolTip[0]}
-                  id="47"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/inv_shield_06.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s3">0/5</span>
-              </div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9705,15 +9714,18 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/spell_holy_devotion.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/inv_shield_06.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s3">0/3</span>
+                <span id="subsReq1Spec3" className="talentPoints req-05-s3">0/5</span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq1Spec3"
+                />
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9732,12 +9744,15 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/spell_holy_ashestoashes.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/spell_holy_devotion.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">0/2</span>
+                <span className="talentPoints req-05-s3">0/5</span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9756,68 +9771,36 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warrior/Progression/spec3/spell_holy_ashestoashes.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-10-s3">0/1</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[50].toolTip[0]}
+                  id="51"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Warrior/Progression/spec3/ability_defend.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">0/5</span>
+                <span id="prioReq1Spec3" className="talentPoints req-10-s3">0/1</span>
               </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warrior[50].toolTip[0]}
-                  id="51"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_revenge.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-10-s3">
-                  0/1
-                </span>
-                
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warrior[50].toolTip[0]}
-                  id="51"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_innerrage.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-10-s3">
-                  0/1
-                </span>
-                
-              </div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9836,11 +9819,14 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_sunder.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_revenge.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/2</span>
+                <span className="talentPoints req-10-s3">
+                  0/3
+                </span>
+                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9855,6 +9841,59 @@ class WarriorComponent extends Component {
                   style={{ display: "none" }}
                   data-tip={Warrior[52].toolTip[0]}
                   id="53"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_innerrage.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-10-s3">
+                  0/3
+                </span>
+                
+              </div>
+            </div>
+            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[53].toolTip[0]}
+                  id="54"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_sunder.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-15-s3">0/3</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[54].toolTip[0]}
+                  id="55"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9877,8 +9916,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[53].toolTip[0]}
-                  id="54"
+                  data-tip={Warrior[55].toolTip[0]}
+                  id="56"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9904,8 +9943,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[54].toolTip[0]}
-                  id="55"
+                  data-tip={Warrior[56].toolTip[0]}
+                  id="57"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9928,8 +9967,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[55].toolTip[0]}
-                  id="56"
+                  data-tip={Warrior[57].toolTip[0]}
+                  id="58"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9939,10 +9978,15 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
-                  0/3
+                <span id="subsReq2Spec3" className="talentPoints req-20-s3">
+                  0/1
                 </span>
-                
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq2Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9955,8 +9999,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[56].toolTip[0]}
-                  id="57"
+                  data-tip={Warrior[58].toolTip[0]}
+                  id="59"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9967,7 +10011,7 @@ class WarriorComponent extends Component {
                 />
 
                 <span className="talentPoints req-20-s3">
-                  0/1
+                  0/2
                 </span>
               </div>
               <div className="col col-xs-3"></div>
@@ -9984,8 +10028,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[57].toolTip[0]}
-                  id="58"
+                  data-tip={Warrior[59].toolTip[0]}
+                  id="60"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10009,8 +10053,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[58].toolTip[0]}
-                  id="59"
+                  data-tip={Warrior[60].toolTip[0]}
+                  id="61"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10036,8 +10080,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[59].toolTip[0]}
-                  id="60"
+                  data-tip={Warrior[61].toolTip[0]}
+                  id="62"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10060,8 +10104,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[60].toolTip[0]}
-                  id="61"
+                  data-tip={Warrior[62].toolTip[0]}
+                  id="63"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10071,7 +10115,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s3">
+                <span id="prioReq2Spec3" className="talentPoints req-30-s3">
                   0/1
                 </span>
               </div>
@@ -10086,8 +10130,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[61].toolTip[0]}
-                  id="62"
+                  data-tip={Warrior[63].toolTip[0]}
+                  id="64"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10114,8 +10158,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[62].toolTip[0]}
-                  id="63"
+                  data-tip={Warrior[64].toolTip[0]}
+                  id="65"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10146,8 +10190,8 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Warrior[63].toolTip[0]}
-                  id="64"
+                  data-tip={Warrior[65].toolTip[0]}
+                  id="66"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}

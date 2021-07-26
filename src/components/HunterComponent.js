@@ -3,6 +3,10 @@ import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Hunter } from "../talentinfo/Hunter";
 
+import improvedAspectofTheHawk from '../images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg';
+
+
+
 let i = 0;
 let iSpec1 = 0;
 let iSpec2 = 0;
@@ -8421,7 +8425,7 @@ class HunterComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg"
+                  src={improvedAspectofTheHawk}
                   alt=""
                 />
 

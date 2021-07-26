@@ -1236,6 +1236,8 @@ class RogueComponent extends Component {
           arrowSrcSize = "med";
         } else if (arrowSrc.src.includes("Large")) {
           arrowSrcSize = "lg";
+        } else if (arrowSrc.src.includes("Angle")) {
+          arrowSrcSize = "angle";
         }
 
         switch (arrowSrcSize) {
@@ -1249,6 +1251,10 @@ class RogueComponent extends Component {
 
           case "lg":
             arrowSrc.src = "assets/images/DownSilverLarge.png";
+            break;
+
+          case "angle":
+            arrowSrc.src = "assets/images/AngleArrowSilver.png";
             break;
         }
       }
@@ -1514,6 +1520,10 @@ class RogueComponent extends Component {
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
             "assets/images/DownGoldLarge.png";
+        }
+        if (arrowChecker.includes("angle")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+            "assets/images/AngleArrowGold.png";
         }
       }
 
@@ -6109,6 +6119,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
 
                 default:
                   console.log("No arrow class match");
@@ -6140,6 +6153,9 @@ class RogueComponent extends Component {
                   break;
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
                   break;
 
                 default:
@@ -6173,6 +6189,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
 
                 default:
                   console.log("No arrow class match");
@@ -6203,6 +6222,9 @@ class RogueComponent extends Component {
                   break;
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
                   break;
 
                 default:
@@ -6248,6 +6270,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
 
                 default:
                   console.log("No arrow class match");
@@ -6279,6 +6304,9 @@ class RogueComponent extends Component {
                   break;
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
                   break;
 
                 default:
@@ -6312,6 +6340,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
 
                 default:
                   console.log("No arrow class match");
@@ -6342,6 +6373,9 @@ class RogueComponent extends Component {
                   break;
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
                   break;
 
                 default:
@@ -6366,7 +6400,7 @@ class RogueComponent extends Component {
                 "prioReq1Spec3"
               ) &&
               document
-                .getElementById("subsReq1Spec3")
+              .querySelector('[id*="subsReq1Spec3"]')
                 .previousElementSibling.className.includes("maxeds")
             ) {
               console.log("The arrow above me should be gold");
@@ -6386,6 +6420,9 @@ class RogueComponent extends Component {
                   break;
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
                   break;
 
                 default:
@@ -6419,6 +6456,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
 
                 default:
                   console.log("No arrow class match");
@@ -6451,6 +6491,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
 
                 default:
                   console.log("No arrow class match");
@@ -6482,7 +6525,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
-
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6526,6 +6571,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
 
                 default:
                   console.log("No arrow class match");
@@ -6557,6 +6605,9 @@ class RogueComponent extends Component {
                   break;
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
                   break;
 
                 default:
@@ -6590,6 +6641,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
 
                 default:
                   console.log("No arrow class match");
@@ -6620,6 +6674,9 @@ class RogueComponent extends Component {
                   break;
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
                   break;
 
                 default:
@@ -6665,6 +6722,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
 
                 default:
                   console.log("No arrow class match");
@@ -6696,6 +6756,9 @@ class RogueComponent extends Component {
                   break;
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
                   break;
 
                 default:
@@ -6729,6 +6792,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
 
                 default:
                   console.log("No arrow class match");
@@ -6759,6 +6825,9 @@ class RogueComponent extends Component {
                   break;
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
                   break;
 
                 default:
@@ -6804,6 +6873,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
 
                 default:
                   console.log("No arrow class match");
@@ -6835,6 +6907,9 @@ class RogueComponent extends Component {
                   break;
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
                   break;
 
                 default:
@@ -6868,6 +6943,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
 
                 default:
                   console.log("No arrow class match");
@@ -6898,6 +6976,9 @@ class RogueComponent extends Component {
                   break;
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
                   break;
 
                 default:
@@ -6943,6 +7024,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
 
                 default:
                   console.log("No arrow class match");
@@ -6975,6 +7059,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
 
                 default:
                   console.log("No arrow class match");
@@ -6986,7 +7073,7 @@ class RogueComponent extends Component {
                 "prioReq3Spec3"
               ) &&
               document
-                .getElementById("subsReq3Spec3")
+                .querySelector('[id*="subsReq3Spec3"]')
                 .previousElementSibling.className.includes("maxeds")
             ) {
               console.log("The arrow above me should be gold");
@@ -7006,6 +7093,9 @@ class RogueComponent extends Component {
                   break;
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
                   break;
 
                 default:
@@ -7037,6 +7127,9 @@ class RogueComponent extends Component {
                   break;
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
                   break;
 
                 default:
@@ -7082,6 +7175,9 @@ class RogueComponent extends Component {
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
                   break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
+                  break;
 
                 default:
                   console.log("No arrow class match");
@@ -7113,6 +7209,9 @@ class RogueComponent extends Component {
                   break;
                 case "lgArrow":
                   arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+                case "angleArrow":
+                  arrow.src = "assets/images/AngleArrowGold.png";
                   break;
 
                 default:
@@ -7703,6 +7802,8 @@ class RogueComponent extends Component {
             arrowSrcSize = "left";
           } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Right")) {
             arrowSrcSize = "right";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Angle")) {
+            arrowSrcSize = "angle";
           }
         }
         
@@ -7726,6 +7827,10 @@ class RogueComponent extends Component {
 
             case "right":
               window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/RightSilverSmall.png";
+              break;
+
+            case "angle":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/AngleArrowSilver.png";
               break;
           
         }
@@ -8205,6 +8310,7 @@ class RogueComponent extends Component {
     let smArrowArray = document.querySelectorAll(".smArrow");
     let medArrowArray = document.querySelectorAll(".medArrow");
     let lgArrowArray = document.querySelectorAll(".lgArrow");
+    let angleArrowArray = document.querySelectorAll(".angleArrow");
 
     let spanArrayPotential1 = [];
     let spanArrayPotential2 = [];
@@ -8333,6 +8439,9 @@ class RogueComponent extends Component {
     for (arrow of lgArrowArray) {
       arrow.src = "assets/images/DownSilverLarge.png";
     }
+    for (arrow of angleArrowArray){
+      arrow.src = "assets/images/AngleArrowSilver.png";
+    }
 
     //Resets all counter variables to 0/false
     i = 0;
@@ -8424,31 +8533,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s1">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Rogue[0].toolTip[0]}
-                  id="1"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_fiegndead.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-00-s1">0/5</span>
+                <span className="talentPoints req-00-s1">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8468,15 +8553,12 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_racial_bloodrage.jpg"
+                  src="assets/images/talents/Rogue/Progression/spec1/ability_fiegndead.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s1">0/5</span>
+                <span className="talentPoints req-00-s1">0/2</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8494,13 +8576,22 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_druid_disembowel.jpg"
+                  className="spec1 talentButton active-talent req-active"
+                  src="assets/images/talents/Rogue/Progression/spec1/ability_racial_bloodrage.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/2</span>
+                <span id="subsReq1Spec1" className="talentPoints req-00-s1">0/5</span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq1Spec1"
+                />
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8519,11 +8610,35 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/spell_shadow_deathscream.jpg"
+                  src="assets/images/talents/Rogue/Progression/spec1/ability_druid_disembowel.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-05-s1">0/3</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Rogue[4].toolTip[0]}
+                  id="5"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Rogue/Progression/spec1/spell_shadow_deathscream.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-05-s1">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -8548,7 +8663,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/2</span>
+                <span className="talentPoints req-05-s1">0/3</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -8574,7 +8689,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/2</span>
+                <span className="talentPoints req-10-s1">0/1</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8598,7 +8713,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/1</span>
+                <span className="talentPoints req-10-s1">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8622,7 +8737,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/5</span>
+                <span id="prioReq1Spec1" className="talentPoints req-10-s1">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -8650,7 +8765,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s1">0/2</span>
+                <span className="talentPoints req-15-s1">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8730,37 +8845,15 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">
+                <span id="subsReq2Spec1" className="talentPoints req-20-s1">
                   0/1
                 </span>
-                
-              </div>
-              <div className="col col-xs-3">
                 <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Rogue[12].toolTip[0]}
-                  id="13"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_rogue_kidneyshot.jpg"
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
                   alt=""
+                  id="arrwReq2Spec1"
                 />
-
-                <span className="talentPoints req-20-s1">
-                  0/1
-                </span>
-                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8775,6 +8868,33 @@ class RogueComponent extends Component {
                   style={{ display: "none" }}
                   data-tip={Rogue[13].toolTip[0]}
                   id="14"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Rogue/Progression/spec1/ability_rogue_kidneyshot.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-20-s1">
+                  0/3
+                </span>
+                
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Rogue[14].toolTip[0]}
+                  id="15"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -8801,8 +8921,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[14].toolTip[0]}
-                  id="15"
+                  data-tip={Rogue[15].toolTip[0]}
+                  id="16"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -8812,7 +8932,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s1">0/2</span>
+                <span id="prioReq2Spec1" className="talentPoints req-25-s1">0/5</span>
               </div>
               
               <div className="col col-xs-3">
@@ -8826,8 +8946,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[15].toolTip[0]}
-                  id="16"
+                  data-tip={Rogue[16].toolTip[0]}
+                  id="17"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -8838,7 +8958,7 @@ class RogueComponent extends Component {
                 />
 
                 <span className="talentPoints req-25-s1">
-                  0/5
+                  0/2
                 </span>
               </div>
               <div className="col col-xs-3"></div>
@@ -8868,12 +8988,17 @@ class RogueComponent extends Component {
                 />
 
                 <span
-                  
                   className="talentPoints req-30-s1"
+                  id="subsReq3Spec1"
                 >
                   0/1
                 </span>
-                
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq3Spec1"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8897,7 +9022,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s1">0/3</span>
+                <span className="talentPoints req-30-s1">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -8954,7 +9079,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s1">
+                <span id="prioReq3Spec1" className="talentPoints req-40-s1">
                   0/1
                 </span>
               </div>
@@ -8993,31 +9118,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s2">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Rogue[21].toolTip[0]}
-                  id="22"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Rogue/Progression/spec2/spell_shadow_ritualofsacrifice.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-00-s2">0/5</span>
+                <span className="talentPoints req-00-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9032,6 +9133,30 @@ class RogueComponent extends Component {
                   style={{ display: "none" }}
                   data-tip={Rogue[22].toolTip[0]}
                   id="23"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton active-talent req-active"
+                  src="assets/images/talents/Rogue/Progression/spec2/spell_shadow_ritualofsacrifice.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-00-s2">0/2</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Rogue[23].toolTip[0]}
+                  id="24"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9057,8 +9182,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[23].toolTip[0]}
-                  id="24"
+                  data-tip={Rogue[24].toolTip[0]}
+                  id="25"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9068,7 +9193,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9081,8 +9206,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[23].toolTip[0]}
-                  id="24"
+                  data-tip={Rogue[25].toolTip[0]}
+                  id="26"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9092,7 +9217,13 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span id="subsReq1Spec2" className="talentPoints req-05-s2">0/5</span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq1Spec2"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9105,8 +9236,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[24].toolTip[0]}
-                  id="25"
+                  data-tip={Rogue[26].toolTip[0]}
+                  id="27"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9116,7 +9247,13 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span id="subsReq2Spec2" className="talentPoints req-05-s2">0/5</span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq2Spec2"
+                />
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -9132,8 +9269,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[25].toolTip[0]}
-                  id="26"
+                  data-tip={Rogue[27].toolTip[0]}
+                  id="28"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9156,8 +9293,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[26].toolTip[0]}
-                  id="27"
+                  data-tip={Rogue[28].toolTip[0]}
+                  id="29"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9167,7 +9304,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/5</span>
+                <span id="prioReq1Spec2" className="talentPoints req-10-s2">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9181,8 +9318,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[28].toolTip[0]}
-                  id="29"
+                  data-tip={Rogue[29].toolTip[0]}
+                  id="30"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9207,8 +9344,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[29].toolTip[0]}
-                  id="30"
+                  data-tip={Rogue[30].toolTip[0]}
+                  id="31"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9218,7 +9355,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s2">0/5</span>
+                <span className="talentPoints req-15-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9231,8 +9368,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[29].toolTip[0]}
-                  id="30"
+                  data-tip={Rogue[31].toolTip[0]}
+                  id="32"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9255,8 +9392,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[30].toolTip[0]}
-                  id="31"
+                  data-tip={Rogue[32].toolTip[0]}
+                  id="33"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9266,7 +9403,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s2">
+                <span id="prioReq2Spec2" className="talentPoints req-15-s2">
                   0/5
                 </span>
               </div>
@@ -9284,8 +9421,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[31].toolTip[0]}
-                  id="32"
+                  data-tip={Rogue[33].toolTip[0]}
+                  id="34"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9295,7 +9432,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">0/3</span>
+                <span className="talentPoints req-20-s2">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9308,8 +9445,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[32].toolTip[0]}
-                  id="33"
+                  data-tip={Rogue[34].toolTip[0]}
+                  id="35"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9319,10 +9456,15 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
+                <span id="subsReq3Spec2" className="talentPoints req-20-s2">
                   0/1
                 </span>
-                
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq3Spec2"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9335,8 +9477,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[33].toolTip[0]}
-                  id="34"
+                  data-tip={Rogue[35].toolTip[0]}
+                  id="36"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9347,7 +9489,7 @@ class RogueComponent extends Component {
                 />
 
                 <span className="talentPoints req-20-s2">
-                  0/3
+                  0/5
                 </span>
                 
               </div>
@@ -9362,8 +9504,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[33].toolTip[0]}
-                  id="34"
+                  data-tip={Rogue[36].toolTip[0]}
+                  id="37"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9374,7 +9516,7 @@ class RogueComponent extends Component {
                 />
 
                 <span className="talentPoints req-20-s2">
-                  0/3
+                  0/5
                 </span>
                 
               </div>
@@ -9391,8 +9533,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[34].toolTip[0]}
-                  id="35"
+                  data-tip={Rogue[37].toolTip[0]}
+                  id="38"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9415,8 +9557,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[34].toolTip[0]}
-                  id="35"
+                  data-tip={Rogue[38].toolTip[0]}
+                  id="39"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9426,7 +9568,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s2">0/2</span>
+                <span id="prioReq3Spec2" className="talentPoints req-25-s2">0/2</span>
               </div>
               
               <div className="col col-xs-3">
@@ -9440,8 +9582,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[35].toolTip[0]}
-                  id="36"
+                  data-tip={Rogue[39].toolTip[0]}
+                  id="40"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9451,7 +9593,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s2">0/5</span>
+                <span className="talentPoints req-25-s2">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
 
@@ -9469,8 +9611,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[36].toolTip[0]}
-                  id="37"
+                  data-tip={Rogue[40].toolTip[0]}
+                  id="41"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9480,7 +9622,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">0/3</span>
+                <span className="talentPoints req-30-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9493,8 +9635,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[37].toolTip[0]}
-                  id="38"
+                  data-tip={Rogue[41].toolTip[0]}
+                  id="42"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9504,9 +9646,15 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">
+                <span id="subsReq4Spec2" className="talentPoints req-30-s2">
                   0/1
                 </span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq4Spec2"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9519,8 +9667,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[38].toolTip[0]}
-                  id="39"
+                  data-tip={Rogue[42].toolTip[0]}
+                  id="43"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9531,7 +9679,7 @@ class RogueComponent extends Component {
                 />
 
                 <span className="talentPoints req-30-s2">
-                  0/3
+                  0/2
                 </span>
               </div>
               <div className="col col-xs-3"></div>
@@ -9550,8 +9698,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[39].toolTip[0]}
-                  id="40"
+                  data-tip={Rogue[43].toolTip[0]}
+                  id="44"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9582,8 +9730,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[40].toolTip[0]}
-                  id="41"
+                  data-tip={Rogue[44].toolTip[0]}
+                  id="45"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9593,7 +9741,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s2">
+                <span id="prioReq4Spec2" className="talentPoints req-40-s2">
                   0/1
                 </span>
               </div>
@@ -9622,8 +9770,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[42].toolTip[0]}
-                  id="43"
+                  data-tip={Rogue[45].toolTip[0]}
+                  id="46"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9633,58 +9781,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Rogue[43].toolTip[0]}
-                  id="44"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_warrior_warcry.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-00-s3">0/3</span>
-              </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Rogue[45].toolTip[0]}
-                  id="46"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_rogue_feint.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9703,13 +9800,16 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_sap.jpg"
+                  className="spec3 talentButton active-talent req-active"
+                  src="assets/images/talents/Rogue/Progression/spec3/ability_warrior_warcry.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s3">0/5</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9728,15 +9828,12 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_stealth.jpg"
+                  src="assets/images/talents/Rogue/Progression/spec3/ability_rogue_feint.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s3">0/3</span>
+                <span className="talentPoints req-05-s3">0/2</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9755,11 +9852,11 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/spell_shadow_fumble.jpg"
+                  src="assets/images/talents/Rogue/Progression/spec3/ability_sap.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">0/2</span>
+                <span className="talentPoints req-05-s3">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9779,12 +9876,15 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/spell_shadow_curse.jpg"
+                  src="assets/images/talents/Rogue/Progression/spec3/ability_stealth.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">0/5</span>
+                <span className="talentPoints req-05-s3">0/5</span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9803,18 +9903,12 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_rogue_ambush.jpg"
+                  src="assets/images/talents/Rogue/Progression/spec3/spell_shadow_fumble.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">
-                  0/1
-                </span>
-                
+                <span className="talentPoints req-10-s3">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9833,11 +9927,11 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/spell_nature_mirrorimage.jpg"
+                  src="assets/images/talents/Rogue/Progression/spec3/spell_shadow_curse.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/2</span>
+                <span className="talentPoints req-10-s3">0/1</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9857,13 +9951,18 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/spell_magic_lesserinvisibilty.jpg"
+                  src="assets/images/talents/Rogue/Progression/spec3/ability_rogue_ambush.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/3</span>
+                <span className="talentPoints req-10-s3">
+                  0/3
+                </span>
+                
               </div>
-              
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9882,11 +9981,67 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/inv_sword_17.jpg"
+                  src="assets/images/talents/Rogue/Progression/spec3/spell_nature_mirrorimage.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-15-s3">0/3</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Rogue[54].toolTip[0]}
+                  id="55"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Rogue/Progression/spec3/spell_magic_lesserinvisibilty.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-15-s3">0/2</span>
+              </div>
+              
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Rogue[55].toolTip[0]}
+                  id="56"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Rogue/Progression/spec3/inv_sword_17.jpg"
+                  alt=""
+                />
+
+                <span id="subsReq1Spec3" className="talentPoints req-15-s3">0/3</span>
+                <img
+                  className="angleArrow"
+                  src="assets/images/AngleArrowSilver.png"
+                  alt=""
+                  id="arrwReq1Spec3"
+                />
+                
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -9902,8 +10057,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[54].toolTip[0]}
-                  id="55"
+                  data-tip={Rogue[56].toolTip[0]}
+                  id="57"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9926,8 +10081,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[55].toolTip[0]}
-                  id="56"
+                  data-tip={Rogue[57].toolTip[0]}
+                  id="58"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9937,10 +10092,15 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
-                  0/3
+                <span id="subsReq2Spec3" className="talentPoints req-20-s3">
+                  0/1
                 </span>
-                
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq2Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9953,8 +10113,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[56].toolTip[0]}
-                  id="57"
+                  data-tip={Rogue[58].toolTip[0]}
+                  id="59"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9965,7 +10125,7 @@ class RogueComponent extends Component {
                 />
 
                 <span className="talentPoints req-20-s3">
-                  0/1
+                  0/2
                 </span>
               </div>
               <div className="col col-xs-3">
@@ -9979,8 +10139,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[56].toolTip[0]}
-                  id="57"
+                  data-tip={Rogue[59].toolTip[0]}
+                  id="60"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9990,7 +10150,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
+                <span id="prioReq1Spec3" className="talentPoints req-20-s3">
                   0/1
                 </span>
               </div>
@@ -10007,8 +10167,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[57].toolTip[0]}
-                  id="58"
+                  data-tip={Rogue[60].toolTip[0]}
+                  id="61"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10032,8 +10192,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[58].toolTip[0]}
-                  id="59"
+                  data-tip={Rogue[61].toolTip[0]}
+                  id="62"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10059,8 +10219,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[59].toolTip[0]}
-                  id="60"
+                  data-tip={Rogue[62].toolTip[0]}
+                  id="63"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10083,8 +10243,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[60].toolTip[0]}
-                  id="61"
+                  data-tip={Rogue[63].toolTip[0]}
+                  id="64"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10094,9 +10254,15 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s3">
+                <span id="prioReq2Spec3 subsReq3Spec3" className="talentPoints req-30-s3">
                   0/1
                 </span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq3Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10109,8 +10275,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[61].toolTip[0]}
-                  id="62"
+                  data-tip={Rogue[64].toolTip[0]}
+                  id="65"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10137,8 +10303,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[62].toolTip[0]}
-                  id="63"
+                  data-tip={Rogue[65].toolTip[0]}
+                  id="66"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10148,7 +10314,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s3">
+                <span id="prioReq3Spec3" className="talentPoints req-35-s3">
                   0/5
                 </span>
                 
@@ -10169,8 +10335,8 @@ class RogueComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Rogue[63].toolTip[0]}
-                  id="64"
+                  data-tip={Rogue[66].toolTip[0]}
+                  id="67"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}

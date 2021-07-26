@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Paladin } from "../talentinfo/Paladin";
 
+// line 3702 fixed bug for arrow not turning gold on click spec 3 key is changing to inactive instead of active
+
 //(Adjust section at line 6065)
 let i = 0;
 let iSpec1 = 0;
@@ -817,9 +819,10 @@ class PaladinComponent extends Component {
       let arrowSrc;
       let arrowSrcSize;
       let spanID;
-      let shouldArrowBeSilver = "";
 
       function idMatcherParse() {
+        console.log("spanID", spanID)
+        
         if (spanID.includes("prioReq1Spec1")) {
           arrowSrc = document.getElementById("arrwReq1Spec1");
         } else if (spanID.includes("prioReq2Spec1")) {
@@ -831,76 +834,24 @@ class PaladinComponent extends Component {
         }
       }
 
-      function checkIDReq1Spec1(){
-              if (spanID.includes("prioReq1Spec1") && !(document.getElementById("subsReq1Spec1").previousElementSibling.className.includes("maxeds"))) {
-                console.log("This is when the arrow should still be gold")
-                shouldArrowBeSilver = false;
-                
-                console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-              } else if (document.getElementById("prioReq1Spec1").innerText[0] === "0") {
-                  console.log("This is when the arrow should revert to silver")
-                  shouldArrowBeSilver = true;
-              } 
-      }
-
-      function checkIDReq2Spec1(){
-        if (spanID.includes("prioReq2Spec1") && !(document.getElementById("subsReq2Spec1").previousElementSibling.className.includes("maxeds"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq2Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-      function checkIDReq3Spec1(){
-        if (spanID.includes("prioReq3Spec1") && !(document.getElementById("subsReq3Spec1").previousElementSibling.className.includes("maxeds") || document.getElementById("subsReq3Spec1").previousElementSibling.className.includes("req-active"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq3Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-      function checkIDReq4Spec1(){
-        if (spanID.includes("prioReq4Spec1") && !(document.getElementById("subsReq4Spec1").previousElementSibling.className.includes("maxeds"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq4Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-
-      
       function arrowSizeParse() {
         
-        
-        console.log("arrowSrc", arrowSrc)
-
         if (arrowSrc.src.includes("Left")) {
           arrowSrcSize = "left";
         } else if (arrowSrc.src.includes("Right")) {
           arrowSrcSize = "right";
+          console.log(arrowSrc)
         } else if (arrowSrc.src.includes("Small")) {
           arrowSrcSize = "sm";
         } else if (arrowSrc.src.includes("Medium")) {
           arrowSrcSize = "med";
+          console.log(arrowSrc)
         } else if (arrowSrc.src.includes("Large")) {
           arrowSrcSize = "lg";
         } 
 
-        if(shouldArrowBeSilver === true) {
-        console.log("shouldArrowBeSilver", shouldArrowBeSilver)
         console.log("arrowSrcSize", arrowSrcSize)
+
         switch (arrowSrcSize) {
           
           case "sm":
@@ -920,13 +871,9 @@ class PaladinComponent extends Component {
             break;
 
           case "right":
-            
             arrowSrc.src = "assets/images/RightSilverSmall.png";
             break;
         }
-
-      }
-
       }
 
       if (iSpec1 < 40) {
@@ -969,6 +916,26 @@ class PaladinComponent extends Component {
         }
       }
 
+      if (iSpec1 === 30) {
+        spec1Req30 = document.getElementsByClassName("req-30-s1");
+
+        for (let g = 0; g < spec1Req30.length; g++) {
+          if (spec1Req30[g].id) {
+            spanID = spec1Req30[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
+          spec1Req30Output.push(spec1Req30[g].previousElementSibling);
+        }
+        console.log("spec1Req30Output", spec1Req30Output);
+        for (let g = 0; g < spec1Req30Output.length; g++) {
+          if (spec1Req30Output[g].className.includes("active-talent") && spec1Req30Output[g].nextElementSibling.id.includes("prio")) {
+            spec1Req30Output[g].className =
+              "spec1 talentButton inactive-talent req-inactive";
+          } 
+        }
+      }
+
       if (iSpec1 < 30) {
         spec1Req30 = document.getElementsByClassName("req-30-s1");
 
@@ -976,12 +943,11 @@ class PaladinComponent extends Component {
           if (spec1Req30[g].id) {
             spanID = spec1Req30[g].id;
             idMatcherParse();
-            
             arrowSizeParse();
           }
           spec1Req30Output.push(spec1Req30[g].previousElementSibling);
         }
-        console.log(spec1Req30Output);
+        console.log("spec1Req30Output", spec1Req30Output);
         for (let g = 0; g < spec1Req30Output.length; g++) {
           if (spec1Req30Output[g].className.includes("active-talent")) {
             spec1Req30Output[g].className =
@@ -997,7 +963,6 @@ class PaladinComponent extends Component {
           if (spec1Req25[g].id) {
             spanID = spec1Req25[g].id;
             idMatcherParse();
-            checkIDReq3Spec1();
             arrowSizeParse();
           }
           spec1Req25Output.push(spec1Req25[g].previousElementSibling);
@@ -1018,7 +983,6 @@ class PaladinComponent extends Component {
           if (spec1Req20[g].id) {
             spanID = spec1Req20[g].id;
             idMatcherParse();
-            
             arrowSizeParse();
           }
           spec1Req20Output.push(spec1Req20[g].previousElementSibling);
@@ -1039,9 +1003,7 @@ class PaladinComponent extends Component {
           if (spec1Req15[g].id) {
             spanID = spec1Req15[g].id;
             idMatcherParse();
-            checkIDReq2Spec1();
             arrowSizeParse();
-            
           }
           spec1Req15Output.push(spec1Req15[g].previousElementSibling);
         }
@@ -1089,29 +1051,6 @@ class PaladinComponent extends Component {
         for (let g = 0; g < spec1Req5Output.length; g++) {
           if (spec1Req5Output[g].className.includes("active-talent")) {
             spec1Req5Output[g].className =
-              "spec1 talentButton inactive-talent req-inactive";
-          }
-        }
-      }
-
-      if (iSpec1 < 4) {
-        spec1Req0 = document.getElementsByClassName("req-00-s1");
-
-        for (let g = 0; g < spec1Req0.length; g++) {
-          if (spec1Req0[g].id) {
-            spanID = spec1Req0[g].id;
-            console.log("spanID", spanID)
-            
-            idMatcherParse();
-            arrowSizeParse();
-            checkIDReq1Spec1();
-          }
-          spec1Req0Output.push(spec1Req0[g].previousElementSibling);
-        }
-        console.log(spec1Req0Output);
-        for (let g = 0; g < spec1Req0Output.length; g++) {
-          if (spec1Req0Output[g].className.includes("active-talent") && spec1Req0Output[g].nextElementSibling.id.includes("prio")) {
-            spec1Req0Output[g].className =
               "spec1 talentButton inactive-talent req-inactive";
           }
         }
@@ -1662,7 +1601,7 @@ class PaladinComponent extends Component {
         }
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGold.png";
+            "assets/images/DownGoldLarge.png";
         }
         if (arrowChecker.includes("left")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
@@ -3402,7 +3341,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3423,7 +3362,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3443,7 +3382,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3463,7 +3402,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3483,7 +3422,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3503,7 +3442,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3523,7 +3462,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3544,7 +3483,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3586,7 +3525,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3607,7 +3546,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3627,7 +3566,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3647,7 +3586,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3667,7 +3606,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3687,7 +3626,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3701,13 +3640,13 @@ class PaladinComponent extends Component {
                   console.log(button.previousElementSibling);
                   if (
                     button.previousElementSibling.className.includes(
-                      "req-active"
-                    )
+                      "req-inactive"
+                    ) && iSpec3 >= 35
                   ) {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3728,7 +3667,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3770,7 +3709,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3791,7 +3730,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3811,7 +3750,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3831,7 +3770,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3851,7 +3790,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3871,7 +3810,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3891,7 +3830,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3912,7 +3851,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -6157,7 +6096,7 @@ class PaladinComponent extends Component {
               console.log("The arrow above me should be gold");
               if (spec2Req30Output[g].className.includes("maxeds")) {
                 spec2Req30Output[g].className =
-                  "spec2 talentButton active-talent req-active";
+                  "spec2 talentButton maxeds req-active";
               }
               let arrow;
               arrow = document.getElementById("arrwReq3Spec2");
@@ -7251,6 +7190,11 @@ class PaladinComponent extends Component {
                 case "rightArrow":
                   arrow.src = "assets/images/RightGoldSmall.png";
                   break;
+
+                case "lgArrowPaladin":
+                  arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7620,7 +7564,7 @@ class PaladinComponent extends Component {
                 .previousElementSibling.className.includes("maxeds")
             ) {
               console.log("The arrow above me should be gold");
-              if (!spec3Req35Output[g].className.includes("maxeds")) {
+              if (spec3Req35Output[g].className.includes("inactive")) {
                 spec3Req35Output[g].className =
                   "spec3 talentButton active-talent req-active";
               }
@@ -8292,44 +8236,44 @@ class PaladinComponent extends Component {
     else if (window.event.button === 2) {
       //this prevents the user from taking away points if they have points in a dependant talent
       //spec 1
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1") && !(document.getElementById("prioReq1Spec1").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1") && !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1") && !(document.getElementById("prioReq2Spec1").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1") && !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1") && !(document.getElementById("prioReq3Spec1").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1") && !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1") && !(document.getElementById("prioReq4Spec1").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1") && !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")){
         
         return
       }
       //spec 2
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2") && !(document.getElementById("prioReq1Spec2").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2") && !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2") && !(document.getElementById("prioReq2Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2") && !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2") && !(document.getElementById("prioReq3Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2") && !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2") && !(document.getElementById("prioReq4Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2") && !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")){
         
         return
       }
       //spec 3
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3") && !(document.getElementById("prioReq1Spec3").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3") && !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3") && !(document.getElementById("prioReq2Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3") && !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3") && !(document.getElementById("prioReq3Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3") && !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3") && !(document.getElementById("prioReq4Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3") && !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")){
         
         return
       }
@@ -9144,8 +9088,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[3].toolTip[0]}
-                  id="4"
+                  data-tip={Paladin[2].toolTip[0]}
+                  id="3"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9155,8 +9099,35 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/3</span>
+                <span className="talentPoints req-05-s1">0/5</span>
               </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Paladin[3].toolTip[0]}
+                  id="4"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Paladin/Progression/spec1/ability_thunderbolt.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-05-s1">0/5</span>
+              </div>
+              <div className="col col-xs-3"></div> 
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9175,15 +9146,36 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/ability_thunderbolt.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_holybolt.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/3</span>
+                <span className="talentPoints req-10-s1">0/3</span>
               </div>
-              <div className="col col-xs-3"></div> 
-            </div>
-            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Paladin[5].toolTip[0]}
+                  id="6"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_auramastery.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-10-s1">0/1</span>
+              </div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9202,7 +9194,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_holybolt.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_layonhands.jpg"
                   alt=""
                 />
 
@@ -9226,63 +9218,45 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_auramastery.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-10-s1">0/1</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Paladin[8].toolTip[0]}
-                  id="9"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_layonhands.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-10-s1">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Paladin[8].toolTip[0]}
-                  id="9"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Paladin/Progression/spec1/spell_holy_unyieldingfaith.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/5</span>
+                <span className="talentPoints req-10-s1">0/2</span>
               </div>
             </div>
             <div className="row talent-row">
               <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Paladin[8].toolTip[0]}
+                  id="9"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_greaterheal.jpg"
+                  alt=""
+                />
+
+                <span id="subsReq1Spec1" className="talentPoints req-15-s1">0/5</span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq1Spec1"
+                />
+              </div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9301,36 +9275,12 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_greaterheal.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-15-s1">0/2</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Paladin[10].toolTip[0]}
-                  id="11"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Paladin/Progression/spec1/spell_holy_sealofwisdom.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-15-s1">
-                  0/5
+                  0/2
                 </span>
                 
               </div>
@@ -9350,8 +9300,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[11].toolTip[0]}
-                  id="12"
+                  data-tip={Paladin[10].toolTip[0]}
+                  id="11"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9361,8 +9311,42 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span className="talentPoints req-20-s1">0/3</span>
               </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Paladin[11].toolTip[0]}
+                  id="12"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_heal.jpg"
+                  alt=""
+                />
+
+                <span id="prioReq1Spec1 subsReq2Spec1" className="talentPoints req-20-s1">
+                  0/1
+                </span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq2Spec1"
+                />
+              </div>
+              
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9381,40 +9365,11 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_heal.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-20-s1">
-                  0/1
-                </span>
-                
-              </div>
-              
-              
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Paladin[13].toolTip[0]}
-                  id="14"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Paladin/Progression/spec1/spell_holy_healingaura.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span className="talentPoints req-20-s1">0/3</span>
               </div>
               <div style={{ zIndex: "0" }} className="col col-xs-3"></div>
             </div>
@@ -9431,8 +9386,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[14].toolTip[0]}
-                  id="15"
+                  data-tip={Paladin[13].toolTip[0]}
+                  id="14"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9456,8 +9411,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[15].toolTip[0]}
-                  id="16"
+                  data-tip={Paladin[14].toolTip[0]}
+                  id="15"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9485,8 +9440,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[16].toolTip[0]}
-                  id="17"
+                  data-tip={Paladin[15].toolTip[0]}
+                  id="16"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9509,8 +9464,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[17].toolTip[0]}
-                  id="18"
+                  data-tip={Paladin[16].toolTip[0]}
+                  id="17"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9521,7 +9476,7 @@ class PaladinComponent extends Component {
                 />
 
                 <span
-                  
+                  id="prioReq2Spec1"
                   className="talentPoints req-30-s1"
                 >
                   0/1
@@ -9539,8 +9494,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[18].toolTip[0]}
-                  id="19"
+                  data-tip={Paladin[17].toolTip[0]}
+                  id="18"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9568,8 +9523,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[19].toolTip[0]}
-                  id="20"
+                  data-tip={Paladin[18].toolTip[0]}
+                  id="19"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9597,8 +9552,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[20].toolTip[0]}
-                  id="21"
+                  data-tip={Paladin[19].toolTip[0]}
+                  id="20"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9637,8 +9592,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[21].toolTip[0]}
-                  id="22"
+                  data-tip={Paladin[20].toolTip[0]}
+                  id="21"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9661,8 +9616,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[22].toolTip[0]}
-                  id="23"
+                  data-tip={Paladin[21].toolTip[0]}
+                  id="22"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9672,7 +9627,13 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s2">0/5</span>
+                <span id="subsReq1Spec2" className="talentPoints req-00-s2">0/5</span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq1Spec2"
+                />
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -9688,8 +9649,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[23].toolTip[0]}
-                  id="24"
+                  data-tip={Paladin[22].toolTip[0]}
+                  id="23"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9699,7 +9660,7 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9723,7 +9684,7 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9775,7 +9736,7 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span className="talentPoints req-10-s2">0/1</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9799,7 +9760,7 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/5</span>
+                <span className="talentPoints req-10-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9823,8 +9784,8 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">
-                  0/1
+                <span id="prioReq1Spec2" className="talentPoints req-10-s2">
+                  0/3
                 </span>
                 
               </div>
@@ -9850,7 +9811,7 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span className="talentPoints req-10-s2">0/5</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -9876,31 +9837,7 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s2">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Paladin[29].toolTip[0]}
-                  id="30"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_sealofmight.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-15-s2">0/5</span>
+                <span className="talentPoints req-15-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9920,17 +9857,12 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_mindsooth.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_sealofmight.jpg"
                   alt=""
                 />
 
-                <span  className="talentPoints req-15-s2">
-                  0/5
-                </span>
+                <span className="talentPoints req-15-s2">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9949,12 +9881,17 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_improvedresistanceauras.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_mindsooth.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">0/3</span>
+                <span  className="talentPoints req-15-s2">
+                  0/3
+                </span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9973,14 +9910,11 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_nature_lightningshield.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_improvedresistanceauras.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
-                  0/1
-                </span>
-                
+                <span className="talentPoints req-20-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10000,12 +9934,44 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Paladin/Progression/spec2/spell_nature_lightningshield.jpg"
+                  alt=""
+                />
+
+                <span id="subsReq2Spec2" className="talentPoints req-20-s2">
+                  0/1
+                </span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq2Spec2"
+                />
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Paladin[34].toolTip[0]}
+                  id="35"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Paladin/Progression/spec2/spell_holy_blessingofstrength.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-20-s2">
-                  0/3
+                  0/5
                 </span>
                 
               </div>
@@ -10023,8 +9989,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[34].toolTip[0]}
-                  id="35"
+                  data-tip={Paladin[35].toolTip[0]}
+                  id="36"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10049,8 +10015,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[35].toolTip[0]}
-                  id="36"
+                  data-tip={Paladin[36].toolTip[0]}
+                  id="37"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10076,30 +10042,6 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[36].toolTip[0]}
-                  id="37"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/classic_spell_holy_blessingofprotection.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-30-s2">0/3</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
                   data-tip={Paladin[37].toolTip[0]}
                   id="38"
                 />
@@ -10111,9 +10053,7 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span  className="talentPoints req-30-s2">
-                  0/1
-                </span>
+                <span id="prioReq3Spec2" className="talentPoints req-30-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10133,12 +10073,50 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Paladin/Progression/spec2/classic_spell_holy_blessingofprotection.jpg"
+                  alt=""
+                />
+
+                <span id="prioReq2Spec2 subsReq3Spec2 subsReq4Spec2" className="talentPoints req-30-s2">
+                  0/1
+                </span>
+                <img
+                  className="leftArrow"
+                  src="assets/images/LeftSilverSmall.png"
+                  alt=""
+                  id="arrwReq3Spec2"
+                />
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq4Spec2"
+                />
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Paladin[39].toolTip[0]}
+                  id="40"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Paladin/Progression/spec2/spell_holy_ardentdefender.jpg"
                   alt=""
                 />
 
                 <span  className="talentPoints req-30-s2">
-                  0/3
+                  0/5
                 </span>
               </div>
               <div className="col col-xs-3"></div>
@@ -10157,8 +10135,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[39].toolTip[0]}
-                  id="40"
+                  data-tip={Paladin[40].toolTip[0]}
+                  id="41"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10189,8 +10167,8 @@ class PaladinComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Paladin[40].toolTip[0]}
-                  id="41"
+                  data-tip={Paladin[41].toolTip[0]}
+                  id="42"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10200,7 +10178,7 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span  className="talentPoints req-40-s2">
+                <span id="prioReq4Spec2" className="talentPoints req-40-s2">
                   0/1
                 </span>
               </div>
@@ -10240,7 +10218,7 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10264,11 +10242,35 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Paladin[44].toolTip[0]}
+                  id="45"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_righteousfury.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-05-s3">0/2</span>
+              </div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10287,7 +10289,7 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_righteousfury.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_holysmite.jpg"
                   alt=""
                 />
 
@@ -10311,12 +10313,15 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_holysmite.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/ability_parry.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-05-s3">0/5</span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10335,15 +10340,12 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/ability_parry.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_vindication.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s3">0/3</span>
+                <span className="talentPoints req-10-s3">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10362,11 +10364,17 @@ class PaladinComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_vindication.jpg"
+                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_retributionaura.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">0/2</span>
+                <span id="subsReq1Spec3" className="talentPoints req-10-s3">0/5</span>
+                <img
+                  className="lgArrowPaladin"
+                  src="assets/images/DownSilverLarge.png"
+                  alt=""
+                  id="arrwReq1Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10381,30 +10389,6 @@ class PaladinComponent extends Component {
                   style={{ display: "none" }}
                   data-tip={Paladin[49].toolTip[0]}
                   id="50"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_retributionaura.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-10-s3">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Paladin[50].toolTip[0]}
-                  id="51"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10442,7 +10426,7 @@ class PaladinComponent extends Component {
                 />
 
                 <span className="talentPoints req-10-s3">
-                  0/1
+                  0/3
                 </span>
                 
               </div>
@@ -10495,7 +10479,7 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/3</span>
+                <span className="talentPoints req-15-s3">0/2</span>
               </div>
               
               <div className="col col-xs-3">
@@ -10520,7 +10504,7 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/2</span>
+                <span className="talentPoints req-15-s3">0/3</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -10546,7 +10530,7 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">0/2</span>
+                <span className="talentPoints req-20-s3">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -10571,10 +10555,15 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
-                  0/3
+                <span id="subsReq2Spec3" className="talentPoints req-20-s3">
+                  0/1
                 </span>
-                
+                <img
+                  className="rightArrow"
+                  src="assets/images/RightSilverSmall.png"
+                  alt=""
+                  id="arrwReq2Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10598,8 +10587,8 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
-                  0/1
+                <span id="prioReq2Spec3" className="talentPoints req-20-s3">
+                  0/2
                 </span>
               </div>
               
@@ -10628,7 +10617,7 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s3">0/3</span>
+                <span id="prioReq1Spec3" className="talentPoints req-25-s3">0/5</span>
               </div>
               
               <div className="col col-xs-3">
@@ -10653,7 +10642,7 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s3">0/5</span>
+                <span className="talentPoints req-25-s3">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10704,9 +10693,15 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s3">
+                <span id="subsReq3Spec3" className="talentPoints req-30-s3">
                   0/1
                 </span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq3Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10758,7 +10753,7 @@ class PaladinComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s3">
+                <span id="prioReq3Spec3" className="talentPoints req-35-s3">
                   0/5
                 </span>
                 

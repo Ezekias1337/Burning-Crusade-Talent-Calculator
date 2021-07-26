@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Shaman } from "../talentinfo/Shaman";
 
-//(Adjust section at line 6065)
 let i = 0;
 let iSpec1 = 0;
 let iSpec2 = 0;
@@ -510,9 +509,9 @@ class ShamanComponent extends Component {
             spec2Req30Output[g].className =
               "spec2 talentButton active-talent req-active";
           }
-          /*if(spec2Req30Output[g].nextElementSibling){
+          if(spec2Req30Output[g].nextElementSibling){
             turnArrowGoldIndirectlySpec2();
-          }*/
+          }
         }
       }
 
@@ -817,9 +816,10 @@ class ShamanComponent extends Component {
       let arrowSrc;
       let arrowSrcSize;
       let spanID;
-      let shouldArrowBeSilver = "";
 
       function idMatcherParse() {
+        console.log("spanID", spanID)
+        
         if (spanID.includes("prioReq1Spec1")) {
           arrowSrc = document.getElementById("arrwReq1Spec1");
         } else if (spanID.includes("prioReq2Spec1")) {
@@ -831,76 +831,24 @@ class ShamanComponent extends Component {
         }
       }
 
-      function checkIDReq1Spec1(){
-              if (spanID.includes("prioReq1Spec1") && !(document.getElementById("subsReq1Spec1").previousElementSibling.className.includes("maxeds"))) {
-                console.log("This is when the arrow should still be gold")
-                shouldArrowBeSilver = false;
-                
-                console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-              } else if (document.getElementById("prioReq1Spec1").innerText[0] === "0") {
-                  console.log("This is when the arrow should revert to silver")
-                  shouldArrowBeSilver = true;
-              } 
-      }
-
-      function checkIDReq2Spec1(){
-        if (spanID.includes("prioReq2Spec1") && !(document.getElementById("subsReq2Spec1").previousElementSibling.className.includes("maxeds"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq2Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-      function checkIDReq3Spec1(){
-        if (spanID.includes("prioReq3Spec1") && !(document.getElementById("subsReq3Spec1").previousElementSibling.className.includes("maxeds") || document.getElementById("subsReq3Spec1").previousElementSibling.className.includes("req-active"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq3Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-      function checkIDReq4Spec1(){
-        if (spanID.includes("prioReq4Spec1") && !(document.getElementById("subsReq4Spec1").previousElementSibling.className.includes("maxeds"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq4Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-
-      
       function arrowSizeParse() {
         
-        
-        console.log("arrowSrc", arrowSrc)
-
         if (arrowSrc.src.includes("Left")) {
           arrowSrcSize = "left";
         } else if (arrowSrc.src.includes("Right")) {
           arrowSrcSize = "right";
+          console.log(arrowSrc)
         } else if (arrowSrc.src.includes("Small")) {
           arrowSrcSize = "sm";
         } else if (arrowSrc.src.includes("Medium")) {
           arrowSrcSize = "med";
+          console.log(arrowSrc)
         } else if (arrowSrc.src.includes("Large")) {
           arrowSrcSize = "lg";
         } 
 
-        if(shouldArrowBeSilver === true) {
-        console.log("shouldArrowBeSilver", shouldArrowBeSilver)
         console.log("arrowSrcSize", arrowSrcSize)
+
         switch (arrowSrcSize) {
           
           case "sm":
@@ -920,13 +868,9 @@ class ShamanComponent extends Component {
             break;
 
           case "right":
-            
             arrowSrc.src = "assets/images/RightSilverSmall.png";
             break;
         }
-
-      }
-
       }
 
       if (iSpec1 < 40) {
@@ -969,6 +913,26 @@ class ShamanComponent extends Component {
         }
       }
 
+      if (iSpec1 === 30) {
+        spec1Req30 = document.getElementsByClassName("req-30-s1");
+
+        for (let g = 0; g < spec1Req30.length; g++) {
+          if (spec1Req30[g].id) {
+            spanID = spec1Req30[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
+          spec1Req30Output.push(spec1Req30[g].previousElementSibling);
+        }
+        console.log("spec1Req30Output", spec1Req30Output);
+        for (let g = 0; g < spec1Req30Output.length; g++) {
+          if (spec1Req30Output[g].className.includes("active-talent") && spec1Req30Output[g].nextElementSibling.id.includes("prio")) {
+            spec1Req30Output[g].className =
+              "spec1 talentButton inactive-talent req-inactive";
+          } 
+        }
+      }
+
       if (iSpec1 < 30) {
         spec1Req30 = document.getElementsByClassName("req-30-s1");
 
@@ -976,12 +940,11 @@ class ShamanComponent extends Component {
           if (spec1Req30[g].id) {
             spanID = spec1Req30[g].id;
             idMatcherParse();
-            
             arrowSizeParse();
           }
           spec1Req30Output.push(spec1Req30[g].previousElementSibling);
         }
-        console.log(spec1Req30Output);
+        console.log("spec1Req30Output", spec1Req30Output);
         for (let g = 0; g < spec1Req30Output.length; g++) {
           if (spec1Req30Output[g].className.includes("active-talent")) {
             spec1Req30Output[g].className =
@@ -997,7 +960,6 @@ class ShamanComponent extends Component {
           if (spec1Req25[g].id) {
             spanID = spec1Req25[g].id;
             idMatcherParse();
-            checkIDReq3Spec1();
             arrowSizeParse();
           }
           spec1Req25Output.push(spec1Req25[g].previousElementSibling);
@@ -1018,7 +980,6 @@ class ShamanComponent extends Component {
           if (spec1Req20[g].id) {
             spanID = spec1Req20[g].id;
             idMatcherParse();
-            
             arrowSizeParse();
           }
           spec1Req20Output.push(spec1Req20[g].previousElementSibling);
@@ -1039,9 +1000,7 @@ class ShamanComponent extends Component {
           if (spec1Req15[g].id) {
             spanID = spec1Req15[g].id;
             idMatcherParse();
-            checkIDReq2Spec1();
             arrowSizeParse();
-            
           }
           spec1Req15Output.push(spec1Req15[g].previousElementSibling);
         }
@@ -1089,29 +1048,6 @@ class ShamanComponent extends Component {
         for (let g = 0; g < spec1Req5Output.length; g++) {
           if (spec1Req5Output[g].className.includes("active-talent")) {
             spec1Req5Output[g].className =
-              "spec1 talentButton inactive-talent req-inactive";
-          }
-        }
-      }
-
-      if (iSpec1 < 4) {
-        spec1Req0 = document.getElementsByClassName("req-00-s1");
-
-        for (let g = 0; g < spec1Req0.length; g++) {
-          if (spec1Req0[g].id) {
-            spanID = spec1Req0[g].id;
-            console.log("spanID", spanID)
-            
-            idMatcherParse();
-            arrowSizeParse();
-            checkIDReq1Spec1();
-          }
-          spec1Req0Output.push(spec1Req0[g].previousElementSibling);
-        }
-        console.log(spec1Req0Output);
-        for (let g = 0; g < spec1Req0Output.length; g++) {
-          if (spec1Req0Output[g].className.includes("active-talent") && spec1Req0Output[g].nextElementSibling.id.includes("prio")) {
-            spec1Req0Output[g].className =
               "spec1 talentButton inactive-talent req-inactive";
           }
         }
@@ -1662,7 +1598,7 @@ class ShamanComponent extends Component {
         }
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGold.png";
+            "assets/images/DownGoldLarge.png";
         }
         if (arrowChecker.includes("left")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
@@ -2761,7 +2697,7 @@ class ShamanComponent extends Component {
                   console.log(button.previousElementSibling);
                   if (
                     button.previousElementSibling.className.includes(
-                      "req-active"
+                      "req-inactive"
                     )
                   ) {
                     document.querySelector(
@@ -2945,7 +2881,7 @@ class ShamanComponent extends Component {
                   console.log(button.previousElementSibling);
                   if (
                     button.previousElementSibling.className.includes(
-                      "req-active"
+                      "req-inactive"
                     )
                   ) {
                     document.querySelector(
@@ -3402,7 +3338,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3423,7 +3359,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3443,7 +3379,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3463,7 +3399,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3483,7 +3419,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3503,7 +3439,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3523,7 +3459,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3544,7 +3480,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3586,7 +3522,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3607,7 +3543,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3627,7 +3563,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3647,7 +3583,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3667,7 +3603,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3687,7 +3623,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3701,13 +3637,13 @@ class ShamanComponent extends Component {
                   console.log(button.previousElementSibling);
                   if (
                     button.previousElementSibling.className.includes(
-                      "req-active"
-                    )
+                      "req-inactive"
+                    ) && iSpec3 >= 35
                   ) {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3728,7 +3664,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3770,7 +3706,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3791,7 +3727,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3811,7 +3747,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3831,7 +3767,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3851,7 +3787,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3871,7 +3807,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3891,7 +3827,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3912,7 +3848,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -6155,7 +6091,7 @@ class ShamanComponent extends Component {
                 .previousElementSibling.className.includes("maxeds")
             ) {
               console.log("The arrow above me should be gold");
-              if (spec2Req30Output[g].className.includes("maxeds")) {
+              if (spec2Req30Output[g].className.includes("inactive")) {
                 spec2Req30Output[g].className =
                   "spec2 talentButton active-talent req-active";
               }
@@ -7251,6 +7187,11 @@ class ShamanComponent extends Component {
                 case "rightArrow":
                   arrow.src = "assets/images/RightGoldSmall.png";
                   break;
+
+                case "lgArrowPaladin":
+                  arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7620,7 +7561,7 @@ class ShamanComponent extends Component {
                 .previousElementSibling.className.includes("maxeds")
             ) {
               console.log("The arrow above me should be gold");
-              if (!spec3Req35Output[g].className.includes("maxeds")) {
+              if (spec3Req35Output[g].className.includes("inactive")) {
                 spec3Req35Output[g].className =
                   "spec3 talentButton active-talent req-active";
               }
@@ -8292,44 +8233,44 @@ class ShamanComponent extends Component {
     else if (window.event.button === 2) {
       //this prevents the user from taking away points if they have points in a dependant talent
       //spec 1
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1") && !(document.getElementById("prioReq1Spec1").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1") && !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1") && !(document.getElementById("prioReq2Spec1").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1") && !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1") && !(document.getElementById("prioReq3Spec1").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1") && !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1") && !(document.getElementById("prioReq4Spec1").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1") && !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")){
         
         return
       }
       //spec 2
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2") && !(document.getElementById("prioReq1Spec2").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2") && !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2") && !(document.getElementById("prioReq2Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2") && !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2") && !(document.getElementById("prioReq3Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2") && !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2") && !(document.getElementById("prioReq4Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2") && !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")){
         
         return
       }
       //spec 3
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3") && !(document.getElementById("prioReq1Spec3").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3") && !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3") && !(document.getElementById("prioReq2Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3") && !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3") && !(document.getElementById("prioReq3Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3") && !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3") && !(document.getElementById("prioReq4Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3") && !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")){
         
         return
       }
@@ -9218,8 +9159,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[6].toolTip[0]}
-                  id="7"
+                  data-tip={Shaman[5].toolTip[0]}
+                  id="6"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9229,7 +9170,31 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/2</span>
+                <span className="talentPoints req-10-s1">0/1</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Shaman[6].toolTip[0]}
+                  id="7"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Shaman/Progression/spec1/spell_frost_frostward.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-10-s1">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9249,35 +9214,17 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_frost_frostward.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-10-s1">0/1</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Shaman[8].toolTip[0]}
-                  id="9"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Shaman/Progression/spec1/spell_nature_callstorm.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/5</span>
+                <span id="subsReq1Spec1" className="talentPoints req-10-s1">0/5</span>
+                <img
+                  className="lgArrowPaladin"
+                  src="assets/images/DownSilverLarge.png"
+                  alt=""
+                  id="arrwReq1Spec1"
+                />
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -9294,8 +9241,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[9].toolTip[0]}
-                  id="10"
+                  data-tip={Shaman[8].toolTip[0]}
+                  id="9"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9318,8 +9265,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[10].toolTip[0]}
-                  id="11"
+                  data-tip={Shaman[9].toolTip[0]}
+                  id="10"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9330,7 +9277,7 @@ class ShamanComponent extends Component {
                 />
 
                 <span className="talentPoints req-15-s1">
-                  0/5
+                  0/3
                 </span>
               </div>
               <div className="col col-xs-3"></div>
@@ -9357,7 +9304,7 @@ class ShamanComponent extends Component {
                 />
 
                 <span className="talentPoints req-15-s1">
-                  0/5
+                  0/3
                 </span>
               </div>
             </div>
@@ -9409,9 +9356,15 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">
+                <span id="subsReq2Spec1" className="talentPoints req-20-s1">
                   0/1
                 </span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq2Spec1"
+                />
               </div>
               <div style={{ zIndex: "0" }} className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9436,7 +9389,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span className="talentPoints req-20-s1">0/5</span>
               </div>
             </div>
 
@@ -9463,7 +9416,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s1">0/2</span>
+                <span className="talentPoints req-25-s1">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9488,7 +9441,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s1">
+                <span id="prioReq1Spec1" className="talentPoints req-25-s1">
                   0/5
                 </span>
               </div>
@@ -9507,8 +9460,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[17].toolTip[0]}
-                  id="18"
+                  data-tip={Shaman[16].toolTip[0]}
+                  id="17"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9519,7 +9472,7 @@ class ShamanComponent extends Component {
                 />
 
                 <span
-                  
+                  id="prioReq2Spec1"
                   className="talentPoints req-30-s1"
                 >
                   0/1
@@ -9537,8 +9490,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[18].toolTip[0]}
-                  id="19"
+                  data-tip={Shaman[17].toolTip[0]}
+                  id="18"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9565,8 +9518,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[19].toolTip[0]}
-                  id="20"
+                  data-tip={Shaman[18].toolTip[0]}
+                  id="19"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9576,7 +9529,13 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s1">0/5</span>
+                <span id="subsReq3Spec1" className="talentPoints req-35-s1">0/5</span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq3Spec1"
+                />
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -9594,8 +9553,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[20].toolTip[0]}
-                  id="21"
+                  data-tip={Shaman[19].toolTip[0]}
+                  id="20"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9605,7 +9564,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s1">
+                <span id="prioReq3Spec1" className="talentPoints req-40-s1">
                   0/1
                 </span>
               </div>
@@ -9634,8 +9593,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[21].toolTip[0]}
-                  id="22"
+                  data-tip={Shaman[20].toolTip[0]}
+                  id="21"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9658,8 +9617,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[22].toolTip[0]}
-                  id="23"
+                  data-tip={Shaman[21].toolTip[0]}
+                  id="22"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9685,8 +9644,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[23].toolTip[0]}
-                  id="24"
+                  data-tip={Shaman[22].toolTip[0]}
+                  id="23"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9696,7 +9655,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9720,7 +9679,13 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span id="subsReq1Spec2" className="talentPoints req-05-s2">0/5</span>
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq1Spec2"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9744,7 +9709,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9757,8 +9722,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[23].toolTip[0]}
-                  id="24"
+                  data-tip={Shaman[25].toolTip[0]}
+                  id="26"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9768,7 +9733,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/3</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -9783,8 +9748,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[25].toolTip[0]}
-                  id="26"
+                  data-tip={Shaman[26].toolTip[0]}
+                  id="27"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -9846,7 +9811,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span className="talentPoints req-10-s2">0/5</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -9873,7 +9838,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s2">0/5</span>
+                <span id="prioReq1Spec2" className="talentPoints req-15-s2">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9926,7 +9891,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">0/3</span>
+                <span className="talentPoints req-20-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9950,10 +9915,15 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
+                <span id="subsReq3Spec2" className="talentPoints req-20-s2">
                   0/1
                 </span>
-                
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq3Spec2"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9977,10 +9947,15 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
+                <span id="subsReq2Spec2" className="talentPoints req-20-s2">
                   0/3
                 </span>
-                
+                <img
+                  className="medArrow"
+                  src="assets/images/DownSilverMedium.png"
+                  alt=""
+                  id="arrwReq2Spec2"
+                />
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10007,7 +9982,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s2">0/2</span>
+                <span className="talentPoints req-25-s2">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -10059,7 +10034,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">0/3</span>
+                <span id="prioReq4Spec2" className="talentPoints req-30-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10083,9 +10058,15 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">
+                <span id="prioReq3Spec2 subsReq4Spec2" className="talentPoints req-30-s2">
                   0/1
                 </span>
+                <img
+                  className="leftArrow"
+                  src="assets/images/LeftSilverSmall.png"
+                  alt=""
+                  id="arrwReq4Spec2"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10109,8 +10090,8 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">
-                  0/3
+                <span id="prioReq2Spec2" className="talentPoints req-30-s2">
+                  0/1
                 </span>
               </div>
               <div className="col col-xs-3"></div>
@@ -10200,8 +10181,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[42].toolTip[0]}
-                  id="43"
+                  data-tip={Shaman[41].toolTip[0]}
+                  id="42"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10211,8 +10192,35 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Shaman[42].toolTip[0]}
+                  id="43"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton active-talent req-active"
+                  src="assets/images/talents/Shaman/Progression/spec3/spell_frost_manarecharge.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-00-s3">0/5</span>
+              </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10230,16 +10238,37 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_frost_manarecharge.jpg"
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_reincarnation.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-05-s3">0/2</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Shaman[44].toolTip[0]}
+                  id="45"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_undyingstrength.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-05-s3">0/3</span>
+              </div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10258,12 +10287,15 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_reincarnation.jpg"
+                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_moonglow.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s3">0/3</span>
+                <span className="talentPoints req-05-s3">0/5</span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10282,11 +10314,11 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_undyingstrength.jpg"
+                  src="assets/images/talents/Shaman/Progression/spec3/spell_frost_stun.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s3">0/5</span>
+                <span className="talentPoints req-10-s3">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10301,57 +10333,6 @@ class ShamanComponent extends Component {
                   style={{ display: "none" }}
                   data-tip={Shaman[47].toolTip[0]}
                   id="48"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_moonglow.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s3">0/3</span>
-              </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Shaman[48].toolTip[0]}
-                  id="49"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_frost_stun.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-10-s3">0/2</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Shaman[49].toolTip[0]}
-                  id="50"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10374,8 +10355,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[50].toolTip[0]}
-                  id="51"
+                  data-tip={Shaman[48].toolTip[0]}
+                  id="49"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10401,8 +10382,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[50].toolTip[0]}
-                  id="51"
+                  data-tip={Shaman[49].toolTip[0]}
+                  id="50"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10413,13 +10394,43 @@ class ShamanComponent extends Component {
                 />
 
                 <span className="talentPoints req-10-s3">
-                  0/1
+                  0/3
                 </span>
                 
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Shaman[50].toolTip[0]}
+                  id="51"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_manaregentotem.jpg"
+                  alt=""
+                />
+
+                <span id="subsReq1Spec3" className="talentPoints req-15-s3">0/5</span>
+                <img
+                  className="lgArrowPaladin"
+                  src="assets/images/DownSilverLarge.png"
+                  alt=""
+                  id="arrwReq1Spec3"
+                />
+              </div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10438,12 +10449,16 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_manaregentotem.jpg"
+                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_tranquility.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/2</span>
+                <span className="talentPoints req-15-s3">0/5</span>
               </div>
+              
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10462,16 +10477,40 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_tranquility.jpg"
+                  src="assets/images/talents/Shaman/Progression/spec3/classic_spell_nature_healingway.jpg"
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/3</span>
+                <span className="talentPoints req-20-s3">0/3</span>
               </div>
-              
               <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Shaman[53].toolTip[0]}
+                  id="54"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_ravenform.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-20-s3">
+                  0/1
+                </span>
+                
+              </div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10490,64 +10529,12 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/classic_spell_nature_healingway.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-20-s3">0/2</span>
-              </div>
-              <div className="col col-xs-3"></div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Shaman[55].toolTip[0]}
-                  id="56"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_ravenform.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-20-s3">
-                  0/3
-                </span>
-                
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Shaman[56].toolTip[0]}
-                  id="57"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
                   src="assets/images/talents/Shaman/Progression/spec3/spell_nature_focusedmind.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-20-s3">
-                  0/1
+                  0/3
                 </span>
               </div>
               
@@ -10566,8 +10553,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[58].toolTip[0]}
-                  id="59"
+                  data-tip={Shaman[55].toolTip[0]}
+                  id="56"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10594,8 +10581,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  data-tip={Shaman[60].toolTip[0]}
-                  id="61"
+                  data-tip={Shaman[56].toolTip[0]}
+                  id="57"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10605,7 +10592,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s3">
+                <span id="prioReq1Spec3" className="talentPoints req-30-s3">
                   0/1
                 </span>
               </div>
@@ -10620,7 +10607,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  
+                  data-tip={Shaman[57].toolTip[0]}
+                  id="58"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10630,7 +10618,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s3">0/3</span>
+                <span className="talentPoints req-30-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10647,7 +10635,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  
+                  data-tip={Shaman[58].toolTip[0]}
+                  id="59"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10657,9 +10646,15 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s3">
-                  0/5
+                <span id="subsReq2Spec3" className="talentPoints req-35-s3">
+                  0/3
                 </span>
+                <img
+                  className="smArrow"
+                  src="assets/images/DownSilverSmall.png"
+                  alt=""
+                  id="arrwReq2Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10672,7 +10667,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  
+                  data-tip={Shaman[59].toolTip[0]}
+                  id="60"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10683,7 +10679,7 @@ class ShamanComponent extends Component {
                 />
 
                 <span className="talentPoints req-35-s3">
-                  0/5
+                  0/2
                 </span>
               </div>
               <div className="col col-xs-3"></div>
@@ -10701,7 +10697,8 @@ class ShamanComponent extends Component {
                   className="talentHover"
                   src="assets/images/Item_Hover.png"
                   style={{ display: "none" }}
-                  
+                  data-tip={Shaman[60].toolTip[0]}
+                  id="61"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
@@ -10711,7 +10708,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s3">
+                <span id="prioReq2Spec3" className="talentPoints req-40-s3">
                   0/1
                 </span>
               </div>

@@ -6157,7 +6157,7 @@ class DruidComponent extends Component {
               console.log("The arrow above me should be gold");
               if (spec2Req30Output[g].className.includes("maxeds")) {
                 spec2Req30Output[g].className =
-                  "spec2 talentButton active-talent req-active";
+                  "spec2 talentButton maxeds req-active";
               }
               let arrow;
               arrow = document.getElementById("arrwReq3Spec2");
