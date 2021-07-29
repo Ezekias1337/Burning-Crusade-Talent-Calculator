@@ -228,7 +228,7 @@ class ClassSelector extends Component {
 
     return (
       <Router>
-        <div style={{ position: "relative" }}>
+        <div style={{ position: "relative" }} >
           <div className="container">
             <div className="row">
               <div className="col">
@@ -242,7 +242,7 @@ class ClassSelector extends Component {
           <div className="container mx-auto">
             <div className="row">
               <div className="col col-sm-3"></div>
-              <div className="col col-sm-6 mb-4">{classSelector}</div>
+              <div className="col col-sm-6 mb-4 ml-5">{classSelector}</div>
               <div className="col col-sm-3"></div>
             </div>
           </div>

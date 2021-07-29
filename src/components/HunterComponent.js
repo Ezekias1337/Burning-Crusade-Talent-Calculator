@@ -288,7 +288,7 @@ class HunterComponent extends Component {
   }
 
   testMobileTouch(){
-    console.log(window.event.target)
+    console.log('Yo')
   }
 
   displayMouseOverlay() {
