@@ -2,6 +2,121 @@ import { contains } from "jquery";
 import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Warrior } from "../talentinfo/Warrior";
+import spec1BG from "../images/talents/Warrior/Background/Arms.jpg"
+import spec2BG from "../images/talents/Warrior/Background/Fury.jpg"
+import spec3BG from "../images/talents/Warrior/Background/Protection.jpg"
+
+/* 
+DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
+Things to update across all components
+1.) Hardcoded images => Imported Images
+a.) Don't forget Arrows
+2.) Window.event.button[0] to handle left click on inactive talents
+3.) All functions handling Arrows
+  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3)
+  b.) turnArrowGoldOnClick
+  c.) turnArrowGoldIndirectly (s1,s2,s3)
+  d.) window.event.button[2] where code looks at arrows source and subsequent switch
+  e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
+4.) Import Background image for each spec
+
+*/
+
+//consistent among classes
+
+import overlayImage from "../images/Item_Hover.png"
+
+import DownSilverSmall from "../images/DownSilverSmall.png"
+import DownSilverMedium from "../images/DownSilverMedium.png"
+import DownSilverLarge from "../images/DownSilverLarge.png"
+
+import DownGoldSmall from "../images/DownGoldSmall.png"
+import DownGoldMedium from "../images/DownGoldMedium.png"
+import DownGoldLarge from "../images/DownGoldLarge.png"
+
+import LeftSilverSmall from "../images/LeftSilverSmall.png"
+import RightSilverSmall from "../images/RightSilverSmall.png"
+
+import LeftGoldSmall from "../images/LeftGoldSmall.png"
+import RightGoldSmall from "../images/RightGoldSmall.png"
+
+import AngleArrowSilver from "../images/AngleArrowSilver.png"
+import AngleArrowGold from "../images/AngleArrowGold.png"
+
+//spec1
+
+import AngerManagement from '../images/talents/Warrior/Progression/spec1/AngerManagement.jpg';
+import Impale from '../images/talents/Warrior/Progression/spec1/Impale.jpg';
+import ImprovedOverpower from '../images/talents/Warrior/Progression/spec1/ImprovedOverpower.jpg';
+import PoleaxeSpecialization from '../images/talents/Warrior/Progression/spec1/PoleaxeSpecialization.jpg';
+import BloodFrenzy from '../images/talents/Warrior/Progression/spec1/BloodFrenzy.jpg';
+import ImprovedCharge from '../images/talents/Warrior/Progression/spec1/ImprovedCharge.jpg';
+import ImprovedRend from '../images/talents/Warrior/Progression/spec1/ImprovedRend.jpg';
+import SecondWind from '../images/talents/Warrior/Progression/spec1/SecondWind.jpg';
+import DeathWish from '../images/talents/Warrior/Progression/spec1/DeathWish.jpg';
+import ImprovedDisciplines from '../images/talents/Warrior/Progression/spec1/ImprovedDisciplines.jpg';
+import ImprovedThunderClap from '../images/talents/Warrior/Progression/spec1/ImprovedThunderClap.jpg';
+import SwordSpecialization from '../images/talents/Warrior/Progression/spec1/SwordSpecialization.jpg';
+import DeepWounds from '../images/talents/Warrior/Progression/spec1/DeepWounds.jpg';
+import ImprovedHamstring from '../images/talents/Warrior/Progression/spec1/ImprovedHamstring.jpg';
+import IronWill from '../images/talents/Warrior/Progression/spec1/IronWill.jpg';
+import TwoHandedWeaponSpecialization from '../images/talents/Warrior/Progression/spec1/TwoHandedWeaponSpecialization.jpg';
+import Deflection from '../images/talents/Warrior/Progression/spec1/Deflection.jpg';
+import ImprovedHeroicStrike from '../images/talents/Warrior/Progression/spec1/ImprovedHeroicStrike.jpg';
+import MaceSpecialization from '../images/talents/Warrior/Progression/spec1/MaceSpecialization.jpg';
+import ImprovedIntercept from '../images/talents/Warrior/Progression/spec1/ImprovedIntercept.jpg';
+import MortalStrike from '../images/talents/Warrior/Progression/spec1/MortalStrike.jpg';
+import EndlessRage from '../images/talents/Warrior/Progression/spec1/EndlessRage.jpg';
+
+//spec2
+
+import BloodCraze from '../images/talents/Warrior/Progression/spec2/BloodCraze.jpg';
+import Enrage from '../images/talents/Warrior/Progression/spec2/Enrage.jpg';
+import ImprovedExecute from '../images/talents/Warrior/Progression/spec2/ImprovedExecute.jpg';
+import SweepingStrikes from '../images/talents/Warrior/Progression/spec2/SweepingStrikes.jpg';
+import Bloodthirst from '../images/talents/Warrior/Progression/spec2/Bloodthirst.jpg';
+import Flurry from '../images/talents/Warrior/Progression/spec2/Flurry.jpg';
+import ImprovedSlam from '../images/talents/Warrior/Progression/spec2/ImprovedSlam.jpg';
+import UnbridledWrath from '../images/talents/Warrior/Progression/spec2/UnbridledWrath.jpg';
+import BoomingVoice from '../images/talents/Warrior/Progression/spec2/BoomingVoice.jpg';
+import ImprovedBerserkerRage from '../images/talents/Warrior/Progression/spec2/ImprovedBerserkerRage.jpg';
+import ImprovedWhirlwind from '../images/talents/Warrior/Progression/spec2/ImprovedWhirlwind.jpg';
+import WeaponMastery from '../images/talents/Warrior/Progression/spec2/WeaponMastery.jpg';
+import CommandingPresence from '../images/talents/Warrior/Progression/spec2/CommandingPresence.jpg';
+import ImprovedBerserkerStance from '../images/talents/Warrior/Progression/spec2/ImprovedBerserkerStance.jpg';
+import PiercingHowl from '../images/talents/Warrior/Progression/spec2/PiercingHowl.jpg';
+import Cruelty from '../images/talents/Warrior/Progression/spec2/Cruelty.jpg';
+import ImprovedCleave from '../images/talents/Warrior/Progression/spec2/ImprovedCleave.jpg';
+import Precision from '../images/talents/Warrior/Progression/spec2/Precision.jpg';
+import ImprovedDemoralizingShout from '../images/talents/Warrior/Progression/spec2/ImprovedDemoralizingShout.jpg';
+import DualWieldSpecialization from '../images/talents/Warrior/Progression/spec2/DualWieldSpecialization.jpg';
+import Rampage from '../images/talents/Warrior/Progression/spec2/Rampage.jpg';
+
+//spec3
+
+import Anticipation from '../images/talents/Warrior/Progression/spec3/Anticipation.jpg';
+import ImprovedDefensiveStance from '../images/talents/Warrior/Progression/spec3/ImprovedDefensiveStance.jpg';
+import ImprovedSunderArmor from '../images/talents/Warrior/Progression/spec3/ImprovedSunderArmor.jpg';
+import ShieldSpecialization from '../images/talents/Warrior/Progression/spec3/ShieldSpecialization.jpg';
+import ConcussionBlow from '../images/talents/Warrior/Progression/spec3/ConcussionBlow.jpg';
+import ImprovedDisarm from '../images/talents/Warrior/Progression/spec3/ImprovedDisarm.jpg';
+import ImprovedTaunt from '../images/talents/Warrior/Progression/spec3/ImprovedTaunt.jpg';
+import TacticalMastery from '../images/talents/Warrior/Progression/spec3/TacticalMastery.jpg';
+import Defiance from '../images/talents/Warrior/Progression/spec3/Defiance.jpg';
+import ImprovedRevenge from '../images/talents/Warrior/Progression/spec3/ImprovedRevenge.jpg';
+import LastStand from '../images/talents/Warrior/Progression/spec3/LastStand.jpg';
+import Toughness from '../images/talents/Warrior/Progression/spec3/Toughness.jpg';
+import Devastate from '../images/talents/Warrior/Progression/spec3/Devastate.jpg';
+import ImprovedShieldBash from '../images/talents/Warrior/Progression/spec3/ImprovedShieldBash.jpg';
+import OneHandedWeaponSpecialization from '../images/talents/Warrior/Progression/spec3/OneHandedWeaponSpecialization.jpg';
+import Vitality from '../images/talents/Warrior/Progression/spec3/Vitality.jpg';
+import FocusedRage from '../images/talents/Warrior/Progression/spec3/FocusedRage.jpg';
+import ImprovedShieldBlock from '../images/talents/Warrior/Progression/spec3/ImprovedShieldBlock.jpg';
+import ShieldMastery from '../images/talents/Warrior/Progression/spec3/ShieldMastery.jpg';
+import ImprovedBloodRage from '../images/talents/Warrior/Progression/spec3/ImprovedBloodrage.jpg';
+import ImprovedShieldWall from '../images/talents/Warrior/Progression/spec3/ImprovedShieldWall.jpg';
+import ShieldSlam from '../images/talents/Warrior/Progression/spec3/ShieldSlam.jpg';
+
 
 let i = 0;
 let iSpec1 = 0;
@@ -826,25 +941,25 @@ class WarriorComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
         }
 
         switch (arrowSrcSize) {
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
             break;
         }
       }
@@ -1028,25 +1143,25 @@ class WarriorComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
         }
 
         switch (arrowSrcSize) {
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
             break;
         }
       }
@@ -1230,25 +1345,25 @@ class WarriorComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
         }
 
         switch (arrowSrcSize) {
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
             break;
         }
       }
@@ -1505,15 +1620,15 @@ class WarriorComponent extends Component {
       function ArrowGold() {
         if (arrowChecker.includes("sm")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldSmall.png";
+            DownGoldSmall;
         }
         if (arrowChecker.includes("med")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldMedium.png";
+          DownGoldMedium;
         }
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldLarge.png";
+          DownGoldLarge;
         }
       }
 
@@ -3808,13 +3923,13 @@ class WarriorComponent extends Component {
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -3840,13 +3955,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -3872,13 +3987,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -3903,13 +4018,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -3947,13 +4062,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -3979,13 +4094,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4011,13 +4126,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4042,13 +4157,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4086,13 +4201,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4118,13 +4233,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4150,13 +4265,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4181,13 +4296,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4225,13 +4340,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4257,13 +4372,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4289,13 +4404,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4320,13 +4435,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4364,13 +4479,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4396,13 +4511,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4428,13 +4543,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4459,13 +4574,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4503,13 +4618,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4535,13 +4650,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4567,13 +4682,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4598,13 +4713,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4642,13 +4757,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4674,13 +4789,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4706,13 +4821,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4737,13 +4852,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4781,13 +4896,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4813,13 +4928,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4845,13 +4960,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4876,13 +4991,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4953,13 +5068,13 @@ class WarriorComponent extends Component {
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -4985,13 +5100,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5017,13 +5132,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5048,13 +5163,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5092,13 +5207,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5124,13 +5239,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5156,13 +5271,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5187,13 +5302,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5231,13 +5346,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5263,13 +5378,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5295,13 +5410,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5326,13 +5441,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5370,13 +5485,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5402,13 +5517,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5434,13 +5549,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5465,13 +5580,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5509,13 +5624,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5541,13 +5656,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5573,13 +5688,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5604,13 +5719,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5649,13 +5764,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5682,13 +5797,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5714,13 +5829,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5745,13 +5860,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5789,13 +5904,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5821,13 +5936,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5853,13 +5968,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5884,13 +5999,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5928,13 +6043,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5960,13 +6075,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -5992,13 +6107,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6024,13 +6139,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6101,13 +6216,13 @@ class WarriorComponent extends Component {
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6133,13 +6248,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6165,13 +6280,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6196,13 +6311,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6240,13 +6355,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6272,13 +6387,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6304,13 +6419,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6335,13 +6450,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6379,13 +6494,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6411,13 +6526,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6443,13 +6558,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6474,13 +6589,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6518,13 +6633,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6550,13 +6665,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6582,13 +6697,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6613,13 +6728,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6657,13 +6772,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6689,13 +6804,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6721,13 +6836,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6752,13 +6867,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6796,13 +6911,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6828,13 +6943,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6860,13 +6975,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6891,13 +7006,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6935,13 +7050,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6967,13 +7082,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -6999,13 +7114,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -7030,13 +7145,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -7074,13 +7189,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -7106,13 +7221,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -7138,13 +7253,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -7169,13 +7284,13 @@ class WarriorComponent extends Component {
 
               switch (arrow.className) {
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
 
                 default:
@@ -7207,6 +7322,13 @@ class WarriorComponent extends Component {
     if (window.event.button === 0) {
       //If user tries to add more points to a maxed talent, exit function, preventing user action
       if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
+
+        return
+      }
+
+      //If User tries to add points to a talent that isn't active yet, exit function
+
+      if(window.event.srcElement.nextElementSibling.className.includes("inactive-talent")){
 
         return
       }
@@ -7693,15 +7815,15 @@ class WarriorComponent extends Component {
         let arrowSrcSize;
 
         if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
-          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Small")) {
+          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("sm")) {
             arrowSrcSize = "sm";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Medium")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("med")) {
             arrowSrcSize = "med";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Large")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("lg")) {
             arrowSrcSize = "lg";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Left")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("left")) {
             arrowSrcSize = "left";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Right")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("right")) {
             arrowSrcSize = "right";
           }
         }
@@ -7709,23 +7831,23 @@ class WarriorComponent extends Component {
         
           switch (arrowSrcSize) {
             case "sm":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverSmall;
               break;
 
             case "med":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverMedium.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverMedium;
               break;
 
             case "lg":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverLarge.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverLarge;
               break;
 
             case "left":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/LeftSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = LeftSilverSmall;
               break;
 
             case "right":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/RightSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = RightSilverSmall;
               break;
           
         }
@@ -8325,13 +8447,13 @@ class WarriorComponent extends Component {
     // Iterate through all arrow elements and set them back to silver
 
     for (arrow of smArrowArray) {
-      arrow.src = "assets/images/DownSilverSmall.png";
+      arrow.src = DownSilverSmall;
     }
     for (arrow of medArrowArray) {
-      arrow.src = "assets/images/DownSilverMedium.png";
+      arrow.src = DownSilverMedium;
     }
     for (arrow of lgArrowArray) {
-      arrow.src = "assets/images/DownSilverLarge.png";
+      arrow.src = DownSilverLarge;
     }
 
     //Resets all counter variables to 0/false
@@ -8395,7 +8517,7 @@ class WarriorComponent extends Component {
         <div className="row talent-frame ml-3 mr-3">
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Warrior/Background/Arms.jpg)"
+              backgroundImage: `url(${spec1BG})`
             }}
             className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
@@ -8411,7 +8533,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[0].toolTip[0]}
                   id="1"
@@ -8420,7 +8542,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_rogue_ambush.jpg"
+                  src={ImprovedHeroicStrike}
                   alt=""
                 />
 
@@ -8435,7 +8557,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[1].toolTip[0]}
                   id="2"
@@ -8444,7 +8566,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_parry.jpg"
+                  src={Deflection}
                   alt=""
                 />
 
@@ -8459,7 +8581,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[2].toolTip[0]}
                   id="3"
@@ -8468,7 +8590,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_gouge.jpg"
+                  src={ImprovedRend}
                   alt=""
                 />
 
@@ -8486,7 +8608,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[3].toolTip[0]}
                   id="4"
@@ -8495,7 +8617,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_charge.jpg"
+                  src={ImprovedCharge}
                   alt=""
                 />
 
@@ -8510,7 +8632,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[4].toolTip[0]}
                   id="5"
@@ -8519,7 +8641,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/spell_magic_magearmor.jpg"
+                  src={IronWill}
                   alt=""
                 />
 
@@ -8534,7 +8656,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[5].toolTip[0]}
                   id="6"
@@ -8543,7 +8665,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_thunderclap.jpg"
+                  src={ImprovedThunderClap}
                   alt=""
                 />
 
@@ -8561,7 +8683,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[6].toolTip[0]}
                   id="7"
@@ -8570,7 +8692,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/inv_sword_05.jpg"
+                  src={ImprovedOverpower}
                   alt=""
                 />
 
@@ -8585,7 +8707,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[7].toolTip[0]}
                   id="8"
@@ -8594,7 +8716,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/spell_holy_blessingofstamina.jpg"
+                  src={AngerManagement}
                   alt=""
                 />
 
@@ -8609,7 +8731,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[8].toolTip[0]}
                   id="9"
@@ -8618,14 +8740,14 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_backstab.jpg"
+                  src={DeepWounds}
                   alt=""
                 />
 
                 <span id="subsReq1Spec1" className="talentPoints req-10-s1">0/3</span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq1Spec1"
                 />
@@ -8643,7 +8765,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[9].toolTip[0]}
                   id="10"
@@ -8652,7 +8774,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/inv_axe_09.jpg"
+                  src={TwoHandedWeaponSpecialization}
                   alt=""
                 />
 
@@ -8667,7 +8789,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[10].toolTip[0]}
                   id="11"
@@ -8676,7 +8798,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_searingarrow.jpg"
+                  src={Impale}
                   alt=""
                 />
 
@@ -8699,7 +8821,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[11].toolTip[0]}
                   id="12"
@@ -8708,7 +8830,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/inv_axe_06.jpg"
+                  src={PoleaxeSpecialization}
                   alt=""
                 />
 
@@ -8723,7 +8845,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[12].toolTip[0]}
                   id="13"
@@ -8732,7 +8854,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/spell_shadow_deathpact.jpg"
+                  src={DeathWish}
                   alt=""
                 />
 
@@ -8741,7 +8863,7 @@ class WarriorComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq2Spec1"
                 />
@@ -8755,7 +8877,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[13].toolTip[0]}
                   id="14"
@@ -8764,7 +8886,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/inv_mace_01.jpg"
+                  src={MaceSpecialization}
                   alt=""
                 />
 
@@ -8782,7 +8904,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[14].toolTip[0]}
                   id="15"
@@ -8791,7 +8913,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/inv_sword_27.jpg"
+                  src={SwordSpecialization}
                   alt=""
                 />
 
@@ -8809,7 +8931,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[15].toolTip[0]}
                   id="16"
@@ -8818,7 +8940,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_rogue_sprint.jpg"
+                  src={ImprovedIntercept}
                   alt=""
                 />
 
@@ -8834,7 +8956,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[16].toolTip[0]}
                   id="17"
@@ -8843,7 +8965,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_shockwave.jpg"
+                  src={ImprovedHamstring}
                   alt=""
                 />
 
@@ -8860,7 +8982,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[17].toolTip[0]}
                   id="18"
@@ -8869,7 +8991,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_improveddisciplines.jpg"
+                  src={ImprovedDisciplines}
                   alt=""
                 />
 
@@ -8888,7 +9010,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[18].toolTip[0]}
                   id="19"
@@ -8897,7 +9019,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_bloodfrenzy.jpg"
+                  src={BloodFrenzy}
                   alt=""
                 />
 
@@ -8912,7 +9034,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[19].toolTip[0]}
                   id="20"
@@ -8921,7 +9043,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_savageblow.jpg"
+                  src={MortalStrike}
                   alt=""
                 />
 
@@ -8933,7 +9055,7 @@ class WarriorComponent extends Component {
                 </span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq3Spec1"
                 />
@@ -8947,7 +9069,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[20].toolTip[0]}
                   id="21"
@@ -8956,7 +9078,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_hunter_harass.jpg"
+                  src={SecondWind}
                   alt=""
                 />
 
@@ -8975,7 +9097,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[21].toolTip[0]}
                   id="22"
@@ -8984,7 +9106,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_savageblow.jpg"
+                  src={MortalStrike}
                   alt=""
                 />
 
@@ -9004,7 +9126,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[22].toolTip[0]}
                   id="23"
@@ -9013,7 +9135,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_endlessrage.jpg"
+                  src={EndlessRage}
                   alt=""
                 />
 
@@ -9027,7 +9149,7 @@ class WarriorComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Warrior/Background/Fury.jpg)"
+              backgroundImage: `url(${spec2BG})`
             }}
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col2"
@@ -9044,7 +9166,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[23].toolTip[0]}
                   id="24"
@@ -9053,7 +9175,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Warrior/Progression/spec2/spell_nature_purge.jpg"
+                  src={BoomingVoice}
                   alt=""
                 />
 
@@ -9068,7 +9190,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[24].toolTip[0]}
                   id="25"
@@ -9077,7 +9199,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Warrior/Progression/spec2/ability_rogue_eviscerate.jpg"
+                  src={Cruelty}
                   alt=""
                 />
 
@@ -9096,7 +9218,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[25].toolTip[0]}
                   id="26"
@@ -9105,7 +9227,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/ability_warrior_warcry.jpg"
+                  src={ImprovedDemoralizingShout}
                   alt=""
                 />
 
@@ -9120,7 +9242,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[26].toolTip[0]}
                   id="27"
@@ -9129,7 +9251,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/spell_nature_stoneclawtotem.jpg"
+                  src={UnbridledWrath}
                   alt=""
                 />
 
@@ -9147,7 +9269,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[27].toolTip[0]}
                   id="28"
@@ -9156,7 +9278,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/ability_warrior_cleave.jpg"
+                  src={ImprovedCleave}
                   alt=""
                 />
 
@@ -9171,7 +9293,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[28].toolTip[0]}
                   id="29"
@@ -9180,7 +9302,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/spell_shadow_deathscream.jpg"
+                  src={PiercingHowl}
                   alt=""
                 />
 
@@ -9195,7 +9317,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[29].toolTip[0]}
                   id="30"
@@ -9204,7 +9326,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/spell_shadow_summonimp.jpg"
+                  src={BloodCraze}
                   alt=""
                 />
 
@@ -9222,7 +9344,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[30].toolTip[0]}
                   id="31"
@@ -9231,7 +9353,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/spell_nature_focusedmind.jpg"
+                  src={CommandingPresence}
                   alt=""
                 />
 
@@ -9248,7 +9370,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[31].toolTip[0]}
                   id="32"
@@ -9257,7 +9379,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/ability_dualwield.jpg"
+                  src={DualWieldSpecialization}
                   alt=""
                 />
 
@@ -9272,7 +9394,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[32].toolTip[0]}
                   id="33"
@@ -9281,7 +9403,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/inv_sword_48.jpg"
+                  src={ImprovedExecute}
                   alt=""
                 />
 
@@ -9296,7 +9418,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[33].toolTip[0]}
                   id="34"
@@ -9305,7 +9427,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/spell_shadow_unholyfrenzy.jpg"
+                  src={Enrage}
                   alt=""
                 />
 
@@ -9314,7 +9436,7 @@ class WarriorComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq1Spec2"
                 />
@@ -9331,7 +9453,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[34].toolTip[0]}
                   id="35"
@@ -9340,7 +9462,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/ability_warrior_decisivestrike.jpg"
+                  src={ImprovedSlam}
                   alt=""
                 />
 
@@ -9355,7 +9477,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[35].toolTip[0]}
                   id="36"
@@ -9364,7 +9486,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/ability_rogue_slicedice.jpg"
+                  src={SweepingStrikes}
                   alt=""
                 />
 
@@ -9373,7 +9495,7 @@ class WarriorComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq2Spec2"
                 />
@@ -9388,7 +9510,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[36].toolTip[0]}
                   id="37"
@@ -9397,7 +9519,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/ability_warrior_weaponmastery.jpg"
+                  src={WeaponMastery}
                   alt=""
                 />
 
@@ -9418,7 +9540,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[37].toolTip[0]}
                   id="38"
@@ -9427,7 +9549,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/spell_nature_ancestralguardian.jpg"
+                  src={ImprovedBerserkerRage}
                   alt=""
                 />
 
@@ -9443,7 +9565,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[38].toolTip[0]}
                   id="39"
@@ -9452,7 +9574,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/ability_ghoulfrenzy.jpg"
+                  src={Flurry}
                   alt=""
                 />
 
@@ -9471,7 +9593,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[39].toolTip[0]}
                   id="40"
@@ -9480,7 +9602,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/ability_marksmanship.jpg"
+                  src={Precision}
                   alt=""
                 />
 
@@ -9495,7 +9617,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[40].toolTip[0]}
                   id="41"
@@ -9504,7 +9626,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/spell_nature_bloodlust.jpg"
+                  src={Bloodthirst}
                   alt=""
                 />
 
@@ -9513,7 +9635,7 @@ class WarriorComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq3Spec2"
                 />
@@ -9527,7 +9649,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[41].toolTip[0]}
                   id="42"
@@ -9536,7 +9658,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/ability_whirlwind.jpg"
+                  src={ImprovedWhirlwind}
                   alt=""
                 />
 
@@ -9558,7 +9680,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[42].toolTip[0]}
                   id="43"
@@ -9567,7 +9689,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/ability_racial_avatar.jpg"
+                  src={ImprovedBerserkerStance}
                   alt=""
                 />
 
@@ -9590,7 +9712,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[43].toolTip[0]}
                   id="44"
@@ -9599,7 +9721,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec2/ability_warrior_rampage.jpg"
+                  src={Rampage}
                   alt=""
                 />
 
@@ -9613,7 +9735,7 @@ class WarriorComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Warrior/Background/Protection.jpg)"
+              backgroundImage: `url(${spec3BG})`
             }}
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col3"
@@ -9629,7 +9751,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[44].toolTip[0]}
                   id="45"
@@ -9638,7 +9760,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Warrior/Progression/spec3/ability_racial_bloodrage.jpg"
+                  src={ImprovedBloodRage}
                   alt=""
                 />
 
@@ -9653,7 +9775,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[45].toolTip[0]}
                   id="46"
@@ -9662,7 +9784,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Warrior/Progression/spec3/spell_nature_enchantarmor.jpg"
+                  src={TacticalMastery}
                   alt=""
                 />
 
@@ -9677,7 +9799,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[46].toolTip[0]}
                   id="47"
@@ -9686,7 +9808,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Warrior/Progression/spec3/spell_nature_mirrorimage.jpg"
+                  src={Anticipation}
                   alt=""
                 />
 
@@ -9705,7 +9827,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[47].toolTip[0]}
                   id="48"
@@ -9714,14 +9836,14 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/inv_shield_06.jpg"
+                  src={ShieldSpecialization}
                   alt=""
                 />
 
                 <span id="subsReq1Spec3" className="talentPoints req-05-s3">0/5</span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq1Spec3"
                 />
@@ -9735,7 +9857,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[48].toolTip[0]}
                   id="49"
@@ -9744,7 +9866,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/spell_holy_devotion.jpg"
+                  src={Toughness}
                   alt=""
                 />
 
@@ -9762,7 +9884,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[49].toolTip[0]}
                   id="50"
@@ -9771,7 +9893,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/spell_holy_ashestoashes.jpg"
+                  src={LastStand}
                   alt=""
                 />
 
@@ -9786,7 +9908,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[50].toolTip[0]}
                   id="51"
@@ -9795,7 +9917,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/ability_defend.jpg"
+                  src={ImprovedShieldBlock}
                   alt=""
                 />
 
@@ -9810,7 +9932,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[51].toolTip[0]}
                   id="52"
@@ -9819,7 +9941,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_revenge.jpg"
+                  src={ImprovedRevenge}
                   alt=""
                 />
 
@@ -9837,7 +9959,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[52].toolTip[0]}
                   id="53"
@@ -9846,7 +9968,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_innerrage.jpg"
+                  src={Defiance}
                   alt=""
                 />
 
@@ -9866,7 +9988,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[53].toolTip[0]}
                   id="54"
@@ -9875,7 +9997,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_sunder.jpg"
+                  src={ImprovedSunderArmor}
                   alt=""
                 />
 
@@ -9890,7 +10012,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[54].toolTip[0]}
                   id="55"
@@ -9899,7 +10021,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_disarm.jpg"
+                  src={ImprovedDisarm}
                   alt=""
                 />
 
@@ -9914,7 +10036,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[55].toolTip[0]}
                   id="56"
@@ -9923,7 +10045,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/spell_nature_reincarnation.jpg"
+                  src={ImprovedTaunt}
                   alt=""
                 />
 
@@ -9941,7 +10063,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[56].toolTip[0]}
                   id="57"
@@ -9950,7 +10072,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_shieldwall.jpg"
+                  src={ImprovedShieldWall}
                   alt=""
                 />
 
@@ -9965,7 +10087,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[57].toolTip[0]}
                   id="58"
@@ -9974,7 +10096,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/ability_thunderbolt.jpg"
+                  src={ConcussionBlow}
                   alt=""
                 />
 
@@ -9983,7 +10105,7 @@ class WarriorComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq2Spec3"
                 />
@@ -9997,7 +10119,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[58].toolTip[0]}
                   id="59"
@@ -10006,7 +10128,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_shieldbash.jpg"
+                  src={ImprovedShieldBash}
                   alt=""
                 />
 
@@ -10026,7 +10148,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[59].toolTip[0]}
                   id="60"
@@ -10035,7 +10157,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_shieldmastery.jpg"
+                  src={ShieldMastery}
                   alt=""
                 />
 
@@ -10051,7 +10173,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[60].toolTip[0]}
                   id="61"
@@ -10060,7 +10182,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/inv_sword_20.jpg"
+                  src={OneHandedWeaponSpecialization}
                   alt=""
                 />
 
@@ -10078,7 +10200,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[61].toolTip[0]}
                   id="62"
@@ -10087,7 +10209,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_defensivestance.jpg"
+                  src={ImprovedDefensiveStance}
                   alt=""
                 />
 
@@ -10102,7 +10224,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[62].toolTip[0]}
                   id="63"
@@ -10111,7 +10233,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/inv_shield_05.jpg"
+                  src={ShieldSlam}
                   alt=""
                 />
 
@@ -10128,7 +10250,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[63].toolTip[0]}
                   id="64"
@@ -10137,7 +10259,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_focusedrage.jpg"
+                  src={FocusedRage}
                   alt=""
                 />
 
@@ -10156,7 +10278,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[64].toolTip[0]}
                   id="65"
@@ -10165,7 +10287,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/inv_helmet_21.jpg"
+                  src={Vitality}
                   alt=""
                 />
 
@@ -10188,7 +10310,7 @@ class WarriorComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warrior[65].toolTip[0]}
                   id="66"
@@ -10197,7 +10319,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warrior/Progression/spec3/inv_sword_11.jpg"
+                  src={Devastate}
                   alt=""
                 />
 

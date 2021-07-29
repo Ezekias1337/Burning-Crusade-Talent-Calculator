@@ -9,8 +9,18 @@ import RogueComponent from './RogueComponent';
 import ShamanComponent from './ShamanComponent';
 import WarlockComponent from './WarlockComponent';
 import WarriorComponent from './WarriorComponent';
-import RepeatingTile from "../images/Repeating_Tile.PNG"
-import RepeatingTile4 from "../images/Repeating_Tile4.PNG"
+
+import Druid from '../images/Druid_Icon.png'
+import Hunter from '../images/Hunter_Icon.png'
+import Mage from '../images/Mage_Icon.png'
+import Paladin from '../images/Paladin_Icon.png'
+import Rogue from '../images/Rogue_Icon.png'
+import Shaman from '../images/Shaman_Icon.png'
+import Warlock from '../images/Warlock_Icon.png'
+import Warrior from '../images/Warrior_Icon.png'
+import Priest from '../images/Priest_Icon.png'
+
+import BG from "../images/BGs/Durotar-Unreal.png"
 
 class ClassSelector extends Component {
   constructor(props) {
@@ -20,7 +30,7 @@ class ClassSelector extends Component {
         {
           id: 0,
           playableClassName: "Hunter",
-          classIcon: "assets/images/Hunter_Icon.png",
+          classIcon: Hunter,
           classColor: "#ABD473",
           spec1: {
             name: "Beast Mastery",
@@ -38,7 +48,7 @@ class ClassSelector extends Component {
         {
           id: 1,
           playableClassName: "Shaman",
-          classIcon: "assets/images/Shaman_Icon.png",
+          classIcon: Shaman,
           classColor: "#0070DE",
           spec1: {
             name: "Elemental",
@@ -56,7 +66,7 @@ class ClassSelector extends Component {
         {
           id: 2,
           playableClassName: "Warlock",
-          classIcon: "assets/images/Warlock_Icon.png",
+          classIcon: Warlock,
           classColor: "#9482C9",
           spec1: {
             name: "Affliction",
@@ -74,7 +84,7 @@ class ClassSelector extends Component {
         {
           id: 3,
           playableClassName: "Warrior",
-          classIcon: "assets/images/Warrior_Icon.png",
+          classIcon: Warrior,
           classColor: "#C79C6E",
           spec1: {
             name: "Arms",
@@ -92,7 +102,7 @@ class ClassSelector extends Component {
         {
           id: 4,
           playableClassName: "Rogue",
-          classIcon: "assets/images/Rogue_Icon.png",
+          classIcon: Rogue,
           classColor: "#FFF569",
           spec1: {
             name: "Assassination",
@@ -110,7 +120,7 @@ class ClassSelector extends Component {
         {
           id: 5,
           playableClassName: "Priest",
-          classIcon: "assets/images/Priest_Icon.png",
+          classIcon: Priest,
           classColor: "#FFFFFF",
           spec1: {
             name: "Discipline",
@@ -128,7 +138,7 @@ class ClassSelector extends Component {
         {
           id: 6,
           playableClassName: "Paladin",
-          classIcon: "assets/images/Paladin_Icon.png",
+          classIcon: Paladin,
           classColor: "#F58CBA",
           spec1: {
             name: "Holy",
@@ -146,7 +156,7 @@ class ClassSelector extends Component {
         {
           id: 7,
           playableClassName: "Mage",
-          classIcon: "assets/images/Mage_Icon.png",
+          classIcon: Mage,
           classColor: "#69CCF0",
           spec1: {
             name: "Arcane",
@@ -164,7 +174,7 @@ class ClassSelector extends Component {
         {
           id: 8,
           playableClassName: "Druid",
-          classIcon: "assets/images/Druid_Icon.png",
+          classIcon: Druid,
           classColor: "#FF7D0A",
           spec1: {
             name: "Balance",

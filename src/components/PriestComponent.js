@@ -4,6 +4,42 @@ import ReactTooltip from "react-tooltip";
 import { Priest } from "../talentinfo/Priest";
 
 /* 
+DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
+Things to update across all components
+1.) Hardcoded images => Imported Images
+2.) Window.event.button[0] to handle left click on inactive talents
+3.) All functions handling Arrows
+  a.) arrowSizeParse in removeGreenBorder
+  b.) turnArrowGoldOnClick
+  c.) turnArrowGoldIndirectly
+  d.) window.event.button[2] where code looks at arrows source and subsequent switch
+  e.) Reset Function
+
+*/
+
+//consistent among classes
+
+import overlayImage from "../images/Item_Hover.png"
+
+import DownSilverSmall from "../images/DownSilverSmall.png"
+import DownSilverMedium from "../images/DownSilverMedium.png"
+import DownSilverLarge from "../images/DownSilverLarge.png"
+
+import DownGoldSmall from "../images/DownGoldSmall.png"
+import DownGoldMedium from "../images/DownGoldMedium.png"
+import DownGoldLarge from "../images/DownGoldLarge.png"
+
+import LeftSilverSmall from "../images/LeftSilverSmall.png"
+import RightSilverSmall from "../images/RightSilverSmall.png"
+
+import LeftGoldSmall from "../images/LeftGoldSmall.png"
+import RightGoldSmall from "../images/RightGoldSmall.png"
+
+import AngleArrowSilver from "../images/AngleArrowSilver.png"
+import AngleArrowGold from "../images/AngleArrowGold.png"
+
+
+/* 
 Bug: When removing points, if a talent is maxed out and it's arrow is gold,
 when you decrease iSpec to be low enough to turn its dependant talent
 inactive, it needs to also revert the arrow color

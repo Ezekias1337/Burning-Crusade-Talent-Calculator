@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Collapse,
   Navbar,
@@ -11,9 +11,20 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText
-} from 'reactstrap';
-import BCLogo from "../images/BC_Logo.png"
+  NavbarText,
+} from "reactstrap";
+import BCLogo from "../images/BC_Logo.png";
+import HunterLogo from "../images/Hunter_Icon.png";
+import ShamanLogo from "../images/Shaman_Icon.png";
+import WarlockLogo from "../images/Warlock_Icon.png";
+import WarriorLogo from "../images/Warrior_Icon.png";
+import RogueLogo from "../images/Rogue_Icon.png";
+import PriestLogo from "../images/Priest_Icon.png";
+import PaladinLogo from "../images/Paladin_Icon.png";
+import MageLogo from "../images/Mage_Icon.png";
+import DruidLogo from "../images/Druid_Icon.png";
+
+import HeaderBG from "../images/BGs/DPuuRd1X0AMTSgq.jpg";
 
 const CustomNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,45 +32,157 @@ const CustomNavbar = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
-      <Navbar light style={{backgroundColor: "#b9bfb4"}} expand="md">
-        <NavbarBrand  href="/"><img className="mx-auto" style={{width: "250px"}} src={BCLogo} />Talent Calculator</NavbarBrand>
+    <div
+      style={{
+        backgroundImage: `url(${HeaderBG})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "100%",
+      }}
+    >
+      <Navbar light expand="md">
+        <NavbarBrand href="/" style={{ fontSize: "2rem", fontWeight: "bold", color: "white" }}>
+          <img
+            className="mx-auto"
+            style={{ width: "250px", display: "block" }}
+            src={BCLogo}
+          />
+          Talent Calculator
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/Hunter">Hunter</NavLink>
+              <NavLink href="/Hunter" style={{ color: "rgb(171, 212, 115)", fontWeight: "bold"  }}>
+                <img
+                  src={HunterLogo}
+                  style={{
+                    width: "25px",
+                    marginRight: "2px",
+                    borderRadius: "5px",
+                    border: "1.3px solid rgb(171, 212, 115)",
+                  }}
+                />
+                Hunter
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Shaman">Shaman</NavLink>
+              <NavLink href="/Shaman" style={{ color: "rgb(0, 112, 222)", fontWeight: "bold"  }}>
+                <img
+                  src={ShamanLogo}
+                  style={{
+                    width: "25px",
+                    marginRight: "2px",
+                    borderRadius: "5px",
+                    border: "1.3px solid rgb(0, 112, 222)",
+                  }}
+                />
+                Shaman
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Warlock">Warlock</NavLink>
+              <NavLink href="/Warlock" style={{ color: "rgb(148, 130, 201)", fontWeight: "bold"  }}>
+                <img
+                  src={WarlockLogo}
+                  style={{
+                    width: "25px",
+                    marginRight: "2px",
+                    borderRadius: "5px",
+                    border: "1.3px solid rgb(148, 130, 201)",
+                  }}
+                />
+                Warlock
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Warrior">Warrior</NavLink>
+              <NavLink href="/Warrior" style={{ color: "rgb(199, 156, 110)", fontWeight: "bold" }}>
+                <img
+                  src={WarriorLogo}
+                  style={{
+                    width: "25px",
+                    marginRight: "2px",
+                    borderRadius: "5px",
+                    border: "1.3px solid rgb(199, 156, 110)",
+                  }}
+                />
+                Warrior
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Rogue">Rogue</NavLink>
+              <NavLink href="/Rogue" style={{ color: "rgb(255, 245, 105)", fontWeight: "bold"  }}>
+                <img
+                  src={RogueLogo}
+                  style={{
+                    width: "25px",
+                    marginRight: "2px",
+                    borderRadius: "5px",
+                    border: "1.3px solid rgb(255, 245, 105)",
+                  }}
+                />
+                Rogue
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Priest">Priest</NavLink>
+              <NavLink href="/Priest" style={{ color: "rgb(255, 255, 255)", fontWeight: "bold"  }}>
+                <img
+                  src={PriestLogo}
+                  style={{
+                    width: "25px",
+                    marginRight: "2px",
+                    borderRadius: "5px",
+                    border: "1.3px solid rgb(255, 255, 255)",
+                  }}
+                />
+                Priest
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Paladin">Paladin</NavLink>
+              <NavLink href="/Paladin" style={{ color: "rgb(245, 140, 186)", fontWeight: "bold"  }}>
+                <img
+                  src={PaladinLogo}
+                  style={{
+                    width: "25px",
+                    marginRight: "2px",
+                    borderRadius: "5px",
+                    border: "1.3px solid rgb(245, 140, 186)",
+                  }}
+                />
+                Paladin
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Mage">Mage</NavLink>
+              <NavLink href="/Mage" style={{ color: "rgb(105, 204, 240)", fontWeight: "bold"  }}>
+                <img
+                  src={MageLogo}
+                  style={{
+                    width: "25px",
+                    marginRight: "2px",
+                    borderRadius: "5px",
+                    border: "1.3px solid rgb(105, 204, 240)",
+                  }}
+                />
+                Mage
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Druid">Druid</NavLink>
+              <NavLink href="/Druid" style={{ color: "rgb(255, 125, 10)", fontWeight: "bold"  }}>
+                <img
+                  src={DruidLogo}
+                  style={{
+                    width: "25px",
+                    marginRight: "2px",
+                    borderRadius: "5px",
+                    border: "1.3px solid rgb(255, 125, 10)",
+                  }}
+                />
+                Druid
+              </NavLink>
             </NavItem>
           </Nav>
-          
         </Collapse>
       </Navbar>
     </div>
   );
-}
+};
 
 export default CustomNavbar;
