@@ -5,6 +5,9 @@ import { Hunter } from "../talentinfo/Hunter";
 import spec1BG from "../images/talents/Hunter/Background/BeastMastery.jpg"
 import spec2BG from "../images/talents/Hunter/Background/Marksman.jpg"
 import spec3BG from "../images/talents/Hunter/Background/Survival.jpg"
+import spec1Logo from "../images/talents/Hunter/Spec1Logo.jpg"
+import spec2Logo from "../images/talents/Hunter/Spec2Logo.jpg"
+import spec3Logo from "../images/talents/Hunter/Spec3Logo.jpg"
 
 /* 
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
@@ -8527,7 +8530,8 @@ class HunterComponent extends Component {
             className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1">Beast Mastery</h5>
+            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Beast Mastery</h5>
+            
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9108,7 +9112,7 @@ class HunterComponent extends Component {
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2">Marksmanship</h5>
+            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Marksmanship</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9671,7 +9675,7 @@ class HunterComponent extends Component {
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3">Survival</h5>
+            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Survival</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img

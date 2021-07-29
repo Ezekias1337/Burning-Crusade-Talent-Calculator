@@ -24,7 +24,8 @@ import PaladinLogo from "../images/Paladin_Icon.png";
 import MageLogo from "../images/Mage_Icon.png";
 import DruidLogo from "../images/Druid_Icon.png";
 
-import HeaderBG from "../images/BGs/DPuuRd1X0AMTSgq.jpg";
+import HeaderBG from "../images/BGs/Warlock_BG.jpg";
+
 
 const CustomNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,10 +38,12 @@ const CustomNavbar = (props) => {
         backgroundImage: `url(${HeaderBG})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        backgroundSize: "100%",
+        backgroundSize: "cover",
+        backgroundColor: "#b9bfb4"
+        
       }}
     >
-      <Navbar light expand="md">
+      <Navbar dark expand="md">
         <NavbarBrand href="/" style={{ fontSize: "2rem", fontWeight: "bold", color: "white" }}>
           <img
             className="mx-auto"
@@ -53,7 +56,7 @@ const CustomNavbar = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/Hunter" style={{ color: "rgb(171, 212, 115)", fontWeight: "bold"  }}>
+              <NavLink className="Hunter" href="/Hunter" style={{ color: "rgb(171, 212, 115)", fontWeight: "bold"  }}>
                 <img
                   src={HunterLogo}
                   style={{
@@ -67,7 +70,7 @@ const CustomNavbar = (props) => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Shaman" style={{ color: "rgb(0, 112, 222)", fontWeight: "bold"  }}>
+              <NavLink className="Shaman" href="/Shaman" style={{ color: "rgb(0, 112, 222)", fontWeight: "bold"  }}>
                 <img
                   src={ShamanLogo}
                   style={{
@@ -81,7 +84,7 @@ const CustomNavbar = (props) => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Warlock" style={{ color: "rgb(148, 130, 201)", fontWeight: "bold"  }}>
+              <NavLink className="Warlock" href="/Warlock" style={{ color: "rgb(148, 130, 201)", fontWeight: "bold"  }}>
                 <img
                   src={WarlockLogo}
                   style={{
@@ -95,7 +98,7 @@ const CustomNavbar = (props) => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Warrior" style={{ color: "rgb(199, 156, 110)", fontWeight: "bold" }}>
+              <NavLink className="Warrior" href="/Warrior" style={{ color: "rgb(199, 156, 110)", fontWeight: "bold" }}>
                 <img
                   src={WarriorLogo}
                   style={{
@@ -109,7 +112,7 @@ const CustomNavbar = (props) => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Rogue" style={{ color: "rgb(255, 245, 105)", fontWeight: "bold"  }}>
+              <NavLink className="Rogue" href="/Rogue" style={{ color: "rgb(255, 245, 105)", fontWeight: "bold"  }}>
                 <img
                   src={RogueLogo}
                   style={{
@@ -123,7 +126,7 @@ const CustomNavbar = (props) => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Priest" style={{ color: "rgb(255, 255, 255)", fontWeight: "bold"  }}>
+              <NavLink className="Priest" href="/Priest" style={{ color: "rgb(255, 255, 255)", fontWeight: "bold"  }}>
                 <img
                   src={PriestLogo}
                   style={{
@@ -137,7 +140,7 @@ const CustomNavbar = (props) => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Paladin" style={{ color: "rgb(245, 140, 186)", fontWeight: "bold"  }}>
+              <NavLink className="Paladin" href="/Paladin" style={{ color: "rgb(245, 140, 186)", fontWeight: "bold"  }}>
                 <img
                   src={PaladinLogo}
                   style={{
@@ -151,7 +154,7 @@ const CustomNavbar = (props) => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Mage" style={{ color: "rgb(105, 204, 240)", fontWeight: "bold"  }}>
+              <NavLink className="Mage" href="/Mage" style={{ color: "rgb(105, 204, 240)", fontWeight: "bold"  }}>
                 <img
                   src={MageLogo}
                   style={{
@@ -165,7 +168,7 @@ const CustomNavbar = (props) => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/Druid" style={{ color: "rgb(255, 125, 10)", fontWeight: "bold"  }}>
+              <NavLink className="Druid" href="/Druid" style={{ color: "rgb(255, 125, 10)", fontWeight: "bold"  }}>
                 <img
                   src={DruidLogo}
                   style={{

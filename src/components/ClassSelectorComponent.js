@@ -20,7 +20,6 @@ import Warlock from '../images/Warlock_Icon.png'
 import Warrior from '../images/Warrior_Icon.png'
 import Priest from '../images/Priest_Icon.png'
 
-import BG from "../images/BGs/Durotar-Unreal.png"
 
 class ClassSelector extends Component {
   constructor(props) {

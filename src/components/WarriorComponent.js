@@ -5,6 +5,10 @@ import { Warrior } from "../talentinfo/Warrior";
 import spec1BG from "../images/talents/Warrior/Background/Arms.jpg"
 import spec2BG from "../images/talents/Warrior/Background/Fury.jpg"
 import spec3BG from "../images/talents/Warrior/Background/Protection.jpg"
+import spec1Logo from "../images/talents/Warrior/Spec1Logo.jpg"
+import spec2Logo from "../images/talents/Warrior/Spec2Logo.jpg"
+import spec3Logo from "../images/talents/Warrior/Spec3Logo.jpg"
+
 
 /* 
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
@@ -8522,7 +8526,7 @@ class WarriorComponent extends Component {
             className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1">Arms</h5>
+            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Arms</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
@@ -9154,7 +9158,7 @@ class WarriorComponent extends Component {
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2">Fury</h5>
+            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Fury</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9740,7 +9744,7 @@ class WarriorComponent extends Component {
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3">Protection</h5>
+            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Protection</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img

@@ -28,10 +28,51 @@
 }
 
 .navbar-collapse ul li a:hover {
-  background: rgba(255,255,255, 0.3);
+ /* background: rgba(255,255,255, 0.3);*/
   text-shadow: 0 1px 5px rgba(0,0,0,0.15);
   border-radius: 5px;
 }
+
+
+.Hunter:hover {
+  background: rgba(171, 212, 115, 0.4);
+}
+
+.Shaman:hover {
+  background: rgba(0, 112, 222, 0.4);
+}
+
+.Warlock:hover {
+  background: rgba(148, 130, 201, 0.4);
+}
+
+.Warrior:hover {
+  background: rgba(199, 156, 110, 0.4);
+}
+
+.Rogue:hover {
+  background: rgba(255, 245, 105, 0.4);
+}
+
+.Priest:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.Paladin:hover {
+  background: rgba(245, 140, 186, 0.4);
+}
+
+.Mage:hover {
+  background: rgba(105, 204, 240, 0.4);
+}
+
+.Druid:hover {
+  background: rgba(255, 125, 10, 0.4);
+}
+
+
+
+
 
 .nav-link {
   -webkit-text-stroke: .4px black;
