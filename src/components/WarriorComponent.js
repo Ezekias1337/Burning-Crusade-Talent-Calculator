@@ -8402,7 +8402,6 @@ class WarriorComponent extends Component {
           >
             <h5 id="spec1">Arms</h5>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8421,7 +8420,31 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_rogue_ambush.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-00-s1">0/5</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[0].toolTip[0]}
+                  id="1"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton active-talent req-active"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_parry.jpg"
                   alt=""
                 />
 
@@ -8445,7 +8468,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec1/EnduranceTraining.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_gouge.jpg"
                   alt=""
                 />
 
@@ -8472,7 +8495,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/FocusedFire.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_charge.jpg"
                   alt=""
                 />
 
@@ -8496,7 +8519,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedAspectMonkey.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/spell_magic_magearmor.jpg"
                   alt=""
                 />
 
@@ -8520,36 +8543,13 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ThickHide.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_thunderclap.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-05-s1">0/3</span>
               </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warrior[5].toolTip[0]}
-                  id="6"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedRevivePet.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s1">0/2</span>
-              </div>
+              <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -8570,7 +8570,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Pathfinding.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/inv_sword_05.jpg"
                   alt=""
                 />
 
@@ -8594,7 +8594,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BestialSwiftness.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/spell_holy_blessingofstamina.jpg"
                   alt=""
                 />
 
@@ -8618,7 +8618,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/UnleashedFury.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_backstab.jpg"
                   alt=""
                 />
 
@@ -8646,7 +8646,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/ImprovedMendPet.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/inv_axe_09.jpg"
                   alt=""
                 />
 
@@ -8670,19 +8670,14 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Ferocity.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_searingarrow.jpg"
                   alt=""
                 />
 
-                <span id="subsReq1Spec1" className="talentPoints req-15-s1">
+                <span className="talentPoints req-15-s1">
                   0/5
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq1Spec1"
-                />
+                
               </div>
 
               <div className="col col-xs-3"></div>
@@ -8707,7 +8702,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/SpiritBond.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/inv_axe_06.jpg"
                   alt=""
                 />
 
@@ -8731,21 +8726,42 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Intimidation.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/spell_shadow_deathpact.jpg"
                   alt=""
                 />
 
-                <span id="subsReq2Spec1" className="talentPoints req-20-s1">
+                <span className="talentPoints req-20-s1">
                   0/1
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq2Spec1"
-                />
+                
               </div>
-              <div style={{ zIndex: "0" }} className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[12].toolTip[0]}
+                  id="13"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warrior/Progression/spec1/inv_mace_01.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-20-s1">
+                  0/1
+                </span>
+                
+              </div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8764,7 +8780,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BestialDiscipline.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/inv_sword_27.jpg"
                   alt=""
                 />
 
@@ -8791,7 +8807,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/AnimalHandler.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_rogue_sprint.jpg"
                   alt=""
                 />
 
@@ -8816,15 +8832,40 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/Frenzy.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_shockwave.jpg"
                   alt=""
                 />
 
-                <span id="prioReq1Spec1" className="talentPoints req-25-s1">
+                <span className="talentPoints req-25-s1">
                   0/5
                 </span>
               </div>
-              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[15].toolTip[0]}
+                  id="16"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_improveddisciplines.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-25-s1">
+                  0/5
+                </span>
+              </div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -8845,7 +8886,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/FerociousInspiration.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_bloodfrenzy.jpg"
                   alt=""
                 />
 
@@ -8869,22 +8910,17 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BestialWrath.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_savageblow.jpg"
                   alt=""
                 />
 
                 <span
-                  id="subsReq3Spec1 prioReq2Spec1"
+                  
                   className="talentPoints req-30-s1"
                 >
                   0/1
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq3Spec1"
-                />
+                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8904,7 +8940,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/CatlikeReflexes.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_hunter_harass.jpg"
                   alt=""
                 />
 
@@ -8913,7 +8949,6 @@ class WarriorComponent extends Component {
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
@@ -8933,12 +8968,13 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/SerpentsSwiftness.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_savageblow.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-35-s1">0/5</span>
               </div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -8961,11 +8997,11 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec1/BeastWithin.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec1/ability_warrior_endlessrage.jpg"
                   alt=""
                 />
 
-                <span id="prioReq3Spec1" className="talentPoints req-40-s1">
+                <span className="talentPoints req-40-s1">
                   0/1
                 </span>
               </div>
@@ -9001,7 +9037,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedConcussiveShot.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/spell_nature_purge.jpg"
                   alt=""
                 />
 
@@ -9025,7 +9061,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec2/LethalShots.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/ability_rogue_eviscerate.jpg"
                   alt=""
                 />
 
@@ -9053,7 +9089,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedHuntersMark.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/ability_warrior_warcry.jpg"
                   alt=""
                 />
 
@@ -9077,7 +9113,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/Efficiency.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/spell_nature_stoneclawtotem.jpg"
                   alt=""
                 />
 
@@ -9104,7 +9140,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/GoForTheThroat.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/ability_warrior_cleave.jpg"
                   alt=""
                 />
 
@@ -9128,7 +9164,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedArcaneShot.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/spell_shadow_deathscream.jpg"
                   alt=""
                 />
 
@@ -9152,19 +9188,14 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/AimedShot.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/spell_shadow_summonimp.jpg"
                   alt=""
                 />
 
-                <span id="subsReq1Spec2" className="talentPoints req-10-s2">
+                <span className="talentPoints req-10-s2">
                   0/1
                 </span>
-                <img
-                  className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
-                  alt=""
-                  id="arrwReq1Spec2"
-                />
+                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9184,7 +9215,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/RapidKilling.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/spell_nature_focusedmind.jpg"
                   alt=""
                 />
 
@@ -9192,7 +9223,30 @@ class WarriorComponent extends Component {
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
+            <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[29].toolTip[0]}
+                  id="30"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warrior/Progression/spec2/ability_dualwield.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-15-s2">0/5</span>
+              </div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9211,7 +9265,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ImprovedStings.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/inv_sword_48.jpg"
                   alt=""
                 />
 
@@ -9235,11 +9289,11 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/MortalShots.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/spell_shadow_unholyfrenzy.jpg"
                   alt=""
                 />
 
-                <span id="prioReq1Spec2" className="talentPoints req-15-s2">
+                <span className="talentPoints req-15-s2">
                   0/5
                 </span>
               </div>
@@ -9264,7 +9318,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ConcussiveBarrage.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/ability_warrior_decisivestrike.jpg"
                   alt=""
                 />
 
@@ -9288,20 +9342,16 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/ScatterShot.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/ability_rogue_slicedice.jpg"
                   alt=""
                 />
 
-                <span id="subsReq2Spec2" className="talentPoints req-20-s2">
+                <span className="talentPoints req-20-s2">
                   0/1
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq2Spec2"
-                />
+                
               </div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9320,21 +9370,16 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/ability_warrior_weaponmastery.jpg"
                   alt=""
                 />
 
-                <span id="subsReq3Spec2" className="talentPoints req-20-s2">
+                <span className="talentPoints req-20-s2">
                   0/3
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq3Spec2"
-                />
+                
               </div>
-              <div className="col col-xs-3"></div>
+              
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -9355,13 +9400,12 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/CombatExperience.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/spell_nature_ancestralguardian.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-25-s2">0/2</span>
               </div>
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
@@ -9381,12 +9425,14 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/RangedWeaponSpecialization.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/ability_ghoulfrenzy.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-25-s2">0/5</span>
               </div>
+              <div className="col col-xs-3"></div>
+              
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -9407,7 +9453,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/CarefulAim.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/ability_marksmanship.jpg"
                   alt=""
                 />
 
@@ -9431,11 +9477,11 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/TrueshotAura.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/spell_nature_bloodlust.jpg"
                   alt=""
                 />
 
-                <span id="prioReq2Spec2" className="talentPoints req-30-s2">
+                <span className="talentPoints req-30-s2">
                   0/1
                 </span>
               </div>
@@ -9457,17 +9503,18 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/ability_whirlwind.jpg"
                   alt=""
                 />
 
-                <span id="prioReq3Spec2" className="talentPoints req-30-s2">
+                <span className="talentPoints req-30-s2">
                   0/3
                 </span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
@@ -9487,21 +9534,16 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/MasterMarksman.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/ability_racial_avatar.jpg"
                   alt=""
                 />
 
-                <span id="subsReq4Spec2" className="talentPoints req-35-s2">
+                <span className="talentPoints req-35-s2">
                   0/5
                 </span>
-                <img
-                  className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
-                  alt=""
-                  id="arrwReq4Spec2"
-                />
+                
               </div>
-              <div className="col col-xs-3"></div>
+              
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -9524,11 +9566,11 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec2/SilencingShot.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec2/ability_warrior_rampage.jpg"
                   alt=""
                 />
 
-                <span id="prioReq4Spec2" className="talentPoints req-40-s2">
+                <span className="talentPoints req-40-s2">
                   0/1
                 </span>
               </div>
@@ -9563,7 +9605,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/MonsterSlaying.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/ability_racial_bloodrage.jpg"
                   alt=""
                 />
 
@@ -9587,7 +9629,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/HumanoidSlaying.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/spell_nature_enchantarmor.jpg"
                   alt=""
                 />
 
@@ -9611,62 +9653,16 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/HawkEye.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/spell_nature_mirrorimage.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-00-s3">0/3</span>
               </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warrior[44].toolTip[0]}
-                  id="45"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Hunter/Progression/spec3/SavageStrikes.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-00-s3">0/2</span>
-              </div>
+              <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warrior[45].toolTip[0]}
-                  id="46"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Entrapment.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s3">0/3</span>
-              </div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9685,7 +9681,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Deflection.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/inv_shield_06.jpg"
                   alt=""
                 />
 
@@ -9709,7 +9705,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ImprovedWingClip.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/spell_holy_devotion.jpg"
                   alt=""
                 />
 
@@ -9736,7 +9732,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/CleverTraps.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/spell_holy_ashestoashes.jpg"
                   alt=""
                 />
 
@@ -9760,7 +9756,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Survivalist.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/ability_defend.jpg"
                   alt=""
                 />
 
@@ -9784,21 +9780,42 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Deterrence.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_revenge.jpg"
                   alt=""
                 />
 
-                <span id="subsReq1Spec3" className="talentPoints req-10-s3">
+                <span className="talentPoints req-10-s3">
                   0/1
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq1Spec3"
-                />
+                
               </div>
-              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  className="talentHover"
+                  src="assets/images/Item_Hover.png"
+                  style={{ display: "none" }}
+                  data-tip={Warrior[50].toolTip[0]}
+                  id="51"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_innerrage.jpg"
+                  alt=""
+                />
+
+                <span className="talentPoints req-10-s3">
+                  0/1
+                </span>
+                
+              </div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -9819,7 +9836,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/TrapMastery.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_sunder.jpg"
                   alt=""
                 />
 
@@ -9843,13 +9860,12 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Surefooted.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_disarm.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-15-s3">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9868,12 +9884,13 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ImprovedFeignDeath.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/spell_nature_reincarnation.jpg"
                   alt=""
                 />
 
                 <span className="talentPoints req-15-s3">0/2</span>
               </div>
+              <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -9894,7 +9911,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/SurvivalInstincts.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_shieldwall.jpg"
                   alt=""
                 />
 
@@ -9918,19 +9935,14 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/KillerInstinct.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/ability_thunderbolt.jpg"
                   alt=""
                 />
 
-                <span id="subsReq2Spec3" className="talentPoints req-20-s3">
+                <span className="talentPoints req-20-s3">
                   0/3
                 </span>
-                <img
-                  className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
-                  alt=""
-                  id="arrwReq2Spec3"
-                />
+                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9950,11 +9962,11 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/CounterAttack.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_shieldbash.jpg"
                   alt=""
                 />
 
-                <span id="prioReq1Spec3" className="talentPoints req-20-s3">
+                <span className="talentPoints req-20-s3">
                   0/1
                 </span>
               </div>
@@ -9979,7 +9991,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Resourcefulness.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_shieldmastery.jpg"
                   alt=""
                 />
 
@@ -10004,7 +10016,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/LightningReflexes.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/inv_sword_20.jpg"
                   alt=""
                 />
 
@@ -10031,7 +10043,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ThrillOfTheHunt.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_defensivestance.jpg"
                   alt=""
                 />
 
@@ -10055,11 +10067,11 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/WyvernSting.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/inv_shield_05.jpg"
                   alt=""
                 />
 
-                <span id="prioReq2Spec3" className="talentPoints req-30-s3">
+                <span className="talentPoints req-30-s3">
                   0/1
                 </span>
               </div>
@@ -10081,7 +10093,7 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/ExposeWeakness.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/ability_warrior_focusedrage.jpg"
                   alt=""
                 />
 
@@ -10109,19 +10121,14 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/MasterTactician.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/inv_helmet_21.jpg"
                   alt=""
                 />
 
-                <span id="subsReq3Spec3" className="talentPoints req-35-s3">
+                <span className="talentPoints req-35-s3">
                   0/5
                 </span>
-                <img
-                  className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
-                  alt=""
-                  id="arrwReq3Spec3"
-                />
+                
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -10146,11 +10153,11 @@ class WarriorComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Hunter/Progression/spec3/Readiness.jpg"
+                  src="assets/images/talents/Warrior/Progression/spec3/inv_sword_11.jpg"
                   alt=""
                 />
 
-                <span id="prioReq3Spec3" className="talentPoints req-40-s3">
+                <span className="talentPoints req-40-s3">
                   0/1
                 </span>
               </div>
