@@ -197,7 +197,7 @@ class ClassSelector extends Component {
       return (
         <div
           className="ml-2 mr-1 col mt-5 hovereffect"
-          style={{ height: "130px", width: "130px" }}
+          style={{ height: "130px", width: "130px"}}
         >
           <img
             src={playableClass.classIcon}
@@ -229,7 +229,7 @@ class ClassSelector extends Component {
     return (
       <Router>
         <div style={{ position: "relative" }} >
-          <div className="container">
+          <div className="container mx-auto">
             <div className="row">
               <div className="col">
                 <h1 style={{ color: "#e1eef4" }} className="mt-2">
@@ -241,9 +241,9 @@ class ClassSelector extends Component {
 
           <div className="container mx-auto">
             <div className="row">
-              <div className="col col-sm-3"></div>
-              <div className="col col-sm-6 mb-4 ml-5">{classSelector}</div>
-              <div className="col col-sm-3"></div>
+              <div className="col "></div>
+              <div className="col-12 col-md-6 mb-4 ml-5">{classSelector}</div>
+              <div className="col "></div>
             </div>
           </div>
         </div>

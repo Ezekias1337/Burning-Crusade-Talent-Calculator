@@ -25,6 +25,10 @@ a.) Don't forget Arrows
       2.) switch directly after (change .src = to reference imported img)
   e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
 4.) Import Background image for each spec
+5.) Change spec talent frame bootstrap breakpoints
+6.) Update formulas for mobile
+7.) Update HTML for Tooltip
+8.) add mb-3 to talent frame wrapper div
 
 */
 
@@ -287,8 +291,12 @@ class HunterComponent extends Component {
     }
   }
 
-  testMobileTouch(){
-    console.log('Yo')
+  displayOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "inline";
+  }
+
+  hideOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "none";
   }
 
   displayMouseOverlay() {
@@ -299,7 +307,11 @@ class HunterComponent extends Component {
   }
 
   displayMouseOverlayInnerElement() {
-    window.event.target.previousElementSibling.style.display = "inline";
+    if(window.event.target.previousElementSibling){
+      window.event.target.previousElementSibling.style.display = "inline";
+    }
+    
+
   }
 
   hideMouseOverlay() {
@@ -8522,12 +8534,13 @@ class HunterComponent extends Component {
           </div>
         </div>
 
-        <div className="row talent-frame ml-3 mr-3">
+        <div className="row ml-3 mr-3 mb-3">
           <div
             style={{
-              backgroundImage: `url(${spec1BG})`
+              backgroundImage: `url(${spec1BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
             <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Beast Mastery</h5>
@@ -8542,6 +8555,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8551,7 +8565,11 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  onTouchStart={this.testMobileTouch}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                    
+                  }}
+                  
                   className="spec1 talentButton active-talent req-active"
                   src={ImprovedAspectHawk}
                   alt=""
@@ -9107,9 +9125,10 @@ class HunterComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: `url(${spec2BG})`
+              backgroundImage: `url(${spec2BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
             <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Marksmanship</h5>
@@ -9670,9 +9689,10 @@ class HunterComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: `url(${spec3BG})`
+              backgroundImage: `url(${spec3BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
             <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Survival</h5>

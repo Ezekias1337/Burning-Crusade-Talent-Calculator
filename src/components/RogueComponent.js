@@ -7,13 +7,22 @@ import { Rogue } from "../talentinfo/Rogue";
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
 Things to update across all components
 1.) Hardcoded images => Imported Images
+a.) Don't forget Arrows
 2.) Window.event.button[0] to handle left click on inactive talents
 3.) All functions handling Arrows
-  a.) arrowSizeParse in removeGreenBorder
+  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3)
   b.) turnArrowGoldOnClick
-  c.) turnArrowGoldIndirectly
+  c.) turnArrowGoldIndirectly (s1,s2,s3)
   d.) window.event.button[2] where code looks at arrows source and subsequent switch
-  e.) Reset Function
+      in code directly after .nextElementSibling.id.includes("Spec")
+      1.) first if statement (reference classname instead of src)
+      2.) switch directly after (change .src = to reference imported img)
+  e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
+4.) Import Background image for each spec
+5.) Change spec talent frame bootstrap breakpoints
+6.) Update formulas for mobile
+7.) Update HTML for Tooltip
+8.) add mb-3 to talent frame wrapper div
 
 */
 
@@ -37,6 +46,83 @@ import RightGoldSmall from "../images/RightGoldSmall.png"
 
 import AngleArrowSilver from "../images/AngleArrowSilver.png"
 import AngleArrowGold from "../images/AngleArrowGold.png"
+
+//spec1
+
+import ColdBlood from '../images/talents/Rogue/Progression/spec1/ColdBlood.jpg';
+import ImprovedExposeArmor from '../images/talents/Rogue/Progression/spec1/ImprovedExposeArmor.jpg';
+import MasterPoisoner from '../images/talents/Rogue/Progression/spec1/MasterPoisoner.jpg';
+import RelentlessStrikes from '../images/talents/Rogue/Progression/spec1/RelentlessStrikes.jpg';
+import ruthlessness from '../images/talents/Rogue/Progression/spec1/ruthlessness.jpg';
+import DeadenedNerves from '../images/talents/Rogue/Progression/spec1/DeadenedNerves.jpg';
+import ImprovedKidneyShot from '../images/talents/Rogue/Progression/spec1/ImprovedKidneyShot.jpg';
+import Murder from '../images/talents/Rogue/Progression/spec1/Murder.jpg';
+import RemorselessAttacks from '../images/talents/Rogue/Progression/spec1/RemorselessAttacks.jpg';
+import FindWeakness from '../images/talents/Rogue/Progression/spec1/FindWeakness.jpg';
+import ImprovedPoisons from '../images/talents/Rogue/Progression/spec1/ImprovedPoisons.jpg';
+import Mutilate from '../images/talents/Rogue/Progression/spec1/Mutilate.jpg';
+import SealFate from '../images/talents/Rogue/Progression/spec1/SealFate.jpg';
+import FleetFooted from '../images/talents/Rogue/Progression/spec1/FleetFooted.jpg';
+import Lethality from '../images/talents/Rogue/Progression/spec1/Lethality.jpg';
+import PuncturingWounds from '../images/talents/Rogue/Progression/spec1/PuncturingWounds.jpg';
+import Vigor from '../images/talents/Rogue/Progression/spec1/Vigor.jpg';
+import ImprovedEviscerate from '../images/talents/Rogue/Progression/spec1/ImprovedEviscerate.jpg';
+import Malice from '../images/talents/Rogue/Progression/spec1/Malice.jpg';
+import QuickRecovery from '../images/talents/Rogue/Progression/spec1/QuickRecovery.jpg';
+import VilePoisons from '../images/talents/Rogue/Progression/spec1/VilePoisons.jpg';
+
+//spec2
+
+import AdrenalineRush from '../images/talents/Rogue/Progression/spec2/AdrenalineRush.jpg';
+import Deflection from '../images/talents/Rogue/Progression/spec2/Deflection.jpg';
+import ImprovedSinisterStrike from '../images/talents/Rogue/Progression/spec2/ImprovedSinisterStrike.jpg';
+import Precision from '../images/talents/Rogue/Progression/spec2/Precision.jpg';
+import Aggression from '../images/talents/Rogue/Progression/spec2/Aggression.jpg';
+import DualWieldSpecialization from '../images/talents/Rogue/Progression/spec2/DualWieldSpecialization.jpg';
+import ImprovedSliceNDice from '../images/talents/Rogue/Progression/spec2/ImprovedSliceNDice.jpg';
+import Riposte from '../images/talents/Rogue/Progression/spec2/Riposte.jpg';
+import BladeFlurry from '../images/talents/Rogue/Progression/spec2/BladeFlurry.jpg';
+import Endurance from '../images/talents/Rogue/Progression/spec2/Endurance.jpg';
+import ImprovedSprint from '../images/talents/Rogue/Progression/spec2/ImprovedSprint.jpg';
+import SurpriseAttacks from '../images/talents/Rogue/Progression/spec2/SurpriseAttacks.jpg';
+import BladeTwisting from '../images/talents/Rogue/Progression/spec2/BladeTwisting.jpg';
+import FistWeaponSpecialization from '../images/talents/Rogue/Progression/spec2/FistWeaponSpecialization.jpg';
+import LightningReflexes from '../images/talents/Rogue/Progression/spec2/LightningReflexes.jpg';
+import SwordSpecialization from '../images/talents/Rogue/Progression/spec2/SwordSpecialization.jpg';
+import CombatPotency from '../images/talents/Rogue/Progression/spec2/CombatPotency.jpg';
+import ImprovedGouge from '../images/talents/Rogue/Progression/spec2/ImprovedGouge.jpg';
+import MaceSpecialization from '../images/talents/Rogue/Progression/spec2/MaceSpecialization.jpg';
+import Vitality from '../images/talents/Rogue/Progression/spec2/Vitality.jpg';
+import DaggerSpecialization from '../images/talents/Rogue/Progression/spec2/DaggerSpecialization.jpg';
+import ImprovedKick from '../images/talents/Rogue/Progression/spec2/ImprovedKick.jpg';
+import NervesOfSteel from '../images/talents/Rogue/Progression/spec2/NervesOfSteel.jpg';
+import WeaponExpertise from '../images/talents/Rogue/Progression/spec2/WeaponExpertise.jpg';
+
+//spec3
+
+import Camouflage from '../images/talents/Rogue/Progression/spec3/Camouflage.jpg';
+import Elusiveness from '../images/talents/Rogue/Progression/spec3/Elusiveness.jpg';
+import ImprovedAmbush from '../images/talents/Rogue/Progression/spec3/ImprovedAmbush.jpg';
+import Premeditation from '../images/talents/Rogue/Progression/spec3/Premeditation.jpg';
+import SinisterCalling from '../images/talents/Rogue/Progression/spec3/SinisterCalling.jpg';
+import CheatDeath from '../images/talents/Rogue/Progression/spec3/CheatDeath.jpg';
+import EnvelopingShadows from '../images/talents/Rogue/Progression/spec3/EnvelopingShadows.jpg';
+import Initiative from '../images/talents/Rogue/Progression/spec3/Initiative.jpg';
+import Preparation from '../images/talents/Rogue/Progression/spec3/Preparation.jpg';
+import SleightOfHand from '../images/talents/Rogue/Progression/spec3/SleightOfHand.jpg';
+import Deadliness from '../images/talents/Rogue/Progression/spec3/Deadliness.jpg';
+import GhostlyStrike from '../images/talents/Rogue/Progression/spec3/GhostlyStrike.jpg';
+import MasterOfDeception from '../images/talents/Rogue/Progression/spec3/MasterOfDeception.jpg';
+import SerratedBlades from '../images/talents/Rogue/Progression/spec3/SerratedBlades.jpg';
+import DirtyDeeds from '../images/talents/Rogue/Progression/spec3/DirtyDeeds.jpg';
+import HeightenedSenses from '../images/talents/Rogue/Progression/spec3/HeightenedSenses.jpg';
+import MasterOfSubtlety from '../images/talents/Rogue/Progression/spec3/MasterOfSubtlety.jpg';
+import Setup from '../images/talents/Rogue/Progression/spec3/Setup.jpg';
+import DirtyTricks from '../images/talents/Rogue/Progression/spec3/DirtyTricks.jpg';
+import Hemorrhage from '../images/talents/Rogue/Progression/spec3/Hemorrhage.jpg';
+import Opportunity from '../images/talents/Rogue/Progression/spec3/Opportunity.jpg';
+import Shadowstep from '../images/talents/Rogue/Progression/spec3/Shadowstep.jpg';
+
 
 
 let i = 0;

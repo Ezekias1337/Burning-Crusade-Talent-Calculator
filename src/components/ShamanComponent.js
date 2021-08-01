@@ -7,13 +7,22 @@ import { Shaman } from "../talentinfo/Shaman";
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
 Things to update across all components
 1.) Hardcoded images => Imported Images
+a.) Don't forget Arrows
 2.) Window.event.button[0] to handle left click on inactive talents
 3.) All functions handling Arrows
-  a.) arrowSizeParse in removeGreenBorder
+  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3)
   b.) turnArrowGoldOnClick
-  c.) turnArrowGoldIndirectly
+  c.) turnArrowGoldIndirectly (s1,s2,s3)
   d.) window.event.button[2] where code looks at arrows source and subsequent switch
-  e.) Reset Function
+      in code directly after .nextElementSibling.id.includes("Spec")
+      1.) first if statement (reference classname instead of src)
+      2.) switch directly after (change .src = to reference imported img)
+  e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
+4.) Import Background image for each spec
+5.) Change spec talent frame bootstrap breakpoints
+6.) Update formulas for mobile
+7.) Update HTML for Tooltip
+8.) add mb-3 to talent frame wrapper div
 
 */
 
@@ -37,6 +46,77 @@ import RightGoldSmall from "../images/RightGoldSmall.png"
 
 import AngleArrowSilver from "../images/AngleArrowSilver.png"
 import AngleArrowGold from "../images/AngleArrowGold.png"
+
+
+//spec1
+
+import CallOfFlame from '../images/talents/Shaman/Progression/spec1/CallOfFlame.jpg';
+import EarthsGrasp from '../images/talents/Shaman/Progression/spec1/EarthsGrasp.jpg';
+import ElementalMastery from '../images/talents/Shaman/Progression/spec1/ElementalMastery.jpg';
+import EyeOfTheStorm from '../images/talents/Shaman/Progression/spec1/EyeOfTheStorm.jpg';
+import Reverberation from '../images/talents/Shaman/Progression/spec1/Reverberation.jpg';
+import CallOfThunder from '../images/talents/Shaman/Progression/spec1/CallOfThunder.jpg';
+import ElementalDevastation from '../images/talents/Shaman/Progression/spec1/ElementalDevastation.jpg';
+import ElementalPrecision from '../images/talents/Shaman/Progression/spec1/ElementalPrecision.jpg';
+import ImprovedFireTotems from '../images/talents/Shaman/Progression/spec1/ImprovedFireTotems.jpg';
+import StormReach from '../images/talents/Shaman/Progression/spec1/StormReach.jpg';
+import Concussion from '../images/talents/Shaman/Progression/spec1/Concussion.jpg';
+import ElementalFocus from '../images/talents/Shaman/Progression/spec1/ElementalFocus.jpg';
+import ElementalShields from '../images/talents/Shaman/Progression/spec1/ElementalShields.jpg';
+import LightningMastery from '../images/talents/Shaman/Progression/spec1/LightningMastery.jpg';
+import TotemOfWrath from '../images/talents/Shaman/Progression/spec1/TotemOfWrath.jpg';
+import Convection from '../images/talents/Shaman/Progression/spec1/Convection.jpg';
+import ElementalFury from '../images/talents/Shaman/Progression/spec1/ElementalFury.jpg';
+import ElementalWarding from '../images/talents/Shaman/Progression/spec1/ElementalWarding.jpg';
+import LightningOverload from '../images/talents/Shaman/Progression/spec1/LightningOverload.jpg';
+import UnrelentingStorm from '../images/talents/Shaman/Progression/spec1/UnrelentingStorm.jpg';
+
+//spec2
+
+import AncestralKnowledge from '../images/talents/Shaman/Progression/spec2/AncestralKnowledge.jpg';
+import Flurry from '../images/talents/Shaman/Progression/spec2/Flurry.jpg';
+import ShamanisticFocus from '../images/talents/Shaman/Progression/spec2/ShamanisticFocus.jpg';
+import Toughness from '../images/talents/Shaman/Progression/spec2/Toughness.jpg';
+import Anticipation from '../images/talents/Shaman/Progression/spec2/Anticipation.jpg';
+import GuardianTotems from '../images/talents/Shaman/Progression/spec2/GuardianTotems.jpg';
+import ShamanisticRage from '../images/talents/Shaman/Progression/spec2/ShamanisticRage.jpg';
+import UnleashedRage from '../images/talents/Shaman/Progression/spec2/UnleashedRage.jpg';
+import DualWield from '../images/talents/Shaman/Progression/spec2/DualWield.jpg';
+import ImprovedGhostWolf from '../images/talents/Shaman/Progression/spec2/ImprovedGhostWolf.jpg';
+import ShieldSpecialization from '../images/talents/Shaman/Progression/spec2/ShieldSpecialization.jpg';
+import WeaponMastery from '../images/talents/Shaman/Progression/spec2/WeaponMastery.jpg';
+import DualWieldSpecialization from '../images/talents/Shaman/Progression/spec2/DualWieldSpecialization.jpg';
+import ImprovedLightningShield from '../images/talents/Shaman/Progression/spec2/ImprovedLightningShield.jpg';
+import SpiritWeapons from '../images/talents/Shaman/Progression/spec2/SpiritWeapons.jpg';
+import ElementalWeapons from '../images/talents/Shaman/Progression/spec2/ElementalWeapons.jpg';
+import ImprovedWeapontotems from '../images/talents/Shaman/Progression/spec2/ImprovedWeapontotems.jpg';
+import Stormstrike from '../images/talents/Shaman/Progression/spec2/Stormstrike.jpg';
+import EnhancingTotems from '../images/talents/Shaman/Progression/spec2/EnhancingTotems.jpg';
+import MentalQuickness from '../images/talents/Shaman/Progression/spec2/MentalQuickness.jpg';
+import ThunderingStrikes from '../images/talents/Shaman/Progression/spec2/ThunderingStrikes.jpg';
+
+//spec3
+
+import AncestralHealing from '../images/talents/Shaman/Progression/spec3/AncestralHealing.jpg';
+import HealingGrace from '../images/talents/Shaman/Progression/spec3/HealingGrace.jpg';
+import ImprovedReincarnation from '../images/talents/Shaman/Progression/spec3/ImprovedReincarnation.jpg';
+import NaturesGuidance from '../images/talents/Shaman/Progression/spec3/NaturesGuidance.jpg';
+import TidalFocus from '../images/talents/Shaman/Progression/spec3/TidalFocus.jpg';
+import EarthShield from '../images/talents/Shaman/Progression/spec3/EarthShield.jpg';
+import HealingWay from '../images/talents/Shaman/Progression/spec3/HealingWay.jpg';
+import ManaTideTotem from '../images/talents/Shaman/Progression/spec3/ManaTideTotem.jpg';
+import NaturesSwiftness from '../images/talents/Shaman/Progression/spec3/NaturesSwiftness.jpg';
+import TidalMastery from '../images/talents/Shaman/Progression/spec3/TidalMastery.jpg';
+import FocusedMind from '../images/talents/Shaman/Progression/spec3/FocusedMind.jpg';
+import ImprovedChainHeal from '../images/talents/Shaman/Progression/spec3/ImprovedChainHeal.jpg';
+import NaturesBlessing from '../images/talents/Shaman/Progression/spec3/NaturesBlessing.jpg';
+import Purification from '../images/talents/Shaman/Progression/spec3/Purification.jpg';
+import TotemicFocus from '../images/talents/Shaman/Progression/spec3/TotemicFocus.jpg';
+import HealingFocus from '../images/talents/Shaman/Progression/spec3/HealingFocus.jpg';
+import ImprovedHealingWave from '../images/talents/Shaman/Progression/spec3/ImprovedHealingWave.jpg';
+import NaturesGuardian from '../images/talents/Shaman/Progression/spec3/NaturesGuardian.jpg';
+import RestorativeTotems from '../images/talents/Shaman/Progression/spec3/RestorativeTotems.jpg';
+import TotemicMastery from '../images/talents/Shaman/Progression/spec3/TotemicMastery.jpg';
 
 
 let i = 0;

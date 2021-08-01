@@ -6,16 +6,32 @@ import { Priest } from "../talentinfo/Priest";
 /* 
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
 Things to update across all components
-1.) Hardcoded images => Imported Images
+1.) Hardcoded images => Imported Images ✔
+a.) Don't forget Arrows ✔
 2.) Window.event.button[0] to handle left click on inactive talents
 3.) All functions handling Arrows
-  a.) arrowSizeParse in removeGreenBorder
+  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3)
   b.) turnArrowGoldOnClick
-  c.) turnArrowGoldIndirectly
+  c.) turnArrowGoldIndirectly (s1,s2,s3)
   d.) window.event.button[2] where code looks at arrows source and subsequent switch
-  e.) Reset Function
+      in code directly after .nextElementSibling.id.includes("Spec")
+      1.) first if statement (reference classname instead of src)
+      2.) switch directly after (change .src = to reference imported img)
+  e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
+4.) Import Background image for each spec ✔
+5.) Change spec talent frame bootstrap breakpoints ✔
+6.) Update formulas for mobile
+7.) Update HTML for Tooltip
+8.) add mb-3 to talent frame wrapper div ✔
 
 */
+
+import spec1BG from "../images/talents/Priest/Background/Holy.jpg"
+import spec2BG from "../images/talents/Priest/Background/Discipline.jpg"
+import spec3BG from "../images/talents/Priest/Background/Shadow.jpg"
+import spec1Logo from "../images/talents/Priest/Spec1Logo.jpg"
+import spec2Logo from "../images/talents/Priest/Spec2Logo.jpg"
+import spec3Logo from "../images/talents/Priest/Spec3Logo.jpg"
 
 //consistent among classes
 
@@ -37,6 +53,78 @@ import RightGoldSmall from "../images/RightGoldSmall.png"
 
 import AngleArrowSilver from "../images/AngleArrowSilver.png"
 import AngleArrowGold from "../images/AngleArrowGold.png"
+
+//spec1
+
+import Absolution from '../images/talents/Priest/Progression/spec1/Absolution.jpg';
+import FocusedWill from '../images/talents/Priest/Progression/spec1/FocusedWill.jpg';
+import ImprovedPowerWordFortitude from '../images/talents/Priest/Progression/spec1/ImprovedPowerWordFortitude.jpg';
+import MentalAgility from '../images/talents/Priest/Progression/spec1/MentalAgility.jpg';
+import ReflectiveShield from '../images/talents/Priest/Progression/spec1/ReflectiveShield.jpg';
+import DivineSpirit from '../images/talents/Priest/Progression/spec1/DivineSpirit.jpg';
+import ForceOfWill from '../images/talents/Priest/Progression/spec1/ForceOfWill.jpg';
+import InnerFocus from '../images/talents/Priest/Progression/spec1/InnerFocus.jpg';
+import MentalStrength from '../images/talents/Priest/Progression/spec1/MentalStrength.jpg';
+import SilentResolve from '../images/talents/Priest/Progression/spec1/SilentResolve.jpg';
+import Enlightenment from '../images/talents/Priest/Progression/spec1/Enlightenment.jpg';
+import ImprovedInnerFire from '../images/talents/Priest/Progression/spec1/ImprovedInnerFire.jpg';
+import Martyrdom from '../images/talents/Priest/Progression/spec1/Martyrdom.jpg';
+import PainSuppression from '../images/talents/Priest/Progression/spec1/PainSuppression.jpg';
+import UnbreakableWill from '../images/talents/Priest/Progression/spec1/UnbreakableWill.jpg';
+import FocusedPower from '../images/talents/Priest/Progression/spec1/FocusedPower.jpg';
+import ImprovedManaBurn from '../images/talents/Priest/Progression/spec1/ImprovedManaBurn.jpg';
+import Meditation from '../images/talents/Priest/Progression/spec1/Meditation.jpg';
+import PowerInfusion from '../images/talents/Priest/Progression/spec1/PowerInfusion.jpg';
+import WandSpecialization from '../images/talents/Priest/Progression/spec1/WandSpecialization.jpg';
+
+//spec2
+
+import BlessedRecovery from '../images/talents/Priest/Progression/spec2/BlessedRecovery.jpg';
+import HealingFocus from '../images/talents/Priest/Progression/spec2/HealingFocus.jpg';
+import HolySpecialization from '../images/talents/Priest/Progression/spec2/HolySpecialization.jpg';
+import SearingLight from '../images/talents/Priest/Progression/spec2/SearingLight.jpg';
+import SurgeOfLight from '../images/talents/Priest/Progression/spec2/SurgeOfLight.jpg';
+import BlessedResilience from '../images/talents/Priest/Progression/spec2/BlessedResilience.jpg';
+import HealingPrayers from '../images/talents/Priest/Progression/spec2/HealingPrayers.jpg';
+import ImprovedHealing from '../images/talents/Priest/Progression/spec2/ImprovedHealing.jpg';
+import SpellWarding from '../images/talents/Priest/Progression/spec2/SpellWarding.jpg';
+import CircleOfHealing from '../images/talents/Priest/Progression/spec2/CircleOfHealing.jpg';
+import HolyConcentration from '../images/talents/Priest/Progression/spec2/HolyConcentration.jpg';
+import ImprovedRenew from '../images/talents/Priest/Progression/spec2/ImprovedRenew.jpg';
+import SpiritOfRedemption from '../images/talents/Priest/Progression/spec2/SpiritOfRedemption.jpg';
+import DivineFury from '../images/talents/Priest/Progression/spec2/DivineFury.jpg';
+import HolyNova from '../images/talents/Priest/Progression/spec2/HolyNova.jpg';
+import Inspiration from '../images/talents/Priest/Progression/spec2/Inspiration.jpg';
+import SpiritualGuidance from '../images/talents/Priest/Progression/spec2/SpiritualGuidance.jpg';
+import EmpoweredHealing from '../images/talents/Priest/Progression/spec2/EmpoweredHealing.jpg';
+import HolyReach from '../images/talents/Priest/Progression/spec2/HolyReach.jpg';
+import LightWell from '../images/talents/Priest/Progression/spec2/LightWell.jpg';
+import SpiritualHealing from '../images/talents/Priest/Progression/spec2/SpiritualHealing.jpg';
+
+//spec3
+
+import Blackout from '../images/talents/Priest/Progression/spec3/Blackout.jpg';
+import ImprovedPsychicScream from '../images/talents/Priest/Progression/spec3/ImprovedPsychicScream.jpg';
+import ShadowAffinity from '../images/talents/Priest/Progression/spec3/ShadowAffinity.jpg';
+import ShadowWeaving from '../images/talents/Priest/Progression/spec3/ShadowWeaving.jpg';
+import VampiricTouch from '../images/talents/Priest/Progression/spec3/VampiricTouch.jpg';
+import Darkness from '../images/talents/Priest/Progression/spec3/Darkness.jpg';
+import ImprovedShadowWordPain from '../images/talents/Priest/Progression/spec3/ImprovedShadowWordPain.jpg';
+import ShadowFocus from '../images/talents/Priest/Progression/spec3/ShadowFocus.jpg';
+import Shadowform from '../images/talents/Priest/Progression/spec3/Shadowform.jpg';
+import FocusedMind from '../images/talents/Priest/Progression/spec3/FocusedMind.jpg';
+import ImprovedVampiricEmbrace from '../images/talents/Priest/Progression/spec3/ImprovedVampiricEmbrace.jpg';
+import ShadowPower from '../images/talents/Priest/Progression/spec3/ShadowPower.jpg';
+import Silence from '../images/talents/Priest/Progression/spec3/Silence.jpg';
+import ImprovedFade from '../images/talents/Priest/Progression/spec3/ImprovedFade.jpg';
+import MindFlay from '../images/talents/Priest/Progression/spec3/MindFlay.jpg';
+import ShadowReach from '../images/talents/Priest/Progression/spec3/ShadowReach.jpg';
+import SpiritTap from '../images/talents/Priest/Progression/spec3/SpiritTap.jpg';
+import ImprovedMindBlast from '../images/talents/Priest/Progression/spec3/ImprovedMindBlast.jpg';
+import Misery from '../images/talents/Priest/Progression/spec3/Misery.jpg';
+import ShadowResilience from '../images/talents/Priest/Progression/spec3/ShadowResilience.jpg';
+import VampiricEmbrace from '../images/talents/Priest/Progression/spec3/VampiricEmbrace.jpg';
+
 
 
 /* 
@@ -9075,15 +9163,16 @@ class PriestComponent extends Component {
           </div>
         </div>
 
-        <div className="row talent-frame ml-3 mr-3">
+        <div className="row ml-3 mr-3">
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Priest/Background/Discipline.jpg)"
+              backgroundImage: `url(${spec1BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1">Discipline</h5>
+            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Discipline</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9095,7 +9184,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[0].toolTip[0]}
                   id="1"
@@ -9104,7 +9193,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_magic_magearmor.jpg"
+                  src={UnbreakableWill}
                   alt=""
                 />
 
@@ -9119,7 +9208,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[1].toolTip[0]}
                   id="2"
@@ -9128,7 +9217,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Priest/Progression/spec1/inv_wand_01.jpg"
+                  src={WandSpecialization}
                   alt=""
                 />
 
@@ -9146,7 +9235,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[2].toolTip[0]}
                   id="3"
@@ -9155,7 +9244,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_nature_manaregentotem.jpg"
+                  src={SilentResolve}
                   alt=""
                 />
 
@@ -9170,7 +9259,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[3].toolTip[0]}
                   id="4"
@@ -9179,7 +9268,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_holy_wordfortitude.jpg"
+                  src={ImprovedPowerWordFortitude}
                   alt=""
                 />
 
@@ -9194,7 +9283,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[4].toolTip[0]}
                   id="5"
@@ -9203,7 +9292,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_holy_powerwordshield.jpg"
+                  src={ReflectiveShield}
                   alt=""
                 />
 
@@ -9218,7 +9307,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[5].toolTip[0]}
                   id="6"
@@ -9227,7 +9316,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_nature_tranquility.jpg"
+                  src={Martyrdom}
                   alt=""
                 />
 
@@ -9244,7 +9333,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[6].toolTip[0]}
                   id="7"
@@ -9253,7 +9342,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_holy_absolution.jpg"
+                  src={Absolution}
                   alt=""
                 />
 
@@ -9268,7 +9357,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[7].toolTip[0]}
                   id="8"
@@ -9277,7 +9366,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_frost_windwalkon.jpg"
+                  src={InnerFocus}
                   alt=""
                 />
 
@@ -9292,7 +9381,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[8].toolTip[0]}
                   id="9"
@@ -9301,14 +9390,14 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_nature_sleep.jpg"
+                  src={Meditation}
                   alt=""
                 />
 
                 <span id="subsReq1Spec1" className="talentPoints req-10-s1">0/3</span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq1Spec1"
                 />
@@ -9327,7 +9416,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[9].toolTip[0]}
                   id="10"
@@ -9336,7 +9425,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_holy_innerfire.jpg"
+                  src={ImprovedInnerFire}
                   alt=""
                 />
 
@@ -9352,7 +9441,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[10].toolTip[0]}
                   id="11"
@@ -9361,7 +9450,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/ability_hibernation.jpg"
+                  src={MentalAgility}
                   alt=""
                 />
 
@@ -9381,7 +9470,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[11].toolTip[0]}
                   id="12"
@@ -9390,7 +9479,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_shadow_manaburn.jpg"
+                  src={ImprovedManaBurn}
                   alt=""
                 />
 
@@ -9412,7 +9501,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[12].toolTip[0]}
                   id="13"
@@ -9421,14 +9510,14 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_nature_enchantarmor.jpg"
+                  src={MentalStrength}
                   alt=""
                 />
 
                 <span id="subsReq2Spec1" className="talentPoints req-20-s1">0/5</span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq2Spec1"
                 />
@@ -9442,7 +9531,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[13].toolTip[0]}
                   id="14"
@@ -9451,7 +9540,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_holy_divinespirit.jpg"
+                  src={DivineSpirit}
                   alt=""
                 />
 
@@ -9460,7 +9549,7 @@ class PriestComponent extends Component {
                 </span>
                 <img
                   className="rightArrow"
-                  src="assets/images/RightSilverSmall.png"
+                  src={RightSilverSmall}
                   alt=""
                   id="arrwReq3Spec1"
                 />
@@ -9475,7 +9564,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[14].toolTip[0]}
                   id="15"
@@ -9484,7 +9573,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_holy_divinespirit.jpg"
+                  src={DivineSpirit}
                   alt=""
                 />
 
@@ -9502,7 +9591,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[15].toolTip[0]}
                   id="16"
@@ -9511,7 +9600,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_shadow_focusedpower.jpg"
+                  src={FocusedPower}
                   alt=""
                 />
 
@@ -9527,7 +9616,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[16].toolTip[0]}
                   id="17"
@@ -9536,7 +9625,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_nature_slowingtotem.jpg"
+                  src={ForceOfWill}
                   alt=""
                 />
 
@@ -9556,7 +9645,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[17].toolTip[0]}
                   id="18"
@@ -9565,7 +9654,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_arcane_focusedpower.jpg"
+                  src={FocusedWill}
                   alt=""
                 />
 
@@ -9580,7 +9669,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[18].toolTip[0]}
                   id="19"
@@ -9589,7 +9678,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_holy_powerinfusion.jpg"
+                  src={PowerInfusion}
                   alt=""
                 />
 
@@ -9610,7 +9699,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[19].toolTip[0]}
                   id="20"
@@ -9619,7 +9708,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_holy_powerwordshield.jpg"
+                  src={ReflectiveShield}
                   alt=""
                 />
 
@@ -9640,7 +9729,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[20].toolTip[0]}
                   id="21"
@@ -9649,7 +9738,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_arcane_mindmastery.jpg"
+                  src={Enlightenment}
                   alt=""
                 />
 
@@ -9669,7 +9758,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[21].toolTip[0]}
                   id="22"
@@ -9678,7 +9767,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec1/spell_holy_painsupression.jpg"
+                  src={PainSuppression}
                   alt=""
                 />
 
@@ -9692,12 +9781,13 @@ class PriestComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Priest/Background/Holy.jpg)"
+              backgroundImage: `url(${spec2BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2">Holy</h5>
+            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Holy</h5>
             <div className="row talent-row talent-row-inner">
               
             <div className="col col-xs-3">
@@ -9709,7 +9799,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[22].toolTip[0]}
                   id="23"
@@ -9718,7 +9808,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_healingfocus.jpg"
+                  src={HealingFocus}
                   alt=""
                 />
 
@@ -9733,7 +9823,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[23].toolTip[0]}
                   id="24"
@@ -9742,7 +9832,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_renew.jpg"
+                  src={ImprovedRenew}
                   alt=""
                 />
 
@@ -9757,7 +9847,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[24].toolTip[0]}
                   id="25"
@@ -9766,7 +9856,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_sealofsalvation.jpg"
+                  src={HolySpecialization}
                   alt=""
                 />
 
@@ -9785,7 +9875,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[25].toolTip[0]}
                   id="26"
@@ -9794,7 +9884,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_spellwarding.jpg"
+                  src={SpellWarding}
                   alt=""
                 />
 
@@ -9809,7 +9899,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[26].toolTip[0]}
                   id="27"
@@ -9818,14 +9908,14 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_sealofwrath.jpg"
+                  src={DivineFury}
                   alt=""
                 />
 
                 <span id="subsReq1Spec2" className="talentPoints req-05-s2">0/5</span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq1Spec2"
                 />
@@ -9842,7 +9932,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[27].toolTip[0]}
                   id="28"
@@ -9851,7 +9941,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_holynova.jpg"
+                  src={HolyNova}
                   alt=""
                 />
 
@@ -9866,7 +9956,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[28].toolTip[0]}
                   id="29"
@@ -9875,7 +9965,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_blessedrecovery.jpg"
+                  src={BlessedRecovery}
                   alt=""
                 />
 
@@ -9891,7 +9981,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[29].toolTip[0]}
                   id="30"
@@ -9900,7 +9990,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_layonhands.jpg"
+                  src={Inspiration}
                   alt=""
                 />
 
@@ -9917,7 +10007,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[30].toolTip[0]}
                   id="31"
@@ -9926,7 +10016,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_purify.jpg"
+                  src={HolyReach}
                   alt=""
                 />
 
@@ -9941,7 +10031,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[31].toolTip[0]}
                   id="32"
@@ -9950,7 +10040,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_heal02.jpg"
+                  src={ImprovedHealing}
                   alt=""
                 />
 
@@ -9965,7 +10055,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[32].toolTip[0]}
                   id="33"
@@ -9974,7 +10064,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_searinglightpriest.jpg"
+                  src={SearingLight}
                   alt=""
                 />
 
@@ -9994,7 +10084,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[33].toolTip[0]}
                   id="34"
@@ -10003,7 +10093,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_prayerofhealing02.jpg"
+                  src={HealingPrayers}
                   alt=""
                 />
 
@@ -10018,7 +10108,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[34].toolTip[0]}
                   id="35"
@@ -10027,7 +10117,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/inv_enchant_essenceeternallarge.jpg"
+                  src={SpiritOfRedemption}
                   alt=""
                 />
 
@@ -10036,7 +10126,7 @@ class PriestComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq2Spec2"
                 />
@@ -10050,7 +10140,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[35].toolTip[0]}
                   id="36"
@@ -10059,7 +10149,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_spiritualguidence.jpg"
+                  src={SpiritualGuidance}
                   alt=""
                 />
 
@@ -10080,7 +10170,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[36].toolTip[0]}
                   id="37"
@@ -10089,7 +10179,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_surgeoflight.jpg"
+                  src={SurgeOfLight}
                   alt=""
                 />
 
@@ -10106,7 +10196,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[37].toolTip[0]}
                   id="38"
@@ -10115,7 +10205,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_nature_moonglow.jpg"
+                  src={SpiritualHealing}
                   alt=""
                 />
 
@@ -10133,7 +10223,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[38].toolTip[0]}
                   id="39"
@@ -10142,7 +10232,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_fanaticism.jpg"
+                  src={HolyConcentration}
                   alt=""
                 />
 
@@ -10157,7 +10247,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[39].toolTip[0]}
                   id="40"
@@ -10166,7 +10256,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_summonlightwell.jpg"
+                  src={LightWell}
                   alt=""
                 />
 
@@ -10183,7 +10273,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[40].toolTip[0]}
                   id="41"
@@ -10192,7 +10282,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_blessedresillience.jpg"
+                  src={BlessedResilience}
                   alt=""
                 />
 
@@ -10213,7 +10303,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[41].toolTip[0]}
                   id="42"
@@ -10222,7 +10312,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_greaterheal.jpg"
+                  src={EmpoweredHealing}
                   alt=""
                 />
 
@@ -10245,7 +10335,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[42].toolTip[0]}
                   id="43"
@@ -10254,7 +10344,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec2/spell_holy_circleofrenewal.jpg"
+                  src={CircleOfHealing}
                   alt=""
                 />
 
@@ -10268,12 +10358,13 @@ class PriestComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Priest/Background/Shadow.jpg)"
+              backgroundImage: `url(${spec3BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3">Shadow</h5>
+            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Shadow</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
                 
@@ -10287,7 +10378,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[43].toolTip[0]}
                   id="44"
@@ -10296,7 +10387,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_requiem.jpg"
+                  src={SpiritTap}
                   alt=""
                 />
 
@@ -10311,7 +10402,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[44].toolTip[0]}
                   id="45"
@@ -10320,7 +10411,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_gathershadows.jpg"
+                  src={Blackout}
                   alt=""
                 />
 
@@ -10338,7 +10429,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[45].toolTip[0]}
                   id="46"
@@ -10347,7 +10438,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_shadowward.jpg"
+                  src={ShadowAffinity}
                   alt=""
                 />
 
@@ -10362,7 +10453,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[46].toolTip[0]}
                   id="47"
@@ -10371,7 +10462,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_shadowwordpain (1).jpg"
+                  src={ImprovedShadowWordPain}
                   alt=""
                 />
 
@@ -10386,7 +10477,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[47].toolTip[0]}
                   id="48"
@@ -10395,7 +10486,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_burningspirit.jpg"
+                  src={ShadowFocus}
                   alt=""
                 />
 
@@ -10413,7 +10504,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[48].toolTip[0]}
                   id="49"
@@ -10422,14 +10513,14 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_psychicscream.jpg"
+                  src={ImprovedPsychicScream}
                   alt=""
                 />
 
                 <span id="subsReq1Spec3" className="talentPoints req-10-s3">0/2</span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq1Spec3"
                 />
@@ -10443,7 +10534,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[49].toolTip[0]}
                   id="50"
@@ -10452,7 +10543,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_unholyfrenzy.jpg"
+                  src={ImprovedMindBlast}
                   alt=""
                 />
 
@@ -10467,7 +10558,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[50].toolTip[0]}
                   id="51"
@@ -10476,7 +10567,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_siphonmana.jpg"
+                  src={MindFlay}
                   alt=""
                 />
 
@@ -10498,7 +10589,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[51].toolTip[0]}
                   id="52"
@@ -10507,7 +10598,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_magic_lesserinvisibilty.jpg"
+                  src={ImprovedFade}
                   alt=""
                 />
 
@@ -10522,7 +10613,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[52].toolTip[0]}
                   id="53"
@@ -10531,7 +10622,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_chilltouch.jpg"
+                  src={ShadowReach}
                   alt=""
                 />
 
@@ -10547,7 +10638,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[53].toolTip[0]}
                   id="54"
@@ -10556,7 +10647,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_blackplague.jpg"
+                  src={ShadowWeaving}
                   alt=""
                 />
 
@@ -10573,7 +10664,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[54].toolTip[0]}
                   id="55"
@@ -10582,7 +10673,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_impphaseshift.jpg"
+                  src={Silence}
                   alt=""
                 />
 
@@ -10597,7 +10688,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[55].toolTip[0]}
                   id="56"
@@ -10606,7 +10697,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_unsummonbuilding.jpg"
+                  src={VampiricEmbrace}
                   alt=""
                 />
 
@@ -10615,13 +10706,13 @@ class PriestComponent extends Component {
                 </span>
                 <img
                   className="rightArrow"
-                  src="assets/images/RightSilverSmall.png"
+                  src={RightSilverSmall}
                   alt=""
                   id="arrwReq2Spec3"
                 />
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq3Spec3"
                 />
@@ -10635,7 +10726,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[56].toolTip[0]}
                   id="57"
@@ -10644,7 +10735,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_improvedvampiricembrace.jpg"
+                  src={ImprovedVampiricEmbrace}
                   alt=""
                 />
 
@@ -10661,7 +10752,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[57].toolTip[0]}
                   id="58"
@@ -10670,7 +10761,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_nature_focusedmind.jpg"
+                  src={FocusedMind}
                   alt=""
                 />
 
@@ -10689,7 +10780,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[58].toolTip[0]}
                   id="59"
@@ -10698,7 +10789,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_grimward.jpg"
+                  src={ShadowResilience}
                   alt=""
                 />
 
@@ -10714,7 +10805,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[59].toolTip[0]}
                   id="60"
@@ -10723,7 +10814,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_twilight.jpg"
+                  src={Darkness}
                   alt=""
                 />
 
@@ -10742,7 +10833,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[60].toolTip[0]}
                   id="61"
@@ -10751,7 +10842,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_shadowform.jpg"
+                  src={Shadowform}
                   alt=""
                 />
 
@@ -10760,7 +10851,7 @@ class PriestComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq4Spec3"
                 />
@@ -10774,7 +10865,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[61].toolTip[0]}
                   id="62"
@@ -10783,7 +10874,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_shadowpower.jpg"
+                  src={ShadowPower}
                   alt=""
                 />
 
@@ -10803,7 +10894,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[62].toolTip[0]}
                   id="63"
@@ -10812,7 +10903,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_shadow_misery.jpg"
+                  src={Misery}
                   alt=""
                 />
 
@@ -10835,7 +10926,7 @@ class PriestComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Priest[63].toolTip[0]}
                   id="64"
@@ -10844,7 +10935,7 @@ class PriestComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Priest/Progression/spec3/spell_holy_stoicism.jpg"
+                  src={VampiricTouch}
                   alt=""
                 />
 

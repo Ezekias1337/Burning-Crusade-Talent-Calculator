@@ -7,13 +7,22 @@ import { Warlock } from "../talentinfo/Warlock";
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
 Things to update across all components
 1.) Hardcoded images => Imported Images
+a.) Don't forget Arrows
 2.) Window.event.button[0] to handle left click on inactive talents
 3.) All functions handling Arrows
-  a.) arrowSizeParse in removeGreenBorder
+  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3)
   b.) turnArrowGoldOnClick
-  c.) turnArrowGoldIndirectly
+  c.) turnArrowGoldIndirectly (s1,s2,s3)
   d.) window.event.button[2] where code looks at arrows source and subsequent switch
-  e.) Reset Function
+      in code directly after .nextElementSibling.id.includes("Spec")
+      1.) first if statement (reference classname instead of src)
+      2.) switch directly after (change .src = to reference imported img)
+  e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
+4.) Import Background image for each spec
+5.) Change spec talent frame bootstrap breakpoints
+6.) Update formulas for mobile
+7.) Update HTML for Tooltip
+8.) add mb-3 to talent frame wrapper div
 
 */
 
@@ -37,6 +46,79 @@ import RightGoldSmall from "../images/RightGoldSmall.png"
 
 import AngleArrowSilver from "../images/AngleArrowSilver.png"
 import AngleArrowGold from "../images/AngleArrowGold.png"
+
+//spec1
+
+import AmplifyCurse from '../images/talents/Warlock/Progression/spec1/AmplifyCurse.jpg';
+import GrimReach from '../images/talents/Warlock/Progression/spec1/GrimReach.jpg';
+import ImprovedHowlOfTerror from '../images/talents/Warlock/Progression/spec1/ImprovedHowlOfTerror.jpg';
+import ShadowMastery from '../images/talents/Warlock/Progression/spec1/ShadowMastery.jpg';
+import Contagion from '../images/talents/Warlock/Progression/spec1/Contagion.jpg';
+import ImprovedCorruption from '../images/talents/Warlock/Progression/spec1/ImprovedCorruption.jpg';
+import ImprovedLifeTap from '../images/talents/Warlock/Progression/spec1/ImprovedLifeTap.jpg';
+import SiphonLife from '../images/talents/Warlock/Progression/spec1/SiphonLife.jpg';
+import CurseOfExhaustion from '../images/talents/Warlock/Progression/spec1/CurseOfExhaustion.jpg';
+import ImprovedCurseOfAgony from '../images/talents/Warlock/Progression/spec1/ImprovedCurseOfAgony.jpg';
+import Malediction from '../images/talents/Warlock/Progression/spec1/Malediction.jpg';
+import SoulSiphon from '../images/talents/Warlock/Progression/spec1/SoulSiphon.jpg';
+import DarkPact from '../images/talents/Warlock/Progression/spec1/DarkPact.jpg';
+import ImprovedCurseOfWeakness from '../images/talents/Warlock/Progression/spec1/ImprovedCurseOfWeakness.jpg';
+import Nightfall from '../images/talents/Warlock/Progression/spec1/Nightfall.jpg';
+import Suppression from '../images/talents/Warlock/Progression/spec1/Suppression.jpg';
+import FelConcentration from '../images/talents/Warlock/Progression/spec1/FelConcentration.jpg';
+import ImprovedDrainSoul from '../images/talents/Warlock/Progression/spec1/ImprovedDrainSoul.jpg';
+import ShadowEmbrace from '../images/talents/Warlock/Progression/spec1/ShadowEmbrace.jpg';
+import UnstableAffliction from '../images/talents/Warlock/Progression/spec1/UnstableAffliction.jpg';
+
+//spec2
+
+import DemonicAegis from '../images/talents/Warlock/Progression/spec2/DemonicAegis.jpg';
+import DemonicTactics from '../images/talents/Warlock/Progression/spec2/DemonicTactics.jpg';
+import ImprovedHealthFunnel from '../images/talents/Warlock/Progression/spec2/ImprovedHealthFunnel.jpg';
+import ManaFeed from '../images/talents/Warlock/Progression/spec2/ManaFeed.jpg';
+import SummonFelguard from '../images/talents/Warlock/Progression/spec2/SummonFelguard.jpg';
+import DemonicEmbrace from '../images/talents/Warlock/Progression/spec2/DemonicEmbrace.jpg';
+import FelDomination from '../images/talents/Warlock/Progression/spec2/FelDomination.jpg';
+import ImprovedHealthStone from '../images/talents/Warlock/Progression/spec2/ImprovedHealthStone.jpg';
+import MasterConjuror from '../images/talents/Warlock/Progression/spec2/MasterConjuror.jpg';
+import UnholyPower from '../images/talents/Warlock/Progression/spec2/UnholyPower.jpg';
+import DemonicKnowledge from '../images/talents/Warlock/Progression/spec2/DemonicKnowledge.jpg';
+import FelIntellect from '../images/talents/Warlock/Progression/spec2/FelIntellect.jpg';
+import ImprovedImp from '../images/talents/Warlock/Progression/spec2/ImprovedImp.jpg';
+import MasterDemonologist from '../images/talents/Warlock/Progression/spec2/MasterDemonologist.jpg';
+import DemonicResilience from '../images/talents/Warlock/Progression/spec2/DemonicResilience.jpg';
+import FelStamina from '../images/talents/Warlock/Progression/spec2/FelStamina.jpg';
+import ImprovedSuccubus from '../images/talents/Warlock/Progression/spec2/ImprovedSuccubus.jpg';
+import MasterSummoner from '../images/talents/Warlock/Progression/spec2/MasterSummoner.jpg';
+import DemonicSacrifice from '../images/talents/Warlock/Progression/spec2/DemonicSacrifice.jpg';
+import ImprovedEnslaveDemon from '../images/talents/Warlock/Progression/spec2/ImprovedEnslaveDemon.jpg';
+import ImprovedVoidwalker from '../images/talents/Warlock/Progression/spec2/ImprovedVoidwalker.jpg';
+import SoulLink from '../images/talents/Warlock/Progression/spec2/SoulLink.jpg';
+
+//spec3
+
+import Aftermath from '../images/talents/Warlock/Progression/spec3/Aftermath.jpg';
+import DestructiveReach from '../images/talents/Warlock/Progression/spec3/DestructiveReach.jpg';
+import ImprovedLashOfPain from '../images/talents/Warlock/Progression/spec3/ImprovedLashOfPain.jpg';
+import Pyroclasm from '../images/talents/Warlock/Progression/spec3/Pyroclasm.jpg';
+import SoulLeech from '../images/talents/Warlock/Progression/spec3/SoulLeech.jpg';
+import Backlash from '../images/talents/Warlock/Progression/spec3/Backlash.jpg';
+import Devastation from '../images/talents/Warlock/Progression/spec3/Devastation.jpg';
+import ImprovedSearingPain from '../images/talents/Warlock/Progression/spec3/ImprovedSearingPain.jpg';
+import Ruin from '../images/talents/Warlock/Progression/spec3/Ruin.jpg';
+import Bane from '../images/talents/Warlock/Progression/spec3/Bane.jpg';
+import Emberstorm from '../images/talents/Warlock/Progression/spec3/Emberstorm.jpg';
+import ImprovedShadowBolt from '../images/talents/Warlock/Progression/spec3/ImprovedShadowBolt.jpg';
+import ShadowAndFlame from '../images/talents/Warlock/Progression/spec3/ShadowAndFlame.jpg';
+import Cataclysm from '../images/talents/Warlock/Progression/spec3/Cataclysm.jpg';
+import ImprovedFirebolt from '../images/talents/Warlock/Progression/spec3/ImprovedFirebolt.jpg';
+import Intensity from '../images/talents/Warlock/Progression/spec3/Intensity.jpg';
+import Shadowburn from '../images/talents/Warlock/Progression/spec3/Shadowburn.jpg';
+import Conflagrate from '../images/talents/Warlock/Progression/spec3/Conflagrate.jpg';
+import ImprovedImmolate from '../images/talents/Warlock/Progression/spec3/ImprovedImmolate.jpg';
+import NetherProtection from '../images/talents/Warlock/Progression/spec3/NetherProtection.jpg';
+import Shadowfury from '../images/talents/Warlock/Progression/spec3/Shadowfury.jpg';
+
 
 
 let i = 0;

@@ -4,7 +4,7 @@ export const Hunter = [
     id: 1,
     name: "Improved Aspect of the Hawk",
     toolTip: [
-      "<table style='width: 15rem;'> <tr><td style='color:#40BF40;'>Rank 1</td></tr> <tr> <td> While Aspect of the Hawk is active, all normal ranged attacks have a 10% chance of increasing ranged attack speed by 3% for 12 sec. </td> </tr> </table>",
+      "<table style='padding-left:0px; width: 15rem; border-radius:15px;'> <tr style='white-space: nowrap;'><td style='text-align: left;'>Improved Aspect of the Hawk</td><td style='color:#9d9d9d; text-align:right; margin-left: 0px';>Rank 1</td></tr> <tr><td style='text-align:left; color:#9d9d9d'>Talent</td></tr> <tr><td style='text-align:left;'>Requires Hunter (Beast Mastery)</td></tr> <tr> <td style='color: #ffd100; text-align: left;'> While Aspect of the Hawk is active, all normal ranged attacks have a 10% chance of increasing ranged attack speed by 3% for 12 sec. </td> </tr> <tr><td style='color:#1eff00; text-align:left;'>Click to learn</td></tr></table>",
       "<table style='width: 15rem;'> <tr><td style='color:#40BF40;'>Rank 2</td></tr> <tr> <td> While Aspect of the Hawk is active, all normal ranged attacks have a 10% chance of increasing ranged attack speed by 6% for 12 sec. </td> </tr> </table>",
       "<table style='width: 15rem;'> <tr><td style='color:#40BF40;'>Rank 3</td></tr> <tr> <td> While Aspect of the Hawk is active, all normal ranged attacks have a 10% chance of increasing ranged attack speed by 9% for 12 sec. </td> </tr> </table>",
       "<table style='width: 15rem;'> <tr><td style='color:#40BF40;'>Rank 4</td></tr> <tr> <td> While Aspect of the Hawk is active, all normal ranged attacks have a 10% chance of increasing ranged attack speed by 12% for 12 sec. </td> </tr> </table>",
