@@ -26,6 +26,13 @@ a.) Don't forget Arrows
 
 */
 
+import spec1BG from "../images/talents/Rogue/Background/Assassination.jpg"
+import spec2BG from "../images/talents/Rogue/Background/Combat.jpg"
+import spec3BG from "../images/talents/Rogue/Background/Subtlety.jpg"
+import spec1Logo from "../images/talents/Rogue/Spec1Logo.jpg"
+import spec2Logo from "../images/talents/Rogue/Spec2Logo.jpg"
+import spec3Logo from "../images/talents/Rogue/Spec3Logo.jpg"
+
 //consistent among classes
 
 import overlayImage from "../images/Item_Hover.png"
@@ -8605,33 +8612,34 @@ class RogueComponent extends Component {
         >
           Reset
         </button>
-        <div style={{ maxWidth: "1150px" }} className="row">
-          <div className="col">
-            <h5 style={{ color: "#e1eef4" }} id="point-counter1">
+        <div className="row">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
+            <h5  style={{ color: "#e1eef4" }} id="point-counter1">
               Spec 1: 0
             </h5>
           </div>
-          <div className="col">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
             <h5 style={{ color: "#e1eef4" }} id="point-counter2">
               Spec 2: 0
             </h5>
           </div>
-          <div className="col">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
             <h5 style={{ color: "#e1eef4" }} id="point-counter3">
               Spec 3: 0
             </h5>
           </div>
         </div>
 
-        <div className="row talent-frame ml-3 mr-3">
+        <div className="row ml-3 mr-3 mb-3">
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Rogue/Background/Assassination.jpg)"
+              backgroundImage: `url(${spec1BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1">Assassination</h5>
+            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Assassination</h5>
             <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
                 <img
@@ -8642,7 +8650,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[0].toolTip[0]}
                   id="1"
@@ -8651,7 +8659,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_rogue_eviscerate.jpg"
+                  src={ImprovedEviscerate}
                   alt=""
                 />
 
@@ -8666,7 +8674,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[1].toolTip[0]}
                   id="2"
@@ -8675,7 +8683,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_fiegndead.jpg"
+                  src={RemorselessAttacks}
                   alt=""
                 />
 
@@ -8690,7 +8698,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[2].toolTip[0]}
                   id="3"
@@ -8699,14 +8707,14 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_racial_bloodrage.jpg"
+                  src={Malice}
                   alt=""
                 />
 
                 <span id="subsReq1Spec1" className="talentPoints req-00-s1">0/5</span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq1Spec1"
                 />
@@ -8723,7 +8731,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[3].toolTip[0]}
                   id="4"
@@ -8732,7 +8740,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_druid_disembowel.jpg"
+                  src={ruthlessness}
                   alt=""
                 />
 
@@ -8747,7 +8755,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[4].toolTip[0]}
                   id="5"
@@ -8756,7 +8764,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/spell_shadow_deathscream.jpg"
+                  src={Murder}
                   alt=""
                 />
 
@@ -8772,7 +8780,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[5].toolTip[0]}
                   id="6"
@@ -8781,7 +8789,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_backstab.jpg"
+                  src={PuncturingWounds}
                   alt=""
                 />
 
@@ -8798,7 +8806,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[6].toolTip[0]}
                   id="7"
@@ -8807,7 +8815,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_warrior_decisivestrike.jpg"
+                  src={RelentlessStrikes}
                   alt=""
                 />
 
@@ -8822,7 +8830,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[7].toolTip[0]}
                   id="8"
@@ -8831,7 +8839,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_warrior_riposte.jpg"
+                  src={ImprovedExposeArmor}
                   alt=""
                 />
 
@@ -8846,7 +8854,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[8].toolTip[0]}
                   id="9"
@@ -8855,7 +8863,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_criticalstrike.jpg"
+                  src={Lethality}
                   alt=""
                 />
 
@@ -8874,7 +8882,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[9].toolTip[0]}
                   id="10"
@@ -8883,7 +8891,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_rogue_feigndeath.jpg"
+                  src={VilePoisons}
                   alt=""
                 />
 
@@ -8898,7 +8906,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[10].toolTip[0]}
                   id="11"
@@ -8907,7 +8915,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_poisons.jpg"
+                  src={ImprovedPoisons}
                   alt=""
                 />
 
@@ -8930,7 +8938,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[11].toolTip[0]}
                   id="12"
@@ -8939,7 +8947,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_rogue_fleetfooted.jpg"
+                  src={FleetFooted}
                   alt=""
                 />
 
@@ -8954,7 +8962,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[12].toolTip[0]}
                   id="13"
@@ -8963,7 +8971,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/spell_ice_lament.jpg"
+                  src={ColdBlood}
                   alt=""
                 />
 
@@ -8972,7 +8980,7 @@ class RogueComponent extends Component {
                 </span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq2Spec1"
                 />
@@ -8986,7 +8994,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[13].toolTip[0]}
                   id="14"
@@ -8995,7 +9003,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_rogue_kidneyshot.jpg"
+                  src={ImprovedKidneyShot}
                   alt=""
                 />
 
@@ -9013,7 +9021,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[14].toolTip[0]}
                   id="15"
@@ -9022,7 +9030,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_rogue_quickrecovery.jpg"
+                  src={QuickRecovery}
                   alt=""
                 />
 
@@ -9041,7 +9049,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[15].toolTip[0]}
                   id="16"
@@ -9050,7 +9058,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/spell_shadow_chilltouch.jpg"
+                  src={SealFate}
                   alt=""
                 />
 
@@ -9066,7 +9074,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[16].toolTip[0]}
                   id="17"
@@ -9075,7 +9083,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_creature_poison_06.jpg"
+                  src={MasterPoisoner}
                   alt=""
                 />
 
@@ -9096,7 +9104,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[17].toolTip[0]}
                   id="18"
@@ -9105,7 +9113,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/spell_nature_earthbindtotem.jpg"
+                  src={Vigor}
                   alt=""
                 />
 
@@ -9117,7 +9125,7 @@ class RogueComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq3Spec1"
                 />
@@ -9131,7 +9139,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[18].toolTip[0]}
                   id="19"
@@ -9140,7 +9148,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_rogue_deadenednerves.jpg"
+                  src={DeadenedNerves}
                   alt=""
                 />
 
@@ -9160,7 +9168,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[19].toolTip[0]}
                   id="20"
@@ -9169,7 +9177,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_rogue_findweakness.jpg"
+                  src={FindWeakness}
                   alt=""
                 />
 
@@ -9188,7 +9196,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[20].toolTip[0]}
                   id="21"
@@ -9197,7 +9205,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec1/ability_rogue_shadowstrikes.jpg"
+                  src={Mutilate}
                   alt=""
                 />
 
@@ -9211,12 +9219,13 @@ class RogueComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Rogue/Background/Combat.jpg)"
+              backgroundImage: `url(${spec2BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2">Combat</h5>
+            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Combat</h5>
             <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
                 <img
@@ -9227,7 +9236,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[21].toolTip[0]}
                   id="22"
@@ -9236,7 +9245,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Rogue/Progression/spec2/ability_gouge.jpg"
+                  src={ImprovedGouge}
                   alt=""
                 />
 
@@ -9251,7 +9260,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[22].toolTip[0]}
                   id="23"
@@ -9260,7 +9269,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Rogue/Progression/spec2/spell_shadow_ritualofsacrifice.jpg"
+                  src={ImprovedSinisterStrike}
                   alt=""
                 />
 
@@ -9275,7 +9284,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[23].toolTip[0]}
                   id="24"
@@ -9284,7 +9293,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Rogue/Progression/spec2/spell_nature_invisibilty.jpg"
+                  src={LightningReflexes}
                   alt=""
                 />
 
@@ -9302,7 +9311,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[24].toolTip[0]}
                   id="25"
@@ -9311,7 +9320,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/ability_rogue_slicedice.jpg"
+                  src={ImprovedSliceNDice}
                   alt=""
                 />
 
@@ -9326,7 +9335,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[25].toolTip[0]}
                   id="26"
@@ -9335,14 +9344,14 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/ability_parry.jpg"
+                  src={Deflection}
                   alt=""
                 />
 
                 <span id="subsReq1Spec2" className="talentPoints req-05-s2">0/5</span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq1Spec2"
                 />
@@ -9356,7 +9365,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[26].toolTip[0]}
                   id="27"
@@ -9365,14 +9374,14 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/ability_marksmanship.jpg"
+                  src={Precision}
                   alt=""
                 />
 
                 <span id="subsReq2Spec2" className="talentPoints req-05-s2">0/5</span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq2Spec2"
                 />
@@ -9389,7 +9398,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[27].toolTip[0]}
                   id="28"
@@ -9398,7 +9407,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/spell_shadow_shadowward.jpg"
+                  src={Endurance}
                   alt=""
                 />
 
@@ -9413,7 +9422,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[28].toolTip[0]}
                   id="29"
@@ -9422,7 +9431,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/ability_warrior_challange.jpg"
+                  src={Riposte}
                   alt=""
                 />
 
@@ -9438,7 +9447,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[29].toolTip[0]}
                   id="30"
@@ -9447,7 +9456,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/ability_rogue_sprint.jpg"
+                  src={ImprovedSprint}
                   alt=""
                 />
 
@@ -9464,7 +9473,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[30].toolTip[0]}
                   id="31"
@@ -9473,7 +9482,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/ability_kick.jpg"
+                  src={ImprovedKick}
                   alt=""
                 />
 
@@ -9488,7 +9497,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[31].toolTip[0]}
                   id="32"
@@ -9497,7 +9506,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/inv_weapon_shortblade_05.jpg"
+                  src={DaggerSpecialization}
                   alt=""
                 />
 
@@ -9512,7 +9521,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[32].toolTip[0]}
                   id="33"
@@ -9521,7 +9530,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/ability_dualwield.jpg"
+                  src={DualWieldSpecialization}
                   alt=""
                 />
 
@@ -9541,7 +9550,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[33].toolTip[0]}
                   id="34"
@@ -9550,7 +9559,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/inv_mace_01.jpg"
+                  src={MaceSpecialization}
                   alt=""
                 />
 
@@ -9565,7 +9574,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[34].toolTip[0]}
                   id="35"
@@ -9574,7 +9583,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/ability_warrior_punishingblow.jpg"
+                  src={BladeFlurry}
                   alt=""
                 />
 
@@ -9583,7 +9592,7 @@ class RogueComponent extends Component {
                 </span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq3Spec2"
                 />
@@ -9597,7 +9606,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[35].toolTip[0]}
                   id="36"
@@ -9606,7 +9615,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/inv_sword_27.jpg"
+                  src={SwordSpecialization}
                   alt=""
                 />
 
@@ -9624,7 +9633,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[36].toolTip[0]}
                   id="37"
@@ -9633,7 +9642,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/inv_gauntlets_04.jpg"
+                  src={FistWeaponSpecialization}
                   alt=""
                 />
 
@@ -9653,7 +9662,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[37].toolTip[0]}
                   id="38"
@@ -9662,7 +9671,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/ability_rogue_bladetwisting.jpg"
+                  src={BladeTwisting}
                   alt=""
                 />
 
@@ -9677,7 +9686,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[38].toolTip[0]}
                   id="39"
@@ -9686,7 +9695,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/spell_holy_blessingofstrength.jpg"
+                  src={WeaponExpertise}
                   alt=""
                 />
 
@@ -9702,7 +9711,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[39].toolTip[0]}
                   id="40"
@@ -9711,7 +9720,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/ability_racial_avatar.jpg"
+                  src={Aggression}
                   alt=""
                 />
 
@@ -9731,7 +9740,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[40].toolTip[0]}
                   id="41"
@@ -9740,7 +9749,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/ability_warrior_revenge.jpg"
+                  src={Vitality}
                   alt=""
                 />
 
@@ -9755,7 +9764,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[41].toolTip[0]}
                   id="42"
@@ -9764,7 +9773,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/spell_shadow_shadowworddominate.jpg"
+                  src={AdrenalineRush}
                   alt=""
                 />
 
@@ -9773,7 +9782,7 @@ class RogueComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq4Spec2"
                 />
@@ -9787,7 +9796,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[42].toolTip[0]}
                   id="43"
@@ -9796,7 +9805,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/ability_rogue_nervesofsteel.jpg"
+                  src={NervesOfSteel}
                   alt=""
                 />
 
@@ -9818,7 +9827,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[43].toolTip[0]}
                   id="44"
@@ -9827,7 +9836,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/inv_weapon_shortblade_38.jpg"
+                  src={CombatPotency}
                   alt=""
                 />
 
@@ -9850,7 +9859,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[44].toolTip[0]}
                   id="45"
@@ -9859,7 +9868,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec2/ability_rogue_surpriseattack.jpg"
+                  src={SurpriseAttacks}
                   alt=""
                 />
 
@@ -9873,12 +9882,13 @@ class RogueComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Rogue/Background/Subtlety.jpg)"
+              backgroundImage: `url(${spec3BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3">Subtlety</h5>
+            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Subtlety</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9890,7 +9900,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[45].toolTip[0]}
                   id="46"
@@ -9899,7 +9909,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Rogue/Progression/spec3/spell_shadow_charm.jpg"
+                  src={MasterOfDeception}
                   alt=""
                 />
 
@@ -9914,7 +9924,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[46].toolTip[0]}
                   id="47"
@@ -9923,7 +9933,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_warrior_warcry.jpg"
+                  src={Opportunity}
                   alt=""
                 />
 
@@ -9941,7 +9951,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[47].toolTip[0]}
                   id="48"
@@ -9950,7 +9960,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_rogue_feint.jpg"
+                  src={SleightOfHand}
                   alt=""
                 />
 
@@ -9965,7 +9975,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[48].toolTip[0]}
                   id="49"
@@ -9974,7 +9984,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_sap.jpg"
+                  src={DirtyTricks}
                   alt=""
                 />
 
@@ -9989,7 +9999,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[49].toolTip[0]}
                   id="50"
@@ -9998,7 +10008,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_stealth.jpg"
+                  src={Camouflage}
                   alt=""
                 />
 
@@ -10016,7 +10026,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[50].toolTip[0]}
                   id="51"
@@ -10025,7 +10035,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/spell_shadow_fumble.jpg"
+                  src={Initiative}
                   alt=""
                 />
 
@@ -10040,7 +10050,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[51].toolTip[0]}
                   id="52"
@@ -10049,7 +10059,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/spell_shadow_curse.jpg"
+                  src={GhostlyStrike}
                   alt=""
                 />
 
@@ -10064,7 +10074,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[52].toolTip[0]}
                   id="53"
@@ -10073,7 +10083,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_rogue_ambush.jpg"
+                  src={ImprovedAmbush}
                   alt=""
                 />
 
@@ -10094,7 +10104,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[53].toolTip[0]}
                   id="54"
@@ -10103,7 +10113,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/spell_nature_mirrorimage.jpg"
+                  src={Setup}
                   alt=""
                 />
 
@@ -10118,7 +10128,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[54].toolTip[0]}
                   id="55"
@@ -10127,7 +10137,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/spell_magic_lesserinvisibilty.jpg"
+                  src={Elusiveness}
                   alt=""
                 />
 
@@ -10143,7 +10153,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[55].toolTip[0]}
                   id="56"
@@ -10152,14 +10162,14 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/inv_sword_17.jpg"
+                  src={SerratedBlades}
                   alt=""
                 />
 
                 <span id="subsReq1Spec3" className="talentPoints req-15-s3">0/3</span>
                 <img
                   className="angleArrow"
-                  src="assets/images/AngleArrowSilver.png"
+                  src={AngleArrowSilver}
                   alt=""
                   id="arrwReq1Spec3"
                 />
@@ -10177,7 +10187,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[56].toolTip[0]}
                   id="57"
@@ -10186,7 +10196,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_ambush.jpg"
+                  src={HeightenedSenses}
                   alt=""
                 />
 
@@ -10201,7 +10211,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[57].toolTip[0]}
                   id="58"
@@ -10210,7 +10220,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/spell_shadow_antishadow.jpg"
+                  src={Preparation}
                   alt=""
                 />
 
@@ -10219,7 +10229,7 @@ class RogueComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq2Spec3"
                 />
@@ -10233,7 +10243,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[58].toolTip[0]}
                   id="59"
@@ -10242,7 +10252,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/spell_shadow_summonsuccubus.jpg"
+                  src={DirtyDeeds}
                   alt=""
                 />
 
@@ -10259,7 +10269,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[59].toolTip[0]}
                   id="60"
@@ -10268,7 +10278,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/spell_shadow_lifedrain.jpg"
+                  src={Hemorrhage}
                   alt=""
                 />
 
@@ -10287,7 +10297,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[60].toolTip[0]}
                   id="61"
@@ -10296,7 +10306,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_rogue_masterofsubtlety.jpg"
+                  src={MasterOfSubtlety}
                   alt=""
                 />
 
@@ -10312,7 +10322,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[61].toolTip[0]}
                   id="62"
@@ -10321,7 +10331,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/inv_weapon_crossbow_11.jpg"
+                  src={Deadliness}
                   alt=""
                 />
 
@@ -10339,7 +10349,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[62].toolTip[0]}
                   id="63"
@@ -10348,7 +10358,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_rogue_envelopingshadows.jpg"
+                  src={EnvelopingShadows}
                   alt=""
                 />
 
@@ -10363,7 +10373,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[63].toolTip[0]}
                   id="64"
@@ -10372,7 +10382,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/spell_shadow_possession.jpg"
+                  src={Premeditation}
                   alt=""
                 />
 
@@ -10381,7 +10391,7 @@ class RogueComponent extends Component {
                 </span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq3Spec3"
                 />
@@ -10395,7 +10405,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[64].toolTip[0]}
                   id="65"
@@ -10404,7 +10414,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_rogue_cheatdeath.jpg"
+                  src={CheatDeath}
                   alt=""
                 />
 
@@ -10423,7 +10433,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[65].toolTip[0]}
                   id="66"
@@ -10432,7 +10442,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_rogue_sinistercalling.jpg"
+                  src={SinisterCalling}
                   alt=""
                 />
 
@@ -10455,7 +10465,7 @@ class RogueComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Rogue[66].toolTip[0]}
                   id="67"
@@ -10464,7 +10474,7 @@ class RogueComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Rogue/Progression/spec3/ability_rogue_shadowstep.jpg"
+                  src={Shadowstep}
                   alt=""
                 />
 

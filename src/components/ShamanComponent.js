@@ -26,6 +26,13 @@ a.) Don't forget Arrows
 
 */
 
+import spec1BG from "../images/talents/Shaman/Background/Elemental.jpg"
+import spec2BG from "../images/talents/Shaman/Background/Enhancement.jpg"
+import spec3BG from "../images/talents/Shaman/Background/Restoration.jpg"
+import spec1Logo from "../images/talents/Shaman/Spec1Logo.jpg"
+import spec2Logo from "../images/talents/Shaman/Spec2Logo.jpg"
+import spec3Logo from "../images/talents/Shaman/Spec3Logo.jpg"
+
 //consistent among classes
 
 import overlayImage from "../images/Item_Hover.png"
@@ -9109,18 +9116,18 @@ class ShamanComponent extends Component {
         >
           Reset
         </button>
-        <div style={{ maxWidth: "1150px" }} className="row">
-          <div className="col">
-            <h5 style={{ color: "#e1eef4" }} id="point-counter1">
+        <div className="row">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
+            <h5  style={{ color: "#e1eef4" }} id="point-counter1">
               Spec 1: 0
             </h5>
           </div>
-          <div className="col">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
             <h5 style={{ color: "#e1eef4" }} id="point-counter2">
               Spec 2: 0
             </h5>
           </div>
-          <div className="col">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
             <h5 style={{ color: "#e1eef4" }} id="point-counter3">
               Spec 3: 0
             </h5>
@@ -9135,7 +9142,7 @@ class ShamanComponent extends Component {
             className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1">Elemental</h5>
+            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Elemental</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9695,7 +9702,7 @@ class ShamanComponent extends Component {
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2">Enhancement</h5>
+            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Enhancement</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -10283,7 +10290,7 @@ class ShamanComponent extends Component {
             className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3">Restoration</h5>
+            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Restoration</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
