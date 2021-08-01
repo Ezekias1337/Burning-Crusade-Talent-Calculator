@@ -6,8 +6,8 @@ import { Rogue } from "../talentinfo/Rogue";
 /* 
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
 Things to update across all components
-1.) Hardcoded images => Imported Images
-a.) Don't forget Arrows
+1.) Hardcoded images => Imported Images ✔
+a.) Don't forget Arrows ✔
 2.) Window.event.button[0] to handle left click on inactive talents
 3.) All functions handling Arrows
   a.) arrowSizeParse in removeGreenBorder (s1,s2,s3)
@@ -18,11 +18,11 @@ a.) Don't forget Arrows
       1.) first if statement (reference classname instead of src)
       2.) switch directly after (change .src = to reference imported img)
   e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
-4.) Import Background image for each spec
-5.) Change spec talent frame bootstrap breakpoints
+4.) Import Background image for each spec ✔
+5.) Change spec talent frame bootstrap breakpoints ✔
 6.) Update formulas for mobile
 7.) Update HTML for Tooltip
-8.) add mb-3 to talent frame wrapper div
+8.) add mb-3 to talent frame wrapper div ✔
 
 */
 

@@ -6,8 +6,8 @@ import { Warlock } from "../talentinfo/Warlock";
 /* 
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
 Things to update across all components
-1.) Hardcoded images => Imported Images
-a.) Don't forget Arrows
+1.) Hardcoded images => Imported Images ✔
+a.) Don't forget Arrows ✔
 2.) Window.event.button[0] to handle left click on inactive talents
 3.) All functions handling Arrows
   a.) arrowSizeParse in removeGreenBorder (s1,s2,s3)
@@ -18,11 +18,11 @@ a.) Don't forget Arrows
       1.) first if statement (reference classname instead of src)
       2.) switch directly after (change .src = to reference imported img)
   e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
-4.) Import Background image for each spec
-5.) Change spec talent frame bootstrap breakpoints
+4.) Import Background image for each spec ✔
+5.) Change spec talent frame bootstrap breakpoints ✔
 6.) Update formulas for mobile
-7.) Update HTML for Tooltip
-8.) add mb-3 to talent frame wrapper div
+7.) Update HTML for Tooltip 
+8.) add mb-3 to talent frame wrapper div ✔
 
 */
 
@@ -8517,12 +8517,13 @@ class WarlockComponent extends Component {
           </div>
         </div>
 
-        <div className="row talent-frame ml-3 mr-3">
+        <div className="row ml-3 mr-3 mb-3">
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Warlock/Background/Affliction.jpg)"
+              backgroundImage: `url(${spec1BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
             <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Affliction</h5>
@@ -8537,7 +8538,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[0].toolTip[0]}
                   id="1"
@@ -8546,7 +8547,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_unsummonbuilding.jpg"
+                  src={Suppression}
                   alt=""
                 />
 
@@ -8561,7 +8562,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[1].toolTip[0]}
                   id="2"
@@ -8570,7 +8571,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_abominationexplosion.jpg"
+                  src={ImprovedCorruption}
                   alt=""
                 />
 
@@ -8588,7 +8589,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[2].toolTip[0]}
                   id="3"
@@ -8597,7 +8598,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_curseofmannoroth.jpg"
+                  src={ImprovedCurseOfWeakness}
                   alt=""
                 />
 
@@ -8612,7 +8613,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[3].toolTip[0]}
                   id="4"
@@ -8621,7 +8622,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_haunting.jpg"
+                  src={ImprovedDrainSoul}
                   alt=""
                 />
 
@@ -8636,7 +8637,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[4].toolTip[0]}
                   id="5"
@@ -8645,7 +8646,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_burningspirit.jpg"
+                  src={ImprovedLifeTap}
                   alt=""
                 />
 
@@ -8660,7 +8661,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[5].toolTip[0]}
                   id="6"
@@ -8669,7 +8670,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_lifedrain02.jpg"
+                  src={SoulSiphon}
                   alt=""
                 />
 
@@ -8686,7 +8687,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[6].toolTip[0]}
                   id="7"
@@ -8695,7 +8696,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_curseofsargeras.jpg"
+                  src={ImprovedCurseOfAgony}
                   alt=""
                 />
 
@@ -8710,7 +8711,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[7].toolTip[0]}
                   id="8"
@@ -8719,7 +8720,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_fingerofdeath.jpg"
+                  src={FelConcentration}
                   alt=""
                 />
 
@@ -8734,7 +8735,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[8].toolTip[0]}
                   id="9"
@@ -8743,14 +8744,14 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_contagion.jpg"
+                  src={AmplifyCurse}
                   alt=""
                 />
 
                 <span id="subsReq1Spec1" className="talentPoints req-10-s1">0/1</span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq1Spec1"
                 />
@@ -8767,7 +8768,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[9].toolTip[0]}
                   id="10"
@@ -8776,7 +8777,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_callofbone.jpg"
+                  src={GrimReach}
                   alt=""
                 />
 
@@ -8791,7 +8792,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[10].toolTip[0]}
                   id="11"
@@ -8800,7 +8801,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_twilight.jpg"
+                  src={Nightfall}
                   alt=""
                 />
 
@@ -8816,7 +8817,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[11].toolTip[0]}
                   id="12"
@@ -8825,7 +8826,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_abominationexplosion.jpg"
+                  src={ImprovedCorruption}
                   alt=""
                 />
 
@@ -8848,7 +8849,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[12].toolTip[0]}
                   id="13"
@@ -8857,7 +8858,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_shadowembrace.jpg"
+                  src={ShadowEmbrace}
                   alt=""
                 />
 
@@ -8872,7 +8873,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[13].toolTip[0]}
                   id="14"
@@ -8881,7 +8882,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_requiem.jpg"
+                  src={SiphonLife}
                   alt=""
                 />
 
@@ -8890,7 +8891,7 @@ class WarlockComponent extends Component {
                 </span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq2Spec1"
                 />
@@ -8905,7 +8906,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[14].toolTip[0]}
                   id="15"
@@ -8914,7 +8915,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_grimward.jpg"
+                  src={CurseOfExhaustion}
                   alt=""
                 />
 
@@ -8935,7 +8936,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[15].toolTip[0]}
                   id="16"
@@ -8944,7 +8945,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_shadetruesight.jpg"
+                  src={ShadowMastery}
                   alt=""
                 />
 
@@ -8965,7 +8966,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[16].toolTip[0]}
                   id="17"
@@ -8974,7 +8975,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_painfulafflictions.jpg"
+                  src={Contagion}
                   alt=""
                 />
 
@@ -8986,7 +8987,7 @@ class WarlockComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq3Spec1"
                 />
@@ -9000,7 +9001,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[17].toolTip[0]}
                   id="18"
@@ -9009,7 +9010,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_darkritual.jpg"
+                  src={DarkPact}
                   alt=""
                 />
 
@@ -9027,7 +9028,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[18].toolTip[0]}
                   id="19"
@@ -9036,7 +9037,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_deathscream.jpg"
+                  src={ImprovedHowlOfTerror}
                   alt=""
                 />
 
@@ -9052,7 +9053,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[19].toolTip[0]}
                   id="20"
@@ -9061,7 +9062,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_curseofachimonde.jpg"
+                  src={Malediction}
                   alt=""
                 />
 
@@ -9080,7 +9081,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[20].toolTip[0]}
                   id="21"
@@ -9089,7 +9090,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_unstableaffliction_3.jpg"
+                  src={UnstableAffliction}
                   alt=""
                 />
 
@@ -9103,9 +9104,10 @@ class WarlockComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Warlock/Background/Demonology.jpg)"
+              backgroundImage: `url(${spec2BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
             <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Demonology</h5>
@@ -9119,7 +9121,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[21].toolTip[0]}
                   id="22"
@@ -9128,7 +9130,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Warlock/Progression/spec2/inv_stone_04.jpg"
+                  src={ImprovedHealthStone}
                   alt=""
                 />
 
@@ -9143,7 +9145,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[22].toolTip[0]}
                   id="23"
@@ -9152,7 +9154,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_summonimp.jpg"
+                  src={ImprovedImp}
                   alt=""
                 />
 
@@ -9167,7 +9169,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[23].toolTip[0]}
                   id="24"
@@ -9176,7 +9178,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_metamorphosis.jpg"
+                  src={DemonicEmbrace}
                   alt=""
                 />
 
@@ -9194,7 +9196,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[24].toolTip[0]}
                   id="25"
@@ -9203,7 +9205,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_lifedrain.jpg"
+                  src={ImprovedHealthFunnel}
                   alt=""
                 />
 
@@ -9218,7 +9220,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[25].toolTip[0]}
                   id="26"
@@ -9227,7 +9229,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_summonvoidwalker.jpg"
+                  src={ImprovedVoidwalker}
                   alt=""
                 />
 
@@ -9242,7 +9244,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[26].toolTip[0]}
                   id="27"
@@ -9251,7 +9253,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_holy_magicalsentry.jpg"
+                  src={FelIntellect}
                   alt=""
                 />
 
@@ -9269,7 +9271,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[27].toolTip[0]}
                   id="28"
@@ -9278,7 +9280,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_summonsuccubus.jpg"
+                  src={ImprovedSuccubus}
                   alt=""
                 />
 
@@ -9293,7 +9295,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[28].toolTip[0]}
                   id="29"
@@ -9302,14 +9304,14 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_nature_removecurse.jpg"
+                  src={FelDomination}
                   alt=""
                 />
 
                 <span id="subsReq1Spec2" className="talentPoints req-10-s2">0/1</span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq1Spec2"
                 />
@@ -9323,7 +9325,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[29].toolTip[0]}
                   id="30"
@@ -9332,7 +9334,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_antishadow.jpg"
+                  src={FelStamina}
                   alt=""
                 />
 
@@ -9350,7 +9352,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[30].toolTip[0]}
                   id="31"
@@ -9359,7 +9361,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_ragingscream.jpg"
+                  src={DemonicAegis}
                   alt=""
                 />
 
@@ -9377,7 +9379,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[31].toolTip[0]}
                   id="32"
@@ -9386,7 +9388,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_impphaseshift.jpg"
+                  src={MasterSummoner}
                   alt=""
                 />
 
@@ -9401,7 +9403,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[32].toolTip[0]}
                   id="33"
@@ -9410,7 +9412,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_shadowworddominate.jpg"
+                  src={UnholyPower}
                   alt=""
                 />
 
@@ -9419,7 +9421,7 @@ class WarlockComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq2Spec2"
                 />
@@ -9436,7 +9438,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[33].toolTip[0]}
                   id="34"
@@ -9445,7 +9447,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_enslavedemon.jpg"
+                  src={ImprovedEnslaveDemon}
                   alt=""
                 />
 
@@ -9460,7 +9462,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[34].toolTip[0]}
                   id="35"
@@ -9469,7 +9471,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_psychicscream.jpg"
+                  src={DemonicSacrifice}
                   alt=""
                 />
 
@@ -9478,7 +9480,7 @@ class WarlockComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq3Spec2"
                 />
@@ -9493,7 +9495,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[35].toolTip[0]}
                   id="36"
@@ -9502,7 +9504,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/inv_ammo_firetar.jpg"
+                  src={MasterConjuror}
                   alt=""
                 />
 
@@ -9523,7 +9525,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[36].toolTip[0]}
                   id="37"
@@ -9532,7 +9534,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_manafeed.jpg"
+                  src={ManaFeed}
                   alt=""
                 />
 
@@ -9548,7 +9550,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[37].toolTip[0]}
                   id="38"
@@ -9557,7 +9559,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_shadowpact.jpg"
+                  src={MasterDemonologist}
                   alt=""
                 />
 
@@ -9576,7 +9578,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[38].toolTip[0]}
                   id="39"
@@ -9585,7 +9587,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_demonicfortitude.jpg"
+                  src={DemonicResilience}
                   alt=""
                 />
 
@@ -9600,7 +9602,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[39].toolTip[0]}
                   id="40"
@@ -9609,7 +9611,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_gathershadows.jpg"
+                  src={SoulLink}
                   alt=""
                 />
 
@@ -9626,7 +9628,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[40].toolTip[0]}
                   id="41"
@@ -9635,7 +9637,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_improvedvampiricembrace.jpg"
+                  src={DemonicKnowledge}
                   alt=""
                 />
 
@@ -9656,7 +9658,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[41].toolTip[0]}
                   id="42"
@@ -9665,7 +9667,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_demonictactics.jpg"
+                  src={DemonicTactics}
                   alt=""
                 />
 
@@ -9688,7 +9690,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[42].toolTip[0]}
                   id="43"
@@ -9697,7 +9699,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_summonfelguard.jpg"
+                  src={SummonFelguard}
                   alt=""
                 />
 
@@ -9711,9 +9713,10 @@ class WarlockComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Warlock/Background/Destruction.jpg)"
+              backgroundImage: `url(${spec3BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
             <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Destruction</h5>
@@ -9729,7 +9732,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[43].toolTip[0]}
                   id="44"
@@ -9738,7 +9741,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_shadowbolt.jpg"
+                  src={ImprovedShadowBolt}
                   alt=""
                 />
 
@@ -9753,7 +9756,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[44].toolTip[0]}
                   id="45"
@@ -9762,7 +9765,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_windsofwoe.jpg"
+                  src={Cataclysm}
                   alt=""
                 />
 
@@ -9781,7 +9784,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[45].toolTip[0]}
                   id="46"
@@ -9790,7 +9793,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_deathpact.jpg"
+                  src={Bane}
                   alt=""
                 />
 
@@ -9805,7 +9808,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[46].toolTip[0]}
                   id="47"
@@ -9814,7 +9817,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_fire.jpg"
+                  src={Aftermath}
                   alt=""
                 />
 
@@ -9832,7 +9835,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[47].toolTip[0]}
                   id="48"
@@ -9841,7 +9844,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_firebolt.jpg"
+                  src={ImprovedFirebolt}
                   alt=""
                 />
 
@@ -9856,7 +9859,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[48].toolTip[0]}
                   id="49"
@@ -9865,7 +9868,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_curse.jpg"
+                  src={ImprovedLashOfPain}
                   alt=""
                 />
 
@@ -9880,7 +9883,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[49].toolTip[0]}
                   id="50"
@@ -9889,7 +9892,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_flameshock.jpg"
+                  src={Devastation}
                   alt=""
                 />
 
@@ -9898,7 +9901,7 @@ class WarlockComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq1Spec3"
                 />
@@ -9912,7 +9915,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[50].toolTip[0]}
                   id="51"
@@ -9921,7 +9924,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_scourgebuild.jpg"
+                  src={Shadowburn}
                   alt=""
                 />
 
@@ -9941,7 +9944,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[51].toolTip[0]}
                   id="52"
@@ -9950,14 +9953,14 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_lavaspawn.jpg"
+                  src={Intensity}
                   alt=""
                 />
 
                 <span id="subsReq2Spec3" className="talentPoints req-15-s3">0/2</span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq2Spec3"
                 />
@@ -9971,7 +9974,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[52].toolTip[0]}
                   id="53"
@@ -9980,7 +9983,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_corpseexplode.jpg"
+                  src={DestructiveReach}
                   alt=""
                 />
 
@@ -9996,7 +9999,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[53].toolTip[0]}
                   id="54"
@@ -10005,7 +10008,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_soulburn.jpg"
+                  src={ImprovedSearingPain}
                   alt=""
                 />
 
@@ -10022,7 +10025,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[54].toolTip[0]}
                   id="55"
@@ -10031,7 +10034,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_volcano.jpg"
+                  src={Pyroclasm}
                   alt=""
                 />
 
@@ -10046,7 +10049,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[55].toolTip[0]}
                   id="56"
@@ -10055,7 +10058,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_immolation.jpg"
+                  src={ImprovedImmolate}
                   alt=""
                 />
 
@@ -10064,7 +10067,7 @@ class WarlockComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq3Spec3"
                 />
@@ -10078,7 +10081,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[56].toolTip[0]}
                   id="57"
@@ -10087,7 +10090,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_shadowwordpain.jpg"
+                  src={Ruin}
                   alt=""
                 />
 
@@ -10107,7 +10110,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[57].toolTip[0]}
                   id="58"
@@ -10116,7 +10119,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_netherprotection.jpg"
+                  src={NetherProtection}
                   alt=""
                 />
 
@@ -10132,7 +10135,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[58].toolTip[0]}
                   id="59"
@@ -10141,7 +10144,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_selfdestruct.jpg"
+                  src={Emberstorm}
                   alt=""
                 />
 
@@ -10159,7 +10162,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[59].toolTip[0]}
                   id="60"
@@ -10168,7 +10171,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_playingwithfire.jpg"
+                  src={Backlash}
                   alt=""
                 />
 
@@ -10183,7 +10186,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[60].toolTip[0]}
                   id="61"
@@ -10192,7 +10195,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_fireball.jpg"
+                  src={Conflagrate}
                   alt=""
                 />
 
@@ -10209,7 +10212,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[61].toolTip[0]}
                   id="62"
@@ -10218,7 +10221,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_soulleech_3.jpg"
+                  src={SoulLeech}
                   alt=""
                 />
 
@@ -10237,7 +10240,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[62].toolTip[0]}
                   id="63"
@@ -10246,7 +10249,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_shadowandflame.jpg"
+                  src={ShadowAndFlame}
                   alt=""
                 />
 
@@ -10255,7 +10258,7 @@ class WarlockComponent extends Component {
                 </span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq4Spec3"
                 />
@@ -10274,7 +10277,7 @@ class WarlockComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[63].toolTip[0]}
                   id="64"
@@ -10283,7 +10286,7 @@ class WarlockComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_shadowfury.jpg"
+                  src={Shadowfury}
                   alt=""
                 />
 

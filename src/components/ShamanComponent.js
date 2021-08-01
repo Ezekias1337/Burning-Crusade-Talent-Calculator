@@ -6,8 +6,8 @@ import { Shaman } from "../talentinfo/Shaman";
 /* 
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
 Things to update across all components
-1.) Hardcoded images => Imported Images
-a.) Don't forget Arrows
+1.) Hardcoded images => Imported Images ✔
+a.) Don't forget Arrows ✔
 2.) Window.event.button[0] to handle left click on inactive talents
 3.) All functions handling Arrows
   a.) arrowSizeParse in removeGreenBorder (s1,s2,s3)
@@ -18,11 +18,11 @@ a.) Don't forget Arrows
       1.) first if statement (reference classname instead of src)
       2.) switch directly after (change .src = to reference imported img)
   e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
-4.) Import Background image for each spec
-5.) Change spec talent frame bootstrap breakpoints
+4.) Import Background image for each spec ✔
+5.) Change spec talent frame bootstrap breakpoints ✔
 6.) Update formulas for mobile
-7.) Update HTML for Tooltip
-8.) add mb-3 to talent frame wrapper div
+7.) Update HTML for Tooltip 
+8.) add mb-3 to talent frame wrapper div ✔
 
 */
 
@@ -9134,12 +9134,13 @@ class ShamanComponent extends Component {
           </div>
         </div>
 
-        <div className="row talent-frame ml-3 mr-3">
+        <div className="row ml-3 mr-3 mb-3">
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Shaman/Background/Elemental.jpg)"
+              backgroundImage: `url(${spec1BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
             <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Elemental</h5>
@@ -9154,7 +9155,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[0].toolTip[0]}
                   id="1"
@@ -9163,7 +9164,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_wispsplode.jpg"
+                  src={Convection}
                   alt=""
                 />
 
@@ -9178,7 +9179,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[1].toolTip[0]}
                   id="2"
@@ -9187,7 +9188,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_fire_fireball.jpg"
+                  src={Concussion}
                   alt=""
                 />
 
@@ -9205,7 +9206,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[2].toolTip[0]}
                   id="3"
@@ -9214,7 +9215,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_stoneclawtotem.jpg"
+                  src={EarthsGrasp}
                   alt=""
                 />
 
@@ -9229,7 +9230,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[3].toolTip[0]}
                   id="4"
@@ -9238,7 +9239,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_spiritarmor.jpg"
+                  src={ElementalWarding}
                   alt=""
                 />
 
@@ -9253,7 +9254,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[4].toolTip[0]}
                   id="5"
@@ -9262,7 +9263,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_fire_immolation.jpg"
+                  src={CallOfFlame}
                   alt=""
                 />
 
@@ -9280,7 +9281,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[5].toolTip[0]}
                   id="6"
@@ -9289,7 +9290,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_shadow_manaburn.jpg"
+                  src={ElementalFocus}
                   alt=""
                 />
 
@@ -9304,7 +9305,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[6].toolTip[0]}
                   id="7"
@@ -9313,7 +9314,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_frost_frostward.jpg"
+                  src={Reverberation}
                   alt=""
                 />
 
@@ -9328,7 +9329,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[7].toolTip[0]}
                   id="8"
@@ -9337,14 +9338,14 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_callstorm.jpg"
+                  src={CallOfThunder}
                   alt=""
                 />
 
                 <span id="subsReq1Spec1" className="talentPoints req-10-s1">0/5</span>
                 <img
                   className="lgArrowPaladin"
-                  src="assets/images/DownSilverLarge.png"
+                  src={DownSilverLarge}
                   alt=""
                   id="arrwReq1Spec1"
                 />
@@ -9362,7 +9363,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[8].toolTip[0]}
                   id="9"
@@ -9371,7 +9372,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_fire_sealoffire.jpg"
+                  src={ImprovedFireTotems}
                   alt=""
                 />
 
@@ -9386,7 +9387,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[9].toolTip[0]}
                   id="10"
@@ -9395,7 +9396,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_shadow_soulleech_2.jpg"
+                  src={EyeOfTheStorm}
                   alt=""
                 />
 
@@ -9413,7 +9414,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[10].toolTip[0]}
                   id="11"
@@ -9422,7 +9423,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/classic_spell_fire_elementaldevastation.jpg"
+                  src={ElementalDevastation}
                   alt=""
                 />
 
@@ -9442,7 +9443,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[11].toolTip[0]}
                   id="12"
@@ -9451,7 +9452,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_stormreach.jpg"
+                  src={StormReach}
                   alt=""
                 />
 
@@ -9466,7 +9467,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[12].toolTip[0]}
                   id="13"
@@ -9475,7 +9476,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_fire_volcano.jpg"
+                  src={ElementalFury}
                   alt=""
                 />
 
@@ -9484,7 +9485,7 @@ class ShamanComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq2Spec1"
                 />
@@ -9499,7 +9500,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[13].toolTip[0]}
                   id="14"
@@ -9508,7 +9509,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_unrelentingstorm.jpg"
+                  src={UnrelentingStorm}
                   alt=""
                 />
 
@@ -9526,7 +9527,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[14].toolTip[0]}
                   id="15"
@@ -9535,7 +9536,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_elementalprecision_1.jpg"
+                  src={ElementalPrecision}
                   alt=""
                 />
 
@@ -9551,7 +9552,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[15].toolTip[0]}
                   id="16"
@@ -9560,7 +9561,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_lightning_lightningbolt01.jpg"
+                  src={LightningMastery}
                   alt=""
                 />
 
@@ -9581,7 +9582,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[16].toolTip[0]}
                   id="17"
@@ -9590,7 +9591,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_wispheal.jpg"
+                  src={ElementalMastery}
                   alt=""
                 />
 
@@ -9611,7 +9612,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[17].toolTip[0]}
                   id="18"
@@ -9620,7 +9621,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_elementalshields.jpg"
+                  src={ElementalShields}
                   alt=""
                 />
 
@@ -9639,7 +9640,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[18].toolTip[0]}
                   id="19"
@@ -9648,14 +9649,14 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_lightningoverload.jpg"
+                  src={LightningOverload}
                   alt=""
                 />
 
                 <span id="subsReq3Spec1" className="talentPoints req-35-s1">0/5</span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq3Spec1"
                 />
@@ -9674,7 +9675,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[19].toolTip[0]}
                   id="20"
@@ -9683,7 +9684,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_fire_totemofwrath.jpg"
+                  src={TotemOfWrath}
                   alt=""
                 />
 
@@ -9697,9 +9698,10 @@ class ShamanComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Shaman/Background/Enhancement.jpg)"
+              backgroundImage: `url(${spec2BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
             <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Enhancement</h5>
@@ -9714,7 +9716,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[20].toolTip[0]}
                   id="21"
@@ -9723,7 +9725,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_shadow_grimward.jpg"
+                  src={AncestralKnowledge}
                   alt=""
                 />
 
@@ -9738,7 +9740,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[21].toolTip[0]}
                   id="22"
@@ -9747,7 +9749,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Shaman/Progression/spec2/inv_shield_06.jpg"
+                  src={ShieldSpecialization}
                   alt=""
                 />
 
@@ -9765,7 +9767,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[22].toolTip[0]}
                   id="23"
@@ -9774,7 +9776,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_stoneskintotem.jpg"
+                  src={GuardianTotems}
                   alt=""
                 />
 
@@ -9789,7 +9791,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[23].toolTip[0]}
                   id="24"
@@ -9798,14 +9800,14 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/ability_thunderbolt.jpg"
+                  src={ThunderingStrikes}
                   alt=""
                 />
 
                 <span id="subsReq1Spec2" className="talentPoints req-05-s2">0/5</span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq1Spec2"
                 />
@@ -9819,7 +9821,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[24].toolTip[0]}
                   id="25"
@@ -9828,7 +9830,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_spiritwolf.jpg"
+                  src={ImprovedGhostWolf}
                   alt=""
                 />
 
@@ -9843,7 +9845,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[25].toolTip[0]}
                   id="26"
@@ -9852,7 +9854,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_lightningshield.jpg"
+                  src={ImprovedLightningShield}
                   alt=""
                 />
 
@@ -9869,7 +9871,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[26].toolTip[0]}
                   id="27"
@@ -9878,7 +9880,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_earthbindtotem.jpg"
+                  src={EnhancingTotems}
                   alt=""
                 />
 
@@ -9894,7 +9896,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[27].toolTip[0]}
                   id="28"
@@ -9903,7 +9905,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_elementalabsorption.jpg"
+                  src={ShamanisticFocus}
                   alt=""
                 />
 
@@ -9921,7 +9923,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[28].toolTip[0]}
                   id="29"
@@ -9930,7 +9932,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_mirrorimage.jpg"
+                  src={Anticipation}
                   alt=""
                 />
 
@@ -9948,7 +9950,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[29].toolTip[0]}
                   id="30"
@@ -9957,7 +9959,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/ability_ghoulfrenzy.jpg"
+                  src={Flurry}
                   alt=""
                 />
 
@@ -9972,7 +9974,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[30].toolTip[0]}
                   id="31"
@@ -9981,7 +9983,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_holy_devotion.jpg"
+                  src={Toughness}
                   alt=""
                 />
 
@@ -10001,7 +10003,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[31].toolTip[0]}
                   id="32"
@@ -10010,7 +10012,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_fire_enchantweapon.jpg"
+                  src={ImprovedWeapontotems}
                   alt=""
                 />
 
@@ -10025,7 +10027,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[32].toolTip[0]}
                   id="33"
@@ -10034,7 +10036,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/ability_parry.jpg"
+                  src={SpiritWeapons}
                   alt=""
                 />
 
@@ -10043,7 +10045,7 @@ class ShamanComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq3Spec2"
                 />
@@ -10057,7 +10059,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[33].toolTip[0]}
                   id="34"
@@ -10066,7 +10068,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_fire_flametounge.jpg"
+                  src={ElementalWeapons}
                   alt=""
                 />
 
@@ -10075,7 +10077,7 @@ class ShamanComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq2Spec2"
                 />
@@ -10092,7 +10094,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[34].toolTip[0]}
                   id="35"
@@ -10101,7 +10103,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_mentalquickness.jpg"
+                  src={MentalQuickness}
                   alt=""
                 />
 
@@ -10118,7 +10120,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[35].toolTip[0]}
                   id="36"
@@ -10127,7 +10129,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/ability_hunter_swiftstrike.jpg"
+                  src={WeaponMastery}
                   alt=""
                 />
 
@@ -10144,7 +10146,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[36].toolTip[0]}
                   id="37"
@@ -10153,7 +10155,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/ability_dualwieldspecialization.jpg"
+                  src={DualWieldSpecialization}
                   alt=""
                 />
 
@@ -10168,7 +10170,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[37].toolTip[0]}
                   id="38"
@@ -10177,7 +10179,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/ability_dualwield.jpg"
+                  src={DualWield}
                   alt=""
                 />
 
@@ -10186,7 +10188,7 @@ class ShamanComponent extends Component {
                 </span>
                 <img
                   className="leftArrow"
-                  src="assets/images/LeftSilverSmall.png"
+                  src={LeftSilverSmall}
                   alt=""
                   id="arrwReq4Spec2"
                 />
@@ -10200,7 +10202,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[38].toolTip[0]}
                   id="39"
@@ -10209,7 +10211,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/ability_shaman_stormstrike.jpg"
+                  src={Stormstrike}
                   alt=""
                 />
 
@@ -10230,7 +10232,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[39].toolTip[0]}
                   id="40"
@@ -10239,7 +10241,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_unleashedrage.jpg"
+                  src={UnleashedRage}
                   alt=""
                 />
 
@@ -10262,7 +10264,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[40].toolTip[0]}
                   id="41"
@@ -10271,7 +10273,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_shamanrage.jpg"
+                  src={ShamanisticRage}
                   alt=""
                 />
 
@@ -10285,9 +10287,10 @@ class ShamanComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Shaman/Background/Restoration.jpg)"
+              backgroundImage: `url(${spec3BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
             <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Restoration</h5>
@@ -10302,7 +10305,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[41].toolTip[0]}
                   id="42"
@@ -10311,7 +10314,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_magicimmunity.jpg"
+                  src={ImprovedHealingWave}
                   alt=""
                 />
 
@@ -10326,7 +10329,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[42].toolTip[0]}
                   id="43"
@@ -10335,7 +10338,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_frost_manarecharge.jpg"
+                  src={TidalFocus}
                   alt=""
                 />
 
@@ -10353,7 +10356,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[43].toolTip[0]}
                   id="44"
@@ -10362,7 +10365,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_reincarnation.jpg"
+                  src={ImprovedReincarnation}
                   alt=""
                 />
 
@@ -10377,7 +10380,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[44].toolTip[0]}
                   id="45"
@@ -10386,7 +10389,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_undyingstrength.jpg"
+                  src={AncestralHealing}
                   alt=""
                 />
 
@@ -10401,7 +10404,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[45].toolTip[0]}
                   id="46"
@@ -10410,7 +10413,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_moonglow.jpg"
+                  src={TotemicFocus}
                   alt=""
                 />
 
@@ -10428,7 +10431,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[46].toolTip[0]}
                   id="47"
@@ -10437,7 +10440,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_frost_stun.jpg"
+                  src={NaturesGuidance}
                   alt=""
                 />
 
@@ -10452,7 +10455,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[47].toolTip[0]}
                   id="48"
@@ -10461,7 +10464,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_healingwavelesser.jpg"
+                  src={HealingFocus}
                   alt=""
                 />
 
@@ -10476,7 +10479,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[48].toolTip[0]}
                   id="49"
@@ -10485,7 +10488,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_nullward.jpg"
+                  src={TotemicMastery}
                   alt=""
                 />
 
@@ -10503,7 +10506,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[49].toolTip[0]}
                   id="50"
@@ -10512,7 +10515,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_healingtouch.jpg"
+                  src={HealingGrace}
                   alt=""
                 />
 
@@ -10533,7 +10536,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[50].toolTip[0]}
                   id="51"
@@ -10542,14 +10545,14 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_manaregentotem.jpg"
+                  src={RestorativeTotems}
                   alt=""
                 />
 
                 <span id="subsReq1Spec3" className="talentPoints req-15-s3">0/5</span>
                 <img
                   className="lgArrowPaladin"
-                  src="assets/images/DownSilverLarge.png"
+                  src={DownSilverLarge}
                   alt=""
                   id="arrwReq1Spec3"
                 />
@@ -10563,7 +10566,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[51].toolTip[0]}
                   id="52"
@@ -10572,7 +10575,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_tranquility.jpg"
+                  src={TidalMastery}
                   alt=""
                 />
 
@@ -10591,7 +10594,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[52].toolTip[0]}
                   id="53"
@@ -10600,7 +10603,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/classic_spell_nature_healingway.jpg"
+                  src={HealingWay}
                   alt=""
                 />
 
@@ -10616,7 +10619,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[53].toolTip[0]}
                   id="54"
@@ -10625,7 +10628,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_ravenform.jpg"
+                  src={NaturesSwiftness}
                   alt=""
                 />
 
@@ -10643,7 +10646,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[54].toolTip[0]}
                   id="55"
@@ -10652,7 +10655,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_focusedmind.jpg"
+                  src={FocusedMind}
                   alt=""
                 />
 
@@ -10674,7 +10677,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[55].toolTip[0]}
                   id="56"
@@ -10683,7 +10686,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_frost_wizardmark.jpg"
+                  src={Purification}
                   alt=""
                 />
 
@@ -10702,7 +10705,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[56].toolTip[0]}
                   id="57"
@@ -10711,7 +10714,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_frost_summonwaterelemental.jpg"
+                  src={ManaTideTotem}
                   alt=""
                 />
 
@@ -10728,7 +10731,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[57].toolTip[0]}
                   id="58"
@@ -10737,7 +10740,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_natureguardian.jpg"
+                  src={NaturesGuardian}
                   alt=""
                 />
 
@@ -10756,7 +10759,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[58].toolTip[0]}
                   id="59"
@@ -10765,7 +10768,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_natureblessing.jpg"
+                  src={NaturesBlessing}
                   alt=""
                 />
 
@@ -10774,7 +10777,7 @@ class ShamanComponent extends Component {
                 </span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq2Spec3"
                 />
@@ -10788,7 +10791,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[59].toolTip[0]}
                   id="60"
@@ -10797,7 +10800,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_healingwavegreater.jpg"
+                  src={ImprovedChainHeal}
                   alt=""
                 />
 
@@ -10818,7 +10821,7 @@ class ShamanComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[60].toolTip[0]}
                   id="61"
@@ -10827,7 +10830,7 @@ class ShamanComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_skinofearth.jpg"
+                  src={EarthShield}
                   alt=""
                 />
 

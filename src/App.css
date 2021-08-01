@@ -159,10 +159,10 @@
 .angleArrow {
   position: absolute;
   z-index: 1;
-  width: 4.5rem;
-  height: 3.3rem;
+  width: 3.95rem;
+  height: 3.4rem;
   top: 45%;
-  left: 74%;
+  left: 76%;
 }
 
 .leftArrow {
