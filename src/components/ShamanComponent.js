@@ -156,6 +156,15 @@ class ShamanComponent extends Component {
     switch (toolTipChecker.innerText[2]) {
       case "1":
         switch (toolTipChecker.innerText) {
+          case "0/1":
+            //Assign variable the value of the first element in tooltip array
+            toolTipSelector = toolTipStepper.toolTip[0];
+            // Get Element by the ID and set it's tooltip to the correct element in the array
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
           case "1/1":
             //Assign variable the value of the first element in tooltip array
             toolTipSelector = toolTipStepper.toolTip[1];
@@ -170,14 +179,14 @@ class ShamanComponent extends Component {
         break;
       case "2":
         switch (toolTipChecker.innerText) {
-          case "1/2":
+          case "0/2":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/2":
+          case "1/2":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
@@ -189,21 +198,21 @@ class ShamanComponent extends Component {
         break;
       case "3":
         switch (toolTipChecker.innerText) {
-          case "1/3":
+          case "0/3":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/3":
+          case "1/3":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "3/3":
+          case "2/3":
             toolTipSelector = toolTipStepper.toolTip[2];
             document
               .getElementById(toolTipIDChecker)
@@ -215,28 +224,28 @@ class ShamanComponent extends Component {
         break;
       case "4":
         switch (toolTipChecker.innerText) {
-          case "1/4":
+          case "0/4":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/4":
+          case "1/4":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "3/4":
+          case "2/4":
             toolTipSelector = toolTipStepper.toolTip[2];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "4/4":
+          case "3/4":
             toolTipSelector = toolTipStepper.toolTip[3];
             document
               .getElementById(toolTipIDChecker)
@@ -248,36 +257,43 @@ class ShamanComponent extends Component {
         break;
       case "5":
         switch (toolTipChecker.innerText) {
-          case "1/5":
+          case "0/5":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/5":
+          case "1/5":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "3/5":
+          case "2/5":
             toolTipSelector = toolTipStepper.toolTip[2];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "4/5":
+          case "3/5":
             toolTipSelector = toolTipStepper.toolTip[3];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "5/5":
+          case "4/5":
             toolTipSelector = toolTipStepper.toolTip[4];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "5/5":
+            toolTipSelector = toolTipStepper.toolTip[5];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
