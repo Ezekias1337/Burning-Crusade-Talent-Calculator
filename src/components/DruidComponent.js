@@ -2,7 +2,12 @@ import { contains } from "jquery";
 import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Druid } from "../talentinfo/Druid";
-
+import spec1BG from "../images/talents/Druid/Background/Balance.jpg"
+import spec2BG from "../images/talents/Druid/Background/FeralCombat.jpg"
+import spec3BG from "../images/talents/Druid/Background/Restoration.jpg"
+import spec1Logo from "../images/talents/Druid/Spec1Logo.jpg"
+import spec2Logo from "../images/talents/Druid/Spec2Logo.jpg"
+import spec3Logo from "../images/talents/Druid/Spec3Logo.jpg"
 /* 
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
 Things to update across all components
@@ -37,6 +42,75 @@ import RightGoldSmall from "../images/RightGoldSmall.png"
 
 import AngleArrowSilver from "../images/AngleArrowSilver.png"
 import AngleArrowGold from "../images/AngleArrowGold.png"
+
+//spec1
+import BalanceOfPower from '../images/talents/Druid/Progression/spec1/BalanceOfPower.jpg';
+import Dreamstate from '../images/talents/Druid/Progression/spec1/Dreamstate.jpg';
+import ImprovedMoonfire from '../images/talents/Druid/Progression/spec1/ImprovedMoonfire.jpg';
+import Moonfury from '../images/talents/Druid/Progression/spec1/Moonfury.jpg';
+import NaturesReach from '../images/talents/Druid/Progression/spec1/NaturesReach.jpg';
+import Brambles from '../images/talents/Druid/Progression/spec1/Brambles.jpg';
+import FocusedStarlight from '../images/talents/Druid/Progression/spec1/FocusedStarlight.jpg';
+import InsectSwarm from '../images/talents/Druid/Progression/spec1/InsectSwarm.jpg';
+import MoonkinForm from '../images/talents/Druid/Progression/spec1/MoonkinForm.jpg';
+import CelestialFocus from '../images/talents/Druid/Progression/spec1/CelestialFocus.jpg';
+import ForceOfNature from '../images/talents/Druid/Progression/spec1/ForceOfNature.jpg';
+import LunarGuidance from '../images/talents/Druid/Progression/spec1/LunarGuidance.jpg';
+import NaturesGrace from '../images/talents/Druid/Progression/spec1/NaturesGrace.jpg';
+import Vengeance from '../images/talents/Druid/Progression/spec1/Vengeance.jpg';
+import ControlOfNature from '../images/talents/Druid/Progression/spec1/ControlOfNature.jpg';
+import ImprovedFaerieFire from '../images/talents/Druid/Progression/spec1/ImprovedFaerieFire.jpg';
+import MoonGlow from '../images/talents/Druid/Progression/spec1/MoonGlow.jpg';
+import NaturesGrasp from '../images/talents/Druid/Progression/spec1/NaturesGrasp.jpg';
+import WrathOfCenarius from '../images/talents/Druid/Progression/spec1/WrathOfCenarius.jpg';
+import StarlightWrath from '../images/talents/Druid/Progression/spec1/StarlightWrath.jpg';
+
+
+//spec2
+
+import BrutalImpact from '../images/talents/Druid/Progression/spec2/BrutalImpact.jpg';
+import FeralSwiftness from '../images/talents/Druid/Progression/spec2/FeralSwiftness.jpg';
+import NurturingInstinct from '../images/talents/Druid/Progression/spec2/NurturingInstinct.jpg';
+import SavageFury from '../images/talents/Druid/Progression/spec2/SavageFury.jpg';
+import FaerieFireFeral from '../images/talents/Druid/Progression/spec2/FaerieFire(Feral).jpg';
+import Ferocity from '../images/talents/Druid/Progression/spec2/Ferocity.jpg';
+import PredatoryInstincts from '../images/talents/Druid/Progression/spec2/PredatoryInstincts.jpg';
+import SharpenedClaws from '../images/talents/Druid/Progression/spec2/SharpenedClaws.jpg';
+import FeralAggression from '../images/talents/Druid/Progression/spec2/FeralAggression.jpg';
+import HeartOfTheWild from '../images/talents/Druid/Progression/spec2/HeartOfTheWild.jpg';
+import PredatoryStrikes from '../images/talents/Druid/Progression/spec2/PredatoryStrikes.jpg';
+import ShreddingAttacks from '../images/talents/Druid/Progression/spec2/ShreddingAttacks.jpg';
+import FeralCharge from '../images/talents/Druid/Progression/spec2/FeralCharge.jpg';
+import LeaderOfThePack from '../images/talents/Druid/Progression/spec2/LeaderOfThePack.jpg';
+import PrimalFury from '../images/talents/Druid/Progression/spec2/PrimalFury.jpg';
+import SurvivalOfTheFittest from '../images/talents/Druid/Progression/spec2/SurvivalOfTheFittest.jpg';
+import FeralInstinct from '../images/talents/Druid/Progression/spec2/FeralInstinct.jpg';
+import Mangle from '../images/talents/Druid/Progression/spec2/Mangle.jpg';
+import PrimalTenacity from '../images/talents/Druid/Progression/spec2/PrimalTenacity.jpg';
+import ThickHide from '../images/talents/Druid/Progression/spec2/ThickHide.jpg';
+
+//spec3
+
+import EmpoweredRejuvenation from '../images/talents/Druid/Progression/spec3/EmpoweredRejuvenation.jpg';
+import ImprovedRegrowth from '../images/talents/Druid/Progression/spec3/ImprovedRegrowth.jpg';
+import NaturalPerfection from '../images/talents/Druid/Progression/spec3/NaturalPerfection.jpg';
+import OmenOfClarity from '../images/talents/Druid/Progression/spec3/OmenOfClarity.jpg';
+import Empoweredtouch from '../images/talents/Druid/Progression/spec3/Empoweredtouch.jpg';
+import ImprovedRejuvenation from '../images/talents/Druid/Progression/spec3/ImprovedRejuvenation.jpg';
+import NaturalShapeshifter from '../images/talents/Druid/Progression/spec3/NaturalShapeshifter.jpg';
+import Subtlety from '../images/talents/Druid/Progression/spec3/Subtlety.jpg';
+import Furor from '../images/talents/Druid/Progression/spec3/Furor.jpg';
+import ImprovedTranquility from '../images/talents/Druid/Progression/spec3/ImprovedTranquility.jpg';
+import Naturalist from '../images/talents/Druid/Progression/spec3/Naturalist.jpg';
+import Swiftmend from '../images/talents/Druid/Progression/spec3/Swiftmend.jpg';
+import GiftOfNature from '../images/talents/Druid/Progression/spec3/GiftOfNature.jpg';
+import Intensity from '../images/talents/Druid/Progression/spec3/Intensity.jpg';
+import NaturesFocus from '../images/talents/Druid/Progression/spec3/NaturesFocus.jpg';
+import TranquilSpirit from '../images/talents/Druid/Progression/spec3/TranquilSpirit.jpg';
+import ImprovedMarkOfTheWild from '../images/talents/Druid/Progression/spec3/ImprovedMarkOfTheWild.jpg';
+import LivingSpirit from '../images/talents/Druid/Progression/spec3/LivingSpirit.jpg';
+import NaturesSwiftness from '../images/talents/Druid/Progression/spec3/NaturesSwiftness.jpg';
+import TreeOfLife from '../images/talents/Druid/Progression/spec3/TreeOfLife.jpg';
 
 
 //(Adjust section at line 6065)
@@ -107,6 +181,13 @@ class DruidComponent extends Component {
               .setAttribute("data-tip", toolTipSelector);
 
             break;
+          case "2/2":
+            toolTipSelector = toolTipStepper.toolTip[2];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
         }
 
         break;
@@ -128,6 +209,13 @@ class DruidComponent extends Component {
             break;
           case "2/3":
             toolTipSelector = toolTipStepper.toolTip[2];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "3/3":
+            toolTipSelector = toolTipStepper.toolTip[3];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -173,7 +261,6 @@ class DruidComponent extends Component {
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          
         }
 
         break;
@@ -9112,33 +9199,34 @@ class DruidComponent extends Component {
         >
           Reset
         </button>
-        <div style={{ maxWidth: "1150px" }} className="row">
-          <div className="col">
-            <h5 style={{ color: "#e1eef4" }} id="point-counter1">
+        <div className="row">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
+            <h5  style={{ color: "#e1eef4" }} id="point-counter1">
               Spec 1: 0
             </h5>
           </div>
-          <div className="col">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
             <h5 style={{ color: "#e1eef4" }} id="point-counter2">
               Spec 2: 0
             </h5>
           </div>
-          <div className="col">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
             <h5 style={{ color: "#e1eef4" }} id="point-counter3">
               Spec 3: 0
             </h5>
           </div>
         </div>
 
-        <div className="row talent-frame ml-3 mr-3">
+        <div className="row ml-3 mr-3 mb-3">
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Druid/Background/Balance.jpg)"
+              backgroundImage: `url(${spec1BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1">Balance</h5>
+            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Balance</h5>
             <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
                 <img
@@ -9149,7 +9237,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[0].toolTip[0]}
                   id="1"
@@ -9158,7 +9246,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_abolishmagic.jpg"
+                  src={StarlightWrath}
                   alt=""
                 />
 
@@ -9173,7 +9261,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[1].toolTip[0]}
                   id="2"
@@ -9182,14 +9270,14 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_natureswrath.jpg"
+                  src={NaturesGrasp}
                   alt=""
                 />
 
                 <span id="subsReq1Spec1" className="talentPoints req-00-s1">0/1</span>
                 <img
                   className="rightArrow"
-                  src="assets/images/RightSilverSmall.png"
+                  src={RightSilverSmall}
                   alt=""
                   id="arrwReq1Spec1"
                 />
@@ -9203,7 +9291,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[2].toolTip[0]}
                   id="3"
@@ -9212,7 +9300,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_natureswrath.jpg"
+                  src={NaturesGrasp}
                   alt=""
                 />
 
@@ -9230,7 +9318,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[3].toolTip[0]}
                   id="4"
@@ -9239,7 +9327,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_stranglevines.jpg"
+                  src={ControlOfNature}
                   alt=""
                 />
 
@@ -9254,7 +9342,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[4].toolTip[0]}
                   id="5"
@@ -9263,14 +9351,14 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/inv_staff_01.jpg"
+                  src={FocusedStarlight}
                   alt=""
                 />
 
                 <span id="subsReq2Spec1" className="talentPoints req-05-s1">0/2</span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq2Spec1"
                 />
@@ -9284,7 +9372,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[5].toolTip[0]}
                   id="6"
@@ -9293,7 +9381,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_starfall.jpg"
+                  src={ImprovedMoonfire}
                   alt=""
                 />
 
@@ -9314,7 +9402,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[6].toolTip[0]}
                   id="7"
@@ -9323,7 +9411,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_thorns.jpg"
+                  src={Brambles}
                   alt=""
                 />
 
@@ -9339,7 +9427,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[7].toolTip[0]}
                   id="8"
@@ -9348,7 +9436,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_insectswarm.jpg"
+                  src={InsectSwarm}
                   alt=""
                 />
 
@@ -9364,7 +9452,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[8].toolTip[0]}
                   id="9"
@@ -9373,7 +9461,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_naturetouchgrow.jpg"
+                  src={NaturesReach}
                   alt=""
                 />
 
@@ -9392,7 +9480,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[9].toolTip[0]}
                   id="10"
@@ -9401,7 +9489,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_purge.jpg"
+                  src={Vengeance}
                   alt=""
                 />
 
@@ -9416,7 +9504,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[10].toolTip[0]}
                   id="11"
@@ -9425,7 +9513,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/spell_arcane_starfire.jpg"
+                  src={CelestialFocus}
                   alt=""
                 />
 
@@ -9448,7 +9536,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[11].toolTip[0]}
                   id="12"
@@ -9457,7 +9545,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/ability_druid_lunarguidance.jpg"
+                  src={LunarGuidance}
                   alt=""
                 />
 
@@ -9472,7 +9560,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[12].toolTip[0]}
                   id="13"
@@ -9481,7 +9569,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_naturesblessing.jpg"
+                  src={NaturesGrace}
                   alt=""
                 />
 
@@ -9490,7 +9578,7 @@ class DruidComponent extends Component {
                 </span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq3Spec1"
                 />
@@ -9505,7 +9593,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[13].toolTip[0]}
                   id="14"
@@ -9514,7 +9602,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_sentinal.jpg"
+                  src={MoonGlow}
                   alt=""
                 />
 
@@ -9535,7 +9623,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[14].toolTip[0]}
                   id="15"
@@ -9544,7 +9632,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_moonglow.jpg"
+                  src={Moonfury}
                   alt=""
                 />
 
@@ -9560,7 +9648,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[15].toolTip[0]}
                   id="16"
@@ -9569,7 +9657,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/ability_druid_balanceofpower.jpg"
+                  src={BalanceOfPower}
                   alt=""
                 />
 
@@ -9589,7 +9677,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[16].toolTip[0]}
                   id="17"
@@ -9598,7 +9686,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/ability_druid_dreamstate.jpg"
+                  src={Dreamstate}
                   alt=""
                 />
 
@@ -9613,7 +9701,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[17].toolTip[0]}
                   id="18"
@@ -9622,7 +9710,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_forceofnature.jpg"
+                  src={MoonkinForm}
                   alt=""
                 />
 
@@ -9643,7 +9731,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[18].toolTip[0]}
                   id="19"
@@ -9652,7 +9740,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/spell_nature_faeriefire.jpg"
+                  src={ImprovedFaerieFire}
                   alt=""
                 />
 
@@ -9672,7 +9760,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[19].toolTip[0]}
                   id="20"
@@ -9681,7 +9769,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/ability_druid_twilightswrath.jpg"
+                  src={WrathOfCenarius}
                   alt=""
                 />
 
@@ -9701,7 +9789,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[20].toolTip[0]}
                   id="21"
@@ -9710,7 +9798,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec1/ability_druid_forceofnature.jpg"
+                  src={ForceOfNature}
                   alt=""
                 />
 
@@ -9724,12 +9812,13 @@ class DruidComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Druid/Background/FeralCombat.jpg)"
+              backgroundImage: `url(${spec2BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2">Feral Combat</h5>
+            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Feral Combat</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9741,7 +9830,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[21].toolTip[0]}
                   id="22"
@@ -9750,7 +9839,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Druid/Progression/spec2/ability_hunter_pet_hyena.jpg"
+                  src={Ferocity}
                   alt=""
                 />
 
@@ -9765,7 +9854,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[22].toolTip[0]}
                   id="23"
@@ -9774,7 +9863,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Druid/Progression/spec2/classic_ability_druid_demoralizingroar.jpg"
+                  src={FeralAggression}
                   alt=""
                 />
 
@@ -9793,7 +9882,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[23].toolTip[0]}
                   id="24"
@@ -9802,7 +9891,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/ability_ambush.jpg"
+                  src={FeralInstinct}
                   alt=""
                 />
 
@@ -9817,7 +9906,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[24].toolTip[0]}
                   id="25"
@@ -9826,7 +9915,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/ability_druid_bash.jpg"
+                  src={BrutalImpact}
                   alt=""
                 />
 
@@ -9841,7 +9930,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[25].toolTip[0]}
                   id="26"
@@ -9850,7 +9939,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/inv_misc_pelt_bear_03.jpg"
+                  src={ThickHide}
                   alt=""
                 />
 
@@ -9869,7 +9958,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[26].toolTip[0]}
                   id="27"
@@ -9878,7 +9967,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/spell_nature_spiritwolf.jpg"
+                  src={FeralSwiftness}
                   alt=""
                 />
 
@@ -9893,7 +9982,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[27].toolTip[0]}
                   id="28"
@@ -9902,7 +9991,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/ability_hunter_pet_bear.jpg"
+                  src={FeralCharge}
                   alt=""
                 />
 
@@ -9917,7 +10006,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[28].toolTip[0]}
                   id="29"
@@ -9926,7 +10015,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/inv_misc_monsterclaw_04.jpg"
+                  src={SharpenedClaws}
                   alt=""
                 />
 
@@ -9935,7 +10024,7 @@ class DruidComponent extends Component {
                 </span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq1Spec2"
                 />
@@ -9953,7 +10042,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[29].toolTip[0]}
                   id="30"
@@ -9962,7 +10051,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/spell_shadow_vampiricaura.jpg"
+                  src={ShreddingAttacks}
                   alt=""
                 />
 
@@ -9977,7 +10066,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[30].toolTip[0]}
                   id="31"
@@ -9986,7 +10075,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/ability_hunter_pet_cat.jpg"
+                  src={PredatoryStrikes}
                   alt=""
                 />
 
@@ -9995,7 +10084,7 @@ class DruidComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq2Spec2"
                 />
@@ -10009,7 +10098,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[31].toolTip[0]}
                   id="32"
@@ -10018,7 +10107,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/ability_racial_cannibalize.jpg"
+                  src={PrimalFury}
                   alt=""
                 />
 
@@ -10036,7 +10125,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[32].toolTip[0]}
                   id="33"
@@ -10045,7 +10134,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/ability_druid_ravage.jpg"
+                  src={SavageFury}
                   alt=""
                 />
 
@@ -10061,7 +10150,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[33].toolTip[0]}
                   id="34"
@@ -10070,7 +10159,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/spell_nature_faeriefire.jpg"
+                  src={FaerieFireFeral}
                   alt=""
                 />
 
@@ -10088,7 +10177,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[34].toolTip[0]}
                   id="35"
@@ -10097,7 +10186,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/ability_druid_healinginstincts.jpg"
+                  src={NurturingInstinct}
                   alt=""
                 />
 
@@ -10119,7 +10208,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[35].toolTip[0]}
                   id="36"
@@ -10128,7 +10217,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/spell_holy_blessingofagility.jpg"
+                  src={HeartOfTheWild}
                   alt=""
                 />
 
@@ -10145,7 +10234,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[36].toolTip[0]}
                   id="37"
@@ -10154,7 +10243,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/ability_druid_enrage.jpg"
+                  src={SurvivalOfTheFittest}
                   alt=""
                 />
 
@@ -10172,7 +10261,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[37].toolTip[0]}
                   id="38"
@@ -10181,7 +10270,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/ability_druid_primaltenacity.jpg"
+                  src={PrimalTenacity}
                   alt=""
                 />
 
@@ -10197,7 +10286,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[38].toolTip[0]}
                   id="39"
@@ -10206,7 +10295,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/spell_nature_unyeildingstamina.jpg"
+                  src={LeaderOfThePack}
                   alt=""
                 />
 
@@ -10215,13 +10304,13 @@ class DruidComponent extends Component {
                 </span>
                 <img
                   className="rightArrow"
-                  src="assets/images/RightSilverSmall.png"
+                  src={RightSilverSmall}
                   alt=""
                   id="arrwReq3Spec2"
                 />
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq4Spec2"
                 />
@@ -10235,7 +10324,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[39].toolTip[0]}
                   id="40"
@@ -10244,7 +10333,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/spell_nature_unyeildingstamina.jpg"
+                  src={LeaderOfThePack}
                   alt=""
                 />
 
@@ -10266,7 +10355,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[40].toolTip[0]}
                   id="41"
@@ -10275,7 +10364,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/ability_druid_predatoryinstincts.jpg"
+                  src={PredatoryInstincts}
                   alt=""
                 />
 
@@ -10298,7 +10387,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[41].toolTip[0]}
                   id="42"
@@ -10307,7 +10396,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec2/ability_druid_mangle2.jpg"
+                  src={Mangle}
                   alt=""
                 />
 
@@ -10321,12 +10410,13 @@ class DruidComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Druid/Background/Restoration.jpg)"
+              backgroundImage: `url(${spec3BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3">Restoration</h5>
+            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Restoration</h5>
             <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -10338,7 +10428,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[42].toolTip[0]}
                   id="43"
@@ -10347,7 +10437,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_regeneration.jpg"
+                  src={ImprovedMarkOfTheWild}
                   alt=""
                 />
 
@@ -10362,7 +10452,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[43].toolTip[0]}
                   id="44"
@@ -10371,7 +10461,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Druid/Progression/spec3/spell_holy_blessingofstamina.jpg"
+                  src={Furor}
                   alt=""
                 />
 
@@ -10389,7 +10479,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[44].toolTip[0]}
                   id="45"
@@ -10398,7 +10488,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_healingtouch (1).jpg"
+                  src={Naturalist}
                   alt=""
                 />
 
@@ -10413,7 +10503,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[45].toolTip[0]}
                   id="46"
@@ -10422,7 +10512,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_healingwavegreater.jpg"
+                  src={NaturesFocus}
                   alt=""
                 />
 
@@ -10437,7 +10527,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[46].toolTip[0]}
                   id="47"
@@ -10446,7 +10536,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_wispsplode.jpg"
+                  src={NaturalShapeshifter}
                   alt=""
                 />
 
@@ -10464,7 +10554,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[47].toolTip[0]}
                   id="48"
@@ -10473,14 +10563,14 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/spell_frost_windwalkon.jpg"
+                  src={Intensity}
                   alt=""
                 />
 
                 <span id="subsReq1Spec3" className="talentPoints req-10-s3">0/3</span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq1Spec3"
                 />
@@ -10494,7 +10584,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[48].toolTip[0]}
                   id="49"
@@ -10503,7 +10593,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/ability_eyeoftheowl.jpg"
+                  src={Subtlety}
                   alt=""
                 />
 
@@ -10518,7 +10608,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[49].toolTip[0]}
                   id="50"
@@ -10527,7 +10617,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_crystalball.jpg"
+                  src={OmenOfClarity}
                   alt=""
                 />
 
@@ -10549,7 +10639,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[50].toolTip[0]}
                   id="51"
@@ -10558,7 +10648,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/spell_holy_elunesgrace.jpg"
+                  src={TranquilSpirit}
                   alt=""
                 />
 
@@ -10573,7 +10663,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[51].toolTip[0]}
                   id="52"
@@ -10582,14 +10672,14 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_rejuvenation.jpg"
+                  src={ImprovedRejuvenation}
                   alt=""
                 />
 
                 <span id="subsReq2Spec3" className="talentPoints req-15-s3">0/3</span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq2Spec3"
                 />
@@ -10607,7 +10697,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[52].toolTip[0]}
                   id="53"
@@ -10616,7 +10706,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_ravenform.jpg"
+                  src={NaturesSwiftness}
                   alt=""
                 />
 
@@ -10631,7 +10721,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[53].toolTip[0]}
                   id="54"
@@ -10640,7 +10730,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_protectionformnature.jpg"
+                  src={GiftOfNature}
                   alt=""
                 />
 
@@ -10649,7 +10739,7 @@ class DruidComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq3Spec3"
                 />
@@ -10664,7 +10754,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[54].toolTip[0]}
                   id="55"
@@ -10673,7 +10763,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_tranquility.jpg"
+                  src={ImprovedTranquility}
                   alt=""
                 />
 
@@ -10693,7 +10783,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[55].toolTip[0]}
                   id="56"
@@ -10702,7 +10792,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/ability_druid_empoweredtouch.jpg"
+                  src={Empoweredtouch}
                   alt=""
                 />
 
@@ -10718,7 +10808,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[56].toolTip[0]}
                   id="57"
@@ -10727,7 +10817,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_resistnature.jpg"
+                  src={ImprovedRegrowth}
                   alt=""
                 />
 
@@ -10745,7 +10835,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[57].toolTip[0]}
                   id="58"
@@ -10754,7 +10844,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/spell_nature_giftofthewaterspirit.jpg"
+                  src={LivingSpirit}
                   alt=""
                 />
 
@@ -10769,7 +10859,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[58].toolTip[0]}
                   id="59"
@@ -10778,7 +10868,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/inv_relics_idolofrejuvenation.jpg"
+                  src={Swiftmend}
                   alt=""
                 />
 
@@ -10795,7 +10885,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[59].toolTip[0]}
                   id="60"
@@ -10804,7 +10894,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/ability_druid_naturalperfection.jpg"
+                  src={NaturalPerfection}
                   alt=""
                 />
 
@@ -10823,7 +10913,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[60].toolTip[0]}
                   id="61"
@@ -10832,7 +10922,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/ability_druid_empoweredrejuvination.jpg"
+                  src={EmpoweredRejuvenation}
                   alt=""
                 />
 
@@ -10841,7 +10931,7 @@ class DruidComponent extends Component {
                 </span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq4Spec3"
                 />
@@ -10860,7 +10950,7 @@ class DruidComponent extends Component {
                     this.toolTipFunction();
                   }}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Druid[61].toolTip[0]}
                   id="62"
@@ -10869,7 +10959,7 @@ class DruidComponent extends Component {
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Druid/Progression/spec3/ability_druid_treeoflife.jpg"
+                  src={TreeOfLife}
                   alt=""
                 />
 
