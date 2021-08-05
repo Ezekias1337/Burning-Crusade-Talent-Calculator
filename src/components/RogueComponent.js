@@ -20,8 +20,8 @@ a.) Don't forget Arrows ✔
   e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
 4.) Import Background image for each spec ✔
 5.) Change spec talent frame bootstrap breakpoints ✔
-6.) Update formulas for mobile
-7.) Update HTML for Tooltip
+6.) Update formulas for mobile ✔
+7.) Update HTML for Tooltip ✔
 8.) add mb-3 to talent frame wrapper div ✔
 
 */
@@ -334,6 +334,14 @@ class RogueComponent extends Component {
     }
   }
 
+  displayOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "inline";
+  }
+
+  hideOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "none";
+  }
+
   displayMouseOverlay() {
     if (window.event.target.getElementsByTagName("img")[0]) {
       window.event.target.getElementsByTagName("img")[0].style.display =
@@ -342,7 +350,11 @@ class RogueComponent extends Component {
   }
 
   displayMouseOverlayInnerElement() {
-    window.event.target.previousElementSibling.style.display = "inline";
+    if(window.event.target.previousElementSibling){
+      window.event.target.previousElementSibling.style.display = "inline";
+    }
+    
+
   }
 
   hideMouseOverlay() {
@@ -992,25 +1004,43 @@ class RogueComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
-        }
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
+        } 
 
         switch (arrowSrcSize) {
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
+            break;
+
+          case "left":
+            arrowSrc.src = LeftSilverSmall;
+            break;
+
+          case "right":
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1194,25 +1224,43 @@ class RogueComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
-        }
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
+        } 
 
         switch (arrowSrcSize) {
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
+            break;
+
+          case "left":
+            arrowSrc.src = LeftSilverSmall;
+            break;
+
+          case "right":
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1396,31 +1444,43 @@ class RogueComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
-        } else if (arrowSrc.src.includes("Angle")) {
+        } else if (arrowSrc.className.includes("angle")) {
           arrowSrcSize = "angle";
-        }
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
+        } 
 
         switch (arrowSrcSize) {
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
             break;
 
           case "angle":
-            arrowSrc.src = "assets/images/AngleArrowSilver.png";
+            arrowSrc.src = AngleArrowSilver;
+            break;
+
+          case "left":
+            arrowSrc.src = LeftSilverSmall;
+            break;
+
+          case "right":
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1675,21 +1735,29 @@ class RogueComponent extends Component {
 
     function turnArrowGoldOnClick() {
       function ArrowGold() {
+        if (arrowChecker.includes("angle")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+            AngleArrowGold;
+        }
+        if (arrowChecker.includes("left")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+          LeftGoldSmall;
+        }
+        if (arrowChecker.includes("right")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+          RightGoldSmall;
+        }
         if (arrowChecker.includes("sm")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldSmall.png";
+            DownGoldSmall;
         }
         if (arrowChecker.includes("med")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldMedium.png";
+          DownGoldMedium;
         }
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldLarge.png";
-        }
-        if (arrowChecker.includes("angle")) {
-          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/AngleArrowGold.png";
+          DownGoldLarge;
         }
       }
 
@@ -3983,16 +4051,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4015,16 +4094,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4047,16 +4137,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4078,16 +4179,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4122,16 +4234,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4154,16 +4277,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4186,16 +4320,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4217,16 +4362,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4261,16 +4417,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4293,16 +4460,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4325,16 +4503,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4356,16 +4545,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4400,16 +4600,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4432,16 +4643,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4464,16 +4686,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4495,16 +4728,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4539,16 +4783,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4571,16 +4826,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4603,16 +4869,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4634,16 +4911,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4678,16 +4966,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4710,16 +5009,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4742,16 +5052,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4773,16 +5094,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4817,16 +5149,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4849,16 +5192,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4881,16 +5235,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4912,16 +5277,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4956,16 +5332,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4988,16 +5375,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5020,16 +5418,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5051,16 +5460,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5128,16 +5548,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5160,16 +5591,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5192,16 +5634,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5223,16 +5676,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5267,16 +5731,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5299,16 +5774,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5331,16 +5817,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5362,16 +5859,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5406,16 +5914,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5438,16 +5957,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5470,16 +6000,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5501,16 +6042,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5545,16 +6097,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5577,16 +6140,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5609,16 +6183,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5640,16 +6225,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5684,16 +6280,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5716,16 +6323,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5748,16 +6366,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5779,16 +6408,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5824,16 +6464,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5857,16 +6508,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5889,16 +6551,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5920,16 +6593,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5964,16 +6648,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5996,16 +6691,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6028,16 +6734,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6059,16 +6776,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6103,16 +6831,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6135,16 +6874,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6167,16 +6917,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6199,16 +6960,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6276,19 +7048,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6311,19 +7091,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6346,19 +7134,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6380,19 +7176,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6427,19 +7231,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6462,19 +7274,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6497,19 +7317,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6531,19 +7359,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6578,19 +7414,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6613,19 +7457,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6648,19 +7500,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6728,19 +7588,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6763,19 +7631,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6798,19 +7674,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6832,19 +7716,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6879,19 +7771,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6914,19 +7814,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6949,19 +7857,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -6983,19 +7899,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -7030,19 +7954,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -7065,19 +7997,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -7100,19 +8040,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -7134,19 +8082,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -7181,19 +8137,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -7216,19 +8180,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -7251,19 +8223,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -7285,19 +8265,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -7332,19 +8320,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -7367,19 +8363,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-                case "angleArrow":
-                  arrow.src = "assets/images/AngleArrowGold.png";
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
-
                 default:
                   console.log("No arrow class match");
               }
@@ -7402,16 +8406,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7433,16 +8448,27 @@ class RogueComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7472,6 +8498,13 @@ class RogueComponent extends Component {
     if (window.event.button === 0) {
       //If user tries to add more points to a maxed talent, exit function, preventing user action
       if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
+
+        return
+      }
+
+      //If User tries to add points to a talent that isn't active yet, exit function
+
+      if(window.event.srcElement.nextElementSibling.className.includes("inactive-talent")){
 
         return
       }
@@ -7958,17 +8991,17 @@ class RogueComponent extends Component {
         let arrowSrcSize;
 
         if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
-          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Small")) {
+          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("sm")) {
             arrowSrcSize = "sm";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Medium")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("med")) {
             arrowSrcSize = "med";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Large")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("lg")) {
             arrowSrcSize = "lg";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Left")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("left")) {
             arrowSrcSize = "left";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Right")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("right")) {
             arrowSrcSize = "right";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Angle")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("angle")) {
             arrowSrcSize = "angle";
           }
         }
@@ -7976,27 +9009,27 @@ class RogueComponent extends Component {
         
           switch (arrowSrcSize) {
             case "sm":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverSmall;
               break;
 
             case "med":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverMedium.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverMedium;
               break;
 
             case "lg":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverLarge.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverLarge;
               break;
 
             case "left":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/LeftSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = LeftSilverSmall;
               break;
 
             case "right":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/RightSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = RightSilverSmall;
               break;
 
             case "angle":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/AngleArrowSilver.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = AngleArrowSilver;
               break;
           
         }
@@ -8476,6 +9509,8 @@ class RogueComponent extends Component {
     let smArrowArray = document.querySelectorAll(".smArrow");
     let medArrowArray = document.querySelectorAll(".medArrow");
     let lgArrowArray = document.querySelectorAll(".lgArrow");
+    let leftArrowArray = document.querySelectorAll(".leftArrow");
+    let rightArrowArray = document.querySelectorAll(".rightArrow");
     let angleArrowArray = document.querySelectorAll(".angleArrow");
 
     let spanArrayPotential1 = [];
@@ -8597,16 +9632,22 @@ class RogueComponent extends Component {
     // Iterate through all arrow elements and set them back to silver
 
     for (arrow of smArrowArray) {
-      arrow.src = "assets/images/DownSilverSmall.png";
+      arrow.src = DownSilverSmall;
     }
     for (arrow of medArrowArray) {
-      arrow.src = "assets/images/DownSilverMedium.png";
+      arrow.src = DownSilverMedium;
     }
     for (arrow of lgArrowArray) {
-      arrow.src = "assets/images/DownSilverLarge.png";
+      arrow.src = DownSilverLarge;
     }
-    for (arrow of angleArrowArray){
-      arrow.src = "assets/images/AngleArrowSilver.png";
+    for (arrow of leftArrowArray) {
+      arrow.src = LeftSilverSmall;
+    }
+    for (arrow of rightArrowArray) {
+      arrow.src = RightSilverSmall;
+    }
+    for (arrow of angleArrowArray) {
+      arrow.src = AngleArrowSilver;
     }
 
     //Resets all counter variables to 0/false
@@ -8686,6 +9727,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8695,6 +9737,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
                   src={ImprovedEviscerate}
                   alt=""
@@ -8710,6 +9755,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8719,6 +9765,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
                   src={RemorselessAttacks}
                   alt=""
@@ -8734,6 +9783,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8743,6 +9793,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
                   src={Malice}
                   alt=""
@@ -8767,6 +9820,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8776,6 +9830,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ruthlessness}
                   alt=""
@@ -8791,6 +9848,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8800,6 +9858,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={Murder}
                   alt=""
@@ -8816,6 +9877,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8825,6 +9887,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={PuncturingWounds}
                   alt=""
@@ -8842,6 +9907,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8851,6 +9917,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={RelentlessStrikes}
                   alt=""
@@ -8866,6 +9935,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8875,6 +9945,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ImprovedExposeArmor}
                   alt=""
@@ -8890,6 +9963,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8899,6 +9973,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={Lethality}
                   alt=""
@@ -8918,6 +9995,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8927,6 +10005,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={VilePoisons}
                   alt=""
@@ -8942,6 +10023,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8951,6 +10033,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ImprovedPoisons}
                   alt=""
@@ -8974,6 +10059,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8983,6 +10069,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={FleetFooted}
                   alt=""
@@ -8998,6 +10087,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9007,6 +10097,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ColdBlood}
                   alt=""
@@ -9030,6 +10123,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9039,6 +10133,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ImprovedKidneyShot}
                   alt=""
@@ -9057,6 +10154,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9066,6 +10164,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={QuickRecovery}
                   alt=""
@@ -9085,6 +10186,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9094,6 +10196,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={SealFate}
                   alt=""
@@ -9110,6 +10215,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9119,6 +10225,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={MasterPoisoner}
                   alt=""
@@ -9140,6 +10249,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9149,6 +10259,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={Vigor}
                   alt=""
@@ -9175,6 +10288,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9184,6 +10298,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={DeadenedNerves}
                   alt=""
@@ -9204,6 +10321,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9213,6 +10331,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={FindWeakness}
                   alt=""
@@ -9232,6 +10353,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9241,6 +10363,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={Mutilate}
                   alt=""
@@ -9272,6 +10397,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9281,6 +10407,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
                   src={ImprovedGouge}
                   alt=""
@@ -9296,6 +10425,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9305,6 +10435,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
                   src={ImprovedSinisterStrike}
                   alt=""
@@ -9320,6 +10453,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9329,6 +10463,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
                   src={LightningReflexes}
                   alt=""
@@ -9347,6 +10484,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9356,6 +10494,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ImprovedSliceNDice}
                   alt=""
@@ -9371,6 +10512,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9380,6 +10522,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={Deflection}
                   alt=""
@@ -9401,6 +10546,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9410,6 +10556,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={Precision}
                   alt=""
@@ -9434,6 +10583,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9443,6 +10593,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={Endurance}
                   alt=""
@@ -9458,6 +10611,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9467,6 +10621,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={Riposte}
                   alt=""
@@ -9483,6 +10640,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9492,6 +10650,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ImprovedSprint}
                   alt=""
@@ -9509,6 +10670,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9518,6 +10680,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ImprovedKick}
                   alt=""
@@ -9533,6 +10698,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9542,6 +10708,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={DaggerSpecialization}
                   alt=""
@@ -9557,6 +10726,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9566,6 +10736,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={DualWieldSpecialization}
                   alt=""
@@ -9586,6 +10759,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9595,6 +10769,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={MaceSpecialization}
                   alt=""
@@ -9610,6 +10787,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9619,6 +10797,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={BladeFlurry}
                   alt=""
@@ -9642,6 +10823,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9651,6 +10833,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={SwordSpecialization}
                   alt=""
@@ -9669,6 +10854,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9678,6 +10864,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={FistWeaponSpecialization}
                   alt=""
@@ -9698,6 +10887,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9707,6 +10897,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={BladeTwisting}
                   alt=""
@@ -9722,6 +10915,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9731,6 +10925,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={WeaponExpertise}
                   alt=""
@@ -9747,6 +10944,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9756,6 +10954,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={Aggression}
                   alt=""
@@ -9776,6 +10977,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9785,6 +10987,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={Vitality}
                   alt=""
@@ -9800,6 +11005,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9809,6 +11015,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={AdrenalineRush}
                   alt=""
@@ -9832,6 +11041,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9841,6 +11051,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={NervesOfSteel}
                   alt=""
@@ -9863,6 +11076,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9872,6 +11086,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={CombatPotency}
                   alt=""
@@ -9895,6 +11112,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9904,6 +11122,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={SurpriseAttacks}
                   alt=""
@@ -9936,6 +11157,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9945,6 +11167,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
                   src={MasterOfDeception}
                   alt=""
@@ -9960,6 +11185,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9969,6 +11195,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
                   src={Opportunity}
                   alt=""
@@ -9987,6 +11216,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9996,6 +11226,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={SleightOfHand}
                   alt=""
@@ -10011,6 +11244,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10020,6 +11254,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={DirtyTricks}
                   alt=""
@@ -10035,6 +11272,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10044,6 +11282,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Camouflage}
                   alt=""
@@ -10062,6 +11303,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10071,6 +11313,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Initiative}
                   alt=""
@@ -10086,6 +11331,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10095,6 +11341,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={GhostlyStrike}
                   alt=""
@@ -10110,6 +11359,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10119,6 +11369,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedAmbush}
                   alt=""
@@ -10140,6 +11393,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10149,6 +11403,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Setup}
                   alt=""
@@ -10164,6 +11421,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10173,6 +11431,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Elusiveness}
                   alt=""
@@ -10189,6 +11450,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10198,6 +11460,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={SerratedBlades}
                   alt=""
@@ -10223,6 +11488,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10232,6 +11498,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={HeightenedSenses}
                   alt=""
@@ -10247,6 +11516,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10256,6 +11526,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Preparation}
                   alt=""
@@ -10279,6 +11552,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10288,6 +11562,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={DirtyDeeds}
                   alt=""
@@ -10305,6 +11582,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10314,6 +11592,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Hemorrhage}
                   alt=""
@@ -10333,6 +11614,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10342,6 +11624,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={MasterOfSubtlety}
                   alt=""
@@ -10358,6 +11643,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10367,6 +11653,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Deadliness}
                   alt=""
@@ -10385,6 +11674,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10394,6 +11684,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={EnvelopingShadows}
                   alt=""
@@ -10409,6 +11702,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10418,6 +11712,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Premeditation}
                   alt=""
@@ -10441,6 +11738,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10450,6 +11748,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={CheatDeath}
                   alt=""
@@ -10469,6 +11770,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10478,6 +11780,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={SinisterCalling}
                   alt=""
@@ -10501,6 +11806,7 @@ class RogueComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10510,6 +11816,9 @@ class RogueComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Shadowstep}
                   alt=""

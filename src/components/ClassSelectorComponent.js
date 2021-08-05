@@ -196,7 +196,7 @@ class ClassSelector extends Component {
     const classSelector = this.state.classes.map((playableClass) => {
       return (
         <div
-          className="ml-2 mr-1 col mt-5 hovereffect"
+          className="col mt-5 hovereffect"
           style={{ height: "130px", width: "130px"}}
         >
           <img
@@ -232,7 +232,7 @@ class ClassSelector extends Component {
           <div className="container mx-auto">
             <div className="row">
               <div className="col">
-                <h1 style={{ color: "#e1eef4" }} className="mt-2">
+                <h1 style={{ fontSize: "2rem", fontWeight: "bold", color: "white" }} className="mt-2">
                   Select a Class
                 </h1>
               </div>
@@ -242,7 +242,7 @@ class ClassSelector extends Component {
           <div className="container mx-auto">
             <div className="row">
               <div className="col "></div>
-              <div className="col-12 col-md-6 mb-4 ml-5">{classSelector}</div>
+              <div className="col-12 col-md-6 col-xl-5 mb-4 ml-5">{classSelector}</div>
               <div className="col "></div>
             </div>
           </div>

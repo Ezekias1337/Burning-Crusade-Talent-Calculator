@@ -12,23 +12,23 @@ import spec3Logo from "../images/talents/Hunter/Spec3Logo.jpg"
 /* 
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
 Things to update across all components
-1.) Hardcoded images => Imported Images
-a.) Don't forget Arrows
-2.) Window.event.button[0] to handle left click on inactive talents
-3.) All functions handling Arrows
-  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3)
-  b.) turnArrowGoldOnClick
-  c.) turnArrowGoldIndirectly (s1,s2,s3)
-  d.) window.event.button[2] where code looks at arrows source and subsequent switch
+1.) Hardcoded images => Imported Images ✔
+a.) Don't forget Arrows ✔
+2.) Window.event.button[0] to handle left click on inactive talents ✔
+3.) All functions handling Arrows ✔
+  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3) ✔
+  b.) turnArrowGoldOnClick ✔
+  c.) turnArrowGoldIndirectly (s1,s2,s3) ✔
+  d.) window.event.button[2] where code looks at arrows source and subsequent switch ✔
       in code directly after .nextElementSibling.id.includes("Spec")
-      1.) first if statement (reference classname instead of src)
-      2.) switch directly after (change .src = to reference imported img)
-  e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
-4.) Import Background image for each spec
-5.) Change spec talent frame bootstrap breakpoints
-6.) Update formulas for mobile
-7.) Update HTML for Tooltip
-8.) add mb-3 to talent frame wrapper div
+      1.) first if statement (reference classname instead of src) ✔
+      2.) switch directly after (change .src = to reference imported img) ✔ 
+  e.) Reset Function (the for of loops, don't forget left/right/angle arrow) ✔
+4.) Import Background image for each spec ✔
+5.) Change spec talent frame bootstrap breakpoints ✔
+6.) Update formulas for mobile ✔
+7.) Update HTML for Tooltip ✔
+8.) add mb-3 to talent frame wrapper div ✔
 
 */
 
@@ -1004,7 +1004,13 @@ class HunterComponent extends Component {
           arrowSrcSize = "med";
         } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
-        }
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
+        } 
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1017,6 +1023,18 @@ class HunterComponent extends Component {
 
           case "lg":
             arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
+            break;
+
+          case "left":
+            arrowSrc.src = LeftSilverSmall;
+            break;
+
+          case "right":
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1200,13 +1218,19 @@ class HunterComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("sm")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("med")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("lg")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
-        }
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
+        } 
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1219,6 +1243,18 @@ class HunterComponent extends Component {
 
           case "lg":
             arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
+            break;
+
+          case "left":
+            arrowSrc.src = LeftSilverSmall;
+            break;
+
+          case "right":
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1402,13 +1438,19 @@ class HunterComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("sm")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("med")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("lg")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
-        }
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
+        } 
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1421,6 +1463,18 @@ class HunterComponent extends Component {
 
           case "lg":
             arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
+            break;
+
+          case "left":
+            arrowSrc.src = LeftSilverSmall;
+            break;
+
+          case "right":
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1675,6 +1729,18 @@ class HunterComponent extends Component {
 
     function turnArrowGoldOnClick() {
       function ArrowGold() {
+        if (arrowChecker.includes("angle")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+            AngleArrowGold;
+        }
+        if (arrowChecker.includes("left")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+          LeftGoldSmall;
+        }
+        if (arrowChecker.includes("right")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+          RightGoldSmall;
+        }
         if (arrowChecker.includes("sm")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
             DownGoldSmall;
@@ -3979,6 +4045,15 @@ class HunterComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
                   arrow.src = DownGoldSmall;
                   break;
@@ -3988,7 +4063,9 @@ class HunterComponent extends Component {
                 case "lgArrow":
                   arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7882,6 +7959,8 @@ class HunterComponent extends Component {
             arrowSrcSize = "left";
           } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("right")) {
             arrowSrcSize = "right";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("angle")) {
+            arrowSrcSize = "angle";
           }
         }
         
@@ -7905,6 +7984,10 @@ class HunterComponent extends Component {
 
             case "right":
               window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = RightSilverSmall;
+              break;
+
+            case "angle":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = AngleArrowSilver;
               break;
           
         }
@@ -8384,6 +8467,9 @@ class HunterComponent extends Component {
     let smArrowArray = document.querySelectorAll(".smArrow");
     let medArrowArray = document.querySelectorAll(".medArrow");
     let lgArrowArray = document.querySelectorAll(".lgArrow");
+    let leftArrowArray = document.querySelectorAll(".leftArrow");
+    let rightArrowArray = document.querySelectorAll(".rightArrow");
+    let angleArrowArray = document.querySelectorAll(".angleArrow");
 
     let spanArrayPotential1 = [];
     let spanArrayPotential2 = [];
@@ -8512,6 +8598,15 @@ class HunterComponent extends Component {
     for (arrow of lgArrowArray) {
       arrow.src = DownSilverLarge;
     }
+    for (arrow of leftArrowArray) {
+      arrow.src = LeftSilverSmall;
+    }
+    for (arrow of rightArrowArray) {
+      arrow.src = RightSilverSmall;
+    }
+    for (arrow of angleArrowArray) {
+      arrow.src = AngleArrowSilver;
+    }
 
     //Resets all counter variables to 0/false
     i = 0;
@@ -8575,7 +8670,8 @@ class HunterComponent extends Component {
           <div
             style={{
               backgroundImage: `url(${spec1BG})`,
-              maxWidth: "305px"
+              maxWidth: "350px"
+              
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
@@ -8604,9 +8700,10 @@ class HunterComponent extends Component {
                   onMouseLeave={this.hideMouseOverlay}
                   onTouchStart={() => {
                     this.displayOverlayMobile();
-                    
                   }}
-                  
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
                   src={ImprovedAspectHawk}
                   alt=""
@@ -8622,6 +8719,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8631,6 +8729,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
                   src={EnduranceTraining}
                   alt=""  
@@ -8649,6 +8750,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8658,6 +8760,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={FocusedFire}
                   alt=""
@@ -8673,6 +8778,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8682,6 +8788,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ImprovedAspectMonkey}
                   alt=""
@@ -8697,6 +8806,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8706,6 +8816,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ThickHide}
                   alt=""
@@ -8721,6 +8834,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8730,6 +8844,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ImprovedRevivePet}
                   alt=""
@@ -8747,6 +8864,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8756,6 +8874,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={Pathfinding}
                   alt=""
@@ -8771,6 +8892,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8780,6 +8902,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={BestialSwiftness}
                   alt=""
@@ -8795,6 +8920,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8804,6 +8930,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={UnleashedFury}
                   alt=""
@@ -8823,6 +8952,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8832,6 +8962,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ImprovedMendPet}
                   alt=""
@@ -8847,6 +8980,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8856,6 +8990,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={Ferocity}
                   alt=""
@@ -8884,6 +9021,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8893,6 +9031,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={SpiritBond}
                   alt=""
@@ -8908,6 +9049,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8917,6 +9059,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={Intimidation}
                   alt=""
@@ -8941,6 +9086,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8950,6 +9096,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={BestialDiscipline}
                   alt=""
@@ -8968,6 +9117,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8977,6 +9127,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={AnimalHandler}
                   alt=""
@@ -8993,6 +9146,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9002,6 +9156,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={Frenzy}
                   alt=""
@@ -9022,6 +9179,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9031,6 +9189,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={FerociousInspiration}
                   alt=""
@@ -9046,6 +9207,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9055,6 +9217,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={BestialWrath}
                   alt=""
@@ -9081,6 +9246,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9090,6 +9256,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={CatlikeReflexes}
                   alt=""
@@ -9110,6 +9279,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9119,6 +9289,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={SerpentsSwiftness}
                   alt=""
@@ -9138,6 +9311,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9147,6 +9321,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={TheBeastWithin}
                   alt=""
@@ -9179,6 +9356,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9188,6 +9366,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
                   src={ImprovedConcussiveShot}
                   alt=""
@@ -9203,6 +9384,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9212,6 +9394,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
                   src={LethalShots}
                   alt=""
@@ -9231,6 +9416,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9240,6 +9426,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ImprovedHuntersMark}
                   alt=""
@@ -9255,6 +9444,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9264,6 +9454,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={Efficiency}
                   alt=""
@@ -9282,6 +9475,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9291,6 +9485,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={GoForTheThroat}
                   alt=""
@@ -9306,6 +9503,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9315,6 +9513,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ImprovedArcaneShot}
                   alt=""
@@ -9330,6 +9531,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9339,6 +9541,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={AimedShot}
                   alt=""
@@ -9362,6 +9567,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9371,6 +9577,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={RapidKilling}
                   alt=""
@@ -9389,6 +9598,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9398,6 +9608,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ImprovedStings}
                   alt=""
@@ -9413,6 +9626,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9422,6 +9636,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={MortalShots}
                   alt=""
@@ -9442,6 +9659,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9451,6 +9669,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ConcussiveBarrage}
                   alt=""
@@ -9466,6 +9687,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9475,6 +9697,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ScatterShot}
                   alt=""
@@ -9498,6 +9723,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9507,6 +9733,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={BarrageAndImprovedBarrage}
                   alt=""
@@ -9533,6 +9762,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9542,6 +9772,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={CombatExperience}
                   alt=""
@@ -9559,6 +9792,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9568,6 +9802,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={RangedWeaponSpecialization}
                   alt=""
@@ -9585,6 +9822,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9594,6 +9832,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={CarefulAim}
                   alt=""
@@ -9609,6 +9850,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9618,6 +9860,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={TrueshotAura}
                   alt=""
@@ -9635,6 +9880,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9644,6 +9890,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={BarrageAndImprovedBarrage}
                   alt=""
@@ -9665,6 +9914,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9674,6 +9924,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={MasterMarksman}
                   alt=""
@@ -9702,6 +9955,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9711,6 +9965,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={SilencingShot}
                   alt=""
@@ -9742,6 +9999,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9751,6 +10009,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
                   src={MonsterSlaying}
                   alt=""
@@ -9766,6 +10027,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9775,6 +10037,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
                   src={HumanoidSlaying}
                   alt=""
@@ -9790,6 +10055,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9799,6 +10065,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
                   src={HawkEye}
                   alt=""
@@ -9814,6 +10083,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9823,6 +10093,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
                   src={SavageStrikes}
                   alt=""
@@ -9840,6 +10113,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9849,6 +10123,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Entrapment}
                   alt=""
@@ -9864,6 +10141,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9873,6 +10151,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Deflection}
                   alt=""
@@ -9888,6 +10169,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9897,6 +10179,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedWingClip}
                   alt=""
@@ -9915,6 +10200,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9924,6 +10210,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={CleverTraps}
                   alt=""
@@ -9939,6 +10228,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9948,6 +10238,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Survivalist}
                   alt=""
@@ -9963,6 +10256,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9972,6 +10266,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Deterrence}
                   alt=""
@@ -9998,6 +10295,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10007,6 +10305,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={TrapMastery}
                   alt=""
@@ -10022,6 +10323,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10031,6 +10333,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Surefooted}
                   alt=""
@@ -10047,6 +10352,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10056,6 +10362,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedFeignDeath}
                   alt=""
@@ -10073,6 +10382,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10082,6 +10392,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={SurvivalInstincts}
                   alt=""
@@ -10097,6 +10410,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10106,6 +10420,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={KillerInstinct}
                   alt=""
@@ -10129,6 +10446,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10138,6 +10456,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Counterattack}
                   alt=""
@@ -10158,6 +10479,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10167,6 +10489,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Resourcefulness}
                   alt=""
@@ -10183,6 +10508,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10192,6 +10518,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={LightningReflexes}
                   alt=""
@@ -10210,6 +10539,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10219,6 +10549,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ThrillOfTheHunt}
                   alt=""
@@ -10234,6 +10567,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10243,6 +10577,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={WyvernSting}
                   alt=""
@@ -10260,6 +10597,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10269,6 +10607,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ExposeWeakness}
                   alt=""
@@ -10288,6 +10629,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10297,6 +10639,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={MasterTactician}
                   alt=""
@@ -10325,6 +10670,7 @@ class HunterComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10334,6 +10680,9 @@ class HunterComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Readiness}
                   alt=""

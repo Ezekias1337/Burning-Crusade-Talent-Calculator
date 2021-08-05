@@ -13,16 +13,23 @@ import spec3Logo from "../images/talents/Warrior/Spec3Logo.jpg"
 /* 
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
 Things to update across all components
-1.) Hardcoded images => Imported Images
-a.) Don't forget Arrows
-2.) Window.event.button[0] to handle left click on inactive talents
-3.) All functions handling Arrows
-  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3)
-  b.) turnArrowGoldOnClick
-  c.) turnArrowGoldIndirectly (s1,s2,s3)
-  d.) window.event.button[2] where code looks at arrows source and subsequent switch
-  e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
-4.) Import Background image for each spec
+1.) Hardcoded images => Imported Images ✔
+a.) Don't forget Arrows ✔
+2.) Window.event.button[0] to handle left click on inactive talents ✔
+3.) All functions handling Arrows ✔
+  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3) ✔
+  b.) turnArrowGoldOnClick ✔
+  c.) turnArrowGoldIndirectly (s1,s2,s3) ✔
+  d.) window.event.button[2] where code looks at arrows source and subsequent switch ✔
+      in code directly after .nextElementSibling.id.includes("Spec")
+      1.) first if statement (reference classname instead of src) ✔
+      2.) switch directly after (change .src = to reference imported img) ✔
+  e.) Reset Function (the for of loops, don't forget left/right/angle arrow) ✔
+4.) Import Background image for each spec ✔
+5.) Change spec talent frame bootstrap breakpoints ✔
+6.) Update formulas for mobile ✔
+7.) Update HTML for Tooltip  ✔
+8.) add mb-3 to talent frame wrapper div ✔
 
 */
 
@@ -324,6 +331,14 @@ class WarriorComponent extends Component {
     }
   }
 
+  displayOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "inline";
+  }
+
+  hideOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "none";
+  }
+
   displayMouseOverlay() {
     if (window.event.target.getElementsByTagName("img")[0]) {
       window.event.target.getElementsByTagName("img")[0].style.display =
@@ -332,7 +347,11 @@ class WarriorComponent extends Component {
   }
 
   displayMouseOverlayInnerElement() {
-    window.event.target.previousElementSibling.style.display = "inline";
+    if(window.event.target.previousElementSibling){
+      window.event.target.previousElementSibling.style.display = "inline";
+    }
+    
+
   }
 
   hideMouseOverlay() {
@@ -8574,6 +8593,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8583,6 +8603,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
                   src={ImprovedHeroicStrike}
                   alt=""
@@ -8598,6 +8621,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8607,6 +8631,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
                   src={Deflection}
                   alt=""
@@ -8622,6 +8649,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8631,6 +8659,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
                   src={ImprovedRend}
                   alt=""
@@ -8649,6 +8680,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8658,6 +8690,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ImprovedCharge}
                   alt=""
@@ -8673,6 +8708,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8682,6 +8718,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={IronWill}
                   alt=""
@@ -8697,6 +8736,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8706,6 +8746,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ImprovedThunderClap}
                   alt=""
@@ -8724,6 +8767,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8733,6 +8777,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ImprovedOverpower}
                   alt=""
@@ -8748,6 +8795,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8757,6 +8805,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={AngerManagement}
                   alt=""
@@ -8772,6 +8823,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8781,6 +8833,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={DeepWounds}
                   alt=""
@@ -8806,6 +8861,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8815,6 +8871,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={TwoHandedWeaponSpecialization}
                   alt=""
@@ -8830,6 +8889,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8839,6 +8899,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={Impale}
                   alt=""
@@ -8862,6 +8925,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8871,6 +8935,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={PoleaxeSpecialization}
                   alt=""
@@ -8886,6 +8953,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8895,6 +8963,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={DeathWish}
                   alt=""
@@ -8918,6 +8989,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8927,6 +8999,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={MaceSpecialization}
                   alt=""
@@ -8945,6 +9020,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8954,6 +9030,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={SwordSpecialization}
                   alt=""
@@ -8972,6 +9051,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -8981,6 +9061,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ImprovedIntercept}
                   alt=""
@@ -8997,6 +9080,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9006,6 +9090,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ImprovedHamstring}
                   alt=""
@@ -9023,6 +9110,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9032,6 +9120,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ImprovedDisciplines}
                   alt=""
@@ -9051,6 +9142,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9060,6 +9152,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={BloodFrenzy}
                   alt=""
@@ -9075,6 +9170,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9084,6 +9180,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={MortalStrike}
                   alt=""
@@ -9110,6 +9209,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9119,6 +9219,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={SecondWind}
                   alt=""
@@ -9138,6 +9241,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9147,6 +9251,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={MortalStrike}
                   alt=""
@@ -9167,6 +9274,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9176,6 +9284,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={EndlessRage}
                   alt=""
@@ -9208,6 +9319,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9217,6 +9329,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
                   src={BoomingVoice}
                   alt=""
@@ -9232,6 +9347,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9241,6 +9357,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
                   src={Cruelty}
                   alt=""
@@ -9260,6 +9379,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9269,6 +9389,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ImprovedDemoralizingShout}
                   alt=""
@@ -9284,6 +9407,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9293,6 +9417,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={UnbridledWrath}
                   alt=""
@@ -9311,6 +9438,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9320,6 +9448,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ImprovedCleave}
                   alt=""
@@ -9335,6 +9466,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9344,6 +9476,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={PiercingHowl}
                   alt=""
@@ -9359,6 +9494,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9368,6 +9504,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={BloodCraze}
                   alt=""
@@ -9386,6 +9525,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9395,6 +9535,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={CommandingPresence}
                   alt=""
@@ -9412,6 +9555,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9421,6 +9565,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={DualWieldSpecialization}
                   alt=""
@@ -9436,6 +9583,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9445,6 +9593,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ImprovedExecute}
                   alt=""
@@ -9460,6 +9611,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9469,6 +9621,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={Enrage}
                   alt=""
@@ -9495,6 +9650,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9504,6 +9660,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ImprovedSlam}
                   alt=""
@@ -9519,6 +9678,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9528,6 +9688,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={SweepingStrikes}
                   alt=""
@@ -9552,6 +9715,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9561,6 +9725,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={WeaponMastery}
                   alt=""
@@ -9582,6 +9749,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9591,6 +9759,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ImprovedBerserkerRage}
                   alt=""
@@ -9607,6 +9778,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9616,6 +9788,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={Flurry}
                   alt=""
@@ -9635,6 +9810,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9644,6 +9820,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={Precision}
                   alt=""
@@ -9659,6 +9838,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9668,6 +9848,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={Bloodthirst}
                   alt=""
@@ -9691,6 +9874,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9700,6 +9884,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ImprovedWhirlwind}
                   alt=""
@@ -9722,6 +9909,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9731,6 +9919,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ImprovedBerserkerStance}
                   alt=""
@@ -9754,6 +9945,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9763,6 +9955,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={Rampage}
                   alt=""
@@ -9794,6 +9989,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9803,6 +9999,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
                   src={ImprovedBloodRage}
                   alt=""
@@ -9818,6 +10017,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9827,6 +10027,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
                   src={TacticalMastery}
                   alt=""
@@ -9842,6 +10045,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9851,6 +10055,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
                   src={Anticipation}
                   alt=""
@@ -9870,6 +10077,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9879,6 +10087,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ShieldSpecialization}
                   alt=""
@@ -9900,6 +10111,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9909,6 +10121,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Toughness}
                   alt=""
@@ -9927,6 +10142,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9936,6 +10152,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={LastStand}
                   alt=""
@@ -9951,6 +10170,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9960,6 +10180,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedShieldBlock}
                   alt=""
@@ -9975,6 +10198,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9984,6 +10208,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedRevenge}
                   alt=""
@@ -10002,6 +10229,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10011,6 +10239,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Defiance}
                   alt=""
@@ -10031,6 +10262,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10040,6 +10272,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedSunderArmor}
                   alt=""
@@ -10055,6 +10290,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10064,6 +10300,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedDisarm}
                   alt=""
@@ -10079,6 +10318,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10088,6 +10328,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedTaunt}
                   alt=""
@@ -10106,6 +10349,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10115,6 +10359,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedShieldWall}
                   alt=""
@@ -10130,6 +10377,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10139,6 +10387,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ConcussionBlow}
                   alt=""
@@ -10162,6 +10413,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10171,6 +10423,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedShieldBash}
                   alt=""
@@ -10191,6 +10446,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10200,6 +10456,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ShieldMastery}
                   alt=""
@@ -10216,6 +10475,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10225,6 +10485,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={OneHandedWeaponSpecialization}
                   alt=""
@@ -10243,6 +10506,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10252,6 +10516,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedDefensiveStance}
                   alt=""
@@ -10267,6 +10534,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10276,6 +10544,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ShieldSlam}
                   alt=""
@@ -10293,6 +10564,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10302,6 +10574,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={FocusedRage}
                   alt=""
@@ -10321,6 +10596,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10330,6 +10606,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Vitality}
                   alt=""
@@ -10353,6 +10632,7 @@ class WarriorComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10362,6 +10642,9 @@ class WarriorComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Devastate}
                   alt=""

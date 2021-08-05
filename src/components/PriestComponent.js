@@ -20,8 +20,8 @@ a.) Don't forget Arrows ✔
   e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
 4.) Import Background image for each spec ✔
 5.) Change spec talent frame bootstrap breakpoints ✔
-6.) Update formulas for mobile
-7.) Update HTML for Tooltip
+6.) Update formulas for mobile ✔
+7.) Update HTML for Tooltip ✔
 8.) add mb-3 to talent frame wrapper div ✔
 
 */
@@ -338,6 +338,14 @@ class PriestComponent extends Component {
     }
   }
 
+  displayOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "inline";
+  }
+
+  hideOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "none";
+  }
+
   displayMouseOverlay() {
     if (window.event.target.getElementsByTagName("img")[0]) {
       window.event.target.getElementsByTagName("img")[0].style.display =
@@ -346,7 +354,11 @@ class PriestComponent extends Component {
   }
 
   displayMouseOverlayInnerElement() {
-    window.event.target.previousElementSibling.style.display = "inline";
+    if(window.event.target.previousElementSibling){
+      window.event.target.previousElementSibling.style.display = "inline";
+    }
+    
+
   }
 
   hideMouseOverlay() {
@@ -1002,43 +1014,43 @@ class PriestComponent extends Component {
       }
 
       function arrowSizeParse() {
-        
-        if (arrowSrc.src.includes("Left")) {
-          arrowSrcSize = "left";
-        } else if (arrowSrc.src.includes("Right")) {
-          arrowSrcSize = "right";
-          console.log(arrowSrc)
-        } else if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-          console.log(arrowSrc)
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
         } 
 
-        console.log("arrowSrcSize", arrowSrcSize)
-
         switch (arrowSrcSize) {
-          
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
             break;
 
           case "left":
-            arrowSrc.src = "assets/images/LeftSilverSmall.png";
+            arrowSrc.src = LeftSilverSmall;
             break;
 
           case "right":
-            arrowSrc.src = "assets/images/RightSilverSmall.png";
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1244,43 +1256,43 @@ class PriestComponent extends Component {
       }
 
       function arrowSizeParse() {
-        
-        if (arrowSrc.src.includes("Left")) {
-          arrowSrcSize = "left";
-        } else if (arrowSrc.src.includes("Right")) {
-          arrowSrcSize = "right";
-          console.log(arrowSrc)
-        } else if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-          console.log(arrowSrc)
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
         } 
 
-        console.log("arrowSrcSize", arrowSrcSize)
-
         switch (arrowSrcSize) {
-          
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
             break;
 
           case "left":
-            arrowSrc.src = "assets/images/LeftSilverSmall.png";
+            arrowSrc.src = LeftSilverSmall;
             break;
 
           case "right":
-            arrowSrc.src = "assets/images/RightSilverSmall.png";
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1490,43 +1502,43 @@ class PriestComponent extends Component {
       }
 
       function arrowSizeParse() {
-        
-        if (arrowSrc.src.includes("Left")) {
-          arrowSrcSize = "left";
-        } else if (arrowSrc.src.includes("Right")) {
-          arrowSrcSize = "right";
-          console.log(arrowSrc)
-        } else if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-          console.log(arrowSrc)
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
         } 
 
-        console.log("arrowSrcSize", arrowSrcSize)
-
         switch (arrowSrcSize) {
-          
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
             break;
 
           case "left":
-            arrowSrc.src = "assets/images/LeftSilverSmall.png";
+            arrowSrc.src = LeftSilverSmall;
             break;
 
           case "right":
-            arrowSrc.src = "assets/images/RightSilverSmall.png";
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1782,25 +1794,29 @@ class PriestComponent extends Component {
 
     function turnArrowGoldOnClick() {
       function ArrowGold() {
-        if (arrowChecker.includes("sm")) {
+        if (arrowChecker.includes("angle")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldSmall.png";
-        }
-        if (arrowChecker.includes("med")) {
-          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldMedium.png";
-        }
-        if (arrowChecker.includes("lg")) {
-          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldLarge.png";
+            AngleArrowGold;
         }
         if (arrowChecker.includes("left")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/LeftGoldSmall.png";
+          LeftGoldSmall;
         }
         if (arrowChecker.includes("right")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/RightGoldSmall.png";
+          RightGoldSmall;
+        }
+        if (arrowChecker.includes("sm")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+            DownGoldSmall;
+        }
+        if (arrowChecker.includes("med")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+          DownGoldMedium;
+        }
+        if (arrowChecker.includes("lg")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+          DownGoldLarge;
         }
       }
 
@@ -4117,20 +4133,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4154,20 +4176,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4191,20 +4219,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4227,20 +4261,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4276,20 +4316,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4313,20 +4359,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4350,20 +4402,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4386,20 +4444,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4435,20 +4499,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4472,20 +4542,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4509,20 +4585,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4545,20 +4627,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4594,20 +4682,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4631,20 +4725,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4668,20 +4768,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4704,20 +4810,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4753,20 +4865,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4790,20 +4908,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4827,20 +4951,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4863,20 +4993,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4912,20 +5048,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4949,20 +5091,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4986,20 +5134,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5022,20 +5176,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5071,20 +5231,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5108,20 +5274,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5145,20 +5317,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5181,20 +5359,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5230,20 +5414,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5267,20 +5457,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5304,20 +5500,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5340,20 +5542,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5422,20 +5630,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5459,20 +5673,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5496,20 +5716,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5532,20 +5758,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5581,20 +5813,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5618,20 +5856,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5655,20 +5899,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5691,20 +5941,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5740,20 +5996,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5777,20 +6039,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5814,20 +6082,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5850,20 +6124,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5899,20 +6179,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5936,20 +6222,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5973,20 +6265,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6009,20 +6307,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6058,20 +6362,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6095,20 +6405,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6132,20 +6448,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6168,20 +6490,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6218,20 +6546,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6256,20 +6590,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6293,20 +6633,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6329,20 +6675,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6378,20 +6730,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6415,20 +6773,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6452,20 +6816,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6488,20 +6858,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6537,20 +6913,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6574,20 +6956,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6611,20 +6999,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6648,20 +7042,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6730,20 +7130,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6767,20 +7173,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6804,20 +7216,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6840,20 +7258,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6889,20 +7313,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6926,20 +7356,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6963,20 +7399,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6999,20 +7441,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7048,20 +7496,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7085,20 +7539,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7122,20 +7582,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7158,20 +7624,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7207,20 +7679,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7244,20 +7722,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7281,20 +7765,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7317,20 +7807,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7404,20 +7900,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7441,20 +7943,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7477,20 +7985,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7526,20 +8040,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7563,20 +8083,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7600,20 +8126,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7636,20 +8168,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7685,20 +8223,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7722,20 +8266,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7759,20 +8309,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7795,20 +8351,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7844,20 +8406,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7881,20 +8449,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7918,20 +8492,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7954,20 +8534,26 @@ class PriestComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7998,6 +8584,13 @@ class PriestComponent extends Component {
     if (window.event.button === 0) {
       //If user tries to add more points to a maxed talent, exit function, preventing user action
       if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
+
+        return
+      }
+
+      //If User tries to add points to a talent that isn't active yet, exit function
+
+      if(window.event.srcElement.nextElementSibling.className.includes("inactive-talent")){
 
         return
       }
@@ -8481,41 +9074,47 @@ class PriestComponent extends Component {
         let arrowSrcSize;
 
         if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
-          
-          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Left")) {
-            arrowSrcSize = "left";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Right")) {
-            arrowSrcSize = "right";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Small")) {
+          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("sm")) {
             arrowSrcSize = "sm";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Medium")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("med")) {
             arrowSrcSize = "med";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Large")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("lg")) {
             arrowSrcSize = "lg";
-          } 
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("left")) {
+            arrowSrcSize = "left";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("right")) {
+            arrowSrcSize = "right";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("angle")) {
+            arrowSrcSize = "angle";
+          }
         }
         
         
           switch (arrowSrcSize) {
-            case "left":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/LeftSilverSmall.png";
-              break;
-
-            case "right":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/RightSilverSmall.png";
-              break;
-            
             case "sm":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverSmall;
               break;
 
             case "med":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverMedium.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverMedium;
               break;
 
             case "lg":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverLarge.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverLarge;
               break;
+
+            case "left":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = LeftSilverSmall;
+              break;
+
+            case "right":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = RightSilverSmall;
+              break;
+
+            case "angle":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = AngleArrowSilver;
+              break;
+          
         }
 
 
@@ -8993,6 +9592,7 @@ class PriestComponent extends Component {
     let lgArrowArray = document.querySelectorAll(".lgArrow");
     let leftArrowArray = document.querySelectorAll(".leftArrow");
     let rightArrowArray = document.querySelectorAll(".rightArrow");
+    let angleArrowArray = document.querySelectorAll(".angleArrow");
 
     let spanArrayPotential1 = [];
     let spanArrayPotential2 = [];
@@ -9052,8 +9652,8 @@ class PriestComponent extends Component {
       }
 
       if (
-        (spanArray[y].className[17] === "0" &&
-        spanArray[y].className[18] === "0") && !(spanArray[y].id.includes("prio"))
+        spanArray[y].className[17] === "0" &&
+        spanArray[y].className[18] === "0"
       ) {
         console.log(spanArray[y].previousElementSibling);
         if (spanArray[y].previousElementSibling.className[4] === "1") {
@@ -9069,20 +9669,6 @@ class PriestComponent extends Component {
             "spec3 talentButton active-talent req-active";
         }
       }
-
-      if(spanArray[y].id.includes("prio")){
-        if (spanArray[y].previousElementSibling.className[4] === "1"){
-          spanArray[y].previousElementSibling.className =
-          "spec1 talentButton inactive-talent req-inactive";
-        } if (spanArray[y].previousElementSibling.className[4] === "2"){
-          spanArray[y].previousElementSibling.className =
-          "spec2 talentButton inactive-talent req-inactive";
-        } if (spanArray[y].previousElementSibling.className[4] === "3"){
-          spanArray[y].previousElementSibling.className =
-          "spec1 talentButton inactive-talent req-inactive";
-        }
-      }
-      
     }
 
     /* Iterate through array of all talent buttons and split them
@@ -9127,19 +9713,22 @@ class PriestComponent extends Component {
     // Iterate through all arrow elements and set them back to silver
 
     for (arrow of smArrowArray) {
-      arrow.src = "assets/images/DownSilverSmall.png";
+      arrow.src = DownSilverSmall;
     }
     for (arrow of medArrowArray) {
-      arrow.src = "assets/images/DownSilverMedium.png";
+      arrow.src = DownSilverMedium;
     }
     for (arrow of lgArrowArray) {
-      arrow.src = "assets/images/DownSilverLarge.png";
+      arrow.src = DownSilverLarge;
     }
     for (arrow of leftArrowArray) {
-      arrow.src = "assets/images/LeftSilverSmall.png";
+      arrow.src = LeftSilverSmall;
     }
     for (arrow of rightArrowArray) {
-      arrow.src = "assets/images/RightSilverSmall.png";
+      arrow.src = RightSilverSmall;
+    }
+    for (arrow of angleArrowArray) {
+      arrow.src = AngleArrowSilver;
     }
 
     //Resets all counter variables to 0/false
@@ -9220,6 +9809,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9229,6 +9819,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
                   src={UnbreakableWill}
                   alt=""
@@ -9244,6 +9837,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9253,6 +9847,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
                   src={WandSpecialization}
                   alt=""
@@ -9271,6 +9868,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9280,6 +9878,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={SilentResolve}
                   alt=""
@@ -9295,6 +9896,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9304,6 +9906,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ImprovedPowerWordFortitude}
                   alt=""
@@ -9319,6 +9924,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9328,6 +9934,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ReflectiveShield}
                   alt=""
@@ -9343,6 +9952,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9352,6 +9962,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={Martyrdom}
                   alt=""
@@ -9369,6 +9982,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9378,6 +9992,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={Absolution}
                   alt=""
@@ -9393,6 +10010,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9402,6 +10020,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={InnerFocus}
                   alt=""
@@ -9417,6 +10038,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9426,6 +10048,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={Meditation}
                   alt=""
@@ -9452,6 +10077,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9461,6 +10087,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ImprovedInnerFire}
                   alt=""
@@ -9477,6 +10106,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9486,6 +10116,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={MentalAgility}
                   alt=""
@@ -9506,6 +10139,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9515,6 +10149,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ImprovedManaBurn}
                   alt=""
@@ -9537,6 +10174,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9546,6 +10184,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={MentalStrength}
                   alt=""
@@ -9567,6 +10208,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9576,6 +10218,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={DivineSpirit}
                   alt=""
@@ -9600,6 +10245,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9609,6 +10255,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={DivineSpirit}
                   alt=""
@@ -9627,6 +10276,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9636,6 +10286,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={FocusedPower}
                   alt=""
@@ -9652,6 +10305,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9661,6 +10315,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ForceOfWill}
                   alt=""
@@ -9681,6 +10338,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9690,6 +10348,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={FocusedWill}
                   alt=""
@@ -9705,6 +10366,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9714,6 +10376,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={PowerInfusion}
                   alt=""
@@ -9735,6 +10400,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9744,6 +10410,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={ReflectiveShield}
                   alt=""
@@ -9765,6 +10434,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9774,6 +10444,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={Enlightenment}
                   alt=""
@@ -9794,6 +10467,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9803,6 +10477,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
                   src={PainSuppression}
                   alt=""
@@ -9835,6 +10512,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9844,6 +10522,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
                   src={HealingFocus}
                   alt=""
@@ -9859,6 +10540,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9868,6 +10550,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
                   src={ImprovedRenew}
                   alt=""
@@ -9883,6 +10568,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9892,6 +10578,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
                   src={HolySpecialization}
                   alt=""
@@ -9911,6 +10600,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9920,6 +10610,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={SpellWarding}
                   alt=""
@@ -9935,6 +10628,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9944,6 +10638,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={DivineFury}
                   alt=""
@@ -9968,6 +10665,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -9977,6 +10675,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={HolyNova}
                   alt=""
@@ -9992,6 +10693,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10001,6 +10703,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={BlessedRecovery}
                   alt=""
@@ -10017,6 +10722,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10026,6 +10732,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={Inspiration}
                   alt=""
@@ -10043,6 +10752,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10052,6 +10762,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={HolyReach}
                   alt=""
@@ -10067,6 +10780,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10076,6 +10790,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={ImprovedHealing}
                   alt=""
@@ -10091,6 +10808,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10100,6 +10818,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={SearingLight}
                   alt=""
@@ -10120,6 +10841,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10129,6 +10851,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={HealingPrayers}
                   alt=""
@@ -10144,6 +10869,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10153,6 +10879,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={SpiritOfRedemption}
                   alt=""
@@ -10176,6 +10905,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10185,6 +10915,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={SpiritualGuidance}
                   alt=""
@@ -10206,6 +10939,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10215,6 +10949,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={SurgeOfLight}
                   alt=""
@@ -10232,6 +10969,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10241,6 +10979,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={SpiritualHealing}
                   alt=""
@@ -10259,6 +11000,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10268,6 +11010,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={HolyConcentration}
                   alt=""
@@ -10283,6 +11028,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10292,6 +11038,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={LightWell}
                   alt=""
@@ -10309,6 +11058,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10318,6 +11068,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={BlessedResilience}
                   alt=""
@@ -10339,6 +11092,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10348,6 +11102,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={EmpoweredHealing}
                   alt=""
@@ -10371,6 +11128,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10380,6 +11138,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
                   src={CircleOfHealing}
                   alt=""
@@ -10414,6 +11175,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10423,6 +11185,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
                   src={SpiritTap}
                   alt=""
@@ -10438,6 +11203,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10447,6 +11213,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
                   src={Blackout}
                   alt=""
@@ -10465,6 +11234,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10474,6 +11244,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ShadowAffinity}
                   alt=""
@@ -10489,6 +11262,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10498,6 +11272,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedShadowWordPain}
                   alt=""
@@ -10513,6 +11290,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10522,6 +11300,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ShadowFocus}
                   alt=""
@@ -10540,6 +11321,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10549,6 +11331,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedPsychicScream}
                   alt=""
@@ -10570,6 +11355,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10579,6 +11365,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedMindBlast}
                   alt=""
@@ -10594,6 +11383,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10603,6 +11393,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={MindFlay}
                   alt=""
@@ -10625,6 +11418,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10634,6 +11428,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedFade}
                   alt=""
@@ -10649,6 +11446,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10658,6 +11456,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ShadowReach}
                   alt=""
@@ -10674,6 +11475,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10683,6 +11485,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ShadowWeaving}
                   alt=""
@@ -10700,6 +11505,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10709,6 +11515,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Silence}
                   alt=""
@@ -10724,6 +11533,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10733,6 +11543,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={VampiricEmbrace}
                   alt=""
@@ -10762,6 +11575,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10771,6 +11585,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ImprovedVampiricEmbrace}
                   alt=""
@@ -10788,6 +11605,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10797,6 +11615,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={FocusedMind}
                   alt=""
@@ -10816,6 +11637,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10825,6 +11647,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ShadowResilience}
                   alt=""
@@ -10841,6 +11666,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10850,6 +11676,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Darkness}
                   alt=""
@@ -10869,6 +11698,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10878,6 +11708,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Shadowform}
                   alt=""
@@ -10901,6 +11734,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10910,6 +11744,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={ShadowPower}
                   alt=""
@@ -10930,6 +11767,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10939,6 +11777,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={Misery}
                   alt=""
@@ -10962,6 +11803,7 @@ class PriestComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
@@ -10971,6 +11813,9 @@ class PriestComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
                   src={VampiricTouch}
                   alt=""
