@@ -1,6 +1,6 @@
 import { contains } from "jquery";
 import React, { Component } from "react";
-import ReactTooltip from "react-tooltip";
+
 import { Hunter } from "../talentinfo/Hunter";
 import spec1BG from "../images/talents/Hunter/Background/BeastMastery.jpg"
 import spec2BG from "../images/talents/Hunter/Background/Marksman.jpg"
@@ -8,6 +8,7 @@ import spec3BG from "../images/talents/Hunter/Background/Survival.jpg"
 import spec1Logo from "../images/talents/Hunter/Spec1Logo.jpg"
 import spec2Logo from "../images/talents/Hunter/Spec2Logo.jpg"
 import spec3Logo from "../images/talents/Hunter/Spec3Logo.jpg"
+
 
 /* 
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
@@ -132,7 +133,11 @@ let iSpec2 = 0;
 let iSpec3 = 0;
 let loopHappenedBefore = false;
 
+
+
 class HunterComponent extends Component {
+  
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -10702,6 +10707,6 @@ class HunterComponent extends Component {
   }
 }
 
-<ReactTooltip html={true} />;
+
 
 export default HunterComponent;
