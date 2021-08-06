@@ -192,7 +192,12 @@ class ClassSelector extends Component {
     };
   }
 
-  
+  fixNavLinks(){
+    let navLinkToManipulate = document.getElementsByClassName("Hunter")[0];
+    let navLinkFromClassSelector = document.getElementById("HunterLink");
+
+    navLinkToManipulate.href = navLinkFromClassSelector.href;
+  }
 
   render() {
     const classSelector = this.state.classes.map((playableClass) => {
@@ -216,6 +221,7 @@ class ClassSelector extends Component {
               to={"/" + playableClass.playableClassName}
               class="info"
               onClick={this.scrollComponentIntoView}
+              id={playableClass.playableClassName + "Link"}
               
               style={{
                 color: playableClass.classColor,
@@ -233,7 +239,7 @@ class ClassSelector extends Component {
 
     return (
       <Router>
-        <div style={{ position: "relative" }} >
+        <div onLoad={this.fixNavLinks} style={{ position: "relative" }} >
           <div className="container mx-auto">
             <div className="row">
               <div className="col">
