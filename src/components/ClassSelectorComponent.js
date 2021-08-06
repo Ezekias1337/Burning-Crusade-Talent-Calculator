@@ -211,7 +211,7 @@ class ClassSelector extends Component {
           <div class="overlay" style={{ height: "110px", width: "135px" }}>
             <a
               class="info"
-              href={"/" + playableClass.playableClassName}
+              href={"/Burning-Crusade-Talent-Calculator/" + playableClass.playableClassName}
               style={{
                 color: playableClass.classColor,
                 boxShadow: `0 0 5px ${playableClass.classColor}`,
@@ -250,31 +250,31 @@ class ClassSelector extends Component {
 
         <Switch>
           
-          <Route path="Burning-Crusade-Talent-Calculator/Hunter">
+          <Route path="/Burning-Crusade-Talent-Calculator/Hunter">
             <HunterComponent />
           </Route>
-          <Route path="Burning-Crusade-Talent-Calculator/Druid">
+          <Route path="/Burning-Crusade-Talent-Calculator/Druid">
             <DruidComponent />
           </Route>
-          <Route path="Burning-Crusade-Talent-Calculator/Mage">
+          <Route path="/Burning-Crusade-Talent-Calculator/Mage">
             <MageComponent />
           </Route>
-          <Route path="Burning-Crusade-Talent-Calculator/Paladin">
+          <Route path="/Burning-Crusade-Talent-Calculator/Paladin">
             <PaladinComponent />
           </Route>
-          <Route path="Burning-Crusade-Talent-Calculator/Priest">
+          <Route path="/Burning-Crusade-Talent-Calculator/Priest">
             <PriestComponent />
           </Route>
-          <Route path="Burning-Crusade-Talent-Calculator/Rogue">
+          <Route path="/Burning-Crusade-Talent-Calculator/Rogue">
             <RogueComponent />
           </Route>
-          <Route path="Burning-Crusade-Talent-Calculator/Shaman">
+          <Route path="/Burning-Crusade-Talent-Calculator/Shaman">
             <ShamanComponent />
           </Route>
-          <Route path="Burning-Crusade-Talent-Calculator/Warlock">
+          <Route path="/Burning-Crusade-Talent-Calculator/Warlock">
             <WarlockComponent />
           </Route>
-          <Route path="Burning-Crusade-Talent-Calculator/Warrior">
+          <Route path="/Burning-Crusade-Talent-Calculator/Warrior">
             <WarriorComponent />
           </Route>
         </Switch>
