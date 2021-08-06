@@ -200,7 +200,7 @@ class ClassSelector extends Component {
         <div
           className="col mt-5 hovereffect"
           style={{ height: "130px", width: "130px"}}
-          onLoad={this.handleExtraneousComponent}
+          
         >
           <img
             src={playableClass.classIcon}
@@ -215,7 +215,7 @@ class ClassSelector extends Component {
             <Link 
               to={"/Burning-Crusade-Talent-Calculator/" + playableClass.playableClassName}
               class="info"
-              onClick={this.returnComponentToView}
+              onClick={this.scrollComponentIntoView}
               
               style={{
                 color: playableClass.classColor,

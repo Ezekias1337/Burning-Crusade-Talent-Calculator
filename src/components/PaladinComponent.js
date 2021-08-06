@@ -9739,12 +9739,19 @@ class PaladinComponent extends Component {
     console.log("Reset Points!");
   }
 
+  scrollComponentIntoView(){
+    const anchor = document.querySelector('#Paladin')
+    anchor.scrollIntoView({ behavior: 'smooth', block: 'end' })
+  }
+
   render() {
     return (
       <div
         style={{ position: "relative" }}
         onContextMenu={(e) => e.preventDefault()}
         className="frame-wrapper"
+        id="Paladin"
+        onLoad={this.scrollComponentIntoView}
       >
         <div className="row">
           <div className="col-sm-3"></div>
