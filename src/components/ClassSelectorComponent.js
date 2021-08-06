@@ -227,7 +227,7 @@ class ClassSelector extends Component {
     });
 
     return (
-      <Router>
+      <Router basename="/Burning-Crusade-Talent-Calculator">
         <div style={{ position: "relative" }} >
           <div className="container mx-auto">
             <div className="row">
