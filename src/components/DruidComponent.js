@@ -2,12 +2,12 @@ import { contains } from "jquery";
 import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Druid } from "../talentinfo/Druid";
-import spec1BG from "../images/talents/Druid/Background/Balance.jpg"
-import spec2BG from "../images/talents/Druid/Background/FeralCombat.jpg"
-import spec3BG from "../images/talents/Druid/Background/Restoration.jpg"
-import spec1Logo from "../images/talents/Druid/Spec1Logo.jpg"
-import spec2Logo from "../images/talents/Druid/Spec2Logo.jpg"
-import spec3Logo from "../images/talents/Druid/Spec3Logo.jpg"
+import spec1BG from "../images/talents/Druid/Background/Balance.jpg";
+import spec2BG from "../images/talents/Druid/Background/FeralCombat.jpg";
+import spec3BG from "../images/talents/Druid/Background/Restoration.jpg";
+import spec1Logo from "../images/talents/Druid/Spec1Logo.jpg";
+import spec2Logo from "../images/talents/Druid/Spec2Logo.jpg";
+import spec3Logo from "../images/talents/Druid/Spec3Logo.jpg";
 
 /* 
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
@@ -34,94 +34,92 @@ a.) Don't forget Arrows ✔
 
 //consistent among classes
 
-import overlayImage from "../images/Item_Hover.png"
+import overlayImage from "../images/Item_Hover.png";
 
-import DownSilverSmall from "../images/DownSilverSmall.png"
-import DownSilverMedium from "../images/DownSilverMedium.png"
-import DownSilverLarge from "../images/DownSilverLarge.png"
+import DownSilverSmall from "../images/DownSilverSmall.png";
+import DownSilverMedium from "../images/DownSilverMedium.png";
+import DownSilverLarge from "../images/DownSilverLarge.png";
 
-import DownGoldSmall from "../images/DownGoldSmall.png"
-import DownGoldMedium from "../images/DownGoldMedium.png"
-import DownGoldLarge from "../images/DownGoldLarge.png"
+import DownGoldSmall from "../images/DownGoldSmall.png";
+import DownGoldMedium from "../images/DownGoldMedium.png";
+import DownGoldLarge from "../images/DownGoldLarge.png";
 
-import LeftSilverSmall from "../images/LeftSilverSmall.png"
-import RightSilverSmall from "../images/RightSilverSmall.png"
+import LeftSilverSmall from "../images/LeftSilverSmall.png";
+import RightSilverSmall from "../images/RightSilverSmall.png";
 
-import LeftGoldSmall from "../images/LeftGoldSmall.png"
-import RightGoldSmall from "../images/RightGoldSmall.png"
+import LeftGoldSmall from "../images/LeftGoldSmall.png";
+import RightGoldSmall from "../images/RightGoldSmall.png";
 
-import AngleArrowSilver from "../images/AngleArrowSilver.png"
-import AngleArrowGold from "../images/AngleArrowGold.png"
+import AngleArrowSilver from "../images/AngleArrowSilver.png";
+import AngleArrowGold from "../images/AngleArrowGold.png";
 
 //spec1
-import BalanceOfPower from '../images/talents/Druid/Progression/spec1/BalanceOfPower.jpg';
-import Dreamstate from '../images/talents/Druid/Progression/spec1/Dreamstate.jpg';
-import ImprovedMoonfire from '../images/talents/Druid/Progression/spec1/ImprovedMoonfire.jpg';
-import Moonfury from '../images/talents/Druid/Progression/spec1/Moonfury.jpg';
-import NaturesReach from '../images/talents/Druid/Progression/spec1/NaturesReach.jpg';
-import Brambles from '../images/talents/Druid/Progression/spec1/Brambles.jpg';
-import FocusedStarlight from '../images/talents/Druid/Progression/spec1/FocusedStarlight.jpg';
-import InsectSwarm from '../images/talents/Druid/Progression/spec1/InsectSwarm.jpg';
-import MoonkinForm from '../images/talents/Druid/Progression/spec1/MoonkinForm.jpg';
-import CelestialFocus from '../images/talents/Druid/Progression/spec1/CelestialFocus.jpg';
-import ForceOfNature from '../images/talents/Druid/Progression/spec1/ForceOfNature.jpg';
-import LunarGuidance from '../images/talents/Druid/Progression/spec1/LunarGuidance.jpg';
-import NaturesGrace from '../images/talents/Druid/Progression/spec1/NaturesGrace.jpg';
-import Vengeance from '../images/talents/Druid/Progression/spec1/Vengeance.jpg';
-import ControlOfNature from '../images/talents/Druid/Progression/spec1/ControlOfNature.jpg';
-import ImprovedFaerieFire from '../images/talents/Druid/Progression/spec1/ImprovedFaerieFire.jpg';
-import MoonGlow from '../images/talents/Druid/Progression/spec1/MoonGlow.jpg';
-import NaturesGrasp from '../images/talents/Druid/Progression/spec1/NaturesGrasp.jpg';
-import WrathOfCenarius from '../images/talents/Druid/Progression/spec1/WrathOfCenarius.jpg';
-import StarlightWrath from '../images/talents/Druid/Progression/spec1/StarlightWrath.jpg';
-
+import BalanceOfPower from "../images/talents/Druid/Progression/spec1/BalanceOfPower.jpg";
+import Dreamstate from "../images/talents/Druid/Progression/spec1/Dreamstate.jpg";
+import ImprovedMoonfire from "../images/talents/Druid/Progression/spec1/ImprovedMoonfire.jpg";
+import Moonfury from "../images/talents/Druid/Progression/spec1/Moonfury.jpg";
+import NaturesReach from "../images/talents/Druid/Progression/spec1/NaturesReach.jpg";
+import Brambles from "../images/talents/Druid/Progression/spec1/Brambles.jpg";
+import FocusedStarlight from "../images/talents/Druid/Progression/spec1/FocusedStarlight.jpg";
+import InsectSwarm from "../images/talents/Druid/Progression/spec1/InsectSwarm.jpg";
+import MoonkinForm from "../images/talents/Druid/Progression/spec1/MoonkinForm.jpg";
+import CelestialFocus from "../images/talents/Druid/Progression/spec1/CelestialFocus.jpg";
+import ForceOfNature from "../images/talents/Druid/Progression/spec1/ForceOfNature.jpg";
+import LunarGuidance from "../images/talents/Druid/Progression/spec1/LunarGuidance.jpg";
+import NaturesGrace from "../images/talents/Druid/Progression/spec1/NaturesGrace.jpg";
+import Vengeance from "../images/talents/Druid/Progression/spec1/Vengeance.jpg";
+import ControlOfNature from "../images/talents/Druid/Progression/spec1/ControlOfNature.jpg";
+import ImprovedFaerieFire from "../images/talents/Druid/Progression/spec1/ImprovedFaerieFire.jpg";
+import MoonGlow from "../images/talents/Druid/Progression/spec1/MoonGlow.jpg";
+import NaturesGrasp from "../images/talents/Druid/Progression/spec1/NaturesGrasp.jpg";
+import WrathOfCenarius from "../images/talents/Druid/Progression/spec1/WrathOfCenarius.jpg";
+import StarlightWrath from "../images/talents/Druid/Progression/spec1/StarlightWrath.jpg";
 
 //spec2
 
-import BrutalImpact from '../images/talents/Druid/Progression/spec2/BrutalImpact.jpg';
-import FeralSwiftness from '../images/talents/Druid/Progression/spec2/FeralSwiftness.jpg';
-import NurturingInstinct from '../images/talents/Druid/Progression/spec2/NurturingInstinct.jpg';
-import SavageFury from '../images/talents/Druid/Progression/spec2/SavageFury.jpg';
-import FaerieFireFeral from '../images/talents/Druid/Progression/spec2/FaerieFire(Feral).jpg';
-import Ferocity from '../images/talents/Druid/Progression/spec2/Ferocity.jpg';
-import PredatoryInstincts from '../images/talents/Druid/Progression/spec2/PredatoryInstincts.jpg';
-import SharpenedClaws from '../images/talents/Druid/Progression/spec2/SharpenedClaws.jpg';
-import FeralAggression from '../images/talents/Druid/Progression/spec2/FeralAggression.jpg';
-import HeartOfTheWild from '../images/talents/Druid/Progression/spec2/HeartOfTheWild.jpg';
-import PredatoryStrikes from '../images/talents/Druid/Progression/spec2/PredatoryStrikes.jpg';
-import ShreddingAttacks from '../images/talents/Druid/Progression/spec2/ShreddingAttacks.jpg';
-import FeralCharge from '../images/talents/Druid/Progression/spec2/FeralCharge.jpg';
-import LeaderOfThePack from '../images/talents/Druid/Progression/spec2/LeaderOfThePack.jpg';
-import PrimalFury from '../images/talents/Druid/Progression/spec2/PrimalFury.jpg';
-import SurvivalOfTheFittest from '../images/talents/Druid/Progression/spec2/SurvivalOfTheFittest.jpg';
-import FeralInstinct from '../images/talents/Druid/Progression/spec2/FeralInstinct.jpg';
-import Mangle from '../images/talents/Druid/Progression/spec2/Mangle.jpg';
-import PrimalTenacity from '../images/talents/Druid/Progression/spec2/PrimalTenacity.jpg';
-import ThickHide from '../images/talents/Druid/Progression/spec2/ThickHide.jpg';
+import BrutalImpact from "../images/talents/Druid/Progression/spec2/BrutalImpact.jpg";
+import FeralSwiftness from "../images/talents/Druid/Progression/spec2/FeralSwiftness.jpg";
+import NurturingInstinct from "../images/talents/Druid/Progression/spec2/NurturingInstinct.jpg";
+import SavageFury from "../images/talents/Druid/Progression/spec2/SavageFury.jpg";
+import FaerieFireFeral from "../images/talents/Druid/Progression/spec2/FaerieFire(Feral).jpg";
+import Ferocity from "../images/talents/Druid/Progression/spec2/Ferocity.jpg";
+import PredatoryInstincts from "../images/talents/Druid/Progression/spec2/PredatoryInstincts.jpg";
+import SharpenedClaws from "../images/talents/Druid/Progression/spec2/SharpenedClaws.jpg";
+import FeralAggression from "../images/talents/Druid/Progression/spec2/FeralAggression.jpg";
+import HeartOfTheWild from "../images/talents/Druid/Progression/spec2/HeartOfTheWild.jpg";
+import PredatoryStrikes from "../images/talents/Druid/Progression/spec2/PredatoryStrikes.jpg";
+import ShreddingAttacks from "../images/talents/Druid/Progression/spec2/ShreddingAttacks.jpg";
+import FeralCharge from "../images/talents/Druid/Progression/spec2/FeralCharge.jpg";
+import LeaderOfThePack from "../images/talents/Druid/Progression/spec2/LeaderOfThePack.jpg";
+import PrimalFury from "../images/talents/Druid/Progression/spec2/PrimalFury.jpg";
+import SurvivalOfTheFittest from "../images/talents/Druid/Progression/spec2/SurvivalOfTheFittest.jpg";
+import FeralInstinct from "../images/talents/Druid/Progression/spec2/FeralInstinct.jpg";
+import Mangle from "../images/talents/Druid/Progression/spec2/Mangle.jpg";
+import PrimalTenacity from "../images/talents/Druid/Progression/spec2/PrimalTenacity.jpg";
+import ThickHide from "../images/talents/Druid/Progression/spec2/ThickHide.jpg";
 
 //spec3
 
-import EmpoweredRejuvenation from '../images/talents/Druid/Progression/spec3/EmpoweredRejuvenation.jpg';
-import ImprovedRegrowth from '../images/talents/Druid/Progression/spec3/ImprovedRegrowth.jpg';
-import NaturalPerfection from '../images/talents/Druid/Progression/spec3/NaturalPerfection.jpg';
-import OmenOfClarity from '../images/talents/Druid/Progression/spec3/OmenOfClarity.jpg';
-import Empoweredtouch from '../images/talents/Druid/Progression/spec3/Empoweredtouch.jpg';
-import ImprovedRejuvenation from '../images/talents/Druid/Progression/spec3/ImprovedRejuvenation.jpg';
-import NaturalShapeshifter from '../images/talents/Druid/Progression/spec3/NaturalShapeshifter.jpg';
-import Subtlety from '../images/talents/Druid/Progression/spec3/Subtlety.jpg';
-import Furor from '../images/talents/Druid/Progression/spec3/Furor.jpg';
-import ImprovedTranquility from '../images/talents/Druid/Progression/spec3/ImprovedTranquility.jpg';
-import Naturalist from '../images/talents/Druid/Progression/spec3/Naturalist.jpg';
-import Swiftmend from '../images/talents/Druid/Progression/spec3/Swiftmend.jpg';
-import GiftOfNature from '../images/talents/Druid/Progression/spec3/GiftOfNature.jpg';
-import Intensity from '../images/talents/Druid/Progression/spec3/Intensity.jpg';
-import NaturesFocus from '../images/talents/Druid/Progression/spec3/NaturesFocus.jpg';
-import TranquilSpirit from '../images/talents/Druid/Progression/spec3/TranquilSpirit.jpg';
-import ImprovedMarkOfTheWild from '../images/talents/Druid/Progression/spec3/ImprovedMarkOfTheWild.jpg';
-import LivingSpirit from '../images/talents/Druid/Progression/spec3/LivingSpirit.jpg';
-import NaturesSwiftness from '../images/talents/Druid/Progression/spec3/NaturesSwiftness.jpg';
-import TreeOfLife from '../images/talents/Druid/Progression/spec3/TreeOfLife.jpg';
-
+import EmpoweredRejuvenation from "../images/talents/Druid/Progression/spec3/EmpoweredRejuvenation.jpg";
+import ImprovedRegrowth from "../images/talents/Druid/Progression/spec3/ImprovedRegrowth.jpg";
+import NaturalPerfection from "../images/talents/Druid/Progression/spec3/NaturalPerfection.jpg";
+import OmenOfClarity from "../images/talents/Druid/Progression/spec3/OmenOfClarity.jpg";
+import Empoweredtouch from "../images/talents/Druid/Progression/spec3/Empoweredtouch.jpg";
+import ImprovedRejuvenation from "../images/talents/Druid/Progression/spec3/ImprovedRejuvenation.jpg";
+import NaturalShapeshifter from "../images/talents/Druid/Progression/spec3/NaturalShapeshifter.jpg";
+import Subtlety from "../images/talents/Druid/Progression/spec3/Subtlety.jpg";
+import Furor from "../images/talents/Druid/Progression/spec3/Furor.jpg";
+import ImprovedTranquility from "../images/talents/Druid/Progression/spec3/ImprovedTranquility.jpg";
+import Naturalist from "../images/talents/Druid/Progression/spec3/Naturalist.jpg";
+import Swiftmend from "../images/talents/Druid/Progression/spec3/Swiftmend.jpg";
+import GiftOfNature from "../images/talents/Druid/Progression/spec3/GiftOfNature.jpg";
+import Intensity from "../images/talents/Druid/Progression/spec3/Intensity.jpg";
+import NaturesFocus from "../images/talents/Druid/Progression/spec3/NaturesFocus.jpg";
+import TranquilSpirit from "../images/talents/Druid/Progression/spec3/TranquilSpirit.jpg";
+import ImprovedMarkOfTheWild from "../images/talents/Druid/Progression/spec3/ImprovedMarkOfTheWild.jpg";
+import LivingSpirit from "../images/talents/Druid/Progression/spec3/LivingSpirit.jpg";
+import NaturesSwiftness from "../images/talents/Druid/Progression/spec3/NaturesSwiftness.jpg";
+import TreeOfLife from "../images/talents/Druid/Progression/spec3/TreeOfLife.jpg";
 
 //(Adjust section at line 6065)
 let i = 0;
@@ -133,9 +131,7 @@ let loopHappenedBefore = false;
 class DruidComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
 
   toolTipFunction() {
@@ -326,11 +322,11 @@ class DruidComponent extends Component {
     }
   }
 
-  displayOverlayMobile(){
+  displayOverlayMobile() {
     window.event.target.previousElementSibling.style.display = "inline";
   }
 
-  hideOverlayMobile(){
+  hideOverlayMobile() {
     window.event.target.previousElementSibling.style.display = "none";
   }
 
@@ -342,11 +338,9 @@ class DruidComponent extends Component {
   }
 
   displayMouseOverlayInnerElement() {
-    if(window.event.target.previousElementSibling){
+    if (window.event.target.previousElementSibling) {
       window.event.target.previousElementSibling.style.display = "inline";
     }
-    
-
   }
 
   hideMouseOverlay() {
@@ -591,7 +585,6 @@ class DruidComponent extends Component {
       }
 
       if (iSpec1 >= 5) {
-        
         spec1Req5 = document.getElementsByClassName("req-05-s1");
         console.log("spec1Req5", spec1Req5);
         for (let g = 0; g < spec1Req5.length; g++) {
@@ -613,7 +606,6 @@ class DruidComponent extends Component {
           }
         }
       }
-      
     }
 
     function addGreenBorderSpec2() {
@@ -999,7 +991,7 @@ class DruidComponent extends Component {
           arrowSrc = document.getElementById("arrwReq4Spec1");
         }
       }
-      
+
       function arrowSizeParse() {
         if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
@@ -1013,7 +1005,7 @@ class DruidComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1089,7 +1081,7 @@ class DruidComponent extends Component {
           if (spec1Req30[g].id) {
             spanID = spec1Req30[g].id;
             idMatcherParse();
-            
+
             arrowSizeParse();
           }
           spec1Req30Output.push(spec1Req30[g].previousElementSibling);
@@ -1130,7 +1122,7 @@ class DruidComponent extends Component {
           if (spec1Req20[g].id) {
             spanID = spec1Req20[g].id;
             idMatcherParse();
-            
+
             arrowSizeParse();
           }
           spec1Req20Output.push(spec1Req20[g].previousElementSibling);
@@ -1152,7 +1144,6 @@ class DruidComponent extends Component {
             spanID = spec1Req15[g].id;
             idMatcherParse();
             arrowSizeParse();
-            
           }
           spec1Req15Output.push(spec1Req15[g].previousElementSibling);
         }
@@ -1211,8 +1202,8 @@ class DruidComponent extends Component {
         for (let g = 0; g < spec1Req0.length; g++) {
           if (spec1Req0[g].id) {
             spanID = spec1Req0[g].id;
-            console.log("spanID", spanID)
-            
+            console.log("spanID", spanID);
+
             idMatcherParse();
             arrowSizeParse();
           }
@@ -1220,7 +1211,10 @@ class DruidComponent extends Component {
         }
         console.log(spec1Req0Output);
         for (let g = 0; g < spec1Req0Output.length; g++) {
-          if (spec1Req0Output[g].className.includes("active-talent") && spec1Req0Output[g].nextElementSibling.id.includes("prio")) {
+          if (
+            spec1Req0Output[g].className.includes("active-talent") &&
+            spec1Req0Output[g].nextElementSibling.id.includes("prio")
+          ) {
             spec1Req0Output[g].className =
               "spec1 talentButton inactive-talent req-inactive";
           }
@@ -1234,8 +1228,8 @@ class DruidComponent extends Component {
       let spanID;
 
       function idMatcherParse() {
-        console.log("spanID", spanID)
-        
+        console.log("spanID", spanID);
+
         if (spanID.includes("prioReq1Spec2")) {
           arrowSrc = document.getElementById("arrwReq1Spec2");
         } else if (spanID.includes("prioReq2Spec2")) {
@@ -1260,7 +1254,7 @@ class DruidComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1342,10 +1336,13 @@ class DruidComponent extends Component {
         }
         console.log("spec2Req30Output", spec2Req30Output);
         for (let g = 0; g < spec2Req30Output.length; g++) {
-          if (spec2Req30Output[g].className.includes("active-talent") && spec2Req30Output[g].nextElementSibling.id.includes("prio")) {
+          if (
+            spec2Req30Output[g].className.includes("active-talent") &&
+            spec2Req30Output[g].nextElementSibling.id.includes("prio")
+          ) {
             spec2Req30Output[g].className =
               "spec2 talentButton inactive-talent req-inactive";
-          } 
+          }
         }
       }
 
@@ -1500,7 +1497,7 @@ class DruidComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1785,11 +1782,11 @@ class DruidComponent extends Component {
         }
         if (arrowChecker.includes("left")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          LeftGoldSmall;
+            LeftGoldSmall;
         }
         if (arrowChecker.includes("right")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          RightGoldSmall;
+            RightGoldSmall;
         }
         if (arrowChecker.includes("sm")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
@@ -1797,11 +1794,11 @@ class DruidComponent extends Component {
         }
         if (arrowChecker.includes("med")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          DownGoldMedium;
+            DownGoldMedium;
         }
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          DownGoldLarge;
+            DownGoldLarge;
         }
       }
 
@@ -1863,7 +1860,7 @@ class DruidComponent extends Component {
                 }
 
                 break;
-              
+
               case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s1");
                 for (button of buttonsArray) {
@@ -1877,7 +1874,7 @@ class DruidComponent extends Component {
                       '[id*="prioReq1Spec1"]'
                     ).previousElementSibling.className =
                       "spec1 talentButton active-talent req-active";
-                    console.log("Orale you know")
+                    console.log("Orale you know");
                     ArrowGold();
                     {
                       break;
@@ -8573,16 +8570,23 @@ class DruidComponent extends Component {
     //Path taken if user left clicks the button
     if (window.event.button === 0) {
       //If user tries to add more points to a maxed talent, exit function, preventing user action
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[0] ===
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[2]
+      ) {
+        return;
       }
-      
+
       //If User tries to add points to a talent that isn't active yet, exit function
 
-      if(window.event.srcElement.nextElementSibling.className.includes("inactive-talent")){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.className.includes(
+          "inactive-talent"
+        )
+      ) {
+        return;
       }
 
       //if user clicked button in spec 1 tree update point counter for spec 1
@@ -9006,179 +9010,331 @@ class DruidComponent extends Component {
     else if (window.event.button === 2) {
       //this prevents the user from taking away points if they have points in a dependant talent
       //spec 1
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1") && !(document.getElementById("prioReq1Spec1").innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1") && !(document.getElementById("prioReq2Spec1").innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1") && !(document.getElementById("prioReq3Spec1").innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1") && !(document.getElementById("prioReq4Spec1").innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq1Spec1"
+        ) &&
+        !(document.getElementById("prioReq1Spec1").innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq2Spec1"
+        ) &&
+        !(document.getElementById("prioReq2Spec1").innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq3Spec1"
+        ) &&
+        !(document.getElementById("prioReq3Spec1").innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq4Spec1"
+        ) &&
+        !(document.getElementById("prioReq4Spec1").innerText[0] === "0")
+      ) {
+        return;
       }
       //spec 2
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2") && !(document.getElementById("prioReq1Spec2").innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2") && !(document.getElementById("prioReq2Spec2").innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2") && !(document.getElementById("prioReq3Spec2").innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2") && !(document.getElementById("prioReq4Spec2").innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq1Spec2"
+        ) &&
+        !(document.getElementById("prioReq1Spec2").innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq2Spec2"
+        ) &&
+        !(document.getElementById("prioReq2Spec2").innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq3Spec2"
+        ) &&
+        !(document.getElementById("prioReq3Spec2").innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq4Spec2"
+        ) &&
+        !(document.getElementById("prioReq4Spec2").innerText[0] === "0")
+      ) {
+        return;
       }
       //spec 3
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3") && !(document.getElementById("prioReq1Spec3").innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3") && !(document.getElementById("prioReq2Spec3").innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3") && !(document.getElementById("prioReq3Spec3").innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3") && !(document.getElementById("prioReq4Spec3").innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq1Spec3"
+        ) &&
+        !(document.getElementById("prioReq1Spec3").innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq2Spec3"
+        ) &&
+        !(document.getElementById("prioReq2Spec3").innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq3Spec3"
+        ) &&
+        !(document.getElementById("prioReq3Spec3").innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq4Spec3"
+        ) &&
+        !(document.getElementById("prioReq4Spec3").innerText[0] === "0")
+      ) {
+        return;
       }
 
       //if user tries to remove points in a talent they spent no points in, exit function to prevent action
 
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === "0"){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[0] === "0"
+      ) {
+        return;
       }
 
       /* This following if statement was added to fix the bug that prevented the arrow
       from reverting to silver when you took away the points in the subsReq talent
       */
 
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("Spec")){
-
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "Spec"
+        )
+      ) {
         let arrowSrcSize;
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
-          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("sm")) {
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling
+            .nextElementSibling
+        ) {
+          if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "sm"
+            )
+          ) {
             arrowSrcSize = "sm";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("med")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "med"
+            )
+          ) {
             arrowSrcSize = "med";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("lg")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "lg"
+            )
+          ) {
             arrowSrcSize = "lg";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("left")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "left"
+            )
+          ) {
             arrowSrcSize = "left";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("right")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "right"
+            )
+          ) {
             arrowSrcSize = "right";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("angle")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "angle"
+            )
+          ) {
             arrowSrcSize = "angle";
           }
         }
-        
-        
-          switch (arrowSrcSize) {
-            case "sm":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverSmall;
-              break;
 
-            case "med":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverMedium;
-              break;
+        switch (arrowSrcSize) {
+          case "sm":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverSmall;
+            break;
 
-            case "lg":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverLarge;
-              break;
+          case "med":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverMedium;
+            break;
 
-            case "left":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = LeftSilverSmall;
-              break;
+          case "lg":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverLarge;
+            break;
 
-            case "right":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = RightSilverSmall;
-              break;
+          case "left":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              LeftSilverSmall;
+            break;
 
-            case "angle":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = AngleArrowSilver;
-              break;
-          
+          case "right":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              RightSilverSmall;
+            break;
+
+          case "angle":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              AngleArrowSilver;
+            break;
         }
 
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1")){
-          
-          document.querySelector('[id*="prioReq1Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1")){
-          
-          document.querySelector('[id*="prioReq2Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1")){
-         
-          document.querySelector('[id*="prioReq3Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1")){
-          
-          document.querySelector('[id*="prioReq4Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-
-
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2")){
-          
-          document.querySelector('[id*="prioReq1Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2")){
-          
-          document.querySelector('[id*="prioReq2Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2")){
-          
-          document.querySelector('[id*="prioReq3Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2")){
-          
-          document.querySelector('[id*="prioReq4Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
-        }
-        
-
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3")){
-          
-          document.querySelector('[id*="prioReq1Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3")){
-          
-          document.querySelector('[id*="prioReq2Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3")){
-          
-          document.querySelector('[id*="prioReq3Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3")){
-          
-          document.querySelector('[id*="prioReq4Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-
-
-
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
+        }
       }
 
       /* This following block of code prevents the user from removing points from a talent
@@ -9187,40 +9343,50 @@ class DruidComponent extends Component {
       */
 
       pointRequirementString =
-      window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
-        17,
-        19
+        window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
+          17,
+          19
+        );
+
+      console.log(pointRequirementString);
+
+      let clickDecider;
+      let arrayOfTalents = Array.from(
+        document.querySelectorAll(".talentPoints")
       );
-      
-    console.log(
-      pointRequirementString
-    );
+      let arrayOfTalentsFiltered = [];
 
-    let clickDecider;
-    let arrayOfTalents = Array.from(document.querySelectorAll(".talentPoints"))
-    let arrayOfTalentsFiltered = [];
-
-    arrayOfTalentsFiltered = arrayOfTalents.filter(talent => talent.className.slice(17,19) > pointRequirementString)
-    console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
-    for(let individualTalent of arrayOfTalentsFiltered) {
-      if(individualTalent.className.slice(20,22) === "s1" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec1){
-        clickDecider = false;
-      } 
-      if(individualTalent.className.slice(20,22) === "s2" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec2){
-        clickDecider = false;
+      arrayOfTalentsFiltered = arrayOfTalents.filter(
+        (talent) => talent.className.slice(17, 19) > pointRequirementString
+      );
+      console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
+      for (let individualTalent of arrayOfTalentsFiltered) {
+        if (
+          individualTalent.className.slice(20, 22) === "s1" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec1
+        ) {
+          clickDecider = false;
+        }
+        if (
+          individualTalent.className.slice(20, 22) === "s2" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec2
+        ) {
+          clickDecider = false;
+        }
+        if (
+          individualTalent.className.slice(20, 22) === "s3" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec3
+        ) {
+          clickDecider = false;
+        }
       }
-      if(individualTalent.className.slice(20,22) === "s3" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec3){
-        clickDecider = false;
+
+      if (clickDecider === false) {
+        return;
       }
-
-
-
-    }
-
-    if(clickDecider === false){
-      return
-    }
-
 
       //if user right clicked talent in spec1 subtract one point from point tracker if > 0
       if (specString[4] === "1") {
@@ -9605,28 +9771,25 @@ class DruidComponent extends Component {
 
     console.log("Beginning of reset test");
     for (y = 0; y < spanArray.length; y++) {
-      
       toolTipIDChecker =
-          spanArray[y].previousElementSibling.previousElementSibling.id;
-        toolTipStepper = Druid[toolTipIDChecker - 1];
-        toolTipSelector = toolTipStepper.toolTip[0];
-        document
-          .getElementById(toolTipIDChecker)
-          .setAttribute("data-tip", toolTipSelector);
+        spanArray[y].previousElementSibling.previousElementSibling.id;
+      toolTipStepper = Druid[toolTipIDChecker - 1];
+      toolTipSelector = toolTipStepper.toolTip[0];
+      document
+        .getElementById(toolTipIDChecker)
+        .setAttribute("data-tip", toolTipSelector);
 
-        spanArray[y].previousElementSibling.previousElementSibling.setAttribute(
-          "data-tip",
-          toolTipSelector
-        );
-      
+      spanArray[y].previousElementSibling.previousElementSibling.setAttribute(
+        "data-tip",
+        toolTipSelector
+      );
+
       if (
         !(
           spanArray[y].className[17] === "0" &&
           spanArray[y].className[18] === "0"
         )
       ) {
-        
-
         if (spanArray[y].previousElementSibling.className[4] === "1") {
           spanArray[y].previousElementSibling.className =
             "spec1 talentButton inactive-talent req-inactive";
@@ -9736,9 +9899,9 @@ class DruidComponent extends Component {
     console.log("Reset Points!");
   }
 
-  scrollComponentIntoView(){
-    const anchor = document.querySelector('#Druid')
-    anchor.scrollIntoView({ behavior: 'smooth', block: 'end' })
+  scrollComponentIntoView() {
+    const anchor = document.querySelector("#Druid");
+    anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   render() {
@@ -9750,27 +9913,32 @@ class DruidComponent extends Component {
         id="Druid"
         onLoad={this.scrollComponentIntoView}
       >
-        <div className="row">
-          <div className="col-sm-3"></div>
-          <div className="col-sm-6" style={{ color: "#e1eef4" }}>
-            <h5 style={{ color: "#e1eef4", left: "50%" }}>Points Spent:</h5>
-            <h5 id="total-points" style={{ color: "#e1eef4" }}>
+        <div
+          className="row"
+          style={{ whiteSpace: "nowrap", overflow: "hidden" }}
+        >
+          <div className="col-sm-12"><button
+              onClick={this.resetPoints}
+              type="button"
+              className="btn btn-success mb-2 mt-2"
+              style={{display: "inline-block", marginLeft: "6px"}}
+            >
+              Reset
+            </button></div>
+          <div className="col-sm-4"></div>
+          <div className="col-sm-4 mx-auto" style={{overflow: "hidden", whiteSpace: "nowrap"}}>
+            <h5 style={{ color: "white", display: "inline-block", marginLeft: "6px" }}>Points Spent:</h5>
+            <h5 id="total-points" style={{ color: "white", display: "inline-block", marginLeft: "6px", marginTop:"1px" }}>
               0
             </h5>
+            
           </div>
-          <div className="col-sm-3"></div>
+          <div className="col-sm-4"></div>
         </div>
 
-        <button
-          onClick={this.resetPoints}
-          type="button"
-          className="mx-auto btn btn-success ml-4 mb-4 mt-2"
-        >
-          Reset
-        </button>
         <div className="row">
           <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
-            <h5  style={{ color: "#e1eef4" }} id="point-counter1">
+            <h5 style={{ color: "#e1eef4" }} id="point-counter1">
               Spec 1: 0
             </h5>
           </div>
@@ -9790,14 +9958,24 @@ class DruidComponent extends Component {
           <div
             style={{
               backgroundImage: `url(${spec1BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Balance</h5>
+            <h5 id="spec1">
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec1Logo}
+              />
+              Balance
+            </h5>
             <div className="row talent-row talent-row-inner">
-            <div className="col col-xs-3">
+              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
@@ -9851,7 +10029,9 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq1Spec1" className="talentPoints req-00-s1">0/1</span>
+                <span id="subsReq1Spec1" className="talentPoints req-00-s1">
+                  0/1
+                </span>
                 <img
                   className="rightArrow"
                   src={RightSilverSmall}
@@ -9885,7 +10065,9 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq1Spec1" className="talentPoints req-00-s1">0/4</span>
+                <span id="prioReq1Spec1" className="talentPoints req-00-s1">
+                  0/4
+                </span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -9944,7 +10126,9 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq2Spec1" className="talentPoints req-05-s1">0/2</span>
+                <span id="subsReq2Spec1" className="talentPoints req-05-s1">
+                  0/2
+                </span>
                 <img
                   className="medArrow"
                   src={DownSilverMedium}
@@ -9980,10 +10164,8 @@ class DruidComponent extends Component {
 
                 <span className="talentPoints req-05-s1">0/2</span>
               </div>
-              
-              <div className="col col-xs-3"></div>
-              
 
+              <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -10043,7 +10225,7 @@ class DruidComponent extends Component {
 
                 <span className="talentPoints req-10-s1">0/1</span>
               </div>
-              
+
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10072,7 +10254,6 @@ class DruidComponent extends Component {
 
                 <span className="talentPoints req-10-s1">0/2</span>
               </div>
-
             </div>
             <div className="row talent-row">
               <div className="col col-xs-3"></div>
@@ -10102,7 +10283,9 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq2Spec1" className="talentPoints req-15-s1">0/5</span>
+                <span id="prioReq2Spec1" className="talentPoints req-15-s1">
+                  0/5
+                </span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10133,7 +10316,6 @@ class DruidComponent extends Component {
                 <span id="" className="talentPoints req-15-s1">
                   0/3
                 </span>
-                
               </div>
 
               <div className="col col-xs-3"></div>
@@ -10204,7 +10386,7 @@ class DruidComponent extends Component {
                   id="arrwReq3Spec1"
                 />
               </div>
-              
+
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10238,7 +10420,7 @@ class DruidComponent extends Component {
 
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
-              
+
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10265,9 +10447,11 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq3Spec1" className="talentPoints req-25-s1">0/5</span>
+                <span id="prioReq3Spec1" className="talentPoints req-25-s1">
+                  0/5
+                </span>
               </div>
-              
+
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10355,13 +10539,7 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span
-                  
-                  className="talentPoints req-30-s1"
-                >
-                  0/1
-                </span>
-                
+                <span className="talentPoints req-30-s1">0/1</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10395,7 +10573,7 @@ class DruidComponent extends Component {
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
-              
+
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10455,9 +10633,7 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s1">
-                  0/1
-                </span>
+                <span className="talentPoints req-40-s1">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -10466,12 +10642,22 @@ class DruidComponent extends Component {
           <div
             style={{
               backgroundImage: `url(${spec2BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Feral Combat</h5>
+            <h5 id="spec2">
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec2Logo}
+              />
+              Feral Combat
+            </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -10533,7 +10719,6 @@ class DruidComponent extends Component {
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10619,7 +10804,6 @@ class DruidComponent extends Component {
                 <span className="talentPoints req-05-s2">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
-              
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -10717,7 +10901,6 @@ class DruidComponent extends Component {
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10808,7 +10991,9 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq1Spec2" className="talentPoints req-15-s2">0/2</span>
+                <span id="prioReq1Spec2" className="talentPoints req-15-s2">
+                  0/2
+                </span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10871,7 +11056,6 @@ class DruidComponent extends Component {
                 <span id="subsReq2Spec2" className="talentPoints req-20-s2">
                   0/1
                 </span>
-                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10899,12 +11083,8 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
-                  0/2
-                </span>
-                
+                <span className="talentPoints req-20-s2">0/2</span>
               </div>
-              
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
@@ -10934,10 +11114,11 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq2Spec2" className="talentPoints req-25-s2">0/5</span>
+                <span id="prioReq2Spec2" className="talentPoints req-25-s2">
+                  0/5
+                </span>
               </div>
-              
-              
+
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10996,7 +11177,6 @@ class DruidComponent extends Component {
                 />
 
                 <span className="talentPoints req-30-s2">0/3</span>
-                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -11024,7 +11204,10 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq3Spec2 subsReq4Spec2" className="talentPoints req-30-s2">
+                <span
+                  id="subsReq3Spec2 subsReq4Spec2"
+                  className="talentPoints req-30-s2"
+                >
                   0/1
                 </span>
                 <img
@@ -11101,12 +11284,9 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span  className="talentPoints req-35-s2">
-                  0/5
-                </span>
-                
+                <span className="talentPoints req-35-s2">0/5</span>
               </div>
-              
+
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -11148,14 +11328,24 @@ class DruidComponent extends Component {
           <div
             style={{
               backgroundImage: `url(${spec3BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Restoration</h5>
+            <h5 id="spec3">
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec3Logo}
+              />
+              Restoration
+            </h5>
             <div className="row talent-row talent-row-inner">
-            <div className="col col-xs-3"></div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -11328,7 +11518,9 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq1Spec3" className="talentPoints req-10-s3">0/3</span>
+                <span id="subsReq1Spec3" className="talentPoints req-10-s3">
+                  0/3
+                </span>
                 <img
                   className="medArrow"
                   src={DownSilverMedium}
@@ -11393,7 +11585,6 @@ class DruidComponent extends Component {
                 <span id="subsReq1Spec3" className="talentPoints req-10-s3">
                   0/1
                 </span>
-                
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -11453,7 +11644,9 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq2Spec3" className="talentPoints req-15-s3">0/3</span>
+                <span id="subsReq2Spec3" className="talentPoints req-15-s3">
+                  0/3
+                </span>
                 <img
                   className="medArrow"
                   src={DownSilverMedium}
@@ -11461,7 +11654,7 @@ class DruidComponent extends Component {
                   id="arrwReq2Spec3"
                 />
               </div>
-              
+
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -11491,7 +11684,9 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq1Spec3" className="talentPoints req-20-s3">0/1</span>
+                <span id="prioReq1Spec3" className="talentPoints req-20-s3">
+                  0/1
+                </span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -11560,7 +11755,6 @@ class DruidComponent extends Component {
                   0/2
                 </span>
               </div>
-              
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -11618,7 +11812,9 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq2Spec3" className="talentPoints req-25-s3">0/5</span>
+                <span id="prioReq2Spec3" className="talentPoints req-25-s3">
+                  0/5
+                </span>
               </div>
               <div className="col col-xs-3"></div>
             </div>

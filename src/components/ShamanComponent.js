@@ -9580,6 +9580,7 @@ class ShamanComponent extends Component {
     let leftArrowArray = document.querySelectorAll(".leftArrow");
     let rightArrowArray = document.querySelectorAll(".rightArrow");
     let angleArrowArray = document.querySelectorAll(".angleArrow");
+    let lgArrowPaladinArray = document.querySelectorAll(".lgArrowPaladin");
 
     let spanArrayPotential1 = [];
     let spanArrayPotential2 = [];
@@ -9717,6 +9718,9 @@ class ShamanComponent extends Component {
     for (arrow of angleArrowArray) {
       arrow.src = AngleArrowSilver;
     }
+    for (arrow of lgArrowPaladinArray) {
+      arrow.src = DownSilverLarge;
+    }
 
     //Resets all counter variables to 0/false
     i = 0;
@@ -9747,24 +9751,28 @@ class ShamanComponent extends Component {
         id="Shaman"
         onLoad={this.scrollComponentIntoView}
       >
-        <div className="row">
-          <div className="col-sm-3"></div>
-          <div className="col-sm-6" style={{ color: "#e1eef4" }}>
-            <h5 style={{ color: "#e1eef4", left: "50%" }}>Points Spent:</h5>
-            <h5 id="total-points" style={{ color: "#e1eef4" }}>
+        <div
+          className="row"
+          style={{ whiteSpace: "nowrap", overflow: "hidden" }}
+        >
+          <div className="col-sm-12"><button
+              onClick={this.resetPoints}
+              type="button"
+              className="btn btn-success mb-2 mt-2"
+              style={{display: "inline-block", marginLeft: "6px"}}
+            >
+              Reset
+            </button></div>
+          <div className="col-sm-4"></div>
+          <div className="col-sm-4 mx-auto" style={{overflow: "hidden", whiteSpace: "nowrap"}}>
+            <h5 style={{ color: "white", display: "inline-block", marginLeft: "6px" }}>Points Spent:</h5>
+            <h5 id="total-points" style={{ color: "white", display: "inline-block", marginLeft: "6px", marginTop:"1px" }}>
               0
             </h5>
+            
           </div>
-          <div className="col-sm-3"></div>
+          <div className="col-sm-4"></div>
         </div>
-
-        <button
-          onClick={this.resetPoints}
-          type="button"
-          className="mx-auto btn btn-success ml-4 mb-4 mt-2"
-        >
-          Reset
-        </button>
         <div className="row">
           <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
             <h5  style={{ color: "#e1eef4" }} id="point-counter1">
