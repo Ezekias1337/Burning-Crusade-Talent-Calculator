@@ -227,7 +227,7 @@ class ClassSelector extends Component {
     });
 
     return (
-      <Router basename="/Burning-Crusade-Talent-Calculator">
+      <Router>
         <div style={{ position: "relative" }} >
           <div className="container mx-auto">
             <div className="row">
@@ -250,31 +250,31 @@ class ClassSelector extends Component {
 
         <Switch>
           
-          <Route path="/Hunter">
+          <Route path="Burning-Crusade-Talent-Calculator/Hunter">
             <HunterComponent />
           </Route>
-          <Route path="/Druid">
+          <Route path="Burning-Crusade-Talent-Calculator/Druid">
             <DruidComponent />
           </Route>
-          <Route path="/Mage">
+          <Route path="Burning-Crusade-Talent-Calculator/Mage">
             <MageComponent />
           </Route>
-          <Route path="/Paladin">
+          <Route path="Burning-Crusade-Talent-Calculator/Paladin">
             <PaladinComponent />
           </Route>
-          <Route path="/Priest">
+          <Route path="Burning-Crusade-Talent-Calculator/Priest">
             <PriestComponent />
           </Route>
-          <Route path="/Rogue">
+          <Route path="Burning-Crusade-Talent-Calculator/Rogue">
             <RogueComponent />
           </Route>
-          <Route path="/Shaman">
+          <Route path="Burning-Crusade-Talent-Calculator/Shaman">
             <ShamanComponent />
           </Route>
-          <Route path="/Warlock">
+          <Route path="Burning-Crusade-Talent-Calculator/Warlock">
             <WarlockComponent />
           </Route>
-          <Route path="/Warrior">
+          <Route path="Burning-Crusade-Talent-Calculator/Warrior">
             <WarriorComponent />
           </Route>
         </Switch>
