@@ -250,31 +250,31 @@ class ClassSelector extends Component {
 
         <Switch>
           
-          <Route path="/Burning-Crusade-Talent-Calculator/Hunter">
+          <Route path="/Hunter">
             <HunterComponent />
           </Route>
-          <Route path="/Burning-Crusade-Talent-Calculator/Druid">
+          <Route path="/Druid">
             <DruidComponent />
           </Route>
-          <Route path="/Burning-Crusade-Talent-Calculator/Mage">
+          <Route path="/Mage">
             <MageComponent />
           </Route>
-          <Route path="/Burning-Crusade-Talent-Calculator/Paladin">
+          <Route path="/Paladin">
             <PaladinComponent />
           </Route>
-          <Route path="/Burning-Crusade-Talent-Calculator/Priest">
+          <Route path="/Priest">
             <PriestComponent />
           </Route>
-          <Route path="/Burning-Crusade-Talent-Calculator/Rogue">
+          <Route path="/Rogue">
             <RogueComponent />
           </Route>
-          <Route path="/Burning-Crusade-Talent-Calculator/Shaman">
+          <Route path="/Shaman">
             <ShamanComponent />
           </Route>
-          <Route path="/Burning-Crusade-Talent-Calculator/Warlock">
+          <Route path="/Warlock">
             <WarlockComponent />
           </Route>
-          <Route path="/Burning-Crusade-Talent-Calculator/Warrior">
+          <Route path="/Warrior">
             <WarriorComponent />
           </Route>
         </Switch>
