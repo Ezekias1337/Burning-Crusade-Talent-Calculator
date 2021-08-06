@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Link
@@ -20,12 +20,9 @@ import {
   NavbarText
 } from 'reactstrap';
 import ClassSelector from './components/ClassSelectorComponent';
-import HunterComponent from './components/HunterComponent';
 import FooterComponent from './components/FooterComponent'
 import ReactTooltip from 'react-tooltip';
 import './App.css';
-import BCLogo from "./images/BC_Logo.png"
-import RepeatingTile from "./images/Repeating_Tile.PNG"
 import CustomNavbar from "./components/NavbarComponent"
 
 class App extends Component {

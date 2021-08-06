@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 import HunterComponent from './HunterComponent';
 import DruidComponent from './DruidComponent';
 import MageComponent from './MageComponent';
