@@ -55,7 +55,7 @@ const CustomNavbar = (props) => {
         
       }}
     >
-      <Router basename="/Burning-Crusade-Talent-Calculator">
+      <Router>
       <Navbar dark expand="md">
         <NavbarBrand  style={{ fontSize: "2rem", fontWeight: "bold", color: "white" }}>
           
