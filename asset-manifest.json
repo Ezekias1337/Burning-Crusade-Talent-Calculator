@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/Burning-Crusade-Talent-Calculator/static/css/main.153c1199.chunk.css",
-    "main.js": "/Burning-Crusade-Talent-Calculator/static/js/main.e0761950.chunk.js",
-    "main.js.map": "/Burning-Crusade-Talent-Calculator/static/js/main.e0761950.chunk.js.map",
+    "main.css": "/Burning-Crusade-Talent-Calculator/static/css/main.92fdfbcd.chunk.css",
+    "main.js": "/Burning-Crusade-Talent-Calculator/static/js/main.99a5c524.chunk.js",
+    "main.js.map": "/Burning-Crusade-Talent-Calculator/static/js/main.99a5c524.chunk.js.map",
     "runtime-main.js": "/Burning-Crusade-Talent-Calculator/static/js/runtime-main.092e49a0.js",
     "runtime-main.js.map": "/Burning-Crusade-Talent-Calculator/static/js/runtime-main.092e49a0.js.map",
     "static/css/2.05cf3275.chunk.css": "/Burning-Crusade-Talent-Calculator/static/css/2.05cf3275.chunk.css",
-    "static/js/2.d21d8432.chunk.js": "/Burning-Crusade-Talent-Calculator/static/js/2.d21d8432.chunk.js",
-    "static/js/2.d21d8432.chunk.js.map": "/Burning-Crusade-Talent-Calculator/static/js/2.d21d8432.chunk.js.map",
+    "static/js/2.3932a60e.chunk.js": "/Burning-Crusade-Talent-Calculator/static/js/2.3932a60e.chunk.js",
+    "static/js/2.3932a60e.chunk.js.map": "/Burning-Crusade-Talent-Calculator/static/js/2.3932a60e.chunk.js.map",
     "static/js/3.fc34497e.chunk.js": "/Burning-Crusade-Talent-Calculator/static/js/3.fc34497e.chunk.js",
     "static/js/3.fc34497e.chunk.js.map": "/Burning-Crusade-Talent-Calculator/static/js/3.fc34497e.chunk.js.map",
     "index.html": "/Burning-Crusade-Talent-Calculator/index.html",
     "static/css/2.05cf3275.chunk.css.map": "/Burning-Crusade-Talent-Calculator/static/css/2.05cf3275.chunk.css.map",
-    "static/css/main.153c1199.chunk.css.map": "/Burning-Crusade-Talent-Calculator/static/css/main.153c1199.chunk.css.map",
-    "static/js/2.d21d8432.chunk.js.LICENSE.txt": "/Burning-Crusade-Talent-Calculator/static/js/2.d21d8432.chunk.js.LICENSE.txt",
+    "static/css/main.92fdfbcd.chunk.css.map": "/Burning-Crusade-Talent-Calculator/static/css/main.92fdfbcd.chunk.css.map",
+    "static/js/2.3932a60e.chunk.js.LICENSE.txt": "/Burning-Crusade-Talent-Calculator/static/js/2.3932a60e.chunk.js.LICENSE.txt",
     "static/media/Affliction.077268c6.jpg": "/Burning-Crusade-Talent-Calculator/static/media/Affliction.077268c6.jpg",
     "static/media/Arcane.2f5aaaad.jpg": "/Burning-Crusade-Talent-Calculator/static/media/Arcane.2f5aaaad.jpg",
     "static/media/Arms.155985df.jpg": "/Burning-Crusade-Talent-Calculator/static/media/Arms.155985df.jpg",
@@ -60,8 +60,8 @@
   "entrypoints": [
     "static/js/runtime-main.092e49a0.js",
     "static/css/2.05cf3275.chunk.css",
-    "static/js/2.d21d8432.chunk.js",
-    "static/css/main.153c1199.chunk.css",
-    "static/js/main.e0761950.chunk.js"
+    "static/js/2.3932a60e.chunk.js",
+    "static/css/main.92fdfbcd.chunk.css",
+    "static/js/main.99a5c524.chunk.js"
   ]
 }
