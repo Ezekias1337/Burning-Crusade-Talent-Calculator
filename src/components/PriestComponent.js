@@ -150,6 +150,10 @@ class PriestComponent extends Component {
     };
   }
 
+  rebuildToolTip(){
+    ReactTooltip.rebuild();
+  }
+
   toolTipFunction() {
     let toolTipChecker;
     let toolTipIDChecker;
@@ -9758,7 +9762,10 @@ class PriestComponent extends Component {
         onContextMenu={(e) => e.preventDefault()}
         className="frame-wrapper"
         id="Priest"
-        onLoad={this.scrollComponentIntoView}
+        onLoad={() => {
+          this.scrollComponentIntoView();
+          this.rebuildToolTip();
+        }}
       >
         <div
           className="row"

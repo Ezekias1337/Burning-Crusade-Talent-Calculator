@@ -1,6 +1,6 @@
 import { contains } from "jquery";
 import React, { Component } from "react";
-
+import ReactTooltip from "react-tooltip";
 import { Hunter } from "../talentinfo/Hunter";
 import spec1BG from "../images/talents/Hunter/Background/BeastMastery.jpg"
 import spec2BG from "../images/talents/Hunter/Background/Marksman.jpg"
@@ -143,6 +143,14 @@ class HunterComponent extends Component {
     this.state = {
 
     };
+  }
+
+  rebuildToolTip(){
+    ReactTooltip.rebuild();
+  }
+
+  componentDidUpdate() {
+    ReactTooltip.rebuild();
   }
 
   toolTipFunction() {
@@ -8640,7 +8648,10 @@ class HunterComponent extends Component {
         onContextMenu={(e) => e.preventDefault()}
         className="frame-wrapper"
         id="Hunter"
-        onLoad={this.scrollComponentIntoView}
+        onLoad={() => {
+          this.scrollComponentIntoView();
+          this.rebuildToolTip();
+        }}
       >
         <div
           className="row"
@@ -10718,6 +10729,6 @@ class HunterComponent extends Component {
   }
 }
 
-
+<ReactTooltip data-html="true" />
 
 export default HunterComponent;

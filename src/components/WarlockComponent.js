@@ -142,6 +142,10 @@ class WarlockComponent extends Component {
     };
   }
 
+  rebuildToolTip(){
+    ReactTooltip.rebuild();
+  }
+
   toolTipFunction() {
     let toolTipChecker;
     let toolTipIDChecker;
@@ -9682,7 +9686,10 @@ class WarlockComponent extends Component {
         onContextMenu={(e) => e.preventDefault()}
         className="frame-wrapper"
         id="Warlock"
-        onLoad={this.scrollComponentIntoView}
+        onLoad={() => {
+          this.scrollComponentIntoView();
+          this.rebuildToolTip();
+        }}
       >
         <div
           className="row"

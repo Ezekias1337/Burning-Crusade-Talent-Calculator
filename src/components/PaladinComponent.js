@@ -141,6 +141,10 @@ class PaladinComponent extends Component {
     };
   }
 
+  rebuildToolTip(){
+    ReactTooltip.rebuild();
+  }
+
   toolTipFunction() {
     let toolTipChecker;
     let toolTipIDChecker;
@@ -9751,7 +9755,10 @@ class PaladinComponent extends Component {
         onContextMenu={(e) => e.preventDefault()}
         className="frame-wrapper"
         id="Paladin"
-        onLoad={this.scrollComponentIntoView}
+        onLoad={() => {
+          this.scrollComponentIntoView();
+          this.rebuildToolTip();
+        }}
       >
         <div
           className="row"

@@ -140,6 +140,10 @@ class ShamanComponent extends Component {
     };
   }
 
+  rebuildToolTip(){
+    ReactTooltip.rebuild();
+  }
+
   toolTipFunction() {
     let toolTipChecker;
     let toolTipIDChecker;
@@ -9739,7 +9743,7 @@ class ShamanComponent extends Component {
 
   scrollComponentIntoView(){
     const anchor = document.querySelector('#Shaman')
-    anchor.scrollIntoView({ behavior: 'smooth', block: 'end' })
+    anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   render() {
@@ -9749,7 +9753,10 @@ class ShamanComponent extends Component {
         onContextMenu={(e) => e.preventDefault()}
         className="frame-wrapper"
         id="Shaman"
-        onLoad={this.scrollComponentIntoView}
+        onLoad={() => {
+          this.scrollComponentIntoView();
+          this.rebuildToolTip();
+        }}
       >
         <div
           className="row"

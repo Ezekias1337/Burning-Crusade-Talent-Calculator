@@ -145,6 +145,10 @@ class MageComponent extends Component {
     };
   }
 
+  rebuildToolTip(){
+    ReactTooltip.rebuild();
+  }
+
   toolTipFunction() {
     let toolTipChecker;
     let toolTipIDChecker;
@@ -9685,7 +9689,10 @@ class MageComponent extends Component {
         onContextMenu={(e) => e.preventDefault()}
         className="frame-wrapper"
         id="Mage"
-        onLoad={this.scrollComponentIntoView}
+        onLoad={() => {
+          this.scrollComponentIntoView();
+          this.rebuildToolTip();
+        }}
       >
         <div
           className="row"
