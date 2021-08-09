@@ -10710,9 +10710,14 @@ class DruidComponent extends Component {
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
-              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
-onMouseDown={() => {
-this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.FerocityToolTip); }}
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                    ReactTooltip.show(this.FerocityToolTip);
+                  }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10734,9 +10739,14 @@ this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.FerocityToolT
                 <span className="talentPoints req-00-s2">0/5</span>
               </div>
               <div className="col col-xs-3">
-              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
-onMouseDown={() => {
-this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.FeralAggressionToolTip); }}
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                    ReactTooltip.show(this.FeralAggressionToolTip);
+                  }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10761,9 +10771,14 @@ this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.FeralAggressi
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
-onMouseDown={() => {
-this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.FeralInstinctToolTip); }}
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                    ReactTooltip.show(this.FeralInstinctToolTip);
+                  }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10785,9 +10800,14 @@ this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.FeralInstinct
                 <span className="talentPoints req-05-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
-              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
-onMouseDown={() => {
-this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.BrutalImpactToolTip); }}
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                    ReactTooltip.show(this.BrutalImpactToolTip);
+                  }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10809,9 +10829,14 @@ this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.BrutalImpactT
                 <span className="talentPoints req-05-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
-              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
-onMouseDown={() => {
-this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.ThickHideToolTip); }}
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                    ReactTooltip.show(this.ThickHideToolTip);
+                  }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10836,9 +10861,14 @@ this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.ThickHideTool
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
-onMouseDown={() => {
-this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.FeralSwiftnessToolTip); }}
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                    ReactTooltip.show(this.FeralSwiftnessToolTip);
+                  }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10860,9 +10890,14 @@ this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.FeralSwiftnes
                 <span className="talentPoints req-10-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
-              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
-onMouseDown={() => {
-this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.FeralChargeToolTip); }}
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                    ReactTooltip.show(this.FeralChargeToolTip);
+                  }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10884,9 +10919,14 @@ this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.FeralChargeTo
                 <span className="talentPoints req-10-s2">0/1</span>
               </div>
               <div className="col col-xs-3">
-              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
-onMouseDown={() => {
-this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.SharpenedClawsToolTip); }}
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                    ReactTooltip.show(this.SharpenedClawsToolTip);
+                  }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10919,9 +10959,14 @@ this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.SharpenedClaw
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
-onMouseDown={() => {
-this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.ShreddingAttacksToolTip); }}
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                    ReactTooltip.show(this.ShreddingAttacksToolTip);
+                  }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10943,9 +10988,14 @@ this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.ShreddingAtta
                 <span className="talentPoints req-15-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
-              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
-onMouseDown={() => {
-this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.PredatoryStrikesToolTip); }}
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                    ReactTooltip.show(this.PredatoryStrikesToolTip);
+                  }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
