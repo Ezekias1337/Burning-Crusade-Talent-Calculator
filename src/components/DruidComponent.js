@@ -134,7 +134,7 @@ class DruidComponent extends Component {
     this.state = {};
   }
 
-  rebuildToolTip(){
+  rebuildToolTip() {
     ReactTooltip.rebuild();
   }
 
@@ -9924,21 +9924,41 @@ class DruidComponent extends Component {
           className="row"
           style={{ whiteSpace: "nowrap", overflow: "hidden" }}
         >
-          <div className="col-sm-12"><button
+          <div className="col-sm-12">
+            <button
               onClick={this.resetPoints}
               type="button"
               className="btn btn-success mb-2 mt-2"
-              style={{display: "inline-block", marginLeft: "6px"}}
+              style={{ display: "inline-block", marginLeft: "6px" }}
             >
               Reset
-            </button></div>
+            </button>
+          </div>
           <div className="col-sm-4"></div>
-          <div className="col-sm-4 mx-auto" style={{overflow: "hidden", whiteSpace: "nowrap"}}>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "6px" }}>Points Spent:</h5>
-            <h5 id="total-points" style={{ color: "white", display: "inline-block", marginLeft: "6px", marginTop:"1px" }}>
+          <div
+            className="col-sm-4 mx-auto"
+            style={{ overflow: "hidden", whiteSpace: "nowrap" }}
+          >
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "6px",
+              }}
+            >
+              Points Spent:
+            </h5>
+            <h5
+              id="total-points"
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "6px",
+                marginTop: "1px",
+              }}
+            >
               0
             </h5>
-            
           </div>
           <div className="col-sm-4"></div>
         </div>
@@ -9989,6 +10009,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.StarlightWrathToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10017,6 +10038,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.NaturesGraspToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10053,11 +10075,13 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedNaturesGraspToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedNaturesGraspToolTip = ref)}
                   data-tip={Druid[2].toolTip[0]}
                   id="3"
                 />
@@ -10086,6 +10110,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ControlOfNatureToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10114,6 +10139,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FocusedStarlightToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10150,6 +10176,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedMoonfireToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10182,6 +10209,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BramblesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10211,6 +10239,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.InsectSwarmToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10240,6 +10269,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.NaturesReachToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10271,6 +10301,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.VengeanceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10301,6 +10332,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CelestialFocusToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10336,6 +10368,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.LunarGuidanceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10364,6 +10397,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.NaturesGraceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10401,6 +10435,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MoonGlowToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10435,6 +10470,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MoonfuryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10466,6 +10502,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BalanceOfPowerToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10499,6 +10536,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DreamstateToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10527,6 +10565,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MoonkinFormToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10555,6 +10594,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedFaerieFireToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10588,6 +10628,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.WrathOfCenariusToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10621,6 +10662,7 @@ class DruidComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ForceOfNatureToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
@@ -10668,13 +10710,9 @@ class DruidComponent extends Component {
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
+              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
+onMouseDown={() => {
+this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.FerocityToolTip); }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10696,13 +10734,9 @@ class DruidComponent extends Component {
                 <span className="talentPoints req-00-s2">0/5</span>
               </div>
               <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
+              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
+onMouseDown={() => {
+this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.FeralAggressionToolTip); }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10727,13 +10761,9 @@ class DruidComponent extends Component {
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
+              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
+onMouseDown={() => {
+this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.FeralInstinctToolTip); }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10755,13 +10785,9 @@ class DruidComponent extends Component {
                 <span className="talentPoints req-05-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
+              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
+onMouseDown={() => {
+this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.BrutalImpactToolTip); }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10783,13 +10809,9 @@ class DruidComponent extends Component {
                 <span className="talentPoints req-05-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
+              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
+onMouseDown={() => {
+this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.ThickHideToolTip); }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10814,13 +10836,9 @@ class DruidComponent extends Component {
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
+              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
+onMouseDown={() => {
+this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.FeralSwiftnessToolTip); }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10842,13 +10860,9 @@ class DruidComponent extends Component {
                 <span className="talentPoints req-10-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
+              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
+onMouseDown={() => {
+this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.FeralChargeToolTip); }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10870,13 +10884,9 @@ class DruidComponent extends Component {
                 <span className="talentPoints req-10-s2">0/1</span>
               </div>
               <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
+              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
+onMouseDown={() => {
+this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.SharpenedClawsToolTip); }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10909,13 +10919,9 @@ class DruidComponent extends Component {
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
+              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
+onMouseDown={() => {
+this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.ShreddingAttacksToolTip); }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
@@ -10937,13 +10943,9 @@ class DruidComponent extends Component {
                 <span className="talentPoints req-15-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
+              <img onMouseEnter={this.displayMouseOverlayInnerElement} onMouseLeave={this.hideMouseOverlayInnerElement}
+onMouseDown={() => {
+this.talentClick(); this.toolTipFunction(); ReactTooltip.show(this.PredatoryStrikesToolTip); }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
