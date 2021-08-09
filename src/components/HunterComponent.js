@@ -1,3 +1,4 @@
+import $ from "jquery";
 import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Hunter } from "../talentinfo/Hunter";
@@ -12,23 +13,9 @@ import spec3Logo from "../images/talents/Hunter/Spec3Logo.jpg"
 /* 
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
 Things to update across all components
-1.) Hardcoded images => Imported Images ✔
-a.) Don't forget Arrows ✔
-2.) Window.event.button[0] to handle left click on inactive talents ✔
-3.) All functions handling Arrows ✔
-  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3) ✔
-  b.) turnArrowGoldOnClick ✔
-  c.) turnArrowGoldIndirectly (s1,s2,s3) ✔
-  d.) window.event.button[2] where code looks at arrows source and subsequent switch ✔
-      in code directly after .nextElementSibling.id.includes("Spec")
-      1.) first if statement (reference classname instead of src) ✔
-      2.) switch directly after (change .src = to reference imported img) ✔ 
-  e.) Reset Function (the for of loops, don't forget left/right/angle arrow) ✔
-4.) Import Background image for each spec ✔
-5.) Change spec talent frame bootstrap breakpoints ✔
-6.) Update formulas for mobile ✔
-7.) Update HTML for Tooltip ✔
-8.) add mb-3 to talent frame wrapper div ✔
+1.) Make tooltip re-render on click
+2.) Make talent frames not spread far apart large viewport
+
 
 */
 
@@ -148,8 +135,9 @@ class HunterComponent extends Component {
     ReactTooltip.rebuild();
   }
 
-  componentDidUpdate() {
-    ReactTooltip.rebuild();
+  rebuildToolTipOnClick() {
+    
+
   }
 
   toolTipFunction() {
@@ -8643,9 +8631,9 @@ class HunterComponent extends Component {
   render() {
     return (
       <div
-        style={{ position: "relative" }}
+        style={{ position: "relative", maxWidth: "1010px" }} 
         onContextMenu={(e) => e.preventDefault()}
-        className="frame-wrapper"
+        className="frame-wrapper mx-auto"
         id="Hunter"
         onLoad={() => {
           this.scrollComponentIntoView();
@@ -8692,7 +8680,7 @@ class HunterComponent extends Component {
           </div>
         </div>
 
-        <div className="row ml-3 mr-3 mb-3">
+        <div className="row ml-3 mr-3 mb-3 mx-auto" style={{maxWidth: "1010px"}}>
           <div
             style={{
               backgroundImage: `url(${spec1BG})`,
@@ -8713,12 +8701,14 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.fooRef);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Hunter[0].toolTip[0]}
+                  ref={ref => this.fooRef = ref}
                   id="1"
                 />
                 <img
@@ -8744,11 +8734,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.EnduranceTrainingToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={ref => this.EnduranceTrainingToolTip = ref}
                   data-tip={Hunter[1].toolTip[0]}
                   id="2"
                 />

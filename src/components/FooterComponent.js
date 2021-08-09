@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import RepeatingTile5 from "../images/Repeating_Tile5.PNG"
 import FooterBG from "../images/BGs/DPuuRd1X0AMTSgq.jpg";
 
 class FooterComponent extends Component {

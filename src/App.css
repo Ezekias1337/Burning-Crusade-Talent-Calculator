@@ -247,10 +247,7 @@ body {
   border-radius: 3px;
 }
 
-.html{
-  cursor: url("./images/Wow_Cursor.gif"), url("./images/Wow_Cursor.cur"), auto;
-  
-}
+
 
 .req-inactive{
   filter: grayscale(100%);
