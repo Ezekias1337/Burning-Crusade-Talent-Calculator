@@ -9685,9 +9685,9 @@ class MageComponent extends Component {
   render() {
     return (
       <div
-        style={{ position: "relative" }}
+        style={{ position: "relative", maxWidth: "1010px" }}
         onContextMenu={(e) => e.preventDefault()}
-        className="frame-wrapper"
+        className="frame-wrapper mx-auto"
         id="Mage"
         onLoad={() => {
           this.scrollComponentIntoView();
@@ -9734,7 +9734,7 @@ class MageComponent extends Component {
           </div>
         </div>
 
-        <div className="row ml-3 mr-3 mb-3">
+        <div className="row ml-3 mr-3 mb-3 mx-auto" style={{maxWidth: "1010px"}}>
           <div
             style={{
               backgroundImage: `url(${spec1BG})`,
