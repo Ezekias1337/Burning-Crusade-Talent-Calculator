@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 import HunterComponent from './HunterComponent';
 import DruidComponent from './DruidComponent';
 import MageComponent from './MageComponent';
@@ -10,6 +10,17 @@ import ShamanComponent from './ShamanComponent';
 import WarlockComponent from './WarlockComponent';
 import WarriorComponent from './WarriorComponent';
 
+import Druid from '../images/Druid_Icon.png'
+import Hunter from '../images/Hunter_Icon.png'
+import Mage from '../images/Mage_Icon.png'
+import Paladin from '../images/Paladin_Icon.png'
+import Rogue from '../images/Rogue_Icon.png'
+import Shaman from '../images/Shaman_Icon.png'
+import Warlock from '../images/Warlock_Icon.png'
+import Warrior from '../images/Warrior_Icon.png'
+import Priest from '../images/Priest_Icon.png'
+
+
 class ClassSelector extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +29,7 @@ class ClassSelector extends Component {
         {
           id: 0,
           playableClassName: "Hunter",
-          classIcon: "assets/images/Hunter_Icon.png",
+          classIcon: Hunter,
           classColor: "#ABD473",
           spec1: {
             name: "Beast Mastery",
@@ -36,7 +47,7 @@ class ClassSelector extends Component {
         {
           id: 1,
           playableClassName: "Shaman",
-          classIcon: "assets/images/Shaman_Icon.png",
+          classIcon: Shaman,
           classColor: "#0070DE",
           spec1: {
             name: "Elemental",
@@ -54,7 +65,7 @@ class ClassSelector extends Component {
         {
           id: 2,
           playableClassName: "Warlock",
-          classIcon: "assets/images/Warlock_Icon.png",
+          classIcon: Warlock,
           classColor: "#9482C9",
           spec1: {
             name: "Affliction",
@@ -72,7 +83,7 @@ class ClassSelector extends Component {
         {
           id: 3,
           playableClassName: "Warrior",
-          classIcon: "assets/images/Warrior_Icon.png",
+          classIcon: Warrior,
           classColor: "#C79C6E",
           spec1: {
             name: "Arms",
@@ -90,7 +101,7 @@ class ClassSelector extends Component {
         {
           id: 4,
           playableClassName: "Rogue",
-          classIcon: "assets/images/Rogue_Icon.png",
+          classIcon: Rogue,
           classColor: "#FFF569",
           spec1: {
             name: "Assassination",
@@ -108,7 +119,7 @@ class ClassSelector extends Component {
         {
           id: 5,
           playableClassName: "Priest",
-          classIcon: "assets/images/Priest_Icon.png",
+          classIcon: Priest,
           classColor: "#FFFFFF",
           spec1: {
             name: "Discipline",
@@ -126,7 +137,7 @@ class ClassSelector extends Component {
         {
           id: 6,
           playableClassName: "Paladin",
-          classIcon: "assets/images/Paladin_Icon.png",
+          classIcon: Paladin,
           classColor: "#F58CBA",
           spec1: {
             name: "Holy",
@@ -144,7 +155,7 @@ class ClassSelector extends Component {
         {
           id: 7,
           playableClassName: "Mage",
-          classIcon: "assets/images/Mage_Icon.png",
+          classIcon: Mage,
           classColor: "#69CCF0",
           spec1: {
             name: "Arcane",
@@ -162,7 +173,7 @@ class ClassSelector extends Component {
         {
           id: 8,
           playableClassName: "Druid",
-          classIcon: "assets/images/Druid_Icon.png",
+          classIcon: Druid,
           classColor: "#FF7D0A",
           spec1: {
             name: "Balance",
@@ -181,12 +192,20 @@ class ClassSelector extends Component {
     };
   }
 
+  fixNavLinks(){
+    let navLinkToManipulate = document.getElementsByClassName("Hunter")[0];
+    let navLinkFromClassSelector = document.getElementById("HunterLink");
+
+    navLinkToManipulate.href = navLinkFromClassSelector.href;
+  }
+
   render() {
     const classSelector = this.state.classes.map((playableClass) => {
       return (
         <div
-          className="ml-2 mr-1 col mt-5 hovereffect"
-          style={{ height: "130px", width: "130px" }}
+          className="col mt-5 hovereffect"
+          style={{ height: "130px", width: "130px"}}
+          
         >
           <img
             src={playableClass.classIcon}
@@ -198,9 +217,12 @@ class ClassSelector extends Component {
             {playableClass.playableClassName}
           </h4>
           <div class="overlay" style={{ height: "110px", width: "135px" }}>
-            <a
+            <Link 
+              to={"/" + playableClass.playableClassName}
               class="info"
-              href={"/" + playableClass.playableClassName}
+              onClick={this.scrollComponentIntoView}
+              id={playableClass.playableClassName + "Link"}
+              
               style={{
                 color: playableClass.classColor,
                 boxShadow: `0 0 5px ${playableClass.classColor}`,
@@ -209,7 +231,7 @@ class ClassSelector extends Component {
             >
               
               Select
-            </a>
+            </Link>
           </div>
         </div>
       );
@@ -217,11 +239,11 @@ class ClassSelector extends Component {
 
     return (
       <Router>
-        <div style={{ position: "relative" }}>
-          <div className="container">
+        <div onLoad={this.fixNavLinks} style={{ position: "relative" }} >
+          <div className="container mx-auto">
             <div className="row">
               <div className="col">
-                <h1 style={{ color: "#e1eef4" }} className="mt-2">
+                <h1 style={{ fontSize: "2rem", fontWeight: "bold", color: "white" }} className="mt-2">
                   Select a Class
                 </h1>
               </div>
@@ -230,9 +252,9 @@ class ClassSelector extends Component {
 
           <div className="container mx-auto">
             <div className="row">
-              <div className="col col-sm-3"></div>
-              <div className="col col-sm-6 mb-4">{classSelector}</div>
-              <div className="col col-sm-3"></div>
+              <div className="col "></div>
+              <div className="col-12 col-md-6 col-xl-5 mb-4 ml-5">{classSelector}</div>
+              <div className="col "></div>
             </div>
           </div>
         </div>

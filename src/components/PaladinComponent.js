@@ -3,6 +3,129 @@ import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Paladin } from "../talentinfo/Paladin";
 
+// line 3702 fixed bug for arrow not turning gold on click spec 3 key is changing to inactive instead of active
+
+/* 
+DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
+Things to update across all components
+1.) Hardcoded images => Imported Images ✔
+a.) Don't forget Arrows ✔
+2.) Window.event.button[0] to handle left click on inactive talents
+3.) All functions handling Arrows
+  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3)
+  b.) turnArrowGoldOnClick
+  c.) turnArrowGoldIndirectly (s1,s2,s3)
+  d.) window.event.button[2] where code looks at arrows source and subsequent switch
+      in code directly after .nextElementSibling.id.includes("Spec")
+      1.) first if statement (reference classname instead of src)
+      2.) switch directly after (change .src = to reference imported img)
+  e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
+4.) Import Background image for each spec ✔
+5.) Change spec talent frame bootstrap breakpoints ✔
+6.) Update formulas for mobile ✔
+7.) Update HTML for Tooltip ✔
+8.) add mb-3 to talent frame wrapper div ✔
+
+*/
+
+import spec1BG from "../images/talents/Paladin/Background/Holy.jpg"
+import spec2BG from "../images/talents/Paladin/Background/Protection.jpg"
+import spec3BG from "../images/talents/Paladin/Background/Retribution.jpg"
+import spec1Logo from "../images/talents/Paladin/Spec1Logo.jpg"
+import spec2Logo from "../images/talents/Paladin/Spec2Logo.jpg"
+import spec3Logo from "../images/talents/Paladin/Spec3Logo.jpg"
+
+//consistent among classes
+
+import overlayImage from "../images/Item_Hover.png"
+
+import DownSilverSmall from "../images/DownSilverSmall.png"
+import DownSilverMedium from "../images/DownSilverMedium.png"
+import DownSilverLarge from "../images/DownSilverLarge.png"
+
+import DownGoldSmall from "../images/DownGoldSmall.png"
+import DownGoldMedium from "../images/DownGoldMedium.png"
+import DownGoldLarge from "../images/DownGoldLarge.png"
+
+import LeftSilverSmall from "../images/LeftSilverSmall.png"
+import RightSilverSmall from "../images/RightSilverSmall.png"
+
+import LeftGoldSmall from "../images/LeftGoldSmall.png"
+import RightGoldSmall from "../images/RightGoldSmall.png"
+
+import AngleArrowSilver from "../images/AngleArrowSilver.png"
+import AngleArrowGold from "../images/AngleArrowGold.png"
+
+//spec1
+
+import AuraMastery from '../images/talents/Paladin/Progression/spec1/AuraMastery.jpg';
+import DivineStrength from '../images/talents/Paladin/Progression/spec1/DivineStrength.jpg';
+import Illumination from '../images/talents/Paladin/Progression/spec1/Illumination.jpg';
+import PureOfHeart from '../images/talents/Paladin/Progression/spec1/PureOfHeart.jpg';
+import BlessedLife from '../images/talents/Paladin/Progression/spec1/BlessedLife.jpg';
+import HealingLight from '../images/talents/Paladin/Progression/spec1/HealingLight.jpg';
+import ImprovedBlessingOfWisdom from '../images/talents/Paladin/Progression/spec1/ImprovedBlessingOfWisdom.jpg';
+import PurifyingPower from '../images/talents/Paladin/Progression/spec1/PurifyingPower.jpg';
+import DivineFavor from '../images/talents/Paladin/Progression/spec1/DivineFavor.jpg';
+import HolyGuidance from '../images/talents/Paladin/Progression/spec1/HolyGuidance.jpg';
+import ImprovedLayOnHands from '../images/talents/Paladin/Progression/spec1/ImprovedLayOnHands.jpg';
+import SanctifiedLight from '../images/talents/Paladin/Progression/spec1/SanctifiedLight.jpg';
+import DivineIllumination from '../images/talents/Paladin/Progression/spec1/DivineIllumination.jpg';
+import HolyPower from '../images/talents/Paladin/Progression/spec1/HolyPower.jpg';
+import ImprovedSealOfRighteousness from '../images/talents/Paladin/Progression/spec1/ImprovedSealOfRighteousness.jpg';
+import SpiritualFocus from '../images/talents/Paladin/Progression/spec1/SpiritualFocus.jpg';
+import DivineIntellect from '../images/talents/Paladin/Progression/spec1/DivineIntellect.jpg';
+import HolyShock from '../images/talents/Paladin/Progression/spec1/HolyShock.jpg';
+import LightsGrace from '../images/talents/Paladin/Progression/spec1/LightsGrace.jpg';
+import UnyieldingFaith from '../images/talents/Paladin/Progression/spec1/UnyieldingFaith.jpg';
+
+//spec2
+
+import Anticipation from '../images/talents/Paladin/Progression/spec2/Anticipation.jpg';
+import GuardiansFavor from '../images/talents/Paladin/Progression/spec2/GuardiansFavor.jpg';
+import OneHandedWeaponSpecialization from '../images/talents/Paladin/Progression/spec2/OneHandedWeaponSpecialization.jpg';
+import SpellWarding from '../images/talents/Paladin/Progression/spec2/SpellWarding.jpg';
+import ArdentDefender from '../images/talents/Paladin/Progression/spec2/ArdentDefender.jpg';
+import HolyShield from '../images/talents/Paladin/Progression/spec2/HolyShield.jpg';
+import Precision from '../images/talents/Paladin/Progression/spec2/Precision.jpg';
+import Stoicism from '../images/talents/Paladin/Progression/spec2/Stoicism.jpg';
+import AvengersShield from '../images/talents/Paladin/Progression/spec2/AvengersShield.jpg';
+import ImprovedConcentrationAura from '../images/talents/Paladin/Progression/spec2/ImprovedConcentrationAura.jpg';
+import Reckoning from '../images/talents/Paladin/Progression/spec2/Reckoning.jpg';
+import Toughness from '../images/talents/Paladin/Progression/spec2/Toughness.jpg';
+import BlessingOfKings from '../images/talents/Paladin/Progression/spec2/BlessingOfKings.jpg';
+import ImprovedDevotionAura from '../images/talents/Paladin/Progression/spec2/ImprovedDevotionAura.jpg';
+import Redoubt from '../images/talents/Paladin/Progression/spec2/Redoubt.jpg';
+import BlessingOfSanctuary from '../images/talents/Paladin/Progression/spec2/BlessingOfSanctuary.jpg';
+import ImprovedHammerOfJustice from '../images/talents/Paladin/Progression/spec2/ImprovedHammerOfJustice.jpg';
+import SacredDuty from '../images/talents/Paladin/Progression/spec2/SacredDuty.jpg';
+import CombatExpertise from '../images/talents/Paladin/Progression/spec2/CombatExpertise.jpg';
+import ImprovedRighteousFury from '../images/talents/Paladin/Progression/spec2/ImprovedRighteousFury.jpg';
+import ShieldSpecialization from '../images/talents/Paladin/Progression/spec2/ShieldSpecialization.jpg';
+
+//spec3
+
+import Benediction from '../images/talents/Paladin/Progression/spec3/Benediction.jpg';
+import DivinePurpose from '../images/talents/Paladin/Progression/spec3/DivinePurpose.jpg';
+import ImprovedRetributionAura from '../images/talents/Paladin/Progression/spec3/ImprovedRetributionAura.jpg';
+import SealOfCommand from '../images/talents/Paladin/Progression/spec3/SealOfCommand.jpg';
+import Conviction from '../images/talents/Paladin/Progression/spec3/Conviction.jpg';
+import EyeForAnEye from '../images/talents/Paladin/Progression/spec3/EyeForAnEye.jpg';
+import PursuitOfJustice from '../images/talents/Paladin/Progression/spec3/PursuitOfJustice.jpg';
+import TwoHandedWeaponSpecialization from '../images/talents/Paladin/Progression/spec3/TwoHandedWeaponSpecialization.jpg';
+import Crusade from '../images/talents/Paladin/Progression/spec3/Crusade.jpg';
+import Fanaticism from '../images/talents/Paladin/Progression/spec3/Fanaticism.jpg';
+import Repentance from '../images/talents/Paladin/Progression/spec3/Repentance.jpg';
+import Vengeance from '../images/talents/Paladin/Progression/spec3/Vengeance.jpg';
+import CrusaderStrike from '../images/talents/Paladin/Progression/spec3/CrusaderStrike.jpg';
+import ImprovedBlessingOfMight from '../images/talents/Paladin/Progression/spec3/ImprovedBlessingOfMight.jpg';
+import SanctifiedSeals from '../images/talents/Paladin/Progression/spec3/SanctifiedSeals.jpg';
+import Vindication from '../images/talents/Paladin/Progression/spec3/Vindication.jpg';
+import Deflection from '../images/talents/Paladin/Progression/spec3/Deflection.jpg';
+import ImprovedJudgement from '../images/talents/Paladin/Progression/spec3/ImprovedJudgement.jpg';
+import SanctityAura from '../images/talents/Paladin/Progression/spec3/SanctityAura.jpg';
+
+
 //(Adjust section at line 6065)
 let i = 0;
 let iSpec1 = 0;
@@ -16,6 +139,10 @@ class PaladinComponent extends Component {
     this.state = {
 
     };
+  }
+
+  rebuildToolTip(){
+    ReactTooltip.rebuild();
   }
 
   toolTipFunction() {
@@ -34,6 +161,15 @@ class PaladinComponent extends Component {
     switch (toolTipChecker.innerText[2]) {
       case "1":
         switch (toolTipChecker.innerText) {
+          case "0/1":
+            //Assign variable the value of the first element in tooltip array
+            toolTipSelector = toolTipStepper.toolTip[0];
+            // Get Element by the ID and set it's tooltip to the correct element in the array
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
           case "1/1":
             //Assign variable the value of the first element in tooltip array
             toolTipSelector = toolTipStepper.toolTip[1];
@@ -48,15 +184,22 @@ class PaladinComponent extends Component {
         break;
       case "2":
         switch (toolTipChecker.innerText) {
-          case "1/2":
+          case "0/2":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/2":
+          case "1/2":
             toolTipSelector = toolTipStepper.toolTip[1];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "2/2":
+            toolTipSelector = toolTipStepper.toolTip[2];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -67,22 +210,29 @@ class PaladinComponent extends Component {
         break;
       case "3":
         switch (toolTipChecker.innerText) {
-          case "1/3":
+          case "0/3":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/3":
+          case "1/3":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "3/3":
+          case "2/3":
             toolTipSelector = toolTipStepper.toolTip[2];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "3/3":
+            toolTipSelector = toolTipStepper.toolTip[3];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -93,29 +243,36 @@ class PaladinComponent extends Component {
         break;
       case "4":
         switch (toolTipChecker.innerText) {
-          case "1/4":
+          case "0/4":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/4":
+          case "1/4":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "3/4":
+          case "2/4":
             toolTipSelector = toolTipStepper.toolTip[2];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "4/4":
+          case "3/4":
             toolTipSelector = toolTipStepper.toolTip[3];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "4/4":
+            toolTipSelector = toolTipStepper.toolTip[4];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -126,36 +283,43 @@ class PaladinComponent extends Component {
         break;
       case "5":
         switch (toolTipChecker.innerText) {
-          case "1/5":
+          case "0/5":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/5":
+          case "1/5":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "3/5":
+          case "2/5":
             toolTipSelector = toolTipStepper.toolTip[2];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "4/5":
+          case "3/5":
             toolTipSelector = toolTipStepper.toolTip[3];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "5/5":
+          case "4/5":
             toolTipSelector = toolTipStepper.toolTip[4];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "5/5":
+            toolTipSelector = toolTipStepper.toolTip[5];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -169,6 +333,14 @@ class PaladinComponent extends Component {
     }
   }
 
+  displayOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "inline";
+  }
+
+  hideOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "none";
+  }
+
   displayMouseOverlay() {
     if (window.event.target.getElementsByTagName("img")[0]) {
       window.event.target.getElementsByTagName("img")[0].style.display =
@@ -177,7 +349,11 @@ class PaladinComponent extends Component {
   }
 
   displayMouseOverlayInnerElement() {
-    window.event.target.previousElementSibling.style.display = "inline";
+    if(window.event.target.previousElementSibling){
+      window.event.target.previousElementSibling.style.display = "inline";
+    }
+    
+
   }
 
   hideMouseOverlay() {
@@ -817,9 +993,10 @@ class PaladinComponent extends Component {
       let arrowSrc;
       let arrowSrcSize;
       let spanID;
-      let shouldArrowBeSilver = "";
 
       function idMatcherParse() {
+        console.log("spanID", spanID)
+        
         if (spanID.includes("prioReq1Spec1")) {
           arrowSrc = document.getElementById("arrwReq1Spec1");
         } else if (spanID.includes("prioReq2Spec1")) {
@@ -831,102 +1008,46 @@ class PaladinComponent extends Component {
         }
       }
 
-      function checkIDReq1Spec1(){
-              if (spanID.includes("prioReq1Spec1") && !(document.getElementById("subsReq1Spec1").previousElementSibling.className.includes("maxeds"))) {
-                console.log("This is when the arrow should still be gold")
-                shouldArrowBeSilver = false;
-                
-                console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-              } else if (document.getElementById("prioReq1Spec1").innerText[0] === "0") {
-                  console.log("This is when the arrow should revert to silver")
-                  shouldArrowBeSilver = true;
-              } 
-      }
-
-      function checkIDReq2Spec1(){
-        if (spanID.includes("prioReq2Spec1") && !(document.getElementById("subsReq2Spec1").previousElementSibling.className.includes("maxeds"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq2Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-      function checkIDReq3Spec1(){
-        if (spanID.includes("prioReq3Spec1") && !(document.getElementById("subsReq3Spec1").previousElementSibling.className.includes("maxeds") || document.getElementById("subsReq3Spec1").previousElementSibling.className.includes("req-active"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq3Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-      function checkIDReq4Spec1(){
-        if (spanID.includes("prioReq4Spec1") && !(document.getElementById("subsReq4Spec1").previousElementSibling.className.includes("maxeds"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq4Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-
-      
       function arrowSizeParse() {
-        
-        
-        console.log("arrowSrc", arrowSrc)
-
-        if (arrowSrc.src.includes("Left")) {
-          arrowSrcSize = "left";
-        } else if (arrowSrc.src.includes("Right")) {
-          arrowSrcSize = "right";
-        } else if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
         } 
 
-        if(shouldArrowBeSilver === true) {
-        console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        console.log("arrowSrcSize", arrowSrcSize)
         switch (arrowSrcSize) {
-          
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
             break;
 
           case "left":
-            arrowSrc.src = "assets/images/LeftSilverSmall.png";
+            arrowSrc.src = LeftSilverSmall;
             break;
 
           case "right":
-            
-            arrowSrc.src = "assets/images/RightSilverSmall.png";
+            arrowSrc.src = RightSilverSmall;
             break;
         }
-
-      }
-
       }
 
       if (iSpec1 < 40) {
@@ -969,6 +1090,26 @@ class PaladinComponent extends Component {
         }
       }
 
+      if (iSpec1 === 30) {
+        spec1Req30 = document.getElementsByClassName("req-30-s1");
+
+        for (let g = 0; g < spec1Req30.length; g++) {
+          if (spec1Req30[g].id) {
+            spanID = spec1Req30[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
+          spec1Req30Output.push(spec1Req30[g].previousElementSibling);
+        }
+        console.log("spec1Req30Output", spec1Req30Output);
+        for (let g = 0; g < spec1Req30Output.length; g++) {
+          if (spec1Req30Output[g].className.includes("active-talent") && spec1Req30Output[g].nextElementSibling.id.includes("prio")) {
+            spec1Req30Output[g].className =
+              "spec1 talentButton inactive-talent req-inactive";
+          } 
+        }
+      }
+
       if (iSpec1 < 30) {
         spec1Req30 = document.getElementsByClassName("req-30-s1");
 
@@ -976,12 +1117,11 @@ class PaladinComponent extends Component {
           if (spec1Req30[g].id) {
             spanID = spec1Req30[g].id;
             idMatcherParse();
-            
             arrowSizeParse();
           }
           spec1Req30Output.push(spec1Req30[g].previousElementSibling);
         }
-        console.log(spec1Req30Output);
+        console.log("spec1Req30Output", spec1Req30Output);
         for (let g = 0; g < spec1Req30Output.length; g++) {
           if (spec1Req30Output[g].className.includes("active-talent")) {
             spec1Req30Output[g].className =
@@ -997,7 +1137,6 @@ class PaladinComponent extends Component {
           if (spec1Req25[g].id) {
             spanID = spec1Req25[g].id;
             idMatcherParse();
-            checkIDReq3Spec1();
             arrowSizeParse();
           }
           spec1Req25Output.push(spec1Req25[g].previousElementSibling);
@@ -1018,7 +1157,6 @@ class PaladinComponent extends Component {
           if (spec1Req20[g].id) {
             spanID = spec1Req20[g].id;
             idMatcherParse();
-            
             arrowSizeParse();
           }
           spec1Req20Output.push(spec1Req20[g].previousElementSibling);
@@ -1039,9 +1177,7 @@ class PaladinComponent extends Component {
           if (spec1Req15[g].id) {
             spanID = spec1Req15[g].id;
             idMatcherParse();
-            checkIDReq2Spec1();
             arrowSizeParse();
-            
           }
           spec1Req15Output.push(spec1Req15[g].previousElementSibling);
         }
@@ -1093,29 +1229,6 @@ class PaladinComponent extends Component {
           }
         }
       }
-
-      if (iSpec1 < 4) {
-        spec1Req0 = document.getElementsByClassName("req-00-s1");
-
-        for (let g = 0; g < spec1Req0.length; g++) {
-          if (spec1Req0[g].id) {
-            spanID = spec1Req0[g].id;
-            console.log("spanID", spanID)
-            
-            idMatcherParse();
-            arrowSizeParse();
-            checkIDReq1Spec1();
-          }
-          spec1Req0Output.push(spec1Req0[g].previousElementSibling);
-        }
-        console.log(spec1Req0Output);
-        for (let g = 0; g < spec1Req0Output.length; g++) {
-          if (spec1Req0Output[g].className.includes("active-talent") && spec1Req0Output[g].nextElementSibling.id.includes("prio")) {
-            spec1Req0Output[g].className =
-              "spec1 talentButton inactive-talent req-inactive";
-          }
-        }
-      }
     }
 
     function removeGreenBorderSpec2() {
@@ -1138,44 +1251,43 @@ class PaladinComponent extends Component {
       }
 
       function arrowSizeParse() {
-        
-        if (arrowSrc.src.includes("Left")) {
-          arrowSrcSize = "left";
-        } else if (arrowSrc.src.includes("Right")) {
-          arrowSrcSize = "right";
-          console.log(arrowSrc)
-        } else if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-          console.log(arrowSrc)
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
         } 
 
-        console.log("arrowSrcSize", arrowSrcSize)
-
         switch (arrowSrcSize) {
-          
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
             break;
 
           case "left":
-            arrowSrc.src = "assets/images/LeftSilverSmall.png";
+            arrowSrc.src = LeftSilverSmall;
             break;
 
           case "right":
-            arrowSrc.src = "assets/images/RightSilverSmall.png";
-            console.log("Lisa Ann")
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1379,25 +1491,43 @@ class PaladinComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
-        }
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
+        } 
 
         switch (arrowSrcSize) {
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
+            break;
+
+          case "left":
+            arrowSrc.src = LeftSilverSmall;
+            break;
+
+          case "right":
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1652,25 +1782,29 @@ class PaladinComponent extends Component {
 
     function turnArrowGoldOnClick() {
       function ArrowGold() {
-        if (arrowChecker.includes("sm")) {
+        if (arrowChecker.includes("angle")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldSmall.png";
-        }
-        if (arrowChecker.includes("med")) {
-          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldMedium.png";
-        }
-        if (arrowChecker.includes("lg")) {
-          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGold.png";
+            AngleArrowGold;
         }
         if (arrowChecker.includes("left")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/LeftGoldSmall.png";
+          LeftGoldSmall;
         }
         if (arrowChecker.includes("right")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/RightGoldSmall.png";
+          RightGoldSmall;
+        }
+        if (arrowChecker.includes("sm")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+            DownGoldSmall;
+        }
+        if (arrowChecker.includes("med")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+          DownGoldMedium;
+        }
+        if (arrowChecker.includes("lg")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+          DownGoldLarge;
         }
       }
 
@@ -3402,7 +3536,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3423,7 +3557,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3443,7 +3577,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3463,7 +3597,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3483,7 +3617,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3503,7 +3637,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3523,7 +3657,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3544,7 +3678,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3586,7 +3720,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3607,7 +3741,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3627,7 +3761,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3647,7 +3781,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3667,7 +3801,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3687,7 +3821,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3701,13 +3835,13 @@ class PaladinComponent extends Component {
                   console.log(button.previousElementSibling);
                   if (
                     button.previousElementSibling.className.includes(
-                      "req-active"
-                    )
+                      "req-inactive"
+                    ) && iSpec3 >= 35
                   ) {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3728,7 +3862,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3770,7 +3904,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3791,7 +3925,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3811,7 +3945,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3831,7 +3965,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3851,7 +3985,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3871,7 +4005,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3891,7 +4025,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3912,7 +4046,7 @@ class PaladinComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3987,20 +4121,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4024,20 +4164,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4061,20 +4207,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4097,20 +4249,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4146,20 +4304,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4183,20 +4347,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4220,20 +4390,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4256,20 +4432,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4305,20 +4487,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4342,20 +4530,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4379,20 +4573,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4415,20 +4615,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4464,20 +4670,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4501,20 +4713,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4538,20 +4756,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4574,20 +4798,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4623,20 +4853,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4660,20 +4896,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4697,20 +4939,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4733,20 +4981,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4782,20 +5036,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4819,20 +5079,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4856,20 +5122,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4892,20 +5164,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4941,20 +5219,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4978,20 +5262,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5015,20 +5305,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5051,20 +5347,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5100,20 +5402,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5137,20 +5445,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5174,20 +5488,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5210,20 +5530,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5292,20 +5618,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5329,20 +5661,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5366,20 +5704,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5402,20 +5746,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5451,20 +5801,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5488,20 +5844,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5525,20 +5887,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5561,20 +5929,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5610,20 +5984,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5647,20 +6027,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5684,20 +6070,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5720,20 +6112,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5769,20 +6167,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5806,20 +6210,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5843,20 +6253,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5879,20 +6295,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5928,20 +6350,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5965,20 +6393,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6002,20 +6436,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6038,20 +6478,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6088,20 +6534,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6126,20 +6578,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6157,26 +6615,32 @@ class PaladinComponent extends Component {
               console.log("The arrow above me should be gold");
               if (spec2Req30Output[g].className.includes("maxeds")) {
                 spec2Req30Output[g].className =
-                  "spec2 talentButton active-talent req-active";
+                  "spec2 talentButton maxeds req-active";
               }
               let arrow;
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6199,20 +6663,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6248,20 +6718,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6285,20 +6761,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6322,20 +6804,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6358,20 +6846,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6407,20 +6901,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6444,20 +6944,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6481,20 +6987,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6518,20 +7030,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6600,20 +7118,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6637,20 +7161,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6674,20 +7204,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6710,20 +7246,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6759,20 +7301,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6796,20 +7344,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6833,20 +7387,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6869,20 +7429,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6918,20 +7484,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6955,20 +7527,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6992,20 +7570,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7028,20 +7612,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7077,20 +7667,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7114,20 +7710,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7151,20 +7753,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7187,20 +7795,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7236,20 +7850,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7273,20 +7893,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7310,20 +7936,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7346,20 +7978,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7395,20 +8033,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7432,20 +8076,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7469,20 +8119,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7505,20 +8161,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7554,20 +8216,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7591,20 +8259,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7620,7 +8294,7 @@ class PaladinComponent extends Component {
                 .previousElementSibling.className.includes("maxeds")
             ) {
               console.log("The arrow above me should be gold");
-              if (!spec3Req35Output[g].className.includes("maxeds")) {
+              if (spec3Req35Output[g].className.includes("inactive")) {
                 spec3Req35Output[g].className =
                   "spec3 talentButton active-talent req-active";
               }
@@ -7628,20 +8302,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7664,20 +8344,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7713,20 +8399,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7750,20 +8442,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7787,20 +8485,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7823,20 +8527,26 @@ class PaladinComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7867,6 +8577,13 @@ class PaladinComponent extends Component {
     if (window.event.button === 0) {
       //If user tries to add more points to a maxed talent, exit function, preventing user action
       if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
+
+        return
+      }
+
+      //If User tries to add points to a talent that isn't active yet, exit function
+
+      if(window.event.srcElement.nextElementSibling.className.includes("inactive-talent")){
 
         return
       }
@@ -8292,44 +9009,44 @@ class PaladinComponent extends Component {
     else if (window.event.button === 2) {
       //this prevents the user from taking away points if they have points in a dependant talent
       //spec 1
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1") && !(document.getElementById("prioReq1Spec1").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1") && !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1") && !(document.getElementById("prioReq2Spec1").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1") && !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1") && !(document.getElementById("prioReq3Spec1").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1") && !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1") && !(document.getElementById("prioReq4Spec1").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1") && !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")){
         
         return
       }
       //spec 2
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2") && !(document.getElementById("prioReq1Spec2").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2") && !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2") && !(document.getElementById("prioReq2Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2") && !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2") && !(document.getElementById("prioReq3Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2") && !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2") && !(document.getElementById("prioReq4Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2") && !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")){
         
         return
       }
       //spec 3
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3") && !(document.getElementById("prioReq1Spec3").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3") && !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3") && !(document.getElementById("prioReq2Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3") && !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3") && !(document.getElementById("prioReq3Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3") && !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3") && !(document.getElementById("prioReq4Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3") && !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")){
         
         return
       }
@@ -8350,40 +9067,45 @@ class PaladinComponent extends Component {
         let arrowSrcSize;
 
         if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
-          
-          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Left")) {
-            arrowSrcSize = "left";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Right")) {
-            arrowSrcSize = "right";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Small")) {
+          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("sm")) {
             arrowSrcSize = "sm";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Medium")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("med")) {
             arrowSrcSize = "med";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Large")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("lg")) {
             arrowSrcSize = "lg";
-          } 
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("left")) {
+            arrowSrcSize = "left";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("right")) {
+            arrowSrcSize = "right";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("angle")) {
+            arrowSrcSize = "angle";
+          }
         }
         
         
           switch (arrowSrcSize) {
             case "sm":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverSmall;
               break;
 
             case "med":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverMedium.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverMedium;
               break;
 
             case "lg":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverLarge.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverLarge;
               break;
 
             case "left":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/LeftSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = LeftSilverSmall;
               break;
 
             case "right":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/RightSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = RightSilverSmall;
+              break;
+
+            case "angle":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = AngleArrowSilver;
               break;
           
         }
@@ -8863,6 +9585,8 @@ class PaladinComponent extends Component {
     let lgArrowArray = document.querySelectorAll(".lgArrow");
     let leftArrowArray = document.querySelectorAll(".leftArrow");
     let rightArrowArray = document.querySelectorAll(".rightArrow");
+    let angleArrowArray = document.querySelectorAll(".angleArrow");
+    let lgArrowPaladinArray = document.querySelectorAll(".lgArrowPaladin");
 
     let spanArrayPotential1 = [];
     let spanArrayPotential2 = [];
@@ -8922,8 +9646,8 @@ class PaladinComponent extends Component {
       }
 
       if (
-        (spanArray[y].className[17] === "0" &&
-        spanArray[y].className[18] === "0") && !(spanArray[y].id.includes("prio"))
+        spanArray[y].className[17] === "0" &&
+        spanArray[y].className[18] === "0"
       ) {
         console.log(spanArray[y].previousElementSibling);
         if (spanArray[y].previousElementSibling.className[4] === "1") {
@@ -8939,20 +9663,6 @@ class PaladinComponent extends Component {
             "spec3 talentButton active-talent req-active";
         }
       }
-
-      if(spanArray[y].id.includes("prio")){
-        if (spanArray[y].previousElementSibling.className[4] === "1"){
-          spanArray[y].previousElementSibling.className =
-          "spec1 talentButton inactive-talent req-inactive";
-        } if (spanArray[y].previousElementSibling.className[4] === "2"){
-          spanArray[y].previousElementSibling.className =
-          "spec2 talentButton inactive-talent req-inactive";
-        } if (spanArray[y].previousElementSibling.className[4] === "3"){
-          spanArray[y].previousElementSibling.className =
-          "spec1 talentButton inactive-talent req-inactive";
-        }
-      }
-      
     }
 
     /* Iterate through array of all talent buttons and split them
@@ -8997,19 +9707,25 @@ class PaladinComponent extends Component {
     // Iterate through all arrow elements and set them back to silver
 
     for (arrow of smArrowArray) {
-      arrow.src = "assets/images/DownSilverSmall.png";
+      arrow.src = DownSilverSmall;
     }
     for (arrow of medArrowArray) {
-      arrow.src = "assets/images/DownSilverMedium.png";
+      arrow.src = DownSilverMedium;
     }
     for (arrow of lgArrowArray) {
-      arrow.src = "assets/images/DownSilverLarge.png";
+      arrow.src = DownSilverLarge;
     }
     for (arrow of leftArrowArray) {
-      arrow.src = "assets/images/LeftSilverSmall.png";
+      arrow.src = LeftSilverSmall;
     }
     for (arrow of rightArrowArray) {
-      arrow.src = "assets/images/RightSilverSmall.png";
+      arrow.src = RightSilverSmall;
+    }
+    for (arrow of angleArrowArray) {
+      arrow.src = AngleArrowSilver;
+    }
+    for (arrow of lgArrowPaladinArray) {
+      arrow.src = DownSilverLarge;
     }
 
     //Resets all counter variables to 0/false
@@ -9027,58 +9743,73 @@ class PaladinComponent extends Component {
     console.log("Reset Points!");
   }
 
+  scrollComponentIntoView(){
+    const anchor = document.querySelector('#Paladin')
+    anchor.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   render() {
     return (
       <div
         style={{ position: "relative" }}
         onContextMenu={(e) => e.preventDefault()}
         className="frame-wrapper"
+        id="Paladin"
+        onLoad={() => {
+          this.scrollComponentIntoView();
+          this.rebuildToolTip();
+        }}
       >
-        <div className="row">
-          <div className="col-sm-3"></div>
-          <div className="col-sm-6" style={{ color: "#e1eef4" }}>
-            <h5 style={{ color: "#e1eef4", left: "50%" }}>Points Spent:</h5>
-            <h5 id="total-points" style={{ color: "#e1eef4" }}>
+        <div
+          className="row"
+          style={{ whiteSpace: "nowrap", overflow: "hidden" }}
+        >
+          <div className="col-sm-12"><button
+              onClick={this.resetPoints}
+              type="button"
+              className="btn btn-success mb-2 mt-2"
+              style={{display: "inline-block", marginLeft: "6px"}}
+            >
+              Reset
+            </button></div>
+          <div className="col-sm-4"></div>
+          <div className="col-sm-4 mx-auto" style={{overflow: "hidden", whiteSpace: "nowrap"}}>
+            <h5 style={{ color: "white", display: "inline-block", marginLeft: "6px" }}>Points Spent:</h5>
+            <h5 id="total-points" style={{ color: "white", display: "inline-block", marginLeft: "6px", marginTop:"1px" }}>
               0
             </h5>
+            
           </div>
-          <div className="col-sm-3"></div>
+          <div className="col-sm-4"></div>
         </div>
-
-        <button
-          onClick={this.resetPoints}
-          type="button"
-          className="mx-auto btn btn-success ml-4 mb-4 mt-2"
-        >
-          Reset
-        </button>
-        <div style={{ maxWidth: "1150px" }} className="row">
-          <div className="col">
-            <h5 style={{ color: "#e1eef4" }} id="point-counter1">
+        <div className="row">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
+            <h5  style={{ color: "#e1eef4" }} id="point-counter1">
               Spec 1: 0
             </h5>
           </div>
-          <div className="col">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
             <h5 style={{ color: "#e1eef4" }} id="point-counter2">
               Spec 2: 0
             </h5>
           </div>
-          <div className="col">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
             <h5 style={{ color: "#e1eef4" }} id="point-counter3">
               Spec 3: 0
             </h5>
           </div>
         </div>
 
-        <div className="row talent-frame ml-3 mr-3">
+        <div className="row ml-3 mr-3 mb-3">
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Paladin/Background/Holy.jpg)"
+              backgroundImage: `url(${spec1BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1">Holy</h5>
+            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Holy</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9089,8 +9820,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[0].toolTip[0]}
                   id="1"
@@ -9098,8 +9830,11 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Paladin/Progression/spec1/ability_golemthunderclap.jpg"
+                  src={DivineStrength}
                   alt=""
                 />
 
@@ -9113,8 +9848,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[1].toolTip[0]}
                   id="2"
@@ -9122,8 +9858,11 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_nature_sleep.jpg"
+                  src={DivineIntellect}
                   alt=""
                 />
 
@@ -9141,21 +9880,25 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[3].toolTip[0]}
-                  id="4"
+                  data-tip={Paladin[2].toolTip[0]}
+                  id="3"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_arcane_blink.jpg"
+                  src={SpiritualFocus}
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/3</span>
+                <span className="talentPoints req-05-s1">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9165,21 +9908,25 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[4].toolTip[0]}
-                  id="5"
+                  data-tip={Paladin[3].toolTip[0]}
+                  id="4"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/ability_thunderbolt.jpg"
+                  src={ImprovedSealOfRighteousness}
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/3</span>
+                <span className="talentPoints req-05-s1">0/5</span>
               </div>
               <div className="col col-xs-3"></div> 
             </div>
@@ -9192,21 +9939,25 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[6].toolTip[0]}
-                  id="7"
+                  data-tip={Paladin[4].toolTip[0]}
+                  id="5"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_holybolt.jpg"
+                  src={HealingLight}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/2</span>
+                <span className="talentPoints req-10-s1">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9216,17 +9967,21 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[7].toolTip[0]}
-                  id="8"
+                  data-tip={Paladin[5].toolTip[0]}
+                  id="6"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_auramastery.jpg"
+                  src={AuraMastery}
                   alt=""
                 />
 
@@ -9240,21 +9995,25 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[8].toolTip[0]}
-                  id="9"
+                  data-tip={Paladin[6].toolTip[0]}
+                  id="7"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_layonhands.jpg"
+                  src={ImprovedLayOnHands}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/5</span>
+                <span className="talentPoints req-10-s1">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9264,21 +10023,25 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[8].toolTip[0]}
-                  id="9"
+                  data-tip={Paladin[7].toolTip[0]}
+                  id="8"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_unyieldingfaith.jpg"
+                  src={UnyieldingFaith}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/5</span>
+                <span className="talentPoints req-10-s1">0/2</span>
               </div>
             </div>
             <div className="row talent-row">
@@ -9291,21 +10054,31 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[9].toolTip[0]}
-                  id="10"
+                  data-tip={Paladin[8].toolTip[0]}
+                  id="9"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_greaterheal.jpg"
+                  src={Illumination}
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s1">0/2</span>
+                <span id="subsReq1Spec1" className="talentPoints req-15-s1">0/5</span>
+                <img
+                  className="smArrow"
+                  src={DownSilverSmall}
+                  alt=""
+                  id="arrwReq1Spec1"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9315,22 +10088,26 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[10].toolTip[0]}
-                  id="11"
+                  data-tip={Paladin[9].toolTip[0]}
+                  id="10"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_sealofwisdom.jpg"
+                  src={ImprovedBlessingOfWisdom}
                   alt=""
                 />
 
                 <span className="talentPoints req-15-s1">
-                  0/5
+                  0/2
                 </span>
                 
               </div>
@@ -9347,8 +10124,37 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  data-tip={Paladin[10].toolTip[0]}
+                  id="11"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src={PureOfHeart}
+                  alt=""
+                />
+
+                <span className="talentPoints req-20-s1">0/3</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  onTouchEnd={this.talentClick}
+                  className="talentHover"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[11].toolTip[0]}
                   id="12"
@@ -9356,13 +10162,26 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_pureofheart.jpg"
+                  src={DivineFavor}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span id="prioReq1Spec1 subsReq2Spec1" className="talentPoints req-20-s1">
+                  0/1
+                </span>
+                <img
+                  className="medArrow"
+                  src={DownSilverMedium}
+                  alt=""
+                  id="arrwReq2Spec1"
+                />
               </div>
+              
+              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9371,8 +10190,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[12].toolTip[0]}
                   id="13"
@@ -9380,41 +10200,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_heal.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-20-s1">
-                  0/1
-                </span>
-                
-              </div>
-              
-              
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
                   }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Paladin[13].toolTip[0]}
-                  id="14"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_healingaura.jpg"
+                  src={SanctifiedLight}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span className="talentPoints req-20-s1">0/3</span>
               </div>
               <div style={{ zIndex: "0" }} className="col col-xs-3"></div>
             </div>
@@ -9428,17 +10222,21 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[14].toolTip[0]}
-                  id="15"
+                  data-tip={Paladin[13].toolTip[0]}
+                  id="14"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_purifyingpower.jpg"
+                  src={PurifyingPower}
                   alt=""
                 />
 
@@ -9453,17 +10251,21 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[15].toolTip[0]}
-                  id="16"
+                  data-tip={Paladin[14].toolTip[0]}
+                  id="15"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_power.jpg"
+                  src={HolyPower}
                   alt=""
                 />
 
@@ -9482,17 +10284,21 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[16].toolTip[0]}
-                  id="17"
+                  data-tip={Paladin[15].toolTip[0]}
+                  id="16"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_lightsgrace.jpg"
+                  src={LightsGrace}
                   alt=""
                 />
 
@@ -9506,22 +10312,26 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[17].toolTip[0]}
-                  id="18"
+                  data-tip={Paladin[16].toolTip[0]}
+                  id="17"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_searinglight.jpg"
+                  src={HolyShock}
                   alt=""
                 />
 
                 <span
-                  
+                  id="prioReq2Spec1"
                   className="talentPoints req-30-s1"
                 >
                   0/1
@@ -9536,17 +10346,21 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[18].toolTip[0]}
-                  id="19"
+                  data-tip={Paladin[17].toolTip[0]}
+                  id="18"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_blessedlife.jpg"
+                  src={BlessedLife}
                   alt=""
                 />
 
@@ -9565,17 +10379,21 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[19].toolTip[0]}
-                  id="20"
+                  data-tip={Paladin[18].toolTip[0]}
+                  id="19"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_holyguidance.jpg"
+                  src={HolyGuidance}
                   alt=""
                 />
 
@@ -9594,17 +10412,21 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[20].toolTip[0]}
-                  id="21"
+                  data-tip={Paladin[19].toolTip[0]}
+                  id="20"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec1/spell_holy_divineillumination.jpg"
+                  src={DivineIllumination}
                   alt=""
                 />
 
@@ -9618,12 +10440,13 @@ class PaladinComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Paladin/Background/Protection.jpg)"
+              backgroundImage: `url(${spec2BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2">Protection</h5>
+            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Protection</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9634,17 +10457,21 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[21].toolTip[0]}
-                  id="22"
+                  data-tip={Paladin[20].toolTip[0]}
+                  id="21"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_devotionaura.jpg"
+                  src={ImprovedDevotionAura}
                   alt=""
                 />
 
@@ -9658,21 +10485,31 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[22].toolTip[0]}
-                  id="23"
+                  data-tip={Paladin[21].toolTip[0]}
+                  id="22"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Paladin/Progression/spec2/ability_defend.jpg"
+                  src={Redoubt}
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s2">0/5</span>
+                <span id="subsReq1Spec2" className="talentPoints req-00-s2">0/5</span>
+                <img
+                  className="medArrow"
+                  src={DownSilverMedium}
+                  alt=""
+                  id="arrwReq1Spec2"
+                />
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -9685,21 +10522,25 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[23].toolTip[0]}
-                  id="24"
+                  data-tip={Paladin[22].toolTip[0]}
+                  id="23"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/ability_rogue_ambush.jpg"
+                  src={Precision}
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9709,8 +10550,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[23].toolTip[0]}
                   id="24"
@@ -9718,12 +10560,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_sealofprotection.jpg"
+                  src={GuardiansFavor}
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9734,8 +10579,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[24].toolTip[0]}
                   id="25"
@@ -9743,8 +10589,11 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_devotion.jpg"
+                  src={Toughness}
                   alt=""
                 />
 
@@ -9761,8 +10610,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[25].toolTip[0]}
                   id="26"
@@ -9770,12 +10620,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_magic_magearmor.jpg"
+                  src={BlessingOfKings}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span className="talentPoints req-10-s2">0/1</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9785,8 +10638,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[26].toolTip[0]}
                   id="27"
@@ -9794,12 +10648,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_sealoffury.jpg"
+                  src={ImprovedRighteousFury}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/5</span>
+                <span className="talentPoints req-10-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9809,8 +10666,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[27].toolTip[0]}
                   id="28"
@@ -9818,13 +10676,16 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/inv_shield_06.jpg"
+                  src={ShieldSpecialization}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">
-                  0/1
+                <span id="prioReq1Spec2" className="talentPoints req-10-s2">
+                  0/3
                 </span>
                 
               </div>
@@ -9836,8 +10697,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[28].toolTip[0]}
                   id="29"
@@ -9845,12 +10707,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_magic_lesserinvisibilty.jpg"
+                  src={Anticipation}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span className="talentPoints req-10-s2">0/5</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -9862,8 +10727,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[29].toolTip[0]}
                   id="30"
@@ -9871,12 +10737,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_stoicism.jpg"
+                  src={Stoicism}
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s2">0/5</span>
+                <span className="talentPoints req-15-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9886,32 +10755,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Paladin[29].toolTip[0]}
-                  id="30"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_sealofmight.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-15-s2">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[30].toolTip[0]}
                   id="31"
@@ -9919,18 +10765,16 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_mindsooth.jpg"
+                  src={ImprovedHammerOfJustice}
                   alt=""
                 />
 
-                <span  className="talentPoints req-15-s2">
-                  0/5
-                </span>
+                <span className="talentPoints req-15-s2">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9939,8 +10783,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[31].toolTip[0]}
                   id="32"
@@ -9948,13 +10793,21 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_improvedresistanceauras.jpg"
+                  src={ImprovedConcentrationAura}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">0/3</span>
+                <span  className="talentPoints req-15-s2">
+                  0/3
+                </span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9963,8 +10816,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[32].toolTip[0]}
                   id="33"
@@ -9972,15 +10826,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_nature_lightningshield.jpg"
+                  src={SpellWarding}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
-                  0/1
-                </span>
-                
+                <span className="talentPoints req-20-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9990,8 +10844,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[33].toolTip[0]}
                   id="34"
@@ -9999,13 +10854,52 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_blessingofstrength.jpg"
+                  src={BlessingOfSanctuary}
+                  alt=""
+                />
+
+                <span id="subsReq2Spec2" className="talentPoints req-20-s2">
+                  0/1
+                </span>
+                <img
+                  className="medArrow"
+                  src={DownSilverMedium}
+                  alt=""
+                  id="arrwReq2Spec2"
+                />
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  onTouchEnd={this.talentClick}
+                  className="talentHover"
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  data-tip={Paladin[34].toolTip[0]}
+                  id="35"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src={Reckoning}
                   alt=""
                 />
 
                 <span className="talentPoints req-20-s2">
-                  0/3
+                  0/5
                 </span>
                 
               </div>
@@ -10020,17 +10914,21 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[34].toolTip[0]}
-                  id="35"
+                  data-tip={Paladin[35].toolTip[0]}
+                  id="36"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_divineintervention.jpg"
+                  src={SacredDuty}
                   alt=""
                 />
 
@@ -10046,17 +10944,21 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[35].toolTip[0]}
-                  id="36"
+                  data-tip={Paladin[36].toolTip[0]}
+                  id="37"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/inv_sword_20.jpg"
+                  src={OneHandedWeaponSpecialization}
                   alt=""
                 />
 
@@ -10073,32 +10975,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Paladin[36].toolTip[0]}
-                  id="37"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/classic_spell_holy_blessingofprotection.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-30-s2">0/3</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[37].toolTip[0]}
                   id="38"
@@ -10106,14 +10985,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/classic_spell_holy_blessingofprotection.jpg"
+                  src={HolyShield}
                   alt=""
                 />
 
-                <span  className="talentPoints req-30-s2">
-                  0/1
-                </span>
+                <span id="prioReq3Spec2" className="talentPoints req-30-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10123,8 +11003,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[38].toolTip[0]}
                   id="39"
@@ -10132,13 +11013,58 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_ardentdefender.jpg"
+                  src={HolyShield}
+                  alt=""
+                />
+
+                <span id="prioReq2Spec2 subsReq3Spec2 subsReq4Spec2" className="talentPoints req-30-s2">
+                  0/1
+                </span>
+                <img
+                  className="leftArrow"
+                  src={LeftSilverSmall}
+                  alt=""
+                  id="arrwReq3Spec2"
+                />
+                <img
+                  className="medArrow"
+                  src={DownSilverMedium}
+                  alt=""
+                  id="arrwReq4Spec2"
+                />
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  onTouchEnd={this.talentClick}
+                  className="talentHover"
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  data-tip={Paladin[39].toolTip[0]}
+                  id="40"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src={ArdentDefender}
                   alt=""
                 />
 
                 <span  className="talentPoints req-30-s2">
-                  0/3
+                  0/5
                 </span>
               </div>
               <div className="col col-xs-3"></div>
@@ -10154,17 +11080,21 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[39].toolTip[0]}
-                  id="40"
+                  data-tip={Paladin[40].toolTip[0]}
+                  id="41"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_weaponmastery.jpg"
+                  src={CombatExpertise}
                   alt=""
                 />
 
@@ -10186,21 +11116,25 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Paladin[40].toolTip[0]}
-                  id="41"
+                  data-tip={Paladin[41].toolTip[0]}
+                  id="42"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec2/spell_holy_avengersshield.jpg"
+                  src={AvengersShield}
                   alt=""
                 />
 
-                <span  className="talentPoints req-40-s2">
+                <span id="prioReq4Spec2" className="talentPoints req-40-s2">
                   0/1
                 </span>
               </div>
@@ -10210,12 +11144,13 @@ class PaladinComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Paladin/Background/Retribution.jpg)"
+              backgroundImage: `url(${spec3BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3">Retribution</h5>
+            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Retribution</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -10226,8 +11161,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[42].toolTip[0]}
                   id="43"
@@ -10235,12 +11171,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_fistofjustice.jpg"
+                  src={ImprovedBlessingOfMight}
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10250,8 +11189,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[43].toolTip[0]}
                   id="44"
@@ -10259,12 +11199,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_frost_windwalkon.jpg"
+                  src={Benediction}
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10277,8 +11220,37 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  data-tip={Paladin[44].toolTip[0]}
+                  id="45"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src={ImprovedJudgement}
+                  alt=""
+                />
+
+                <span className="talentPoints req-05-s3">0/2</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  onTouchEnd={this.talentClick}
+                  className="talentHover"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[45].toolTip[0]}
                   id="46"
@@ -10286,8 +11258,11 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_righteousfury.jpg"
+                  src={SanctifiedSeals}
                   alt=""
                 />
 
@@ -10301,8 +11276,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[46].toolTip[0]}
                   id="47"
@@ -10310,13 +11286,19 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_holysmite.jpg"
+                  src={Deflection}
                   alt=""
                 />
 
                 <span className="talentPoints req-05-s3">0/5</span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10325,8 +11307,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[47].toolTip[0]}
                   id="48"
@@ -10334,16 +11317,16 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/ability_parry.jpg"
+                  src={Vindication}
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s3">0/3</span>
+                <span className="talentPoints req-10-s3">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10352,8 +11335,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[48].toolTip[0]}
                   id="49"
@@ -10361,12 +11345,21 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_vindication.jpg"
+                  src={Conviction}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">0/2</span>
+                <span id="subsReq1Spec3" className="talentPoints req-10-s3">0/5</span>
+                <img
+                  className="lgArrowPaladin"
+                  src={DownSilverLarge}
+                  alt=""
+                  id="arrwReq1Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10376,8 +11369,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[49].toolTip[0]}
                   id="50"
@@ -10385,32 +11379,11 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_retributionaura.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-10-s3">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
                   }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Paladin[50].toolTip[0]}
-                  id="51"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/ability_warrior_innerrage.jpg"
+                  src={SealOfCommand}
                   alt=""
                 />
 
@@ -10427,8 +11400,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[50].toolTip[0]}
                   id="51"
@@ -10436,13 +11410,16 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_persuitofjustice.jpg"
+                  src={PursuitOfJustice}
                   alt=""
                 />
 
                 <span className="talentPoints req-10-s3">
-                  0/1
+                  0/3
                 </span>
                 
               </div>
@@ -10456,8 +11433,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[51].toolTip[0]}
                   id="52"
@@ -10465,8 +11443,11 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_eyeforaneye.jpg"
+                  src={EyeForAnEye}
                   alt=""
                 />
 
@@ -10481,8 +11462,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[52].toolTip[0]}
                   id="53"
@@ -10490,12 +11472,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_auraoflight.jpg"
+                  src={ImprovedRetributionAura}
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/3</span>
+                <span className="talentPoints req-15-s3">0/2</span>
               </div>
               
               <div className="col col-xs-3">
@@ -10506,8 +11491,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[53].toolTip[0]}
                   id="54"
@@ -10515,12 +11501,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_crusade.jpg"
+                  src={Crusade}
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/2</span>
+                <span className="talentPoints req-15-s3">0/3</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -10532,8 +11521,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[54].toolTip[0]}
                   id="55"
@@ -10541,12 +11531,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/inv_hammer_04.jpg"
+                  src={TwoHandedWeaponSpecialization}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">0/2</span>
+                <span className="talentPoints req-20-s3">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -10557,8 +11550,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[55].toolTip[0]}
                   id="56"
@@ -10566,15 +11560,23 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_mindvision.jpg"
+                  src={SanctityAura}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
-                  0/3
+                <span id="subsReq2Spec3" className="talentPoints req-20-s3">
+                  0/1
                 </span>
-                
+                <img
+                  className="rightArrow"
+                  src={RightSilverSmall}
+                  alt=""
+                  id="arrwReq2Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10584,8 +11586,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[56].toolTip[0]}
                   id="57"
@@ -10593,13 +11596,16 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_mindvision.jpg"
+                  src={SanctityAura}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
-                  0/1
+                <span id="prioReq2Spec3" className="talentPoints req-20-s3">
+                  0/2
                 </span>
               </div>
               
@@ -10614,8 +11620,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[57].toolTip[0]}
                   id="58"
@@ -10623,12 +11630,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/ability_racial_avatar.jpg"
+                  src={Vengeance}
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s3">0/3</span>
+                <span id="prioReq1Spec3" className="talentPoints req-25-s3">0/5</span>
               </div>
               
               <div className="col col-xs-3">
@@ -10639,8 +11649,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[58].toolTip[0]}
                   id="59"
@@ -10648,12 +11659,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_righteousfury.jpg"
+                  src={ImprovedJudgement}
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s3">0/5</span>
+                <span className="talentPoints req-25-s3">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10666,8 +11680,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[59].toolTip[0]}
                   id="60"
@@ -10675,8 +11690,11 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_holysmite.jpg"
+                  src={SanctifiedSeals}
                   alt=""
                 />
 
@@ -10690,8 +11708,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[60].toolTip[0]}
                   id="61"
@@ -10699,14 +11718,23 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_prayerofhealing.jpg"
+                  src={Repentance}
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s3">
+                <span id="subsReq3Spec3" className="talentPoints req-30-s3">
                   0/1
                 </span>
+                <img
+                  className="smArrow"
+                  src={DownSilverSmall}
+                  alt=""
+                  id="arrwReq3Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10716,8 +11744,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[61].toolTip[0]}
                   id="62"
@@ -10725,8 +11754,11 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_divinepurpose.jpg"
+                  src={DivinePurpose}
                   alt=""
                 />
 
@@ -10744,8 +11776,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[62].toolTip[0]}
                   id="63"
@@ -10753,12 +11786,15 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_fanaticism.jpg"
+                  src={Fanaticism}
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s3">
+                <span id="prioReq3Spec3" className="talentPoints req-35-s3">
                   0/5
                 </span>
                 
@@ -10776,8 +11812,9 @@ class PaladinComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Paladin[63].toolTip[0]}
                   id="64"
@@ -10785,8 +11822,11 @@ class PaladinComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Paladin/Progression/spec3/spell_holy_crusaderstrike.jpg"
+                  src={CrusaderStrike}
                   alt=""
                 />
 

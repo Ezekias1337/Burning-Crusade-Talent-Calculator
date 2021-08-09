@@ -1,18 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import { Navbar, NavbarBrand } from 'reactstrap';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText
+} from 'reactstrap';
 import ClassSelector from './components/ClassSelectorComponent';
-import HunterComponent from './components/HunterComponent';
 import FooterComponent from './components/FooterComponent'
-import ReactTooltip from 'react-tooltip';
 import './App.css';
-
-
+import CustomNavbar from "./components/NavbarComponent"
+import ReactTooltip from 'react-tooltip';
 
 class App extends Component {
   
@@ -20,11 +31,7 @@ class App extends Component {
     render() {
       return (
           <div className="App">
-              <Navbar dark color="success">
-              <div className="container">
-                  <NavbarBrand href="/">Burning Crusade Talent Calculator</NavbarBrand>
-              </div>
-              </Navbar>
+                            <CustomNavbar />
               <ClassSelector />
               
               <FooterComponent />

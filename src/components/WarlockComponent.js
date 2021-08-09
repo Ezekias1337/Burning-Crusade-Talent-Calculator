@@ -3,6 +3,131 @@ import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Warlock } from "../talentinfo/Warlock";
 
+/* 
+DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
+Things to update across all components
+1.) Hardcoded images => Imported Images ✔
+a.) Don't forget Arrows ✔
+2.) Window.event.button[0] to handle left click on inactive talents
+3.) All functions handling Arrows
+  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3)
+  b.) turnArrowGoldOnClick
+  c.) turnArrowGoldIndirectly (s1,s2,s3)
+  d.) window.event.button[2] where code looks at arrows source and subsequent switch
+      in code directly after .nextElementSibling.id.includes("Spec")
+      1.) first if statement (reference classname instead of src)
+      2.) switch directly after (change .src = to reference imported img)
+  e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
+4.) Import Background image for each spec ✔
+5.) Change spec talent frame bootstrap breakpoints ✔
+6.) Update formulas for mobile ✔
+7.) Update HTML for Tooltip  ✔
+8.) add mb-3 to talent frame wrapper div ✔
+
+*/
+
+import spec1BG from "../images/talents/Warlock/Background/Affliction.jpg"
+import spec2BG from "../images/talents/Warlock/Background/Demonology.jpg"
+import spec3BG from "../images/talents/Warlock/Background/Destruction.jpg"
+import spec1Logo from "../images/talents/Warlock/Spec1Logo.jpg"
+import spec2Logo from "../images/talents/Warlock/Spec2Logo.jpg"
+import spec3Logo from "../images/talents/Warlock/Spec3Logo.jpg"
+
+//consistent among classes
+
+import overlayImage from "../images/Item_Hover.png"
+
+import DownSilverSmall from "../images/DownSilverSmall.png"
+import DownSilverMedium from "../images/DownSilverMedium.png"
+import DownSilverLarge from "../images/DownSilverLarge.png"
+
+import DownGoldSmall from "../images/DownGoldSmall.png"
+import DownGoldMedium from "../images/DownGoldMedium.png"
+import DownGoldLarge from "../images/DownGoldLarge.png"
+
+import LeftSilverSmall from "../images/LeftSilverSmall.png"
+import RightSilverSmall from "../images/RightSilverSmall.png"
+
+import LeftGoldSmall from "../images/LeftGoldSmall.png"
+import RightGoldSmall from "../images/RightGoldSmall.png"
+
+import AngleArrowSilver from "../images/AngleArrowSilver.png"
+import AngleArrowGold from "../images/AngleArrowGold.png"
+
+//spec1
+
+import AmplifyCurse from '../images/talents/Warlock/Progression/spec1/AmplifyCurse.jpg';
+import GrimReach from '../images/talents/Warlock/Progression/spec1/GrimReach.jpg';
+import ImprovedHowlOfTerror from '../images/talents/Warlock/Progression/spec1/ImprovedHowlOfTerror.jpg';
+import ShadowMastery from '../images/talents/Warlock/Progression/spec1/ShadowMastery.jpg';
+import Contagion from '../images/talents/Warlock/Progression/spec1/Contagion.jpg';
+import ImprovedCorruption from '../images/talents/Warlock/Progression/spec1/ImprovedCorruption.jpg';
+import ImprovedLifeTap from '../images/talents/Warlock/Progression/spec1/ImprovedLifeTap.jpg';
+import SiphonLife from '../images/talents/Warlock/Progression/spec1/SiphonLife.jpg';
+import CurseOfExhaustion from '../images/talents/Warlock/Progression/spec1/CurseOfExhaustion.jpg';
+import ImprovedCurseOfAgony from '../images/talents/Warlock/Progression/spec1/ImprovedCurseOfAgony.jpg';
+import Malediction from '../images/talents/Warlock/Progression/spec1/Malediction.jpg';
+import SoulSiphon from '../images/talents/Warlock/Progression/spec1/SoulSiphon.jpg';
+import DarkPact from '../images/talents/Warlock/Progression/spec1/DarkPact.jpg';
+import ImprovedCurseOfWeakness from '../images/talents/Warlock/Progression/spec1/ImprovedCurseOfWeakness.jpg';
+import Nightfall from '../images/talents/Warlock/Progression/spec1/Nightfall.jpg';
+import Suppression from '../images/talents/Warlock/Progression/spec1/Suppression.jpg';
+import FelConcentration from '../images/talents/Warlock/Progression/spec1/FelConcentration.jpg';
+import ImprovedDrainSoul from '../images/talents/Warlock/Progression/spec1/ImprovedDrainSoul.jpg';
+import ShadowEmbrace from '../images/talents/Warlock/Progression/spec1/ShadowEmbrace.jpg';
+import UnstableAffliction from '../images/talents/Warlock/Progression/spec1/UnstableAffliction.jpg';
+
+//spec2
+
+import DemonicAegis from '../images/talents/Warlock/Progression/spec2/DemonicAegis.jpg';
+import DemonicTactics from '../images/talents/Warlock/Progression/spec2/DemonicTactics.jpg';
+import ImprovedHealthFunnel from '../images/talents/Warlock/Progression/spec2/ImprovedHealthFunnel.jpg';
+import ManaFeed from '../images/talents/Warlock/Progression/spec2/ManaFeed.jpg';
+import SummonFelguard from '../images/talents/Warlock/Progression/spec2/SummonFelguard.jpg';
+import DemonicEmbrace from '../images/talents/Warlock/Progression/spec2/DemonicEmbrace.jpg';
+import FelDomination from '../images/talents/Warlock/Progression/spec2/FelDomination.jpg';
+import ImprovedHealthStone from '../images/talents/Warlock/Progression/spec2/ImprovedHealthStone.jpg';
+import MasterConjuror from '../images/talents/Warlock/Progression/spec2/MasterConjuror.jpg';
+import UnholyPower from '../images/talents/Warlock/Progression/spec2/UnholyPower.jpg';
+import DemonicKnowledge from '../images/talents/Warlock/Progression/spec2/DemonicKnowledge.jpg';
+import FelIntellect from '../images/talents/Warlock/Progression/spec2/FelIntellect.jpg';
+import ImprovedImp from '../images/talents/Warlock/Progression/spec2/ImprovedImp.jpg';
+import MasterDemonologist from '../images/talents/Warlock/Progression/spec2/MasterDemonologist.jpg';
+import DemonicResilience from '../images/talents/Warlock/Progression/spec2/DemonicResilience.jpg';
+import FelStamina from '../images/talents/Warlock/Progression/spec2/FelStamina.jpg';
+import ImprovedSuccubus from '../images/talents/Warlock/Progression/spec2/ImprovedSuccubus.jpg';
+import MasterSummoner from '../images/talents/Warlock/Progression/spec2/MasterSummoner.jpg';
+import DemonicSacrifice from '../images/talents/Warlock/Progression/spec2/DemonicSacrifice.jpg';
+import ImprovedEnslaveDemon from '../images/talents/Warlock/Progression/spec2/ImprovedEnslaveDemon.jpg';
+import ImprovedVoidwalker from '../images/talents/Warlock/Progression/spec2/ImprovedVoidwalker.jpg';
+import SoulLink from '../images/talents/Warlock/Progression/spec2/SoulLink.jpg';
+
+//spec3
+
+import Aftermath from '../images/talents/Warlock/Progression/spec3/Aftermath.jpg';
+import DestructiveReach from '../images/talents/Warlock/Progression/spec3/DestructiveReach.jpg';
+import ImprovedLashOfPain from '../images/talents/Warlock/Progression/spec3/ImprovedLashOfPain.jpg';
+import Pyroclasm from '../images/talents/Warlock/Progression/spec3/Pyroclasm.jpg';
+import SoulLeech from '../images/talents/Warlock/Progression/spec3/SoulLeech.jpg';
+import Backlash from '../images/talents/Warlock/Progression/spec3/Backlash.jpg';
+import Devastation from '../images/talents/Warlock/Progression/spec3/Devastation.jpg';
+import ImprovedSearingPain from '../images/talents/Warlock/Progression/spec3/ImprovedSearingPain.jpg';
+import Ruin from '../images/talents/Warlock/Progression/spec3/Ruin.jpg';
+import Bane from '../images/talents/Warlock/Progression/spec3/Bane.jpg';
+import Emberstorm from '../images/talents/Warlock/Progression/spec3/Emberstorm.jpg';
+import ImprovedShadowBolt from '../images/talents/Warlock/Progression/spec3/ImprovedShadowBolt.jpg';
+import ShadowAndFlame from '../images/talents/Warlock/Progression/spec3/ShadowAndFlame.jpg';
+import Cataclysm from '../images/talents/Warlock/Progression/spec3/Cataclysm.jpg';
+import ImprovedFirebolt from '../images/talents/Warlock/Progression/spec3/ImprovedFirebolt.jpg';
+import Intensity from '../images/talents/Warlock/Progression/spec3/Intensity.jpg';
+import Shadowburn from '../images/talents/Warlock/Progression/spec3/Shadowburn.jpg';
+import Conflagrate from '../images/talents/Warlock/Progression/spec3/Conflagrate.jpg';
+import ImprovedImmolate from '../images/talents/Warlock/Progression/spec3/ImprovedImmolate.jpg';
+import NetherProtection from '../images/talents/Warlock/Progression/spec3/NetherProtection.jpg';
+import Shadowfury from '../images/talents/Warlock/Progression/spec3/Shadowfury.jpg';
+
+
+
 let i = 0;
 let iSpec1 = 0;
 let iSpec2 = 0;
@@ -15,6 +140,10 @@ class WarlockComponent extends Component {
     this.state = {
 
     };
+  }
+
+  rebuildToolTip(){
+    ReactTooltip.rebuild();
   }
 
   toolTipFunction() {
@@ -33,6 +162,15 @@ class WarlockComponent extends Component {
     switch (toolTipChecker.innerText[2]) {
       case "1":
         switch (toolTipChecker.innerText) {
+          case "0/1":
+            //Assign variable the value of the first element in tooltip array
+            toolTipSelector = toolTipStepper.toolTip[0];
+            // Get Element by the ID and set it's tooltip to the correct element in the array
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
           case "1/1":
             //Assign variable the value of the first element in tooltip array
             toolTipSelector = toolTipStepper.toolTip[1];
@@ -47,15 +185,22 @@ class WarlockComponent extends Component {
         break;
       case "2":
         switch (toolTipChecker.innerText) {
-          case "1/2":
+          case "0/2":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/2":
+          case "1/2":
             toolTipSelector = toolTipStepper.toolTip[1];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "2/2":
+            toolTipSelector = toolTipStepper.toolTip[2];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -66,22 +211,29 @@ class WarlockComponent extends Component {
         break;
       case "3":
         switch (toolTipChecker.innerText) {
-          case "1/3":
+          case "0/3":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/3":
+          case "1/3":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "3/3":
+          case "2/3":
             toolTipSelector = toolTipStepper.toolTip[2];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "3/3":
+            toolTipSelector = toolTipStepper.toolTip[3];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -92,29 +244,36 @@ class WarlockComponent extends Component {
         break;
       case "4":
         switch (toolTipChecker.innerText) {
-          case "1/4":
+          case "0/4":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/4":
+          case "1/4":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "3/4":
+          case "2/4":
             toolTipSelector = toolTipStepper.toolTip[2];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "4/4":
+          case "3/4":
             toolTipSelector = toolTipStepper.toolTip[3];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "4/4":
+            toolTipSelector = toolTipStepper.toolTip[4];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -125,36 +284,43 @@ class WarlockComponent extends Component {
         break;
       case "5":
         switch (toolTipChecker.innerText) {
-          case "1/5":
+          case "0/5":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/5":
+          case "1/5":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "3/5":
+          case "2/5":
             toolTipSelector = toolTipStepper.toolTip[2];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "4/5":
+          case "3/5":
             toolTipSelector = toolTipStepper.toolTip[3];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "5/5":
+          case "4/5":
             toolTipSelector = toolTipStepper.toolTip[4];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "5/5":
+            toolTipSelector = toolTipStepper.toolTip[5];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -168,6 +334,14 @@ class WarlockComponent extends Component {
     }
   }
 
+  displayOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "inline";
+  }
+
+  hideOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "none";
+  }
+
   displayMouseOverlay() {
     if (window.event.target.getElementsByTagName("img")[0]) {
       window.event.target.getElementsByTagName("img")[0].style.display =
@@ -176,7 +350,11 @@ class WarlockComponent extends Component {
   }
 
   displayMouseOverlayInnerElement() {
-    window.event.target.previousElementSibling.style.display = "inline";
+    if(window.event.target.previousElementSibling){
+      window.event.target.previousElementSibling.style.display = "inline";
+    }
+    
+
   }
 
   hideMouseOverlay() {
@@ -826,25 +1004,43 @@ class WarlockComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
-        }
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
+        } 
 
         switch (arrowSrcSize) {
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
+            break;
+
+          case "left":
+            arrowSrc.src = LeftSilverSmall;
+            break;
+
+          case "right":
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1028,25 +1224,43 @@ class WarlockComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
-        }
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
+        } 
 
         switch (arrowSrcSize) {
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
+            break;
+
+          case "left":
+            arrowSrc.src = LeftSilverSmall;
+            break;
+
+          case "right":
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1230,25 +1444,43 @@ class WarlockComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
-        }
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
+        } 
 
         switch (arrowSrcSize) {
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
+            break;
+
+          case "left":
+            arrowSrc.src = LeftSilverSmall;
+            break;
+
+          case "right":
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1503,17 +1735,29 @@ class WarlockComponent extends Component {
 
     function turnArrowGoldOnClick() {
       function ArrowGold() {
+        if (arrowChecker.includes("angle")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+            AngleArrowGold;
+        }
+        if (arrowChecker.includes("left")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+          LeftGoldSmall;
+        }
+        if (arrowChecker.includes("right")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+          RightGoldSmall;
+        }
         if (arrowChecker.includes("sm")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldSmall.png";
+            DownGoldSmall;
         }
         if (arrowChecker.includes("med")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldMedium.png";
+          DownGoldMedium;
         }
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldLarge.png";
+          DownGoldLarge;
         }
       }
 
@@ -3807,16 +4051,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -3839,16 +4094,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -3871,16 +4137,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -3902,16 +4179,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -3946,16 +4234,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -3978,16 +4277,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4010,16 +4320,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4041,16 +4362,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4085,16 +4417,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4117,16 +4460,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4149,16 +4503,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4180,16 +4545,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4224,16 +4600,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4256,16 +4643,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4288,16 +4686,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4319,16 +4728,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4363,16 +4783,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4395,16 +4826,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4427,16 +4869,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4458,16 +4911,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4502,16 +4966,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4534,16 +5009,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4566,16 +5052,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4597,16 +5094,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4641,16 +5149,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4673,16 +5192,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4705,16 +5235,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4736,16 +5277,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4780,16 +5332,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4812,16 +5375,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4844,16 +5418,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4875,16 +5460,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4952,16 +5548,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4984,16 +5591,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5016,16 +5634,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5047,16 +5676,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5091,16 +5731,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5123,16 +5774,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5155,16 +5817,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5186,16 +5859,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5230,16 +5914,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5262,16 +5957,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5294,16 +6000,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5325,16 +6042,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5369,16 +6097,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5401,16 +6140,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5433,16 +6183,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5464,16 +6225,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5508,16 +6280,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5540,16 +6323,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5572,16 +6366,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5603,16 +6408,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5648,16 +6464,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5681,16 +6508,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5713,16 +6551,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5744,16 +6593,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5788,16 +6648,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5820,16 +6691,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5852,16 +6734,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5883,16 +6776,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5927,16 +6831,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5959,16 +6874,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5991,16 +6917,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6023,16 +6960,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6100,16 +7048,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6132,16 +7091,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6164,16 +7134,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6195,16 +7176,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6239,16 +7231,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6271,16 +7274,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6303,16 +7317,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6334,16 +7359,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6378,16 +7414,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6410,16 +7457,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6442,16 +7500,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6473,16 +7542,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6517,16 +7597,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6549,16 +7640,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6581,16 +7683,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6612,16 +7725,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6656,16 +7780,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6688,16 +7823,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6720,16 +7866,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6751,16 +7908,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6795,16 +7963,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6827,16 +8006,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6859,16 +8049,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6890,16 +8091,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6934,16 +8146,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6966,16 +8189,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6998,16 +8232,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7029,16 +8274,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7073,16 +8329,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7105,16 +8372,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7137,16 +8415,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7168,16 +8457,27 @@ class WarlockComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7207,6 +8507,13 @@ class WarlockComponent extends Component {
     if (window.event.button === 0) {
       //If user tries to add more points to a maxed talent, exit function, preventing user action
       if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
+
+        return
+      }
+
+      //If User tries to add points to a talent that isn't active yet, exit function
+
+      if(window.event.srcElement.nextElementSibling.className.includes("inactive-talent")){
 
         return
       }
@@ -7693,39 +9000,45 @@ class WarlockComponent extends Component {
         let arrowSrcSize;
 
         if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
-          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Small")) {
+          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("sm")) {
             arrowSrcSize = "sm";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Medium")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("med")) {
             arrowSrcSize = "med";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Large")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("lg")) {
             arrowSrcSize = "lg";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Left")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("left")) {
             arrowSrcSize = "left";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Right")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("right")) {
             arrowSrcSize = "right";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("angle")) {
+            arrowSrcSize = "angle";
           }
         }
         
         
           switch (arrowSrcSize) {
             case "sm":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverSmall;
               break;
 
             case "med":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverMedium.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverMedium;
               break;
 
             case "lg":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverLarge.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverLarge;
               break;
 
             case "left":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/LeftSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = LeftSilverSmall;
               break;
 
             case "right":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/RightSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = RightSilverSmall;
+              break;
+
+            case "angle":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = AngleArrowSilver;
               break;
           
         }
@@ -8205,6 +9518,9 @@ class WarlockComponent extends Component {
     let smArrowArray = document.querySelectorAll(".smArrow");
     let medArrowArray = document.querySelectorAll(".medArrow");
     let lgArrowArray = document.querySelectorAll(".lgArrow");
+    let leftArrowArray = document.querySelectorAll(".leftArrow");
+    let rightArrowArray = document.querySelectorAll(".rightArrow");
+    let angleArrowArray = document.querySelectorAll(".angleArrow");
 
     let spanArrayPotential1 = [];
     let spanArrayPotential2 = [];
@@ -8325,13 +9641,22 @@ class WarlockComponent extends Component {
     // Iterate through all arrow elements and set them back to silver
 
     for (arrow of smArrowArray) {
-      arrow.src = "assets/images/DownSilverSmall.png";
+      arrow.src = DownSilverSmall;
     }
     for (arrow of medArrowArray) {
-      arrow.src = "assets/images/DownSilverMedium.png";
+      arrow.src = DownSilverMedium;
     }
     for (arrow of lgArrowArray) {
-      arrow.src = "assets/images/DownSilverLarge.png";
+      arrow.src = DownSilverLarge;
+    }
+    for (arrow of leftArrowArray) {
+      arrow.src = LeftSilverSmall;
+    }
+    for (arrow of rightArrowArray) {
+      arrow.src = RightSilverSmall;
+    }
+    for (arrow of angleArrowArray) {
+      arrow.src = AngleArrowSilver;
     }
 
     //Resets all counter variables to 0/false
@@ -8349,58 +9674,73 @@ class WarlockComponent extends Component {
     console.log("Reset Points!");
   }
 
+  scrollComponentIntoView(){
+    const anchor = document.querySelector('#Warlock')
+    anchor.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   render() {
     return (
       <div
         style={{ position: "relative" }}
         onContextMenu={(e) => e.preventDefault()}
         className="frame-wrapper"
+        id="Warlock"
+        onLoad={() => {
+          this.scrollComponentIntoView();
+          this.rebuildToolTip();
+        }}
       >
-        <div className="row">
-          <div className="col-sm-3"></div>
-          <div className="col-sm-6" style={{ color: "#e1eef4" }}>
-            <h5 style={{ color: "#e1eef4", left: "50%" }}>Points Spent:</h5>
-            <h5 id="total-points" style={{ color: "#e1eef4" }}>
+        <div
+          className="row"
+          style={{ whiteSpace: "nowrap", overflow: "hidden" }}
+        >
+          <div className="col-sm-12"><button
+              onClick={this.resetPoints}
+              type="button"
+              className="btn btn-success mb-2 mt-2"
+              style={{display: "inline-block", marginLeft: "6px"}}
+            >
+              Reset
+            </button></div>
+          <div className="col-sm-4"></div>
+          <div className="col-sm-4 mx-auto" style={{overflow: "hidden", whiteSpace: "nowrap"}}>
+            <h5 style={{ color: "white", display: "inline-block", marginLeft: "6px" }}>Points Spent:</h5>
+            <h5 id="total-points" style={{ color: "white", display: "inline-block", marginLeft: "6px", marginTop:"1px" }}>
               0
             </h5>
+            
           </div>
-          <div className="col-sm-3"></div>
+          <div className="col-sm-4"></div>
         </div>
-
-        <button
-          onClick={this.resetPoints}
-          type="button"
-          className="mx-auto btn btn-success ml-4 mb-4 mt-2"
-        >
-          Reset
-        </button>
-        <div style={{ maxWidth: "1150px" }} className="row">
-          <div className="col">
-            <h5 style={{ color: "#e1eef4" }} id="point-counter1">
+        <div className="row">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
+            <h5  style={{ color: "#e1eef4" }} id="point-counter1">
               Spec 1: 0
             </h5>
           </div>
-          <div className="col">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
             <h5 style={{ color: "#e1eef4" }} id="point-counter2">
               Spec 2: 0
             </h5>
           </div>
-          <div className="col">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
             <h5 style={{ color: "#e1eef4" }} id="point-counter3">
               Spec 3: 0
             </h5>
           </div>
         </div>
 
-        <div className="row talent-frame ml-3 mr-3">
+        <div className="row ml-3 mr-3 mb-3">
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Warlock/Background/Affliction.jpg)"
+              backgroundImage: `url(${spec1BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1">Affliction</h5>
+            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Affliction</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -8411,8 +9751,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[0].toolTip[0]}
                   id="1"
@@ -8420,8 +9761,11 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_unsummonbuilding.jpg"
+                  src={Suppression}
                   alt=""
                 />
 
@@ -8435,8 +9779,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[1].toolTip[0]}
                   id="2"
@@ -8444,8 +9789,11 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_abominationexplosion.jpg"
+                  src={ImprovedCorruption}
                   alt=""
                 />
 
@@ -8462,8 +9810,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[2].toolTip[0]}
                   id="3"
@@ -8471,8 +9820,11 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_curseofmannoroth.jpg"
+                  src={ImprovedCurseOfWeakness}
                   alt=""
                 />
 
@@ -8486,8 +9838,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[3].toolTip[0]}
                   id="4"
@@ -8495,12 +9848,15 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_haunting.jpg"
+                  src={ImprovedDrainSoul}
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/3</span>
+                <span className="talentPoints req-05-s1">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8510,8 +9866,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[4].toolTip[0]}
                   id="5"
@@ -8519,12 +9876,15 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_burningspirit.jpg"
+                  src={ImprovedLifeTap}
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s1">0/3</span>
+                <span className="talentPoints req-05-s1">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8534,8 +9894,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[5].toolTip[0]}
                   id="6"
@@ -8543,8 +9904,11 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_lifedrain02.jpg"
+                  src={SoulSiphon}
                   alt=""
                 />
 
@@ -8560,8 +9924,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[6].toolTip[0]}
                   id="7"
@@ -8569,8 +9934,11 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_curseofsargeras.jpg"
+                  src={ImprovedCurseOfAgony}
                   alt=""
                 />
 
@@ -8584,8 +9952,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[7].toolTip[0]}
                   id="8"
@@ -8593,12 +9962,15 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_fingerofdeath.jpg"
+                  src={FelConcentration}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/1</span>
+                <span className="talentPoints req-10-s1">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8608,8 +9980,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[8].toolTip[0]}
                   id="9"
@@ -8617,12 +9990,21 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_contagion.jpg"
+                  src={AmplifyCurse}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s1">0/5</span>
+                <span id="subsReq1Spec1" className="talentPoints req-10-s1">0/1</span>
+                <img
+                  className="medArrow"
+                  src={DownSilverMedium}
+                  alt=""
+                  id="arrwReq1Spec1"
+                />
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -8635,8 +10017,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[9].toolTip[0]}
                   id="10"
@@ -8644,8 +10027,11 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_callofbone.jpg"
+                  src={GrimReach}
                   alt=""
                 />
 
@@ -8659,33 +10045,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warlock[9].toolTip[0]}
-                  id="10"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_twilight.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-15-s1">0/2</span>
-              </div>
-              <div className="col col-xs-3"></div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[10].toolTip[0]}
                   id="11"
@@ -8693,21 +10055,17 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_abominationexplosion.jpg"
+                  src={Nightfall}
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s1">
-                  0/5
-                </span>
-                
+                <span className="talentPoints req-15-s1">0/2</span>
               </div>
-
-              
-            </div>
-
-            <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8716,8 +10074,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[11].toolTip[0]}
                   id="12"
@@ -8725,13 +10084,24 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_shadowembrace.jpg"
+                  src={ImprovedCorruption}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span className="talentPoints req-15-s1">
+                  0/3
+                </span>
+                
               </div>
+
+              
+            </div>
+
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8740,8 +10110,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[12].toolTip[0]}
                   id="13"
@@ -8749,17 +10120,16 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_requiem.jpg"
+                  src={ShadowEmbrace}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">
-                  0/1
-                </span>
-                
+                <span className="talentPoints req-20-s1">0/5</span>
               </div>
-              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8768,8 +10138,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[13].toolTip[0]}
                   id="14"
@@ -8777,19 +10148,25 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_grimward.jpg"
+                  src={SiphonLife}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span id="subsReq2Spec1" className="talentPoints req-20-s1">
+                  0/1
+                </span>
+                <img
+                  className="smArrow"
+                  src={DownSilverSmall}
+                  alt=""
+                  id="arrwReq2Spec1"
+                />
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-
-            <div className="row talent-row talent-row-inner">
               
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -8798,8 +10175,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[14].toolTip[0]}
                   id="15"
@@ -8807,12 +10185,49 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_shadetruesight.jpg"
+                  src={CurseOfExhaustion}
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s1">0/2</span>
+                <span id="prioReq1Spec1" className="talentPoints req-20-s1">0/1</span>
+              </div>
+              <div className="col col-xs-3"></div>
+            </div>
+
+            <div className="row talent-row talent-row-inner">
+              
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  onTouchEnd={this.talentClick}
+                  className="talentHover"
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  data-tip={Warlock[15].toolTip[0]}
+                  id="16"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src={ShadowMastery}
+                  alt=""
+                />
+
+                <span id="prioReq2Spec1" className="talentPoints req-25-s1">0/5</span>
               </div>
               
               <div className="col col-xs-3"></div>
@@ -8828,27 +10243,36 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Warlock[17].toolTip[0]}
-                  id="18"
+                  data-tip={Warlock[16].toolTip[0]}
+                  id="17"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_painfulafflictions.jpg"
+                  src={Contagion}
                   alt=""
                 />
 
                 <span
-                  
+                  id="subsReq3Spec1"
                   className="talentPoints req-30-s1"
                 >
-                  0/1
+                  0/5
                 </span>
-                
+                <img
+                  className="medArrow"
+                  src={DownSilverMedium}
+                  alt=""
+                  id="arrwReq3Spec1"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -8858,21 +10282,25 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Warlock[18].toolTip[0]}
-                  id="19"
+                  data-tip={Warlock[17].toolTip[0]}
+                  id="18"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_darkritual.jpg"
+                  src={DarkPact}
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s1">0/3</span>
+                <span className="talentPoints req-30-s1">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -8885,21 +10313,25 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Warlock[19].toolTip[0]}
-                  id="20"
+                  data-tip={Warlock[18].toolTip[0]}
+                  id="19"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_deathscream.jpg"
+                  src={ImprovedHowlOfTerror}
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s1">0/5</span>
+                <span className="talentPoints req-35-s1">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -8910,8 +10342,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[19].toolTip[0]}
                   id="20"
@@ -8919,12 +10352,15 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_curseofachimonde.jpg"
+                  src={Malediction}
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s1">0/5</span>
+                <span className="talentPoints req-35-s1">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -8938,8 +10374,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[20].toolTip[0]}
                   id="21"
@@ -8947,12 +10384,15 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec1/spell_shadow_unstableaffliction_3.jpg"
+                  src={UnstableAffliction}
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s1">
+                <span id="prioReq3Spec1" className="talentPoints req-40-s1">
                   0/1
                 </span>
               </div>
@@ -8962,12 +10402,13 @@ class WarlockComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Warlock/Background/Demonology.jpg)"
+              backgroundImage: `url(${spec2BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2">Demonology</h5>
+            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Demonology</h5>
             <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
                 <img
@@ -8977,8 +10418,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[21].toolTip[0]}
                   id="22"
@@ -8986,12 +10428,15 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Warlock/Progression/spec2/inv_stone_04.jpg"
+                  src={ImprovedHealthStone}
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s2">0/5</span>
+                <span className="talentPoints req-00-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9001,32 +10446,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warlock[21].toolTip[0]}
-                  id="22"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_summonimp.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-00-s2">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[22].toolTip[0]}
                   id="23"
@@ -9034,8 +10456,39 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_metamorphosis.jpg"
+                  src={ImprovedImp}
+                  alt=""
+                />
+
+                <span className="talentPoints req-00-s2">0/3</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  onTouchEnd={this.talentClick}
+                  className="talentHover"
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  data-tip={Warlock[23].toolTip[0]}
+                  id="24"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
+                  className="spec2 talentButton active-talent req-active"
+                  src={DemonicEmbrace}
                   alt=""
                 />
 
@@ -9052,56 +10505,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warlock[23].toolTip[0]}
-                  id="24"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_lifedrain.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s2">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warlock[23].toolTip[0]}
-                  id="24"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_summonvoidwalker.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s2">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[24].toolTip[0]}
                   id="25"
@@ -9109,16 +10515,16 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_holy_magicalsentry.jpg"
+                  src={ImprovedHealthFunnel}
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/2</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9127,8 +10533,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[25].toolTip[0]}
                   id="26"
@@ -9136,12 +10543,15 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_summonsuccubus.jpg"
+                  src={ImprovedVoidwalker}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span className="talentPoints req-05-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9151,8 +10561,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[26].toolTip[0]}
                   id="27"
@@ -9160,13 +10571,19 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_nature_removecurse.jpg"
+                  src={FelIntellect}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/3</span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9175,8 +10592,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[27].toolTip[0]}
                   id="28"
@@ -9184,15 +10602,15 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_antishadow.jpg"
+                  src={ImprovedSuccubus}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">
-                  0/1
-                </span>
-                
+                <span className="talentPoints req-10-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9202,8 +10620,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[28].toolTip[0]}
                   id="29"
@@ -9211,16 +10630,22 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_ragingscream.jpg"
+                  src={FelDomination}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span id="subsReq1Spec2" className="talentPoints req-10-s2">0/1</span>
+                <img
+                  className="smArrow"
+                  src={DownSilverSmall}
+                  alt=""
+                  id="arrwReq1Spec2"
+                />
               </div>
-            </div>
-            <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9229,8 +10654,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[29].toolTip[0]}
                   id="30"
@@ -9238,12 +10664,18 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_impphaseshift.jpg"
+                  src={FelStamina}
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s2">0/5</span>
+                <span className="talentPoints req-10-s2">
+                  0/3
+                </span>
+                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9253,8 +10685,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[30].toolTip[0]}
                   id="31"
@@ -9262,18 +10695,19 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_shadowworddominate.jpg"
+                  src={DemonicAegis}
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s2">
-                  0/5
-                </span>
+                <span className="talentPoints req-10-s2">0/3</span>
               </div>
-              <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9282,8 +10716,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[31].toolTip[0]}
                   id="32"
@@ -9291,12 +10726,15 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_enslavedemon.jpg"
+                  src={MasterSummoner}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">0/3</span>
+                <span id="prioReq1Spec2" className="talentPoints req-15-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9306,8 +10744,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[32].toolTip[0]}
                   id="33"
@@ -9315,17 +10754,27 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_psychicscream.jpg"
+                  src={UnholyPower}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
-                  0/1
+                <span id="subsReq2Spec2" className="talentPoints req-15-s2">
+                  0/5
                 </span>
-                
+                <img
+                  className="medArrow"
+                  src={DownSilverMedium}
+                  alt=""
+                  id="arrwReq2Spec2"
+                />
               </div>
               <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -9334,8 +10783,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[33].toolTip[0]}
                   id="34"
@@ -9343,13 +10793,81 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/inv_ammo_firetar.jpg"
+                  src={ImprovedEnslaveDemon}
+                  alt=""
+                />
+
+                <span className="talentPoints req-20-s2">0/2</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  onTouchEnd={this.talentClick}
+                  className="talentHover"
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  data-tip={Warlock[34].toolTip[0]}
+                  id="35"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src={DemonicSacrifice}
+                  alt=""
+                />
+
+                <span id="subsReq3Spec2" className="talentPoints req-20-s2">
+                  0/1
+                </span>
+                <img
+                  className="medArrow"
+                  src={DownSilverMedium}
+                  alt=""
+                  id="arrwReq3Spec2"
+                />
+              </div>
+              <div className="col col-xs-3"></div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  onTouchEnd={this.talentClick}
+                  className="talentHover"
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  data-tip={Warlock[35].toolTip[0]}
+                  id="36"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
+                  className="spec2 talentButton inactive-talent req-inactive"
+                  src={MasterConjuror}
                   alt=""
                 />
 
                 <span className="talentPoints req-20-s2">
-                  0/3
+                  0/2
                 </span>
                 
               </div>
@@ -9364,21 +10882,25 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Warlock[34].toolTip[0]}
-                  id="35"
+                  data-tip={Warlock[36].toolTip[0]}
+                  id="37"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_manafeed.jpg"
+                  src={ManaFeed}
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s2">0/2</span>
+                <span className="talentPoints req-25-s2">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9389,21 +10911,25 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Warlock[35].toolTip[0]}
-                  id="36"
+                  data-tip={Warlock[37].toolTip[0]}
+                  id="38"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_shadowpact.jpg"
+                  src={MasterDemonologist}
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s2">0/5</span>
+                <span id="prioReq2Spec2" className="talentPoints req-25-s2">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
               
@@ -9417,17 +10943,21 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Warlock[36].toolTip[0]}
-                  id="37"
+                  data-tip={Warlock[38].toolTip[0]}
+                  id="39"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_demonicfortitude.jpg"
+                  src={DemonicResilience}
                   alt=""
                 />
 
@@ -9441,21 +10971,25 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Warlock[37].toolTip[0]}
-                  id="38"
+                  data-tip={Warlock[39].toolTip[0]}
+                  id="40"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_gathershadows.jpg"
+                  src={SoulLink}
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">
+                <span id="prioReq3Spec2" className="talentPoints req-30-s2">
                   0/1
                 </span>
               </div>
@@ -9467,17 +11001,21 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Warlock[38].toolTip[0]}
-                  id="39"
+                  data-tip={Warlock[40].toolTip[0]}
+                  id="41"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_improvedvampiricembrace.jpg"
+                  src={DemonicKnowledge}
                   alt=""
                 />
 
@@ -9497,17 +11035,21 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Warlock[39].toolTip[0]}
-                  id="40"
+                  data-tip={Warlock[41].toolTip[0]}
+                  id="42"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_demonictactics.jpg"
+                  src={DemonicTactics}
                   alt=""
                 />
 
@@ -9529,17 +11071,21 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Warlock[40].toolTip[0]}
-                  id="41"
+                  data-tip={Warlock[42].toolTip[0]}
+                  id="43"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec2/spell_shadow_summonfelguard.jpg"
+                  src={SummonFelguard}
                   alt=""
                 />
 
@@ -9553,12 +11099,13 @@ class WarlockComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Warlock/Background/Destruction.jpg)"
+              backgroundImage: `url(${spec3BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3">Destruction</h5>
+            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Destruction</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               
@@ -9570,21 +11117,25 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Warlock[42].toolTip[0]}
-                  id="43"
+                  data-tip={Warlock[43].toolTip[0]}
+                  id="44"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_shadowbolt.jpg"
+                  src={ImprovedShadowBolt}
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9594,21 +11145,25 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Warlock[43].toolTip[0]}
-                  id="44"
+                  data-tip={Warlock[44].toolTip[0]}
+                  id="45"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_windsofwoe.jpg"
+                  src={Cataclysm}
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div> 
             </div>
@@ -9622,17 +11177,21 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Warlock[46].toolTip[0]}
-                  id="47"
+                  data-tip={Warlock[45].toolTip[0]}
+                  id="46"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_deathpact.jpg"
+                  src={Bane}
                   alt=""
                 />
 
@@ -9646,21 +11205,25 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Warlock[47].toolTip[0]}
-                  id="48"
+                  data-tip={Warlock[46].toolTip[0]}
+                  id="47"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_fire.jpg"
+                  src={Aftermath}
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s3">0/3</span>
+                <span className="talentPoints req-05-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -9673,17 +11236,21 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Warlock[48].toolTip[0]}
-                  id="49"
+                  data-tip={Warlock[47].toolTip[0]}
+                  id="48"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_firebolt.jpg"
+                  src={ImprovedFirebolt}
                   alt=""
                 />
 
@@ -9697,8 +11264,37 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  data-tip={Warlock[48].toolTip[0]}
+                  id="49"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src={ImprovedLashOfPain}
+                  alt=""
+                />
+
+                <span className="talentPoints req-10-s3">0/2</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  onTouchEnd={this.talentClick}
+                  className="talentHover"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[49].toolTip[0]}
                   id="50"
@@ -9706,39 +11302,23 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_curse.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-10-s3">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
                   }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Warlock[50].toolTip[0]}
-                  id="51"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_flameshock.jpg"
+                  src={Devastation}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">
-                  0/1
+                <span id="subsReq1Spec3" className="talentPoints req-10-s3">
+                  0/5
                 </span>
-                
+                <img
+                  className="medArrow"
+                  src={DownSilverMedium}
+                  alt=""
+                  id="arrwReq1Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9748,8 +11328,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[50].toolTip[0]}
                   id="51"
@@ -9757,8 +11338,11 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_scourgebuild.jpg"
+                  src={Shadowburn}
                   alt=""
                 />
 
@@ -9777,8 +11361,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[51].toolTip[0]}
                   id="52"
@@ -9786,12 +11371,21 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_lavaspawn.jpg"
+                  src={Intensity}
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/2</span>
+                <span id="subsReq2Spec3" className="talentPoints req-15-s3">0/2</span>
+                <img
+                  className="smArrow"
+                  src={DownSilverSmall}
+                  alt=""
+                  id="arrwReq2Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9801,8 +11395,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[52].toolTip[0]}
                   id="53"
@@ -9810,12 +11405,15 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_corpseexplode.jpg"
+                  src={DestructiveReach}
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/3</span>
+                <span className="talentPoints req-15-s3">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9826,8 +11424,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[53].toolTip[0]}
                   id="54"
@@ -9835,12 +11434,15 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_soulburn.jpg"
+                  src={ImprovedSearingPain}
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/2</span>
+                <span className="talentPoints req-15-s3">0/3</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -9852,8 +11454,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[54].toolTip[0]}
                   id="55"
@@ -9861,12 +11464,15 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_volcano.jpg"
+                  src={Pyroclasm}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">0/2</span>
+                <span id="prioReq2Spec3" className="talentPoints req-20-s3">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9876,8 +11482,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[55].toolTip[0]}
                   id="56"
@@ -9885,15 +11492,23 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_immolation.jpg"
+                  src={ImprovedImmolate}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
-                  0/3
+                <span id="subsReq3Spec3" className="talentPoints req-20-s3">
+                  0/5
                 </span>
-                
+                <img
+                  className="medArrow"
+                  src={DownSilverMedium}
+                  alt=""
+                  id="arrwReq3Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9903,8 +11518,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[56].toolTip[0]}
                   id="57"
@@ -9912,12 +11528,15 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_shadowwordpain.jpg"
+                  src={Ruin}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
+                <span id="prioReq1Spec3" className="talentPoints req-20-s3">
                   0/1
                 </span>
               </div>
@@ -9932,8 +11551,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[57].toolTip[0]}
                   id="58"
@@ -9941,8 +11561,11 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_netherprotection.jpg"
+                  src={NetherProtection}
                   alt=""
                 />
 
@@ -9957,8 +11580,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[58].toolTip[0]}
                   id="59"
@@ -9966,8 +11590,11 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_selfdestruct.jpg"
+                  src={Emberstorm}
                   alt=""
                 />
 
@@ -9984,8 +11611,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[59].toolTip[0]}
                   id="60"
@@ -9993,8 +11621,11 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_playingwithfire.jpg"
+                  src={Backlash}
                   alt=""
                 />
 
@@ -10008,8 +11639,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[60].toolTip[0]}
                   id="61"
@@ -10017,12 +11649,15 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_fire_fireball.jpg"
+                  src={Conflagrate}
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s3">
+                <span id="prioReq3Spec3" className="talentPoints req-30-s3">
                   0/1
                 </span>
               </div>
@@ -10034,8 +11669,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[61].toolTip[0]}
                   id="62"
@@ -10043,8 +11679,11 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_soulleech_3.jpg"
+                  src={SoulLeech}
                   alt=""
                 />
 
@@ -10062,8 +11701,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[62].toolTip[0]}
                   id="63"
@@ -10071,15 +11711,23 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_shadowandflame.jpg"
+                  src={ShadowAndFlame}
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s3">
+                <span id="subsReq4Spec3" className="talentPoints req-35-s3">
                   0/5
                 </span>
-                
+                <img
+                  className="smArrow"
+                  src={DownSilverSmall}
+                  alt=""
+                  id="arrwReq4Spec3"
+                />
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -10094,8 +11742,9 @@ class WarlockComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Warlock[63].toolTip[0]}
                   id="64"
@@ -10103,12 +11752,15 @@ class WarlockComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Warlock/Progression/spec3/spell_shadow_shadowfury.jpg"
+                  src={Shadowfury}
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s3">
+                <span id="prioReq4Spec3" className="talentPoints req-40-s3">
                   0/1
                 </span>
               </div>

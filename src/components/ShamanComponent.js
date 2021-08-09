@@ -3,7 +3,129 @@ import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Shaman } from "../talentinfo/Shaman";
 
-//(Adjust section at line 6065)
+/* 
+DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
+Things to update across all components
+1.) Hardcoded images => Imported Images ✔
+a.) Don't forget Arrows ✔
+2.) Window.event.button[0] to handle left click on inactive talents
+3.) All functions handling Arrows
+  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3)
+  b.) turnArrowGoldOnClick
+  c.) turnArrowGoldIndirectly (s1,s2,s3)
+  d.) window.event.button[2] where code looks at arrows source and subsequent switch
+      in code directly after .nextElementSibling.id.includes("Spec")
+      1.) first if statement (reference classname instead of src)
+      2.) switch directly after (change .src = to reference imported img)
+  e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
+4.) Import Background image for each spec ✔
+5.) Change spec talent frame bootstrap breakpoints ✔
+6.) Update formulas for mobile ✔
+7.) Update HTML for Tooltip  ✔
+8.) add mb-3 to talent frame wrapper div ✔
+
+*/
+
+import spec1BG from "../images/talents/Shaman/Background/Elemental.jpg"
+import spec2BG from "../images/talents/Shaman/Background/Enhancement.jpg"
+import spec3BG from "../images/talents/Shaman/Background/Restoration.jpg"
+import spec1Logo from "../images/talents/Shaman/Spec1Logo.jpg"
+import spec2Logo from "../images/talents/Shaman/Spec2Logo.jpg"
+import spec3Logo from "../images/talents/Shaman/Spec3Logo.jpg"
+
+//consistent among classes
+
+import overlayImage from "../images/Item_Hover.png"
+
+import DownSilverSmall from "../images/DownSilverSmall.png"
+import DownSilverMedium from "../images/DownSilverMedium.png"
+import DownSilverLarge from "../images/DownSilverLarge.png"
+
+import DownGoldSmall from "../images/DownGoldSmall.png"
+import DownGoldMedium from "../images/DownGoldMedium.png"
+import DownGoldLarge from "../images/DownGoldLarge.png"
+
+import LeftSilverSmall from "../images/LeftSilverSmall.png"
+import RightSilverSmall from "../images/RightSilverSmall.png"
+
+import LeftGoldSmall from "../images/LeftGoldSmall.png"
+import RightGoldSmall from "../images/RightGoldSmall.png"
+
+import AngleArrowSilver from "../images/AngleArrowSilver.png"
+import AngleArrowGold from "../images/AngleArrowGold.png"
+
+
+//spec1
+
+import CallOfFlame from '../images/talents/Shaman/Progression/spec1/CallOfFlame.jpg';
+import EarthsGrasp from '../images/talents/Shaman/Progression/spec1/EarthsGrasp.jpg';
+import ElementalMastery from '../images/talents/Shaman/Progression/spec1/ElementalMastery.jpg';
+import EyeOfTheStorm from '../images/talents/Shaman/Progression/spec1/EyeOfTheStorm.jpg';
+import Reverberation from '../images/talents/Shaman/Progression/spec1/Reverberation.jpg';
+import CallOfThunder from '../images/talents/Shaman/Progression/spec1/CallOfThunder.jpg';
+import ElementalDevastation from '../images/talents/Shaman/Progression/spec1/ElementalDevastation.jpg';
+import ElementalPrecision from '../images/talents/Shaman/Progression/spec1/ElementalPrecision.jpg';
+import ImprovedFireTotems from '../images/talents/Shaman/Progression/spec1/ImprovedFireTotems.jpg';
+import StormReach from '../images/talents/Shaman/Progression/spec1/StormReach.jpg';
+import Concussion from '../images/talents/Shaman/Progression/spec1/Concussion.jpg';
+import ElementalFocus from '../images/talents/Shaman/Progression/spec1/ElementalFocus.jpg';
+import ElementalShields from '../images/talents/Shaman/Progression/spec1/ElementalShields.jpg';
+import LightningMastery from '../images/talents/Shaman/Progression/spec1/LightningMastery.jpg';
+import TotemOfWrath from '../images/talents/Shaman/Progression/spec1/TotemOfWrath.jpg';
+import Convection from '../images/talents/Shaman/Progression/spec1/Convection.jpg';
+import ElementalFury from '../images/talents/Shaman/Progression/spec1/ElementalFury.jpg';
+import ElementalWarding from '../images/talents/Shaman/Progression/spec1/ElementalWarding.jpg';
+import LightningOverload from '../images/talents/Shaman/Progression/spec1/LightningOverload.jpg';
+import UnrelentingStorm from '../images/talents/Shaman/Progression/spec1/UnrelentingStorm.jpg';
+
+//spec2
+
+import AncestralKnowledge from '../images/talents/Shaman/Progression/spec2/AncestralKnowledge.jpg';
+import Flurry from '../images/talents/Shaman/Progression/spec2/Flurry.jpg';
+import ShamanisticFocus from '../images/talents/Shaman/Progression/spec2/ShamanisticFocus.jpg';
+import Toughness from '../images/talents/Shaman/Progression/spec2/Toughness.jpg';
+import Anticipation from '../images/talents/Shaman/Progression/spec2/Anticipation.jpg';
+import GuardianTotems from '../images/talents/Shaman/Progression/spec2/GuardianTotems.jpg';
+import ShamanisticRage from '../images/talents/Shaman/Progression/spec2/ShamanisticRage.jpg';
+import UnleashedRage from '../images/talents/Shaman/Progression/spec2/UnleashedRage.jpg';
+import DualWield from '../images/talents/Shaman/Progression/spec2/DualWield.jpg';
+import ImprovedGhostWolf from '../images/talents/Shaman/Progression/spec2/ImprovedGhostWolf.jpg';
+import ShieldSpecialization from '../images/talents/Shaman/Progression/spec2/ShieldSpecialization.jpg';
+import WeaponMastery from '../images/talents/Shaman/Progression/spec2/WeaponMastery.jpg';
+import DualWieldSpecialization from '../images/talents/Shaman/Progression/spec2/DualWieldSpecialization.jpg';
+import ImprovedLightningShield from '../images/talents/Shaman/Progression/spec2/ImprovedLightningShield.jpg';
+import SpiritWeapons from '../images/talents/Shaman/Progression/spec2/SpiritWeapons.jpg';
+import ElementalWeapons from '../images/talents/Shaman/Progression/spec2/ElementalWeapons.jpg';
+import ImprovedWeapontotems from '../images/talents/Shaman/Progression/spec2/ImprovedWeapontotems.jpg';
+import Stormstrike from '../images/talents/Shaman/Progression/spec2/Stormstrike.jpg';
+import EnhancingTotems from '../images/talents/Shaman/Progression/spec2/EnhancingTotems.jpg';
+import MentalQuickness from '../images/talents/Shaman/Progression/spec2/MentalQuickness.jpg';
+import ThunderingStrikes from '../images/talents/Shaman/Progression/spec2/ThunderingStrikes.jpg';
+
+//spec3
+
+import AncestralHealing from '../images/talents/Shaman/Progression/spec3/AncestralHealing.jpg';
+import HealingGrace from '../images/talents/Shaman/Progression/spec3/HealingGrace.jpg';
+import ImprovedReincarnation from '../images/talents/Shaman/Progression/spec3/ImprovedReincarnation.jpg';
+import NaturesGuidance from '../images/talents/Shaman/Progression/spec3/NaturesGuidance.jpg';
+import TidalFocus from '../images/talents/Shaman/Progression/spec3/TidalFocus.jpg';
+import EarthShield from '../images/talents/Shaman/Progression/spec3/EarthShield.jpg';
+import HealingWay from '../images/talents/Shaman/Progression/spec3/HealingWay.jpg';
+import ManaTideTotem from '../images/talents/Shaman/Progression/spec3/ManaTideTotem.jpg';
+import NaturesSwiftness from '../images/talents/Shaman/Progression/spec3/NaturesSwiftness.jpg';
+import TidalMastery from '../images/talents/Shaman/Progression/spec3/TidalMastery.jpg';
+import FocusedMind from '../images/talents/Shaman/Progression/spec3/FocusedMind.jpg';
+import ImprovedChainHeal from '../images/talents/Shaman/Progression/spec3/ImprovedChainHeal.jpg';
+import NaturesBlessing from '../images/talents/Shaman/Progression/spec3/NaturesBlessing.jpg';
+import Purification from '../images/talents/Shaman/Progression/spec3/Purification.jpg';
+import TotemicFocus from '../images/talents/Shaman/Progression/spec3/TotemicFocus.jpg';
+import HealingFocus from '../images/talents/Shaman/Progression/spec3/HealingFocus.jpg';
+import ImprovedHealingWave from '../images/talents/Shaman/Progression/spec3/ImprovedHealingWave.jpg';
+import NaturesGuardian from '../images/talents/Shaman/Progression/spec3/NaturesGuardian.jpg';
+import RestorativeTotems from '../images/talents/Shaman/Progression/spec3/RestorativeTotems.jpg';
+import TotemicMastery from '../images/talents/Shaman/Progression/spec3/TotemicMastery.jpg';
+
+
 let i = 0;
 let iSpec1 = 0;
 let iSpec2 = 0;
@@ -16,6 +138,10 @@ class ShamanComponent extends Component {
     this.state = {
 
     };
+  }
+
+  rebuildToolTip(){
+    ReactTooltip.rebuild();
   }
 
   toolTipFunction() {
@@ -34,6 +160,15 @@ class ShamanComponent extends Component {
     switch (toolTipChecker.innerText[2]) {
       case "1":
         switch (toolTipChecker.innerText) {
+          case "0/1":
+            //Assign variable the value of the first element in tooltip array
+            toolTipSelector = toolTipStepper.toolTip[0];
+            // Get Element by the ID and set it's tooltip to the correct element in the array
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
           case "1/1":
             //Assign variable the value of the first element in tooltip array
             toolTipSelector = toolTipStepper.toolTip[1];
@@ -48,15 +183,22 @@ class ShamanComponent extends Component {
         break;
       case "2":
         switch (toolTipChecker.innerText) {
-          case "1/2":
+          case "0/2":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/2":
+          case "1/2":
             toolTipSelector = toolTipStepper.toolTip[1];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "2/2":
+            toolTipSelector = toolTipStepper.toolTip[2];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -67,22 +209,29 @@ class ShamanComponent extends Component {
         break;
       case "3":
         switch (toolTipChecker.innerText) {
-          case "1/3":
+          case "0/3":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/3":
+          case "1/3":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "3/3":
+          case "2/3":
             toolTipSelector = toolTipStepper.toolTip[2];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "3/3":
+            toolTipSelector = toolTipStepper.toolTip[3];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -93,29 +242,36 @@ class ShamanComponent extends Component {
         break;
       case "4":
         switch (toolTipChecker.innerText) {
-          case "1/4":
+          case "0/4":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/4":
+          case "1/4":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "3/4":
+          case "2/4":
             toolTipSelector = toolTipStepper.toolTip[2];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "4/4":
+          case "3/4":
             toolTipSelector = toolTipStepper.toolTip[3];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "4/4":
+            toolTipSelector = toolTipStepper.toolTip[4];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -126,36 +282,43 @@ class ShamanComponent extends Component {
         break;
       case "5":
         switch (toolTipChecker.innerText) {
-          case "1/5":
+          case "0/5":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/5":
+          case "1/5":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "3/5":
+          case "2/5":
             toolTipSelector = toolTipStepper.toolTip[2];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "4/5":
+          case "3/5":
             toolTipSelector = toolTipStepper.toolTip[3];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "5/5":
+          case "4/5":
             toolTipSelector = toolTipStepper.toolTip[4];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "5/5":
+            toolTipSelector = toolTipStepper.toolTip[5];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -169,6 +332,14 @@ class ShamanComponent extends Component {
     }
   }
 
+  displayOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "inline";
+  }
+
+  hideOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "none";
+  }
+
   displayMouseOverlay() {
     if (window.event.target.getElementsByTagName("img")[0]) {
       window.event.target.getElementsByTagName("img")[0].style.display =
@@ -177,7 +348,11 @@ class ShamanComponent extends Component {
   }
 
   displayMouseOverlayInnerElement() {
-    window.event.target.previousElementSibling.style.display = "inline";
+    if(window.event.target.previousElementSibling){
+      window.event.target.previousElementSibling.style.display = "inline";
+    }
+    
+
   }
 
   hideMouseOverlay() {
@@ -510,9 +685,9 @@ class ShamanComponent extends Component {
             spec2Req30Output[g].className =
               "spec2 talentButton active-talent req-active";
           }
-          /*if(spec2Req30Output[g].nextElementSibling){
+          if(spec2Req30Output[g].nextElementSibling){
             turnArrowGoldIndirectlySpec2();
-          }*/
+          }
         }
       }
 
@@ -817,9 +992,10 @@ class ShamanComponent extends Component {
       let arrowSrc;
       let arrowSrcSize;
       let spanID;
-      let shouldArrowBeSilver = "";
 
       function idMatcherParse() {
+        console.log("spanID", spanID)
+        
         if (spanID.includes("prioReq1Spec1")) {
           arrowSrc = document.getElementById("arrwReq1Spec1");
         } else if (spanID.includes("prioReq2Spec1")) {
@@ -831,102 +1007,46 @@ class ShamanComponent extends Component {
         }
       }
 
-      function checkIDReq1Spec1(){
-              if (spanID.includes("prioReq1Spec1") && !(document.getElementById("subsReq1Spec1").previousElementSibling.className.includes("maxeds"))) {
-                console.log("This is when the arrow should still be gold")
-                shouldArrowBeSilver = false;
-                
-                console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-              } else if (document.getElementById("prioReq1Spec1").innerText[0] === "0") {
-                  console.log("This is when the arrow should revert to silver")
-                  shouldArrowBeSilver = true;
-              } 
-      }
-
-      function checkIDReq2Spec1(){
-        if (spanID.includes("prioReq2Spec1") && !(document.getElementById("subsReq2Spec1").previousElementSibling.className.includes("maxeds"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq2Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-      function checkIDReq3Spec1(){
-        if (spanID.includes("prioReq3Spec1") && !(document.getElementById("subsReq3Spec1").previousElementSibling.className.includes("maxeds") || document.getElementById("subsReq3Spec1").previousElementSibling.className.includes("req-active"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq3Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-      function checkIDReq4Spec1(){
-        if (spanID.includes("prioReq4Spec1") && !(document.getElementById("subsReq4Spec1").previousElementSibling.className.includes("maxeds"))) {
-          console.log("This is when the arrow should still be gold")
-          shouldArrowBeSilver = false;
-          
-          console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        } else if (document.getElementById("prioReq4Spec1").innerText[0] === "0") {
-            console.log("This is when the arrow should revert to silver")
-            shouldArrowBeSilver = true;
-        } 
-      }
-
-
-      
       function arrowSizeParse() {
-        
-        
-        console.log("arrowSrc", arrowSrc)
-
-        if (arrowSrc.src.includes("Left")) {
-          arrowSrcSize = "left";
-        } else if (arrowSrc.src.includes("Right")) {
-          arrowSrcSize = "right";
-        } else if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
         } 
 
-        if(shouldArrowBeSilver === true) {
-        console.log("shouldArrowBeSilver", shouldArrowBeSilver)
-        console.log("arrowSrcSize", arrowSrcSize)
         switch (arrowSrcSize) {
-          
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
             break;
 
           case "left":
-            arrowSrc.src = "assets/images/LeftSilverSmall.png";
+            arrowSrc.src = LeftSilverSmall;
             break;
 
           case "right":
-            
-            arrowSrc.src = "assets/images/RightSilverSmall.png";
+            arrowSrc.src = RightSilverSmall;
             break;
         }
-
-      }
-
       }
 
       if (iSpec1 < 40) {
@@ -969,6 +1089,26 @@ class ShamanComponent extends Component {
         }
       }
 
+      if (iSpec1 === 30) {
+        spec1Req30 = document.getElementsByClassName("req-30-s1");
+
+        for (let g = 0; g < spec1Req30.length; g++) {
+          if (spec1Req30[g].id) {
+            spanID = spec1Req30[g].id;
+            idMatcherParse();
+            arrowSizeParse();
+          }
+          spec1Req30Output.push(spec1Req30[g].previousElementSibling);
+        }
+        console.log("spec1Req30Output", spec1Req30Output);
+        for (let g = 0; g < spec1Req30Output.length; g++) {
+          if (spec1Req30Output[g].className.includes("active-talent") && spec1Req30Output[g].nextElementSibling.id.includes("prio")) {
+            spec1Req30Output[g].className =
+              "spec1 talentButton inactive-talent req-inactive";
+          } 
+        }
+      }
+
       if (iSpec1 < 30) {
         spec1Req30 = document.getElementsByClassName("req-30-s1");
 
@@ -976,12 +1116,11 @@ class ShamanComponent extends Component {
           if (spec1Req30[g].id) {
             spanID = spec1Req30[g].id;
             idMatcherParse();
-            
             arrowSizeParse();
           }
           spec1Req30Output.push(spec1Req30[g].previousElementSibling);
         }
-        console.log(spec1Req30Output);
+        console.log("spec1Req30Output", spec1Req30Output);
         for (let g = 0; g < spec1Req30Output.length; g++) {
           if (spec1Req30Output[g].className.includes("active-talent")) {
             spec1Req30Output[g].className =
@@ -997,7 +1136,6 @@ class ShamanComponent extends Component {
           if (spec1Req25[g].id) {
             spanID = spec1Req25[g].id;
             idMatcherParse();
-            checkIDReq3Spec1();
             arrowSizeParse();
           }
           spec1Req25Output.push(spec1Req25[g].previousElementSibling);
@@ -1018,7 +1156,6 @@ class ShamanComponent extends Component {
           if (spec1Req20[g].id) {
             spanID = spec1Req20[g].id;
             idMatcherParse();
-            
             arrowSizeParse();
           }
           spec1Req20Output.push(spec1Req20[g].previousElementSibling);
@@ -1039,9 +1176,7 @@ class ShamanComponent extends Component {
           if (spec1Req15[g].id) {
             spanID = spec1Req15[g].id;
             idMatcherParse();
-            checkIDReq2Spec1();
             arrowSizeParse();
-            
           }
           spec1Req15Output.push(spec1Req15[g].previousElementSibling);
         }
@@ -1093,29 +1228,6 @@ class ShamanComponent extends Component {
           }
         }
       }
-
-      if (iSpec1 < 4) {
-        spec1Req0 = document.getElementsByClassName("req-00-s1");
-
-        for (let g = 0; g < spec1Req0.length; g++) {
-          if (spec1Req0[g].id) {
-            spanID = spec1Req0[g].id;
-            console.log("spanID", spanID)
-            
-            idMatcherParse();
-            arrowSizeParse();
-            checkIDReq1Spec1();
-          }
-          spec1Req0Output.push(spec1Req0[g].previousElementSibling);
-        }
-        console.log(spec1Req0Output);
-        for (let g = 0; g < spec1Req0Output.length; g++) {
-          if (spec1Req0Output[g].className.includes("active-talent") && spec1Req0Output[g].nextElementSibling.id.includes("prio")) {
-            spec1Req0Output[g].className =
-              "spec1 talentButton inactive-talent req-inactive";
-          }
-        }
-      }
     }
 
     function removeGreenBorderSpec2() {
@@ -1138,44 +1250,43 @@ class ShamanComponent extends Component {
       }
 
       function arrowSizeParse() {
-        
-        if (arrowSrc.src.includes("Left")) {
-          arrowSrcSize = "left";
-        } else if (arrowSrc.src.includes("Right")) {
-          arrowSrcSize = "right";
-          console.log(arrowSrc)
-        } else if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-          console.log(arrowSrc)
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
         } 
 
-        console.log("arrowSrcSize", arrowSrcSize)
-
         switch (arrowSrcSize) {
-          
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
             break;
 
           case "left":
-            arrowSrc.src = "assets/images/LeftSilverSmall.png";
+            arrowSrc.src = LeftSilverSmall;
             break;
 
           case "right":
-            arrowSrc.src = "assets/images/RightSilverSmall.png";
-            console.log("Lisa Ann")
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1379,25 +1490,43 @@ class ShamanComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
-        }
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
+        } 
 
         switch (arrowSrcSize) {
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
+            break;
+
+          case "left":
+            arrowSrc.src = LeftSilverSmall;
+            break;
+
+          case "right":
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1652,25 +1781,29 @@ class ShamanComponent extends Component {
 
     function turnArrowGoldOnClick() {
       function ArrowGold() {
-        if (arrowChecker.includes("sm")) {
+        if (arrowChecker.includes("angle")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldSmall.png";
-        }
-        if (arrowChecker.includes("med")) {
-          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldMedium.png";
-        }
-        if (arrowChecker.includes("lg")) {
-          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGold.png";
+            AngleArrowGold;
         }
         if (arrowChecker.includes("left")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/LeftGoldSmall.png";
+          LeftGoldSmall;
         }
         if (arrowChecker.includes("right")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/RightGoldSmall.png";
+          RightGoldSmall;
+        }
+        if (arrowChecker.includes("sm")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+            DownGoldSmall;
+        }
+        if (arrowChecker.includes("med")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+          DownGoldMedium;
+        }
+        if (arrowChecker.includes("lg")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+          DownGoldLarge;
         }
       }
 
@@ -2761,7 +2894,7 @@ class ShamanComponent extends Component {
                   console.log(button.previousElementSibling);
                   if (
                     button.previousElementSibling.className.includes(
-                      "req-active"
+                      "req-inactive"
                     )
                   ) {
                     document.querySelector(
@@ -2945,7 +3078,7 @@ class ShamanComponent extends Component {
                   console.log(button.previousElementSibling);
                   if (
                     button.previousElementSibling.className.includes(
-                      "req-active"
+                      "req-inactive"
                     )
                   ) {
                     document.querySelector(
@@ -3402,7 +3535,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3423,7 +3556,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3443,7 +3576,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3463,7 +3596,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3483,7 +3616,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3503,7 +3636,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3523,7 +3656,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3544,7 +3677,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq2Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3586,7 +3719,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3607,7 +3740,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3627,7 +3760,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3647,7 +3780,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3667,7 +3800,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3687,7 +3820,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3701,13 +3834,13 @@ class ShamanComponent extends Component {
                   console.log(button.previousElementSibling);
                   if (
                     button.previousElementSibling.className.includes(
-                      "req-active"
-                    )
+                      "req-inactive"
+                    ) && iSpec3 >= 35
                   ) {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3728,7 +3861,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3770,7 +3903,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3791,7 +3924,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3811,7 +3944,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3831,7 +3964,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3851,7 +3984,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3871,7 +4004,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3891,7 +4024,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3912,7 +4045,7 @@ class ShamanComponent extends Component {
                     document.querySelector(
                       '[id*="prioReq4Spec3"]'
                     ).previousElementSibling.className =
-                      "spec2 talentButton active-talent req-active";
+                      "spec3 talentButton active-talent req-active";
                     ArrowGold();
                     {
                       break;
@@ -3987,20 +4120,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4024,20 +4163,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4061,20 +4206,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4097,20 +4248,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4146,20 +4303,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4183,20 +4346,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4220,20 +4389,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4256,20 +4431,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4305,20 +4486,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4342,20 +4529,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4379,20 +4572,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4415,20 +4614,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4464,20 +4669,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4501,20 +4712,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4538,20 +4755,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4574,20 +4797,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4623,20 +4852,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4660,20 +4895,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4697,20 +4938,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4733,20 +4980,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4782,20 +5035,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4819,20 +5078,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4856,20 +5121,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4892,20 +5163,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4941,20 +5218,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -4978,20 +5261,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5015,20 +5304,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5051,20 +5346,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5100,20 +5401,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5137,20 +5444,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5174,20 +5487,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5210,20 +5529,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5292,20 +5617,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5329,20 +5660,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5366,20 +5703,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5402,20 +5745,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5451,20 +5800,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5488,20 +5843,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5525,20 +5886,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5561,20 +5928,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5610,20 +5983,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5647,20 +6026,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5684,20 +6069,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5720,20 +6111,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5769,20 +6166,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5806,20 +6209,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5843,20 +6252,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5879,20 +6294,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5928,20 +6349,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -5965,20 +6392,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6002,20 +6435,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6038,20 +6477,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6088,20 +6533,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6126,20 +6577,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6155,7 +6612,7 @@ class ShamanComponent extends Component {
                 .previousElementSibling.className.includes("maxeds")
             ) {
               console.log("The arrow above me should be gold");
-              if (spec2Req30Output[g].className.includes("maxeds")) {
+              if (spec2Req30Output[g].className.includes("inactive")) {
                 spec2Req30Output[g].className =
                   "spec2 talentButton active-talent req-active";
               }
@@ -6163,20 +6620,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6199,20 +6662,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6248,20 +6717,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6285,20 +6760,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6322,20 +6803,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6358,20 +6845,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6407,20 +6900,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6444,20 +6943,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6481,20 +6986,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6518,20 +7029,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6600,20 +7117,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6637,20 +7160,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6674,20 +7203,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6710,20 +7245,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6759,20 +7300,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6796,20 +7343,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6833,20 +7386,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6869,20 +7428,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6918,20 +7483,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6955,20 +7526,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -6992,20 +7569,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7028,20 +7611,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7077,20 +7666,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7114,20 +7709,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7151,20 +7752,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7187,20 +7794,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7251,6 +7864,11 @@ class ShamanComponent extends Component {
                 case "rightArrow":
                   arrow.src = "assets/images/RightGoldSmall.png";
                   break;
+
+                case "lgArrowPaladin":
+                  arrow.src = "assets/images/DownGoldLarge.png";
+                  break;
+
                 default:
                   console.log("No arrow class match");
               }
@@ -7273,20 +7891,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7310,20 +7934,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7346,20 +7976,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7395,20 +8031,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7432,20 +8074,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7469,20 +8117,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7505,20 +8159,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7554,20 +8214,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7591,20 +8257,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7620,7 +8292,7 @@ class ShamanComponent extends Component {
                 .previousElementSibling.className.includes("maxeds")
             ) {
               console.log("The arrow above me should be gold");
-              if (!spec3Req35Output[g].className.includes("maxeds")) {
+              if (spec3Req35Output[g].className.includes("inactive")) {
                 spec3Req35Output[g].className =
                   "spec3 talentButton active-talent req-active";
               }
@@ -7628,20 +8300,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7664,20 +8342,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7713,20 +8397,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7750,20 +8440,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7787,20 +8483,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7823,20 +8525,26 @@ class ShamanComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
-                case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
-                  break;
-                case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
-                  break;
-                case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
                   break;
                 case "leftArrow":
-                  arrow.src = "assets/images/LeftGoldSmall.png";
+                  arrow.src = LeftGoldSmall;
                   break;
                 case "rightArrow":
-                  arrow.src = "assets/images/RightGoldSmall.png";
+                  arrow.src = RightGoldSmall;
+                  break;
+                case "smArrow":
+                  arrow.src = DownGoldSmall;
+                  break;
+                case "medArrow":
+                  arrow.src = DownGoldMedium;
+                  break;
+                case "lgArrow":
+                  arrow.src = DownGoldLarge;
+                  break;
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
                   break;
                 default:
                   console.log("No arrow class match");
@@ -7867,6 +8575,13 @@ class ShamanComponent extends Component {
     if (window.event.button === 0) {
       //If user tries to add more points to a maxed talent, exit function, preventing user action
       if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
+
+        return
+      }
+
+      //If User tries to add points to a talent that isn't active yet, exit function
+
+      if(window.event.srcElement.nextElementSibling.className.includes("inactive-talent")){
 
         return
       }
@@ -8292,44 +9007,44 @@ class ShamanComponent extends Component {
     else if (window.event.button === 2) {
       //this prevents the user from taking away points if they have points in a dependant talent
       //spec 1
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1") && !(document.getElementById("prioReq1Spec1").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1") && !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1") && !(document.getElementById("prioReq2Spec1").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1") && !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1") && !(document.getElementById("prioReq3Spec1").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1") && !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1") && !(document.getElementById("prioReq4Spec1").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1") && !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")){
         
         return
       }
       //spec 2
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2") && !(document.getElementById("prioReq1Spec2").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2") && !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2") && !(document.getElementById("prioReq2Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2") && !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2") && !(document.getElementById("prioReq3Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2") && !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2") && !(document.getElementById("prioReq4Spec2").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2") && !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")){
         
         return
       }
       //spec 3
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3") && !(document.getElementById("prioReq1Spec3").innerText[0] === "0")){
+      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3") && !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3") && !(document.getElementById("prioReq2Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3") && !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3") && !(document.getElementById("prioReq3Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3") && !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")){
         
         return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3") && !(document.getElementById("prioReq4Spec3").innerText[0] === "0")){
+      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3") && !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")){
         
         return
       }
@@ -8350,40 +9065,45 @@ class ShamanComponent extends Component {
         let arrowSrcSize;
 
         if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
-          
-          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Left")) {
-            arrowSrcSize = "left";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Right")) {
-            arrowSrcSize = "right";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Small")) {
+          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("sm")) {
             arrowSrcSize = "sm";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Medium")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("med")) {
             arrowSrcSize = "med";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Large")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("lg")) {
             arrowSrcSize = "lg";
-          } 
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("left")) {
+            arrowSrcSize = "left";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("right")) {
+            arrowSrcSize = "right";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("angle")) {
+            arrowSrcSize = "angle";
+          }
         }
         
         
           switch (arrowSrcSize) {
             case "sm":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverSmall;
               break;
 
             case "med":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverMedium.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverMedium;
               break;
 
             case "lg":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverLarge.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverLarge;
               break;
 
             case "left":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/LeftSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = LeftSilverSmall;
               break;
 
             case "right":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/RightSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = RightSilverSmall;
+              break;
+
+            case "angle":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = AngleArrowSilver;
               break;
           
         }
@@ -8863,6 +9583,8 @@ class ShamanComponent extends Component {
     let lgArrowArray = document.querySelectorAll(".lgArrow");
     let leftArrowArray = document.querySelectorAll(".leftArrow");
     let rightArrowArray = document.querySelectorAll(".rightArrow");
+    let angleArrowArray = document.querySelectorAll(".angleArrow");
+    let lgArrowPaladinArray = document.querySelectorAll(".lgArrowPaladin");
 
     let spanArrayPotential1 = [];
     let spanArrayPotential2 = [];
@@ -8922,8 +9644,8 @@ class ShamanComponent extends Component {
       }
 
       if (
-        (spanArray[y].className[17] === "0" &&
-        spanArray[y].className[18] === "0") && !(spanArray[y].id.includes("prio"))
+        spanArray[y].className[17] === "0" &&
+        spanArray[y].className[18] === "0"
       ) {
         console.log(spanArray[y].previousElementSibling);
         if (spanArray[y].previousElementSibling.className[4] === "1") {
@@ -8939,20 +9661,6 @@ class ShamanComponent extends Component {
             "spec3 talentButton active-talent req-active";
         }
       }
-
-      if(spanArray[y].id.includes("prio")){
-        if (spanArray[y].previousElementSibling.className[4] === "1"){
-          spanArray[y].previousElementSibling.className =
-          "spec1 talentButton inactive-talent req-inactive";
-        } if (spanArray[y].previousElementSibling.className[4] === "2"){
-          spanArray[y].previousElementSibling.className =
-          "spec2 talentButton inactive-talent req-inactive";
-        } if (spanArray[y].previousElementSibling.className[4] === "3"){
-          spanArray[y].previousElementSibling.className =
-          "spec1 talentButton inactive-talent req-inactive";
-        }
-      }
-      
     }
 
     /* Iterate through array of all talent buttons and split them
@@ -8997,19 +9705,25 @@ class ShamanComponent extends Component {
     // Iterate through all arrow elements and set them back to silver
 
     for (arrow of smArrowArray) {
-      arrow.src = "assets/images/DownSilverSmall.png";
+      arrow.src = DownSilverSmall;
     }
     for (arrow of medArrowArray) {
-      arrow.src = "assets/images/DownSilverMedium.png";
+      arrow.src = DownSilverMedium;
     }
     for (arrow of lgArrowArray) {
-      arrow.src = "assets/images/DownSilverLarge.png";
+      arrow.src = DownSilverLarge;
     }
     for (arrow of leftArrowArray) {
-      arrow.src = "assets/images/LeftSilverSmall.png";
+      arrow.src = LeftSilverSmall;
     }
     for (arrow of rightArrowArray) {
-      arrow.src = "assets/images/RightSilverSmall.png";
+      arrow.src = RightSilverSmall;
+    }
+    for (arrow of angleArrowArray) {
+      arrow.src = AngleArrowSilver;
+    }
+    for (arrow of lgArrowPaladinArray) {
+      arrow.src = DownSilverLarge;
     }
 
     //Resets all counter variables to 0/false
@@ -9027,58 +9741,73 @@ class ShamanComponent extends Component {
     console.log("Reset Points!");
   }
 
+  scrollComponentIntoView(){
+    const anchor = document.querySelector('#Shaman')
+    anchor.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   render() {
     return (
       <div
         style={{ position: "relative" }}
         onContextMenu={(e) => e.preventDefault()}
         className="frame-wrapper"
+        id="Shaman"
+        onLoad={() => {
+          this.scrollComponentIntoView();
+          this.rebuildToolTip();
+        }}
       >
-        <div className="row">
-          <div className="col-sm-3"></div>
-          <div className="col-sm-6" style={{ color: "#e1eef4" }}>
-            <h5 style={{ color: "#e1eef4", left: "50%" }}>Points Spent:</h5>
-            <h5 id="total-points" style={{ color: "#e1eef4" }}>
+        <div
+          className="row"
+          style={{ whiteSpace: "nowrap", overflow: "hidden" }}
+        >
+          <div className="col-sm-12"><button
+              onClick={this.resetPoints}
+              type="button"
+              className="btn btn-success mb-2 mt-2"
+              style={{display: "inline-block", marginLeft: "6px"}}
+            >
+              Reset
+            </button></div>
+          <div className="col-sm-4"></div>
+          <div className="col-sm-4 mx-auto" style={{overflow: "hidden", whiteSpace: "nowrap"}}>
+            <h5 style={{ color: "white", display: "inline-block", marginLeft: "6px" }}>Points Spent:</h5>
+            <h5 id="total-points" style={{ color: "white", display: "inline-block", marginLeft: "6px", marginTop:"1px" }}>
               0
             </h5>
+            
           </div>
-          <div className="col-sm-3"></div>
+          <div className="col-sm-4"></div>
         </div>
-
-        <button
-          onClick={this.resetPoints}
-          type="button"
-          className="mx-auto btn btn-success ml-4 mb-4 mt-2"
-        >
-          Reset
-        </button>
-        <div style={{ maxWidth: "1150px" }} className="row">
-          <div className="col">
-            <h5 style={{ color: "#e1eef4" }} id="point-counter1">
+        <div className="row">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
+            <h5  style={{ color: "#e1eef4" }} id="point-counter1">
               Spec 1: 0
             </h5>
           </div>
-          <div className="col">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
             <h5 style={{ color: "#e1eef4" }} id="point-counter2">
               Spec 2: 0
             </h5>
           </div>
-          <div className="col">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
             <h5 style={{ color: "#e1eef4" }} id="point-counter3">
               Spec 3: 0
             </h5>
           </div>
         </div>
 
-        <div className="row talent-frame ml-3 mr-3">
+        <div className="row ml-3 mr-3 mb-3">
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Shaman/Background/Elemental.jpg)"
+              backgroundImage: `url(${spec1BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1">Elemental</h5>
+            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Elemental</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9089,8 +9818,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[0].toolTip[0]}
                   id="1"
@@ -9098,8 +9828,11 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_wispsplode.jpg"
+                  src={Convection}
                   alt=""
                 />
 
@@ -9113,8 +9846,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[1].toolTip[0]}
                   id="2"
@@ -9122,8 +9856,11 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_fire_fireball.jpg"
+                  src={Concussion}
                   alt=""
                 />
 
@@ -9140,8 +9877,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[2].toolTip[0]}
                   id="3"
@@ -9149,8 +9887,11 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_stoneclawtotem.jpg"
+                  src={EarthsGrasp}
                   alt=""
                 />
 
@@ -9164,8 +9905,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[3].toolTip[0]}
                   id="4"
@@ -9173,8 +9915,11 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_spiritarmor.jpg"
+                  src={ElementalWarding}
                   alt=""
                 />
 
@@ -9188,8 +9933,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[4].toolTip[0]}
                   id="5"
@@ -9197,8 +9943,11 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_fire_immolation.jpg"
+                  src={CallOfFlame}
                   alt=""
                 />
 
@@ -9215,41 +9964,21 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[6].toolTip[0]}
-                  id="7"
+                  data-tip={Shaman[5].toolTip[0]}
+                  id="6"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_shadow_manaburn.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-10-s1">0/2</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
                   }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Shaman[7].toolTip[0]}
-                  id="8"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_frost_frostward.jpg"
+                  src={ElementalFocus}
                   alt=""
                 />
 
@@ -9263,21 +9992,59 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[8].toolTip[0]}
-                  id="9"
+                  data-tip={Shaman[6].toolTip[0]}
+                  id="7"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_callstorm.jpg"
+                  src={Reverberation}
                   alt=""
                 />
 
                 <span className="talentPoints req-10-s1">0/5</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  onTouchEnd={this.talentClick}
+                  className="talentHover"
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  data-tip={Shaman[7].toolTip[0]}
+                  id="8"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
+                  className="spec1 talentButton inactive-talent req-inactive"
+                  src={CallOfThunder}
+                  alt=""
+                />
+
+                <span id="subsReq1Spec1" className="talentPoints req-10-s1">0/5</span>
+                <img
+                  className="lgArrowPaladin"
+                  src={DownSilverLarge}
+                  alt=""
+                  id="arrwReq1Spec1"
+                />
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -9291,17 +10058,21 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[9].toolTip[0]}
-                  id="10"
+                  data-tip={Shaman[8].toolTip[0]}
+                  id="9"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_fire_sealoffire.jpg"
+                  src={ImprovedFireTotems}
                   alt=""
                 />
 
@@ -9315,22 +10086,26 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[10].toolTip[0]}
-                  id="11"
+                  data-tip={Shaman[9].toolTip[0]}
+                  id="10"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_shadow_soulleech_2.jpg"
+                  src={EyeOfTheStorm}
                   alt=""
                 />
 
                 <span className="talentPoints req-15-s1">
-                  0/5
+                  0/3
                 </span>
               </div>
               <div className="col col-xs-3"></div>
@@ -9342,8 +10117,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[10].toolTip[0]}
                   id="11"
@@ -9351,13 +10127,16 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/classic_spell_fire_elementaldevastation.jpg"
+                  src={ElementalDevastation}
                   alt=""
                 />
 
                 <span className="talentPoints req-15-s1">
-                  0/5
+                  0/3
                 </span>
               </div>
             </div>
@@ -9371,8 +10150,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[11].toolTip[0]}
                   id="12"
@@ -9380,8 +10160,11 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_stormreach.jpg"
+                  src={StormReach}
                   alt=""
                 />
 
@@ -9395,8 +10178,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[12].toolTip[0]}
                   id="13"
@@ -9404,14 +10188,23 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_fire_volcano.jpg"
+                  src={ElementalFury}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">
+                <span id="subsReq2Spec1" className="talentPoints req-20-s1">
                   0/1
                 </span>
+                <img
+                  className="medArrow"
+                  src={DownSilverMedium}
+                  alt=""
+                  id="arrwReq2Spec1"
+                />
               </div>
               <div style={{ zIndex: "0" }} className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9422,8 +10215,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[13].toolTip[0]}
                   id="14"
@@ -9431,12 +10225,15 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_unrelentingstorm.jpg"
+                  src={UnrelentingStorm}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">0/2</span>
+                <span className="talentPoints req-20-s1">0/5</span>
               </div>
             </div>
 
@@ -9449,8 +10246,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[14].toolTip[0]}
                   id="15"
@@ -9458,12 +10256,15 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_elementalprecision_1.jpg"
+                  src={ElementalPrecision}
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s1">0/2</span>
+                <span className="talentPoints req-25-s1">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9474,8 +10275,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[15].toolTip[0]}
                   id="16"
@@ -9483,12 +10285,15 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_lightning_lightningbolt01.jpg"
+                  src={LightningMastery}
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s1">
+                <span id="prioReq1Spec1" className="talentPoints req-25-s1">
                   0/5
                 </span>
               </div>
@@ -9504,22 +10309,26 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[17].toolTip[0]}
-                  id="18"
+                  data-tip={Shaman[16].toolTip[0]}
+                  id="17"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_wispheal.jpg"
+                  src={ElementalMastery}
                   alt=""
                 />
 
                 <span
-                  
+                  id="prioReq2Spec1"
                   className="talentPoints req-30-s1"
                 >
                   0/1
@@ -9534,17 +10343,21 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[18].toolTip[0]}
-                  id="19"
+                  data-tip={Shaman[17].toolTip[0]}
+                  id="18"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_elementalshields.jpg"
+                  src={ElementalShields}
                   alt=""
                 />
 
@@ -9562,21 +10375,31 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[19].toolTip[0]}
-                  id="20"
+                  data-tip={Shaman[18].toolTip[0]}
+                  id="19"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_nature_lightningoverload.jpg"
+                  src={LightningOverload}
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s1">0/5</span>
+                <span id="subsReq3Spec1" className="talentPoints req-35-s1">0/5</span>
+                <img
+                  className="smArrow"
+                  src={DownSilverSmall}
+                  alt=""
+                  id="arrwReq3Spec1"
+                />
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -9591,21 +10414,25 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[20].toolTip[0]}
-                  id="21"
+                  data-tip={Shaman[19].toolTip[0]}
+                  id="20"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec1/spell_fire_totemofwrath.jpg"
+                  src={TotemOfWrath}
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s1">
+                <span id="prioReq3Spec1" className="talentPoints req-40-s1">
                   0/1
                 </span>
               </div>
@@ -9615,12 +10442,13 @@ class ShamanComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Shaman/Background/Enhancement.jpg)"
+              backgroundImage: `url(${spec2BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2">Enhancement</h5>
+            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Enhancement</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9631,17 +10459,21 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[21].toolTip[0]}
-                  id="22"
+                  data-tip={Shaman[20].toolTip[0]}
+                  id="21"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_shadow_grimward.jpg"
+                  src={AncestralKnowledge}
                   alt=""
                 />
 
@@ -9655,17 +10487,21 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[22].toolTip[0]}
-                  id="23"
+                  data-tip={Shaman[21].toolTip[0]}
+                  id="22"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Shaman/Progression/spec2/inv_shield_06.jpg"
+                  src={ShieldSpecialization}
                   alt=""
                 />
 
@@ -9682,21 +10518,25 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[23].toolTip[0]}
-                  id="24"
+                  data-tip={Shaman[22].toolTip[0]}
+                  id="23"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_stoneskintotem.jpg"
+                  src={GuardianTotems}
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9706,8 +10546,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[23].toolTip[0]}
                   id="24"
@@ -9715,12 +10556,21 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/ability_thunderbolt.jpg"
+                  src={ThunderingStrikes}
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span id="subsReq1Spec2" className="talentPoints req-05-s2">0/5</span>
+                <img
+                  className="medArrow"
+                  src={DownSilverMedium}
+                  alt=""
+                  id="arrwReq1Spec2"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9730,8 +10580,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[24].toolTip[0]}
                   id="25"
@@ -9739,12 +10590,15 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_spiritwolf.jpg"
+                  src={ImprovedGhostWolf}
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9754,21 +10608,25 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[23].toolTip[0]}
-                  id="24"
+                  data-tip={Shaman[25].toolTip[0]}
+                  id="26"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_lightningshield.jpg"
+                  src={ImprovedLightningShield}
                   alt=""
                 />
 
-                <span className="talentPoints req-05-s2">0/5</span>
+                <span className="talentPoints req-05-s2">0/3</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -9780,17 +10638,21 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[25].toolTip[0]}
-                  id="26"
+                  data-tip={Shaman[26].toolTip[0]}
+                  id="27"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_earthbindtotem.jpg"
+                  src={EnhancingTotems}
                   alt=""
                 />
 
@@ -9805,8 +10667,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[27].toolTip[0]}
                   id="28"
@@ -9814,8 +10677,11 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_elementalabsorption.jpg"
+                  src={ShamanisticFocus}
                   alt=""
                 />
 
@@ -9832,8 +10698,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[28].toolTip[0]}
                   id="29"
@@ -9841,12 +10708,15 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_mirrorimage.jpg"
+                  src={Anticipation}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">0/2</span>
+                <span className="talentPoints req-10-s2">0/5</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -9859,8 +10729,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[29].toolTip[0]}
                   id="30"
@@ -9868,12 +10739,15 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/ability_ghoulfrenzy.jpg"
+                  src={Flurry}
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s2">0/5</span>
+                <span id="prioReq1Spec2" className="talentPoints req-15-s2">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9883,8 +10757,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[30].toolTip[0]}
                   id="31"
@@ -9892,8 +10767,11 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_holy_devotion.jpg"
+                  src={Toughness}
                   alt=""
                 />
 
@@ -9912,8 +10790,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[31].toolTip[0]}
                   id="32"
@@ -9921,12 +10800,15 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_fire_enchantweapon.jpg"
+                  src={ImprovedWeapontotems}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">0/3</span>
+                <span className="talentPoints req-20-s2">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9936,8 +10818,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[32].toolTip[0]}
                   id="33"
@@ -9945,15 +10828,23 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/ability_parry.jpg"
+                  src={SpiritWeapons}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
+                <span id="subsReq3Spec2" className="talentPoints req-20-s2">
                   0/1
                 </span>
-                
+                <img
+                  className="medArrow"
+                  src={DownSilverMedium}
+                  alt=""
+                  id="arrwReq3Spec2"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9963,8 +10854,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[33].toolTip[0]}
                   id="34"
@@ -9972,15 +10864,23 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_fire_flametounge.jpg"
+                  src={ElementalWeapons}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
+                <span id="subsReq2Spec2" className="talentPoints req-20-s2">
                   0/3
                 </span>
-                
+                <img
+                  className="medArrow"
+                  src={DownSilverMedium}
+                  alt=""
+                  id="arrwReq2Spec2"
+                />
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -9993,8 +10893,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[34].toolTip[0]}
                   id="35"
@@ -10002,12 +10903,15 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_mentalquickness.jpg"
+                  src={MentalQuickness}
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s2">0/2</span>
+                <span className="talentPoints req-25-s2">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -10019,8 +10923,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[35].toolTip[0]}
                   id="36"
@@ -10028,8 +10933,11 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/ability_hunter_swiftstrike.jpg"
+                  src={WeaponMastery}
                   alt=""
                 />
 
@@ -10045,8 +10953,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[36].toolTip[0]}
                   id="37"
@@ -10054,12 +10963,15 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/ability_dualwieldspecialization.jpg"
+                  src={DualWieldSpecialization}
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">0/3</span>
+                <span id="prioReq4Spec2" className="talentPoints req-30-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10069,8 +10981,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[37].toolTip[0]}
                   id="38"
@@ -10078,14 +10991,23 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/ability_dualwield.jpg"
+                  src={DualWield}
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">
+                <span id="prioReq3Spec2 subsReq4Spec2" className="talentPoints req-30-s2">
                   0/1
                 </span>
+                <img
+                  className="leftArrow"
+                  src={LeftSilverSmall}
+                  alt=""
+                  id="arrwReq4Spec2"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10095,8 +11017,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[38].toolTip[0]}
                   id="39"
@@ -10104,13 +11027,16 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/ability_shaman_stormstrike.jpg"
+                  src={Stormstrike}
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">
-                  0/3
+                <span id="prioReq2Spec2" className="talentPoints req-30-s2">
+                  0/1
                 </span>
               </div>
               <div className="col col-xs-3"></div>
@@ -10125,8 +11051,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[39].toolTip[0]}
                   id="40"
@@ -10134,8 +11061,11 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_unleashedrage.jpg"
+                  src={UnleashedRage}
                   alt=""
                 />
 
@@ -10157,8 +11087,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[40].toolTip[0]}
                   id="41"
@@ -10166,8 +11097,11 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec2/spell_nature_shamanrage.jpg"
+                  src={ShamanisticRage}
                   alt=""
                 />
 
@@ -10181,12 +11115,13 @@ class ShamanComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Shaman/Background/Restoration.jpg)"
+              backgroundImage: `url(${spec3BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3">Restoration</h5>
+            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Restoration</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -10197,8 +11132,37 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  data-tip={Shaman[41].toolTip[0]}
+                  id="42"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
+                  className="spec3 talentButton active-talent req-active"
+                  src={ImprovedHealingWave}
+                  alt=""
+                />
+
+                <span className="talentPoints req-00-s3">0/5</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  onTouchEnd={this.talentClick}
+                  className="talentHover"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[42].toolTip[0]}
                   id="43"
@@ -10206,13 +11170,19 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_magicimmunity.jpg"
+                  src={TidalFocus}
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-00-s3">0/5</span>
               </div>
+              <div className="col col-xs-3"></div>
+            </div>
+            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10221,8 +11191,9 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[43].toolTip[0]}
                   id="44"
@@ -10230,16 +11201,16 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_frost_manarecharge.jpg"
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src={ImprovedReincarnation}
                   alt=""
                 />
 
-                <span className="talentPoints req-00-s3">0/3</span>
+                <span className="talentPoints req-05-s3">0/2</span>
               </div>
-              <div className="col col-xs-3"></div>
-            </div>
-            <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10248,8 +11219,37 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  data-tip={Shaman[44].toolTip[0]}
+                  id="45"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src={AncestralHealing}
+                  alt=""
+                />
+
+                <span className="talentPoints req-05-s3">0/3</span>
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  onTouchEnd={this.talentClick}
+                  className="talentHover"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[45].toolTip[0]}
                   id="46"
@@ -10257,60 +11257,15 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_reincarnation.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s3">0/3</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
                   }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Shaman[46].toolTip[0]}
-                  id="47"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_undyingstrength.jpg"
+                  src={TotemicFocus}
                   alt=""
                 />
 
                 <span className="talentPoints req-05-s3">0/5</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
-                  }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Shaman[47].toolTip[0]}
-                  id="48"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_moonglow.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-05-s3">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10323,21 +11278,25 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[48].toolTip[0]}
-                  id="49"
+                  data-tip={Shaman[46].toolTip[0]}
+                  id="47"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_frost_stun.jpg"
+                  src={NaturesGuidance}
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">0/2</span>
+                <span className="talentPoints req-10-s3">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10347,17 +11306,21 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[49].toolTip[0]}
-                  id="50"
+                  data-tip={Shaman[47].toolTip[0]}
+                  id="48"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_healingwavelesser.jpg"
+                  src={HealingFocus}
                   alt=""
                 />
 
@@ -10371,17 +11334,21 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[50].toolTip[0]}
-                  id="51"
+                  data-tip={Shaman[48].toolTip[0]}
+                  id="49"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_nullward.jpg"
+                  src={TotemicMastery}
                   alt=""
                 />
 
@@ -10398,22 +11365,26 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[50].toolTip[0]}
-                  id="51"
+                  data-tip={Shaman[49].toolTip[0]}
+                  id="50"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_healingtouch.jpg"
+                  src={HealingGrace}
                   alt=""
                 />
 
                 <span className="talentPoints req-10-s3">
-                  0/1
+                  0/3
                 </span>
                 
               </div>
@@ -10428,8 +11399,43 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  data-tip={Shaman[50].toolTip[0]}
+                  id="51"
+                />
+                <img
+                  onMouseEnter={this.displayMouseOverlay}
+                  onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
+                  className="spec3 talentButton inactive-talent req-inactive"
+                  src={RestorativeTotems}
+                  alt=""
+                />
+
+                <span id="subsReq1Spec3" className="talentPoints req-15-s3">0/5</span>
+                <img
+                  className="lgArrowPaladin"
+                  src={DownSilverLarge}
+                  alt=""
+                  id="arrwReq1Spec3"
+                />
+              </div>
+              <div className="col col-xs-3">
+                <img
+                  onMouseEnter={this.displayMouseOverlayInnerElement}
+                  onMouseLeave={this.hideMouseOverlayInnerElement}
+                  onMouseDown={() => {
+                    this.talentClick();
+                    this.toolTipFunction();
+                  }}
+                  onTouchEnd={this.talentClick}
+                  className="talentHover"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Shaman[51].toolTip[0]}
                   id="52"
@@ -10437,36 +11443,15 @@ class ShamanComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
-                  className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_manaregentotem.jpg"
-                  alt=""
-                />
-
-                <span className="talentPoints req-15-s3">0/2</span>
-              </div>
-              <div className="col col-xs-3">
-                <img
-                  onMouseEnter={this.displayMouseOverlayInnerElement}
-                  onMouseLeave={this.hideMouseOverlayInnerElement}
-                  onMouseDown={() => {
-                    this.talentClick();
-                    this.toolTipFunction();
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
                   }}
-                  className="talentHover"
-                  src="assets/images/Item_Hover.png"
-                  style={{ display: "none" }}
-                  data-tip={Shaman[52].toolTip[0]}
-                  id="53"
-                />
-                <img
-                  onMouseEnter={this.displayMouseOverlay}
-                  onMouseLeave={this.hideMouseOverlay}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_tranquility.jpg"
+                  src={TidalMastery}
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s3">0/3</span>
+                <span className="talentPoints req-15-s3">0/5</span>
               </div>
               
               <div className="col col-xs-3"></div>
@@ -10480,21 +11465,25 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[54].toolTip[0]}
-                  id="55"
+                  data-tip={Shaman[52].toolTip[0]}
+                  id="53"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/classic_spell_nature_healingway.jpg"
+                  src={HealingWay}
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">0/2</span>
+                <span className="talentPoints req-20-s3">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -10505,22 +11494,26 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[55].toolTip[0]}
-                  id="56"
+                  data-tip={Shaman[53].toolTip[0]}
+                  id="54"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_ravenform.jpg"
+                  src={NaturesSwiftness}
                   alt=""
                 />
 
                 <span className="talentPoints req-20-s3">
-                  0/3
+                  0/1
                 </span>
                 
               </div>
@@ -10532,22 +11525,26 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[56].toolTip[0]}
-                  id="57"
+                  data-tip={Shaman[54].toolTip[0]}
+                  id="55"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_focusedmind.jpg"
+                  src={FocusedMind}
                   alt=""
                 />
 
                 <span className="talentPoints req-20-s3">
-                  0/1
+                  0/3
                 </span>
               </div>
               
@@ -10563,17 +11560,21 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[58].toolTip[0]}
-                  id="59"
+                  data-tip={Shaman[55].toolTip[0]}
+                  id="56"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_frost_wizardmark.jpg"
+                  src={Purification}
                   alt=""
                 />
 
@@ -10591,21 +11592,25 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  data-tip={Shaman[60].toolTip[0]}
-                  id="61"
+                  data-tip={Shaman[56].toolTip[0]}
+                  id="57"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_frost_summonwaterelemental.jpg"
+                  src={ManaTideTotem}
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s3">
+                <span id="prioReq1Spec3" className="talentPoints req-30-s3">
                   0/1
                 </span>
               </div>
@@ -10617,20 +11622,25 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  
+                  data-tip={Shaman[57].toolTip[0]}
+                  id="58"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_natureguardian.jpg"
+                  src={NaturesGuardian}
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s3">0/3</span>
+                <span className="talentPoints req-30-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10644,22 +11654,33 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  
+                  data-tip={Shaman[58].toolTip[0]}
+                  id="59"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_natureblessing.jpg"
+                  src={NaturesBlessing}
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s3">
-                  0/5
+                <span id="subsReq2Spec3" className="talentPoints req-35-s3">
+                  0/3
                 </span>
+                <img
+                  className="smArrow"
+                  src={DownSilverSmall}
+                  alt=""
+                  id="arrwReq2Spec3"
+                />
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10669,21 +11690,26 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  
+                  data-tip={Shaman[59].toolTip[0]}
+                  id="60"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_healingwavegreater.jpg"
+                  src={ImprovedChainHeal}
                   alt=""
                 />
 
                 <span className="talentPoints req-35-s3">
-                  0/5
+                  0/2
                 </span>
               </div>
               <div className="col col-xs-3"></div>
@@ -10698,20 +11724,25 @@ class ShamanComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
-                  
+                  data-tip={Shaman[60].toolTip[0]}
+                  id="61"
                 />
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Shaman/Progression/spec3/spell_nature_skinofearth.jpg"
+                  src={EarthShield}
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s3">
+                <span id="prioReq2Spec3" className="talentPoints req-40-s3">
                   0/1
                 </span>
               </div>

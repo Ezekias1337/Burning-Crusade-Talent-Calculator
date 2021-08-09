@@ -2,9 +2,133 @@
 import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Mage } from "../talentinfo/Mage";
-
+import spec1BG from "../images/talents/Mage/Background/Arcane.jpg"
+import spec2BG from "../images/talents/Mage/Background/Fire.jpg"
+import spec3BG from "../images/talents/Mage/Background/Frost.jpg"
+import spec1Logo from "../images/talents/Mage/Spec1Logo.jpg"
+import spec2Logo from "../images/talents/Mage/Spec2Logo.jpg"
+import spec3Logo from "../images/talents/Mage/Spec3Logo.jpg"
 
 //Start debugging on 7807 (preventing user from removing talent points if there are higher point talents that would be ineligible)
+
+/* 
+DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
+Things to update across all components
+1.) Hardcoded images => Imported Images ✔
+a.) Don't forget Arrows ✔
+2.) Window.event.button[0] to handle left click on inactive talents ✔
+3.) All functions handling Arrows
+  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3) ✔
+  b.) turnArrowGoldOnClick ✔
+  c.) turnArrowGoldIndirectly (s1,s2,s3) ✔
+  d.) window.event.button[2] where code looks at arrows source and subsequent switch ✔
+      in code directly after .nextElementSibling.id.includes("Spec")
+      1.) first if statement (reference classname instead of src) ✔
+      2.) switch directly after (change .src = to reference imported img) ✔
+  e.) Reset Function (the for of loops, don't forget left/right/angle arrow) ✔
+4.) Import Background image for each spec ✔
+5.) Change spec talent frame bootstrap breakpoints ✔ 
+6.) Update formulas for mobile ✔
+7.) Update HTML for Tooltip ✔ 
+8.) add mb-3 to talent frame wrapper div ✔
+
+*/
+
+//consistent among classes
+
+import overlayImage from "../images/Item_Hover.png"
+
+import DownSilverSmall from "../images/DownSilverSmall.png"
+import DownSilverMedium from "../images/DownSilverMedium.png"
+import DownSilverLarge from "../images/DownSilverLarge.png"
+
+import DownGoldSmall from "../images/DownGoldSmall.png"
+import DownGoldMedium from "../images/DownGoldMedium.png"
+import DownGoldLarge from "../images/DownGoldLarge.png"
+
+import LeftSilverSmall from "../images/LeftSilverSmall.png"
+import RightSilverSmall from "../images/RightSilverSmall.png"
+
+import LeftGoldSmall from "../images/LeftGoldSmall.png"
+import RightGoldSmall from "../images/RightGoldSmall.png"
+
+import AngleArrowSilver from "../images/AngleArrowSilver.png"
+import AngleArrowGold from "../images/AngleArrowGold.png"
+
+
+//spec1
+
+import ArcaneConcentration from '../images/talents/Mage/Progression/spec1/ArcaneConcentration.jpg';
+import ArcaneMeditation from '../images/talents/Mage/Progression/spec1/ArcaneMeditation.jpg';
+import ImprovedArcaneMissles from '../images/talents/Mage/Progression/spec1/ImprovedArcaneMissles.jpg';
+import MagicAttunement from '../images/talents/Mage/Progression/spec1/MagicAttunement.jpg';
+import SpellPower from '../images/talents/Mage/Progression/spec1/SpellPower.jpg';
+import ArcaneFocus from '../images/talents/Mage/Progression/spec1/ArcaneFocus.jpg';
+import ArcaneMind from '../images/talents/Mage/Progression/spec1/ArcaneMind.jpg';
+import ImprovedBlink from '../images/talents/Mage/Progression/spec1/ImprovedBlink.jpg';
+import MindMastery from '../images/talents/Mage/Progression/spec1/MindMastery.jpg';
+import WandSpecialization from '../images/talents/Mage/Progression/spec1/WandSpecialization.jpg';
+import ArcaneFortitude from '../images/talents/Mage/Progression/spec1/ArcaneFortitude.jpg';
+import ArcanePotency from '../images/talents/Mage/Progression/spec1/ArcanePotency.jpg';
+import ImprovedCounterspell from '../images/talents/Mage/Progression/spec1/ImprovedCounterspell.jpg';
+import PresenceOfMind from '../images/talents/Mage/Progression/spec1/PresenceOfMind.jpg';
+import ArcaneImpact from '../images/talents/Mage/Progression/spec1/ArcaneImpact.jpg';
+import ArcanePower from '../images/talents/Mage/Progression/spec1/ArcanePower.jpg';
+import ImprovedManaShield from '../images/talents/Mage/Progression/spec1/ImprovedManaShield.jpg';
+import PrismaticCloak from '../images/talents/Mage/Progression/spec1/PrismaticCloak.jpg';
+import ArcaneInstability from '../images/talents/Mage/Progression/spec1/ArcaneInstability.jpg';
+import ArcaneSubtlety from '../images/talents/Mage/Progression/spec1/ArcaneSubtlety.jpg';
+import MagicAbsorption from '../images/talents/Mage/Progression/spec1/MagicAbsorption.jpg';
+import Slow from '../images/talents/Mage/Progression/spec1/Slow.jpg';
+
+
+//spec2
+
+import BlastWave from '../images/talents/Mage/Progression/spec2/BlastWave.jpg';
+import DragonsBreath from '../images/talents/Mage/Progression/spec2/DragonsBreath.jpg';
+import ImprovedFireBlast from '../images/talents/Mage/Progression/spec2/ImprovedFireBlast.jpg';
+import MasterOfElements from '../images/talents/Mage/Progression/spec2/MasterOfElements.jpg';
+import Pyromaniac from '../images/talents/Mage/Progression/spec2/Pyromaniac.jpg';
+import BlazingSpeed from '../images/talents/Mage/Progression/spec2/BlazingSpeed.jpg';
+import FirePower from '../images/talents/Mage/Progression/spec2/FirePower.jpg';
+import ImprovedFireball from '../images/talents/Mage/Progression/spec2/ImprovedFireball.jpg';
+import MoltenFury from '../images/talents/Mage/Progression/spec2/MoltenFury.jpg';
+import BurningSoul from '../images/talents/Mage/Progression/spec2/BurningSoul.jpg';
+import FlameThrowing from '../images/talents/Mage/Progression/spec2/FlameThrowing.jpg';
+import ImprovedFlamestrike from '../images/talents/Mage/Progression/spec2/ImprovedFlamestrike.jpg';
+import MoltenShields from '../images/talents/Mage/Progression/spec2/MoltenShields.jpg';
+import Combustion from '../images/talents/Mage/Progression/spec2/Combustion.jpg';
+import Ignite from '../images/talents/Mage/Progression/spec2/Ignite.jpg';
+import ImprovedScorch from '../images/talents/Mage/Progression/spec2/ImprovedScorch.jpg';
+import PlayingWithFire from '../images/talents/Mage/Progression/spec2/PlayingWithFire.jpg';
+import CriticalMass from '../images/talents/Mage/Progression/spec2/CriticalMass.jpg';
+import Impact from '../images/talents/Mage/Progression/spec2/Impact.jpg';
+import Incineration from '../images/talents/Mage/Progression/spec2/Incineration.jpg';
+import Pyroblast from '../images/talents/Mage/Progression/spec2/Pyroblast.jpg';
+
+//spec3
+
+import ArcticReach from '../images/talents/Mage/Progression/spec3/ArcticReach.jpg';
+import FrostWarding from '../images/talents/Mage/Progression/spec3/FrostWarding.jpg';
+import IceShards from '../images/talents/Mage/Progression/spec3/IceShards.jpg';
+import ImprovedFrostNova from '../images/talents/Mage/Progression/spec3/ImprovedFrostNova.jpg';
+import WintersChill from '../images/talents/Mage/Progression/spec3/WintersChill.jpg';
+import ArcticWinds from '../images/talents/Mage/Progression/spec3/ArcticWinds.jpg';
+import Frostbite from '../images/talents/Mage/Progression/spec3/Frostbite.jpg';
+import IcyVeins from '../images/talents/Mage/Progression/spec3/IcyVeins.jpg';
+import Permafrost from '../images/talents/Mage/Progression/spec3/Permafrost.jpg';
+import ColdSnap from '../images/talents/Mage/Progression/spec3/ColdSnap.jpg';
+import FrozenCore from '../images/talents/Mage/Progression/spec3/FrozenCore.jpg';
+import ImprovedBlizzard from '../images/talents/Mage/Progression/spec3/ImprovedBlizzard.jpg';
+import PiercingIce from '../images/talents/Mage/Progression/spec3/PiercingIce.jpg';
+import ElementalPrecision from '../images/talents/Mage/Progression/spec3/ElementalPrecision.jpg';
+import IceBarrier from '../images/talents/Mage/Progression/spec3/IceBarrier.jpg';
+import ImprovedConeOfCold from '../images/talents/Mage/Progression/spec3/ImprovedConeOfCold.jpg';
+import Shatter from '../images/talents/Mage/Progression/spec3/Shatter.jpg';
+import FrostChanneling from '../images/talents/Mage/Progression/spec3/FrostChanneling.jpg';
+import IceFloes from '../images/talents/Mage/Progression/spec3/IceFloes.jpg';
+import ImprovedFrostBolt from '../images/talents/Mage/Progression/spec3/ImprovedFrostBolt.jpg';
+import SummonWaterElemental from '../images/talents/Mage/Progression/spec3/SummonWaterElemental.jpg';
 
 
 let i = 0;
@@ -19,6 +143,10 @@ class MageComponent extends Component {
     this.state = {
 
     };
+  }
+
+  rebuildToolTip(){
+    ReactTooltip.rebuild();
   }
 
   toolTipFunction() {
@@ -37,6 +165,15 @@ class MageComponent extends Component {
     switch (toolTipChecker.innerText[2]) {
       case "1":
         switch (toolTipChecker.innerText) {
+          case "0/1":
+            //Assign variable the value of the first element in tooltip array
+            toolTipSelector = toolTipStepper.toolTip[0];
+            // Get Element by the ID and set it's tooltip to the correct element in the array
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
           case "1/1":
             //Assign variable the value of the first element in tooltip array
             toolTipSelector = toolTipStepper.toolTip[1];
@@ -51,15 +188,22 @@ class MageComponent extends Component {
         break;
       case "2":
         switch (toolTipChecker.innerText) {
-          case "1/2":
+          case "0/2":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/2":
+          case "1/2":
             toolTipSelector = toolTipStepper.toolTip[1];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "2/2":
+            toolTipSelector = toolTipStepper.toolTip[2];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -70,22 +214,29 @@ class MageComponent extends Component {
         break;
       case "3":
         switch (toolTipChecker.innerText) {
-          case "1/3":
+          case "0/3":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/3":
+          case "1/3":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "3/3":
+          case "2/3":
             toolTipSelector = toolTipStepper.toolTip[2];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "3/3":
+            toolTipSelector = toolTipStepper.toolTip[3];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -96,29 +247,36 @@ class MageComponent extends Component {
         break;
       case "4":
         switch (toolTipChecker.innerText) {
-          case "1/4":
+          case "0/4":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/4":
+          case "1/4":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "3/4":
+          case "2/4":
             toolTipSelector = toolTipStepper.toolTip[2];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "4/4":
+          case "3/4":
             toolTipSelector = toolTipStepper.toolTip[3];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "4/4":
+            toolTipSelector = toolTipStepper.toolTip[4];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -129,36 +287,43 @@ class MageComponent extends Component {
         break;
       case "5":
         switch (toolTipChecker.innerText) {
-          case "1/5":
+          case "0/5":
             toolTipSelector = toolTipStepper.toolTip[0];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "2/5":
+          case "1/5":
             toolTipSelector = toolTipStepper.toolTip[1];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "3/5":
+          case "2/5":
             toolTipSelector = toolTipStepper.toolTip[2];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "4/5":
+          case "3/5":
             toolTipSelector = toolTipStepper.toolTip[3];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
             break;
-          case "5/5":
+          case "4/5":
             toolTipSelector = toolTipStepper.toolTip[4];
+            document
+              .getElementById(toolTipIDChecker)
+              .setAttribute("data-tip", toolTipSelector);
+
+            break;
+          case "5/5":
+            toolTipSelector = toolTipStepper.toolTip[5];
             document
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
@@ -172,6 +337,14 @@ class MageComponent extends Component {
     }
   }
 
+  displayOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "inline";
+  }
+
+  hideOverlayMobile(){
+    window.event.target.previousElementSibling.style.display = "none";
+  }
+
   displayMouseOverlay() {
     if (window.event.target.getElementsByTagName("img")[0]) {
       window.event.target.getElementsByTagName("img")[0].style.display =
@@ -180,7 +353,11 @@ class MageComponent extends Component {
   }
 
   displayMouseOverlayInnerElement() {
-    window.event.target.previousElementSibling.style.display = "inline";
+    if(window.event.target.previousElementSibling){
+      window.event.target.previousElementSibling.style.display = "inline";
+    }
+    
+
   }
 
   hideMouseOverlay() {
@@ -830,25 +1007,43 @@ class MageComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
-        }
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
+        } 
 
         switch (arrowSrcSize) {
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
+            break;
+
+          case "left":
+            arrowSrc.src = LeftSilverSmall;
+            break;
+
+          case "right":
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1032,25 +1227,43 @@ class MageComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
-        }
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
+        } 
 
         switch (arrowSrcSize) {
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
+            break;
+
+          case "left":
+            arrowSrc.src = LeftSilverSmall;
+            break;
+
+          case "right":
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1234,25 +1447,43 @@ class MageComponent extends Component {
       }
 
       function arrowSizeParse() {
-        if (arrowSrc.src.includes("Small")) {
+        if (arrowSrc.className.includes("sm")) {
           arrowSrcSize = "sm";
-        } else if (arrowSrc.src.includes("Medium")) {
+        } else if (arrowSrc.className.includes("med")) {
           arrowSrcSize = "med";
-        } else if (arrowSrc.src.includes("Large")) {
+        } else if (arrowSrc.className.includes("lg")) {
           arrowSrcSize = "lg";
-        }
+        } else if (arrowSrc.className.includes("angle")) {
+          arrowSrcSize = "angle";
+        } else if (arrowSrc.className.includes("left")) {
+          arrowSrcSize = "left";
+        } else if (arrowSrc.className.includes("right")) {
+          arrowSrcSize = "right";
+        } 
 
         switch (arrowSrcSize) {
           case "sm":
-            arrowSrc.src = "assets/images/DownSilverSmall.png";
+            arrowSrc.src = DownSilverSmall;
             break;
 
           case "med":
-            arrowSrc.src = "assets/images/DownSilverMedium.png";
+            arrowSrc.src = DownSilverMedium;
             break;
 
           case "lg":
-            arrowSrc.src = "assets/images/DownSilverLarge.png";
+            arrowSrc.src = DownSilverLarge;
+            break;
+
+          case "angle":
+            arrowSrc.src = AngleArrowSilver;
+            break;
+
+          case "left":
+            arrowSrc.src = LeftSilverSmall;
+            break;
+
+          case "right":
+            arrowSrc.src = RightSilverSmall;
             break;
         }
       }
@@ -1507,17 +1738,29 @@ class MageComponent extends Component {
 
     function turnArrowGoldOnClick() {
       function ArrowGold() {
+        if (arrowChecker.includes("angle")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+            AngleArrowGold;
+        }
+        if (arrowChecker.includes("left")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+          LeftGoldSmall;
+        }
+        if (arrowChecker.includes("right")) {
+          window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+          RightGoldSmall;
+        }
         if (arrowChecker.includes("sm")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldSmall.png";
+            DownGoldSmall;
         }
         if (arrowChecker.includes("med")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldMedium.png";
+          DownGoldMedium;
         }
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-            "assets/images/DownGoldLarge.png";
+          DownGoldLarge;
         }
       }
 
@@ -3811,16 +4054,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -3843,16 +4097,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -3875,16 +4140,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -3906,16 +4182,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -3950,16 +4237,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -3982,16 +4280,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4014,16 +4323,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4045,16 +4365,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4089,16 +4420,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4121,16 +4463,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4153,16 +4506,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4184,16 +4548,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4228,16 +4603,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4260,16 +4646,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4292,16 +4689,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4323,16 +4731,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4367,16 +4786,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4399,16 +4829,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4431,16 +4872,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4462,16 +4914,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4506,16 +4969,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4538,16 +5012,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4570,16 +5055,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4601,16 +5097,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4645,16 +5152,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4677,16 +5195,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4709,16 +5238,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4740,16 +5280,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4784,16 +5335,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4816,16 +5378,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4848,16 +5421,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4879,16 +5463,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec1");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4956,16 +5551,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -4988,16 +5594,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5020,16 +5637,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5051,16 +5679,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5095,16 +5734,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5127,16 +5777,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5159,16 +5820,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5190,16 +5862,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5234,16 +5917,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5266,16 +5960,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5298,16 +6003,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5329,16 +6045,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5373,16 +6100,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5405,16 +6143,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5437,16 +6186,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5468,16 +6228,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5512,16 +6283,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5544,16 +6326,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5576,16 +6369,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5607,16 +6411,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5652,16 +6467,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5685,16 +6511,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5717,16 +6554,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5748,16 +6596,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5792,16 +6651,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5824,16 +6694,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5856,16 +6737,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5887,16 +6779,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5931,16 +6834,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5963,16 +6877,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -5995,16 +6920,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6027,16 +6963,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec2");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6104,16 +7051,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
               //switch determines class name of arrow, and replaces it with gold equivalent
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6136,16 +7094,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6168,16 +7137,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6199,16 +7179,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6243,16 +7234,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6275,16 +7277,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6307,16 +7320,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6338,16 +7362,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6382,16 +7417,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6414,16 +7460,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6446,16 +7503,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6477,16 +7545,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6521,16 +7600,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6553,16 +7643,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6585,16 +7686,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6616,16 +7728,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6660,16 +7783,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6692,16 +7826,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6724,16 +7869,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6755,16 +7911,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6799,16 +7966,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6831,16 +8009,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6863,16 +8052,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6894,16 +8094,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6938,16 +8149,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -6970,16 +8192,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7002,16 +8235,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7033,16 +8277,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7077,16 +8332,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq1Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7109,16 +8375,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq2Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7141,16 +8418,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq3Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7172,16 +8460,27 @@ class MageComponent extends Component {
               arrow = document.getElementById("arrwReq4Spec3");
 
               switch (arrow.className) {
+                case "angleArrow":
+                  arrow.src = AngleArrowGold;
+                  break;
+                case "leftArrow":
+                  arrow.src = LeftGoldSmall;
+                  break;
+                case "rightArrow":
+                  arrow.src = RightGoldSmall;
+                  break;
                 case "smArrow":
-                  arrow.src = "assets/images/DownGoldSmall.png";
+                  arrow.src = DownGoldSmall;
                   break;
                 case "medArrow":
-                  arrow.src = "assets/images/DownGoldMedium.png";
+                  arrow.src = DownGoldMedium;
                   break;
                 case "lgArrow":
-                  arrow.src = "assets/images/DownGoldLarge.png";
+                  arrow.src = DownGoldLarge;
                   break;
-
+                case "lgArrowPaladin":
+                  arrow.src = DownGoldLarge;
+                  break;
                 default:
                   console.log("No arrow class match");
               }
@@ -7211,6 +8510,13 @@ class MageComponent extends Component {
     if (window.event.button === 0) {
       //If user tries to add more points to a maxed talent, exit function, preventing user action
       if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
+
+        return
+      }
+
+      //If User tries to add points to a talent that isn't active yet, exit function
+
+      if(window.event.srcElement.nextElementSibling.className.includes("inactive-talent")){
 
         return
       }
@@ -7697,39 +9003,45 @@ class MageComponent extends Component {
         let arrowSrcSize;
 
         if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
-          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Small")) {
+          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("sm")) {
             arrowSrcSize = "sm";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Medium")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("med")) {
             arrowSrcSize = "med";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Large")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("lg")) {
             arrowSrcSize = "lg";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Left")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("left")) {
             arrowSrcSize = "left";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src.includes("Right")) {
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("right")) {
             arrowSrcSize = "right";
+          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("angle")) {
+            arrowSrcSize = "angle";
           }
         }
         
         
           switch (arrowSrcSize) {
             case "sm":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverSmall;
               break;
 
             case "med":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverMedium.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverMedium;
               break;
 
             case "lg":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/DownSilverLarge.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverLarge;
               break;
 
             case "left":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/LeftSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = LeftSilverSmall;
               break;
 
             case "right":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = "assets/images/RightSilverSmall.png";
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = RightSilverSmall;
+              break;
+
+            case "angle":
+              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = AngleArrowSilver;
               break;
           
         }
@@ -8209,6 +9521,9 @@ class MageComponent extends Component {
     let smArrowArray = document.querySelectorAll(".smArrow");
     let medArrowArray = document.querySelectorAll(".medArrow");
     let lgArrowArray = document.querySelectorAll(".lgArrow");
+    let leftArrowArray = document.querySelectorAll(".leftArrow");
+    let rightArrowArray = document.querySelectorAll(".rightArrow");
+    let angleArrowArray = document.querySelectorAll(".angleArrow");
 
     let spanArrayPotential1 = [];
     let spanArrayPotential2 = [];
@@ -8329,13 +9644,22 @@ class MageComponent extends Component {
     // Iterate through all arrow elements and set them back to silver
 
     for (arrow of smArrowArray) {
-      arrow.src = "assets/images/DownSilverSmall.png";
+      arrow.src = DownSilverSmall;
     }
     for (arrow of medArrowArray) {
-      arrow.src = "assets/images/DownSilverMedium.png";
+      arrow.src = DownSilverMedium;
     }
     for (arrow of lgArrowArray) {
-      arrow.src = "assets/images/DownSilverLarge.png";
+      arrow.src = DownSilverLarge;
+    }
+    for (arrow of leftArrowArray) {
+      arrow.src = LeftSilverSmall;
+    }
+    for (arrow of rightArrowArray) {
+      arrow.src = RightSilverSmall;
+    }
+    for (arrow of angleArrowArray) {
+      arrow.src = AngleArrowSilver;
     }
 
     //Resets all counter variables to 0/false
@@ -8353,58 +9677,73 @@ class MageComponent extends Component {
     console.log("Reset Points!");
   }
 
+  scrollComponentIntoView(){
+    const anchor = document.querySelector('#Mage')
+    anchor.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
   render() {
     return (
       <div
         style={{ position: "relative" }}
         onContextMenu={(e) => e.preventDefault()}
         className="frame-wrapper"
+        id="Mage"
+        onLoad={() => {
+          this.scrollComponentIntoView();
+          this.rebuildToolTip();
+        }}
       >
-        <div className="row">
-          <div className="col-sm-3"></div>
-          <div className="col-sm-6" style={{ color: "#e1eef4" }}>
-            <h5 style={{ color: "#e1eef4", left: "50%" }}>Points Spent:</h5>
-            <h5 id="total-points" style={{ color: "#e1eef4" }}>
+        <div
+          className="row"
+          style={{ whiteSpace: "nowrap", overflow: "hidden" }}
+        >
+          <div className="col-sm-12"><button
+              onClick={this.resetPoints}
+              type="button"
+              className="btn btn-success mb-2 mt-2"
+              style={{display: "inline-block", marginLeft: "6px"}}
+            >
+              Reset
+            </button></div>
+          <div className="col-sm-4"></div>
+          <div className="col-sm-4 mx-auto" style={{overflow: "hidden", whiteSpace: "nowrap"}}>
+            <h5 style={{ color: "white", display: "inline-block", marginLeft: "6px" }}>Points Spent:</h5>
+            <h5 id="total-points" style={{ color: "white", display: "inline-block", marginLeft: "6px", marginTop:"1px" }}>
               0
             </h5>
+            
           </div>
-          <div className="col-sm-3"></div>
+          <div className="col-sm-4"></div>
         </div>
-
-        <button
-          onClick={this.resetPoints}
-          type="button"
-          className="mx-auto btn btn-success ml-4 mb-4 mt-2"
-        >
-          Reset
-        </button>
-        <div style={{ maxWidth: "1150px" }} className="row">
-          <div className="col">
-            <h5 style={{ color: "#e1eef4" }} id="point-counter1">
+        <div className="row">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
+            <h5  style={{ color: "#e1eef4" }} id="point-counter1">
               Spec 1: 0
             </h5>
           </div>
-          <div className="col">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
             <h5 style={{ color: "#e1eef4" }} id="point-counter2">
               Spec 2: 0
             </h5>
           </div>
-          <div className="col">
+          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
             <h5 style={{ color: "#e1eef4" }} id="point-counter3">
               Spec 3: 0
             </h5>
           </div>
         </div>
 
-        <div className="row talent-frame ml-3 mr-3">
+        <div className="row ml-3 mr-3 mb-3">
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Mage/Background/Arcane.jpg)"
+              backgroundImage: `url(${spec1BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1">Arcane</h5>
+            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Arcane</h5>
             <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
                 <img
@@ -8414,8 +9753,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[0].toolTip[0]}
                   id="1"
@@ -8423,10 +9763,14 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_holy_dispelmagic.jpg"
+                  src={ArcaneSubtlety}
                   alt=""
                 />
+                
 
                 <span className="talentPoints req-00-s1">0/2</span>
               </div>
@@ -8438,8 +9782,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[1].toolTip[0]}
                   id="2"
@@ -8447,8 +9792,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_holy_devotion.jpg"
+                  src={ArcaneFocus}
                   alt=""
                 />
 
@@ -8462,8 +9810,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[2].toolTip[0]}
                   id="3"
@@ -8471,8 +9820,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton active-talent req-active"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_starfall.jpg"
+                  src={ImprovedArcaneMissles}
                   alt=""
                 />
 
@@ -8489,8 +9841,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[3].toolTip[0]}
                   id="4"
@@ -8498,8 +9851,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/inv_wand_01.jpg"
+                  src={WandSpecialization}
                   alt=""
                 />
 
@@ -8513,8 +9869,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[4].toolTip[0]}
                   id="5"
@@ -8522,8 +9879,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_astralrecalgroup.jpg"
+                  src={MagicAbsorption}
                   alt=""
                 />
 
@@ -8537,8 +9897,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[5].toolTip[0]}
                   id="6"
@@ -8546,15 +9907,18 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_shadow_manaburn.jpg"
+                  src={ArcaneConcentration}
                   alt=""
                 />
 
                 <span id="subsReq1Spec1" className="talentPoints req-05-s1">0/5</span>
                 <img
                   className="lgArrow"
-                  src="assets/images/DownSilverLarge.png"
+                  src={DownSilverLarge}
                   alt=""
                   id="arrwReq1Spec1"
                 />
@@ -8570,8 +9934,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[6].toolTip[0]}
                   id="7"
@@ -8579,8 +9944,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_abolishmagic.jpg"
+                  src={MagicAttunement}
                   alt=""
                 />
 
@@ -8594,8 +9962,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[7].toolTip[0]}
                   id="8"
@@ -8603,8 +9972,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_wispsplode.jpg"
+                  src={ArcaneImpact}
                   alt=""
                 />
 
@@ -8619,8 +9991,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[8].toolTip[0]}
                   id="9"
@@ -8628,8 +10001,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_arcane_arcaneresilience.jpg"
+                  src={ArcaneFortitude}
                   alt=""
                 />
 
@@ -8646,8 +10022,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[9].toolTip[0]}
                   id="10"
@@ -8655,8 +10032,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_shadow_detectlesserinvisibility.jpg"
+                  src={ImprovedManaShield}
                   alt=""
                 />
 
@@ -8670,8 +10050,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[10].toolTip[0]}
                   id="11"
@@ -8679,8 +10060,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_frost_iceshock.jpg"
+                  src={ImprovedCounterspell}
                   alt=""
                 />
 
@@ -8697,8 +10081,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[11].toolTip[0]}
                   id="12"
@@ -8706,8 +10091,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_shadow_siphonmana.jpg"
+                  src={ArcaneMeditation}
                   alt=""
                 />
 
@@ -8728,8 +10116,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[12].toolTip[0]}
                   id="13"
@@ -8737,8 +10126,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_arcane_blink.jpg"
+                  src={ImprovedBlink}
                   alt=""
                 />
 
@@ -8752,8 +10144,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[13].toolTip[0]}
                   id="14"
@@ -8761,8 +10154,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_enchantarmor.jpg"
+                  src={PresenceOfMind}
                   alt=""
                 />
 
@@ -8771,7 +10167,7 @@ class MageComponent extends Component {
                 </span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq2Spec1"
                 />
@@ -8785,8 +10181,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[14].toolTip[0]}
                   id="15"
@@ -8794,8 +10191,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_shadow_charm.jpg"
+                  src={ArcaneMind}
                   alt=""
                 />
 
@@ -8813,8 +10213,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[15].toolTip[0]}
                   id="16"
@@ -8822,8 +10223,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_arcane_prismaticcloak.jpg"
+                  src={PrismaticCloak}
                   alt=""
                 />
 
@@ -8837,8 +10241,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[16].toolTip[0]}
                   id="17"
@@ -8846,15 +10251,18 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_shadow_teleport.jpg"
+                  src={ArcaneInstability}
                   alt=""
                 />
 
                 <span id="prioReq2Spec1 subsReq3Spec1" className="talentPoints req-25-s1">0/3</span>
                 <img
                   className="smArrow"
-                  src="assets/images/DownSilverSmall.png"
+                  src={DownSilverSmall}
                   alt=""
                   id="arrwReq3Spec1"
                 />
@@ -8867,8 +10275,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[17].toolTip[0]}
                   id="18"
@@ -8876,8 +10285,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_arcane_arcanepotency.jpg"
+                  src={ArcanePotency}
                   alt=""
                 />
 
@@ -8896,8 +10308,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[18].toolTip[0]}
                   id="19"
@@ -8905,8 +10318,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_starfall.jpg"
+                  src={ImprovedArcaneMissles}
                   alt=""
                 />
 
@@ -8920,8 +10336,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[19].toolTip[0]}
                   id="20"
@@ -8929,8 +10346,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_lightning.jpg"
+                  src={ArcanePower}
                   alt=""
                 />
 
@@ -8950,8 +10370,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[20].toolTip[0]}
                   id="21"
@@ -8959,8 +10380,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_arcane_arcanetorrent.jpg"
+                  src={SpellPower}
                   alt=""
                 />
 
@@ -8979,8 +10403,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[21].toolTip[0]}
                   id="22"
@@ -8988,8 +10413,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_arcane_mindmastery.jpg"
+                  src={MindMastery}
                   alt=""
                 />
 
@@ -9009,8 +10437,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[22].toolTip[0]}
                   id="23"
@@ -9018,8 +10447,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec1 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec1/spell_nature_slow.jpg"
+                  src={Slow}
                   alt=""
                 />
 
@@ -9033,12 +10465,13 @@ class MageComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Mage/Background/Fire.jpg)"
+              backgroundImage: `url(${spec2BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2">Fire</h5>
+            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Fire</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9049,8 +10482,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[23].toolTip[0]}
                   id="24"
@@ -9058,8 +10492,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_flamebolt.jpg"
+                  src={ImprovedFireball}
                   alt=""
                 />
 
@@ -9073,8 +10510,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[24].toolTip[0]}
                   id="25"
@@ -9082,8 +10520,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton active-talent req-active"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_meteorstorm.jpg"
+                  src={Impact}
                   alt=""
                 />
 
@@ -9100,8 +10541,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[25].toolTip[0]}
                   id="26"
@@ -9109,8 +10551,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_incinerate.jpg"
+                  src={Ignite}
                   alt=""
                 />
 
@@ -9124,8 +10569,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[26].toolTip[0]}
                   id="27"
@@ -9133,8 +10579,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_flare.jpg"
+                  src={FlameThrowing}
                   alt=""
                 />
 
@@ -9148,8 +10597,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[27].toolTip[0]}
                   id="28"
@@ -9157,8 +10607,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_fireball.jpg"
+                  src={ImprovedFireBlast}
                   alt=""
                 />
 
@@ -9175,8 +10628,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[28].toolTip[0]}
                   id="29"
@@ -9184,8 +10638,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_flameshock.jpg"
+                  src={Incineration}
                   alt=""
                 />
 
@@ -9199,8 +10656,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[29].toolTip[0]}
                   id="30"
@@ -9208,8 +10666,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_selfdestruct.jpg"
+                  src={ImprovedFlamestrike}
                   alt=""
                 />
 
@@ -9223,8 +10684,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[30].toolTip[0]}
                   id="31"
@@ -9232,8 +10694,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_fireball02.jpg"
+                  src={Pyroblast}
                   alt=""
                 />
 
@@ -9242,7 +10707,7 @@ class MageComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq1Spec2"
                 />
@@ -9255,8 +10720,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[31].toolTip[0]}
                   id="32"
@@ -9264,8 +10730,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_fire.jpg"
+                  src={BurningSoul}
                   alt=""
                 />
 
@@ -9282,8 +10751,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[32].toolTip[0]}
                   id="33"
@@ -9291,8 +10761,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_soulburn.jpg"
+                  src={ImprovedScorch}
                   alt=""
                 />
 
@@ -9306,8 +10779,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[33].toolTip[0]}
                   id="34"
@@ -9315,8 +10789,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_firearmor.jpg"
+                  src={MoltenShields}
                   alt=""
                 />
 
@@ -9331,8 +10808,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[34].toolTip[0]}
                   id="35"
@@ -9340,8 +10818,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_masterofelements.jpg"
+                  src={MasterOfElements}
                   alt=""
                 />
 
@@ -9361,8 +10842,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[35].toolTip[0]}
                   id="36"
@@ -9370,8 +10852,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_playingwithfire.jpg"
+                  src={PlayingWithFire}
                   alt=""
                 />
 
@@ -9385,8 +10870,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[36].toolTip[0]}
                   id="37"
@@ -9394,8 +10880,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_nature_wispheal.jpg"
+                  src={CriticalMass}
                   alt=""
                 />
 
@@ -9404,7 +10893,7 @@ class MageComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq2Spec2"
                 />
@@ -9417,8 +10906,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[37].toolTip[0]}
                   id="38"
@@ -9426,8 +10916,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_holy_excorcism_02.jpg"
+                  src={BlastWave}
                   alt=""
                 />
     
@@ -9447,8 +10940,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[38].toolTip[0]}
                   id="39"
@@ -9456,8 +10950,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_burningspeed.jpg"
+                  src={BlazingSpeed}
                   alt=""
                 />
 
@@ -9473,8 +10970,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[39].toolTip[0]}
                   id="40"
@@ -9482,8 +10980,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_immolation.jpg"
+                  src={FirePower}
                   alt=""
                 />
 
@@ -9501,8 +11002,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[40].toolTip[0]}
                   id="41"
@@ -9510,8 +11012,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_burnout.jpg"
+                  src={Pyromaniac}
                   alt=""
                 />
 
@@ -9525,8 +11030,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[41].toolTip[0]}
                   id="42"
@@ -9534,8 +11040,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_sealoffire.jpg"
+                  src={Combustion}
                   alt=""
                 />
 
@@ -9544,7 +11053,7 @@ class MageComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq3Spec2"
                 />
@@ -9557,8 +11066,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[42].toolTip[0]}
                   id="43"
@@ -9566,8 +11076,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_moltenblood.jpg"
+                  src={MoltenFury}
                   alt=""
                 />
 
@@ -9588,8 +11101,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[43].toolTip[0]}
                   id="44"
@@ -9597,8 +11111,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/spell_fire_flamebolt.jpg"
+                  src={ImprovedFireball}
                   alt=""
                 />
 
@@ -9620,8 +11137,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[44].toolTip[0]}
                   id="45"
@@ -9629,8 +11147,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec2 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec2/inv_misc_head_dragon_01.jpg"
+                  src={DragonsBreath}
                   alt=""
                 />
 
@@ -9644,12 +11165,13 @@ class MageComponent extends Component {
           </div>
           <div
             style={{
-              backgroundImage: "url(/assets/images/talents/Mage/Background/Frost.jpg)"
+              backgroundImage: `url(${spec3BG})`,
+              maxWidth: "305px"
             }}
-            className="col-sm-12 col-xs-12 col-lg-4 col-md-6 col-xl-4 talent-frame talent-bg"
+            className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3">Frost</h5>
+            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Frost</h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
@@ -9659,8 +11181,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[45].toolTip[0]}
                   id="46"
@@ -9668,8 +11191,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_frostward.jpg"
+                  src={FrostWarding}
                   alt=""
                 />
 
@@ -9683,8 +11209,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[46].toolTip[0]}
                   id="47"
@@ -9692,8 +11219,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_frostbolt02.jpg"
+                  src={ImprovedFrostBolt}
                   alt=""
                 />
 
@@ -9707,8 +11237,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[47].toolTip[0]}
                   id="48"
@@ -9716,8 +11247,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton active-talent req-active"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_ice_magicdamage.jpg"
+                  src={ElementalPrecision}
                   alt=""
                 />
 
@@ -9734,8 +11268,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[48].toolTip[0]}
                   id="49"
@@ -9743,8 +11278,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_iceshard.jpg"
+                  src={IceShards}
                   alt=""
                 />
 
@@ -9758,8 +11296,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[49].toolTip[0]}
                   id="50"
@@ -9767,8 +11306,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_frostarmor.jpg"
+                  src={Frostbite}
                   alt=""
                 />
 
@@ -9782,8 +11324,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[50].toolTip[0]}
                   id="51"
@@ -9791,15 +11334,18 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_freezingbreath.jpg"
+                  src={ImprovedFrostNova}
                   alt=""
                 />
 
                 <span id="subsReq1Spec3" className="talentPoints req-05-s3">0/2</span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq1Spec3"
                 />
@@ -9812,8 +11358,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[51].toolTip[0]}
                   id="52"
@@ -9821,8 +11368,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_wisp.jpg"
+                  src={Permafrost}
                   alt=""
                 />
 
@@ -9838,8 +11388,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[52].toolTip[0]}
                   id="53"
@@ -9847,8 +11398,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_frostbolt.jpg"
+                  src={PiercingIce}
                   alt=""
                 />
 
@@ -9862,8 +11416,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[53].toolTip[0]}
                   id="54"
@@ -9871,8 +11426,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_coldhearted.jpg"
+                  src={IcyVeins}
                   alt=""
                 />
 
@@ -9887,8 +11445,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[54].toolTip[0]}
                   id="55"
@@ -9896,8 +11455,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_icestorm.jpg"
+                  src={ImprovedBlizzard}
                   alt=""
                 />
 
@@ -9917,8 +11479,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[55].toolTip[0]}
                   id="56"
@@ -9926,8 +11489,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_shadow_darkritual.jpg"
+                  src={ArcticReach}
                   alt=""
                 />
 
@@ -9941,8 +11507,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[56].toolTip[0]}
                   id="57"
@@ -9950,8 +11517,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_stun.jpg"
+                  src={FrostChanneling}
                   alt=""
                 />
 
@@ -9966,8 +11536,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[57].toolTip[0]}
                   id="58"
@@ -9975,8 +11546,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_frostshock.jpg"
+                  src={Shatter}
                   alt=""
                 />
 
@@ -9993,8 +11567,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[58].toolTip[0]}
                   id="59"
@@ -10002,8 +11577,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_frozencore.jpg"
+                  src={FrozenCore}
                   alt=""
                 />
 
@@ -10017,8 +11595,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[59].toolTip[0]}
                   id="60"
@@ -10026,8 +11605,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_wizardmark.jpg"
+                  src={ColdSnap}
                   alt=""
                 />
 
@@ -10036,7 +11618,7 @@ class MageComponent extends Component {
                 </span>
                 <img
                   className="medArrow"
-                  src="assets/images/DownSilverMedium.png"
+                  src={DownSilverMedium}
                   alt=""
                   id="arrwReq2Spec3"
                 />
@@ -10049,8 +11631,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[60].toolTip[0]}
                   id="61"
@@ -10058,8 +11641,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_glacier.jpg"
+                  src={ImprovedConeOfCold}
                   alt=""
                 />
 
@@ -10078,8 +11664,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[61].toolTip[0]}
                   id="62"
@@ -10087,8 +11674,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_icefloes.jpg"
+                  src={IceFloes}
                   alt=""
                 />
 
@@ -10103,8 +11693,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[62].toolTip[0]}
                   id="63"
@@ -10112,8 +11703,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_chillingblast.jpg"
+                  src={WintersChill}
                   alt=""
                 />
 
@@ -10131,8 +11725,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[63].toolTip[0]}
                   id="64"
@@ -10140,8 +11735,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_ice_lament.jpg"
+                  src={IceBarrier}
                   alt=""
                 />
 
@@ -10157,8 +11755,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[64].toolTip[0]}
                   id="65"
@@ -10166,8 +11765,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_arcticwinds.jpg"
+                  src={ArcticWinds}
                   alt=""
                 />
 
@@ -10185,8 +11787,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[65].toolTip[0]}
                   id="66"
@@ -10194,8 +11797,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_frostbolt02.jpg"
+                  src={ImprovedFrostBolt}
                   alt=""
                 />
 
@@ -10217,8 +11823,9 @@ class MageComponent extends Component {
                     this.talentClick();
                     this.toolTipFunction();
                   }}
+                  onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src="assets/images/Item_Hover.png"
+                  src={overlayImage}
                   style={{ display: "none" }}
                   data-tip={Mage[66].toolTip[0]}
                   id="67"
@@ -10226,8 +11833,11 @@ class MageComponent extends Component {
                 <img
                   onMouseEnter={this.displayMouseOverlay}
                   onMouseLeave={this.hideMouseOverlay}
+                  onTouchStart={() => {
+                    this.displayOverlayMobile();
+                  }}
                   className="spec3 talentButton inactive-talent req-inactive"
-                  src="assets/images/talents/Mage/Progression/spec3/spell_frost_summonwaterelemental_2.jpg"
+                  src={SummonWaterElemental}
                   alt=""
                 />
 

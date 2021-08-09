@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import RepeatingTile5 from "../images/Repeating_Tile5.PNG"
+import FooterBG from "../images/BGs/DPuuRd1X0AMTSgq.jpg";
 
 class FooterComponent extends Component {
 
@@ -9,10 +11,10 @@ class FooterComponent extends Component {
 
     render () {
         return (
-            <div className="container mt-3">
-                <div className="row">
-                    <div className="col">
-                        <h4 style={{color: "#e1eef4"}}>Intellectual Property Reserved to Blizzard Entertainment</h4>
+            <div id="footer" className="container no-gutters footerWrapper" style={{minWidth: "100%"}}>
+                <div className="row" style={{minHeight: "100px", backgroundImage: `url(${FooterBG})` }}>
+                    <div className="mt-5 col" >
+                        <h4 className="footer" style={{color: 'white'}}>Intellectual Property Reserved to Blizzard Entertainment</h4>
                     </div>
                 </div>
             </div>
