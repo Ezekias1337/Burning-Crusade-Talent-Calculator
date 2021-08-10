@@ -2,13 +2,12 @@ import $ from "jquery";
 import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Hunter } from "../talentinfo/Hunter";
-import spec1BG from "../images/talents/Hunter/Background/BeastMastery.jpg"
-import spec2BG from "../images/talents/Hunter/Background/Marksman.jpg"
-import spec3BG from "../images/talents/Hunter/Background/Survival.jpg"
-import spec1Logo from "../images/talents/Hunter/Spec1Logo.jpg"
-import spec2Logo from "../images/talents/Hunter/Spec2Logo.jpg"
-import spec3Logo from "../images/talents/Hunter/Spec3Logo.jpg"
-
+import spec1BG from "../images/talents/Hunter/Background/BeastMastery.jpg";
+import spec2BG from "../images/talents/Hunter/Background/Marksman.jpg";
+import spec3BG from "../images/talents/Hunter/Background/Survival.jpg";
+import spec1Logo from "../images/talents/Hunter/Spec1Logo.jpg";
+import spec2Logo from "../images/talents/Hunter/Spec2Logo.jpg";
+import spec3Logo from "../images/talents/Hunter/Spec3Logo.jpg";
 
 /* 
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
@@ -21,97 +20,96 @@ Things to update across all components
 
 //consistent among classes
 
-import overlayImage from "../images/Item_Hover.png"
+import overlayImage from "../images/Item_Hover.png";
 
-import DownSilverSmall from "../images/DownSilverSmall.png"
-import DownSilverMedium from "../images/DownSilverMedium.png"
-import DownSilverLarge from "../images/DownSilverLarge.png"
+import DownSilverSmall from "../images/DownSilverSmall.png";
+import DownSilverMedium from "../images/DownSilverMedium.png";
+import DownSilverLarge from "../images/DownSilverLarge.png";
 
-import DownGoldSmall from "../images/DownGoldSmall.png"
-import DownGoldMedium from "../images/DownGoldMedium.png"
-import DownGoldLarge from "../images/DownGoldLarge.png"
+import DownGoldSmall from "../images/DownGoldSmall.png";
+import DownGoldMedium from "../images/DownGoldMedium.png";
+import DownGoldLarge from "../images/DownGoldLarge.png";
 
-import LeftSilverSmall from "../images/LeftSilverSmall.png"
-import RightSilverSmall from "../images/RightSilverSmall.png"
+import LeftSilverSmall from "../images/LeftSilverSmall.png";
+import RightSilverSmall from "../images/RightSilverSmall.png";
 
-import LeftGoldSmall from "../images/LeftGoldSmall.png"
-import RightGoldSmall from "../images/RightGoldSmall.png"
+import LeftGoldSmall from "../images/LeftGoldSmall.png";
+import RightGoldSmall from "../images/RightGoldSmall.png";
 
-import AngleArrowSilver from "../images/AngleArrowSilver.png"
-import AngleArrowGold from "../images/AngleArrowGold.png"
+import AngleArrowSilver from "../images/AngleArrowSilver.png";
+import AngleArrowGold from "../images/AngleArrowGold.png";
 
 //Spec1 Images
 
-import AnimalHandler from '../images/talents/Hunter/Progression/spec1/AnimalHandler.jpg';
-import CatlikeReflexes from '../images/talents/Hunter/Progression/spec1/CatlikeReflexes.jpg';
-import Frenzy from '../images/talents/Hunter/Progression/spec1/Frenzy.jpg';
-import Intimidation from '../images/talents/Hunter/Progression/spec1/Intimidation.jpg';
-import UnleashedFury from '../images/talents/Hunter/Progression/spec1/UnleashedFury.jpg';
-import EnduranceTraining from '../images/talents/Hunter/Progression/spec1/EnduranceTraining.jpg';
-import ImprovedAspectHawk from '../images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg';
-import Pathfinding from '../images/talents/Hunter/Progression/spec1/Pathfinding.jpg';
-import BestialDiscipline from '../images/talents/Hunter/Progression/spec1/BestialDiscipline.jpg';
-import FerociousInspiration from '../images/talents/Hunter/Progression/spec1/FerociousInspiration.jpg';
-import ImprovedAspectMonkey from '../images/talents/Hunter/Progression/spec1/ImprovedAspectMonkey.jpg';
-import SerpentsSwiftness from '../images/talents/Hunter/Progression/spec1/SerpentsSwiftness.jpg';
-import BestialSwiftness from '../images/talents/Hunter/Progression/spec1/BestialSwiftness.jpg';
-import Ferocity from '../images/talents/Hunter/Progression/spec1/Ferocity.jpg';
-import ImprovedMendPet from '../images/talents/Hunter/Progression/spec1/ImprovedMendPet.jpg';
-import SpiritBond from '../images/talents/Hunter/Progression/spec1/SpiritBond.jpg';
-import FocusedFire from "../images/talents/Hunter/Progression/spec1/FocusedFire.jpg"
-import ThickHide from "../images/talents/Hunter/Progression/spec1/ThickHide.jpg"
-import ImprovedRevivePet from "../images/talents/Hunter/Progression/spec1/ImprovedRevivePet.jpg"
-import BestialWrath from "../images/talents/Hunter/Progression/spec1/BestialWrath.jpg"
-import TheBeastWithin from "../images/talents/Hunter/Progression/spec1/BeastWithin.jpg"
+import AnimalHandler from "../images/talents/Hunter/Progression/spec1/AnimalHandler.jpg";
+import CatlikeReflexes from "../images/talents/Hunter/Progression/spec1/CatlikeReflexes.jpg";
+import Frenzy from "../images/talents/Hunter/Progression/spec1/Frenzy.jpg";
+import Intimidation from "../images/talents/Hunter/Progression/spec1/Intimidation.jpg";
+import UnleashedFury from "../images/talents/Hunter/Progression/spec1/UnleashedFury.jpg";
+import EnduranceTraining from "../images/talents/Hunter/Progression/spec1/EnduranceTraining.jpg";
+import ImprovedAspectHawk from "../images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg";
+import Pathfinding from "../images/talents/Hunter/Progression/spec1/Pathfinding.jpg";
+import BestialDiscipline from "../images/talents/Hunter/Progression/spec1/BestialDiscipline.jpg";
+import FerociousInspiration from "../images/talents/Hunter/Progression/spec1/FerociousInspiration.jpg";
+import ImprovedAspectMonkey from "../images/talents/Hunter/Progression/spec1/ImprovedAspectMonkey.jpg";
+import SerpentsSwiftness from "../images/talents/Hunter/Progression/spec1/SerpentsSwiftness.jpg";
+import BestialSwiftness from "../images/talents/Hunter/Progression/spec1/BestialSwiftness.jpg";
+import Ferocity from "../images/talents/Hunter/Progression/spec1/Ferocity.jpg";
+import ImprovedMendPet from "../images/talents/Hunter/Progression/spec1/ImprovedMendPet.jpg";
+import SpiritBond from "../images/talents/Hunter/Progression/spec1/SpiritBond.jpg";
+import FocusedFire from "../images/talents/Hunter/Progression/spec1/FocusedFire.jpg";
+import ThickHide from "../images/talents/Hunter/Progression/spec1/ThickHide.jpg";
+import ImprovedRevivePet from "../images/talents/Hunter/Progression/spec1/ImprovedRevivePet.jpg";
+import BestialWrath from "../images/talents/Hunter/Progression/spec1/BestialWrath.jpg";
+import TheBeastWithin from "../images/talents/Hunter/Progression/spec1/BeastWithin.jpg";
 
 //Spec2 Images
 
-import AimedShot from '../images/talents/Hunter/Progression/spec2/AimedShot.jpg';
-import Efficiency from '../images/talents/Hunter/Progression/spec2/Efficiency.jpg';
-import ImprovedStings from '../images/talents/Hunter/Progression/spec2/ImprovedStings.jpg';
-import RapidKilling from '../images/talents/Hunter/Progression/spec2/RapidKilling.jpg';
-import BarrageAndImprovedBarrage from '../images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg';
-import GoForTheThroat from '../images/talents/Hunter/Progression/spec2/GoForTheThroat.jpg';
-import LethalShots from '../images/talents/Hunter/Progression/spec2/LethalShots.jpg';
-import ScatterShot from '../images/talents/Hunter/Progression/spec2/ScatterShot.jpg';
-import CarefulAim from '../images/talents/Hunter/Progression/spec2/CarefulAim.jpg';
-import ImprovedArcaneShot from '../images/talents/Hunter/Progression/spec2/ImprovedArcaneShot.jpg';
-import MasterMarksman from '../images/talents/Hunter/Progression/spec2/MasterMarksman.jpg';
-import SilencingShot from '../images/talents/Hunter/Progression/spec2/SilencingShot.jpg';
-import CombatExperience from '../images/talents/Hunter/Progression/spec2/CombatExperience.jpg';
-import ImprovedConcussiveShot from '../images/talents/Hunter/Progression/spec2/ImprovedConcussiveShot.jpg';
-import MortalShots from '../images/talents/Hunter/Progression/spec2/MortalShots.jpg';
-import TrueshotAura from '../images/talents/Hunter/Progression/spec2/TrueshotAura.jpg';
-import ConcussiveBarrage from '../images/talents/Hunter/Progression/spec2/ConcussiveBarrage.jpg';
-import ImprovedHuntersMark from '../images/talents/Hunter/Progression/spec2/ImprovedHuntersMark.jpg';
-import RangedWeaponSpecialization from '../images/talents/Hunter/Progression/spec2/RangedWeaponSpecialization.jpg';
+import AimedShot from "../images/talents/Hunter/Progression/spec2/AimedShot.jpg";
+import Efficiency from "../images/talents/Hunter/Progression/spec2/Efficiency.jpg";
+import ImprovedStings from "../images/talents/Hunter/Progression/spec2/ImprovedStings.jpg";
+import RapidKilling from "../images/talents/Hunter/Progression/spec2/RapidKilling.jpg";
+import BarrageAndImprovedBarrage from "../images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg";
+import GoForTheThroat from "../images/talents/Hunter/Progression/spec2/GoForTheThroat.jpg";
+import LethalShots from "../images/talents/Hunter/Progression/spec2/LethalShots.jpg";
+import ScatterShot from "../images/talents/Hunter/Progression/spec2/ScatterShot.jpg";
+import CarefulAim from "../images/talents/Hunter/Progression/spec2/CarefulAim.jpg";
+import ImprovedArcaneShot from "../images/talents/Hunter/Progression/spec2/ImprovedArcaneShot.jpg";
+import MasterMarksman from "../images/talents/Hunter/Progression/spec2/MasterMarksman.jpg";
+import SilencingShot from "../images/talents/Hunter/Progression/spec2/SilencingShot.jpg";
+import CombatExperience from "../images/talents/Hunter/Progression/spec2/CombatExperience.jpg";
+import ImprovedConcussiveShot from "../images/talents/Hunter/Progression/spec2/ImprovedConcussiveShot.jpg";
+import MortalShots from "../images/talents/Hunter/Progression/spec2/MortalShots.jpg";
+import TrueshotAura from "../images/talents/Hunter/Progression/spec2/TrueshotAura.jpg";
+import ConcussiveBarrage from "../images/talents/Hunter/Progression/spec2/ConcussiveBarrage.jpg";
+import ImprovedHuntersMark from "../images/talents/Hunter/Progression/spec2/ImprovedHuntersMark.jpg";
+import RangedWeaponSpecialization from "../images/talents/Hunter/Progression/spec2/RangedWeaponSpecialization.jpg";
 
 //Spec3 Images
 
-import CleverTraps from '../images/talents/Hunter/Progression/spec3/CleverTraps.jpg';
-import ExposeWeakness from '../images/talents/Hunter/Progression/spec3/ExposeWeakness.jpg';
-import KillerInstinct from '../images/talents/Hunter/Progression/spec3/KillerInstinct.jpg';
-import Resourcefulness from '../images/talents/Hunter/Progression/spec3/Resourcefulness.jpg';
-import ThrillOfTheHunt from '../images/talents/Hunter/Progression/spec3/ThrillOfTheHunt.jpg';
-import Counterattack from '../images/talents/Hunter/Progression/spec3/Counterattack.jpg';
-import HawkEye from '../images/talents/Hunter/Progression/spec3/HawkEye.jpg';
-import LightningReflexes from '../images/talents/Hunter/Progression/spec3/LightningReflexes.jpg';
-import SavageStrikes from '../images/talents/Hunter/Progression/spec3/SavageStrikes.jpg';
-import TrapMastery from '../images/talents/Hunter/Progression/spec3/TrapMastery.jpg';
-import Deflection from '../images/talents/Hunter/Progression/spec3/Deflection.jpg';
-import HumanoidSlaying from '../images/talents/Hunter/Progression/spec3/HumanoidSlaying.jpg';
-import MasterTactician from '../images/talents/Hunter/Progression/spec3/MasterTactician.jpg';
-import Surefooted from '../images/talents/Hunter/Progression/spec3/Surefooted.jpg';
-import WyvernSting from '../images/talents/Hunter/Progression/spec3/WyvernSting.jpg';
-import Deterrence from '../images/talents/Hunter/Progression/spec3/Deterrence.jpg';
-import ImprovedFeignDeath from '../images/talents/Hunter/Progression/spec3/ImprovedFeignDeath.jpg';
-import MonsterSlaying from '../images/talents/Hunter/Progression/spec3/MonsterSlaying.jpg';
-import SurvivalInstincts from '../images/talents/Hunter/Progression/spec3/SurvivalInstincts.jpg';
-import Entrapment from '../images/talents/Hunter/Progression/spec3/Entrapment.jpg';
-import ImprovedWingClip from '../images/talents/Hunter/Progression/spec3/ImprovedWingClip.jpg';
-import Readiness from '../images/talents/Hunter/Progression/spec3/Readiness.jpg';
-import Survivalist from '../images/talents/Hunter/Progression/spec3/Survivalist.jpg';
-
+import CleverTraps from "../images/talents/Hunter/Progression/spec3/CleverTraps.jpg";
+import ExposeWeakness from "../images/talents/Hunter/Progression/spec3/ExposeWeakness.jpg";
+import KillerInstinct from "../images/talents/Hunter/Progression/spec3/KillerInstinct.jpg";
+import Resourcefulness from "../images/talents/Hunter/Progression/spec3/Resourcefulness.jpg";
+import ThrillOfTheHunt from "../images/talents/Hunter/Progression/spec3/ThrillOfTheHunt.jpg";
+import Counterattack from "../images/talents/Hunter/Progression/spec3/Counterattack.jpg";
+import HawkEye from "../images/talents/Hunter/Progression/spec3/HawkEye.jpg";
+import LightningReflexes from "../images/talents/Hunter/Progression/spec3/LightningReflexes.jpg";
+import SavageStrikes from "../images/talents/Hunter/Progression/spec3/SavageStrikes.jpg";
+import TrapMastery from "../images/talents/Hunter/Progression/spec3/TrapMastery.jpg";
+import Deflection from "../images/talents/Hunter/Progression/spec3/Deflection.jpg";
+import HumanoidSlaying from "../images/talents/Hunter/Progression/spec3/HumanoidSlaying.jpg";
+import MasterTactician from "../images/talents/Hunter/Progression/spec3/MasterTactician.jpg";
+import Surefooted from "../images/talents/Hunter/Progression/spec3/Surefooted.jpg";
+import WyvernSting from "../images/talents/Hunter/Progression/spec3/WyvernSting.jpg";
+import Deterrence from "../images/talents/Hunter/Progression/spec3/Deterrence.jpg";
+import ImprovedFeignDeath from "../images/talents/Hunter/Progression/spec3/ImprovedFeignDeath.jpg";
+import MonsterSlaying from "../images/talents/Hunter/Progression/spec3/MonsterSlaying.jpg";
+import SurvivalInstincts from "../images/talents/Hunter/Progression/spec3/SurvivalInstincts.jpg";
+import Entrapment from "../images/talents/Hunter/Progression/spec3/Entrapment.jpg";
+import ImprovedWingClip from "../images/talents/Hunter/Progression/spec3/ImprovedWingClip.jpg";
+import Readiness from "../images/talents/Hunter/Progression/spec3/Readiness.jpg";
+import Survivalist from "../images/talents/Hunter/Progression/spec3/Survivalist.jpg";
 
 let i = 0;
 let iSpec1 = 0;
@@ -119,26 +117,17 @@ let iSpec2 = 0;
 let iSpec3 = 0;
 let loopHappenedBefore = false;
 
-
-
 class HunterComponent extends Component {
-  
-  
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
 
-  rebuildToolTip(){
+  rebuildToolTip() {
     ReactTooltip.rebuild();
   }
 
-  rebuildToolTipOnClick() {
-    
-
-  }
+  rebuildToolTipOnClick() {}
 
   toolTipFunction() {
     let toolTipChecker;
@@ -328,11 +317,11 @@ class HunterComponent extends Component {
     }
   }
 
-  displayOverlayMobile(){
+  displayOverlayMobile() {
     window.event.target.previousElementSibling.style.display = "inline";
   }
 
-  hideOverlayMobile(){
+  hideOverlayMobile() {
     window.event.target.previousElementSibling.style.display = "none";
   }
 
@@ -344,11 +333,9 @@ class HunterComponent extends Component {
   }
 
   displayMouseOverlayInnerElement() {
-    if(window.event.target.previousElementSibling){
+    if (window.event.target.previousElementSibling) {
       window.event.target.previousElementSibling.style.display = "inline";
     }
-    
-
   }
 
   hideMouseOverlay() {
@@ -1010,7 +997,7 @@ class HunterComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1230,7 +1217,7 @@ class HunterComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1450,7 +1437,7 @@ class HunterComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1735,11 +1722,11 @@ class HunterComponent extends Component {
         }
         if (arrowChecker.includes("left")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          LeftGoldSmall;
+            LeftGoldSmall;
         }
         if (arrowChecker.includes("right")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          RightGoldSmall;
+            RightGoldSmall;
         }
         if (arrowChecker.includes("sm")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
@@ -1747,11 +1734,11 @@ class HunterComponent extends Component {
         }
         if (arrowChecker.includes("med")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          DownGoldMedium;
+            DownGoldMedium;
         }
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          DownGoldLarge;
+            DownGoldLarge;
         }
       }
 
@@ -7455,18 +7442,25 @@ class HunterComponent extends Component {
     //Path taken if user left clicks the button
     if (window.event.button === 0) {
       //If user tries to add more points to a maxed talent, exit function, preventing user action
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[0] ===
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[2]
+      ) {
+        return;
       }
 
       //If User tries to add points to a talent that isn't active yet, exit function
 
-      if(window.event.srcElement.nextElementSibling.className.includes("inactive-talent")){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.className.includes(
+          "inactive-talent"
+        )
+      ) {
+        return;
       }
-      
+
       //if user clicked button in spec 1 tree update point counter for spec 1
       if (specString[4] === "1") {
         console.log("Point used in spec 1");
@@ -7886,184 +7880,318 @@ class HunterComponent extends Component {
 
     //Path taken if user right clicks the button
     else if (window.event.button === 2) {
-      
-
-
       //this prevents the user from taking away points if they have points in a dependant talent
       //spec 1
-      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec1"]') && !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")){
-        
-        return
-      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec1"]') && !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")){
-        
-        return
-      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec1"]') && !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")){
-        
-        return
-      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec1"]') && !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq1Spec1"]') &&
+        !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      } else if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq2Spec1"]') &&
+        !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      } else if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq3Spec1"]') &&
+        !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      } else if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq4Spec1"]') &&
+        !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")
+      ) {
+        return;
       }
       //spec 2
-      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec2"]') && !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec2"]') && !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec2"]') && !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec2"]') && !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq1Spec2"]') &&
+        !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq2Spec2"]') &&
+        !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq3Spec2"]') &&
+        !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq4Spec2"]') &&
+        !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")
+      ) {
+        return;
       }
       //spec 3
-      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec3"]') && !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec3"]') && !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec3"]') && !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec3"]') && !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq1Spec3"]') &&
+        !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq2Spec3"]') &&
+        !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq3Spec3"]') &&
+        !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq4Spec3"]') &&
+        !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")
+      ) {
+        return;
       }
 
       //if user tries to remove points in a talent they spent no points in, exit function to prevent action
 
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === "0"){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[0] === "0"
+      ) {
+        return;
       }
 
       /* This following if statement was added to fix the bug that prevented the arrow
       from reverting to silver when you took away the points in the subsReq talent
       */
 
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("Spec")){
-
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "Spec"
+        )
+      ) {
         let arrowSrcSize;
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
-          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("sm")) {
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling
+            .nextElementSibling
+        ) {
+          if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "sm"
+            )
+          ) {
             arrowSrcSize = "sm";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("med")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "med"
+            )
+          ) {
             arrowSrcSize = "med";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("lg")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "lg"
+            )
+          ) {
             arrowSrcSize = "lg";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("left")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "left"
+            )
+          ) {
             arrowSrcSize = "left";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("right")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "right"
+            )
+          ) {
             arrowSrcSize = "right";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("angle")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "angle"
+            )
+          ) {
             arrowSrcSize = "angle";
           }
         }
-        
-        
-          switch (arrowSrcSize) {
-            case "sm":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverSmall;
-              break;
 
-            case "med":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverMedium;
-              break;
+        switch (arrowSrcSize) {
+          case "sm":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverSmall;
+            break;
 
-            case "lg":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverLarge;
-              break;
+          case "med":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverMedium;
+            break;
 
-            case "left":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = LeftSilverSmall;
-              break;
+          case "lg":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverLarge;
+            break;
 
-            case "right":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = RightSilverSmall;
-              break;
+          case "left":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              LeftSilverSmall;
+            break;
 
-            case "angle":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = AngleArrowSilver;
-              break;
-          
+          case "right":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              RightSilverSmall;
+            break;
+
+          case "angle":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              AngleArrowSilver;
+            break;
         }
 
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1")){
-          
-          document.querySelector('[id*="prioReq1Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1")){
-          
-          document.querySelector('[id*="prioReq2Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1")){
-         
-          document.querySelector('[id*="prioReq3Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1")){
-          
-          document.querySelector('[id*="prioReq4Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-
-
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2")){
-          
-          document.querySelector('[id*="prioReq1Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2")){
-          
-          document.querySelector('[id*="prioReq2Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2")){
-          
-          document.querySelector('[id*="prioReq3Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2")){
-          
-          document.querySelector('[id*="prioReq4Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
-        }
-        
-
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3")){
-          
-          document.querySelector('[id*="prioReq1Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3")){
-          
-          document.querySelector('[id*="prioReq2Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3")){
-          
-          document.querySelector('[id*="prioReq3Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3")){
-          
-          document.querySelector('[id*="prioReq4Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-
-
-
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
+        }
       }
 
       /* This following block of code prevents the user from removing points from a talent
@@ -8072,42 +8200,52 @@ class HunterComponent extends Component {
       */
 
       pointRequirementString =
-      window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
-        17,
-        19
+        window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
+          17,
+          19
+        );
+
+      console.log(pointRequirementString);
+
+      let clickDecider;
+      let arrayOfTalents = Array.from(
+        document.querySelectorAll(".talentPoints")
       );
-      
-    console.log(
-      pointRequirementString
-    );
+      let arrayOfTalentsFiltered = [];
 
-    let clickDecider;
-    let arrayOfTalents = Array.from(document.querySelectorAll(".talentPoints"))
-    let arrayOfTalentsFiltered = [];
-
-    arrayOfTalentsFiltered = arrayOfTalents.filter(talent => talent.className.slice(17,19) > pointRequirementString)
-    console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
-    for(let individualTalent of arrayOfTalentsFiltered) {
-      if(individualTalent.className.slice(20,22) === "s1" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec1){
-        clickDecider = false;
-      } 
-      if(individualTalent.className.slice(20,22) === "s2" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec2){
-        clickDecider = false;
+      arrayOfTalentsFiltered = arrayOfTalents.filter(
+        (talent) => talent.className.slice(17, 19) > pointRequirementString
+      );
+      console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
+      for (let individualTalent of arrayOfTalentsFiltered) {
+        if (
+          individualTalent.className.slice(20, 22) === "s1" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec1
+        ) {
+          clickDecider = false;
+        }
+        if (
+          individualTalent.className.slice(20, 22) === "s2" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec2
+        ) {
+          clickDecider = false;
+        }
+        if (
+          individualTalent.className.slice(20, 22) === "s3" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec3
+        ) {
+          clickDecider = false;
+        }
       }
-      if(individualTalent.className.slice(20,22) === "s3" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec3){
-        clickDecider = false;
+
+      if (clickDecider === false) {
+        return;
       }
 
-
-
-    }
-
-    if(clickDecider === false){
-      return
-    }
-      
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       //if user right clicked talent in spec1 subtract one point from point tracker if > 0
       if (specString[4] === "1") {
@@ -8492,28 +8630,25 @@ class HunterComponent extends Component {
 
     console.log("Beginning of reset test");
     for (y = 0; y < spanArray.length; y++) {
-      
       toolTipIDChecker =
-          spanArray[y].previousElementSibling.previousElementSibling.id;
-        toolTipStepper = Hunter[toolTipIDChecker - 1];
-        toolTipSelector = toolTipStepper.toolTip[0];
-        document
-          .getElementById(toolTipIDChecker)
-          .setAttribute("data-tip", toolTipSelector);
+        spanArray[y].previousElementSibling.previousElementSibling.id;
+      toolTipStepper = Hunter[toolTipIDChecker - 1];
+      toolTipSelector = toolTipStepper.toolTip[0];
+      document
+        .getElementById(toolTipIDChecker)
+        .setAttribute("data-tip", toolTipSelector);
 
-        spanArray[y].previousElementSibling.previousElementSibling.setAttribute(
-          "data-tip",
-          toolTipSelector
-        );
-      
+      spanArray[y].previousElementSibling.previousElementSibling.setAttribute(
+        "data-tip",
+        toolTipSelector
+      );
+
       if (
         !(
           spanArray[y].className[17] === "0" &&
           spanArray[y].className[18] === "0"
         )
       ) {
-        
-
         if (spanArray[y].previousElementSibling.className[4] === "1") {
           spanArray[y].previousElementSibling.className =
             "spec1 talentButton inactive-talent req-inactive";
@@ -8623,15 +8758,15 @@ class HunterComponent extends Component {
     console.log("Reset Points!");
   }
 
-  scrollComponentIntoView(){
-    const anchor = document.querySelector('#Hunter')
-    anchor.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  scrollComponentIntoView() {
+    const anchor = document.querySelector("#Hunter");
+    anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   render() {
     return (
       <div
-        style={{ position: "relative", maxWidth: "1010px" }} 
+        style={{ position: "relative", maxWidth: "1010px" }}
         onContextMenu={(e) => e.preventDefault()}
         className="frame-wrapper mx-auto"
         id="Hunter"
@@ -8644,27 +8779,47 @@ class HunterComponent extends Component {
           className="row"
           style={{ whiteSpace: "nowrap", overflow: "hidden" }}
         >
-          <div className="col-sm-12"><button
+          <div className="col-sm-12">
+            <button
               onClick={this.resetPoints}
               type="button"
               className="btn btn-success mb-2 mt-2"
-              style={{display: "inline-block", marginLeft: "6px"}}
+              style={{ display: "inline-block", marginLeft: "6px" }}
             >
               Reset
-            </button></div>
+            </button>
+          </div>
           <div className="col-sm-4"></div>
-          <div className="col-sm-4 mx-auto" style={{overflow: "hidden", whiteSpace: "nowrap"}}>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "6px" }}>Points Spent:</h5>
-            <h5 id="total-points" style={{ color: "white", display: "inline-block", marginLeft: "6px", marginTop:"1px" }}>
+          <div
+            className="col-sm-4 mx-auto"
+            style={{ overflow: "hidden", whiteSpace: "nowrap" }}
+          >
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "6px",
+              }}
+            >
+              Points Spent:
+            </h5>
+            <h5
+              id="total-points"
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "6px",
+                marginTop: "1px",
+              }}
+            >
               0
             </h5>
-            
           </div>
           <div className="col-sm-4"></div>
         </div>
         <div className="row">
           <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
-            <h5  style={{ color: "#e1eef4" }} id="point-counter1">
+            <h5 style={{ color: "#e1eef4" }} id="point-counter1">
               Spec 1: 0
             </h5>
           </div>
@@ -8680,18 +8835,30 @@ class HunterComponent extends Component {
           </div>
         </div>
 
-        <div className="row ml-3 mr-3 mb-3 mx-auto" style={{maxWidth: "1010px"}}>
+        <div
+          className="row ml-3 mr-3 mb-3 mx-auto"
+          style={{ maxWidth: "1010px" }}
+        >
           <div
             style={{
               backgroundImage: `url(${spec1BG})`,
-              maxWidth: "350px"
-              
+              maxWidth: "350px",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Beast Mastery</h5>
-            
+            <h5 id="spec1">
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec1Logo}
+              />
+              Beast Mastery
+            </h5>
+
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -8701,14 +8868,15 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
-                    ReactTooltip.show(this.fooRef);
+                    ReactTooltip.show(this.ImprovedAspectHawkToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedAspectHawkToolTip = ref)}
                   data-tip={Hunter[0].toolTip[0]}
-                  ref={ref => this.fooRef = ref}
+                  ref={(ref) => (this.fooRef = ref)}
                   id="1"
                 />
                 <img
@@ -8740,7 +8908,7 @@ class HunterComponent extends Component {
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
-                  ref={ref => this.EnduranceTrainingToolTip = ref}
+                  ref={(ref) => (this.EnduranceTrainingToolTip = ref)}
                   data-tip={Hunter[1].toolTip[0]}
                   id="2"
                 />
@@ -8752,7 +8920,7 @@ class HunterComponent extends Component {
                   }}
                   className="spec1 talentButton active-talent req-active"
                   src={EnduranceTraining}
-                  alt=""  
+                  alt=""
                 />
 
                 <span className="talentPoints req-00-s1">0/5</span>
@@ -8767,11 +8935,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FocusedFireToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.FocusedFireToolTip = ref)}
                   data-tip={Hunter[2].toolTip[0]}
                   id="3"
                 />
@@ -8795,11 +8965,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedAspectMonkeyToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedAspectMonkeyToolTip = ref)}
                   data-tip={Hunter[3].toolTip[0]}
                   id="4"
                 />
@@ -8823,11 +8995,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ThickHideToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ThickHideToolTip = ref)}
                   data-tip={Hunter[4].toolTip[0]}
                   id="5"
                 />
@@ -8851,11 +9025,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedRevivePetToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedRevivePetToolTip = ref)}
                   data-tip={Hunter[5].toolTip[0]}
                   id="6"
                 />
@@ -8881,11 +9057,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PathfindingToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.PathfindingToolTip = ref)}
                   data-tip={Hunter[6].toolTip[0]}
                   id="7"
                 />
@@ -8909,11 +9087,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BestialSwiftnessToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.BestialSwiftnessToolTip = ref)}
                   data-tip={Hunter[7].toolTip[0]}
                   id="8"
                 />
@@ -8937,11 +9117,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.UnleashedFuryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.UnleashedFuryToolTip = ref)}
                   data-tip={Hunter[8].toolTip[0]}
                   id="9"
                 />
@@ -8969,11 +9151,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedMendPetToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedMendPetToolTip = ref)}
                   data-tip={Hunter[9].toolTip[0]}
                   id="10"
                 />
@@ -8997,11 +9181,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FerocityToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.FerocityToolTip = ref)}
                   data-tip={Hunter[10].toolTip[0]}
                   id="11"
                 />
@@ -9038,11 +9224,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SpiritBondToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SpiritBondToolTip = ref)}
                   data-tip={Hunter[11].toolTip[0]}
                   id="12"
                 />
@@ -9066,11 +9254,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.IntimidationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.IntimidationToolTip = ref)}
                   data-tip={Hunter[12].toolTip[0]}
                   id="13"
                 />
@@ -9103,11 +9293,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BestialDisciplineToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.BestialDisciplineToolTip = ref)}
                   data-tip={Hunter[13].toolTip[0]}
                   id="14"
                 />
@@ -9134,11 +9326,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.AnimalHandlerToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.AnimalHandlerToolTip = ref)}
                   data-tip={Hunter[14].toolTip[0]}
                   id="15"
                 />
@@ -9163,11 +9357,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FrenzyToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.FrenzyToolTip = ref)}
                   data-tip={Hunter[15].toolTip[0]}
                   id="16"
                 />
@@ -9196,11 +9392,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FerociousInspirationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.FerociousInspirationToolTip = ref)}
                   data-tip={Hunter[16].toolTip[0]}
                   id="17"
                 />
@@ -9224,11 +9422,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BestialWrathToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.BestialWrathToolTip = ref)}
                   data-tip={Hunter[17].toolTip[0]}
                   id="18"
                 />
@@ -9263,11 +9463,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CatlikeReflexesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.CatlikeReflexesToolTip = ref)}
                   data-tip={Hunter[18].toolTip[0]}
                   id="19"
                 />
@@ -9296,11 +9498,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SerpentsSwiftnessToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SerpentsSwiftnessToolTip = ref)}
                   data-tip={Hunter[19].toolTip[0]}
                   id="20"
                 />
@@ -9328,11 +9532,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BeastWithinToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.BeastWithinToolTip = ref)}
                   data-tip={Hunter[20].toolTip[0]}
                   id="21"
                 />
@@ -9358,12 +9564,22 @@ class HunterComponent extends Component {
           <div
             style={{
               backgroundImage: `url(${spec2BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Marksmanship</h5>
+            <h5 id="spec2">
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec2Logo}
+              />
+              Marksmanship
+            </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9373,11 +9589,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedConcussiveShotToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedConcussiveShotToolTip = ref)}
                   data-tip={Hunter[21].toolTip[0]}
                   id="22"
                 />
@@ -9401,11 +9619,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.LethalShotsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.LethalShotsToolTip = ref)}
                   data-tip={Hunter[22].toolTip[0]}
                   id="23"
                 />
@@ -9433,11 +9653,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedHuntersMarkToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedHuntersMarkToolTip = ref)}
                   data-tip={Hunter[23].toolTip[0]}
                   id="24"
                 />
@@ -9461,11 +9683,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.EfficiencyToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.EfficiencyToolTip = ref)}
                   data-tip={Hunter[24].toolTip[0]}
                   id="25"
                 />
@@ -9492,11 +9716,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.GoForTheThroatToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.GoForTheThroatToolTip = ref)}
                   data-tip={Hunter[25].toolTip[0]}
                   id="26"
                 />
@@ -9520,11 +9746,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedArcaneShotToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedArcaneShotToolTip = ref)}
                   data-tip={Hunter[26].toolTip[0]}
                   id="27"
                 />
@@ -9548,11 +9776,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.AimedShotToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.AimedShotToolTip = ref)}
                   data-tip={Hunter[27].toolTip[0]}
                   id="28"
                 />
@@ -9584,11 +9814,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.RapidKillingToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.RapidKillingToolTip = ref)}
                   data-tip={Hunter[28].toolTip[0]}
                   id="29"
                 />
@@ -9615,11 +9847,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedStingsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedStingsToolTip = ref)}
                   data-tip={Hunter[29].toolTip[0]}
                   id="30"
                 />
@@ -9643,11 +9877,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MortalShotsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MortalShotsToolTip = ref)}
                   data-tip={Hunter[30].toolTip[0]}
                   id="31"
                 />
@@ -9676,11 +9912,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ConcussiveBarrageToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ConcussiveBarrageToolTip = ref)}
                   data-tip={Hunter[31].toolTip[0]}
                   id="32"
                 />
@@ -9704,11 +9942,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ScatterShotToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ScatterShotToolTip = ref)}
                   data-tip={Hunter[32].toolTip[0]}
                   id="33"
                 />
@@ -9740,11 +9980,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BarrageToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.BarrageToolTip = ref)}
                   data-tip={Hunter[33].toolTip[0]}
                   id="34"
                 />
@@ -9779,11 +10021,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CombatExperienceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.CombatExperienceToolTip = ref)}
                   data-tip={Hunter[34].toolTip[0]}
                   id="35"
                 />
@@ -9809,11 +10053,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.RangedWeaponSpecializationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.RangedWeaponSpecializationToolTip = ref)}
                   data-tip={Hunter[35].toolTip[0]}
                   id="36"
                 />
@@ -9839,11 +10085,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CarefulAimToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.CarefulAimToolTip = ref)}
                   data-tip={Hunter[36].toolTip[0]}
                   id="37"
                 />
@@ -9867,11 +10115,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.TrueshotAuraToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.TrueshotAuraToolTip = ref)}
                   data-tip={Hunter[37].toolTip[0]}
                   id="38"
                 />
@@ -9897,11 +10147,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BarrageAndImprovedBarrageToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.BarrageAndImprovedBarrageToolTip = ref)}
                   data-tip={Hunter[38].toolTip[0]}
                   id="39"
                 />
@@ -9931,11 +10183,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MasterMarksmanToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MasterMarksmanToolTip = ref)}
                   data-tip={Hunter[39].toolTip[0]}
                   id="40"
                 />
@@ -9972,11 +10226,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SilencingShotToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SilencingShotToolTip = ref)}
                   data-tip={Hunter[40].toolTip[0]}
                   id="41"
                 />
@@ -10002,12 +10258,22 @@ class HunterComponent extends Component {
           <div
             style={{
               backgroundImage: `url(${spec3BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Survival</h5>
+            <h5 id="spec3">
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec3Logo}
+              />
+              Survival
+            </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
@@ -10016,11 +10282,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MonsterSlayingToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MonsterSlayingToolTip = ref)}
                   data-tip={Hunter[41].toolTip[0]}
                   id="42"
                 />
@@ -10044,11 +10312,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.HumanoidSlayingToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.HumanoidSlayingToolTip = ref)}
                   data-tip={Hunter[42].toolTip[0]}
                   id="43"
                 />
@@ -10072,11 +10342,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.HawkEyeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.HawkEyeToolTip = ref)}
                   data-tip={Hunter[43].toolTip[0]}
                   id="44"
                 />
@@ -10100,11 +10372,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SavageStrikesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SavageStrikesToolTip = ref)}
                   data-tip={Hunter[44].toolTip[0]}
                   id="45"
                 />
@@ -10130,11 +10404,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.EntrapmentToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.EntrapmentToolTip = ref)}
                   data-tip={Hunter[45].toolTip[0]}
                   id="46"
                 />
@@ -10158,11 +10434,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DeflectionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DeflectionToolTip = ref)}
                   data-tip={Hunter[46].toolTip[0]}
                   id="47"
                 />
@@ -10186,11 +10464,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedWingClipToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedWingClipToolTip = ref)}
                   data-tip={Hunter[47].toolTip[0]}
                   id="48"
                 />
@@ -10217,11 +10497,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CleverTrapsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.CleverTrapsToolTip = ref)}
                   data-tip={Hunter[48].toolTip[0]}
                   id="49"
                 />
@@ -10245,11 +10527,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SurvivalistToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SurvivalistToolTip = ref)}
                   data-tip={Hunter[49].toolTip[0]}
                   id="50"
                 />
@@ -10273,11 +10557,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DeterrenceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DeterrenceToolTip = ref)}
                   data-tip={Hunter[50].toolTip[0]}
                   id="51"
                 />
@@ -10312,11 +10598,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.TrapMasteryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.TrapMasteryToolTip = ref)}
                   data-tip={Hunter[51].toolTip[0]}
                   id="52"
                 />
@@ -10340,11 +10628,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SurefootedToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SurefootedToolTip = ref)}
                   data-tip={Hunter[52].toolTip[0]}
                   id="53"
                 />
@@ -10369,11 +10659,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedFeignDeathToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedFeignDeathToolTip = ref)}
                   data-tip={Hunter[53].toolTip[0]}
                   id="54"
                 />
@@ -10399,11 +10691,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SurvivalInstinctsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SurvivalInstinctsToolTip = ref)}
                   data-tip={Hunter[54].toolTip[0]}
                   id="55"
                 />
@@ -10427,11 +10721,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.KillerInstinctToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.KillerInstinctToolTip = ref)}
                   data-tip={Hunter[55].toolTip[0]}
                   id="56"
                 />
@@ -10463,11 +10759,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CounterattackToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.CounterattackToolTip = ref)}
                   data-tip={Hunter[56].toolTip[0]}
                   id="57"
                 />
@@ -10496,11 +10794,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ResourcefulnessToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ResourcefulnessToolTip = ref)}
                   data-tip={Hunter[57].toolTip[0]}
                   id="58"
                 />
@@ -10525,11 +10825,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.LightningReflexesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.LightningReflexesToolTip = ref)}
                   data-tip={Hunter[58].toolTip[0]}
                   id="59"
                 />
@@ -10556,11 +10858,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ThrillOfTheHuntToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ThrillOfTheHuntToolTip = ref)}
                   data-tip={Hunter[59].toolTip[0]}
                   id="60"
                 />
@@ -10584,11 +10888,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.WyvernStingToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.WyvernStingToolTip = ref)}
                   data-tip={Hunter[60].toolTip[0]}
                   id="61"
                 />
@@ -10614,11 +10920,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ExposeWeaknessToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ExposeWeaknessToolTip = ref)}
                   data-tip={Hunter[61].toolTip[0]}
                   id="62"
                 />
@@ -10646,11 +10954,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MasterTacticianToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MasterTacticianToolTip = ref)}
                   data-tip={Hunter[62].toolTip[0]}
                   id="63"
                 />
@@ -10687,11 +10997,13 @@ class HunterComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ReadinessToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ReadinessToolTip = ref)}
                   data-tip={Hunter[63].toolTip[0]}
                   id="64"
                 />
@@ -10720,6 +11032,6 @@ class HunterComponent extends Component {
   }
 }
 
-<ReactTooltip data-html="true" />
+<ReactTooltip data-html="true" />;
 
 export default HunterComponent;

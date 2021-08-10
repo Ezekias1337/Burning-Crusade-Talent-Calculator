@@ -1,13 +1,12 @@
-
 import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Mage } from "../talentinfo/Mage";
-import spec1BG from "../images/talents/Mage/Background/Arcane.jpg"
-import spec2BG from "../images/talents/Mage/Background/Fire.jpg"
-import spec3BG from "../images/talents/Mage/Background/Frost.jpg"
-import spec1Logo from "../images/talents/Mage/Spec1Logo.jpg"
-import spec2Logo from "../images/talents/Mage/Spec2Logo.jpg"
-import spec3Logo from "../images/talents/Mage/Spec3Logo.jpg"
+import spec1BG from "../images/talents/Mage/Background/Arcane.jpg";
+import spec2BG from "../images/talents/Mage/Background/Fire.jpg";
+import spec3BG from "../images/talents/Mage/Background/Frost.jpg";
+import spec1Logo from "../images/talents/Mage/Spec1Logo.jpg";
+import spec2Logo from "../images/talents/Mage/Spec2Logo.jpg";
+import spec3Logo from "../images/talents/Mage/Spec3Logo.jpg";
 
 //Start debugging on 7807 (preventing user from removing talent points if there are higher point talents that would be ineligible)
 
@@ -36,100 +35,97 @@ a.) Don't forget Arrows ✔
 
 //consistent among classes
 
-import overlayImage from "../images/Item_Hover.png"
+import overlayImage from "../images/Item_Hover.png";
 
-import DownSilverSmall from "../images/DownSilverSmall.png"
-import DownSilverMedium from "../images/DownSilverMedium.png"
-import DownSilverLarge from "../images/DownSilverLarge.png"
+import DownSilverSmall from "../images/DownSilverSmall.png";
+import DownSilverMedium from "../images/DownSilverMedium.png";
+import DownSilverLarge from "../images/DownSilverLarge.png";
 
-import DownGoldSmall from "../images/DownGoldSmall.png"
-import DownGoldMedium from "../images/DownGoldMedium.png"
-import DownGoldLarge from "../images/DownGoldLarge.png"
+import DownGoldSmall from "../images/DownGoldSmall.png";
+import DownGoldMedium from "../images/DownGoldMedium.png";
+import DownGoldLarge from "../images/DownGoldLarge.png";
 
-import LeftSilverSmall from "../images/LeftSilverSmall.png"
-import RightSilverSmall from "../images/RightSilverSmall.png"
+import LeftSilverSmall from "../images/LeftSilverSmall.png";
+import RightSilverSmall from "../images/RightSilverSmall.png";
 
-import LeftGoldSmall from "../images/LeftGoldSmall.png"
-import RightGoldSmall from "../images/RightGoldSmall.png"
+import LeftGoldSmall from "../images/LeftGoldSmall.png";
+import RightGoldSmall from "../images/RightGoldSmall.png";
 
-import AngleArrowSilver from "../images/AngleArrowSilver.png"
-import AngleArrowGold from "../images/AngleArrowGold.png"
-
+import AngleArrowSilver from "../images/AngleArrowSilver.png";
+import AngleArrowGold from "../images/AngleArrowGold.png";
 
 //spec1
 
-import ArcaneConcentration from '../images/talents/Mage/Progression/spec1/ArcaneConcentration.jpg';
-import ArcaneMeditation from '../images/talents/Mage/Progression/spec1/ArcaneMeditation.jpg';
-import ImprovedArcaneMissles from '../images/talents/Mage/Progression/spec1/ImprovedArcaneMissles.jpg';
-import MagicAttunement from '../images/talents/Mage/Progression/spec1/MagicAttunement.jpg';
-import SpellPower from '../images/talents/Mage/Progression/spec1/SpellPower.jpg';
-import ArcaneFocus from '../images/talents/Mage/Progression/spec1/ArcaneFocus.jpg';
-import ArcaneMind from '../images/talents/Mage/Progression/spec1/ArcaneMind.jpg';
-import ImprovedBlink from '../images/talents/Mage/Progression/spec1/ImprovedBlink.jpg';
-import MindMastery from '../images/talents/Mage/Progression/spec1/MindMastery.jpg';
-import WandSpecialization from '../images/talents/Mage/Progression/spec1/WandSpecialization.jpg';
-import ArcaneFortitude from '../images/talents/Mage/Progression/spec1/ArcaneFortitude.jpg';
-import ArcanePotency from '../images/talents/Mage/Progression/spec1/ArcanePotency.jpg';
-import ImprovedCounterspell from '../images/talents/Mage/Progression/spec1/ImprovedCounterspell.jpg';
-import PresenceOfMind from '../images/talents/Mage/Progression/spec1/PresenceOfMind.jpg';
-import ArcaneImpact from '../images/talents/Mage/Progression/spec1/ArcaneImpact.jpg';
-import ArcanePower from '../images/talents/Mage/Progression/spec1/ArcanePower.jpg';
-import ImprovedManaShield from '../images/talents/Mage/Progression/spec1/ImprovedManaShield.jpg';
-import PrismaticCloak from '../images/talents/Mage/Progression/spec1/PrismaticCloak.jpg';
-import ArcaneInstability from '../images/talents/Mage/Progression/spec1/ArcaneInstability.jpg';
-import ArcaneSubtlety from '../images/talents/Mage/Progression/spec1/ArcaneSubtlety.jpg';
-import MagicAbsorption from '../images/talents/Mage/Progression/spec1/MagicAbsorption.jpg';
-import Slow from '../images/talents/Mage/Progression/spec1/Slow.jpg';
-
+import ArcaneConcentration from "../images/talents/Mage/Progression/spec1/ArcaneConcentration.jpg";
+import ArcaneMeditation from "../images/talents/Mage/Progression/spec1/ArcaneMeditation.jpg";
+import ImprovedArcaneMissles from "../images/talents/Mage/Progression/spec1/ImprovedArcaneMissles.jpg";
+import MagicAttunement from "../images/talents/Mage/Progression/spec1/MagicAttunement.jpg";
+import SpellPower from "../images/talents/Mage/Progression/spec1/SpellPower.jpg";
+import ArcaneFocus from "../images/talents/Mage/Progression/spec1/ArcaneFocus.jpg";
+import ArcaneMind from "../images/talents/Mage/Progression/spec1/ArcaneMind.jpg";
+import ImprovedBlink from "../images/talents/Mage/Progression/spec1/ImprovedBlink.jpg";
+import MindMastery from "../images/talents/Mage/Progression/spec1/MindMastery.jpg";
+import WandSpecialization from "../images/talents/Mage/Progression/spec1/WandSpecialization.jpg";
+import ArcaneFortitude from "../images/talents/Mage/Progression/spec1/ArcaneFortitude.jpg";
+import ArcanePotency from "../images/talents/Mage/Progression/spec1/ArcanePotency.jpg";
+import ImprovedCounterspell from "../images/talents/Mage/Progression/spec1/ImprovedCounterspell.jpg";
+import PresenceOfMind from "../images/talents/Mage/Progression/spec1/PresenceOfMind.jpg";
+import ArcaneImpact from "../images/talents/Mage/Progression/spec1/ArcaneImpact.jpg";
+import ArcanePower from "../images/talents/Mage/Progression/spec1/ArcanePower.jpg";
+import ImprovedManaShield from "../images/talents/Mage/Progression/spec1/ImprovedManaShield.jpg";
+import PrismaticCloak from "../images/talents/Mage/Progression/spec1/PrismaticCloak.jpg";
+import ArcaneInstability from "../images/talents/Mage/Progression/spec1/ArcaneInstability.jpg";
+import ArcaneSubtlety from "../images/talents/Mage/Progression/spec1/ArcaneSubtlety.jpg";
+import MagicAbsorption from "../images/talents/Mage/Progression/spec1/MagicAbsorption.jpg";
+import Slow from "../images/talents/Mage/Progression/spec1/Slow.jpg";
 
 //spec2
 
-import BlastWave from '../images/talents/Mage/Progression/spec2/BlastWave.jpg';
-import DragonsBreath from '../images/talents/Mage/Progression/spec2/DragonsBreath.jpg';
-import ImprovedFireBlast from '../images/talents/Mage/Progression/spec2/ImprovedFireBlast.jpg';
-import MasterOfElements from '../images/talents/Mage/Progression/spec2/MasterOfElements.jpg';
-import Pyromaniac from '../images/talents/Mage/Progression/spec2/Pyromaniac.jpg';
-import BlazingSpeed from '../images/talents/Mage/Progression/spec2/BlazingSpeed.jpg';
-import FirePower from '../images/talents/Mage/Progression/spec2/FirePower.jpg';
-import ImprovedFireball from '../images/talents/Mage/Progression/spec2/ImprovedFireball.jpg';
-import MoltenFury from '../images/talents/Mage/Progression/spec2/MoltenFury.jpg';
-import BurningSoul from '../images/talents/Mage/Progression/spec2/BurningSoul.jpg';
-import FlameThrowing from '../images/talents/Mage/Progression/spec2/FlameThrowing.jpg';
-import ImprovedFlamestrike from '../images/talents/Mage/Progression/spec2/ImprovedFlamestrike.jpg';
-import MoltenShields from '../images/talents/Mage/Progression/spec2/MoltenShields.jpg';
-import Combustion from '../images/talents/Mage/Progression/spec2/Combustion.jpg';
-import Ignite from '../images/talents/Mage/Progression/spec2/Ignite.jpg';
-import ImprovedScorch from '../images/talents/Mage/Progression/spec2/ImprovedScorch.jpg';
-import PlayingWithFire from '../images/talents/Mage/Progression/spec2/PlayingWithFire.jpg';
-import CriticalMass from '../images/talents/Mage/Progression/spec2/CriticalMass.jpg';
-import Impact from '../images/talents/Mage/Progression/spec2/Impact.jpg';
-import Incineration from '../images/talents/Mage/Progression/spec2/Incineration.jpg';
-import Pyroblast from '../images/talents/Mage/Progression/spec2/Pyroblast.jpg';
+import BlastWave from "../images/talents/Mage/Progression/spec2/BlastWave.jpg";
+import DragonsBreath from "../images/talents/Mage/Progression/spec2/DragonsBreath.jpg";
+import ImprovedFireBlast from "../images/talents/Mage/Progression/spec2/ImprovedFireBlast.jpg";
+import MasterOfElements from "../images/talents/Mage/Progression/spec2/MasterOfElements.jpg";
+import Pyromaniac from "../images/talents/Mage/Progression/spec2/Pyromaniac.jpg";
+import BlazingSpeed from "../images/talents/Mage/Progression/spec2/BlazingSpeed.jpg";
+import FirePower from "../images/talents/Mage/Progression/spec2/FirePower.jpg";
+import ImprovedFireball from "../images/talents/Mage/Progression/spec2/ImprovedFireball.jpg";
+import MoltenFury from "../images/talents/Mage/Progression/spec2/MoltenFury.jpg";
+import BurningSoul from "../images/talents/Mage/Progression/spec2/BurningSoul.jpg";
+import FlameThrowing from "../images/talents/Mage/Progression/spec2/FlameThrowing.jpg";
+import ImprovedFlamestrike from "../images/talents/Mage/Progression/spec2/ImprovedFlamestrike.jpg";
+import MoltenShields from "../images/talents/Mage/Progression/spec2/MoltenShields.jpg";
+import Combustion from "../images/talents/Mage/Progression/spec2/Combustion.jpg";
+import Ignite from "../images/talents/Mage/Progression/spec2/Ignite.jpg";
+import ImprovedScorch from "../images/talents/Mage/Progression/spec2/ImprovedScorch.jpg";
+import PlayingWithFire from "../images/talents/Mage/Progression/spec2/PlayingWithFire.jpg";
+import CriticalMass from "../images/talents/Mage/Progression/spec2/CriticalMass.jpg";
+import Impact from "../images/talents/Mage/Progression/spec2/Impact.jpg";
+import Incineration from "../images/talents/Mage/Progression/spec2/Incineration.jpg";
+import Pyroblast from "../images/talents/Mage/Progression/spec2/Pyroblast.jpg";
 
 //spec3
 
-import ArcticReach from '../images/talents/Mage/Progression/spec3/ArcticReach.jpg';
-import FrostWarding from '../images/talents/Mage/Progression/spec3/FrostWarding.jpg';
-import IceShards from '../images/talents/Mage/Progression/spec3/IceShards.jpg';
-import ImprovedFrostNova from '../images/talents/Mage/Progression/spec3/ImprovedFrostNova.jpg';
-import WintersChill from '../images/talents/Mage/Progression/spec3/WintersChill.jpg';
-import ArcticWinds from '../images/talents/Mage/Progression/spec3/ArcticWinds.jpg';
-import Frostbite from '../images/talents/Mage/Progression/spec3/Frostbite.jpg';
-import IcyVeins from '../images/talents/Mage/Progression/spec3/IcyVeins.jpg';
-import Permafrost from '../images/talents/Mage/Progression/spec3/Permafrost.jpg';
-import ColdSnap from '../images/talents/Mage/Progression/spec3/ColdSnap.jpg';
-import FrozenCore from '../images/talents/Mage/Progression/spec3/FrozenCore.jpg';
-import ImprovedBlizzard from '../images/talents/Mage/Progression/spec3/ImprovedBlizzard.jpg';
-import PiercingIce from '../images/talents/Mage/Progression/spec3/PiercingIce.jpg';
-import ElementalPrecision from '../images/talents/Mage/Progression/spec3/ElementalPrecision.jpg';
-import IceBarrier from '../images/talents/Mage/Progression/spec3/IceBarrier.jpg';
-import ImprovedConeOfCold from '../images/talents/Mage/Progression/spec3/ImprovedConeOfCold.jpg';
-import Shatter from '../images/talents/Mage/Progression/spec3/Shatter.jpg';
-import FrostChanneling from '../images/talents/Mage/Progression/spec3/FrostChanneling.jpg';
-import IceFloes from '../images/talents/Mage/Progression/spec3/IceFloes.jpg';
-import ImprovedFrostBolt from '../images/talents/Mage/Progression/spec3/ImprovedFrostBolt.jpg';
-import SummonWaterElemental from '../images/talents/Mage/Progression/spec3/SummonWaterElemental.jpg';
-
+import ArcticReach from "../images/talents/Mage/Progression/spec3/ArcticReach.jpg";
+import FrostWarding from "../images/talents/Mage/Progression/spec3/FrostWarding.jpg";
+import IceShards from "../images/talents/Mage/Progression/spec3/IceShards.jpg";
+import ImprovedFrostNova from "../images/talents/Mage/Progression/spec3/ImprovedFrostNova.jpg";
+import WintersChill from "../images/talents/Mage/Progression/spec3/WintersChill.jpg";
+import ArcticWinds from "../images/talents/Mage/Progression/spec3/ArcticWinds.jpg";
+import Frostbite from "../images/talents/Mage/Progression/spec3/Frostbite.jpg";
+import IcyVeins from "../images/talents/Mage/Progression/spec3/IcyVeins.jpg";
+import Permafrost from "../images/talents/Mage/Progression/spec3/Permafrost.jpg";
+import ColdSnap from "../images/talents/Mage/Progression/spec3/ColdSnap.jpg";
+import FrozenCore from "../images/talents/Mage/Progression/spec3/FrozenCore.jpg";
+import ImprovedBlizzard from "../images/talents/Mage/Progression/spec3/ImprovedBlizzard.jpg";
+import PiercingIce from "../images/talents/Mage/Progression/spec3/PiercingIce.jpg";
+import ElementalPrecision from "../images/talents/Mage/Progression/spec3/ElementalPrecision.jpg";
+import IceBarrier from "../images/talents/Mage/Progression/spec3/IceBarrier.jpg";
+import ImprovedConeOfCold from "../images/talents/Mage/Progression/spec3/ImprovedConeOfCold.jpg";
+import Shatter from "../images/talents/Mage/Progression/spec3/Shatter.jpg";
+import FrostChanneling from "../images/talents/Mage/Progression/spec3/FrostChanneling.jpg";
+import IceFloes from "../images/talents/Mage/Progression/spec3/IceFloes.jpg";
+import ImprovedFrostBolt from "../images/talents/Mage/Progression/spec3/ImprovedFrostBolt.jpg";
+import SummonWaterElemental from "../images/talents/Mage/Progression/spec3/SummonWaterElemental.jpg";
 
 let i = 0;
 let iSpec1 = 0;
@@ -140,12 +136,10 @@ let loopHappenedBefore = false;
 class MageComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
 
-  rebuildToolTip(){
+  rebuildToolTip() {
     ReactTooltip.rebuild();
   }
 
@@ -337,11 +331,11 @@ class MageComponent extends Component {
     }
   }
 
-  displayOverlayMobile(){
+  displayOverlayMobile() {
     window.event.target.previousElementSibling.style.display = "inline";
   }
 
-  hideOverlayMobile(){
+  hideOverlayMobile() {
     window.event.target.previousElementSibling.style.display = "none";
   }
 
@@ -353,11 +347,9 @@ class MageComponent extends Component {
   }
 
   displayMouseOverlayInnerElement() {
-    if(window.event.target.previousElementSibling){
+    if (window.event.target.previousElementSibling) {
       window.event.target.previousElementSibling.style.display = "inline";
     }
-    
-
   }
 
   hideMouseOverlay() {
@@ -1019,7 +1011,7 @@ class MageComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1239,7 +1231,7 @@ class MageComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1459,7 +1451,7 @@ class MageComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1744,11 +1736,11 @@ class MageComponent extends Component {
         }
         if (arrowChecker.includes("left")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          LeftGoldSmall;
+            LeftGoldSmall;
         }
         if (arrowChecker.includes("right")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          RightGoldSmall;
+            RightGoldSmall;
         }
         if (arrowChecker.includes("sm")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
@@ -1756,11 +1748,11 @@ class MageComponent extends Component {
         }
         if (arrowChecker.includes("med")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          DownGoldMedium;
+            DownGoldMedium;
         }
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          DownGoldLarge;
+            DownGoldLarge;
         }
       }
 
@@ -8509,18 +8501,25 @@ class MageComponent extends Component {
     //Path taken if user left clicks the button
     if (window.event.button === 0) {
       //If user tries to add more points to a maxed talent, exit function, preventing user action
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[0] ===
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[2]
+      ) {
+        return;
       }
 
       //If User tries to add points to a talent that isn't active yet, exit function
 
-      if(window.event.srcElement.nextElementSibling.className.includes("inactive-talent")){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.className.includes(
+          "inactive-talent"
+        )
+      ) {
+        return;
       }
-      
+
       //if user clicked button in spec 1 tree update point counter for spec 1
       if (specString[4] === "1") {
         console.log("Point used in spec 1");
@@ -8940,184 +8939,318 @@ class MageComponent extends Component {
 
     //Path taken if user right clicks the button
     else if (window.event.button === 2) {
-      
-
-
       //this prevents the user from taking away points if they have points in a dependant talent
       //spec 1
-      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec1"]') && !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")){
-        
-        return
-      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec1"]') && !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")){
-        
-        return
-      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec1"]') && !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")){
-        
-        return
-      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec1"]') && !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq1Spec1"]') &&
+        !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      } else if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq2Spec1"]') &&
+        !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      } else if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq3Spec1"]') &&
+        !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      } else if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq4Spec1"]') &&
+        !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")
+      ) {
+        return;
       }
       //spec 2
-      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec2"]') && !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec2"]') && !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec2"]') && !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec2"]') && !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq1Spec2"]') &&
+        !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq2Spec2"]') &&
+        !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq3Spec2"]') &&
+        !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq4Spec2"]') &&
+        !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")
+      ) {
+        return;
       }
       //spec 3
-      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec3"]') && !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec3"]') && !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec3"]') && !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec3"]') && !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq1Spec3"]') &&
+        !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq2Spec3"]') &&
+        !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq3Spec3"]') &&
+        !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq4Spec3"]') &&
+        !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")
+      ) {
+        return;
       }
 
       //if user tries to remove points in a talent they spent no points in, exit function to prevent action
 
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === "0"){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[0] === "0"
+      ) {
+        return;
       }
 
       /* This following if statement was added to fix the bug that prevented the arrow
       from reverting to silver when you took away the points in the subsReq talent
       */
 
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("Spec")){
-
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "Spec"
+        )
+      ) {
         let arrowSrcSize;
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
-          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("sm")) {
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling
+            .nextElementSibling
+        ) {
+          if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "sm"
+            )
+          ) {
             arrowSrcSize = "sm";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("med")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "med"
+            )
+          ) {
             arrowSrcSize = "med";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("lg")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "lg"
+            )
+          ) {
             arrowSrcSize = "lg";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("left")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "left"
+            )
+          ) {
             arrowSrcSize = "left";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("right")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "right"
+            )
+          ) {
             arrowSrcSize = "right";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("angle")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "angle"
+            )
+          ) {
             arrowSrcSize = "angle";
           }
         }
-        
-        
-          switch (arrowSrcSize) {
-            case "sm":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverSmall;
-              break;
 
-            case "med":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverMedium;
-              break;
+        switch (arrowSrcSize) {
+          case "sm":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverSmall;
+            break;
 
-            case "lg":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverLarge;
-              break;
+          case "med":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverMedium;
+            break;
 
-            case "left":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = LeftSilverSmall;
-              break;
+          case "lg":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverLarge;
+            break;
 
-            case "right":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = RightSilverSmall;
-              break;
+          case "left":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              LeftSilverSmall;
+            break;
 
-            case "angle":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = AngleArrowSilver;
-              break;
-          
+          case "right":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              RightSilverSmall;
+            break;
+
+          case "angle":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              AngleArrowSilver;
+            break;
         }
 
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1")){
-          
-          document.querySelector('[id*="prioReq1Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1")){
-          
-          document.querySelector('[id*="prioReq2Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1")){
-         
-          document.querySelector('[id*="prioReq3Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1")){
-          
-          document.querySelector('[id*="prioReq4Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-
-
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2")){
-          
-          document.querySelector('[id*="prioReq1Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2")){
-          
-          document.querySelector('[id*="prioReq2Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2")){
-          
-          document.querySelector('[id*="prioReq3Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2")){
-          
-          document.querySelector('[id*="prioReq4Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
-        }
-        
-
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3")){
-          
-          document.querySelector('[id*="prioReq1Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3")){
-          
-          document.querySelector('[id*="prioReq2Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3")){
-          
-          document.querySelector('[id*="prioReq3Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3")){
-          
-          document.querySelector('[id*="prioReq4Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-
-
-
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
+        }
       }
 
       /* This following block of code prevents the user from removing points from a talent
@@ -9126,42 +9259,52 @@ class MageComponent extends Component {
       */
 
       pointRequirementString =
-      window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
-        17,
-        19
+        window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
+          17,
+          19
+        );
+
+      console.log(pointRequirementString);
+
+      let clickDecider;
+      let arrayOfTalents = Array.from(
+        document.querySelectorAll(".talentPoints")
       );
-      
-    console.log(
-      pointRequirementString
-    );
+      let arrayOfTalentsFiltered = [];
 
-    let clickDecider;
-    let arrayOfTalents = Array.from(document.querySelectorAll(".talentPoints"))
-    let arrayOfTalentsFiltered = [];
-
-    arrayOfTalentsFiltered = arrayOfTalents.filter(talent => talent.className.slice(17,19) > pointRequirementString)
-    console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
-    for(let individualTalent of arrayOfTalentsFiltered) {
-      if(individualTalent.className.slice(20,22) === "s1" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec1){
-        clickDecider = false;
-      } 
-      if(individualTalent.className.slice(20,22) === "s2" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec2){
-        clickDecider = false;
+      arrayOfTalentsFiltered = arrayOfTalents.filter(
+        (talent) => talent.className.slice(17, 19) > pointRequirementString
+      );
+      console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
+      for (let individualTalent of arrayOfTalentsFiltered) {
+        if (
+          individualTalent.className.slice(20, 22) === "s1" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec1
+        ) {
+          clickDecider = false;
+        }
+        if (
+          individualTalent.className.slice(20, 22) === "s2" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec2
+        ) {
+          clickDecider = false;
+        }
+        if (
+          individualTalent.className.slice(20, 22) === "s3" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec3
+        ) {
+          clickDecider = false;
+        }
       }
-      if(individualTalent.className.slice(20,22) === "s3" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec3){
-        clickDecider = false;
+
+      if (clickDecider === false) {
+        return;
       }
 
-
-
-    }
-
-    if(clickDecider === false){
-      return
-    }
-      
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       //if user right clicked talent in spec1 subtract one point from point tracker if > 0
       if (specString[4] === "1") {
@@ -9546,28 +9689,25 @@ class MageComponent extends Component {
 
     console.log("Beginning of reset test");
     for (y = 0; y < spanArray.length; y++) {
-      
       toolTipIDChecker =
-          spanArray[y].previousElementSibling.previousElementSibling.id;
-        toolTipStepper = Mage[toolTipIDChecker - 1];
-        toolTipSelector = toolTipStepper.toolTip[0];
-        document
-          .getElementById(toolTipIDChecker)
-          .setAttribute("data-tip", toolTipSelector);
+        spanArray[y].previousElementSibling.previousElementSibling.id;
+      toolTipStepper = Mage[toolTipIDChecker - 1];
+      toolTipSelector = toolTipStepper.toolTip[0];
+      document
+        .getElementById(toolTipIDChecker)
+        .setAttribute("data-tip", toolTipSelector);
 
-        spanArray[y].previousElementSibling.previousElementSibling.setAttribute(
-          "data-tip",
-          toolTipSelector
-        );
-      
+      spanArray[y].previousElementSibling.previousElementSibling.setAttribute(
+        "data-tip",
+        toolTipSelector
+      );
+
       if (
         !(
           spanArray[y].className[17] === "0" &&
           spanArray[y].className[18] === "0"
         )
       ) {
-        
-
         if (spanArray[y].previousElementSibling.className[4] === "1") {
           spanArray[y].previousElementSibling.className =
             "spec1 talentButton inactive-talent req-inactive";
@@ -9677,9 +9817,9 @@ class MageComponent extends Component {
     console.log("Reset Points!");
   }
 
-  scrollComponentIntoView(){
-    const anchor = document.querySelector('#Mage')
-    anchor.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  scrollComponentIntoView() {
+    const anchor = document.querySelector("#Mage");
+    anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   render() {
@@ -9698,27 +9838,47 @@ class MageComponent extends Component {
           className="row"
           style={{ whiteSpace: "nowrap", overflow: "hidden" }}
         >
-          <div className="col-sm-12"><button
+          <div className="col-sm-12">
+            <button
               onClick={this.resetPoints}
               type="button"
               className="btn btn-success mb-2 mt-2"
-              style={{display: "inline-block", marginLeft: "6px"}}
+              style={{ display: "inline-block", marginLeft: "6px" }}
             >
               Reset
-            </button></div>
+            </button>
+          </div>
           <div className="col-sm-4"></div>
-          <div className="col-sm-4 mx-auto" style={{overflow: "hidden", whiteSpace: "nowrap"}}>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "6px" }}>Points Spent:</h5>
-            <h5 id="total-points" style={{ color: "white", display: "inline-block", marginLeft: "6px", marginTop:"1px" }}>
+          <div
+            className="col-sm-4 mx-auto"
+            style={{ overflow: "hidden", whiteSpace: "nowrap" }}
+          >
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "6px",
+              }}
+            >
+              Points Spent:
+            </h5>
+            <h5
+              id="total-points"
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "6px",
+                marginTop: "1px",
+              }}
+            >
               0
             </h5>
-            
           </div>
           <div className="col-sm-4"></div>
         </div>
         <div className="row">
           <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
-            <h5  style={{ color: "#e1eef4" }} id="point-counter1">
+            <h5 style={{ color: "#e1eef4" }} id="point-counter1">
               Spec 1: 0
             </h5>
           </div>
@@ -9734,29 +9894,42 @@ class MageComponent extends Component {
           </div>
         </div>
 
-        <div className="row ml-3 mr-3 mb-3 mx-auto" style={{maxWidth: "1010px"}}>
+        <div
+          className="row ml-3 mr-3 mb-3 mx-auto"
+          style={{ maxWidth: "1010px" }}
+        >
           <div
             style={{
               backgroundImage: `url(${spec1BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
             }}
             className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Arcane</h5>
+            <h5 id="spec1">
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec1Logo}
+              />
+              Arcane
+            </h5>
             <div className="row talent-row talent-row-inner">
-            <div className="col col-xs-3">
+              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ArcaneSubtletyToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ArcaneSubtletyToolTip = ref}
                   data-tip={Mage[0].toolTip[0]}
                   id="1"
                 />
@@ -9770,7 +9943,6 @@ class MageComponent extends Component {
                   src={ArcaneSubtlety}
                   alt=""
                 />
-                
 
                 <span className="talentPoints req-00-s1">0/2</span>
               </div>
@@ -9781,11 +9953,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ArcaneFocusToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ArcaneFocusToolTip = ref}
                   data-tip={Mage[1].toolTip[0]}
                   id="2"
                 />
@@ -9809,11 +9981,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedArcaneMisslesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedArcaneMisslesToolTip = ref}
                   data-tip={Mage[2].toolTip[0]}
                   id="3"
                 />
@@ -9840,11 +10012,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.WandSpecializationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.WandSpecializationToolTip = ref}
                   data-tip={Mage[3].toolTip[0]}
                   id="4"
                 />
@@ -9868,11 +10040,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MagicAbsorptionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.MagicAbsorptionToolTip = ref}
                   data-tip={Mage[4].toolTip[0]}
                   id="5"
                 />
@@ -9896,11 +10068,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ArcaneConcentrationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ArcaneConcentrationToolTip = ref}
                   data-tip={Mage[5].toolTip[0]}
                   id="6"
                 />
@@ -9915,7 +10087,9 @@ class MageComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq1Spec1" className="talentPoints req-05-s1">0/5</span>
+                <span id="subsReq1Spec1" className="talentPoints req-05-s1">
+                  0/5
+                </span>
                 <img
                   className="lgArrow"
                   src={DownSilverLarge}
@@ -9933,11 +10107,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MagicAttunementToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.MagicAttunementToolTip = ref}
                   data-tip={Mage[6].toolTip[0]}
                   id="7"
                 />
@@ -9961,11 +10135,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ArcaneImpactToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ArcaneImpactToolTip = ref}
                   data-tip={Mage[7].toolTip[0]}
                   id="8"
                 />
@@ -9990,11 +10164,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ArcaneFortitudeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ArcaneFortitudeToolTip = ref}
                   data-tip={Mage[8].toolTip[0]}
                   id="9"
                 />
@@ -10011,21 +10185,20 @@ class MageComponent extends Component {
 
                 <span className="talentPoints req-10-s1">0/1</span>
               </div>
-              
             </div>
             <div className="row talent-row">
-            <div className="col col-xs-3">
+              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedManaShieldToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedManaShieldToolTip = ref}
                   data-tip={Mage[9].toolTip[0]}
                   id="10"
                 />
@@ -10049,11 +10222,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedCounterspellToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedCounterspellToolTip = ref}
                   data-tip={Mage[10].toolTip[0]}
                   id="11"
                 />
@@ -10070,9 +10243,9 @@ class MageComponent extends Component {
 
                 <span className="talentPoints req-15-s1">0/2</span>
               </div>
-              
+
               <div className="col col-xs-3"></div>
-              
+
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10080,11 +10253,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ArcaneMeditationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ArcaneMeditationToolTip = ref}
                   data-tip={Mage[11].toolTip[0]}
                   id="12"
                 />
@@ -10099,12 +10272,8 @@ class MageComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s1">
-                  0/3
-                </span>
+                <span className="talentPoints req-15-s1">0/3</span>
               </div>
-
-              
             </div>
 
             <div className="row talent-row talent-row-inner">
@@ -10115,11 +10284,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedBlinkToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedBlinkToolTip = ref}
                   data-tip={Mage[12].toolTip[0]}
                   id="13"
                 />
@@ -10143,11 +10312,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PresenceOfMindToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.PresenceOfMindToolTip = ref}
                   data-tip={Mage[13].toolTip[0]}
                   id="14"
                 />
@@ -10180,11 +10349,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ArcaneMindToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ArcaneMindToolTip = ref}
                   data-tip={Mage[14].toolTip[0]}
                   id="15"
                 />
@@ -10204,7 +10373,6 @@ class MageComponent extends Component {
             </div>
 
             <div className="row talent-row talent-row-inner">
-              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10212,11 +10380,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PrismaticCloakToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.PrismaticCloakToolTip = ref}
                   data-tip={Mage[15].toolTip[0]}
                   id="16"
                 />
@@ -10240,11 +10408,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ArcaneInstabilityToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ArcaneInstabilityToolTip = ref}
                   data-tip={Mage[16].toolTip[0]}
                   id="17"
                 />
@@ -10259,7 +10427,12 @@ class MageComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq2Spec1 subsReq3Spec1" className="talentPoints req-25-s1">0/3</span>
+                <span
+                  id="prioReq2Spec1 subsReq3Spec1"
+                  className="talentPoints req-25-s1"
+                >
+                  0/3
+                </span>
                 <img
                   className="smArrow"
                   src={DownSilverSmall}
@@ -10274,11 +10447,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ArcanePotencyToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ArcanePotencyToolTip = ref}
                   data-tip={Mage[17].toolTip[0]}
                   id="18"
                 />
@@ -10307,11 +10480,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedArcaneMisslesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedArcaneMisslesToolTip = ref}
                   data-tip={Mage[18].toolTip[0]}
                   id="19"
                 />
@@ -10335,11 +10508,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ArcanePowerToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ArcanePowerToolTip = ref}
                   data-tip={Mage[19].toolTip[0]}
                   id="20"
                 />
@@ -10354,13 +10527,9 @@ class MageComponent extends Component {
                   alt=""
                 />
 
-                <span
-                  id="prioReq3Spec1"
-                  className="talentPoints req-30-s1"
-                >
+                <span id="prioReq3Spec1" className="talentPoints req-30-s1">
                   0/1
                 </span>
-                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10369,11 +10538,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SpellPowerToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.SpellPowerToolTip = ref}
                   data-tip={Mage[20].toolTip[0]}
                   id="21"
                 />
@@ -10394,7 +10563,7 @@ class MageComponent extends Component {
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
-              
+
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10402,11 +10571,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MindMasteryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.MindMasteryToolTip = ref}
                   data-tip={Mage[21].toolTip[0]}
                   id="22"
                 />
@@ -10436,11 +10605,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SlowToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.SlowToolTip = ref}
                   data-tip={Mage[22].toolTip[0]}
                   id="23"
                 />
@@ -10455,9 +10624,7 @@ class MageComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s1">
-                  0/1
-                </span>
+                <span className="talentPoints req-40-s1">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -10466,12 +10633,22 @@ class MageComponent extends Component {
           <div
             style={{
               backgroundImage: `url(${spec2BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
             }}
             className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Fire</h5>
+            <h5 id="spec2">
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec2Logo}
+              />
+              Fire
+            </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -10481,11 +10658,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedFireballToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedFireballToolTip = ref}
                   data-tip={Mage[23].toolTip[0]}
                   id="24"
                 />
@@ -10509,11 +10686,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImpactToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImpactToolTip = ref}
                   data-tip={Mage[24].toolTip[0]}
                   id="25"
                 />
@@ -10533,18 +10710,18 @@ class MageComponent extends Component {
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-            <div className="col col-xs-3">
+              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.IgniteToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.IgniteToolTip = ref}
                   data-tip={Mage[25].toolTip[0]}
                   id="26"
                 />
@@ -10568,11 +10745,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FlameThrowingToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.FlameThrowingToolTip = ref}
                   data-tip={Mage[26].toolTip[0]}
                   id="27"
                 />
@@ -10596,11 +10773,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedFireBlastToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedFireBlastToolTip = ref}
                   data-tip={Mage[27].toolTip[0]}
                   id="28"
                 />
@@ -10627,11 +10804,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.IncinerationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.IncinerationToolTip = ref}
                   data-tip={Mage[28].toolTip[0]}
                   id="29"
                 />
@@ -10655,11 +10832,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedFlamestrikeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedFlamestrikeToolTip = ref}
                   data-tip={Mage[29].toolTip[0]}
                   id="30"
                 />
@@ -10683,11 +10860,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PyroblastToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.PyroblastToolTip = ref}
                   data-tip={Mage[30].toolTip[0]}
                   id="31"
                 />
@@ -10719,11 +10896,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BurningSoulToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.BurningSoulToolTip = ref}
                   data-tip={Mage[31].toolTip[0]}
                   id="32"
                 />
@@ -10742,19 +10919,18 @@ class MageComponent extends Component {
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
-              
-            <div className="col col-xs-3">
+              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedScorchToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedScorchToolTip = ref}
                   data-tip={Mage[32].toolTip[0]}
                   id="33"
                 />
@@ -10778,11 +10954,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MoltenShieldsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.MoltenShieldsToolTip = ref}
                   data-tip={Mage[33].toolTip[0]}
                   id="34"
                 />
@@ -10807,11 +10983,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MasterOfElementsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.MasterOfElementsToolTip = ref}
                   data-tip={Mage[34].toolTip[0]}
                   id="35"
                 />
@@ -10826,12 +11002,8 @@ class MageComponent extends Component {
                   alt=""
                 />
 
-                <span  className="talentPoints req-15-s2">
-                  0/3
-                </span>
+                <span className="talentPoints req-15-s2">0/3</span>
               </div>
-
-              
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -10841,11 +11013,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PlayingWithFireToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.PlayingWithFireToolTip = ref}
                   data-tip={Mage[35].toolTip[0]}
                   id="36"
                 />
@@ -10869,11 +11041,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CriticalMassToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.CriticalMassToolTip = ref}
                   data-tip={Mage[36].toolTip[0]}
                   id="37"
                 />
@@ -10905,11 +11077,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BlastWaveToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.BlastWaveToolTip = ref}
                   data-tip={Mage[37].toolTip[0]}
                   id="38"
                 />
@@ -10923,11 +11095,10 @@ class MageComponent extends Component {
                   src={BlastWave}
                   alt=""
                 />
-    
+
                 <span id="prioReq1Spec2" className="talentPoints req-20-s2">
                   0/1
                 </span>
-                
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10939,11 +11110,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BlazingSpeedToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.BlazingSpeedToolTip = ref}
                   data-tip={Mage[38].toolTip[0]}
                   id="39"
                 />
@@ -10961,7 +11132,7 @@ class MageComponent extends Component {
                 <span className="talentPoints req-25-s2">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
-              
+
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10969,11 +11140,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FirePowerToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.FirePowerToolTip = ref}
                   data-tip={Mage[39].toolTip[0]}
                   id="40"
                 />
@@ -10991,7 +11162,6 @@ class MageComponent extends Component {
                 <span className="talentPoints req-25-s2">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
-              
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -11001,11 +11171,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PyromaniacToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.PyromaniacToolTip = ref}
                   data-tip={Mage[40].toolTip[0]}
                   id="41"
                 />
@@ -11029,11 +11199,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CombustionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.CombustionToolTip = ref}
                   data-tip={Mage[41].toolTip[0]}
                   id="42"
                 />
@@ -11048,7 +11218,10 @@ class MageComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq2Spec2 subsReq3Spec2" className="talentPoints req-30-s2">
+                <span
+                  id="prioReq2Spec2 subsReq3Spec2"
+                  className="talentPoints req-30-s2"
+                >
                   0/1
                 </span>
                 <img
@@ -11065,11 +11238,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MoltenFuryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.MoltenFuryToolTip = ref}
                   data-tip={Mage[42].toolTip[0]}
                   id="43"
                 />
@@ -11084,9 +11257,7 @@ class MageComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">
-                  0/2
-                </span>
+                <span className="talentPoints req-30-s2">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -11100,11 +11271,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedFireballToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedFireballToolTip = ref}
                   data-tip={Mage[43].toolTip[0]}
                   id="44"
                 />
@@ -11119,12 +11290,9 @@ class MageComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s2">
-                  0/5
-                </span>
-                
+                <span className="talentPoints req-35-s2">0/5</span>
               </div>
-              
+
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -11136,11 +11304,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DragonsBreathToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.DragonsBreathToolTip = ref}
                   data-tip={Mage[44].toolTip[0]}
                   id="45"
                 />
@@ -11166,12 +11334,22 @@ class MageComponent extends Component {
           <div
             style={{
               backgroundImage: `url(${spec3BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
             }}
             className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Frost</h5>
+            <h5 id="spec3">
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec3Logo}
+              />
+              Frost
+            </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
@@ -11180,11 +11358,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FrostWardingToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.FrostWardingToolTip = ref}
                   data-tip={Mage[45].toolTip[0]}
                   id="46"
                 />
@@ -11208,11 +11386,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedFrostBoltToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedFrostBoltToolTip = ref}
                   data-tip={Mage[46].toolTip[0]}
                   id="47"
                 />
@@ -11236,11 +11414,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ElementalPrecisionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ElementalPrecisionToolTip = ref}
                   data-tip={Mage[47].toolTip[0]}
                   id="48"
                 />
@@ -11267,11 +11445,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.IceShardsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.IceShardsToolTip = ref}
                   data-tip={Mage[48].toolTip[0]}
                   id="49"
                 />
@@ -11295,11 +11473,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FrostbiteToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.FrostbiteToolTip = ref}
                   data-tip={Mage[49].toolTip[0]}
                   id="50"
                 />
@@ -11323,11 +11501,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedFrostNovaToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedFrostNovaToolTip = ref}
                   data-tip={Mage[50].toolTip[0]}
                   id="51"
                 />
@@ -11342,7 +11520,9 @@ class MageComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq1Spec3" className="talentPoints req-05-s3">0/2</span>
+                <span id="subsReq1Spec3" className="talentPoints req-05-s3">
+                  0/2
+                </span>
                 <img
                   className="medArrow"
                   src={DownSilverMedium}
@@ -11357,11 +11537,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PermafrostToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.PermafrostToolTip = ref}
                   data-tip={Mage[51].toolTip[0]}
                   id="52"
                 />
@@ -11387,11 +11567,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PiercingIceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.PiercingIceToolTip = ref}
                   data-tip={Mage[52].toolTip[0]}
                   id="53"
                 />
@@ -11415,11 +11595,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.IcyVeinsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.IcyVeinsToolTip = ref}
                   data-tip={Mage[53].toolTip[0]}
                   id="54"
                 />
@@ -11444,11 +11624,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedBlizzardToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedBlizzardToolTip = ref}
                   data-tip={Mage[54].toolTip[0]}
                   id="55"
                 />
@@ -11463,12 +11643,8 @@ class MageComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">
-                  0/3
-                </span>
-                
+                <span className="talentPoints req-10-s3">0/3</span>
               </div>
-              
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -11478,11 +11654,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ArcticReachToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ArcticReachToolTip = ref}
                   data-tip={Mage[55].toolTip[0]}
                   id="56"
                 />
@@ -11506,11 +11682,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FrostChannelingToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.FrostChannelingToolTip = ref}
                   data-tip={Mage[56].toolTip[0]}
                   id="57"
                 />
@@ -11527,7 +11703,7 @@ class MageComponent extends Component {
 
                 <span className="talentPoints req-15-s3">0/3</span>
               </div>
-              
+
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -11535,11 +11711,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ShatterToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ShatterToolTip = ref}
                   data-tip={Mage[57].toolTip[0]}
                   id="58"
                 />
@@ -11554,7 +11730,9 @@ class MageComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq1Spec3" className="talentPoints req-15-s3">0/5</span>
+                <span id="prioReq1Spec3" className="talentPoints req-15-s3">
+                  0/5
+                </span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -11566,11 +11744,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FrozenCoreToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.FrozenCoreToolTip = ref}
                   data-tip={Mage[58].toolTip[0]}
                   id="59"
                 />
@@ -11594,11 +11772,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ColdSnapToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ColdSnapToolTip = ref}
                   data-tip={Mage[59].toolTip[0]}
                   id="60"
                 />
@@ -11630,11 +11808,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedConeOfColdToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedConeOfColdToolTip = ref}
                   data-tip={Mage[60].toolTip[0]}
                   id="61"
                 />
@@ -11649,9 +11827,7 @@ class MageComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
-                  0/3
-                </span>
+                <span className="talentPoints req-20-s3">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -11663,11 +11839,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.IceFloesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.IceFloesToolTip = ref}
                   data-tip={Mage[61].toolTip[0]}
                   id="62"
                 />
@@ -11692,11 +11868,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.WintersChillToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.WintersChillToolTip = ref}
                   data-tip={Mage[62].toolTip[0]}
                   id="63"
                 />
@@ -11716,7 +11892,7 @@ class MageComponent extends Component {
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-            <div className="col col-xs-3"></div>
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -11724,11 +11900,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.IceBarrierToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.IceBarrierToolTip = ref}
                   data-tip={Mage[63].toolTip[0]}
                   id="64"
                 />
@@ -11754,11 +11930,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ArcticWindsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ArcticWindsToolTip = ref}
                   data-tip={Mage[64].toolTip[0]}
                   id="65"
                 />
@@ -11786,11 +11962,13 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.EmpoweredFrostBoltToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.EmpoweredFrostBoltToolTip = ref)}
                   data-tip={Mage[65].toolTip[0]}
                   id="66"
                 />
@@ -11805,10 +11983,7 @@ class MageComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s3">
-                  0/5
-                </span>
-                
+                <span className="talentPoints req-35-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -11822,11 +11997,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SummonWaterElementalToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage}
-                  style={{ display: "none" }}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.SummonWaterElementalToolTip = ref}
                   data-tip={Mage[66].toolTip[0]}
                   id="67"
                 />
@@ -11841,9 +12016,7 @@ class MageComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s3">
-                  0/1
-                </span>
+                <span className="talentPoints req-40-s3">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
