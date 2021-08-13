@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Rogue } from "../talentinfo/Rogue";
@@ -26,111 +25,109 @@ a.) Don't forget Arrows ✔
 
 */
 
-import spec1BG from "../images/talents/Rogue/Background/Assassination.jpg"
-import spec2BG from "../images/talents/Rogue/Background/Combat.jpg"
-import spec3BG from "../images/talents/Rogue/Background/Subtlety.jpg"
-import spec1Logo from "../images/talents/Rogue/Spec1Logo.jpg"
-import spec2Logo from "../images/talents/Rogue/Spec2Logo.jpg"
-import spec3Logo from "../images/talents/Rogue/Spec3Logo.jpg"
+import spec1BG from "../images/talents/Rogue/Background/Assassination.jpg";
+import spec2BG from "../images/talents/Rogue/Background/Combat.jpg";
+import spec3BG from "../images/talents/Rogue/Background/Subtlety.jpg";
+import spec1Logo from "../images/talents/Rogue/Spec1Logo.jpg";
+import spec2Logo from "../images/talents/Rogue/Spec2Logo.jpg";
+import spec3Logo from "../images/talents/Rogue/Spec3Logo.jpg";
 
 //consistent among classes
 
-import overlayImage from "../images/Item_Hover.png"
+import overlayImage from "../images/Item_Hover.png";
 
-import DownSilverSmall from "../images/DownSilverSmall.png"
-import DownSilverMedium from "../images/DownSilverMedium.png"
-import DownSilverLarge from "../images/DownSilverLarge.png"
+import DownSilverSmall from "../images/DownSilverSmall.png";
+import DownSilverMedium from "../images/DownSilverMedium.png";
+import DownSilverLarge from "../images/DownSilverLarge.png";
 
-import DownGoldSmall from "../images/DownGoldSmall.png"
-import DownGoldMedium from "../images/DownGoldMedium.png"
-import DownGoldLarge from "../images/DownGoldLarge.png"
+import DownGoldSmall from "../images/DownGoldSmall.png";
+import DownGoldMedium from "../images/DownGoldMedium.png";
+import DownGoldLarge from "../images/DownGoldLarge.png";
 
-import LeftSilverSmall from "../images/LeftSilverSmall.png"
-import RightSilverSmall from "../images/RightSilverSmall.png"
+import LeftSilverSmall from "../images/LeftSilverSmall.png";
+import RightSilverSmall from "../images/RightSilverSmall.png";
 
-import LeftGoldSmall from "../images/LeftGoldSmall.png"
-import RightGoldSmall from "../images/RightGoldSmall.png"
+import LeftGoldSmall from "../images/LeftGoldSmall.png";
+import RightGoldSmall from "../images/RightGoldSmall.png";
 
-import AngleArrowSilver from "../images/AngleArrowSilver.png"
-import AngleArrowGold from "../images/AngleArrowGold.png"
+import AngleArrowSilver from "../images/AngleArrowSilver.png";
+import AngleArrowGold from "../images/AngleArrowGold.png";
 
 //spec1
 
-import ColdBlood from '../images/talents/Rogue/Progression/spec1/ColdBlood.jpg';
-import ImprovedExposeArmor from '../images/talents/Rogue/Progression/spec1/ImprovedExposeArmor.jpg';
-import MasterPoisoner from '../images/talents/Rogue/Progression/spec1/MasterPoisoner.jpg';
-import RelentlessStrikes from '../images/talents/Rogue/Progression/spec1/RelentlessStrikes.jpg';
-import ruthlessness from '../images/talents/Rogue/Progression/spec1/ruthlessness.jpg';
-import DeadenedNerves from '../images/talents/Rogue/Progression/spec1/DeadenedNerves.jpg';
-import ImprovedKidneyShot from '../images/talents/Rogue/Progression/spec1/ImprovedKidneyShot.jpg';
-import Murder from '../images/talents/Rogue/Progression/spec1/Murder.jpg';
-import RemorselessAttacks from '../images/talents/Rogue/Progression/spec1/RemorselessAttacks.jpg';
-import FindWeakness from '../images/talents/Rogue/Progression/spec1/FindWeakness.jpg';
-import ImprovedPoisons from '../images/talents/Rogue/Progression/spec1/ImprovedPoisons.jpg';
-import Mutilate from '../images/talents/Rogue/Progression/spec1/Mutilate.jpg';
-import SealFate from '../images/talents/Rogue/Progression/spec1/SealFate.jpg';
-import FleetFooted from '../images/talents/Rogue/Progression/spec1/FleetFooted.jpg';
-import Lethality from '../images/talents/Rogue/Progression/spec1/Lethality.jpg';
-import PuncturingWounds from '../images/talents/Rogue/Progression/spec1/PuncturingWounds.jpg';
-import Vigor from '../images/talents/Rogue/Progression/spec1/Vigor.jpg';
-import ImprovedEviscerate from '../images/talents/Rogue/Progression/spec1/ImprovedEviscerate.jpg';
-import Malice from '../images/talents/Rogue/Progression/spec1/Malice.jpg';
-import QuickRecovery from '../images/talents/Rogue/Progression/spec1/QuickRecovery.jpg';
-import VilePoisons from '../images/talents/Rogue/Progression/spec1/VilePoisons.jpg';
+import ColdBlood from "../images/talents/Rogue/Progression/spec1/ColdBlood.jpg";
+import ImprovedExposeArmor from "../images/talents/Rogue/Progression/spec1/ImprovedExposeArmor.jpg";
+import MasterPoisoner from "../images/talents/Rogue/Progression/spec1/MasterPoisoner.jpg";
+import RelentlessStrikes from "../images/talents/Rogue/Progression/spec1/RelentlessStrikes.jpg";
+import ruthlessness from "../images/talents/Rogue/Progression/spec1/ruthlessness.jpg";
+import DeadenedNerves from "../images/talents/Rogue/Progression/spec1/DeadenedNerves.jpg";
+import ImprovedKidneyShot from "../images/talents/Rogue/Progression/spec1/ImprovedKidneyShot.jpg";
+import Murder from "../images/talents/Rogue/Progression/spec1/Murder.jpg";
+import RemorselessAttacks from "../images/talents/Rogue/Progression/spec1/RemorselessAttacks.jpg";
+import FindWeakness from "../images/talents/Rogue/Progression/spec1/FindWeakness.jpg";
+import ImprovedPoisons from "../images/talents/Rogue/Progression/spec1/ImprovedPoisons.jpg";
+import Mutilate from "../images/talents/Rogue/Progression/spec1/Mutilate.jpg";
+import SealFate from "../images/talents/Rogue/Progression/spec1/SealFate.jpg";
+import FleetFooted from "../images/talents/Rogue/Progression/spec1/FleetFooted.jpg";
+import Lethality from "../images/talents/Rogue/Progression/spec1/Lethality.jpg";
+import PuncturingWounds from "../images/talents/Rogue/Progression/spec1/PuncturingWounds.jpg";
+import Vigor from "../images/talents/Rogue/Progression/spec1/Vigor.jpg";
+import ImprovedEviscerate from "../images/talents/Rogue/Progression/spec1/ImprovedEviscerate.jpg";
+import Malice from "../images/talents/Rogue/Progression/spec1/Malice.jpg";
+import QuickRecovery from "../images/talents/Rogue/Progression/spec1/QuickRecovery.jpg";
+import VilePoisons from "../images/talents/Rogue/Progression/spec1/VilePoisons.jpg";
 
 //spec2
 
-import AdrenalineRush from '../images/talents/Rogue/Progression/spec2/AdrenalineRush.jpg';
-import Deflection from '../images/talents/Rogue/Progression/spec2/Deflection.jpg';
-import ImprovedSinisterStrike from '../images/talents/Rogue/Progression/spec2/ImprovedSinisterStrike.jpg';
-import Precision from '../images/talents/Rogue/Progression/spec2/Precision.jpg';
-import Aggression from '../images/talents/Rogue/Progression/spec2/Aggression.jpg';
-import DualWieldSpecialization from '../images/talents/Rogue/Progression/spec2/DualWieldSpecialization.jpg';
-import ImprovedSliceNDice from '../images/talents/Rogue/Progression/spec2/ImprovedSliceNDice.jpg';
-import Riposte from '../images/talents/Rogue/Progression/spec2/Riposte.jpg';
-import BladeFlurry from '../images/talents/Rogue/Progression/spec2/BladeFlurry.jpg';
-import Endurance from '../images/talents/Rogue/Progression/spec2/Endurance.jpg';
-import ImprovedSprint from '../images/talents/Rogue/Progression/spec2/ImprovedSprint.jpg';
-import SurpriseAttacks from '../images/talents/Rogue/Progression/spec2/SurpriseAttacks.jpg';
-import BladeTwisting from '../images/talents/Rogue/Progression/spec2/BladeTwisting.jpg';
-import FistWeaponSpecialization from '../images/talents/Rogue/Progression/spec2/FistWeaponSpecialization.jpg';
-import LightningReflexes from '../images/talents/Rogue/Progression/spec2/LightningReflexes.jpg';
-import SwordSpecialization from '../images/talents/Rogue/Progression/spec2/SwordSpecialization.jpg';
-import CombatPotency from '../images/talents/Rogue/Progression/spec2/CombatPotency.jpg';
-import ImprovedGouge from '../images/talents/Rogue/Progression/spec2/ImprovedGouge.jpg';
-import MaceSpecialization from '../images/talents/Rogue/Progression/spec2/MaceSpecialization.jpg';
-import Vitality from '../images/talents/Rogue/Progression/spec2/Vitality.jpg';
-import DaggerSpecialization from '../images/talents/Rogue/Progression/spec2/DaggerSpecialization.jpg';
-import ImprovedKick from '../images/talents/Rogue/Progression/spec2/ImprovedKick.jpg';
-import NervesOfSteel from '../images/talents/Rogue/Progression/spec2/NervesOfSteel.jpg';
-import WeaponExpertise from '../images/talents/Rogue/Progression/spec2/WeaponExpertise.jpg';
+import AdrenalineRush from "../images/talents/Rogue/Progression/spec2/AdrenalineRush.jpg";
+import Deflection from "../images/talents/Rogue/Progression/spec2/Deflection.jpg";
+import ImprovedSinisterStrike from "../images/talents/Rogue/Progression/spec2/ImprovedSinisterStrike.jpg";
+import Precision from "../images/talents/Rogue/Progression/spec2/Precision.jpg";
+import Aggression from "../images/talents/Rogue/Progression/spec2/Aggression.jpg";
+import DualWieldSpecialization from "../images/talents/Rogue/Progression/spec2/DualWieldSpecialization.jpg";
+import ImprovedSliceNDice from "../images/talents/Rogue/Progression/spec2/ImprovedSliceNDice.jpg";
+import Riposte from "../images/talents/Rogue/Progression/spec2/Riposte.jpg";
+import BladeFlurry from "../images/talents/Rogue/Progression/spec2/BladeFlurry.jpg";
+import Endurance from "../images/talents/Rogue/Progression/spec2/Endurance.jpg";
+import ImprovedSprint from "../images/talents/Rogue/Progression/spec2/ImprovedSprint.jpg";
+import SurpriseAttacks from "../images/talents/Rogue/Progression/spec2/SurpriseAttacks.jpg";
+import BladeTwisting from "../images/talents/Rogue/Progression/spec2/BladeTwisting.jpg";
+import FistWeaponSpecialization from "../images/talents/Rogue/Progression/spec2/FistWeaponSpecialization.jpg";
+import LightningReflexes from "../images/talents/Rogue/Progression/spec2/LightningReflexes.jpg";
+import SwordSpecialization from "../images/talents/Rogue/Progression/spec2/SwordSpecialization.jpg";
+import CombatPotency from "../images/talents/Rogue/Progression/spec2/CombatPotency.jpg";
+import ImprovedGouge from "../images/talents/Rogue/Progression/spec2/ImprovedGouge.jpg";
+import MaceSpecialization from "../images/talents/Rogue/Progression/spec2/MaceSpecialization.jpg";
+import Vitality from "../images/talents/Rogue/Progression/spec2/Vitality.jpg";
+import DaggerSpecialization from "../images/talents/Rogue/Progression/spec2/DaggerSpecialization.jpg";
+import ImprovedKick from "../images/talents/Rogue/Progression/spec2/ImprovedKick.jpg";
+import NervesOfSteel from "../images/talents/Rogue/Progression/spec2/NervesOfSteel.jpg";
+import WeaponExpertise from "../images/talents/Rogue/Progression/spec2/WeaponExpertise.jpg";
 
 //spec3
 
-import Camouflage from '../images/talents/Rogue/Progression/spec3/Camouflage.jpg';
-import Elusiveness from '../images/talents/Rogue/Progression/spec3/Elusiveness.jpg';
-import ImprovedAmbush from '../images/talents/Rogue/Progression/spec3/ImprovedAmbush.jpg';
-import Premeditation from '../images/talents/Rogue/Progression/spec3/Premeditation.jpg';
-import SinisterCalling from '../images/talents/Rogue/Progression/spec3/SinisterCalling.jpg';
-import CheatDeath from '../images/talents/Rogue/Progression/spec3/CheatDeath.jpg';
-import EnvelopingShadows from '../images/talents/Rogue/Progression/spec3/EnvelopingShadows.jpg';
-import Initiative from '../images/talents/Rogue/Progression/spec3/Initiative.jpg';
-import Preparation from '../images/talents/Rogue/Progression/spec3/Preparation.jpg';
-import SleightOfHand from '../images/talents/Rogue/Progression/spec3/SleightOfHand.jpg';
-import Deadliness from '../images/talents/Rogue/Progression/spec3/Deadliness.jpg';
-import GhostlyStrike from '../images/talents/Rogue/Progression/spec3/GhostlyStrike.jpg';
-import MasterOfDeception from '../images/talents/Rogue/Progression/spec3/MasterOfDeception.jpg';
-import SerratedBlades from '../images/talents/Rogue/Progression/spec3/SerratedBlades.jpg';
-import DirtyDeeds from '../images/talents/Rogue/Progression/spec3/DirtyDeeds.jpg';
-import HeightenedSenses from '../images/talents/Rogue/Progression/spec3/HeightenedSenses.jpg';
-import MasterOfSubtlety from '../images/talents/Rogue/Progression/spec3/MasterOfSubtlety.jpg';
-import Setup from '../images/talents/Rogue/Progression/spec3/Setup.jpg';
-import DirtyTricks from '../images/talents/Rogue/Progression/spec3/DirtyTricks.jpg';
-import Hemorrhage from '../images/talents/Rogue/Progression/spec3/Hemorrhage.jpg';
-import Opportunity from '../images/talents/Rogue/Progression/spec3/Opportunity.jpg';
-import Shadowstep from '../images/talents/Rogue/Progression/spec3/Shadowstep.jpg';
-
-
+import Camouflage from "../images/talents/Rogue/Progression/spec3/Camouflage.jpg";
+import Elusiveness from "../images/talents/Rogue/Progression/spec3/Elusiveness.jpg";
+import ImprovedAmbush from "../images/talents/Rogue/Progression/spec3/ImprovedAmbush.jpg";
+import Premeditation from "../images/talents/Rogue/Progression/spec3/Premeditation.jpg";
+import SinisterCalling from "../images/talents/Rogue/Progression/spec3/SinisterCalling.jpg";
+import CheatDeath from "../images/talents/Rogue/Progression/spec3/CheatDeath.jpg";
+import EnvelopingShadows from "../images/talents/Rogue/Progression/spec3/EnvelopingShadows.jpg";
+import Initiative from "../images/talents/Rogue/Progression/spec3/Initiative.jpg";
+import Preparation from "../images/talents/Rogue/Progression/spec3/Preparation.jpg";
+import SleightOfHand from "../images/talents/Rogue/Progression/spec3/SleightOfHand.jpg";
+import Deadliness from "../images/talents/Rogue/Progression/spec3/Deadliness.jpg";
+import GhostlyStrike from "../images/talents/Rogue/Progression/spec3/GhostlyStrike.jpg";
+import MasterOfDeception from "../images/talents/Rogue/Progression/spec3/MasterOfDeception.jpg";
+import SerratedBlades from "../images/talents/Rogue/Progression/spec3/SerratedBlades.jpg";
+import DirtyDeeds from "../images/talents/Rogue/Progression/spec3/DirtyDeeds.jpg";
+import HeightenedSenses from "../images/talents/Rogue/Progression/spec3/HeightenedSenses.jpg";
+import MasterOfSubtlety from "../images/talents/Rogue/Progression/spec3/MasterOfSubtlety.jpg";
+import Setup from "../images/talents/Rogue/Progression/spec3/Setup.jpg";
+import DirtyTricks from "../images/talents/Rogue/Progression/spec3/DirtyTricks.jpg";
+import Hemorrhage from "../images/talents/Rogue/Progression/spec3/Hemorrhage.jpg";
+import Opportunity from "../images/talents/Rogue/Progression/spec3/Opportunity.jpg";
+import Shadowstep from "../images/talents/Rogue/Progression/spec3/Shadowstep.jpg";
 
 let i = 0;
 let iSpec1 = 0;
@@ -141,12 +138,10 @@ let loopHappenedBefore = false;
 class RogueComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
 
-  rebuildToolTip(){
+  rebuildToolTip() {
     ReactTooltip.rebuild();
   }
 
@@ -338,11 +333,11 @@ class RogueComponent extends Component {
     }
   }
 
-  displayOverlayMobile(){
+  displayOverlayMobile() {
     window.event.target.previousElementSibling.style.display = "inline";
   }
 
-  hideOverlayMobile(){
+  hideOverlayMobile() {
     window.event.target.previousElementSibling.style.display = "none";
   }
 
@@ -354,11 +349,9 @@ class RogueComponent extends Component {
   }
 
   displayMouseOverlayInnerElement() {
-    if(window.event.target.previousElementSibling){
+    if (window.event.target.previousElementSibling) {
       window.event.target.previousElementSibling.style.display = "inline";
     }
-    
-
   }
 
   hideMouseOverlay() {
@@ -1020,7 +1013,7 @@ class RogueComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1240,7 +1233,7 @@ class RogueComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1460,7 +1453,7 @@ class RogueComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1745,11 +1738,11 @@ class RogueComponent extends Component {
         }
         if (arrowChecker.includes("left")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          LeftGoldSmall;
+            LeftGoldSmall;
         }
         if (arrowChecker.includes("right")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          RightGoldSmall;
+            RightGoldSmall;
         }
         if (arrowChecker.includes("sm")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
@@ -1757,11 +1750,11 @@ class RogueComponent extends Component {
         }
         if (arrowChecker.includes("med")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          DownGoldMedium;
+            DownGoldMedium;
         }
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          DownGoldLarge;
+            DownGoldLarge;
         }
       }
 
@@ -7406,7 +7399,7 @@ class RogueComponent extends Component {
                 "prioReq1Spec3"
               ) &&
               document
-              .querySelector('[id*="subsReq1Spec3"]')
+                .querySelector('[id*="subsReq1Spec3"]')
                 .previousElementSibling.className.includes("maxeds")
             ) {
               console.log("The arrow above me should be gold");
@@ -8501,18 +8494,25 @@ class RogueComponent extends Component {
     //Path taken if user left clicks the button
     if (window.event.button === 0) {
       //If user tries to add more points to a maxed talent, exit function, preventing user action
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[0] ===
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[2]
+      ) {
+        return;
       }
 
       //If User tries to add points to a talent that isn't active yet, exit function
 
-      if(window.event.srcElement.nextElementSibling.className.includes("inactive-talent")){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.className.includes(
+          "inactive-talent"
+        )
+      ) {
+        return;
       }
-      
+
       //if user clicked button in spec 1 tree update point counter for spec 1
       if (specString[4] === "1") {
         console.log("Point used in spec 1");
@@ -8932,184 +8932,318 @@ class RogueComponent extends Component {
 
     //Path taken if user right clicks the button
     else if (window.event.button === 2) {
-      
-
-
       //this prevents the user from taking away points if they have points in a dependant talent
       //spec 1
-      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec1"]') && !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")){
-        
-        return
-      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec1"]') && !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")){
-        
-        return
-      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec1"]') && !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")){
-        
-        return
-      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec1"]') && !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq1Spec1"]') &&
+        !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      } else if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq2Spec1"]') &&
+        !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      } else if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq3Spec1"]') &&
+        !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      } else if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq4Spec1"]') &&
+        !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")
+      ) {
+        return;
       }
       //spec 2
-      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec2"]') && !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec2"]') && !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec2"]') && !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec2"]') && !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq1Spec2"]') &&
+        !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq2Spec2"]') &&
+        !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq3Spec2"]') &&
+        !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq4Spec2"]') &&
+        !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")
+      ) {
+        return;
       }
       //spec 3
-      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec3"]') && !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec3"]') && !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec3"]') && !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec3"]') && !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq1Spec3"]') &&
+        !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq2Spec3"]') &&
+        !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq3Spec3"]') &&
+        !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq4Spec3"]') &&
+        !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")
+      ) {
+        return;
       }
 
       //if user tries to remove points in a talent they spent no points in, exit function to prevent action
 
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === "0"){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[0] === "0"
+      ) {
+        return;
       }
 
       /* This following if statement was added to fix the bug that prevented the arrow
       from reverting to silver when you took away the points in the subsReq talent
       */
 
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("Spec")){
-
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "Spec"
+        )
+      ) {
         let arrowSrcSize;
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
-          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("sm")) {
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling
+            .nextElementSibling
+        ) {
+          if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "sm"
+            )
+          ) {
             arrowSrcSize = "sm";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("med")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "med"
+            )
+          ) {
             arrowSrcSize = "med";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("lg")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "lg"
+            )
+          ) {
             arrowSrcSize = "lg";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("left")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "left"
+            )
+          ) {
             arrowSrcSize = "left";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("right")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "right"
+            )
+          ) {
             arrowSrcSize = "right";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("angle")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "angle"
+            )
+          ) {
             arrowSrcSize = "angle";
           }
         }
-        
-        
-          switch (arrowSrcSize) {
-            case "sm":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverSmall;
-              break;
 
-            case "med":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverMedium;
-              break;
+        switch (arrowSrcSize) {
+          case "sm":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverSmall;
+            break;
 
-            case "lg":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverLarge;
-              break;
+          case "med":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverMedium;
+            break;
 
-            case "left":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = LeftSilverSmall;
-              break;
+          case "lg":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverLarge;
+            break;
 
-            case "right":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = RightSilverSmall;
-              break;
+          case "left":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              LeftSilverSmall;
+            break;
 
-            case "angle":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = AngleArrowSilver;
-              break;
-          
+          case "right":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              RightSilverSmall;
+            break;
+
+          case "angle":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              AngleArrowSilver;
+            break;
         }
 
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1")){
-          
-          document.querySelector('[id*="prioReq1Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1")){
-          
-          document.querySelector('[id*="prioReq2Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1")){
-         
-          document.querySelector('[id*="prioReq3Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1")){
-          
-          document.querySelector('[id*="prioReq4Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-
-
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2")){
-          
-          document.querySelector('[id*="prioReq1Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2")){
-          
-          document.querySelector('[id*="prioReq2Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2")){
-          
-          document.querySelector('[id*="prioReq3Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2")){
-          
-          document.querySelector('[id*="prioReq4Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
-        }
-        
-
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3")){
-          
-          document.querySelector('[id*="prioReq1Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3")){
-          
-          document.querySelector('[id*="prioReq2Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3")){
-          
-          document.querySelector('[id*="prioReq3Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3")){
-          
-          document.querySelector('[id*="prioReq4Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-
-
-
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
+        }
       }
 
       /* This following block of code prevents the user from removing points from a talent
@@ -9118,42 +9252,52 @@ class RogueComponent extends Component {
       */
 
       pointRequirementString =
-      window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
-        17,
-        19
+        window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
+          17,
+          19
+        );
+
+      console.log(pointRequirementString);
+
+      let clickDecider;
+      let arrayOfTalents = Array.from(
+        document.querySelectorAll(".talentPoints")
       );
-      
-    console.log(
-      pointRequirementString
-    );
+      let arrayOfTalentsFiltered = [];
 
-    let clickDecider;
-    let arrayOfTalents = Array.from(document.querySelectorAll(".talentPoints"))
-    let arrayOfTalentsFiltered = [];
-
-    arrayOfTalentsFiltered = arrayOfTalents.filter(talent => talent.className.slice(17,19) > pointRequirementString)
-    console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
-    for(let individualTalent of arrayOfTalentsFiltered) {
-      if(individualTalent.className.slice(20,22) === "s1" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec1){
-        clickDecider = false;
-      } 
-      if(individualTalent.className.slice(20,22) === "s2" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec2){
-        clickDecider = false;
+      arrayOfTalentsFiltered = arrayOfTalents.filter(
+        (talent) => talent.className.slice(17, 19) > pointRequirementString
+      );
+      console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
+      for (let individualTalent of arrayOfTalentsFiltered) {
+        if (
+          individualTalent.className.slice(20, 22) === "s1" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec1
+        ) {
+          clickDecider = false;
+        }
+        if (
+          individualTalent.className.slice(20, 22) === "s2" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec2
+        ) {
+          clickDecider = false;
+        }
+        if (
+          individualTalent.className.slice(20, 22) === "s3" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec3
+        ) {
+          clickDecider = false;
+        }
       }
-      if(individualTalent.className.slice(20,22) === "s3" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec3){
-        clickDecider = false;
+
+      if (clickDecider === false) {
+        return;
       }
 
-
-
-    }
-
-    if(clickDecider === false){
-      return
-    }
-      
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       //if user right clicked talent in spec1 subtract one point from point tracker if > 0
       if (specString[4] === "1") {
@@ -9538,28 +9682,25 @@ class RogueComponent extends Component {
 
     console.log("Beginning of reset test");
     for (y = 0; y < spanArray.length; y++) {
-      
       toolTipIDChecker =
-          spanArray[y].previousElementSibling.previousElementSibling.id;
-        toolTipStepper = Rogue[toolTipIDChecker - 1];
-        toolTipSelector = toolTipStepper.toolTip[0];
-        document
-          .getElementById(toolTipIDChecker)
-          .setAttribute("data-tip", toolTipSelector);
+        spanArray[y].previousElementSibling.previousElementSibling.id;
+      toolTipStepper = Rogue[toolTipIDChecker - 1];
+      toolTipSelector = toolTipStepper.toolTip[0];
+      document
+        .getElementById(toolTipIDChecker)
+        .setAttribute("data-tip", toolTipSelector);
 
-        spanArray[y].previousElementSibling.previousElementSibling.setAttribute(
-          "data-tip",
-          toolTipSelector
-        );
-      
+      spanArray[y].previousElementSibling.previousElementSibling.setAttribute(
+        "data-tip",
+        toolTipSelector
+      );
+
       if (
         !(
           spanArray[y].className[17] === "0" &&
           spanArray[y].className[18] === "0"
         )
       ) {
-        
-
         if (spanArray[y].previousElementSibling.className[4] === "1") {
           spanArray[y].previousElementSibling.className =
             "spec1 talentButton inactive-talent req-inactive";
@@ -9669,9 +9810,9 @@ class RogueComponent extends Component {
     console.log("Reset Points!");
   }
 
-  scrollComponentIntoView(){
-    const anchor = document.querySelector('#Rogue')
-    anchor.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  scrollComponentIntoView() {
+    const anchor = document.querySelector("#Rogue");
+    anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   render() {
@@ -9690,27 +9831,47 @@ class RogueComponent extends Component {
           className="row"
           style={{ whiteSpace: "nowrap", overflow: "hidden" }}
         >
-          <div className="col-sm-12"><button
+          <div className="col-sm-12">
+            <button
               onClick={this.resetPoints}
               type="button"
               className="btn btn-success mb-2 mt-2"
-              style={{display: "inline-block", marginLeft: "6px"}}
+              style={{ display: "inline-block", marginLeft: "6px" }}
             >
               Reset
-            </button></div>
+            </button>
+          </div>
           <div className="col-sm-4"></div>
-          <div className="col-sm-4 mx-auto" style={{overflow: "hidden", whiteSpace: "nowrap"}}>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "6px" }}>Points Spent:</h5>
-            <h5 id="total-points" style={{ color: "white", display: "inline-block", marginLeft: "6px", marginTop:"1px" }}>
+          <div
+            className="col-sm-4 mx-auto"
+            style={{ overflow: "hidden", whiteSpace: "nowrap" }}
+          >
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "6px",
+              }}
+            >
+              Points Spent:
+            </h5>
+            <h5
+              id="total-points"
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "6px",
+                marginTop: "1px",
+              }}
+            >
               0
             </h5>
-            
           </div>
           <div className="col-sm-4"></div>
         </div>
         <div className="row">
           <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
-            <h5  style={{ color: "#e1eef4" }} id="point-counter1">
+            <h5 style={{ color: "#e1eef4" }} id="point-counter1">
               Spec 1: 0
             </h5>
           </div>
@@ -9726,29 +9887,44 @@ class RogueComponent extends Component {
           </div>
         </div>
 
-        <div className="row ml-3 mr-3 mb-3 mx-auto" style={{maxWidth: "1010px"}}>
+        <div
+          className="row ml-3 mr-3 mb-3 mx-auto"
+          style={{ maxWidth: "1010px" }}
+        >
           <div
             style={{
               backgroundImage: `url(${spec1BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Assassination</h5>
+            <h5 id="spec1">
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec1Logo}
+              />
+              Assassination
+            </h5>
             <div className="row talent-row talent-row-inner">
-            <div className="col col-xs-3">
+              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedEviscerateToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedEviscerateToolTip = ref)}
                   data-tip={Rogue[0].toolTip[0]}
                   id="1"
                 />
@@ -9772,11 +9948,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.RemorselessAttacksToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.RemorselessAttacksToolTip = ref)}
                   data-tip={Rogue[1].toolTip[0]}
                   id="2"
                 />
@@ -9800,11 +9978,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MaliceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MaliceToolTip = ref)}
                   data-tip={Rogue[2].toolTip[0]}
                   id="3"
                 />
@@ -9819,7 +9999,9 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq1Spec1" className="talentPoints req-00-s1">0/5</span>
+                <span id="subsReq1Spec1" className="talentPoints req-00-s1">
+                  0/5
+                </span>
                 <img
                   className="medArrow"
                   src={DownSilverMedium}
@@ -9837,11 +10019,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ruthlessnessToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ruthlessnessToolTip = ref)}
                   data-tip={Rogue[3].toolTip[0]}
                   id="4"
                 />
@@ -9865,11 +10049,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MurderToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MurderToolTip = ref)}
                   data-tip={Rogue[4].toolTip[0]}
                   id="5"
                 />
@@ -9894,11 +10080,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PuncturingWoundsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.PuncturingWoundsToolTip = ref)}
                   data-tip={Rogue[5].toolTip[0]}
                   id="6"
                 />
@@ -9924,11 +10112,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.RelentlessStrikesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.RelentlessStrikesToolTip = ref)}
                   data-tip={Rogue[6].toolTip[0]}
                   id="7"
                 />
@@ -9952,11 +10142,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedExposeArmorToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedExposeArmorToolTip = ref)}
                   data-tip={Rogue[7].toolTip[0]}
                   id="8"
                 />
@@ -9980,11 +10172,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.LethalityToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.LethalityToolTip = ref)}
                   data-tip={Rogue[8].toolTip[0]}
                   id="9"
                 />
@@ -9999,7 +10193,9 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq1Spec1" className="talentPoints req-10-s1">0/5</span>
+                <span id="prioReq1Spec1" className="talentPoints req-10-s1">
+                  0/5
+                </span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10012,11 +10208,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.VilePoisonsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.VilePoisonsToolTip = ref)}
                   data-tip={Rogue[9].toolTip[0]}
                   id="10"
                 />
@@ -10040,11 +10238,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedPoisonsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedPoisonsToolTip = ref)}
                   data-tip={Rogue[10].toolTip[0]}
                   id="11"
                 />
@@ -10059,10 +10259,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s1">
-                  0/5
-                </span>
-                
+                <span className="talentPoints req-15-s1">0/5</span>
               </div>
 
               <div className="col col-xs-3"></div>
@@ -10076,11 +10273,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FleetFootedToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.FleetFootedToolTip = ref)}
                   data-tip={Rogue[11].toolTip[0]}
                   id="12"
                 />
@@ -10104,11 +10303,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ColdBloodToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ColdBloodToolTip = ref)}
                   data-tip={Rogue[12].toolTip[0]}
                   id="13"
                 />
@@ -10140,11 +10341,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedKidneyShotToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedKidneyShotToolTip = ref)}
                   data-tip={Rogue[13].toolTip[0]}
                   id="14"
                 />
@@ -10159,10 +10362,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">
-                  0/3
-                </span>
-                
+                <span className="talentPoints req-20-s1">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10171,11 +10371,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.QuickRecoveryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.QuickRecoveryToolTip = ref)}
                   data-tip={Rogue[14].toolTip[0]}
                   id="15"
                 />
@@ -10203,11 +10405,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SealFateToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SealFateToolTip = ref)}
                   data-tip={Rogue[15].toolTip[0]}
                   id="16"
                 />
@@ -10222,9 +10426,11 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq2Spec1" className="talentPoints req-25-s1">0/5</span>
+                <span id="prioReq2Spec1" className="talentPoints req-25-s1">
+                  0/5
+                </span>
               </div>
-              
+
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10232,11 +10438,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MasterPoisonerToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MasterPoisonerToolTip = ref)}
                   data-tip={Rogue[16].toolTip[0]}
                   id="17"
                 />
@@ -10251,9 +10459,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s1">
-                  0/2
-                </span>
+                <span className="talentPoints req-25-s1">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10266,11 +10472,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.VigorToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.VigorToolTip = ref)}
                   data-tip={Rogue[17].toolTip[0]}
                   id="18"
                 />
@@ -10285,10 +10493,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span
-                  className="talentPoints req-30-s1"
-                  id="subsReq3Spec1"
-                >
+                <span className="talentPoints req-30-s1" id="subsReq3Spec1">
                   0/1
                 </span>
                 <img
@@ -10305,11 +10510,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DeadenedNervesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DeadenedNervesToolTip = ref)}
                   data-tip={Rogue[18].toolTip[0]}
                   id="19"
                 />
@@ -10338,11 +10545,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FindWeaknessToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.FindWeaknessToolTip = ref)}
                   data-tip={Rogue[19].toolTip[0]}
                   id="20"
                 />
@@ -10370,11 +10579,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MutilateToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MutilateToolTip = ref)}
                   data-tip={Rogue[20].toolTip[0]}
                   id="21"
                 />
@@ -10400,25 +10611,37 @@ class RogueComponent extends Component {
           <div
             style={{
               backgroundImage: `url(${spec2BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Combat</h5>
+            <h5 id="spec2">
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec2Logo}
+              />
+              Combat
+            </h5>
             <div className="row talent-row talent-row-inner">
-            <div className="col col-xs-3">
+              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedGougeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedGougeToolTip = ref)}
                   data-tip={Rogue[21].toolTip[0]}
                   id="22"
                 />
@@ -10442,11 +10665,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedSinisterStrikeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedSinisterStrikeToolTip = ref)}
                   data-tip={Rogue[22].toolTip[0]}
                   id="23"
                 />
@@ -10470,11 +10695,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.LightningReflexesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.LightningReflexesToolTip = ref)}
                   data-tip={Rogue[23].toolTip[0]}
                   id="24"
                 />
@@ -10494,18 +10721,20 @@ class RogueComponent extends Component {
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-            <div className="col col-xs-3">
+              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedSliceNDiceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedSliceNDiceToolTip = ref)}
                   data-tip={Rogue[24].toolTip[0]}
                   id="25"
                 />
@@ -10529,11 +10758,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DeflectionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DeflectionToolTip = ref)}
                   data-tip={Rogue[25].toolTip[0]}
                   id="26"
                 />
@@ -10548,7 +10779,9 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq1Spec2" className="talentPoints req-05-s2">0/5</span>
+                <span id="subsReq1Spec2" className="talentPoints req-05-s2">
+                  0/5
+                </span>
                 <img
                   className="smArrow"
                   src={DownSilverSmall}
@@ -10563,11 +10796,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PrecisionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.PrecisionToolTip = ref)}
                   data-tip={Rogue[26].toolTip[0]}
                   id="27"
                 />
@@ -10582,7 +10817,9 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq2Spec2" className="talentPoints req-05-s2">0/5</span>
+                <span id="subsReq2Spec2" className="talentPoints req-05-s2">
+                  0/5
+                </span>
                 <img
                   className="medArrow"
                   src={DownSilverMedium}
@@ -10600,11 +10837,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.EnduranceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.EnduranceToolTip = ref)}
                   data-tip={Rogue[27].toolTip[0]}
                   id="28"
                 />
@@ -10628,11 +10867,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.RiposteToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.RiposteToolTip = ref)}
                   data-tip={Rogue[28].toolTip[0]}
                   id="29"
                 />
@@ -10647,7 +10888,9 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq1Spec2" className="talentPoints req-10-s2">0/1</span>
+                <span id="prioReq1Spec2" className="talentPoints req-10-s2">
+                  0/1
+                </span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -10657,11 +10900,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedSprintToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedSprintToolTip = ref)}
                   data-tip={Rogue[29].toolTip[0]}
                   id="30"
                 />
@@ -10680,18 +10925,20 @@ class RogueComponent extends Component {
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
-            <div className="col col-xs-3">
+              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedKickToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedKickToolTip = ref)}
                   data-tip={Rogue[30].toolTip[0]}
                   id="31"
                 />
@@ -10715,11 +10962,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DaggerSpecializationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DaggerSpecializationToolTip = ref)}
                   data-tip={Rogue[31].toolTip[0]}
                   id="32"
                 />
@@ -10743,11 +10992,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DualWieldSpecializationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DualWieldSpecializationToolTip = ref)}
                   data-tip={Rogue[32].toolTip[0]}
                   id="33"
                 />
@@ -10776,11 +11027,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MaceSpecializationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MaceSpecializationToolTip = ref)}
                   data-tip={Rogue[33].toolTip[0]}
                   id="34"
                 />
@@ -10804,11 +11057,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BladeFlurryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.BladeFlurryToolTip = ref)}
                   data-tip={Rogue[34].toolTip[0]}
                   id="35"
                 />
@@ -10840,11 +11095,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SwordSpecializationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SwordSpecializationToolTip = ref)}
                   data-tip={Rogue[35].toolTip[0]}
                   id="36"
                 />
@@ -10859,10 +11116,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
-                  0/5
-                </span>
-                
+                <span className="talentPoints req-20-s2">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10871,11 +11125,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FistWeaponSpecializationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.FistWeaponSpecializationToolTip = ref)}
                   data-tip={Rogue[36].toolTip[0]}
                   id="37"
                 />
@@ -10890,10 +11146,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
-                  0/5
-                </span>
-                
+                <span className="talentPoints req-20-s2">0/5</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -10904,11 +11157,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BladeTwistingToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.BladeTwistingToolTip = ref)}
                   data-tip={Rogue[37].toolTip[0]}
                   id="38"
                 />
@@ -10932,11 +11187,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.WeaponExpertiseToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.WeaponExpertiseToolTip = ref)}
                   data-tip={Rogue[38].toolTip[0]}
                   id="39"
                 />
@@ -10951,9 +11208,11 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq3Spec2" className="talentPoints req-25-s2">0/2</span>
+                <span id="prioReq3Spec2" className="talentPoints req-25-s2">
+                  0/2
+                </span>
               </div>
-              
+
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10961,11 +11220,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.AggressionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.AggressionToolTip = ref)}
                   data-tip={Rogue[39].toolTip[0]}
                   id="40"
                 />
@@ -10983,8 +11244,6 @@ class RogueComponent extends Component {
                 <span className="talentPoints req-25-s2">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
-
-
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -10994,11 +11253,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.VitalityToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.VitalityToolTip = ref)}
                   data-tip={Rogue[40].toolTip[0]}
                   id="41"
                 />
@@ -11022,11 +11283,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.AdrenalineRushToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.AdrenalineRushToolTip = ref)}
                   data-tip={Rogue[41].toolTip[0]}
                   id="42"
                 />
@@ -11058,11 +11321,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.NervesOfSteelToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.NervesOfSteelToolTip = ref)}
                   data-tip={Rogue[42].toolTip[0]}
                   id="43"
                 />
@@ -11077,9 +11342,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">
-                  0/2
-                </span>
+                <span className="talentPoints req-30-s2">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -11093,11 +11356,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CombatPotencyToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.CombatPotencyToolTip = ref)}
                   data-tip={Rogue[43].toolTip[0]}
                   id="44"
                 />
@@ -11112,12 +11377,9 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s2">
-                  0/5
-                </span>
-                
+                <span className="talentPoints req-35-s2">0/5</span>
               </div>
-              
+
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -11129,11 +11391,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SurpriseAttacksToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SurpriseAttacksToolTip = ref)}
                   data-tip={Rogue[44].toolTip[0]}
                   id="45"
                 />
@@ -11159,12 +11423,22 @@ class RogueComponent extends Component {
           <div
             style={{
               backgroundImage: `url(${spec3BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Subtlety</h5>
+            <h5 id="spec3">
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec3Logo}
+              />
+              Subtlety
+            </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -11174,11 +11448,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MasterOfDeceptionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MasterOfDeceptionToolTip = ref)}
                   data-tip={Rogue[45].toolTip[0]}
                   id="46"
                 />
@@ -11202,11 +11478,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.OpportunityToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.OpportunityToolTip = ref)}
                   data-tip={Rogue[46].toolTip[0]}
                   id="47"
                 />
@@ -11233,11 +11511,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SleightOfHandToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SleightOfHandToolTip = ref)}
                   data-tip={Rogue[47].toolTip[0]}
                   id="48"
                 />
@@ -11261,11 +11541,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DirtyTricksToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DirtyTricksToolTip = ref)}
                   data-tip={Rogue[48].toolTip[0]}
                   id="49"
                 />
@@ -11289,11 +11571,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CamouflageToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.CamouflageToolTip = ref)}
                   data-tip={Rogue[49].toolTip[0]}
                   id="50"
                 />
@@ -11320,11 +11604,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.InitiativeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.InitiativeToolTip = ref)}
                   data-tip={Rogue[50].toolTip[0]}
                   id="51"
                 />
@@ -11348,11 +11634,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.GhostlyStrikeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.GhostlyStrikeToolTip = ref)}
                   data-tip={Rogue[51].toolTip[0]}
                   id="52"
                 />
@@ -11376,11 +11664,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedAmbushToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedAmbushToolTip = ref)}
                   data-tip={Rogue[52].toolTip[0]}
                   id="53"
                 />
@@ -11395,10 +11685,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">
-                  0/3
-                </span>
-                
+                <span className="talentPoints req-10-s3">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -11410,11 +11697,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SetupToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SetupToolTip = ref)}
                   data-tip={Rogue[53].toolTip[0]}
                   id="54"
                 />
@@ -11438,11 +11727,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ElusivenessToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ElusivenessToolTip = ref)}
                   data-tip={Rogue[54].toolTip[0]}
                   id="55"
                 />
@@ -11459,7 +11750,7 @@ class RogueComponent extends Component {
 
                 <span className="talentPoints req-15-s3">0/2</span>
               </div>
-              
+
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -11467,11 +11758,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SerratedBladesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SerratedBladesToolTip = ref)}
                   data-tip={Rogue[55].toolTip[0]}
                   id="56"
                 />
@@ -11486,14 +11779,15 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq1Spec3" className="talentPoints req-15-s3">0/3</span>
+                <span id="subsReq1Spec3" className="talentPoints req-15-s3">
+                  0/3
+                </span>
                 <img
                   className="angleArrow"
                   src={AngleArrowSilver}
                   alt=""
                   id="arrwReq1Spec3"
                 />
-                
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -11505,11 +11799,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.HeightenedSensesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.HeightenedSensesToolTip = ref)}
                   data-tip={Rogue[56].toolTip[0]}
                   id="57"
                 />
@@ -11533,11 +11829,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PreparationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.PreparationToolTip = ref)}
                   data-tip={Rogue[57].toolTip[0]}
                   id="58"
                 />
@@ -11569,11 +11867,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DirtyDeedsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DirtyDeedsToolTip = ref)}
                   data-tip={Rogue[58].toolTip[0]}
                   id="59"
                 />
@@ -11588,9 +11888,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
-                  0/2
-                </span>
+                <span className="talentPoints req-20-s3">0/2</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -11599,11 +11897,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.HemorrhageToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.HemorrhageToolTip = ref)}
                   data-tip={Rogue[59].toolTip[0]}
                   id="60"
                 />
@@ -11631,11 +11931,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MasterOfSubtletyToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MasterOfSubtletyToolTip = ref)}
                   data-tip={Rogue[60].toolTip[0]}
                   id="61"
                 />
@@ -11660,11 +11962,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DeadlinessToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DeadlinessToolTip = ref)}
                   data-tip={Rogue[61].toolTip[0]}
                   id="62"
                 />
@@ -11691,11 +11995,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.EnvelopingShadowsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.EnvelopingShadowsToolTip = ref)}
                   data-tip={Rogue[62].toolTip[0]}
                   id="63"
                 />
@@ -11719,11 +12025,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PremeditationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.PremeditationToolTip = ref)}
                   data-tip={Rogue[63].toolTip[0]}
                   id="64"
                 />
@@ -11738,7 +12046,10 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq2Spec3 subsReq3Spec3" className="talentPoints req-30-s3">
+                <span
+                  id="prioReq2Spec3 subsReq3Spec3"
+                  className="talentPoints req-30-s3"
+                >
                   0/1
                 </span>
                 <img
@@ -11755,11 +12066,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CheatDeathToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.CheatDeathToolTip = ref)}
                   data-tip={Rogue[64].toolTip[0]}
                   id="65"
                 />
@@ -11787,11 +12100,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SinisterCallingToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SinisterCallingToolTip = ref)}
                   data-tip={Rogue[65].toolTip[0]}
                   id="66"
                 />
@@ -11809,7 +12124,6 @@ class RogueComponent extends Component {
                 <span id="prioReq3Spec3" className="talentPoints req-35-s3">
                   0/5
                 </span>
-                
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -11823,11 +12137,13 @@ class RogueComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ShadowstepToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ShadowstepToolTip = ref)}
                   data-tip={Rogue[66].toolTip[0]}
                   id="67"
                 />
@@ -11842,9 +12158,7 @@ class RogueComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s3">
-                  0/1
-                </span>
+                <span className="talentPoints req-40-s3">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
