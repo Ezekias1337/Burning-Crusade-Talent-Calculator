@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Shaman } from "../talentinfo/Shaman";
@@ -6,125 +5,107 @@ import { Shaman } from "../talentinfo/Shaman";
 /* 
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
 Things to update across all components
-1.) Hardcoded images => Imported Images ✔
-a.) Don't forget Arrows ✔
-2.) Window.event.button[0] to handle left click on inactive talents
-3.) All functions handling Arrows
-  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3)
-  b.) turnArrowGoldOnClick
-  c.) turnArrowGoldIndirectly (s1,s2,s3)
-  d.) window.event.button[2] where code looks at arrows source and subsequent switch
-      in code directly after .nextElementSibling.id.includes("Spec")
-      1.) first if statement (reference classname instead of src)
-      2.) switch directly after (change .src = to reference imported img)
-  e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
-4.) Import Background image for each spec ✔
-5.) Change spec talent frame bootstrap breakpoints ✔
-6.) Update formulas for mobile ✔
-7.) Update HTML for Tooltip  ✔
-8.) add mb-3 to talent frame wrapper div ✔
+1.) In Enhance tree prio talents unlocking early
 
 */
 
-import spec1BG from "../images/talents/Shaman/Background/Elemental.jpg"
-import spec2BG from "../images/talents/Shaman/Background/Enhancement.jpg"
-import spec3BG from "../images/talents/Shaman/Background/Restoration.jpg"
-import spec1Logo from "../images/talents/Shaman/Spec1Logo.jpg"
-import spec2Logo from "../images/talents/Shaman/Spec2Logo.jpg"
-import spec3Logo from "../images/talents/Shaman/Spec3Logo.jpg"
+import spec1BG from "../images/talents/Shaman/Background/Elemental.jpg";
+import spec2BG from "../images/talents/Shaman/Background/Enhancement.jpg";
+import spec3BG from "../images/talents/Shaman/Background/Restoration.jpg";
+import spec1Logo from "../images/talents/Shaman/Spec1Logo.jpg";
+import spec2Logo from "../images/talents/Shaman/Spec2Logo.jpg";
+import spec3Logo from "../images/talents/Shaman/Spec3Logo.jpg";
 
 //consistent among classes
 
-import overlayImage from "../images/Item_Hover.png"
+import overlayImage from "../images/Item_Hover.png";
 
-import DownSilverSmall from "../images/DownSilverSmall.png"
-import DownSilverMedium from "../images/DownSilverMedium.png"
-import DownSilverLarge from "../images/DownSilverLarge.png"
+import DownSilverSmall from "../images/DownSilverSmall.png";
+import DownSilverMedium from "../images/DownSilverMedium.png";
+import DownSilverLarge from "../images/DownSilverLarge.png";
 
-import DownGoldSmall from "../images/DownGoldSmall.png"
-import DownGoldMedium from "../images/DownGoldMedium.png"
-import DownGoldLarge from "../images/DownGoldLarge.png"
+import DownGoldSmall from "../images/DownGoldSmall.png";
+import DownGoldMedium from "../images/DownGoldMedium.png";
+import DownGoldLarge from "../images/DownGoldLarge.png";
 
-import LeftSilverSmall from "../images/LeftSilverSmall.png"
-import RightSilverSmall from "../images/RightSilverSmall.png"
+import LeftSilverSmall from "../images/LeftSilverSmall.png";
+import RightSilverSmall from "../images/RightSilverSmall.png";
 
-import LeftGoldSmall from "../images/LeftGoldSmall.png"
-import RightGoldSmall from "../images/RightGoldSmall.png"
+import LeftGoldSmall from "../images/LeftGoldSmall.png";
+import RightGoldSmall from "../images/RightGoldSmall.png";
 
-import AngleArrowSilver from "../images/AngleArrowSilver.png"
-import AngleArrowGold from "../images/AngleArrowGold.png"
-
+import AngleArrowSilver from "../images/AngleArrowSilver.png";
+import AngleArrowGold from "../images/AngleArrowGold.png";
 
 //spec1
 
-import CallOfFlame from '../images/talents/Shaman/Progression/spec1/CallOfFlame.jpg';
-import EarthsGrasp from '../images/talents/Shaman/Progression/spec1/EarthsGrasp.jpg';
-import ElementalMastery from '../images/talents/Shaman/Progression/spec1/ElementalMastery.jpg';
-import EyeOfTheStorm from '../images/talents/Shaman/Progression/spec1/EyeOfTheStorm.jpg';
-import Reverberation from '../images/talents/Shaman/Progression/spec1/Reverberation.jpg';
-import CallOfThunder from '../images/talents/Shaman/Progression/spec1/CallOfThunder.jpg';
-import ElementalDevastation from '../images/talents/Shaman/Progression/spec1/ElementalDevastation.jpg';
-import ElementalPrecision from '../images/talents/Shaman/Progression/spec1/ElementalPrecision.jpg';
-import ImprovedFireTotems from '../images/talents/Shaman/Progression/spec1/ImprovedFireTotems.jpg';
-import StormReach from '../images/talents/Shaman/Progression/spec1/StormReach.jpg';
-import Concussion from '../images/talents/Shaman/Progression/spec1/Concussion.jpg';
-import ElementalFocus from '../images/talents/Shaman/Progression/spec1/ElementalFocus.jpg';
-import ElementalShields from '../images/talents/Shaman/Progression/spec1/ElementalShields.jpg';
-import LightningMastery from '../images/talents/Shaman/Progression/spec1/LightningMastery.jpg';
-import TotemOfWrath from '../images/talents/Shaman/Progression/spec1/TotemOfWrath.jpg';
-import Convection from '../images/talents/Shaman/Progression/spec1/Convection.jpg';
-import ElementalFury from '../images/talents/Shaman/Progression/spec1/ElementalFury.jpg';
-import ElementalWarding from '../images/talents/Shaman/Progression/spec1/ElementalWarding.jpg';
-import LightningOverload from '../images/talents/Shaman/Progression/spec1/LightningOverload.jpg';
-import UnrelentingStorm from '../images/talents/Shaman/Progression/spec1/UnrelentingStorm.jpg';
+import CallOfFlame from "../images/talents/Shaman/Progression/spec1/CallOfFlame.jpg";
+import EarthsGrasp from "../images/talents/Shaman/Progression/spec1/EarthsGrasp.jpg";
+import ElementalMastery from "../images/talents/Shaman/Progression/spec1/ElementalMastery.jpg";
+import EyeOfTheStorm from "../images/talents/Shaman/Progression/spec1/EyeOfTheStorm.jpg";
+import Reverberation from "../images/talents/Shaman/Progression/spec1/Reverberation.jpg";
+import CallOfThunder from "../images/talents/Shaman/Progression/spec1/CallOfThunder.jpg";
+import ElementalDevastation from "../images/talents/Shaman/Progression/spec1/ElementalDevastation.jpg";
+import ElementalPrecision from "../images/talents/Shaman/Progression/spec1/ElementalPrecision.jpg";
+import ImprovedFireTotems from "../images/talents/Shaman/Progression/spec1/ImprovedFireTotems.jpg";
+import StormReach from "../images/talents/Shaman/Progression/spec1/StormReach.jpg";
+import Concussion from "../images/talents/Shaman/Progression/spec1/Concussion.jpg";
+import ElementalFocus from "../images/talents/Shaman/Progression/spec1/ElementalFocus.jpg";
+import ElementalShields from "../images/talents/Shaman/Progression/spec1/ElementalShields.jpg";
+import LightningMastery from "../images/talents/Shaman/Progression/spec1/LightningMastery.jpg";
+import TotemOfWrath from "../images/talents/Shaman/Progression/spec1/TotemOfWrath.jpg";
+import Convection from "../images/talents/Shaman/Progression/spec1/Convection.jpg";
+import ElementalFury from "../images/talents/Shaman/Progression/spec1/ElementalFury.jpg";
+import ElementalWarding from "../images/talents/Shaman/Progression/spec1/ElementalWarding.jpg";
+import LightningOverload from "../images/talents/Shaman/Progression/spec1/LightningOverload.jpg";
+import UnrelentingStorm from "../images/talents/Shaman/Progression/spec1/UnrelentingStorm.jpg";
 
 //spec2
 
-import AncestralKnowledge from '../images/talents/Shaman/Progression/spec2/AncestralKnowledge.jpg';
-import Flurry from '../images/talents/Shaman/Progression/spec2/Flurry.jpg';
-import ShamanisticFocus from '../images/talents/Shaman/Progression/spec2/ShamanisticFocus.jpg';
-import Toughness from '../images/talents/Shaman/Progression/spec2/Toughness.jpg';
-import Anticipation from '../images/talents/Shaman/Progression/spec2/Anticipation.jpg';
-import GuardianTotems from '../images/talents/Shaman/Progression/spec2/GuardianTotems.jpg';
-import ShamanisticRage from '../images/talents/Shaman/Progression/spec2/ShamanisticRage.jpg';
-import UnleashedRage from '../images/talents/Shaman/Progression/spec2/UnleashedRage.jpg';
-import DualWield from '../images/talents/Shaman/Progression/spec2/DualWield.jpg';
-import ImprovedGhostWolf from '../images/talents/Shaman/Progression/spec2/ImprovedGhostWolf.jpg';
-import ShieldSpecialization from '../images/talents/Shaman/Progression/spec2/ShieldSpecialization.jpg';
-import WeaponMastery from '../images/talents/Shaman/Progression/spec2/WeaponMastery.jpg';
-import DualWieldSpecialization from '../images/talents/Shaman/Progression/spec2/DualWieldSpecialization.jpg';
-import ImprovedLightningShield from '../images/talents/Shaman/Progression/spec2/ImprovedLightningShield.jpg';
-import SpiritWeapons from '../images/talents/Shaman/Progression/spec2/SpiritWeapons.jpg';
-import ElementalWeapons from '../images/talents/Shaman/Progression/spec2/ElementalWeapons.jpg';
-import ImprovedWeapontotems from '../images/talents/Shaman/Progression/spec2/ImprovedWeapontotems.jpg';
-import Stormstrike from '../images/talents/Shaman/Progression/spec2/Stormstrike.jpg';
-import EnhancingTotems from '../images/talents/Shaman/Progression/spec2/EnhancingTotems.jpg';
-import MentalQuickness from '../images/talents/Shaman/Progression/spec2/MentalQuickness.jpg';
-import ThunderingStrikes from '../images/talents/Shaman/Progression/spec2/ThunderingStrikes.jpg';
+import AncestralKnowledge from "../images/talents/Shaman/Progression/spec2/AncestralKnowledge.jpg";
+import Flurry from "../images/talents/Shaman/Progression/spec2/Flurry.jpg";
+import ShamanisticFocus from "../images/talents/Shaman/Progression/spec2/ShamanisticFocus.jpg";
+import Toughness from "../images/talents/Shaman/Progression/spec2/Toughness.jpg";
+import Anticipation from "../images/talents/Shaman/Progression/spec2/Anticipation.jpg";
+import GuardianTotems from "../images/talents/Shaman/Progression/spec2/GuardianTotems.jpg";
+import ShamanisticRage from "../images/talents/Shaman/Progression/spec2/ShamanisticRage.jpg";
+import UnleashedRage from "../images/talents/Shaman/Progression/spec2/UnleashedRage.jpg";
+import DualWield from "../images/talents/Shaman/Progression/spec2/DualWield.jpg";
+import ImprovedGhostWolf from "../images/talents/Shaman/Progression/spec2/ImprovedGhostWolf.jpg";
+import ShieldSpecialization from "../images/talents/Shaman/Progression/spec2/ShieldSpecialization.jpg";
+import WeaponMastery from "../images/talents/Shaman/Progression/spec2/WeaponMastery.jpg";
+import DualWieldSpecialization from "../images/talents/Shaman/Progression/spec2/DualWieldSpecialization.jpg";
+import ImprovedLightningShield from "../images/talents/Shaman/Progression/spec2/ImprovedLightningShield.jpg";
+import SpiritWeapons from "../images/talents/Shaman/Progression/spec2/SpiritWeapons.jpg";
+import ElementalWeapons from "../images/talents/Shaman/Progression/spec2/ElementalWeapons.jpg";
+import ImprovedWeapontotems from "../images/talents/Shaman/Progression/spec2/ImprovedWeapontotems.jpg";
+import Stormstrike from "../images/talents/Shaman/Progression/spec2/Stormstrike.jpg";
+import EnhancingTotems from "../images/talents/Shaman/Progression/spec2/EnhancingTotems.jpg";
+import MentalQuickness from "../images/talents/Shaman/Progression/spec2/MentalQuickness.jpg";
+import ThunderingStrikes from "../images/talents/Shaman/Progression/spec2/ThunderingStrikes.jpg";
 
 //spec3
 
-import AncestralHealing from '../images/talents/Shaman/Progression/spec3/AncestralHealing.jpg';
-import HealingGrace from '../images/talents/Shaman/Progression/spec3/HealingGrace.jpg';
-import ImprovedReincarnation from '../images/talents/Shaman/Progression/spec3/ImprovedReincarnation.jpg';
-import NaturesGuidance from '../images/talents/Shaman/Progression/spec3/NaturesGuidance.jpg';
-import TidalFocus from '../images/talents/Shaman/Progression/spec3/TidalFocus.jpg';
-import EarthShield from '../images/talents/Shaman/Progression/spec3/EarthShield.jpg';
-import HealingWay from '../images/talents/Shaman/Progression/spec3/HealingWay.jpg';
-import ManaTideTotem from '../images/talents/Shaman/Progression/spec3/ManaTideTotem.jpg';
-import NaturesSwiftness from '../images/talents/Shaman/Progression/spec3/NaturesSwiftness.jpg';
-import TidalMastery from '../images/talents/Shaman/Progression/spec3/TidalMastery.jpg';
-import FocusedMind from '../images/talents/Shaman/Progression/spec3/FocusedMind.jpg';
-import ImprovedChainHeal from '../images/talents/Shaman/Progression/spec3/ImprovedChainHeal.jpg';
-import NaturesBlessing from '../images/talents/Shaman/Progression/spec3/NaturesBlessing.jpg';
-import Purification from '../images/talents/Shaman/Progression/spec3/Purification.jpg';
-import TotemicFocus from '../images/talents/Shaman/Progression/spec3/TotemicFocus.jpg';
-import HealingFocus from '../images/talents/Shaman/Progression/spec3/HealingFocus.jpg';
-import ImprovedHealingWave from '../images/talents/Shaman/Progression/spec3/ImprovedHealingWave.jpg';
-import NaturesGuardian from '../images/talents/Shaman/Progression/spec3/NaturesGuardian.jpg';
-import RestorativeTotems from '../images/talents/Shaman/Progression/spec3/RestorativeTotems.jpg';
-import TotemicMastery from '../images/talents/Shaman/Progression/spec3/TotemicMastery.jpg';
-
+import AncestralHealing from "../images/talents/Shaman/Progression/spec3/AncestralHealing.jpg";
+import HealingGrace from "../images/talents/Shaman/Progression/spec3/HealingGrace.jpg";
+import ImprovedReincarnation from "../images/talents/Shaman/Progression/spec3/ImprovedReincarnation.jpg";
+import NaturesGuidance from "../images/talents/Shaman/Progression/spec3/NaturesGuidance.jpg";
+import TidalFocus from "../images/talents/Shaman/Progression/spec3/TidalFocus.jpg";
+import EarthShield from "../images/talents/Shaman/Progression/spec3/EarthShield.jpg";
+import HealingWay from "../images/talents/Shaman/Progression/spec3/HealingWay.jpg";
+import ManaTideTotem from "../images/talents/Shaman/Progression/spec3/ManaTideTotem.jpg";
+import NaturesSwiftness from "../images/talents/Shaman/Progression/spec3/NaturesSwiftness.jpg";
+import TidalMastery from "../images/talents/Shaman/Progression/spec3/TidalMastery.jpg";
+import FocusedMind from "../images/talents/Shaman/Progression/spec3/FocusedMind.jpg";
+import ImprovedChainHeal from "../images/talents/Shaman/Progression/spec3/ImprovedChainHeal.jpg";
+import NaturesBlessing from "../images/talents/Shaman/Progression/spec3/NaturesBlessing.jpg";
+import Purification from "../images/talents/Shaman/Progression/spec3/Purification.jpg";
+import TotemicFocus from "../images/talents/Shaman/Progression/spec3/TotemicFocus.jpg";
+import HealingFocus from "../images/talents/Shaman/Progression/spec3/HealingFocus.jpg";
+import ImprovedHealingWave from "../images/talents/Shaman/Progression/spec3/ImprovedHealingWave.jpg";
+import NaturesGuardian from "../images/talents/Shaman/Progression/spec3/NaturesGuardian.jpg";
+import RestorativeTotems from "../images/talents/Shaman/Progression/spec3/RestorativeTotems.jpg";
+import TotemicMastery from "../images/talents/Shaman/Progression/spec3/TotemicMastery.jpg";
 
 let i = 0;
 let iSpec1 = 0;
@@ -135,12 +116,10 @@ let loopHappenedBefore = false;
 class ShamanComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
 
-  rebuildToolTip(){
+  rebuildToolTip() {
     ReactTooltip.rebuild();
   }
 
@@ -332,11 +311,11 @@ class ShamanComponent extends Component {
     }
   }
 
-  displayOverlayMobile(){
+  displayOverlayMobile() {
     window.event.target.previousElementSibling.style.display = "inline";
   }
 
-  hideOverlayMobile(){
+  hideOverlayMobile() {
     window.event.target.previousElementSibling.style.display = "none";
   }
 
@@ -348,11 +327,9 @@ class ShamanComponent extends Component {
   }
 
   displayMouseOverlayInnerElement() {
-    if(window.event.target.previousElementSibling){
+    if (window.event.target.previousElementSibling) {
       window.event.target.previousElementSibling.style.display = "inline";
     }
-    
-
   }
 
   hideMouseOverlay() {
@@ -597,7 +574,6 @@ class ShamanComponent extends Component {
       }
 
       if (iSpec1 >= 5) {
-        
         spec1Req5 = document.getElementsByClassName("req-05-s1");
         console.log("spec1Req5", spec1Req5);
         for (let g = 0; g < spec1Req5.length; g++) {
@@ -619,7 +595,6 @@ class ShamanComponent extends Component {
           }
         }
       }
-      
     }
 
     function addGreenBorderSpec2() {
@@ -685,7 +660,7 @@ class ShamanComponent extends Component {
             spec2Req30Output[g].className =
               "spec2 talentButton active-talent req-active";
           }
-          if(spec2Req30Output[g].nextElementSibling){
+          if (spec2Req30Output[g].nextElementSibling) {
             turnArrowGoldIndirectlySpec2();
           }
         }
@@ -994,8 +969,8 @@ class ShamanComponent extends Component {
       let spanID;
 
       function idMatcherParse() {
-        console.log("spanID", spanID)
-        
+        console.log("spanID", spanID);
+
         if (spanID.includes("prioReq1Spec1")) {
           arrowSrc = document.getElementById("arrwReq1Spec1");
         } else if (spanID.includes("prioReq2Spec1")) {
@@ -1020,7 +995,7 @@ class ShamanComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1102,10 +1077,13 @@ class ShamanComponent extends Component {
         }
         console.log("spec1Req30Output", spec1Req30Output);
         for (let g = 0; g < spec1Req30Output.length; g++) {
-          if (spec1Req30Output[g].className.includes("active-talent") && spec1Req30Output[g].nextElementSibling.id.includes("prio")) {
+          if (
+            spec1Req30Output[g].className.includes("active-talent") &&
+            spec1Req30Output[g].nextElementSibling.id.includes("prio")
+          ) {
             spec1Req30Output[g].className =
               "spec1 talentButton inactive-talent req-inactive";
-          } 
+          }
         }
       }
 
@@ -1236,8 +1214,8 @@ class ShamanComponent extends Component {
       let spanID;
 
       function idMatcherParse() {
-        console.log("spanID", spanID)
-        
+        console.log("spanID", spanID);
+
         if (spanID.includes("prioReq1Spec2")) {
           arrowSrc = document.getElementById("arrwReq1Spec2");
         } else if (spanID.includes("prioReq2Spec2")) {
@@ -1262,7 +1240,7 @@ class ShamanComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1344,10 +1322,13 @@ class ShamanComponent extends Component {
         }
         console.log("spec2Req30Output", spec2Req30Output);
         for (let g = 0; g < spec2Req30Output.length; g++) {
-          if (spec2Req30Output[g].className.includes("active-talent") && spec2Req30Output[g].nextElementSibling.id.includes("prio")) {
+          if (
+            spec2Req30Output[g].className.includes("active-talent") &&
+            spec2Req30Output[g].nextElementSibling.id.includes("prio")
+          ) {
             spec2Req30Output[g].className =
               "spec2 talentButton inactive-talent req-inactive";
-          } 
+          }
         }
       }
 
@@ -1502,7 +1483,7 @@ class ShamanComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1787,11 +1768,11 @@ class ShamanComponent extends Component {
         }
         if (arrowChecker.includes("left")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          LeftGoldSmall;
+            LeftGoldSmall;
         }
         if (arrowChecker.includes("right")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          RightGoldSmall;
+            RightGoldSmall;
         }
         if (arrowChecker.includes("sm")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
@@ -1799,11 +1780,11 @@ class ShamanComponent extends Component {
         }
         if (arrowChecker.includes("med")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          DownGoldMedium;
+            DownGoldMedium;
         }
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          DownGoldLarge;
+            DownGoldLarge;
         }
       }
 
@@ -1865,7 +1846,7 @@ class ShamanComponent extends Component {
                 }
 
                 break;
-              
+
               case "05":
                 buttonsArray = document.getElementsByClassName("req-05-s1");
                 for (button of buttonsArray) {
@@ -1879,7 +1860,7 @@ class ShamanComponent extends Component {
                       '[id*="prioReq1Spec1"]'
                     ).previousElementSibling.className =
                       "spec1 talentButton active-talent req-active";
-                    console.log("Orale you know")
+                    console.log("Orale you know");
                     ArrowGold();
                     {
                       break;
@@ -3835,7 +3816,8 @@ class ShamanComponent extends Component {
                   if (
                     button.previousElementSibling.className.includes(
                       "req-inactive"
-                    ) && iSpec3 >= 35
+                    ) &&
+                    iSpec3 >= 35
                   ) {
                     document.querySelector(
                       '[id*="prioReq3Spec3"]'
@@ -8574,18 +8556,25 @@ class ShamanComponent extends Component {
     //Path taken if user left clicks the button
     if (window.event.button === 0) {
       //If user tries to add more points to a maxed talent, exit function, preventing user action
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[0] ===
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[2]
+      ) {
+        return;
       }
 
       //If User tries to add points to a talent that isn't active yet, exit function
 
-      if(window.event.srcElement.nextElementSibling.className.includes("inactive-talent")){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.className.includes(
+          "inactive-talent"
+        )
+      ) {
+        return;
       }
-      
+
       //if user clicked button in spec 1 tree update point counter for spec 1
       if (specString[4] === "1") {
         console.log("Point used in spec 1");
@@ -9007,179 +8996,331 @@ class ShamanComponent extends Component {
     else if (window.event.button === 2) {
       //this prevents the user from taking away points if they have points in a dependant talent
       //spec 1
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1") && !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1") && !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1") && !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1") && !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq1Spec1"
+        ) &&
+        !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq2Spec1"
+        ) &&
+        !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq3Spec1"
+        ) &&
+        !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq4Spec1"
+        ) &&
+        !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")
+      ) {
+        return;
       }
       //spec 2
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2") && !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2") && !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2") && !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2") && !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq1Spec2"
+        ) &&
+        !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq2Spec2"
+        ) &&
+        !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq3Spec2"
+        ) &&
+        !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq4Spec2"
+        ) &&
+        !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")
+      ) {
+        return;
       }
       //spec 3
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3") && !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3") && !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3") && !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3") && !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq1Spec3"
+        ) &&
+        !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq2Spec3"
+        ) &&
+        !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq3Spec3"
+        ) &&
+        !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "subsReq4Spec3"
+        ) &&
+        !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")
+      ) {
+        return;
       }
 
       //if user tries to remove points in a talent they spent no points in, exit function to prevent action
 
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === "0"){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[0] === "0"
+      ) {
+        return;
       }
 
       /* This following if statement was added to fix the bug that prevented the arrow
       from reverting to silver when you took away the points in the subsReq talent
       */
 
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("Spec")){
-
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "Spec"
+        )
+      ) {
         let arrowSrcSize;
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
-          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("sm")) {
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling
+            .nextElementSibling
+        ) {
+          if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "sm"
+            )
+          ) {
             arrowSrcSize = "sm";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("med")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "med"
+            )
+          ) {
             arrowSrcSize = "med";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("lg")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "lg"
+            )
+          ) {
             arrowSrcSize = "lg";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("left")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "left"
+            )
+          ) {
             arrowSrcSize = "left";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("right")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "right"
+            )
+          ) {
             arrowSrcSize = "right";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("angle")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "angle"
+            )
+          ) {
             arrowSrcSize = "angle";
           }
         }
-        
-        
-          switch (arrowSrcSize) {
-            case "sm":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverSmall;
-              break;
 
-            case "med":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverMedium;
-              break;
+        switch (arrowSrcSize) {
+          case "sm":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverSmall;
+            break;
 
-            case "lg":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverLarge;
-              break;
+          case "med":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverMedium;
+            break;
 
-            case "left":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = LeftSilverSmall;
-              break;
+          case "lg":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverLarge;
+            break;
 
-            case "right":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = RightSilverSmall;
-              break;
+          case "left":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              LeftSilverSmall;
+            break;
 
-            case "angle":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = AngleArrowSilver;
-              break;
-          
+          case "right":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              RightSilverSmall;
+            break;
+
+          case "angle":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              AngleArrowSilver;
+            break;
         }
 
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1")){
-          
-          document.querySelector('[id*="prioReq1Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1")){
-          
-          document.querySelector('[id*="prioReq2Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1")){
-         
-          document.querySelector('[id*="prioReq3Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1")){
-          
-          document.querySelector('[id*="prioReq4Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-
-
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2")){
-          
-          document.querySelector('[id*="prioReq1Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2")){
-          
-          document.querySelector('[id*="prioReq2Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2")){
-          
-          document.querySelector('[id*="prioReq3Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2")){
-          
-          document.querySelector('[id*="prioReq4Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
-        }
-        
-
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3")){
-          
-          document.querySelector('[id*="prioReq1Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3")){
-          
-          document.querySelector('[id*="prioReq2Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3")){
-          
-          document.querySelector('[id*="prioReq3Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3")){
-          
-          document.querySelector('[id*="prioReq4Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-
-
-
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
+        }
       }
 
       /* This following block of code prevents the user from removing points from a talent
@@ -9188,40 +9329,50 @@ class ShamanComponent extends Component {
       */
 
       pointRequirementString =
-      window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
-        17,
-        19
+        window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
+          17,
+          19
+        );
+
+      console.log(pointRequirementString);
+
+      let clickDecider;
+      let arrayOfTalents = Array.from(
+        document.querySelectorAll(".talentPoints")
       );
-      
-    console.log(
-      pointRequirementString
-    );
+      let arrayOfTalentsFiltered = [];
 
-    let clickDecider;
-    let arrayOfTalents = Array.from(document.querySelectorAll(".talentPoints"))
-    let arrayOfTalentsFiltered = [];
-
-    arrayOfTalentsFiltered = arrayOfTalents.filter(talent => talent.className.slice(17,19) > pointRequirementString)
-    console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
-    for(let individualTalent of arrayOfTalentsFiltered) {
-      if(individualTalent.className.slice(20,22) === "s1" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec1){
-        clickDecider = false;
-      } 
-      if(individualTalent.className.slice(20,22) === "s2" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec2){
-        clickDecider = false;
+      arrayOfTalentsFiltered = arrayOfTalents.filter(
+        (talent) => talent.className.slice(17, 19) > pointRequirementString
+      );
+      console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
+      for (let individualTalent of arrayOfTalentsFiltered) {
+        if (
+          individualTalent.className.slice(20, 22) === "s1" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec1
+        ) {
+          clickDecider = false;
+        }
+        if (
+          individualTalent.className.slice(20, 22) === "s2" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec2
+        ) {
+          clickDecider = false;
+        }
+        if (
+          individualTalent.className.slice(20, 22) === "s3" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec3
+        ) {
+          clickDecider = false;
+        }
       }
-      if(individualTalent.className.slice(20,22) === "s3" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec3){
-        clickDecider = false;
+
+      if (clickDecider === false) {
+        return;
       }
-
-
-
-    }
-
-    if(clickDecider === false){
-      return
-    }
-
 
       //if user right clicked talent in spec1 subtract one point from point tracker if > 0
       if (specString[4] === "1") {
@@ -9607,28 +9758,25 @@ class ShamanComponent extends Component {
 
     console.log("Beginning of reset test");
     for (y = 0; y < spanArray.length; y++) {
-      
       toolTipIDChecker =
-          spanArray[y].previousElementSibling.previousElementSibling.id;
-        toolTipStepper = Shaman[toolTipIDChecker - 1];
-        toolTipSelector = toolTipStepper.toolTip[0];
-        document
-          .getElementById(toolTipIDChecker)
-          .setAttribute("data-tip", toolTipSelector);
+        spanArray[y].previousElementSibling.previousElementSibling.id;
+      toolTipStepper = Shaman[toolTipIDChecker - 1];
+      toolTipSelector = toolTipStepper.toolTip[0];
+      document
+        .getElementById(toolTipIDChecker)
+        .setAttribute("data-tip", toolTipSelector);
 
-        spanArray[y].previousElementSibling.previousElementSibling.setAttribute(
-          "data-tip",
-          toolTipSelector
-        );
-      
+      spanArray[y].previousElementSibling.previousElementSibling.setAttribute(
+        "data-tip",
+        toolTipSelector
+      );
+
       if (
         !(
           spanArray[y].className[17] === "0" &&
           spanArray[y].className[18] === "0"
         )
       ) {
-        
-
         if (spanArray[y].previousElementSibling.className[4] === "1") {
           spanArray[y].previousElementSibling.className =
             "spec1 talentButton inactive-talent req-inactive";
@@ -9741,8 +9889,8 @@ class ShamanComponent extends Component {
     console.log("Reset Points!");
   }
 
-  scrollComponentIntoView(){
-    const anchor = document.querySelector('#Shaman')
+  scrollComponentIntoView() {
+    const anchor = document.querySelector("#Shaman");
     anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -9762,27 +9910,47 @@ class ShamanComponent extends Component {
           className="row"
           style={{ whiteSpace: "nowrap", overflow: "hidden" }}
         >
-          <div className="col-sm-12"><button
+          <div className="col-sm-12">
+            <button
               onClick={this.resetPoints}
               type="button"
               className="btn btn-success mb-2 mt-2"
-              style={{display: "inline-block", marginLeft: "6px"}}
+              style={{ display: "inline-block", marginLeft: "6px" }}
             >
               Reset
-            </button></div>
+            </button>
+          </div>
           <div className="col-sm-4"></div>
-          <div className="col-sm-4 mx-auto" style={{overflow: "hidden", whiteSpace: "nowrap"}}>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "6px" }}>Points Spent:</h5>
-            <h5 id="total-points" style={{ color: "white", display: "inline-block", marginLeft: "6px", marginTop:"1px" }}>
+          <div
+            className="col-sm-4 mx-auto"
+            style={{ overflow: "hidden", whiteSpace: "nowrap" }}
+          >
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "6px",
+              }}
+            >
+              Points Spent:
+            </h5>
+            <h5
+              id="total-points"
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "6px",
+                marginTop: "1px",
+              }}
+            >
               0
             </h5>
-            
           </div>
           <div className="col-sm-4"></div>
         </div>
         <div className="row">
           <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
-            <h5  style={{ color: "#e1eef4" }} id="point-counter1">
+            <h5 style={{ color: "#e1eef4" }} id="point-counter1">
               Spec 1: 0
             </h5>
           </div>
@@ -9798,16 +9966,29 @@ class ShamanComponent extends Component {
           </div>
         </div>
 
-        <div className="row ml-3 mr-3 mb-3 mx-auto" style={{maxWidth: "1010px"}}>
+        <div
+          className="row ml-3 mr-3 mb-3 mx-auto"
+          style={{ maxWidth: "1010px" }}
+        >
           <div
             style={{
               backgroundImage: `url(${spec1BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Elemental</h5>
+            <h5 id="spec1">
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec1Logo}
+              />
+              Elemental
+            </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9817,11 +9998,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ConvectionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ConvectionToolTip = ref)}
                   data-tip={Shaman[0].toolTip[0]}
                   id="1"
                 />
@@ -9845,11 +10028,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ConcussionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ConcussionToolTip = ref)}
                   data-tip={Shaman[1].toolTip[0]}
                   id="2"
                 />
@@ -9876,11 +10061,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.EarthsGraspToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.EarthsGraspToolTip = ref)}
                   data-tip={Shaman[2].toolTip[0]}
                   id="3"
                 />
@@ -9904,11 +10091,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ElementalWardingToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ElementalWardingToolTip = ref)}
                   data-tip={Shaman[3].toolTip[0]}
                   id="4"
                 />
@@ -9932,11 +10121,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CallOfFlameToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.CallOfFlameToolTip = ref)}
                   data-tip={Shaman[4].toolTip[0]}
                   id="5"
                 />
@@ -9963,11 +10154,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ElementalFocusToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ElementalFocusToolTip = ref)}
                   data-tip={Shaman[5].toolTip[0]}
                   id="6"
                 />
@@ -9991,11 +10184,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ReverberationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ReverberationToolTip = ref)}
                   data-tip={Shaman[6].toolTip[0]}
                   id="7"
                 />
@@ -10019,11 +10214,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CallOfThunderToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.CallOfThunderToolTip = ref)}
                   data-tip={Shaman[7].toolTip[0]}
                   id="8"
                 />
@@ -10038,7 +10235,9 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq1Spec1" className="talentPoints req-10-s1">0/5</span>
+                <span id="subsReq1Spec1" className="talentPoints req-10-s1">
+                  0/5
+                </span>
                 <img
                   className="lgArrowPaladin"
                   src={DownSilverLarge}
@@ -10049,7 +10248,6 @@ class ShamanComponent extends Component {
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row">
-              
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10057,11 +10255,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedFireTotemsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedFireTotemsToolTip = ref)}
                   data-tip={Shaman[8].toolTip[0]}
                   id="9"
                 />
@@ -10085,11 +10285,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.EyeOfTheStormToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.EyeOfTheStormToolTip = ref)}
                   data-tip={Shaman[9].toolTip[0]}
                   id="10"
                 />
@@ -10104,9 +10306,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s1">
-                  0/3
-                </span>
+                <span className="talentPoints req-15-s1">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -10116,11 +10316,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ElementalDevastationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ElementalDevastationToolTip = ref)}
                   data-tip={Shaman[10].toolTip[0]}
                   id="11"
                 />
@@ -10135,9 +10337,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s1">
-                  0/3
-                </span>
+                <span className="talentPoints req-15-s1">0/3</span>
               </div>
             </div>
 
@@ -10149,11 +10349,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.StormReachToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.StormReachToolTip = ref)}
                   data-tip={Shaman[11].toolTip[0]}
                   id="12"
                 />
@@ -10177,11 +10379,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ElementalFuryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ElementalFuryToolTip = ref)}
                   data-tip={Shaman[12].toolTip[0]}
                   id="13"
                 />
@@ -10214,11 +10418,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.UnrelentingStormToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.UnrelentingStormToolTip = ref)}
                   data-tip={Shaman[13].toolTip[0]}
                   id="14"
                 />
@@ -10245,11 +10451,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ElementalPrecisionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ElementalPrecisionToolTip = ref)}
                   data-tip={Shaman[14].toolTip[0]}
                   id="15"
                 />
@@ -10274,11 +10482,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.LightningMasteryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.LightningMasteryToolTip = ref)}
                   data-tip={Shaman[15].toolTip[0]}
                   id="16"
                 />
@@ -10308,11 +10518,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ElementalMasteryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ElementalMasteryToolTip = ref)}
                   data-tip={Shaman[16].toolTip[0]}
                   id="17"
                 />
@@ -10327,13 +10539,9 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span
-                  id="prioReq2Spec1"
-                  className="talentPoints req-30-s1"
-                >
+                <span id="prioReq2Spec1" className="talentPoints req-30-s1">
                   0/1
                 </span>
-                
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10342,11 +10550,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ElementalShieldsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ElementalShieldsToolTip = ref)}
                   data-tip={Shaman[17].toolTip[0]}
                   id="18"
                 />
@@ -10374,11 +10584,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.LightningOverloadToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.LightningOverloadToolTip = ref)}
                   data-tip={Shaman[18].toolTip[0]}
                   id="19"
                 />
@@ -10393,7 +10605,9 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq3Spec1" className="talentPoints req-35-s1">0/5</span>
+                <span id="subsReq3Spec1" className="talentPoints req-35-s1">
+                  0/5
+                </span>
                 <img
                   className="smArrow"
                   src={DownSilverSmall}
@@ -10413,11 +10627,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.TotemOfWrathToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.TotemOfWrathToolTip = ref)}
                   data-tip={Shaman[19].toolTip[0]}
                   id="20"
                 />
@@ -10443,12 +10659,22 @@ class ShamanComponent extends Component {
           <div
             style={{
               backgroundImage: `url(${spec2BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Enhancement</h5>
+            <h5 id="spec2">
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec2Logo}
+              />
+              Enhancement
+            </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -10458,11 +10684,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.AncestralKnowledgeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.AncestralKnowledgeToolTip = ref)}
                   data-tip={Shaman[20].toolTip[0]}
                   id="21"
                 />
@@ -10486,11 +10714,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ShieldSpecializationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ShieldSpecializationToolTip = ref)}
                   data-tip={Shaman[21].toolTip[0]}
                   id="22"
                 />
@@ -10510,18 +10740,20 @@ class ShamanComponent extends Component {
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-            <div className="col col-xs-3">
+              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.GuardianTotemsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.GuardianTotemsToolTip = ref)}
                   data-tip={Shaman[22].toolTip[0]}
                   id="23"
                 />
@@ -10545,11 +10777,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ThunderingStrikesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ThunderingStrikesToolTip = ref)}
                   data-tip={Shaman[23].toolTip[0]}
                   id="24"
                 />
@@ -10564,7 +10798,9 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq1Spec2" className="talentPoints req-05-s2">0/5</span>
+                <span id="subsReq1Spec2" className="talentPoints req-05-s2">
+                  0/5
+                </span>
                 <img
                   className="medArrow"
                   src={DownSilverMedium}
@@ -10579,11 +10815,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedGhostWolfToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedGhostWolfToolTip = ref)}
                   data-tip={Shaman[24].toolTip[0]}
                   id="25"
                 />
@@ -10607,11 +10845,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedLightningShieldToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedLightningShieldToolTip = ref)}
                   data-tip={Shaman[25].toolTip[0]}
                   id="26"
                 />
@@ -10637,11 +10877,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.EnhancingTotemsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.EnhancingTotemsToolTip = ref)}
                   data-tip={Shaman[26].toolTip[0]}
                   id="27"
                 />
@@ -10666,11 +10908,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ShamanisticFocusToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ShamanisticFocusToolTip = ref)}
                   data-tip={Shaman[27].toolTip[0]}
                   id="28"
                 />
@@ -10685,10 +10929,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">
-                  0/1
-                </span>
-                
+                <span className="talentPoints req-10-s2">0/1</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10697,11 +10938,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.AnticipationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.AnticipationToolTip = ref)}
                   data-tip={Shaman[28].toolTip[0]}
                   id="29"
                 />
@@ -10728,11 +10971,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FlurryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.FlurryToolTip = ref)}
                   data-tip={Shaman[29].toolTip[0]}
                   id="30"
                 />
@@ -10747,7 +10992,9 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq1Spec2" className="talentPoints req-15-s2">0/5</span>
+                <span id="prioReq1Spec2" className="talentPoints req-15-s2">
+                  0/5
+                </span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10756,11 +11003,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ToughnessToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ToughnessToolTip = ref)}
                   data-tip={Shaman[30].toolTip[0]}
                   id="31"
                 />
@@ -10775,9 +11024,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s2">
-                  0/5
-                </span>
+                <span className="talentPoints req-15-s2">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10789,11 +11036,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedWeapontotemsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedWeapontotemsToolTip = ref)}
                   data-tip={Shaman[31].toolTip[0]}
                   id="32"
                 />
@@ -10817,11 +11066,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SpiritWeaponsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SpiritWeaponsToolTip = ref)}
                   data-tip={Shaman[32].toolTip[0]}
                   id="33"
                 />
@@ -10853,11 +11104,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ElementalWeaponsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ElementalWeaponsToolTip = ref)}
                   data-tip={Shaman[33].toolTip[0]}
                   id="34"
                 />
@@ -10892,11 +11145,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MentalQuicknessToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MentalQuicknessToolTip = ref)}
                   data-tip={Shaman[34].toolTip[0]}
                   id="35"
                 />
@@ -10922,11 +11177,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.WeaponMasteryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.WeaponMasteryToolTip = ref)}
                   data-tip={Shaman[35].toolTip[0]}
                   id="36"
                 />
@@ -10952,11 +11209,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DualWieldSpecializationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DualWieldSpecializationToolTip = ref)}
                   data-tip={Shaman[36].toolTip[0]}
                   id="37"
                 />
@@ -10971,7 +11230,9 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq4Spec2" className="talentPoints req-30-s2">0/3</span>
+                <span id="prioReq4Spec2" className="talentPoints req-30-s2">
+                  0/3
+                </span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10980,11 +11241,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DualWieldToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DualWieldToolTip = ref)}
                   data-tip={Shaman[37].toolTip[0]}
                   id="38"
                 />
@@ -10999,7 +11262,10 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq3Spec2 subsReq4Spec2" className="talentPoints req-30-s2">
+                <span
+                  id="prioReq3Spec2 subsReq4Spec2"
+                  className="talentPoints req-30-s2"
+                >
                   0/1
                 </span>
                 <img
@@ -11016,11 +11282,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.StormstrikeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.StormstrikeToolTip = ref)}
                   data-tip={Shaman[38].toolTip[0]}
                   id="39"
                 />
@@ -11050,11 +11318,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.UnleashedRageToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.UnleashedRageToolTip = ref)}
                   data-tip={Shaman[39].toolTip[0]}
                   id="40"
                 />
@@ -11069,10 +11339,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s2">
-                  0/5
-                </span>
-                
+                <span className="talentPoints req-35-s2">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -11086,11 +11353,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ShamanisticRageToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ShamanisticRageToolTip = ref)}
                   data-tip={Shaman[40].toolTip[0]}
                   id="41"
                 />
@@ -11105,9 +11374,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s2">
-                  0/1
-                </span>
+                <span className="talentPoints req-40-s2">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -11116,12 +11383,22 @@ class ShamanComponent extends Component {
           <div
             style={{
               backgroundImage: `url(${spec3BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Restoration</h5>
+            <h5 id="spec3">
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec3Logo}
+              />
+              Restoration
+            </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -11131,11 +11408,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedHealingWaveToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedHealingWaveToolTip = ref)}
                   data-tip={Shaman[41].toolTip[0]}
                   id="42"
                 />
@@ -11159,11 +11438,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.TidalFocusToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.TidalFocusToolTip = ref)}
                   data-tip={Shaman[42].toolTip[0]}
                   id="43"
                 />
@@ -11190,11 +11471,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedReincarnationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedReincarnationToolTip = ref)}
                   data-tip={Shaman[43].toolTip[0]}
                   id="44"
                 />
@@ -11218,11 +11501,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.AncestralHealingToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.AncestralHealingToolTip = ref)}
                   data-tip={Shaman[44].toolTip[0]}
                   id="45"
                 />
@@ -11246,11 +11531,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.TotemicFocusToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.TotemicFocusToolTip = ref)}
                   data-tip={Shaman[45].toolTip[0]}
                   id="46"
                 />
@@ -11277,11 +11564,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.NaturesGuidanceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.NaturesGuidanceToolTip = ref)}
                   data-tip={Shaman[46].toolTip[0]}
                   id="47"
                 />
@@ -11305,11 +11594,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.HealingFocusToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.HealingFocusToolTip = ref)}
                   data-tip={Shaman[47].toolTip[0]}
                   id="48"
                 />
@@ -11333,11 +11624,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.TotemicMasteryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.TotemicMasteryToolTip = ref)}
                   data-tip={Shaman[48].toolTip[0]}
                   id="49"
                 />
@@ -11352,10 +11645,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">
-                  0/1
-                </span>
-                
+                <span className="talentPoints req-10-s3">0/1</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -11364,11 +11654,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.HealingGraceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.HealingGraceToolTip = ref)}
                   data-tip={Shaman[49].toolTip[0]}
                   id="50"
                 />
@@ -11383,10 +11675,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">
-                  0/3
-                </span>
-                
+                <span className="talentPoints req-10-s3">0/3</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -11398,11 +11687,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.RestorativeTotemsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.RestorativeTotemsToolTip = ref)}
                   data-tip={Shaman[50].toolTip[0]}
                   id="51"
                 />
@@ -11417,7 +11708,9 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq1Spec3" className="talentPoints req-15-s3">0/5</span>
+                <span id="subsReq1Spec3" className="talentPoints req-15-s3">
+                  0/5
+                </span>
                 <img
                   className="lgArrowPaladin"
                   src={DownSilverLarge}
@@ -11432,11 +11725,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.TidalMasteryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.TidalMasteryToolTip = ref)}
                   data-tip={Shaman[51].toolTip[0]}
                   id="52"
                 />
@@ -11453,7 +11748,7 @@ class ShamanComponent extends Component {
 
                 <span className="talentPoints req-15-s3">0/5</span>
               </div>
-              
+
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -11464,11 +11759,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.HealingWayToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.HealingWayToolTip = ref)}
                   data-tip={Shaman[52].toolTip[0]}
                   id="53"
                 />
@@ -11493,11 +11790,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.NaturesSwiftnessToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.NaturesSwiftnessToolTip = ref)}
                   data-tip={Shaman[53].toolTip[0]}
                   id="54"
                 />
@@ -11512,10 +11811,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
-                  0/1
-                </span>
-                
+                <span className="talentPoints req-20-s3">0/1</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -11524,11 +11820,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FocusedMindToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.FocusedMindToolTip = ref)}
                   data-tip={Shaman[54].toolTip[0]}
                   id="55"
                 />
@@ -11543,11 +11841,8 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
-                  0/3
-                </span>
+                <span className="talentPoints req-20-s3">0/3</span>
               </div>
-              
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
@@ -11559,11 +11854,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PurificationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.PurificationToolTip = ref)}
                   data-tip={Shaman[55].toolTip[0]}
                   id="56"
                 />
@@ -11591,11 +11888,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ManaTideTotemToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ManaTideTotemToolTip = ref)}
                   data-tip={Shaman[56].toolTip[0]}
                   id="57"
                 />
@@ -11621,11 +11920,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.NaturesGuardianToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.NaturesGuardianToolTip = ref)}
                   data-tip={Shaman[57].toolTip[0]}
                   id="58"
                 />
@@ -11653,11 +11954,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.NaturesBlessingToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.NaturesBlessingToolTip = ref)}
                   data-tip={Shaman[58].toolTip[0]}
                   id="59"
                 />
@@ -11689,11 +11992,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedChainHealToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedChainHealToolTip = ref)}
                   data-tip={Shaman[59].toolTip[0]}
                   id="60"
                 />
@@ -11708,9 +12013,7 @@ class ShamanComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s3">
-                  0/2
-                </span>
+                <span className="talentPoints req-35-s3">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -11723,11 +12026,13 @@ class ShamanComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.EarthShieldToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.EarthShieldToolTip = ref)}
                   data-tip={Shaman[60].toolTip[0]}
                   id="61"
                 />
