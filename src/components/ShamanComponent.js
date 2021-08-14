@@ -2836,7 +2836,7 @@ class ShamanComponent extends Component {
                   if (
                     button.previousElementSibling.className.includes(
                       "req-active"
-                    )
+                    ) && iSpec2 >= 30
                   ) {
                     document.querySelector(
                       '[id*="prioReq2Spec2"]'
@@ -2876,7 +2876,7 @@ class ShamanComponent extends Component {
                   if (
                     button.previousElementSibling.className.includes(
                       "req-inactive"
-                    )
+                    ) && iSpec2 >= 30
                   ) {
                     document.querySelector(
                       '[id*="prioReq2Spec2"]'
@@ -3060,7 +3060,7 @@ class ShamanComponent extends Component {
                   if (
                     button.previousElementSibling.className.includes(
                       "req-inactive"
-                    )
+                    ) && iSpec2 >= 30
                   ) {
                     document.querySelector(
                       '[id*="prioReq3Spec2"]'
@@ -9889,10 +9889,10 @@ class ShamanComponent extends Component {
     console.log("Reset Points!");
   }
 
-  scrollComponentIntoView() {
+  /*scrollComponentIntoView() {
     const anchor = document.querySelector("#Shaman");
     anchor.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
+  }*/
 
   render() {
     return (
@@ -9902,7 +9902,7 @@ class ShamanComponent extends Component {
         className="frame-wrapper mx-auto"
         id="Shaman"
         onLoad={() => {
-          this.scrollComponentIntoView();
+          //this.scrollComponentIntoView();
           this.rebuildToolTip();
         }}
       >

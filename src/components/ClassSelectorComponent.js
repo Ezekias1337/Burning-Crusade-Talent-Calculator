@@ -199,6 +199,11 @@ class ClassSelector extends Component {
     navLinkToManipulate.href = navLinkFromClassSelector.href;
   }
 
+  scrollComponentIntoView() {
+    const anchor = document.querySelector("#Shaman");
+    anchor.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   render() {
     const classSelector = this.state.classes.map((playableClass) => {
       return (
