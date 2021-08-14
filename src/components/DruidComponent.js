@@ -8599,7 +8599,7 @@ class DruidComponent extends Component {
         iSpec1 = iSpec1 + 1;
         document.getElementById(
           "point-counter1"
-        ).innerText = `Spec 1: ${iSpec1}`;
+        ).innerText = `(${iSpec1})`;
 
         addGreenBorderSpec1();
       }
@@ -8609,7 +8609,7 @@ class DruidComponent extends Component {
         iSpec2 = iSpec2 + 1;
         document.getElementById(
           "point-counter2"
-        ).innerText = `Spec 2: ${iSpec2}`;
+        ).innerText = `(${iSpec2})`;
 
         addGreenBorderSpec2();
       }
@@ -8619,7 +8619,7 @@ class DruidComponent extends Component {
         iSpec3 = iSpec3 + 1;
         document.getElementById(
           "point-counter3"
-        ).innerText = `Spec 3: ${iSpec3}`;
+        ).innerText = `(${iSpec3})`;
 
         addGreenBorderSpec3();
       }
@@ -8662,7 +8662,7 @@ class DruidComponent extends Component {
               console.log(`iSpec1: ${iSpec1}`);
               document.getElementById(
                 "point-counter1"
-              ).innerText = `Spec 1: ${iSpec1}`;
+              ).innerText = `(${iSpec1})`;
             } else if (specString[4] === "2") {
               console.log("Point taken back Spec 2");
               iSpec2 = iSpec2 - 1;
@@ -8670,7 +8670,7 @@ class DruidComponent extends Component {
               console.log(`iSpec2: ${iSpec2}`);
               document.getElementById(
                 "point-counter2"
-              ).innerText = `Spec 2: ${iSpec2}`;
+              ).innerText = `(${iSpec2})`;
             } else if (specString[4] === "3") {
               console.log("Point taken back Spec 3");
               iSpec3 = iSpec3 - 1;
@@ -8678,7 +8678,7 @@ class DruidComponent extends Component {
               console.log(`iSpec3: ${iSpec3}`);
               document.getElementById(
                 "point-counter3"
-              ).innerText = `Spec 3: ${iSpec3}`;
+              ).innerText = `(${iSpec3})`;
             }
           }
           console.log("One Point Potential");
@@ -8711,7 +8711,7 @@ class DruidComponent extends Component {
               console.log(`iSpec1: ${iSpec1}`);
               document.getElementById(
                 "point-counter1"
-              ).innerText = `Spec 1: ${iSpec1}`;
+              ).innerText = `(${iSpec1})`;
             } else if (specString[4] === "2") {
               console.log("Point taken back Spec 2");
               iSpec2 = iSpec2 - 1;
@@ -8719,7 +8719,7 @@ class DruidComponent extends Component {
               console.log(`iSpec2: ${iSpec2}`);
               document.getElementById(
                 "point-counter2"
-              ).innerText = `Spec 2: ${iSpec2}`;
+              ).innerText = `(${iSpec2})`;
             } else if (specString[4] === "3") {
               console.log("Point taken back Spec 3");
               iSpec3 = iSpec3 - 1;
@@ -8727,7 +8727,7 @@ class DruidComponent extends Component {
               console.log(`iSpec3: ${iSpec3}`);
               document.getElementById(
                 "point-counter3"
-              ).innerText = `Spec 3: ${iSpec3}`;
+              ).innerText = `(${iSpec3})`;
             }
           }
           console.log("Two Point Potential");
@@ -8758,7 +8758,7 @@ class DruidComponent extends Component {
               console.log(`iSpec1: ${iSpec1}`);
               document.getElementById(
                 "point-counter1"
-              ).innerText = `Spec 1: ${iSpec1}`;
+              ).innerText = `(${iSpec1})`;
             } else if (specString[4] === "2") {
               console.log("Point taken back Spec 2");
               iSpec2 = iSpec2 - 1;
@@ -8766,7 +8766,7 @@ class DruidComponent extends Component {
               console.log(`iSpec2: ${iSpec2}`);
               document.getElementById(
                 "point-counter2"
-              ).innerText = `Spec 2: ${iSpec2}`;
+              ).innerText = `(${iSpec2})`;
             } else if (specString[4] === "3") {
               console.log("Point taken back Spec 3");
               iSpec3 = iSpec3 - 1;
@@ -8774,7 +8774,7 @@ class DruidComponent extends Component {
               console.log(`iSpec3: ${iSpec3}`);
               document.getElementById(
                 "point-counter3"
-              ).innerText = `Spec 3: ${iSpec3}`;
+              ).innerText = `(${iSpec3})`;
             }
           }
           console.log("Three Point Potential");
@@ -8805,7 +8805,7 @@ class DruidComponent extends Component {
               console.log(`iSpec1: ${iSpec1}`);
               document.getElementById(
                 "point-counter1"
-              ).innerText = `Spec 1: ${iSpec1}`;
+              ).innerText = `(${iSpec1})`;
             } else if (specString[4] === "2") {
               console.log("Point taken back Spec 2");
               iSpec2 = iSpec2 - 1;
@@ -8813,7 +8813,7 @@ class DruidComponent extends Component {
               console.log(`iSpec2: ${iSpec2}`);
               document.getElementById(
                 "point-counter2"
-              ).innerText = `Spec 2: ${iSpec2}`;
+              ).innerText = `(${iSpec2})`;
             } else if (specString[4] === "3") {
               console.log("Point taken back Spec 3");
               iSpec3 = iSpec3 - 1;
@@ -8821,7 +8821,7 @@ class DruidComponent extends Component {
               console.log(`iSpec3: ${iSpec3}`);
               document.getElementById(
                 "point-counter3"
-              ).innerText = `Spec 3: ${iSpec3}`;
+              ).innerText = `(${iSpec3})`;
             }
           }
           console.log("Four Point Potential");
@@ -8853,7 +8853,7 @@ class DruidComponent extends Component {
               console.log(`iSpec1: ${iSpec1}`);
               document.getElementById(
                 "point-counter1"
-              ).innerText = `Spec 1: ${iSpec1}`;
+              ).innerText = `(${iSpec1})`;
             } else if (specString[4] === "2") {
               console.log("Point taken back Spec 2");
               iSpec2 = iSpec2 - 1;
@@ -8861,7 +8861,7 @@ class DruidComponent extends Component {
               console.log(`iSpec2: ${iSpec2}`);
               document.getElementById(
                 "point-counter2"
-              ).innerText = `Spec 2: ${iSpec2}`;
+              ).innerText = `(${iSpec2})`;
             } else if (specString[4] === "3") {
               console.log("Point taken back Spec 3");
               iSpec3 = iSpec3 - 1;
@@ -8869,7 +8869,7 @@ class DruidComponent extends Component {
               console.log(`iSpec3: ${iSpec3}`);
               document.getElementById(
                 "point-counter3"
-              ).innerText = `Spec 3: ${iSpec3}`;
+              ).innerText = `(${iSpec3})`;
             }
           }
           console.log("Five Point Potential");
@@ -8897,14 +8897,14 @@ class DruidComponent extends Component {
             loopHappenedBefore = true;
             document.getElementById(
               "point-counter1"
-            ).innerText = `Spec 1: ${iSpec1}`;
+            ).innerText = `(${iSpec1})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec1 = iSpec1 - 1;
             i = 61;
             document.getElementById(
               "point-counter1"
-            ).innerText = `Spec 1: ${iSpec1}`;
+            ).innerText = `(${iSpec1})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -8915,14 +8915,14 @@ class DruidComponent extends Component {
             loopHappenedBefore = true;
             document.getElementById(
               "point-counter2"
-            ).innerText = `Spec 2: ${iSpec2}`;
+            ).innerText = `(${iSpec2})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec2 = iSpec2 - 1;
             i = 61;
             document.getElementById(
               "point-counter2"
-            ).innerText = `Spec 2: ${iSpec2}`;
+            ).innerText = `(${iSpec2})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -8933,14 +8933,14 @@ class DruidComponent extends Component {
             loopHappenedBefore = true;
             document.getElementById(
               "point-counter3"
-            ).innerText = `Spec 3: ${iSpec3}`;
+            ).innerText = `(${iSpec3})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec3 = iSpec3 - 1;
             i = 61;
             document.getElementById(
               "point-counter3"
-            ).innerText = `Spec 3: ${iSpec3}`;
+            ).innerText = `(${iSpec3})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -9401,7 +9401,7 @@ class DruidComponent extends Component {
 
         document.getElementById(
           "point-counter1"
-        ).innerText = `Spec 1: ${iSpec1}`;
+        ).innerText = `(${iSpec1})`;
         removeGreenBorderSpec1();
         turnArrowSilverSpec1();
       } else if (specString[4] === "2") {
@@ -9411,7 +9411,7 @@ class DruidComponent extends Component {
         }
         document.getElementById(
           "point-counter2"
-        ).innerText = `Spec 2: ${iSpec2}`;
+        ).innerText = `(${iSpec2})`;
         removeGreenBorderSpec2();
       } else if (specString[4] === "3") {
         console.log("Point taken from spec 3");
@@ -9419,7 +9419,7 @@ class DruidComponent extends Component {
           iSpec3 = iSpec3 - 1;
           document.getElementById(
             "point-counter3"
-          ).innerText = `Spec 3: ${iSpec3}`;
+          ).innerText = `(${iSpec3})`;
           removeGreenBorderSpec3();
         }
       }
@@ -9453,21 +9453,21 @@ class DruidComponent extends Component {
               console.log(`iSpec1: ${iSpec1}`);
               document.getElementById(
                 "point-counter1"
-              ).innerText = `Spec 1: ${iSpec1}`;
+              ).innerText = `(${iSpec1})`;
             } else if (specString[4] === "2") {
               console.log("Point taken back Spec 2");
 
               console.log(`iSpec2: ${iSpec2}`);
               document.getElementById(
                 "point-counter2"
-              ).innerText = `Spec 2: ${iSpec2}`;
+              ).innerText = `(${iSpec2})`;
             } else if (specString[4] === "3") {
               console.log("Point taken back Spec 3");
 
               console.log(`iSpec3: ${iSpec3}`);
               document.getElementById(
                 "point-counter3"
-              ).innerText = `Spec 3: ${iSpec3}`;
+              ).innerText = `(${iSpec3})`;
             }
           } else {
             alert("You have no points in this talent to remove!");
@@ -9487,20 +9487,20 @@ class DruidComponent extends Component {
               console.log(`iSpec1: ${iSpec1}`);
               document.getElementById(
                 "point-counter1"
-              ).innerText = `Spec 1: ${iSpec1}`;
+              ).innerText = `(${iSpec1})`;
             } else if (specString[4] === "2") {
               console.log("Point added back Spec 2");
               console.log(`iSpec2: ${iSpec2}`);
               document.getElementById(
                 "point-counter2"
-              ).innerText = `Spec 2: ${iSpec2}`;
+              ).innerText = `(${iSpec2})`;
             } else if (specString[4] === "3") {
               console.log("Point added back Spec 3");
 
               console.log(`iSpec3: ${iSpec3}`);
               document.getElementById(
                 "point-counter3"
-              ).innerText = `Spec 3: ${iSpec3}`;
+              ).innerText = `(${iSpec3})`;
             }
           }
           console.log("One Point Potential");
@@ -9896,15 +9896,16 @@ class DruidComponent extends Component {
     loopHappenedBefore = false;
     //Resets inner text value of DOM counters back to 0.
     document.getElementById("total-points").innerText = `${i}`;
-    document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
-    document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
-    document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
+    document.getElementById("point-counter1").innerText = `(${iSpec1})`;
+    document.getElementById("point-counter2").innerText = `(${iSpec2})`;
+    document.getElementById("point-counter3").innerText = `(${iSpec3})`;
 
     console.log("Reset Points!");
   }
 
-  scrollComponentIntoView() {
-    const anchor = document.querySelector("#Druid");
+
+  componentDidMount(){
+    const anchor = document.getElementsByClassName("btn")[0];
     anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
@@ -9916,7 +9917,6 @@ class DruidComponent extends Component {
         className="frame-wrapper mx-auto"
         id="Druid"
         onLoad={() => {
-          this.scrollComponentIntoView();
           this.rebuildToolTip();
         }}
       >
@@ -9963,24 +9963,6 @@ class DruidComponent extends Component {
           <div className="col-sm-4"></div>
         </div>
 
-        <div className="row">
-          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
-            <h5 style={{ color: "#e1eef4" }} id="point-counter1">
-              Spec 1: 0
-            </h5>
-          </div>
-          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
-            <h5 style={{ color: "#e1eef4" }} id="point-counter2">
-              Spec 2: 0
-            </h5>
-          </div>
-          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
-            <h5 style={{ color: "#e1eef4" }} id="point-counter3">
-              Spec 3: 0
-            </h5>
-          </div>
-        </div>
-
         <div
           className="row ml-3 mr-3 mb-3 mx-auto"
           style={{ maxWidth: "1010px" }}
@@ -9989,11 +9971,15 @@ class DruidComponent extends Component {
             style={{
               backgroundImage: `url(${spec1BG})`,
               maxWidth: "305px",
+              overflow: "hidden",
+              whiteSpace: "nowrap"
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1">
+            <h5 id="spec1"
+              style={{display: "inline-block"}}
+            >
               <img
                 style={{
                   marginRight: ".5rem",
@@ -10003,6 +9989,9 @@ class DruidComponent extends Component {
                 src={spec1Logo}
               />
               Balance
+            </h5>
+            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter1">
+              (0)
             </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -10675,11 +10664,15 @@ class DruidComponent extends Component {
             style={{
               backgroundImage: `url(${spec2BG})`,
               maxWidth: "305px",
+              overflow: "hidden",
+              whiteSpace: "nowrap"
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2">
+            <h5 id="spec2"
+              style={{display: "inline-block"}}
+            >
               <img
                 style={{
                   marginRight: ".5rem",
@@ -10689,6 +10682,9 @@ class DruidComponent extends Component {
                 src={spec2Logo}
               />
               Feral Combat
+            </h5>
+            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter2">
+              (0)
             </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
@@ -11365,11 +11361,15 @@ class DruidComponent extends Component {
             style={{
               backgroundImage: `url(${spec3BG})`,
               maxWidth: "305px",
+              overflow: "hidden",
+              whiteSpace: "nowrap"
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3">
+            <h5 id="spec3"
+              style={{display: "inline-block"}}
+            >
               <img
                 style={{
                   marginRight: ".5rem",
@@ -11379,6 +11379,9 @@ class DruidComponent extends Component {
                 src={spec3Logo}
               />
               Restoration
+            </h5>
+            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter3">
+              (0)
             </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>

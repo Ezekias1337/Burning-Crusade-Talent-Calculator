@@ -7403,7 +7403,7 @@ class WarriorComponent extends Component {
         iSpec1 = iSpec1 + 1;
         document.getElementById(
           "point-counter1"
-        ).innerText = `Spec 1: ${iSpec1}`;
+        ).innerText = `(${iSpec1})`;
 
         addGreenBorderSpec1();
       }
@@ -7413,7 +7413,7 @@ class WarriorComponent extends Component {
         iSpec2 = iSpec2 + 1;
         document.getElementById(
           "point-counter2"
-        ).innerText = `Spec 2: ${iSpec2}`;
+        ).innerText = `(${iSpec2})`;
 
         addGreenBorderSpec2();
       }
@@ -7423,7 +7423,7 @@ class WarriorComponent extends Component {
         iSpec3 = iSpec3 + 1;
         document.getElementById(
           "point-counter3"
-        ).innerText = `Spec 3: ${iSpec3}`;
+        ).innerText = `(${iSpec3})`;
 
         addGreenBorderSpec3();
       }
@@ -7466,7 +7466,7 @@ class WarriorComponent extends Component {
               console.log(`iSpec1: ${iSpec1}`);
               document.getElementById(
                 "point-counter1"
-              ).innerText = `Spec 1: ${iSpec1}`;
+              ).innerText = `(${iSpec1})`;
             } else if (specString[4] === "2") {
               console.log("Point taken back Spec 2");
               iSpec2 = iSpec2 - 1;
@@ -7474,7 +7474,7 @@ class WarriorComponent extends Component {
               console.log(`iSpec2: ${iSpec2}`);
               document.getElementById(
                 "point-counter2"
-              ).innerText = `Spec 2: ${iSpec2}`;
+              ).innerText = `(${iSpec2})`;
             } else if (specString[4] === "3") {
               console.log("Point taken back Spec 3");
               iSpec3 = iSpec3 - 1;
@@ -7482,7 +7482,7 @@ class WarriorComponent extends Component {
               console.log(`iSpec3: ${iSpec3}`);
               document.getElementById(
                 "point-counter3"
-              ).innerText = `Spec 3: ${iSpec3}`;
+              ).innerText = `(${iSpec3})`;
             }
           }
           console.log("One Point Potential");
@@ -7515,7 +7515,7 @@ class WarriorComponent extends Component {
               console.log(`iSpec1: ${iSpec1}`);
               document.getElementById(
                 "point-counter1"
-              ).innerText = `Spec 1: ${iSpec1}`;
+              ).innerText = `(${iSpec1})`;
             } else if (specString[4] === "2") {
               console.log("Point taken back Spec 2");
               iSpec2 = iSpec2 - 1;
@@ -7523,7 +7523,7 @@ class WarriorComponent extends Component {
               console.log(`iSpec2: ${iSpec2}`);
               document.getElementById(
                 "point-counter2"
-              ).innerText = `Spec 2: ${iSpec2}`;
+              ).innerText = `(${iSpec2})`;
             } else if (specString[4] === "3") {
               console.log("Point taken back Spec 3");
               iSpec3 = iSpec3 - 1;
@@ -7531,7 +7531,7 @@ class WarriorComponent extends Component {
               console.log(`iSpec3: ${iSpec3}`);
               document.getElementById(
                 "point-counter3"
-              ).innerText = `Spec 3: ${iSpec3}`;
+              ).innerText = `(${iSpec3})`;
             }
           }
           console.log("Two Point Potential");
@@ -7562,7 +7562,7 @@ class WarriorComponent extends Component {
               console.log(`iSpec1: ${iSpec1}`);
               document.getElementById(
                 "point-counter1"
-              ).innerText = `Spec 1: ${iSpec1}`;
+              ).innerText = `(${iSpec1})`;
             } else if (specString[4] === "2") {
               console.log("Point taken back Spec 2");
               iSpec2 = iSpec2 - 1;
@@ -7570,7 +7570,7 @@ class WarriorComponent extends Component {
               console.log(`iSpec2: ${iSpec2}`);
               document.getElementById(
                 "point-counter2"
-              ).innerText = `Spec 2: ${iSpec2}`;
+              ).innerText = `(${iSpec2})`;
             } else if (specString[4] === "3") {
               console.log("Point taken back Spec 3");
               iSpec3 = iSpec3 - 1;
@@ -7578,7 +7578,7 @@ class WarriorComponent extends Component {
               console.log(`iSpec3: ${iSpec3}`);
               document.getElementById(
                 "point-counter3"
-              ).innerText = `Spec 3: ${iSpec3}`;
+              ).innerText = `(${iSpec3})`;
             }
           }
           console.log("Three Point Potential");
@@ -7609,7 +7609,7 @@ class WarriorComponent extends Component {
               console.log(`iSpec1: ${iSpec1}`);
               document.getElementById(
                 "point-counter1"
-              ).innerText = `Spec 1: ${iSpec1}`;
+              ).innerText = `(${iSpec1})`;
             } else if (specString[4] === "2") {
               console.log("Point taken back Spec 2");
               iSpec2 = iSpec2 - 1;
@@ -7617,7 +7617,7 @@ class WarriorComponent extends Component {
               console.log(`iSpec2: ${iSpec2}`);
               document.getElementById(
                 "point-counter2"
-              ).innerText = `Spec 2: ${iSpec2}`;
+              ).innerText = `(${iSpec2})`;
             } else if (specString[4] === "3") {
               console.log("Point taken back Spec 3");
               iSpec3 = iSpec3 - 1;
@@ -7625,7 +7625,7 @@ class WarriorComponent extends Component {
               console.log(`iSpec3: ${iSpec3}`);
               document.getElementById(
                 "point-counter3"
-              ).innerText = `Spec 3: ${iSpec3}`;
+              ).innerText = `(${iSpec3})`;
             }
           }
           console.log("Four Point Potential");
@@ -7657,7 +7657,7 @@ class WarriorComponent extends Component {
               console.log(`iSpec1: ${iSpec1}`);
               document.getElementById(
                 "point-counter1"
-              ).innerText = `Spec 1: ${iSpec1}`;
+              ).innerText = `(${iSpec1})`;
             } else if (specString[4] === "2") {
               console.log("Point taken back Spec 2");
               iSpec2 = iSpec2 - 1;
@@ -7665,7 +7665,7 @@ class WarriorComponent extends Component {
               console.log(`iSpec2: ${iSpec2}`);
               document.getElementById(
                 "point-counter2"
-              ).innerText = `Spec 2: ${iSpec2}`;
+              ).innerText = `(${iSpec2})`;
             } else if (specString[4] === "3") {
               console.log("Point taken back Spec 3");
               iSpec3 = iSpec3 - 1;
@@ -7673,7 +7673,7 @@ class WarriorComponent extends Component {
               console.log(`iSpec3: ${iSpec3}`);
               document.getElementById(
                 "point-counter3"
-              ).innerText = `Spec 3: ${iSpec3}`;
+              ).innerText = `(${iSpec3})`;
             }
           }
           console.log("Five Point Potential");
@@ -7701,14 +7701,14 @@ class WarriorComponent extends Component {
             loopHappenedBefore = true;
             document.getElementById(
               "point-counter1"
-            ).innerText = `Spec 1: ${iSpec1}`;
+            ).innerText = `(${iSpec1})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec1 = iSpec1 - 1;
             i = 61;
             document.getElementById(
               "point-counter1"
-            ).innerText = `Spec 1: ${iSpec1}`;
+            ).innerText = `(${iSpec1})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -7719,14 +7719,14 @@ class WarriorComponent extends Component {
             loopHappenedBefore = true;
             document.getElementById(
               "point-counter2"
-            ).innerText = `Spec 2: ${iSpec2}`;
+            ).innerText = `(${iSpec2})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec2 = iSpec2 - 1;
             i = 61;
             document.getElementById(
               "point-counter2"
-            ).innerText = `Spec 2: ${iSpec2}`;
+            ).innerText = `(${iSpec2})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -7737,14 +7737,14 @@ class WarriorComponent extends Component {
             loopHappenedBefore = true;
             document.getElementById(
               "point-counter3"
-            ).innerText = `Spec 3: ${iSpec3}`;
+            ).innerText = `(${iSpec3})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec3 = iSpec3 - 1;
             i = 61;
             document.getElementById(
               "point-counter3"
-            ).innerText = `Spec 3: ${iSpec3}`;
+            ).innerText = `(${iSpec3})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -8042,7 +8042,7 @@ class WarriorComponent extends Component {
 
         document.getElementById(
           "point-counter1"
-        ).innerText = `Spec 1: ${iSpec1}`;
+        ).innerText = `(${iSpec1})`;
         removeGreenBorderSpec1();
         turnArrowSilverSpec1();
       } else if (specString[4] === "2") {
@@ -8052,7 +8052,7 @@ class WarriorComponent extends Component {
         }
         document.getElementById(
           "point-counter2"
-        ).innerText = `Spec 2: ${iSpec2}`;
+        ).innerText = `(${iSpec2})`;
         removeGreenBorderSpec2();
       } else if (specString[4] === "3") {
         console.log("Point taken from spec 3");
@@ -8060,7 +8060,7 @@ class WarriorComponent extends Component {
           iSpec3 = iSpec3 - 1;
           document.getElementById(
             "point-counter3"
-          ).innerText = `Spec 3: ${iSpec3}`;
+          ).innerText = `(${iSpec3})`;
           removeGreenBorderSpec3();
         }
       }
@@ -8094,21 +8094,21 @@ class WarriorComponent extends Component {
               console.log(`iSpec1: ${iSpec1}`);
               document.getElementById(
                 "point-counter1"
-              ).innerText = `Spec 1: ${iSpec1}`;
+              ).innerText = `(${iSpec1})`;
             } else if (specString[4] === "2") {
               console.log("Point taken back Spec 2");
 
               console.log(`iSpec2: ${iSpec2}`);
               document.getElementById(
                 "point-counter2"
-              ).innerText = `Spec 2: ${iSpec2}`;
+              ).innerText = `(${iSpec2})`;
             } else if (specString[4] === "3") {
               console.log("Point taken back Spec 3");
 
               console.log(`iSpec3: ${iSpec3}`);
               document.getElementById(
                 "point-counter3"
-              ).innerText = `Spec 3: ${iSpec3}`;
+              ).innerText = `(${iSpec3})`;
             }
           } else {
             alert("You have no points in this talent to remove!");
@@ -8128,20 +8128,20 @@ class WarriorComponent extends Component {
               console.log(`iSpec1: ${iSpec1}`);
               document.getElementById(
                 "point-counter1"
-              ).innerText = `Spec 1: ${iSpec1}`;
+              ).innerText = `(${iSpec1})`;
             } else if (specString[4] === "2") {
               console.log("Point added back Spec 2");
               console.log(`iSpec2: ${iSpec2}`);
               document.getElementById(
                 "point-counter2"
-              ).innerText = `Spec 2: ${iSpec2}`;
+              ).innerText = `(${iSpec2})`;
             } else if (specString[4] === "3") {
               console.log("Point added back Spec 3");
 
               console.log(`iSpec3: ${iSpec3}`);
               document.getElementById(
                 "point-counter3"
-              ).innerText = `Spec 3: ${iSpec3}`;
+              ).innerText = `(${iSpec3})`;
             }
           }
           console.log("One Point Potential");
@@ -8528,16 +8528,16 @@ class WarriorComponent extends Component {
     loopHappenedBefore = false;
     //Resets inner text value of DOM counters back to 0.
     document.getElementById("total-points").innerText = `${i}`;
-    document.getElementById("point-counter1").innerText = `Spec 1: ${iSpec1}`;
-    document.getElementById("point-counter2").innerText = `Spec 2: ${iSpec2}`;
-    document.getElementById("point-counter3").innerText = `Spec 3: ${iSpec3}`;
+    document.getElementById("point-counter1").innerText = `(${iSpec1})`;
+    document.getElementById("point-counter2").innerText = `(${iSpec2})`;
+    document.getElementById("point-counter3").innerText = `(${iSpec3})`;
 
     console.log("Reset Points!");
   }
 
-  scrollComponentIntoView(){
-    const anchor = document.querySelector('#Warrior')
-    anchor.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  componentDidMount(){
+    const anchor = document.getElementsByClassName("btn")[0];
+    anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   render() {
@@ -8548,7 +8548,6 @@ class WarriorComponent extends Component {
         className="frame-wrapper mx-auto"
         id="Warrior"
         onLoad={() => {
-          this.scrollComponentIntoView();
           this.rebuildToolTip();
         }}
       >
@@ -8574,34 +8573,34 @@ class WarriorComponent extends Component {
           </div>
           <div className="col-sm-4"></div>
         </div>
-        <div className="row">
-          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
-            <h5  style={{ color: "#e1eef4" }} id="point-counter1">
-              Spec 1: 0
-            </h5>
-          </div>
-          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
-            <h5 style={{ color: "#e1eef4" }} id="point-counter2">
-              Spec 2: 0
-            </h5>
-          </div>
-          <div className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4">
-            <h5 style={{ color: "#e1eef4" }} id="point-counter3">
-              Spec 3: 0
-            </h5>
-          </div>
-        </div>
 
         <div className="row ml-3 mr-3 mb-3 mx-auto" style={{maxWidth: "1010px"}}>
           <div
             style={{
               backgroundImage: `url(${spec1BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
+              overflow: "hidden",
+              whiteSpace: "nowrap"
             }}
             className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec1Logo} />Arms</h5>
+            <h5 id="spec1"
+              style={{display: "inline-block"}}
+            >
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec1Logo}
+              />
+              Arms
+            </h5>
+            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter1">
+              (0)
+            </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
@@ -9321,12 +9320,29 @@ class WarriorComponent extends Component {
           <div
             style={{
               backgroundImage: `url(${spec2BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
+              overflow: "hidden",
+              whiteSpace: "nowrap"
             }}
             className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec2Logo} />Fury</h5>
+            <h5 id="spec2"
+              style={{display: "inline-block"}}
+            >
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec2Logo}
+              />
+              Fury
+            </h5>
+            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter2">
+              (0)
+            </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
@@ -9992,12 +10008,29 @@ class WarriorComponent extends Component {
           <div
             style={{
               backgroundImage: `url(${spec3BG})`,
-              maxWidth: "305px"
+              maxWidth: "305px",
+              overflow: "hidden",
+              whiteSpace: "nowrap"
             }}
             className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3"><img style={{marginRight: ".5rem", borderRadius: "2px", border: "1.3px solid white"}} src={spec3Logo} />Protection</h5>
+            <h5 id="spec3"
+              style={{display: "inline-block"}}
+            >
+              <img
+                style={{
+                  marginRight: ".5rem",
+                  borderRadius: "2px",
+                  border: "1.3px solid white",
+                }}
+                src={spec3Logo}
+              />
+              Protection
+            </h5>
+            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter3">
+              (0)
+            </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
                 <img
