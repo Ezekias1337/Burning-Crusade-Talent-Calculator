@@ -9889,10 +9889,10 @@ class ShamanComponent extends Component {
     console.log("Reset Points!");
   }
 
-  /*scrollComponentIntoView() {
+  scrollComponentIntoView() {
     const anchor = document.querySelector("#Shaman");
     anchor.scrollIntoView({ behavior: "smooth", block: "start" });
-  }*/
+  }
 
   render() {
     return (
@@ -9902,7 +9902,7 @@ class ShamanComponent extends Component {
         className="frame-wrapper mx-auto"
         id="Shaman"
         onLoad={() => {
-          //this.scrollComponentIntoView();
+          this.scrollComponentIntoView();
           this.rebuildToolTip();
         }}
       >

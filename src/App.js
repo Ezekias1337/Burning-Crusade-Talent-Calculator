@@ -26,7 +26,10 @@ import CustomNavbar from "./components/NavbarComponent"
 import ReactTooltip from 'react-tooltip';
 
 class App extends Component {
-  
+  constructor(props){
+    super(props);
+    
+  }
   
     render() {
       return (
