@@ -9889,7 +9889,7 @@ class MageComponent extends Component {
               overflow: "hidden",
               whiteSpace: "nowrap"
             }}
-            className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
             <h5 id="spec1"
@@ -10628,7 +10628,7 @@ class MageComponent extends Component {
               overflow: "hidden",
               whiteSpace: "nowrap"
             }}
-            className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
             <h5 id="spec2"
@@ -11336,7 +11336,7 @@ class MageComponent extends Component {
               overflow: "hidden",
               whiteSpace: "nowrap"
             }}
-            className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
             <h5 id="spec3"

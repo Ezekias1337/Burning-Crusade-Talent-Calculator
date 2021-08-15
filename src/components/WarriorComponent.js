@@ -8717,7 +8717,7 @@ class WarriorComponent extends Component {
               overflow: "hidden",
               whiteSpace: "nowrap",
             }}
-            className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
             <h5 id="spec1" style={{ display: "inline-block" }}>
@@ -9508,7 +9508,7 @@ class WarriorComponent extends Component {
               overflow: "hidden",
               whiteSpace: "nowrap",
             }}
-            className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
             <h5 id="spec2" style={{ display: "inline-block" }}>
@@ -10235,7 +10235,7 @@ class WarriorComponent extends Component {
               overflow: "hidden",
               whiteSpace: "nowrap",
             }}
-            className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
+            className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
             <h5 id="spec3" style={{ display: "inline-block" }}>
@@ -10273,7 +10273,7 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
-                  ref={(ref) => (this.ToolTip = ref)}
+                  ref={(ref) => (this.ImprovedBloodrageToolTip = ref)}
                   data-tip={Warrior[44].toolTip[0]}
                   id="45"
                 />
@@ -10655,7 +10655,7 @@ class WarriorComponent extends Component {
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
-                  ref={(ref) => (this.ToolTip = ref)}
+                  ref={(ref) => (this.ImprovedShieldWallToolTip = ref)}
                   data-tip={Warrior[56].toolTip[0]}
                   id="57"
                 />
