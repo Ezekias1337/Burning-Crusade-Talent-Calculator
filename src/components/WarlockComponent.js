@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Warlock } from "../talentinfo/Warlock";
@@ -26,107 +25,105 @@ a.) Don't forget Arrows ✔
 
 */
 
-import spec1BG from "../images/talents/Warlock/Background/Affliction.jpg"
-import spec2BG from "../images/talents/Warlock/Background/Demonology.jpg"
-import spec3BG from "../images/talents/Warlock/Background/Destruction.jpg"
-import spec1Logo from "../images/talents/Warlock/Spec1Logo.jpg"
-import spec2Logo from "../images/talents/Warlock/Spec2Logo.jpg"
-import spec3Logo from "../images/talents/Warlock/Spec3Logo.jpg"
+import spec1BG from "../images/talents/Warlock/Background/Affliction.jpg";
+import spec2BG from "../images/talents/Warlock/Background/Demonology.jpg";
+import spec3BG from "../images/talents/Warlock/Background/Destruction.jpg";
+import spec1Logo from "../images/talents/Warlock/Spec1Logo.jpg";
+import spec2Logo from "../images/talents/Warlock/Spec2Logo.jpg";
+import spec3Logo from "../images/talents/Warlock/Spec3Logo.jpg";
 
 //consistent among classes
 
-import overlayImage from "../images/Item_Hover.png"
+import overlayImage from "../images/Item_Hover.png";
 
-import DownSilverSmall from "../images/DownSilverSmall.png"
-import DownSilverMedium from "../images/DownSilverMedium.png"
-import DownSilverLarge from "../images/DownSilverLarge.png"
+import DownSilverSmall from "../images/DownSilverSmall.png";
+import DownSilverMedium from "../images/DownSilverMedium.png";
+import DownSilverLarge from "../images/DownSilverLarge.png";
 
-import DownGoldSmall from "../images/DownGoldSmall.png"
-import DownGoldMedium from "../images/DownGoldMedium.png"
-import DownGoldLarge from "../images/DownGoldLarge.png"
+import DownGoldSmall from "../images/DownGoldSmall.png";
+import DownGoldMedium from "../images/DownGoldMedium.png";
+import DownGoldLarge from "../images/DownGoldLarge.png";
 
-import LeftSilverSmall from "../images/LeftSilverSmall.png"
-import RightSilverSmall from "../images/RightSilverSmall.png"
+import LeftSilverSmall from "../images/LeftSilverSmall.png";
+import RightSilverSmall from "../images/RightSilverSmall.png";
 
-import LeftGoldSmall from "../images/LeftGoldSmall.png"
-import RightGoldSmall from "../images/RightGoldSmall.png"
+import LeftGoldSmall from "../images/LeftGoldSmall.png";
+import RightGoldSmall from "../images/RightGoldSmall.png";
 
-import AngleArrowSilver from "../images/AngleArrowSilver.png"
-import AngleArrowGold from "../images/AngleArrowGold.png"
+import AngleArrowSilver from "../images/AngleArrowSilver.png";
+import AngleArrowGold from "../images/AngleArrowGold.png";
 
 //spec1
 
-import AmplifyCurse from '../images/talents/Warlock/Progression/spec1/AmplifyCurse.jpg';
-import GrimReach from '../images/talents/Warlock/Progression/spec1/GrimReach.jpg';
-import ImprovedHowlOfTerror from '../images/talents/Warlock/Progression/spec1/ImprovedHowlOfTerror.jpg';
-import ShadowMastery from '../images/talents/Warlock/Progression/spec1/ShadowMastery.jpg';
-import Contagion from '../images/talents/Warlock/Progression/spec1/Contagion.jpg';
-import ImprovedCorruption from '../images/talents/Warlock/Progression/spec1/ImprovedCorruption.jpg';
-import ImprovedLifeTap from '../images/talents/Warlock/Progression/spec1/ImprovedLifeTap.jpg';
-import SiphonLife from '../images/talents/Warlock/Progression/spec1/SiphonLife.jpg';
-import CurseOfExhaustion from '../images/talents/Warlock/Progression/spec1/CurseOfExhaustion.jpg';
-import ImprovedCurseOfAgony from '../images/talents/Warlock/Progression/spec1/ImprovedCurseOfAgony.jpg';
-import Malediction from '../images/talents/Warlock/Progression/spec1/Malediction.jpg';
-import SoulSiphon from '../images/talents/Warlock/Progression/spec1/SoulSiphon.jpg';
-import DarkPact from '../images/talents/Warlock/Progression/spec1/DarkPact.jpg';
-import ImprovedCurseOfWeakness from '../images/talents/Warlock/Progression/spec1/ImprovedCurseOfWeakness.jpg';
-import Nightfall from '../images/talents/Warlock/Progression/spec1/Nightfall.jpg';
-import Suppression from '../images/talents/Warlock/Progression/spec1/Suppression.jpg';
-import FelConcentration from '../images/talents/Warlock/Progression/spec1/FelConcentration.jpg';
-import ImprovedDrainSoul from '../images/talents/Warlock/Progression/spec1/ImprovedDrainSoul.jpg';
-import ShadowEmbrace from '../images/talents/Warlock/Progression/spec1/ShadowEmbrace.jpg';
-import UnstableAffliction from '../images/talents/Warlock/Progression/spec1/UnstableAffliction.jpg';
+import AmplifyCurse from "../images/talents/Warlock/Progression/spec1/AmplifyCurse.jpg";
+import GrimReach from "../images/talents/Warlock/Progression/spec1/GrimReach.jpg";
+import ImprovedHowlOfTerror from "../images/talents/Warlock/Progression/spec1/ImprovedHowlOfTerror.jpg";
+import ShadowMastery from "../images/talents/Warlock/Progression/spec1/ShadowMastery.jpg";
+import Contagion from "../images/talents/Warlock/Progression/spec1/Contagion.jpg";
+import ImprovedCorruption from "../images/talents/Warlock/Progression/spec1/ImprovedCorruption.jpg";
+import ImprovedLifeTap from "../images/talents/Warlock/Progression/spec1/ImprovedLifeTap.jpg";
+import SiphonLife from "../images/talents/Warlock/Progression/spec1/SiphonLife.jpg";
+import CurseOfExhaustion from "../images/talents/Warlock/Progression/spec1/CurseOfExhaustion.jpg";
+import ImprovedCurseOfAgony from "../images/talents/Warlock/Progression/spec1/ImprovedCurseOfAgony.jpg";
+import Malediction from "../images/talents/Warlock/Progression/spec1/Malediction.jpg";
+import SoulSiphon from "../images/talents/Warlock/Progression/spec1/SoulSiphon.jpg";
+import DarkPact from "../images/talents/Warlock/Progression/spec1/DarkPact.jpg";
+import ImprovedCurseOfWeakness from "../images/talents/Warlock/Progression/spec1/ImprovedCurseOfWeakness.jpg";
+import Nightfall from "../images/talents/Warlock/Progression/spec1/Nightfall.jpg";
+import Suppression from "../images/talents/Warlock/Progression/spec1/Suppression.jpg";
+import FelConcentration from "../images/talents/Warlock/Progression/spec1/FelConcentration.jpg";
+import ImprovedDrainSoul from "../images/talents/Warlock/Progression/spec1/ImprovedDrainSoul.jpg";
+import ShadowEmbrace from "../images/talents/Warlock/Progression/spec1/ShadowEmbrace.jpg";
+import UnstableAffliction from "../images/talents/Warlock/Progression/spec1/UnstableAffliction.jpg";
 
 //spec2
 
-import DemonicAegis from '../images/talents/Warlock/Progression/spec2/DemonicAegis.jpg';
-import DemonicTactics from '../images/talents/Warlock/Progression/spec2/DemonicTactics.jpg';
-import ImprovedHealthFunnel from '../images/talents/Warlock/Progression/spec2/ImprovedHealthFunnel.jpg';
-import ManaFeed from '../images/talents/Warlock/Progression/spec2/ManaFeed.jpg';
-import SummonFelguard from '../images/talents/Warlock/Progression/spec2/SummonFelguard.jpg';
-import DemonicEmbrace from '../images/talents/Warlock/Progression/spec2/DemonicEmbrace.jpg';
-import FelDomination from '../images/talents/Warlock/Progression/spec2/FelDomination.jpg';
-import ImprovedHealthStone from '../images/talents/Warlock/Progression/spec2/ImprovedHealthStone.jpg';
-import MasterConjuror from '../images/talents/Warlock/Progression/spec2/MasterConjuror.jpg';
-import UnholyPower from '../images/talents/Warlock/Progression/spec2/UnholyPower.jpg';
-import DemonicKnowledge from '../images/talents/Warlock/Progression/spec2/DemonicKnowledge.jpg';
-import FelIntellect from '../images/talents/Warlock/Progression/spec2/FelIntellect.jpg';
-import ImprovedImp from '../images/talents/Warlock/Progression/spec2/ImprovedImp.jpg';
-import MasterDemonologist from '../images/talents/Warlock/Progression/spec2/MasterDemonologist.jpg';
-import DemonicResilience from '../images/talents/Warlock/Progression/spec2/DemonicResilience.jpg';
-import FelStamina from '../images/talents/Warlock/Progression/spec2/FelStamina.jpg';
-import ImprovedSuccubus from '../images/talents/Warlock/Progression/spec2/ImprovedSuccubus.jpg';
-import MasterSummoner from '../images/talents/Warlock/Progression/spec2/MasterSummoner.jpg';
-import DemonicSacrifice from '../images/talents/Warlock/Progression/spec2/DemonicSacrifice.jpg';
-import ImprovedEnslaveDemon from '../images/talents/Warlock/Progression/spec2/ImprovedEnslaveDemon.jpg';
-import ImprovedVoidwalker from '../images/talents/Warlock/Progression/spec2/ImprovedVoidwalker.jpg';
-import SoulLink from '../images/talents/Warlock/Progression/spec2/SoulLink.jpg';
+import DemonicAegis from "../images/talents/Warlock/Progression/spec2/DemonicAegis.jpg";
+import DemonicTactics from "../images/talents/Warlock/Progression/spec2/DemonicTactics.jpg";
+import ImprovedHealthFunnel from "../images/talents/Warlock/Progression/spec2/ImprovedHealthFunnel.jpg";
+import ManaFeed from "../images/talents/Warlock/Progression/spec2/ManaFeed.jpg";
+import SummonFelguard from "../images/talents/Warlock/Progression/spec2/SummonFelguard.jpg";
+import DemonicEmbrace from "../images/talents/Warlock/Progression/spec2/DemonicEmbrace.jpg";
+import FelDomination from "../images/talents/Warlock/Progression/spec2/FelDomination.jpg";
+import ImprovedHealthStone from "../images/talents/Warlock/Progression/spec2/ImprovedHealthStone.jpg";
+import MasterConjuror from "../images/talents/Warlock/Progression/spec2/MasterConjuror.jpg";
+import UnholyPower from "../images/talents/Warlock/Progression/spec2/UnholyPower.jpg";
+import DemonicKnowledge from "../images/talents/Warlock/Progression/spec2/DemonicKnowledge.jpg";
+import FelIntellect from "../images/talents/Warlock/Progression/spec2/FelIntellect.jpg";
+import ImprovedImp from "../images/talents/Warlock/Progression/spec2/ImprovedImp.jpg";
+import MasterDemonologist from "../images/talents/Warlock/Progression/spec2/MasterDemonologist.jpg";
+import DemonicResilience from "../images/talents/Warlock/Progression/spec2/DemonicResilience.jpg";
+import FelStamina from "../images/talents/Warlock/Progression/spec2/FelStamina.jpg";
+import ImprovedSuccubus from "../images/talents/Warlock/Progression/spec2/ImprovedSuccubus.jpg";
+import MasterSummoner from "../images/talents/Warlock/Progression/spec2/MasterSummoner.jpg";
+import DemonicSacrifice from "../images/talents/Warlock/Progression/spec2/DemonicSacrifice.jpg";
+import ImprovedEnslaveDemon from "../images/talents/Warlock/Progression/spec2/ImprovedEnslaveDemon.jpg";
+import ImprovedVoidwalker from "../images/talents/Warlock/Progression/spec2/ImprovedVoidwalker.jpg";
+import SoulLink from "../images/talents/Warlock/Progression/spec2/SoulLink.jpg";
 
 //spec3
 
-import Aftermath from '../images/talents/Warlock/Progression/spec3/Aftermath.jpg';
-import DestructiveReach from '../images/talents/Warlock/Progression/spec3/DestructiveReach.jpg';
-import ImprovedLashOfPain from '../images/talents/Warlock/Progression/spec3/ImprovedLashOfPain.jpg';
-import Pyroclasm from '../images/talents/Warlock/Progression/spec3/Pyroclasm.jpg';
-import SoulLeech from '../images/talents/Warlock/Progression/spec3/SoulLeech.jpg';
-import Backlash from '../images/talents/Warlock/Progression/spec3/Backlash.jpg';
-import Devastation from '../images/talents/Warlock/Progression/spec3/Devastation.jpg';
-import ImprovedSearingPain from '../images/talents/Warlock/Progression/spec3/ImprovedSearingPain.jpg';
-import Ruin from '../images/talents/Warlock/Progression/spec3/Ruin.jpg';
-import Bane from '../images/talents/Warlock/Progression/spec3/Bane.jpg';
-import Emberstorm from '../images/talents/Warlock/Progression/spec3/Emberstorm.jpg';
-import ImprovedShadowBolt from '../images/talents/Warlock/Progression/spec3/ImprovedShadowBolt.jpg';
-import ShadowAndFlame from '../images/talents/Warlock/Progression/spec3/ShadowAndFlame.jpg';
-import Cataclysm from '../images/talents/Warlock/Progression/spec3/Cataclysm.jpg';
-import ImprovedFirebolt from '../images/talents/Warlock/Progression/spec3/ImprovedFirebolt.jpg';
-import Intensity from '../images/talents/Warlock/Progression/spec3/Intensity.jpg';
-import Shadowburn from '../images/talents/Warlock/Progression/spec3/Shadowburn.jpg';
-import Conflagrate from '../images/talents/Warlock/Progression/spec3/Conflagrate.jpg';
-import ImprovedImmolate from '../images/talents/Warlock/Progression/spec3/ImprovedImmolate.jpg';
-import NetherProtection from '../images/talents/Warlock/Progression/spec3/NetherProtection.jpg';
-import Shadowfury from '../images/talents/Warlock/Progression/spec3/Shadowfury.jpg';
-
-
+import Aftermath from "../images/talents/Warlock/Progression/spec3/Aftermath.jpg";
+import DestructiveReach from "../images/talents/Warlock/Progression/spec3/DestructiveReach.jpg";
+import ImprovedLashOfPain from "../images/talents/Warlock/Progression/spec3/ImprovedLashOfPain.jpg";
+import Pyroclasm from "../images/talents/Warlock/Progression/spec3/Pyroclasm.jpg";
+import SoulLeech from "../images/talents/Warlock/Progression/spec3/SoulLeech.jpg";
+import Backlash from "../images/talents/Warlock/Progression/spec3/Backlash.jpg";
+import Devastation from "../images/talents/Warlock/Progression/spec3/Devastation.jpg";
+import ImprovedSearingPain from "../images/talents/Warlock/Progression/spec3/ImprovedSearingPain.jpg";
+import Ruin from "../images/talents/Warlock/Progression/spec3/Ruin.jpg";
+import Bane from "../images/talents/Warlock/Progression/spec3/Bane.jpg";
+import Emberstorm from "../images/talents/Warlock/Progression/spec3/Emberstorm.jpg";
+import ImprovedShadowBolt from "../images/talents/Warlock/Progression/spec3/ImprovedShadowBolt.jpg";
+import ShadowAndFlame from "../images/talents/Warlock/Progression/spec3/ShadowAndFlame.jpg";
+import Cataclysm from "../images/talents/Warlock/Progression/spec3/Cataclysm.jpg";
+import ImprovedFirebolt from "../images/talents/Warlock/Progression/spec3/ImprovedFirebolt.jpg";
+import Intensity from "../images/talents/Warlock/Progression/spec3/Intensity.jpg";
+import Shadowburn from "../images/talents/Warlock/Progression/spec3/Shadowburn.jpg";
+import Conflagrate from "../images/talents/Warlock/Progression/spec3/Conflagrate.jpg";
+import ImprovedImmolate from "../images/talents/Warlock/Progression/spec3/ImprovedImmolate.jpg";
+import NetherProtection from "../images/talents/Warlock/Progression/spec3/NetherProtection.jpg";
+import Shadowfury from "../images/talents/Warlock/Progression/spec3/Shadowfury.jpg";
 
 let i = 0;
 let iSpec1 = 0;
@@ -137,12 +134,10 @@ let loopHappenedBefore = false;
 class WarlockComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
 
-  rebuildToolTip(){
+  rebuildToolTip() {
     ReactTooltip.rebuild();
   }
 
@@ -334,11 +329,11 @@ class WarlockComponent extends Component {
     }
   }
 
-  displayOverlayMobile(){
+  displayOverlayMobile() {
     window.event.target.previousElementSibling.style.display = "inline";
   }
 
-  hideOverlayMobile(){
+  hideOverlayMobile() {
     window.event.target.previousElementSibling.style.display = "none";
   }
 
@@ -350,11 +345,9 @@ class WarlockComponent extends Component {
   }
 
   displayMouseOverlayInnerElement() {
-    if(window.event.target.previousElementSibling){
+    if (window.event.target.previousElementSibling) {
       window.event.target.previousElementSibling.style.display = "inline";
     }
-    
-
   }
 
   hideMouseOverlay() {
@@ -1016,7 +1009,7 @@ class WarlockComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1236,7 +1229,7 @@ class WarlockComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1456,7 +1449,7 @@ class WarlockComponent extends Component {
           arrowSrcSize = "left";
         } else if (arrowSrc.className.includes("right")) {
           arrowSrcSize = "right";
-        } 
+        }
 
         switch (arrowSrcSize) {
           case "sm":
@@ -1741,11 +1734,11 @@ class WarlockComponent extends Component {
         }
         if (arrowChecker.includes("left")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          LeftGoldSmall;
+            LeftGoldSmall;
         }
         if (arrowChecker.includes("right")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          RightGoldSmall;
+            RightGoldSmall;
         }
         if (arrowChecker.includes("sm")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
@@ -1753,11 +1746,11 @@ class WarlockComponent extends Component {
         }
         if (arrowChecker.includes("med")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          DownGoldMedium;
+            DownGoldMedium;
         }
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          DownGoldLarge;
+            DownGoldLarge;
         }
       }
 
@@ -8506,25 +8499,30 @@ class WarlockComponent extends Component {
     //Path taken if user left clicks the button
     if (window.event.button === 0) {
       //If user tries to add more points to a maxed talent, exit function, preventing user action
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[0] ===
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[2]
+      ) {
+        return;
       }
 
       //If User tries to add points to a talent that isn't active yet, exit function
 
-      if(window.event.srcElement.nextElementSibling.className.includes("inactive-talent")){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.className.includes(
+          "inactive-talent"
+        )
+      ) {
+        return;
       }
-      
+
       //if user clicked button in spec 1 tree update point counter for spec 1
       if (specString[4] === "1") {
         console.log("Point used in spec 1");
         iSpec1 = iSpec1 + 1;
-        document.getElementById(
-          "point-counter1"
-        ).innerText = `(${iSpec1})`;
+        document.getElementById("point-counter1").innerText = `(${iSpec1})`;
 
         addGreenBorderSpec1();
       }
@@ -8532,9 +8530,7 @@ class WarlockComponent extends Component {
       else if (specString[4] === "2") {
         console.log("Point used in spec 2");
         iSpec2 = iSpec2 + 1;
-        document.getElementById(
-          "point-counter2"
-        ).innerText = `(${iSpec2})`;
+        document.getElementById("point-counter2").innerText = `(${iSpec2})`;
 
         addGreenBorderSpec2();
       }
@@ -8542,9 +8538,7 @@ class WarlockComponent extends Component {
       else if (specString[4] === "3") {
         console.log("Point used in spec 3");
         iSpec3 = iSpec3 + 1;
-        document.getElementById(
-          "point-counter3"
-        ).innerText = `(${iSpec3})`;
+        document.getElementById("point-counter3").innerText = `(${iSpec3})`;
 
         addGreenBorderSpec3();
       }
@@ -8820,16 +8814,12 @@ class WarlockComponent extends Component {
             iSpec1 = iSpec1 - 1;
             i = 61;
             loopHappenedBefore = true;
-            document.getElementById(
-              "point-counter1"
-            ).innerText = `(${iSpec1})`;
+            document.getElementById("point-counter1").innerText = `(${iSpec1})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec1 = iSpec1 - 1;
             i = 61;
-            document.getElementById(
-              "point-counter1"
-            ).innerText = `(${iSpec1})`;
+            document.getElementById("point-counter1").innerText = `(${iSpec1})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -8838,16 +8828,12 @@ class WarlockComponent extends Component {
             iSpec2 = iSpec2 - 1;
             i = 61;
             loopHappenedBefore = true;
-            document.getElementById(
-              "point-counter2"
-            ).innerText = `(${iSpec2})`;
+            document.getElementById("point-counter2").innerText = `(${iSpec2})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec2 = iSpec2 - 1;
             i = 61;
-            document.getElementById(
-              "point-counter2"
-            ).innerText = `(${iSpec2})`;
+            document.getElementById("point-counter2").innerText = `(${iSpec2})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -8856,16 +8842,12 @@ class WarlockComponent extends Component {
             iSpec3 = iSpec3 - 1;
             i = 61;
             loopHappenedBefore = true;
-            document.getElementById(
-              "point-counter3"
-            ).innerText = `(${iSpec3})`;
+            document.getElementById("point-counter3").innerText = `(${iSpec3})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec3 = iSpec3 - 1;
             i = 61;
-            document.getElementById(
-              "point-counter3"
-            ).innerText = `(${iSpec3})`;
+            document.getElementById("point-counter3").innerText = `(${iSpec3})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -8937,184 +8919,318 @@ class WarlockComponent extends Component {
 
     //Path taken if user right clicks the button
     else if (window.event.button === 2) {
-      
-
-
       //this prevents the user from taking away points if they have points in a dependant talent
       //spec 1
-      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec1"]') && !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")){
-        
-        return
-      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec1"]') && !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")){
-        
-        return
-      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec1"]') && !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")){
-        
-        return
-      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec1"]') && !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq1Spec1"]') &&
+        !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      } else if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq2Spec1"]') &&
+        !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      } else if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq3Spec1"]') &&
+        !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      } else if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq4Spec1"]') &&
+        !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")
+      ) {
+        return;
       }
       //spec 2
-      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec2"]') && !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec2"]') && !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec2"]') && !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec2"]') && !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq1Spec2"]') &&
+        !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq2Spec2"]') &&
+        !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq3Spec2"]') &&
+        !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq4Spec2"]') &&
+        !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")
+      ) {
+        return;
       }
       //spec 3
-      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec3"]') && !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec3"]') && !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec3"]') && !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec3"]') && !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq1Spec3"]') &&
+        !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq2Spec3"]') &&
+        !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq3Spec3"]') &&
+        !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq4Spec3"]') &&
+        !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")
+      ) {
+        return;
       }
 
       //if user tries to remove points in a talent they spent no points in, exit function to prevent action
 
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === "0"){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[0] === "0"
+      ) {
+        return;
       }
 
       /* This following if statement was added to fix the bug that prevented the arrow
       from reverting to silver when you took away the points in the subsReq talent
       */
 
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("Spec")){
-
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "Spec"
+        )
+      ) {
         let arrowSrcSize;
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
-          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("sm")) {
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling
+            .nextElementSibling
+        ) {
+          if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "sm"
+            )
+          ) {
             arrowSrcSize = "sm";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("med")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "med"
+            )
+          ) {
             arrowSrcSize = "med";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("lg")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "lg"
+            )
+          ) {
             arrowSrcSize = "lg";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("left")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "left"
+            )
+          ) {
             arrowSrcSize = "left";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("right")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "right"
+            )
+          ) {
             arrowSrcSize = "right";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("angle")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "angle"
+            )
+          ) {
             arrowSrcSize = "angle";
           }
         }
-        
-        
-          switch (arrowSrcSize) {
-            case "sm":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverSmall;
-              break;
 
-            case "med":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverMedium;
-              break;
+        switch (arrowSrcSize) {
+          case "sm":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverSmall;
+            break;
 
-            case "lg":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverLarge;
-              break;
+          case "med":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverMedium;
+            break;
 
-            case "left":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = LeftSilverSmall;
-              break;
+          case "lg":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverLarge;
+            break;
 
-            case "right":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = RightSilverSmall;
-              break;
+          case "left":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              LeftSilverSmall;
+            break;
 
-            case "angle":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = AngleArrowSilver;
-              break;
-          
+          case "right":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              RightSilverSmall;
+            break;
+
+          case "angle":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              AngleArrowSilver;
+            break;
         }
 
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1")){
-          
-          document.querySelector('[id*="prioReq1Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1")){
-          
-          document.querySelector('[id*="prioReq2Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1")){
-         
-          document.querySelector('[id*="prioReq3Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1")){
-          
-          document.querySelector('[id*="prioReq4Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-
-
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2")){
-          
-          document.querySelector('[id*="prioReq1Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2")){
-          
-          document.querySelector('[id*="prioReq2Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2")){
-          
-          document.querySelector('[id*="prioReq3Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2")){
-          
-          document.querySelector('[id*="prioReq4Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
-        }
-        
-
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3")){
-          
-          document.querySelector('[id*="prioReq1Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3")){
-          
-          document.querySelector('[id*="prioReq2Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3")){
-          
-          document.querySelector('[id*="prioReq3Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3")){
-          
-          document.querySelector('[id*="prioReq4Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-
-
-
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
+        }
       }
 
       /* This following block of code prevents the user from removing points from a talent
@@ -9123,42 +9239,52 @@ class WarlockComponent extends Component {
       */
 
       pointRequirementString =
-      window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
-        17,
-        19
+        window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
+          17,
+          19
+        );
+
+      console.log(pointRequirementString);
+
+      let clickDecider;
+      let arrayOfTalents = Array.from(
+        document.querySelectorAll(".talentPoints")
       );
-      
-    console.log(
-      pointRequirementString
-    );
+      let arrayOfTalentsFiltered = [];
 
-    let clickDecider;
-    let arrayOfTalents = Array.from(document.querySelectorAll(".talentPoints"))
-    let arrayOfTalentsFiltered = [];
-
-    arrayOfTalentsFiltered = arrayOfTalents.filter(talent => talent.className.slice(17,19) > pointRequirementString)
-    console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
-    for(let individualTalent of arrayOfTalentsFiltered) {
-      if(individualTalent.className.slice(20,22) === "s1" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec1){
-        clickDecider = false;
-      } 
-      if(individualTalent.className.slice(20,22) === "s2" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec2){
-        clickDecider = false;
+      arrayOfTalentsFiltered = arrayOfTalents.filter(
+        (talent) => talent.className.slice(17, 19) > pointRequirementString
+      );
+      console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
+      for (let individualTalent of arrayOfTalentsFiltered) {
+        if (
+          individualTalent.className.slice(20, 22) === "s1" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec1
+        ) {
+          clickDecider = false;
+        }
+        if (
+          individualTalent.className.slice(20, 22) === "s2" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec2
+        ) {
+          clickDecider = false;
+        }
+        if (
+          individualTalent.className.slice(20, 22) === "s3" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec3
+        ) {
+          clickDecider = false;
+        }
       }
-      if(individualTalent.className.slice(20,22) === "s3" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec3){
-        clickDecider = false;
+
+      if (clickDecider === false) {
+        return;
       }
 
-
-
-    }
-
-    if(clickDecider === false){
-      return
-    }
-      
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       //if user right clicked talent in spec1 subtract one point from point tracker if > 0
       if (specString[4] === "1") {
@@ -9167,9 +9293,7 @@ class WarlockComponent extends Component {
           iSpec1 = iSpec1 - 1;
         }
 
-        document.getElementById(
-          "point-counter1"
-        ).innerText = `(${iSpec1})`;
+        document.getElementById("point-counter1").innerText = `(${iSpec1})`;
         removeGreenBorderSpec1();
         turnArrowSilverSpec1();
       } else if (specString[4] === "2") {
@@ -9177,17 +9301,13 @@ class WarlockComponent extends Component {
         if (iSpec2 > 0) {
           iSpec2 = iSpec2 - 1;
         }
-        document.getElementById(
-          "point-counter2"
-        ).innerText = `(${iSpec2})`;
+        document.getElementById("point-counter2").innerText = `(${iSpec2})`;
         removeGreenBorderSpec2();
       } else if (specString[4] === "3") {
         console.log("Point taken from spec 3");
         if (iSpec3 > 0) {
           iSpec3 = iSpec3 - 1;
-          document.getElementById(
-            "point-counter3"
-          ).innerText = `(${iSpec3})`;
+          document.getElementById("point-counter3").innerText = `(${iSpec3})`;
           removeGreenBorderSpec3();
         }
       }
@@ -9543,28 +9663,25 @@ class WarlockComponent extends Component {
 
     console.log("Beginning of reset test");
     for (y = 0; y < spanArray.length; y++) {
-      
       toolTipIDChecker =
-          spanArray[y].previousElementSibling.previousElementSibling.id;
-        toolTipStepper = Warlock[toolTipIDChecker - 1];
-        toolTipSelector = toolTipStepper.toolTip[0];
-        document
-          .getElementById(toolTipIDChecker)
-          .setAttribute("data-tip", toolTipSelector);
+        spanArray[y].previousElementSibling.previousElementSibling.id;
+      toolTipStepper = Warlock[toolTipIDChecker - 1];
+      toolTipSelector = toolTipStepper.toolTip[0];
+      document
+        .getElementById(toolTipIDChecker)
+        .setAttribute("data-tip", toolTipSelector);
 
-        spanArray[y].previousElementSibling.previousElementSibling.setAttribute(
-          "data-tip",
-          toolTipSelector
-        );
-      
+      spanArray[y].previousElementSibling.previousElementSibling.setAttribute(
+        "data-tip",
+        toolTipSelector
+      );
+
       if (
         !(
           spanArray[y].className[17] === "0" &&
           spanArray[y].className[18] === "0"
         )
       ) {
-        
-
         if (spanArray[y].previousElementSibling.className[4] === "1") {
           spanArray[y].previousElementSibling.className =
             "spec1 talentButton inactive-talent req-inactive";
@@ -9674,7 +9791,7 @@ class WarlockComponent extends Component {
     console.log("Reset Points!");
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const anchor = document.getElementsByClassName("btn")[0];
     anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   }
@@ -9694,39 +9811,60 @@ class WarlockComponent extends Component {
           className="row"
           style={{ whiteSpace: "nowrap", overflow: "hidden" }}
         >
-          <div className="col-sm-12"><button
+          <div className="col-sm-12">
+            <button
               onClick={this.resetPoints}
               type="button"
               className="btn btn-success mb-2 mt-2"
-              style={{display: "inline-block", marginLeft: "6px"}}
+              style={{ display: "inline-block", marginLeft: "6px" }}
             >
               Reset
-            </button></div>
+            </button>
+          </div>
           <div className="col-sm-4"></div>
-          <div className="col-sm-4 mx-auto" style={{overflow: "hidden", whiteSpace: "nowrap"}}>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "6px" }}>Points Spent:</h5>
-            <h5 id="total-points" style={{ color: "white", display: "inline-block", marginLeft: "6px", marginTop:"1px" }}>
+          <div
+            className="col-sm-4 mx-auto"
+            style={{ overflow: "hidden", whiteSpace: "nowrap" }}
+          >
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "6px",
+              }}
+            >
+              Points Spent:
+            </h5>
+            <h5
+              id="total-points"
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "6px",
+                marginTop: "1px",
+              }}
+            >
               0
             </h5>
-            
           </div>
           <div className="col-sm-4"></div>
         </div>
 
-        <div className="row ml-3 mr-3 mb-3 mx-auto" style={{maxWidth: "1010px"}}>
+        <div
+          className="row ml-3 mr-3 mb-3 mx-auto"
+          style={{ maxWidth: "1010px" }}
+        >
           <div
             style={{
               backgroundImage: `url(${spec1BG})`,
               maxWidth: "305px",
               overflow: "hidden",
-              whiteSpace: "nowrap"
+              whiteSpace: "nowrap",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1"
-              style={{display: "inline-block"}}
-            >
+            <h5 id="spec1" style={{ display: "inline-block" }}>
               <img
                 style={{
                   marginRight: ".5rem",
@@ -9737,7 +9875,14 @@ class WarlockComponent extends Component {
               />
               Affliction
             </h5>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter1">
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "2px",
+              }}
+              id="point-counter1"
+            >
               (0)
             </h5>
             <div className="row talent-row talent-row-inner">
@@ -9749,11 +9894,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SuppressionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SuppressionToolTip = ref)}
                   data-tip={Warlock[0].toolTip[0]}
                   id="1"
                 />
@@ -9777,11 +9924,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedCorruptionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedCorruptionToolTip = ref)}
                   data-tip={Warlock[1].toolTip[0]}
                   id="2"
                 />
@@ -9808,11 +9957,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedCurseOfWeaknessToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedCurseOfWeaknessToolTip = ref)}
                   data-tip={Warlock[2].toolTip[0]}
                   id="3"
                 />
@@ -9836,11 +9987,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedDrainSoulToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedDrainSoulToolTip = ref)}
                   data-tip={Warlock[3].toolTip[0]}
                   id="4"
                 />
@@ -9864,11 +10017,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedLifeTapToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedLifeTapToolTip = ref)}
                   data-tip={Warlock[4].toolTip[0]}
                   id="5"
                 />
@@ -9892,11 +10047,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SoulSiphonToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SoulSiphonToolTip = ref)}
                   data-tip={Warlock[5].toolTip[0]}
                   id="6"
                 />
@@ -9922,11 +10079,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedCurseOfAgonyToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedCurseOfAgonyToolTip = ref)}
                   data-tip={Warlock[6].toolTip[0]}
                   id="7"
                 />
@@ -9950,11 +10109,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FelConcentrationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.FelConcentrationToolTip = ref)}
                   data-tip={Warlock[7].toolTip[0]}
                   id="8"
                 />
@@ -9978,11 +10139,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.AmplifyCurseToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.AmplifyCurseToolTip = ref)}
                   data-tip={Warlock[8].toolTip[0]}
                   id="9"
                 />
@@ -9997,7 +10160,9 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq1Spec1" className="talentPoints req-10-s1">0/1</span>
+                <span id="subsReq1Spec1" className="talentPoints req-10-s1">
+                  0/1
+                </span>
                 <img
                   className="medArrow"
                   src={DownSilverMedium}
@@ -10008,18 +10173,20 @@ class WarlockComponent extends Component {
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row">
-            <div className="col col-xs-3">
+              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.GrimReachToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.GrimReachToolTip = ref)}
                   data-tip={Warlock[9].toolTip[0]}
                   id="10"
                 />
@@ -10043,11 +10210,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.NightfallToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.NightfallToolTip = ref)}
                   data-tip={Warlock[10].toolTip[0]}
                   id="11"
                 />
@@ -10072,11 +10241,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedCorruptionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedCorruptionToolTip = ref)}
                   data-tip={Warlock[11].toolTip[0]}
                   id="12"
                 />
@@ -10091,13 +10262,8 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-15-s1">
-                  0/3
-                </span>
-                
+                <span className="talentPoints req-15-s1">0/3</span>
               </div>
-
-              
             </div>
 
             <div className="row talent-row talent-row-inner">
@@ -10108,11 +10274,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ShadowEmbraceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ShadowEmbraceToolTip = ref)}
                   data-tip={Warlock[12].toolTip[0]}
                   id="13"
                 />
@@ -10136,11 +10304,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SiphonLifeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SiphonLifeToolTip = ref)}
                   data-tip={Warlock[13].toolTip[0]}
                   id="14"
                 />
@@ -10165,7 +10335,7 @@ class WarlockComponent extends Component {
                   id="arrwReq2Spec1"
                 />
               </div>
-              
+
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -10173,11 +10343,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CurseOfExhaustionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.CurseOfExhaustionToolTip = ref)}
                   data-tip={Warlock[14].toolTip[0]}
                   id="15"
                 />
@@ -10192,13 +10364,14 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq1Spec1" className="talentPoints req-20-s1">0/1</span>
+                <span id="prioReq1Spec1" className="talentPoints req-20-s1">
+                  0/1
+                </span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
 
             <div className="row talent-row talent-row-inner">
-              
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
@@ -10207,11 +10380,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ShadowMasteryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ShadowMasteryToolTip = ref)}
                   data-tip={Warlock[15].toolTip[0]}
                   id="16"
                 />
@@ -10226,9 +10401,11 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq2Spec1" className="talentPoints req-25-s1">0/5</span>
+                <span id="prioReq2Spec1" className="talentPoints req-25-s1">
+                  0/5
+                </span>
               </div>
-              
+
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10241,11 +10418,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ContagionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ContagionToolTip = ref)}
                   data-tip={Warlock[16].toolTip[0]}
                   id="17"
                 />
@@ -10260,10 +10439,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span
-                  id="subsReq3Spec1"
-                  className="talentPoints req-30-s1"
-                >
+                <span id="subsReq3Spec1" className="talentPoints req-30-s1">
                   0/5
                 </span>
                 <img
@@ -10280,11 +10456,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DarkPactToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DarkPactToolTip = ref)}
                   data-tip={Warlock[17].toolTip[0]}
                   id="18"
                 />
@@ -10304,18 +10482,20 @@ class WarlockComponent extends Component {
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-            <div className="col col-xs-3">
+              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedHowlOfTerrorToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedHowlOfTerrorToolTip = ref)}
                   data-tip={Warlock[18].toolTip[0]}
                   id="19"
                 />
@@ -10340,11 +10520,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MaledictionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MaledictionToolTip = ref)}
                   data-tip={Warlock[19].toolTip[0]}
                   id="20"
                 />
@@ -10372,11 +10554,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.UnstableAfflictionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.UnstableAfflictionToolTip = ref)}
                   data-tip={Warlock[20].toolTip[0]}
                   id="21"
                 />
@@ -10404,14 +10588,12 @@ class WarlockComponent extends Component {
               backgroundImage: `url(${spec2BG})`,
               maxWidth: "305px",
               overflow: "hidden",
-              whiteSpace: "nowrap"
+              whiteSpace: "nowrap",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2"
-              style={{display: "inline-block"}}
-            >
+            <h5 id="spec2" style={{ display: "inline-block" }}>
               <img
                 style={{
                   marginRight: ".5rem",
@@ -10422,22 +10604,31 @@ class WarlockComponent extends Component {
               />
               Demonology
             </h5>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter2">
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "2px",
+              }}
+              id="point-counter2"
+            >
               (0)
             </h5>
             <div className="row talent-row talent-row-inner">
-            <div className="col col-xs-3">
+              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedHealthStoneToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedHealthStoneToolTip = ref)}
                   data-tip={Warlock[21].toolTip[0]}
                   id="22"
                 />
@@ -10461,11 +10652,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedImpToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedImpToolTip = ref)}
                   data-tip={Warlock[22].toolTip[0]}
                   id="23"
                 />
@@ -10489,11 +10682,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DemonicEmbraceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DemonicEmbraceToolTip = ref)}
                   data-tip={Warlock[23].toolTip[0]}
                   id="24"
                 />
@@ -10513,18 +10708,20 @@ class WarlockComponent extends Component {
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-            <div className="col col-xs-3">
+              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedHealthFunnelToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedHealthFunnelToolTip = ref)}
                   data-tip={Warlock[24].toolTip[0]}
                   id="25"
                 />
@@ -10548,11 +10745,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedVoidwalkerToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedVoidwalkerToolTip = ref)}
                   data-tip={Warlock[25].toolTip[0]}
                   id="26"
                 />
@@ -10576,11 +10775,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FelIntellectToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.FelIntellectToolTip = ref)}
                   data-tip={Warlock[26].toolTip[0]}
                   id="27"
                 />
@@ -10607,11 +10808,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedSuccubusToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedSuccubusToolTip = ref)}
                   data-tip={Warlock[27].toolTip[0]}
                   id="28"
                 />
@@ -10635,11 +10838,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FelDominationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.FelDominationToolTip = ref)}
                   data-tip={Warlock[28].toolTip[0]}
                   id="29"
                 />
@@ -10654,7 +10859,9 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq1Spec2" className="talentPoints req-10-s2">0/1</span>
+                <span id="subsReq1Spec2" className="talentPoints req-10-s2">
+                  0/1
+                </span>
                 <img
                   className="smArrow"
                   src={DownSilverSmall}
@@ -10669,11 +10876,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FelStaminaToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.FelStaminaToolTip = ref)}
                   data-tip={Warlock[29].toolTip[0]}
                   id="30"
                 />
@@ -10688,10 +10897,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">
-                  0/3
-                </span>
-                
+                <span className="talentPoints req-10-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10700,11 +10906,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DemonicAegisToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DemonicAegisToolTip = ref)}
                   data-tip={Warlock[30].toolTip[0]}
                   id="31"
                 />
@@ -10731,11 +10939,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MasterSummonerToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MasterSummonerToolTip = ref)}
                   data-tip={Warlock[31].toolTip[0]}
                   id="32"
                 />
@@ -10750,7 +10960,9 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq1Spec2" className="talentPoints req-15-s2">0/2</span>
+                <span id="prioReq1Spec2" className="talentPoints req-15-s2">
+                  0/2
+                </span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10759,11 +10971,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.UnholyPowerToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.UnholyPowerToolTip = ref)}
                   data-tip={Warlock[32].toolTip[0]}
                   id="33"
                 />
@@ -10798,11 +11012,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedEnslaveDemonToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedEnslaveDemonToolTip = ref)}
                   data-tip={Warlock[33].toolTip[0]}
                   id="34"
                 />
@@ -10826,11 +11042,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DemonicSacrificeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DemonicSacrificeToolTip = ref)}
                   data-tip={Warlock[34].toolTip[0]}
                   id="35"
                 />
@@ -10863,11 +11081,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MasterConjurorToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MasterConjurorToolTip = ref)}
                   data-tip={Warlock[35].toolTip[0]}
                   id="36"
                 />
@@ -10882,12 +11102,8 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
-                  0/2
-                </span>
-                
+                <span className="talentPoints req-20-s2">0/2</span>
               </div>
-              
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -10897,11 +11113,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ManaFeedToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ManaFeedToolTip = ref)}
                   data-tip={Warlock[36].toolTip[0]}
                   id="37"
                 />
@@ -10926,11 +11144,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MasterDemonologistToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MasterDemonologistToolTip = ref)}
                   data-tip={Warlock[37].toolTip[0]}
                   id="38"
                 />
@@ -10945,10 +11165,11 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq2Spec2" className="talentPoints req-25-s2">0/5</span>
+                <span id="prioReq2Spec2" className="talentPoints req-25-s2">
+                  0/5
+                </span>
               </div>
               <div className="col col-xs-3"></div>
-              
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -10958,11 +11179,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DemonicResilienceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DemonicResilienceToolTip = ref)}
                   data-tip={Warlock[38].toolTip[0]}
                   id="39"
                 />
@@ -10986,11 +11209,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SoulLinkToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SoulLinkToolTip = ref)}
                   data-tip={Warlock[39].toolTip[0]}
                   id="40"
                 />
@@ -11016,11 +11241,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DemonicKnowledgeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DemonicKnowledgeToolTip = ref)}
                   data-tip={Warlock[40].toolTip[0]}
                   id="41"
                 />
@@ -11035,9 +11262,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">
-                  0/3
-                </span>
+                <span className="talentPoints req-30-s2">0/3</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -11050,11 +11275,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DemonicTacticsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DemonicTacticsToolTip = ref)}
                   data-tip={Warlock[41].toolTip[0]}
                   id="42"
                 />
@@ -11069,10 +11296,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s2">
-                  0/5
-                </span>
-                
+                <span className="talentPoints req-35-s2">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -11086,11 +11310,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SummonFelguardToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SummonFelguardToolTip = ref)}
                   data-tip={Warlock[42].toolTip[0]}
                   id="43"
                 />
@@ -11105,9 +11331,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s2">
-                  0/1
-                </span>
+                <span className="talentPoints req-40-s2">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -11118,14 +11342,12 @@ class WarlockComponent extends Component {
               backgroundImage: `url(${spec3BG})`,
               maxWidth: "305px",
               overflow: "hidden",
-              whiteSpace: "nowrap"
+              whiteSpace: "nowrap",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3"
-              style={{display: "inline-block"}}
-            >
+            <h5 id="spec3" style={{ display: "inline-block" }}>
               <img
                 style={{
                   marginRight: ".5rem",
@@ -11136,12 +11358,19 @@ class WarlockComponent extends Component {
               />
               Destruction
             </h5>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter3">
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "2px",
+              }}
+              id="point-counter3"
+            >
               (0)
             </h5>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3"></div>
-              
+
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -11149,11 +11378,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedShadowBoltToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedShadowBoltToolTip = ref)}
                   data-tip={Warlock[43].toolTip[0]}
                   id="44"
                 />
@@ -11177,11 +11408,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CataclysmToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.CataclysmToolTip = ref)}
                   data-tip={Warlock[44].toolTip[0]}
                   id="45"
                 />
@@ -11198,10 +11431,10 @@ class WarlockComponent extends Component {
 
                 <span className="talentPoints req-00-s3">0/5</span>
               </div>
-              <div className="col col-xs-3"></div> 
+              <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
-              <div className="col col-xs-3"></div> 
+              <div className="col col-xs-3"></div>
               <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
@@ -11209,11 +11442,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BaneToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.BaneToolTip = ref)}
                   data-tip={Warlock[45].toolTip[0]}
                   id="46"
                 />
@@ -11237,11 +11472,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.AftermathToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.AftermathToolTip = ref)}
                   data-tip={Warlock[46].toolTip[0]}
                   id="47"
                 />
@@ -11268,11 +11505,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedFireboltToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedFireboltToolTip = ref)}
                   data-tip={Warlock[47].toolTip[0]}
                   id="48"
                 />
@@ -11296,11 +11535,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedLashOfPainToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedLashOfPainToolTip = ref)}
                   data-tip={Warlock[48].toolTip[0]}
                   id="49"
                 />
@@ -11324,11 +11565,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DevastationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DevastationToolTip = ref)}
                   data-tip={Warlock[49].toolTip[0]}
                   id="50"
                 />
@@ -11360,11 +11603,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ShadowburnToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ShadowburnToolTip = ref)}
                   data-tip={Warlock[50].toolTip[0]}
                   id="51"
                 />
@@ -11379,10 +11624,7 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">
-                  0/1
-                </span>
-                
+                <span className="talentPoints req-10-s3">0/1</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -11393,11 +11635,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.IntensityToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.IntensityToolTip = ref)}
                   data-tip={Warlock[51].toolTip[0]}
                   id="52"
                 />
@@ -11412,7 +11656,9 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq2Spec3" className="talentPoints req-15-s3">0/2</span>
+                <span id="subsReq2Spec3" className="talentPoints req-15-s3">
+                  0/2
+                </span>
                 <img
                   className="smArrow"
                   src={DownSilverSmall}
@@ -11427,11 +11673,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DestructiveReachToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DestructiveReachToolTip = ref)}
                   data-tip={Warlock[52].toolTip[0]}
                   id="53"
                 />
@@ -11456,11 +11704,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedSearingPainToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedSearingPainToolTip = ref)}
                   data-tip={Warlock[53].toolTip[0]}
                   id="54"
                 />
@@ -11486,11 +11736,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PyroclasmToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.PyroclasmToolTip = ref)}
                   data-tip={Warlock[54].toolTip[0]}
                   id="55"
                 />
@@ -11505,7 +11757,9 @@ class WarlockComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq2Spec3" className="talentPoints req-20-s3">0/2</span>
+                <span id="prioReq2Spec3" className="talentPoints req-20-s3">
+                  0/2
+                </span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -11514,11 +11768,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedImmolateToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedImmolateToolTip = ref)}
                   data-tip={Warlock[55].toolTip[0]}
                   id="56"
                 />
@@ -11550,11 +11806,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.RuinToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.RuinToolTip = ref)}
                   data-tip={Warlock[56].toolTip[0]}
                   id="57"
                 />
@@ -11583,11 +11841,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.NetherProtectionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.NetherProtectionToolTip = ref)}
                   data-tip={Warlock[57].toolTip[0]}
                   id="58"
                 />
@@ -11612,11 +11872,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.EmberstormToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.EmberstormToolTip = ref)}
                   data-tip={Warlock[58].toolTip[0]}
                   id="59"
                 />
@@ -11643,11 +11905,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BacklashToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.BacklashToolTip = ref)}
                   data-tip={Warlock[59].toolTip[0]}
                   id="60"
                 />
@@ -11671,11 +11935,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ConflagrateToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ConflagrateToolTip = ref)}
                   data-tip={Warlock[60].toolTip[0]}
                   id="61"
                 />
@@ -11701,11 +11967,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SoulLeechToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SoulLeechToolTip = ref)}
                   data-tip={Warlock[61].toolTip[0]}
                   id="62"
                 />
@@ -11733,11 +12001,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ShadowAndFlameToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ShadowAndFlameToolTip = ref)}
                   data-tip={Warlock[62].toolTip[0]}
                   id="63"
                 />
@@ -11774,11 +12044,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ShadowfuryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ShadowfuryToolTip = ref)}
                   data-tip={Warlock[63].toolTip[0]}
                   id="64"
                 />

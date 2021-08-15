@@ -220,7 +220,6 @@ class ClassSelector extends Component {
             <Link 
               to={"/" + playableClass.playableClassName}
               class="info"
-              onClick={this.scrollComponentIntoView}
               id={playableClass.playableClassName + "Link"}
               
               style={{
