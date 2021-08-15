@@ -1,14 +1,12 @@
-
 import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Warrior } from "../talentinfo/Warrior";
-import spec1BG from "../images/talents/Warrior/Background/Arms.jpg"
-import spec2BG from "../images/talents/Warrior/Background/Fury.jpg"
-import spec3BG from "../images/talents/Warrior/Background/Protection.jpg"
-import spec1Logo from "../images/talents/Warrior/Spec1Logo.jpg"
-import spec2Logo from "../images/talents/Warrior/Spec2Logo.jpg"
-import spec3Logo from "../images/talents/Warrior/Spec3Logo.jpg"
-
+import spec1BG from "../images/talents/Warrior/Background/Arms.jpg";
+import spec2BG from "../images/talents/Warrior/Background/Fury.jpg";
+import spec3BG from "../images/talents/Warrior/Background/Protection.jpg";
+import spec1Logo from "../images/talents/Warrior/Spec1Logo.jpg";
+import spec2Logo from "../images/talents/Warrior/Spec2Logo.jpg";
+import spec3Logo from "../images/talents/Warrior/Spec3Logo.jpg";
 
 /* 
 DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
@@ -35,99 +33,98 @@ a.) Don't forget Arrows ✔
 
 //consistent among classes
 
-import overlayImage from "../images/Item_Hover.png"
+import overlayImage from "../images/Item_Hover.png";
 
-import DownSilverSmall from "../images/DownSilverSmall.png"
-import DownSilverMedium from "../images/DownSilverMedium.png"
-import DownSilverLarge from "../images/DownSilverLarge.png"
+import DownSilverSmall from "../images/DownSilverSmall.png";
+import DownSilverMedium from "../images/DownSilverMedium.png";
+import DownSilverLarge from "../images/DownSilverLarge.png";
 
-import DownGoldSmall from "../images/DownGoldSmall.png"
-import DownGoldMedium from "../images/DownGoldMedium.png"
-import DownGoldLarge from "../images/DownGoldLarge.png"
+import DownGoldSmall from "../images/DownGoldSmall.png";
+import DownGoldMedium from "../images/DownGoldMedium.png";
+import DownGoldLarge from "../images/DownGoldLarge.png";
 
-import LeftSilverSmall from "../images/LeftSilverSmall.png"
-import RightSilverSmall from "../images/RightSilverSmall.png"
+import LeftSilverSmall from "../images/LeftSilverSmall.png";
+import RightSilverSmall from "../images/RightSilverSmall.png";
 
-import LeftGoldSmall from "../images/LeftGoldSmall.png"
-import RightGoldSmall from "../images/RightGoldSmall.png"
+import LeftGoldSmall from "../images/LeftGoldSmall.png";
+import RightGoldSmall from "../images/RightGoldSmall.png";
 
-import AngleArrowSilver from "../images/AngleArrowSilver.png"
-import AngleArrowGold from "../images/AngleArrowGold.png"
+import AngleArrowSilver from "../images/AngleArrowSilver.png";
+import AngleArrowGold from "../images/AngleArrowGold.png";
 
 //spec1
 
-import AngerManagement from '../images/talents/Warrior/Progression/spec1/AngerManagement.jpg';
-import Impale from '../images/talents/Warrior/Progression/spec1/Impale.jpg';
-import ImprovedOverpower from '../images/talents/Warrior/Progression/spec1/ImprovedOverpower.jpg';
-import PoleaxeSpecialization from '../images/talents/Warrior/Progression/spec1/PoleaxeSpecialization.jpg';
-import BloodFrenzy from '../images/talents/Warrior/Progression/spec1/BloodFrenzy.jpg';
-import ImprovedCharge from '../images/talents/Warrior/Progression/spec1/ImprovedCharge.jpg';
-import ImprovedRend from '../images/talents/Warrior/Progression/spec1/ImprovedRend.jpg';
-import SecondWind from '../images/talents/Warrior/Progression/spec1/SecondWind.jpg';
-import DeathWish from '../images/talents/Warrior/Progression/spec1/DeathWish.jpg';
-import ImprovedDisciplines from '../images/talents/Warrior/Progression/spec1/ImprovedDisciplines.jpg';
-import ImprovedThunderClap from '../images/talents/Warrior/Progression/spec1/ImprovedThunderClap.jpg';
-import SwordSpecialization from '../images/talents/Warrior/Progression/spec1/SwordSpecialization.jpg';
-import DeepWounds from '../images/talents/Warrior/Progression/spec1/DeepWounds.jpg';
-import ImprovedHamstring from '../images/talents/Warrior/Progression/spec1/ImprovedHamstring.jpg';
-import IronWill from '../images/talents/Warrior/Progression/spec1/IronWill.jpg';
-import TwoHandedWeaponSpecialization from '../images/talents/Warrior/Progression/spec1/TwoHandedWeaponSpecialization.jpg';
-import Deflection from '../images/talents/Warrior/Progression/spec1/Deflection.jpg';
-import ImprovedHeroicStrike from '../images/talents/Warrior/Progression/spec1/ImprovedHeroicStrike.jpg';
-import MaceSpecialization from '../images/talents/Warrior/Progression/spec1/MaceSpecialization.jpg';
-import ImprovedIntercept from '../images/talents/Warrior/Progression/spec1/ImprovedIntercept.jpg';
-import MortalStrike from '../images/talents/Warrior/Progression/spec1/MortalStrike.jpg';
-import EndlessRage from '../images/talents/Warrior/Progression/spec1/EndlessRage.jpg';
+import AngerManagement from "../images/talents/Warrior/Progression/spec1/AngerManagement.jpg";
+import Impale from "../images/talents/Warrior/Progression/spec1/Impale.jpg";
+import ImprovedOverpower from "../images/talents/Warrior/Progression/spec1/ImprovedOverpower.jpg";
+import PoleaxeSpecialization from "../images/talents/Warrior/Progression/spec1/PoleaxeSpecialization.jpg";
+import BloodFrenzy from "../images/talents/Warrior/Progression/spec1/BloodFrenzy.jpg";
+import ImprovedCharge from "../images/talents/Warrior/Progression/spec1/ImprovedCharge.jpg";
+import ImprovedRend from "../images/talents/Warrior/Progression/spec1/ImprovedRend.jpg";
+import SecondWind from "../images/talents/Warrior/Progression/spec1/SecondWind.jpg";
+import DeathWish from "../images/talents/Warrior/Progression/spec1/DeathWish.jpg";
+import ImprovedDisciplines from "../images/talents/Warrior/Progression/spec1/ImprovedDisciplines.jpg";
+import ImprovedThunderClap from "../images/talents/Warrior/Progression/spec1/ImprovedThunderClap.jpg";
+import SwordSpecialization from "../images/talents/Warrior/Progression/spec1/SwordSpecialization.jpg";
+import DeepWounds from "../images/talents/Warrior/Progression/spec1/DeepWounds.jpg";
+import ImprovedHamstring from "../images/talents/Warrior/Progression/spec1/ImprovedHamstring.jpg";
+import IronWill from "../images/talents/Warrior/Progression/spec1/IronWill.jpg";
+import TwoHandedWeaponSpecialization from "../images/talents/Warrior/Progression/spec1/TwoHandedWeaponSpecialization.jpg";
+import Deflection from "../images/talents/Warrior/Progression/spec1/Deflection.jpg";
+import ImprovedHeroicStrike from "../images/talents/Warrior/Progression/spec1/ImprovedHeroicStrike.jpg";
+import MaceSpecialization from "../images/talents/Warrior/Progression/spec1/MaceSpecialization.jpg";
+import ImprovedIntercept from "../images/talents/Warrior/Progression/spec1/ImprovedIntercept.jpg";
+import MortalStrike from "../images/talents/Warrior/Progression/spec1/MortalStrike.jpg";
+import EndlessRage from "../images/talents/Warrior/Progression/spec1/EndlessRage.jpg";
 
 //spec2
 
-import BloodCraze from '../images/talents/Warrior/Progression/spec2/BloodCraze.jpg';
-import Enrage from '../images/talents/Warrior/Progression/spec2/Enrage.jpg';
-import ImprovedExecute from '../images/talents/Warrior/Progression/spec2/ImprovedExecute.jpg';
-import SweepingStrikes from '../images/talents/Warrior/Progression/spec2/SweepingStrikes.jpg';
-import Bloodthirst from '../images/talents/Warrior/Progression/spec2/Bloodthirst.jpg';
-import Flurry from '../images/talents/Warrior/Progression/spec2/Flurry.jpg';
-import ImprovedSlam from '../images/talents/Warrior/Progression/spec2/ImprovedSlam.jpg';
-import UnbridledWrath from '../images/talents/Warrior/Progression/spec2/UnbridledWrath.jpg';
-import BoomingVoice from '../images/talents/Warrior/Progression/spec2/BoomingVoice.jpg';
-import ImprovedBerserkerRage from '../images/talents/Warrior/Progression/spec2/ImprovedBerserkerRage.jpg';
-import ImprovedWhirlwind from '../images/talents/Warrior/Progression/spec2/ImprovedWhirlwind.jpg';
-import WeaponMastery from '../images/talents/Warrior/Progression/spec2/WeaponMastery.jpg';
-import CommandingPresence from '../images/talents/Warrior/Progression/spec2/CommandingPresence.jpg';
-import ImprovedBerserkerStance from '../images/talents/Warrior/Progression/spec2/ImprovedBerserkerStance.jpg';
-import PiercingHowl from '../images/talents/Warrior/Progression/spec2/PiercingHowl.jpg';
-import Cruelty from '../images/talents/Warrior/Progression/spec2/Cruelty.jpg';
-import ImprovedCleave from '../images/talents/Warrior/Progression/spec2/ImprovedCleave.jpg';
-import Precision from '../images/talents/Warrior/Progression/spec2/Precision.jpg';
-import ImprovedDemoralizingShout from '../images/talents/Warrior/Progression/spec2/ImprovedDemoralizingShout.jpg';
-import DualWieldSpecialization from '../images/talents/Warrior/Progression/spec2/DualWieldSpecialization.jpg';
-import Rampage from '../images/talents/Warrior/Progression/spec2/Rampage.jpg';
+import BloodCraze from "../images/talents/Warrior/Progression/spec2/BloodCraze.jpg";
+import Enrage from "../images/talents/Warrior/Progression/spec2/Enrage.jpg";
+import ImprovedExecute from "../images/talents/Warrior/Progression/spec2/ImprovedExecute.jpg";
+import SweepingStrikes from "../images/talents/Warrior/Progression/spec2/SweepingStrikes.jpg";
+import Bloodthirst from "../images/talents/Warrior/Progression/spec2/Bloodthirst.jpg";
+import Flurry from "../images/talents/Warrior/Progression/spec2/Flurry.jpg";
+import ImprovedSlam from "../images/talents/Warrior/Progression/spec2/ImprovedSlam.jpg";
+import UnbridledWrath from "../images/talents/Warrior/Progression/spec2/UnbridledWrath.jpg";
+import BoomingVoice from "../images/talents/Warrior/Progression/spec2/BoomingVoice.jpg";
+import ImprovedBerserkerRage from "../images/talents/Warrior/Progression/spec2/ImprovedBerserkerRage.jpg";
+import ImprovedWhirlwind from "../images/talents/Warrior/Progression/spec2/ImprovedWhirlwind.jpg";
+import WeaponMastery from "../images/talents/Warrior/Progression/spec2/WeaponMastery.jpg";
+import CommandingPresence from "../images/talents/Warrior/Progression/spec2/CommandingPresence.jpg";
+import ImprovedBerserkerStance from "../images/talents/Warrior/Progression/spec2/ImprovedBerserkerStance.jpg";
+import PiercingHowl from "../images/talents/Warrior/Progression/spec2/PiercingHowl.jpg";
+import Cruelty from "../images/talents/Warrior/Progression/spec2/Cruelty.jpg";
+import ImprovedCleave from "../images/talents/Warrior/Progression/spec2/ImprovedCleave.jpg";
+import Precision from "../images/talents/Warrior/Progression/spec2/Precision.jpg";
+import ImprovedDemoralizingShout from "../images/talents/Warrior/Progression/spec2/ImprovedDemoralizingShout.jpg";
+import DualWieldSpecialization from "../images/talents/Warrior/Progression/spec2/DualWieldSpecialization.jpg";
+import Rampage from "../images/talents/Warrior/Progression/spec2/Rampage.jpg";
 
 //spec3
 
-import Anticipation from '../images/talents/Warrior/Progression/spec3/Anticipation.jpg';
-import ImprovedDefensiveStance from '../images/talents/Warrior/Progression/spec3/ImprovedDefensiveStance.jpg';
-import ImprovedSunderArmor from '../images/talents/Warrior/Progression/spec3/ImprovedSunderArmor.jpg';
-import ShieldSpecialization from '../images/talents/Warrior/Progression/spec3/ShieldSpecialization.jpg';
-import ConcussionBlow from '../images/talents/Warrior/Progression/spec3/ConcussionBlow.jpg';
-import ImprovedDisarm from '../images/talents/Warrior/Progression/spec3/ImprovedDisarm.jpg';
-import ImprovedTaunt from '../images/talents/Warrior/Progression/spec3/ImprovedTaunt.jpg';
-import TacticalMastery from '../images/talents/Warrior/Progression/spec3/TacticalMastery.jpg';
-import Defiance from '../images/talents/Warrior/Progression/spec3/Defiance.jpg';
-import ImprovedRevenge from '../images/talents/Warrior/Progression/spec3/ImprovedRevenge.jpg';
-import LastStand from '../images/talents/Warrior/Progression/spec3/LastStand.jpg';
-import Toughness from '../images/talents/Warrior/Progression/spec3/Toughness.jpg';
-import Devastate from '../images/talents/Warrior/Progression/spec3/Devastate.jpg';
-import ImprovedShieldBash from '../images/talents/Warrior/Progression/spec3/ImprovedShieldBash.jpg';
-import OneHandedWeaponSpecialization from '../images/talents/Warrior/Progression/spec3/OneHandedWeaponSpecialization.jpg';
-import Vitality from '../images/talents/Warrior/Progression/spec3/Vitality.jpg';
-import FocusedRage from '../images/talents/Warrior/Progression/spec3/FocusedRage.jpg';
-import ImprovedShieldBlock from '../images/talents/Warrior/Progression/spec3/ImprovedShieldBlock.jpg';
-import ShieldMastery from '../images/talents/Warrior/Progression/spec3/ShieldMastery.jpg';
-import ImprovedBloodRage from '../images/talents/Warrior/Progression/spec3/ImprovedBloodrage.jpg';
-import ImprovedShieldWall from '../images/talents/Warrior/Progression/spec3/ImprovedShieldWall.jpg';
-import ShieldSlam from '../images/talents/Warrior/Progression/spec3/ShieldSlam.jpg';
-
+import Anticipation from "../images/talents/Warrior/Progression/spec3/Anticipation.jpg";
+import ImprovedDefensiveStance from "../images/talents/Warrior/Progression/spec3/ImprovedDefensiveStance.jpg";
+import ImprovedSunderArmor from "../images/talents/Warrior/Progression/spec3/ImprovedSunderArmor.jpg";
+import ShieldSpecialization from "../images/talents/Warrior/Progression/spec3/ShieldSpecialization.jpg";
+import ConcussionBlow from "../images/talents/Warrior/Progression/spec3/ConcussionBlow.jpg";
+import ImprovedDisarm from "../images/talents/Warrior/Progression/spec3/ImprovedDisarm.jpg";
+import ImprovedTaunt from "../images/talents/Warrior/Progression/spec3/ImprovedTaunt.jpg";
+import TacticalMastery from "../images/talents/Warrior/Progression/spec3/TacticalMastery.jpg";
+import Defiance from "../images/talents/Warrior/Progression/spec3/Defiance.jpg";
+import ImprovedRevenge from "../images/talents/Warrior/Progression/spec3/ImprovedRevenge.jpg";
+import LastStand from "../images/talents/Warrior/Progression/spec3/LastStand.jpg";
+import Toughness from "../images/talents/Warrior/Progression/spec3/Toughness.jpg";
+import Devastate from "../images/talents/Warrior/Progression/spec3/Devastate.jpg";
+import ImprovedShieldBash from "../images/talents/Warrior/Progression/spec3/ImprovedShieldBash.jpg";
+import OneHandedWeaponSpecialization from "../images/talents/Warrior/Progression/spec3/OneHandedWeaponSpecialization.jpg";
+import Vitality from "../images/talents/Warrior/Progression/spec3/Vitality.jpg";
+import FocusedRage from "../images/talents/Warrior/Progression/spec3/FocusedRage.jpg";
+import ImprovedShieldBlock from "../images/talents/Warrior/Progression/spec3/ImprovedShieldBlock.jpg";
+import ShieldMastery from "../images/talents/Warrior/Progression/spec3/ShieldMastery.jpg";
+import ImprovedBloodRage from "../images/talents/Warrior/Progression/spec3/ImprovedBloodrage.jpg";
+import ImprovedShieldWall from "../images/talents/Warrior/Progression/spec3/ImprovedShieldWall.jpg";
+import ShieldSlam from "../images/talents/Warrior/Progression/spec3/ShieldSlam.jpg";
 
 let i = 0;
 let iSpec1 = 0;
@@ -138,12 +135,10 @@ let loopHappenedBefore = false;
 class WarriorComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
 
-  rebuildToolTip(){
+  rebuildToolTip() {
     ReactTooltip.rebuild();
   }
 
@@ -335,11 +330,11 @@ class WarriorComponent extends Component {
     }
   }
 
-  displayOverlayMobile(){
+  displayOverlayMobile() {
     window.event.target.previousElementSibling.style.display = "inline";
   }
 
-  hideOverlayMobile(){
+  hideOverlayMobile() {
     window.event.target.previousElementSibling.style.display = "none";
   }
 
@@ -351,11 +346,9 @@ class WarriorComponent extends Component {
   }
 
   displayMouseOverlayInnerElement() {
-    if(window.event.target.previousElementSibling){
+    if (window.event.target.previousElementSibling) {
       window.event.target.previousElementSibling.style.display = "inline";
     }
-    
-
   }
 
   hideMouseOverlay() {
@@ -1688,11 +1681,11 @@ class WarriorComponent extends Component {
         }
         if (arrowChecker.includes("med")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          DownGoldMedium;
+            DownGoldMedium;
         }
         if (arrowChecker.includes("lg")) {
           window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
-          DownGoldLarge;
+            DownGoldLarge;
         }
       }
 
@@ -7385,25 +7378,30 @@ class WarriorComponent extends Component {
     //Path taken if user left clicks the button
     if (window.event.button === 0) {
       //If user tries to add more points to a maxed talent, exit function, preventing user action
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === window.event.srcElement.nextElementSibling.nextElementSibling.innerText[2]){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[0] ===
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[2]
+      ) {
+        return;
       }
 
       //If User tries to add points to a talent that isn't active yet, exit function
 
-      if(window.event.srcElement.nextElementSibling.className.includes("inactive-talent")){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.className.includes(
+          "inactive-talent"
+        )
+      ) {
+        return;
       }
-      
+
       //if user clicked button in spec 1 tree update point counter for spec 1
       if (specString[4] === "1") {
         console.log("Point used in spec 1");
         iSpec1 = iSpec1 + 1;
-        document.getElementById(
-          "point-counter1"
-        ).innerText = `(${iSpec1})`;
+        document.getElementById("point-counter1").innerText = `(${iSpec1})`;
 
         addGreenBorderSpec1();
       }
@@ -7411,9 +7409,7 @@ class WarriorComponent extends Component {
       else if (specString[4] === "2") {
         console.log("Point used in spec 2");
         iSpec2 = iSpec2 + 1;
-        document.getElementById(
-          "point-counter2"
-        ).innerText = `(${iSpec2})`;
+        document.getElementById("point-counter2").innerText = `(${iSpec2})`;
 
         addGreenBorderSpec2();
       }
@@ -7421,9 +7417,7 @@ class WarriorComponent extends Component {
       else if (specString[4] === "3") {
         console.log("Point used in spec 3");
         iSpec3 = iSpec3 + 1;
-        document.getElementById(
-          "point-counter3"
-        ).innerText = `(${iSpec3})`;
+        document.getElementById("point-counter3").innerText = `(${iSpec3})`;
 
         addGreenBorderSpec3();
       }
@@ -7699,16 +7693,12 @@ class WarriorComponent extends Component {
             iSpec1 = iSpec1 - 1;
             i = 61;
             loopHappenedBefore = true;
-            document.getElementById(
-              "point-counter1"
-            ).innerText = `(${iSpec1})`;
+            document.getElementById("point-counter1").innerText = `(${iSpec1})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec1 = iSpec1 - 1;
             i = 61;
-            document.getElementById(
-              "point-counter1"
-            ).innerText = `(${iSpec1})`;
+            document.getElementById("point-counter1").innerText = `(${iSpec1})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -7717,16 +7707,12 @@ class WarriorComponent extends Component {
             iSpec2 = iSpec2 - 1;
             i = 61;
             loopHappenedBefore = true;
-            document.getElementById(
-              "point-counter2"
-            ).innerText = `(${iSpec2})`;
+            document.getElementById("point-counter2").innerText = `(${iSpec2})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec2 = iSpec2 - 1;
             i = 61;
-            document.getElementById(
-              "point-counter2"
-            ).innerText = `(${iSpec2})`;
+            document.getElementById("point-counter2").innerText = `(${iSpec2})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -7735,16 +7721,12 @@ class WarriorComponent extends Component {
             iSpec3 = iSpec3 - 1;
             i = 61;
             loopHappenedBefore = true;
-            document.getElementById(
-              "point-counter3"
-            ).innerText = `(${iSpec3})`;
+            document.getElementById("point-counter3").innerText = `(${iSpec3})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec3 = iSpec3 - 1;
             i = 61;
-            document.getElementById(
-              "point-counter3"
-            ).innerText = `(${iSpec3})`;
+            document.getElementById("point-counter3").innerText = `(${iSpec3})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -7816,178 +7798,307 @@ class WarriorComponent extends Component {
 
     //Path taken if user right clicks the button
     else if (window.event.button === 2) {
-      
-
-
       //this prevents the user from taking away points if they have points in a dependant talent
       //spec 1
-      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec1"]') && !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")){
-        
-        return
-      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec1"]') && !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")){
-        
-        return
-      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec1"]') && !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")){
-        
-        return
-      } else if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec1"]') && !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq1Spec1"]') &&
+        !(document.querySelector('[id*="prioReq1Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      } else if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq2Spec1"]') &&
+        !(document.querySelector('[id*="prioReq2Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      } else if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq3Spec1"]') &&
+        !(document.querySelector('[id*="prioReq3Spec1"]').innerText[0] === "0")
+      ) {
+        return;
+      } else if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq4Spec1"]') &&
+        !(document.querySelector('[id*="prioReq4Spec1"]').innerText[0] === "0")
+      ) {
+        return;
       }
       //spec 2
-      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec2"]') && !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec2"]') && !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec2"]') && !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec2"]') && !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq1Spec2"]') &&
+        !(document.querySelector('[id*="prioReq1Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq2Spec2"]') &&
+        !(document.querySelector('[id*="prioReq2Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq3Spec2"]') &&
+        !(document.querySelector('[id*="prioReq3Spec2"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq4Spec2"]') &&
+        !(document.querySelector('[id*="prioReq4Spec2"]').innerText[0] === "0")
+      ) {
+        return;
       }
       //spec 3
-      if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq1Spec3"]') && !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq2Spec3"]') && !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq3Spec3"]') && !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")){
-        
-        return
-      } if(window.event.srcElement.nextElementSibling.nextElementSibling === document.querySelector('[id*="subsReq4Spec3"]') && !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")){
-        
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq1Spec3"]') &&
+        !(document.querySelector('[id*="prioReq1Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq2Spec3"]') &&
+        !(document.querySelector('[id*="prioReq2Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq3Spec3"]') &&
+        !(document.querySelector('[id*="prioReq3Spec3"]').innerText[0] === "0")
+      ) {
+        return;
+      }
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling ===
+          document.querySelector('[id*="subsReq4Spec3"]') &&
+        !(document.querySelector('[id*="prioReq4Spec3"]').innerText[0] === "0")
+      ) {
+        return;
       }
 
       //if user tries to remove points in a talent they spent no points in, exit function to prevent action
 
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.innerText[0] === "0"){
-
-        return
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling
+          .innerText[0] === "0"
+      ) {
+        return;
       }
 
       /* This following if statement was added to fix the bug that prevented the arrow
       from reverting to silver when you took away the points in the subsReq talent
       */
 
-      if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("Spec")){
-
+      if (
+        window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+          "Spec"
+        )
+      ) {
         let arrowSrcSize;
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling){
-          if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("sm")) {
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling
+            .nextElementSibling
+        ) {
+          if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "sm"
+            )
+          ) {
             arrowSrcSize = "sm";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("med")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "med"
+            )
+          ) {
             arrowSrcSize = "med";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("lg")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "lg"
+            )
+          ) {
             arrowSrcSize = "lg";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("left")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "left"
+            )
+          ) {
             arrowSrcSize = "left";
-          } else if (window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes("right")) {
+          } else if (
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.className.includes(
+              "right"
+            )
+          ) {
             arrowSrcSize = "right";
           }
         }
-        
-        
-          switch (arrowSrcSize) {
-            case "sm":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverSmall;
-              break;
 
-            case "med":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverMedium;
-              break;
+        switch (arrowSrcSize) {
+          case "sm":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverSmall;
+            break;
 
-            case "lg":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = DownSilverLarge;
-              break;
+          case "med":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverMedium;
+            break;
 
-            case "left":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = LeftSilverSmall;
-              break;
+          case "lg":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              DownSilverLarge;
+            break;
 
-            case "right":
-              window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src = RightSilverSmall;
-              break;
-          
+          case "left":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              LeftSilverSmall;
+            break;
+
+          case "right":
+            window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+              RightSilverSmall;
+            break;
         }
 
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec1")){
-          
-          document.querySelector('[id*="prioReq1Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec1")){
-          
-          document.querySelector('[id*="prioReq2Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec1")){
-         
-          document.querySelector('[id*="prioReq3Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec1")){
-          
-          document.querySelector('[id*="prioReq4Spec1"]').previousElementSibling.className = "spec1 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec1"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec1"]'
+          ).previousElementSibling.className =
+            "spec1 talentButton inactive-talent req-inactive";
         }
 
-
-
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec2")){
-          
-          document.querySelector('[id*="prioReq1Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec2")){
-          
-          document.querySelector('[id*="prioReq2Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec2")){
-          
-          document.querySelector('[id*="prioReq3Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec2")){
-          
-          document.querySelector('[id*="prioReq4Spec2"]').previousElementSibling.className = "spec2 talentButton inactive-talent req-inactive"
-        }
-        
-
-
-
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq1Spec3")){
-          
-          document.querySelector('[id*="prioReq1Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec2"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec2"]'
+          ).previousElementSibling.className =
+            "spec2 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq2Spec3")){
-          
-          document.querySelector('[id*="prioReq2Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq1Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq1Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq3Spec3")){
-          
-          document.querySelector('[id*="prioReq3Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq2Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq2Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-        if(window.event.srcElement.nextElementSibling.nextElementSibling.id.includes("subsReq4Spec3")){
-          
-          document.querySelector('[id*="prioReq4Spec3"]').previousElementSibling.className = "spec3 talentButton inactive-talent req-inactive"
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq3Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq3Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
         }
 
-
-
-
+        if (
+          window.event.srcElement.nextElementSibling.nextElementSibling.id.includes(
+            "subsReq4Spec3"
+          )
+        ) {
+          document.querySelector(
+            '[id*="prioReq4Spec3"]'
+          ).previousElementSibling.className =
+            "spec3 talentButton inactive-talent req-inactive";
+        }
       }
 
       /* This following block of code prevents the user from removing points from a talent
@@ -7996,42 +8107,52 @@ class WarriorComponent extends Component {
       */
 
       pointRequirementString =
-      window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
-        17,
-        19
+        window.event.srcElement.nextElementSibling.nextElementSibling.className.slice(
+          17,
+          19
+        );
+
+      console.log(pointRequirementString);
+
+      let clickDecider;
+      let arrayOfTalents = Array.from(
+        document.querySelectorAll(".talentPoints")
       );
-      
-    console.log(
-      pointRequirementString
-    );
+      let arrayOfTalentsFiltered = [];
 
-    let clickDecider;
-    let arrayOfTalents = Array.from(document.querySelectorAll(".talentPoints"))
-    let arrayOfTalentsFiltered = [];
-
-    arrayOfTalentsFiltered = arrayOfTalents.filter(talent => talent.className.slice(17,19) > pointRequirementString)
-    console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
-    for(let individualTalent of arrayOfTalentsFiltered) {
-      if(individualTalent.className.slice(20,22) === "s1" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec1){
-        clickDecider = false;
-      } 
-      if(individualTalent.className.slice(20,22) === "s2" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec2){
-        clickDecider = false;
+      arrayOfTalentsFiltered = arrayOfTalents.filter(
+        (talent) => talent.className.slice(17, 19) > pointRequirementString
+      );
+      console.log("arrayOfTalentsFiltered", arrayOfTalentsFiltered);
+      for (let individualTalent of arrayOfTalentsFiltered) {
+        if (
+          individualTalent.className.slice(20, 22) === "s1" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec1
+        ) {
+          clickDecider = false;
+        }
+        if (
+          individualTalent.className.slice(20, 22) === "s2" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec2
+        ) {
+          clickDecider = false;
+        }
+        if (
+          individualTalent.className.slice(20, 22) === "s3" &&
+          individualTalent.innerText[0] !== "0" &&
+          individualTalent.className.slice(17, 19) >= iSpec3
+        ) {
+          clickDecider = false;
+        }
       }
-      if(individualTalent.className.slice(20,22) === "s3" && individualTalent.innerText[0] !== "0" && individualTalent.className.slice(17, 19) >= iSpec3){
-        clickDecider = false;
+
+      if (clickDecider === false) {
+        return;
       }
 
-
-
-    }
-
-    if(clickDecider === false){
-      return
-    }
-      
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       //if user right clicked talent in spec1 subtract one point from point tracker if > 0
       if (specString[4] === "1") {
@@ -8040,9 +8161,7 @@ class WarriorComponent extends Component {
           iSpec1 = iSpec1 - 1;
         }
 
-        document.getElementById(
-          "point-counter1"
-        ).innerText = `(${iSpec1})`;
+        document.getElementById("point-counter1").innerText = `(${iSpec1})`;
         removeGreenBorderSpec1();
         turnArrowSilverSpec1();
       } else if (specString[4] === "2") {
@@ -8050,17 +8169,13 @@ class WarriorComponent extends Component {
         if (iSpec2 > 0) {
           iSpec2 = iSpec2 - 1;
         }
-        document.getElementById(
-          "point-counter2"
-        ).innerText = `(${iSpec2})`;
+        document.getElementById("point-counter2").innerText = `(${iSpec2})`;
         removeGreenBorderSpec2();
       } else if (specString[4] === "3") {
         console.log("Point taken from spec 3");
         if (iSpec3 > 0) {
           iSpec3 = iSpec3 - 1;
-          document.getElementById(
-            "point-counter3"
-          ).innerText = `(${iSpec3})`;
+          document.getElementById("point-counter3").innerText = `(${iSpec3})`;
           removeGreenBorderSpec3();
         }
       }
@@ -8413,28 +8528,25 @@ class WarriorComponent extends Component {
 
     console.log("Beginning of reset test");
     for (y = 0; y < spanArray.length; y++) {
-      
       toolTipIDChecker =
-          spanArray[y].previousElementSibling.previousElementSibling.id;
-        toolTipStepper = Warrior[toolTipIDChecker - 1];
-        toolTipSelector = toolTipStepper.toolTip[0];
-        document
-          .getElementById(toolTipIDChecker)
-          .setAttribute("data-tip", toolTipSelector);
+        spanArray[y].previousElementSibling.previousElementSibling.id;
+      toolTipStepper = Warrior[toolTipIDChecker - 1];
+      toolTipSelector = toolTipStepper.toolTip[0];
+      document
+        .getElementById(toolTipIDChecker)
+        .setAttribute("data-tip", toolTipSelector);
 
-        spanArray[y].previousElementSibling.previousElementSibling.setAttribute(
-          "data-tip",
-          toolTipSelector
-        );
-      
+      spanArray[y].previousElementSibling.previousElementSibling.setAttribute(
+        "data-tip",
+        toolTipSelector
+      );
+
       if (
         !(
           spanArray[y].className[17] === "0" &&
           spanArray[y].className[18] === "0"
         )
       ) {
-        
-
         if (spanArray[y].previousElementSibling.className[4] === "1") {
           spanArray[y].previousElementSibling.className =
             "spec1 talentButton inactive-talent req-inactive";
@@ -8535,7 +8647,7 @@ class WarriorComponent extends Component {
     console.log("Reset Points!");
   }
 
-  componentDidMount(){
+  componentDidMount() {
     const anchor = document.getElementsByClassName("btn")[0];
     anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   }
@@ -8555,39 +8667,60 @@ class WarriorComponent extends Component {
           className="row"
           style={{ whiteSpace: "nowrap", overflow: "hidden" }}
         >
-          <div className="col-sm-12"><button
+          <div className="col-sm-12">
+            <button
               onClick={this.resetPoints}
               type="button"
               className="btn btn-success mb-2 mt-2"
-              style={{display: "inline-block", marginLeft: "6px"}}
+              style={{ display: "inline-block", marginLeft: "6px" }}
             >
               Reset
-            </button></div>
+            </button>
+          </div>
           <div className="col-sm-4"></div>
-          <div className="col-sm-4 mx-auto" style={{overflow: "hidden", whiteSpace: "nowrap"}}>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "6px" }}>Points Spent:</h5>
-            <h5 id="total-points" style={{ color: "white", display: "inline-block", marginLeft: "6px", marginTop:"1px" }}>
+          <div
+            className="col-sm-4 mx-auto"
+            style={{ overflow: "hidden", whiteSpace: "nowrap" }}
+          >
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "6px",
+              }}
+            >
+              Points Spent:
+            </h5>
+            <h5
+              id="total-points"
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "6px",
+                marginTop: "1px",
+              }}
+            >
               0
             </h5>
-            
           </div>
           <div className="col-sm-4"></div>
         </div>
 
-        <div className="row ml-3 mr-3 mb-3 mx-auto" style={{maxWidth: "1010px"}}>
+        <div
+          className="row ml-3 mr-3 mb-3 mx-auto"
+          style={{ maxWidth: "1010px" }}
+        >
           <div
             style={{
               backgroundImage: `url(${spec1BG})`,
               maxWidth: "305px",
               overflow: "hidden",
-              whiteSpace: "nowrap"
+              whiteSpace: "nowrap",
             }}
             className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1"
-              style={{display: "inline-block"}}
-            >
+            <h5 id="spec1" style={{ display: "inline-block" }}>
               <img
                 style={{
                   marginRight: ".5rem",
@@ -8598,7 +8731,14 @@ class WarriorComponent extends Component {
               />
               Arms
             </h5>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter1">
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "2px",
+              }}
+              id="point-counter1"
+            >
               (0)
             </h5>
             <div className="row talent-row talent-row-inner">
@@ -8609,11 +8749,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedHeroicStrikeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedHeroicStrikeToolTip = ref)}
                   data-tip={Warrior[0].toolTip[0]}
                   id="1"
                 />
@@ -8637,11 +8779,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DeflectionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DeflectionToolTip = ref)}
                   data-tip={Warrior[1].toolTip[0]}
                   id="2"
                 />
@@ -8665,11 +8809,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedRendToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedRendToolTip = ref)}
                   data-tip={Warrior[2].toolTip[0]}
                   id="3"
                 />
@@ -8696,11 +8842,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedChargeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedChargeToolTip = ref)}
                   data-tip={Warrior[3].toolTip[0]}
                   id="4"
                 />
@@ -8724,11 +8872,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.IronWillToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.IronWillToolTip = ref)}
                   data-tip={Warrior[4].toolTip[0]}
                   id="5"
                 />
@@ -8752,11 +8902,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedThunderClapToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedThunderClapToolTip = ref)}
                   data-tip={Warrior[5].toolTip[0]}
                   id="6"
                 />
@@ -8783,11 +8935,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedOverpowerToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedOverpowerToolTip = ref)}
                   data-tip={Warrior[6].toolTip[0]}
                   id="7"
                 />
@@ -8811,11 +8965,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.AngerManagementToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.AngerManagementToolTip = ref)}
                   data-tip={Warrior[7].toolTip[0]}
                   id="8"
                 />
@@ -8839,11 +8995,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DeepWoundsToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DeepWoundsToolTip = ref)}
                   data-tip={Warrior[8].toolTip[0]}
                   id="9"
                 />
@@ -8858,7 +9016,9 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq1Spec1" className="talentPoints req-10-s1">0/3</span>
+                <span id="subsReq1Spec1" className="talentPoints req-10-s1">
+                  0/3
+                </span>
                 <img
                   className="smArrow"
                   src={DownSilverSmall}
@@ -8877,11 +9037,17 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(
+                      this.TwoHandedWeaponSpecializationToolTip
+                    );
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) =>
+                    (this.TwoHandedWeaponSpecializationToolTip = ref)
+                  }
                   data-tip={Warrior[9].toolTip[0]}
                   id="10"
                 />
@@ -8905,11 +9071,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImpaleToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImpaleToolTip = ref)}
                   data-tip={Warrior[10].toolTip[0]}
                   id="11"
                 />
@@ -8927,7 +9095,6 @@ class WarriorComponent extends Component {
                 <span id="prioReq1Spec1" className="talentPoints req-15-s1">
                   0/2
                 </span>
-                
               </div>
 
               <div className="col col-xs-3"></div>
@@ -8941,11 +9108,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PoleaxeSpecializationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.PoleaxeSpecializationToolTip = ref)}
                   data-tip={Warrior[11].toolTip[0]}
                   id="12"
                 />
@@ -8969,11 +9138,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DeathWishToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DeathWishToolTip = ref)}
                   data-tip={Warrior[12].toolTip[0]}
                   id="13"
                 />
@@ -9005,11 +9176,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MaceSpecializationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MaceSpecializationToolTip = ref)}
                   data-tip={Warrior[13].toolTip[0]}
                   id="14"
                 />
@@ -9024,10 +9197,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s1">
-                  0/5
-                </span>
-                
+                <span className="talentPoints req-20-s1">0/5</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9036,11 +9206,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SwordSpecializationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SwordSpecializationToolTip = ref)}
                   data-tip={Warrior[14].toolTip[0]}
                   id="15"
                 />
@@ -9067,11 +9239,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedInterceptToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedInterceptToolTip = ref)}
                   data-tip={Warrior[15].toolTip[0]}
                   id="16"
                 />
@@ -9096,11 +9270,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedHamstringToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedHamstringToolTip = ref)}
                   data-tip={Warrior[16].toolTip[0]}
                   id="17"
                 />
@@ -9115,9 +9291,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s1">
-                  0/3
-                </span>
+                <span className="talentPoints req-25-s1">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9126,11 +9300,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedDisciplinesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedDisciplinesToolTip = ref)}
                   data-tip={Warrior[17].toolTip[0]}
                   id="18"
                 />
@@ -9145,9 +9321,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-25-s1">
-                  0/3
-                </span>
+                <span className="talentPoints req-25-s1">0/3</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -9158,11 +9332,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BloodFrenzyToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.BloodFrenzyToolTip = ref)}
                   data-tip={Warrior[18].toolTip[0]}
                   id="19"
                 />
@@ -9186,11 +9362,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.MortalStrikeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.MortalStrikeToolTip = ref)}
                   data-tip={Warrior[19].toolTip[0]}
                   id="20"
                 />
@@ -9225,11 +9403,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SecondWindToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SecondWindToolTip = ref)}
                   data-tip={Warrior[20].toolTip[0]}
                   id="21"
                 />
@@ -9257,11 +9437,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedMortalStrikeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedMortalStrikeToolTip = ref)}
                   data-tip={Warrior[21].toolTip[0]}
                   id="22"
                 />
@@ -9276,7 +9458,9 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq3Spec1" className="talentPoints req-35-s1">0/5</span>
+                <span id="prioReq3Spec1" className="talentPoints req-35-s1">
+                  0/5
+                </span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -9290,11 +9474,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.EndlessRageToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.EndlessRageToolTip = ref)}
                   data-tip={Warrior[22].toolTip[0]}
                   id="23"
                 />
@@ -9309,9 +9495,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s1">
-                  0/1
-                </span>
+                <span className="talentPoints req-40-s1">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -9322,14 +9506,12 @@ class WarriorComponent extends Component {
               backgroundImage: `url(${spec2BG})`,
               maxWidth: "305px",
               overflow: "hidden",
-              whiteSpace: "nowrap"
+              whiteSpace: "nowrap",
             }}
             className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2"
-              style={{display: "inline-block"}}
-            >
+            <h5 id="spec2" style={{ display: "inline-block" }}>
               <img
                 style={{
                   marginRight: ".5rem",
@@ -9340,7 +9522,14 @@ class WarriorComponent extends Component {
               />
               Fury
             </h5>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter2">
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "2px",
+              }}
+              id="point-counter2"
+            >
               (0)
             </h5>
             <div className="row talent-row talent-row-inner">
@@ -9352,11 +9541,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BoomingVoiceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.BoomingVoiceToolTip = ref)}
                   data-tip={Warrior[23].toolTip[0]}
                   id="24"
                 />
@@ -9380,11 +9571,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CrueltyToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.CrueltyToolTip = ref)}
                   data-tip={Warrior[24].toolTip[0]}
                   id="25"
                 />
@@ -9412,11 +9605,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedDemoralizingShoutToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedDemoralizingShoutToolTip = ref)}
                   data-tip={Warrior[25].toolTip[0]}
                   id="26"
                 />
@@ -9440,11 +9635,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.UnbridledWrathToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.UnbridledWrathToolTip = ref)}
                   data-tip={Warrior[26].toolTip[0]}
                   id="27"
                 />
@@ -9471,11 +9668,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedCleaveToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedCleaveToolTip = ref)}
                   data-tip={Warrior[27].toolTip[0]}
                   id="28"
                 />
@@ -9499,11 +9698,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PiercingHowlToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.PiercingHowlToolTip = ref)}
                   data-tip={Warrior[28].toolTip[0]}
                   id="29"
                 />
@@ -9527,11 +9728,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BloodCrazeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.BloodCrazeToolTip = ref)}
                   data-tip={Warrior[29].toolTip[0]}
                   id="30"
                 />
@@ -9546,10 +9749,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s2">
-                  0/3
-                </span>
-                
+                <span className="talentPoints req-10-s2">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -9558,11 +9758,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.CommandingPresenceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.CommandingPresenceToolTip = ref)}
                   data-tip={Warrior[30].toolTip[0]}
                   id="31"
                 />
@@ -9581,18 +9783,20 @@ class WarriorComponent extends Component {
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
-            <div className="col col-xs-3">
+              <div className="col col-xs-3">
                 <img
                   onMouseEnter={this.displayMouseOverlayInnerElement}
                   onMouseLeave={this.hideMouseOverlayInnerElement}
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DualWieldSpecializationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DualWieldSpecializationToolTip = ref)}
                   data-tip={Warrior[31].toolTip[0]}
                   id="32"
                 />
@@ -9616,11 +9820,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedExecuteToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedExecuteToolTip = ref)}
                   data-tip={Warrior[32].toolTip[0]}
                   id="33"
                 />
@@ -9644,11 +9850,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.EnrageToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.EnrageToolTip = ref)}
                   data-tip={Warrior[33].toolTip[0]}
                   id="34"
                 />
@@ -9683,11 +9891,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedSlamToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedSlamToolTip = ref)}
                   data-tip={Warrior[34].toolTip[0]}
                   id="35"
                 />
@@ -9711,11 +9921,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.SweepingStrikesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.SweepingStrikesToolTip = ref)}
                   data-tip={Warrior[35].toolTip[0]}
                   id="36"
                 />
@@ -9748,11 +9960,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.WeaponMasteryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.WeaponMasteryToolTip = ref)}
                   data-tip={Warrior[36].toolTip[0]}
                   id="37"
                 />
@@ -9767,12 +9981,8 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s2">
-                  0/2
-                </span>
-                
+                <span className="talentPoints req-20-s2">0/2</span>
               </div>
-              
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -9782,11 +9992,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedBerserkerRageToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedBerserkerRageToolTip = ref)}
                   data-tip={Warrior[37].toolTip[0]}
                   id="38"
                 />
@@ -9811,11 +10023,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FlurryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.FlurryToolTip = ref)}
                   data-tip={Warrior[38].toolTip[0]}
                   id="39"
                 />
@@ -9830,10 +10044,11 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq1Spec2" className="talentPoints req-25-s2">0/5</span>
+                <span id="prioReq1Spec2" className="talentPoints req-25-s2">
+                  0/5
+                </span>
               </div>
               <div className="col col-xs-3"></div>
-              
             </div>
             <div className="row talent-row talent-row-inner">
               <div className="col col-xs-3">
@@ -9843,11 +10058,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.PrecisionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.PrecisionToolTip = ref)}
                   data-tip={Warrior[39].toolTip[0]}
                   id="40"
                 />
@@ -9871,11 +10088,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.BloodthirstToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.BloodthirstToolTip = ref)}
                   data-tip={Warrior[40].toolTip[0]}
                   id="41"
                 />
@@ -9890,7 +10109,10 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq2Spec2 subsReq3Spec2" className="talentPoints req-30-s2">
+                <span
+                  id="prioReq2Spec2 subsReq3Spec2"
+                  className="talentPoints req-30-s2"
+                >
                   0/1
                 </span>
                 <img
@@ -9907,11 +10129,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedWhirlwindToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedWhirlwindToolTip = ref)}
                   data-tip={Warrior[41].toolTip[0]}
                   id="42"
                 />
@@ -9926,9 +10150,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-30-s2">
-                  0/2
-                </span>
+                <span className="talentPoints req-30-s2">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -9942,11 +10164,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedBerserkerStanceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedBerserkerStanceToolTip = ref)}
                   data-tip={Warrior[42].toolTip[0]}
                   id="43"
                 />
@@ -9961,12 +10185,9 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s2">
-                  0/5
-                </span>
-                
+                <span className="talentPoints req-35-s2">0/5</span>
               </div>
-              
+
               <div className="col col-xs-3"></div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -9978,11 +10199,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.RampageToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.RampageToolTip = ref)}
                   data-tip={Warrior[43].toolTip[0]}
                   id="44"
                 />
@@ -10010,14 +10233,12 @@ class WarriorComponent extends Component {
               backgroundImage: `url(${spec3BG})`,
               maxWidth: "305px",
               overflow: "hidden",
-              whiteSpace: "nowrap"
+              whiteSpace: "nowrap",
             }}
             className="mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3"
-              style={{display: "inline-block"}}
-            >
+            <h5 id="spec3" style={{ display: "inline-block" }}>
               <img
                 style={{
                   marginRight: ".5rem",
@@ -10028,7 +10249,14 @@ class WarriorComponent extends Component {
               />
               Protection
             </h5>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter3">
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "2px",
+              }}
+              id="point-counter3"
+            >
               (0)
             </h5>
             <div className="row talent-row talent-row-inner">
@@ -10039,11 +10267,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedBloodrageToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ToolTip = ref)}
                   data-tip={Warrior[44].toolTip[0]}
                   id="45"
                 />
@@ -10067,11 +10297,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.TacticalMasteryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.TacticalMasteryToolTip = ref)}
                   data-tip={Warrior[45].toolTip[0]}
                   id="46"
                 />
@@ -10095,11 +10327,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.AnticipationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.AnticipationToolTip = ref)}
                   data-tip={Warrior[46].toolTip[0]}
                   id="47"
                 />
@@ -10127,11 +10361,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ShieldSpecializationToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ShieldSpecializationToolTip = ref)}
                   data-tip={Warrior[47].toolTip[0]}
                   id="48"
                 />
@@ -10146,7 +10382,9 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span id="subsReq1Spec3" className="talentPoints req-05-s3">0/5</span>
+                <span id="subsReq1Spec3" className="talentPoints req-05-s3">
+                  0/5
+                </span>
                 <img
                   className="smArrow"
                   src={DownSilverSmall}
@@ -10161,11 +10399,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ToughnessToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ToughnessToolTip = ref)}
                   data-tip={Warrior[48].toolTip[0]}
                   id="49"
                 />
@@ -10192,11 +10432,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.LastStandToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.LastStandToolTip = ref)}
                   data-tip={Warrior[49].toolTip[0]}
                   id="50"
                 />
@@ -10220,11 +10462,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedShieldBlockToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedShieldBlockToolTip = ref)}
                   data-tip={Warrior[50].toolTip[0]}
                   id="51"
                 />
@@ -10239,7 +10483,9 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq1Spec3" className="talentPoints req-10-s3">0/1</span>
+                <span id="prioReq1Spec3" className="talentPoints req-10-s3">
+                  0/1
+                </span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10248,11 +10494,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedRevengeToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedRevengeToolTip = ref)}
                   data-tip={Warrior[51].toolTip[0]}
                   id="52"
                 />
@@ -10267,10 +10515,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">
-                  0/3
-                </span>
-                
+                <span className="talentPoints req-10-s3">0/3</span>
               </div>
               <div className="col col-xs-3">
                 <img
@@ -10279,11 +10524,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DefianceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DefianceToolTip = ref)}
                   data-tip={Warrior[52].toolTip[0]}
                   id="53"
                 />
@@ -10298,10 +10545,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-10-s3">
-                  0/3
-                </span>
-                
+                <span className="talentPoints req-10-s3">0/3</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -10312,11 +10556,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedSunderArmorToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedSunderArmorToolTip = ref)}
                   data-tip={Warrior[53].toolTip[0]}
                   id="54"
                 />
@@ -10340,11 +10586,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedDisarmToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedDisarmToolTip = ref)}
                   data-tip={Warrior[54].toolTip[0]}
                   id="55"
                 />
@@ -10368,11 +10616,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedTauntToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedTauntToolTip = ref)}
                   data-tip={Warrior[55].toolTip[0]}
                   id="56"
                 />
@@ -10399,11 +10649,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedShieldWallToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ToolTip = ref)}
                   data-tip={Warrior[56].toolTip[0]}
                   id="57"
                 />
@@ -10427,11 +10679,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ConcussionBlowToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ConcussionBlowToolTip = ref)}
                   data-tip={Warrior[57].toolTip[0]}
                   id="58"
                 />
@@ -10463,11 +10717,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedShieldBashToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedShieldBashToolTip = ref)}
                   data-tip={Warrior[58].toolTip[0]}
                   id="59"
                 />
@@ -10482,9 +10738,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
-                  0/2
-                </span>
+                <span className="talentPoints req-20-s3">0/2</span>
               </div>
               <div className="col col-xs-3"></div>
             </div>
@@ -10496,11 +10750,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ShieldMasteryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ShieldMasteryToolTip = ref)}
                   data-tip={Warrior[59].toolTip[0]}
                   id="60"
                 />
@@ -10525,11 +10781,17 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(
+                      this.OneHandedWeaponSpecializationToolTip
+                    );
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) =>
+                    (this.OneHandedWeaponSpecializationToolTip = ref)
+                  }
                   data-tip={Warrior[60].toolTip[0]}
                   id="61"
                 />
@@ -10556,11 +10818,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ImprovedDefensiveStanceToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedDefensiveStanceToolTip = ref)}
                   data-tip={Warrior[61].toolTip[0]}
                   id="62"
                 />
@@ -10584,11 +10848,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.ShieldSlamToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.ToolTip = ref)}
                   data-tip={Warrior[62].toolTip[0]}
                   id="63"
                 />
@@ -10614,11 +10880,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.FocusedRageToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.FocusedRageToolTip = ref)}
                   data-tip={Warrior[63].toolTip[0]}
                   id="64"
                 />
@@ -10646,11 +10914,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.VitalityToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.VitalityToolTip = ref)}
                   data-tip={Warrior[64].toolTip[0]}
                   id="65"
                 />
@@ -10665,10 +10935,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-35-s3">
-                  0/5
-                </span>
-                
+                <span className="talentPoints req-35-s3">0/5</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>
@@ -10682,11 +10949,13 @@ class WarriorComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DevastateToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
+                  ref={(ref) => (this.DevastateToolTip = ref)}
                   data-tip={Warrior[65].toolTip[0]}
                   id="66"
                 />
@@ -10701,9 +10970,7 @@ class WarriorComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-40-s3">
-                  0/1
-                </span>
+                <span className="talentPoints req-40-s3">0/1</span>
               </div>
               <div className="col col-xs-3"></div>
               <div className="col col-xs-3"></div>

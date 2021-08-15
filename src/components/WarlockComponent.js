@@ -10241,13 +10241,13 @@ class WarlockComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
-                    ReactTooltip.show(this.ImprovedCorruptionToolTip);
+                    ReactTooltip.show(this.EmpoweredCorruptionToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
-                  ref={(ref) => (this.ImprovedCorruptionToolTip = ref)}
+                  ref={(ref) => (this.EmpoweredCorruptionToolTip = ref)}
                   data-tip={Warlock[11].toolTip[0]}
                   id="12"
                 />
