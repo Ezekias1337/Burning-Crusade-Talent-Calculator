@@ -1,6 +1,7 @@
 import $ from "jquery";
 import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
+import { Alert } from "reactstrap";
 import { Hunter } from "../talentinfo/Hunter";
 import spec1BG from "../images/talents/Hunter/Background/BeastMastery.jpg";
 import spec2BG from "../images/talents/Hunter/Background/Marksman.jpg";
@@ -7466,13 +7467,17 @@ class HunterComponent extends Component {
         return;
       }
 
+      if (i === 61) {
+
+        alert("You don't have any more points to spend");
+        return;
+      }
+
       //if user clicked button in spec 1 tree update point counter for spec 1
       if (specString[4] === "1") {
         console.log("Point used in spec 1");
         iSpec1 = iSpec1 + 1;
-        document.getElementById(
-          "point-counter1"
-        ).innerText = `(${iSpec1})`;
+        document.getElementById("point-counter1").innerText = `(${iSpec1})`;
 
         addGreenBorderSpec1();
       }
@@ -7480,9 +7485,7 @@ class HunterComponent extends Component {
       else if (specString[4] === "2") {
         console.log("Point used in spec 2");
         iSpec2 = iSpec2 + 1;
-        document.getElementById(
-          "point-counter2"
-        ).innerText = `(${iSpec2})`;
+        document.getElementById("point-counter2").innerText = `(${iSpec2})`;
 
         addGreenBorderSpec2();
       }
@@ -7490,9 +7493,7 @@ class HunterComponent extends Component {
       else if (specString[4] === "3") {
         console.log("Point used in spec 3");
         iSpec3 = iSpec3 + 1;
-        document.getElementById(
-          "point-counter3"
-        ).innerText = `(${iSpec3})`;
+        document.getElementById("point-counter3").innerText = `(${iSpec3})`;
 
         addGreenBorderSpec3();
       }
@@ -7768,16 +7769,12 @@ class HunterComponent extends Component {
             iSpec1 = iSpec1 - 1;
             i = 61;
             loopHappenedBefore = true;
-            document.getElementById(
-              "point-counter1"
-            ).innerText = `(${iSpec1})`;
+            document.getElementById("point-counter1").innerText = `(${iSpec1})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec1 = iSpec1 - 1;
             i = 61;
-            document.getElementById(
-              "point-counter1"
-            ).innerText = `(${iSpec1})`;
+            document.getElementById("point-counter1").innerText = `(${iSpec1})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -7786,16 +7783,12 @@ class HunterComponent extends Component {
             iSpec2 = iSpec2 - 1;
             i = 61;
             loopHappenedBefore = true;
-            document.getElementById(
-              "point-counter2"
-            ).innerText = `(${iSpec2})`;
+            document.getElementById("point-counter2").innerText = `(${iSpec2})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec2 = iSpec2 - 1;
             i = 61;
-            document.getElementById(
-              "point-counter2"
-            ).innerText = `(${iSpec2})`;
+            document.getElementById("point-counter2").innerText = `(${iSpec2})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -7804,16 +7797,12 @@ class HunterComponent extends Component {
             iSpec3 = iSpec3 - 1;
             i = 61;
             loopHappenedBefore = true;
-            document.getElementById(
-              "point-counter3"
-            ).innerText = `(${iSpec3})`;
+            document.getElementById("point-counter3").innerText = `(${iSpec3})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec3 = iSpec3 - 1;
             i = 61;
-            document.getElementById(
-              "point-counter3"
-            ).innerText = `(${iSpec3})`;
+            document.getElementById("point-counter3").innerText = `(${iSpec3})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -8259,9 +8248,7 @@ class HunterComponent extends Component {
           iSpec1 = iSpec1 - 1;
         }
 
-        document.getElementById(
-          "point-counter1"
-        ).innerText = `(${iSpec1})`;
+        document.getElementById("point-counter1").innerText = `(${iSpec1})`;
         removeGreenBorderSpec1();
         turnArrowSilverSpec1();
       } else if (specString[4] === "2") {
@@ -8269,17 +8256,13 @@ class HunterComponent extends Component {
         if (iSpec2 > 0) {
           iSpec2 = iSpec2 - 1;
         }
-        document.getElementById(
-          "point-counter2"
-        ).innerText = `(${iSpec2})`;
+        document.getElementById("point-counter2").innerText = `(${iSpec2})`;
         removeGreenBorderSpec2();
       } else if (specString[4] === "3") {
         console.log("Point taken from spec 3");
         if (iSpec3 > 0) {
           iSpec3 = iSpec3 - 1;
-          document.getElementById(
-            "point-counter3"
-          ).innerText = `(${iSpec3})`;
+          document.getElementById("point-counter3").innerText = `(${iSpec3})`;
           removeGreenBorderSpec3();
         }
       }
@@ -8767,7 +8750,7 @@ class HunterComponent extends Component {
     
   }*/
 
-  componentDidMount(){
+  componentDidMount() {
     const anchor = document.getElementsByClassName("btn")[0];
     anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   }
@@ -8835,14 +8818,12 @@ class HunterComponent extends Component {
               backgroundImage: `url(${spec1BG})`,
               maxWidth: "305px",
               overflow: "hidden",
-              whiteSpace: "nowrap"
+              whiteSpace: "nowrap",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1"
-              style={{display: "inline-block"}}
-            >
+            <h5 id="spec1" style={{ display: "inline-block" }}>
               <img
                 style={{
                   marginRight: ".5rem",
@@ -8853,7 +8834,14 @@ class HunterComponent extends Component {
               />
               Beast Mastery
             </h5>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter1">
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "2px",
+              }}
+              id="point-counter1"
+            >
               (0)
             </h5>
 
@@ -9567,9 +9555,7 @@ class HunterComponent extends Component {
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2"
-              style={{display: "inline-block"}}
-            >
+            <h5 id="spec2" style={{ display: "inline-block" }}>
               <img
                 style={{
                   marginRight: ".5rem",
@@ -9580,7 +9566,14 @@ class HunterComponent extends Component {
               />
               Marksmanship
             </h5>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter2">
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "2px",
+              }}
+              id="point-counter2"
+            >
               (0)
             </h5>
             <div className="row talent-row talent-row-inner">
@@ -10266,9 +10259,7 @@ class HunterComponent extends Component {
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3"
-              style={{display: "inline-block"}}
-            >
+            <h5 id="spec3" style={{ display: "inline-block" }}>
               <img
                 style={{
                   marginRight: ".5rem",
@@ -10279,7 +10270,14 @@ class HunterComponent extends Component {
               />
               Survival
             </h5>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter3">
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "2px",
+              }}
+              id="point-counter3"
+            >
               (0)
             </h5>
             <div className="row talent-row talent-row-inner">

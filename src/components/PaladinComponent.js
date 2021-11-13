@@ -8594,6 +8594,12 @@ class PaladinComponent extends Component {
         return;
       }
 
+      if (i === 61) {
+
+        alert("You don't have any more points to spend");
+        return;
+      }
+
       //if user clicked button in spec 1 tree update point counter for spec 1
       if (specString[4] === "1") {
         console.log("Point used in spec 1");
