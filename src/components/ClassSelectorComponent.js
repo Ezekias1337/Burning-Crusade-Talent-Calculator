@@ -216,7 +216,7 @@ class ClassSelector extends Component {
           <h4 style={{ color: playableClass.classColor }}>
             {playableClass.playableClassName}
           </h4>
-          <div class="overlay" style={{ height: "110px", width: "135px" }}>
+          <div class="overlay" style={{ height: "100%", width: "100%" }}>
             <Link 
               to={"/" + playableClass.playableClassName}
               class="info"
