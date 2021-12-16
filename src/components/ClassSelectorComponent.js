@@ -203,7 +203,7 @@ class ClassSelector extends Component {
     const classSelector = this.state.classes.map((playableClass) => {
       return (
         <div
-          className="col mt-5 ml-3 hovereffect"
+          className="col mt-5 ml-2 mr-1 hovereffect"
           style={{ height: "130px", width: "130px"}}
           
         >
