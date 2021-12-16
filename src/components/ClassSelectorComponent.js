@@ -1,25 +1,24 @@
 import React, { Component } from "react";
 import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
-import HunterComponent from './HunterComponent';
-import DruidComponent from './DruidComponent';
-import MageComponent from './MageComponent';
-import PaladinComponent from './PaladinComponent';
-import PriestComponent from './PriestComponent';
-import RogueComponent from './RogueComponent';
-import ShamanComponent from './ShamanComponent';
-import WarlockComponent from './WarlockComponent';
-import WarriorComponent from './WarriorComponent';
+import HunterComponent from "./HunterComponent";
+import DruidComponent from "./DruidComponent";
+import MageComponent from "./MageComponent";
+import PaladinComponent from "./PaladinComponent";
+import PriestComponent from "./PriestComponent";
+import RogueComponent from "./RogueComponent";
+import ShamanComponent from "./ShamanComponent";
+import WarlockComponent from "./WarlockComponent";
+import WarriorComponent from "./WarriorComponent";
 
-import Druid from '../images/Druid_Icon.png'
-import Hunter from '../images/Hunter_Icon.png'
-import Mage from '../images/Mage_Icon.png'
-import Paladin from '../images/Paladin_Icon.png'
-import Rogue from '../images/Rogue_Icon.png'
-import Shaman from '../images/Shaman_Icon.png'
-import Warlock from '../images/Warlock_Icon.png'
-import Warrior from '../images/Warrior_Icon.png'
-import Priest from '../images/Priest_Icon.png'
-
+import Druid from "../images/Druid_Icon.png";
+import Hunter from "../images/Hunter_Icon.png";
+import Mage from "../images/Mage_Icon.png";
+import Paladin from "../images/Paladin_Icon.png";
+import Rogue from "../images/Rogue_Icon.png";
+import Shaman from "../images/Shaman_Icon.png";
+import Warlock from "../images/Warlock_Icon.png";
+import Warrior from "../images/Warrior_Icon.png";
+import Priest from "../images/Priest_Icon.png";
 
 class ClassSelector extends Component {
   constructor(props) {
@@ -192,20 +191,12 @@ class ClassSelector extends Component {
     };
   }
 
-  /* fixNavLinks(){
-    let navLinkToManipulate = document.getElementsByClassName("Hunter")[0];
-    let navLinkFromClassSelector = document.getElementById("HunterLink");
-
-    navLinkToManipulate.href = navLinkFromClassSelector.href;
-  } */
-
   render() {
     const classSelector = this.state.classes.map((playableClass) => {
       return (
         <div
-          className="col mt-5 ml-2 mr-1 hovereffect"
-          style={{ height: "130px", width: "130px"}}
-          
+          className="col mt-5 hovereffect"
+          style={{ height: "130px", width: "130px" }}
         >
           <img
             src={playableClass.classIcon}
@@ -217,18 +208,16 @@ class ClassSelector extends Component {
             {playableClass.playableClassName}
           </h4>
           <div class="overlay" style={{ height: "100%", width: "100%" }}>
-            <Link 
+            <Link
               to={"/" + playableClass.playableClassName}
               class="info"
               id={playableClass.playableClassName + "Link"}
-              
               style={{
                 color: playableClass.classColor,
                 boxShadow: `0 0 5px ${playableClass.classColor}`,
                 border: `2px solid ${playableClass.classColor}`,
               }}
             >
-              
               Select
             </Link>
           </div>
@@ -238,11 +227,18 @@ class ClassSelector extends Component {
 
     return (
       <Router>
-        <div /* onLoad={this.fixNavLinks} */ style={{ position: "relative" }} >
+        <div style={{ position: "relative" }}>
           <div className="container mx-auto">
             <div className="row">
               <div className="col">
-                <h1 style={{ fontSize: "2rem", fontWeight: "bold", color: "white" }} className="mt-2">
+                <h1
+                  style={{
+                    fontSize: "2rem",
+                    fontWeight: "bold",
+                    color: "white",
+                  }}
+                  className="mt-2"
+                >
                   Select a Class
                 </h1>
               </div>
@@ -250,16 +246,17 @@ class ClassSelector extends Component {
           </div>
 
           <div className="container mx-auto">
-            <div className="row">
+            <div className="row mx-auto">
               <div className="col-3 "></div>
-              <div className="col-6 col-md-6 col-xl-5 mb-4">{classSelector}</div>
+              <div className="col-6 col-md-6 col-xl-5 mb-4 ml-4">
+                {classSelector}
+              </div>
               <div className="col-3 "></div>
             </div>
           </div>
         </div>
 
         <Switch>
-          
           <Route path="/Hunter">
             <HunterComponent />
           </Route>
