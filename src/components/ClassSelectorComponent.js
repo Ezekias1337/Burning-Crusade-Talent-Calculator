@@ -192,18 +192,18 @@ class ClassSelector extends Component {
     };
   }
 
-  fixNavLinks(){
+  /* fixNavLinks(){
     let navLinkToManipulate = document.getElementsByClassName("Hunter")[0];
     let navLinkFromClassSelector = document.getElementById("HunterLink");
 
     navLinkToManipulate.href = navLinkFromClassSelector.href;
-  }
+  } */
 
   render() {
     const classSelector = this.state.classes.map((playableClass) => {
       return (
         <div
-          className="col mt-5 hovereffect"
+          className="col mt-5 ml-3 hovereffect"
           style={{ height: "130px", width: "130px"}}
           
         >
@@ -238,7 +238,7 @@ class ClassSelector extends Component {
 
     return (
       <Router>
-        <div onLoad={this.fixNavLinks} style={{ position: "relative" }} >
+        <div /* onLoad={this.fixNavLinks} */ style={{ position: "relative" }} >
           <div className="container mx-auto">
             <div className="row">
               <div className="col">
@@ -251,9 +251,9 @@ class ClassSelector extends Component {
 
           <div className="container mx-auto">
             <div className="row">
-              <div className="col "></div>
-              <div className="col-12 col-md-6 col-xl-5 mb-4 ml-5">{classSelector}</div>
-              <div className="col "></div>
+              <div className="col-3 "></div>
+              <div className="col-6 col-md-6 col-xl-5 mb-4">{classSelector}</div>
+              <div className="col-3 "></div>
             </div>
           </div>
         </div>
