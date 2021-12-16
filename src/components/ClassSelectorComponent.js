@@ -30,192 +30,87 @@ class ClassSelector extends Component {
           playableClassName: "Hunter",
           classIcon: Hunter,
           classColor: "#ABD473",
-          spec1: {
-            name: "Beast Mastery",
-            bg: "assets/images/talents/Hunter/Background/BeastMastery.jpg",
-          },
-          spec2: {
-            name: "Marksmanship",
-            bg: "assets/images/talents/Hunter/Background/Marksman.jpg",
-          },
-          spec3: {
-            name: "Survival",
-            bg: "assets/images/talents/Hunter/Background/Survival.jpg",
-          },
         },
         {
           id: 1,
           playableClassName: "Shaman",
           classIcon: Shaman,
           classColor: "#0070DE",
-          spec1: {
-            name: "Elemental",
-            bg: "assets/images/talents/Shaman/Background/Elemental.jpg",
-          },
-          spec2: {
-            name: "Enhancement",
-            bg: "assets/images/talents/Shaman/Background/Enhancement.jpg",
-          },
-          spec3: {
-            name: "Restoration",
-            bg: "assets/images/talents/Shaman/Background/Restoration.jpg",
-          },
         },
         {
           id: 2,
           playableClassName: "Warlock",
           classIcon: Warlock,
           classColor: "#9482C9",
-          spec1: {
-            name: "Affliction",
-            bg: "assets/images/talents/Warlock/Background/Affliction.jpg",
-          },
-          spec2: {
-            name: "Demonology",
-            bg: "assets/images/talents/Warlock/Background/Demonology.jpg",
-          },
-          spec3: {
-            name: "Destruction",
-            bg: "assets/images/talents/Warlock/Background/Destruction.jpg",
-          },
         },
         {
           id: 3,
           playableClassName: "Warrior",
           classIcon: Warrior,
           classColor: "#C79C6E",
-          spec1: {
-            name: "Arms",
-            bg: "assets/images/talents/Warrior/Background/Arms.jpg",
-          },
-          spec2: {
-            name: "Fury",
-            bg: "assets/images/talents/Warrior/Background/Fury.jpg",
-          },
-          spec3: {
-            name: "Protection",
-            bg: "assets/images/talents/Warrior/Background/Protection.jpg",
-          },
         },
         {
           id: 4,
           playableClassName: "Rogue",
           classIcon: Rogue,
           classColor: "#FFF569",
-          spec1: {
-            name: "Assassination",
-            bg: "assets/images/talents/Rogue/Background/Assassination.jpg",
-          },
-          spec2: {
-            name: "Combat",
-            bg: "assets/images/talents/Rogue/Background/Combat.jpg",
-          },
-          spec3: {
-            name: "Subtlety",
-            bg: "assets/images/talents/Rogue/Background/Subtlety.jpg",
-          },
         },
         {
           id: 5,
           playableClassName: "Priest",
           classIcon: Priest,
           classColor: "#FFFFFF",
-          spec1: {
-            name: "Discipline",
-            bg: "assets/images/talents/Priest/Background/Discipline.jpg",
-          },
-          spec2: {
-            name: "Holy",
-            bg: "assets/images/talents/Priest/Background/Holy.jpg",
-          },
-          spec3: {
-            name: "Shadow",
-            bg: "assets/images/talents/Priest/Background/Shadow.jpg",
-          },
         },
         {
           id: 6,
           playableClassName: "Paladin",
           classIcon: Paladin,
           classColor: "#F58CBA",
-          spec1: {
-            name: "Holy",
-            bg: "assets/images/talents/Paladin/Background/Holy.jpg",
-          },
-          spec2: {
-            name: "Protection",
-            bg: "assets/images/talents/Paladin/Background/Protection.jpg",
-          },
-          spec3: {
-            name: "Retribution",
-            bg: "assets/images/talents/Paladin/Background/Retribution.jpg",
-          },
         },
         {
           id: 7,
           playableClassName: "Mage",
           classIcon: Mage,
           classColor: "#69CCF0",
-          spec1: {
-            name: "Arcane",
-            bg: "assets/images/talents/Mage/Background/Arcane.jpg",
-          },
-          spec2: {
-            name: "Fire",
-            bg: "assets/images/talents/Mage/Background/Fire.jpg",
-          },
-          spec3: {
-            name: "Frost",
-            bg: "assets/images/talents/Mage/Background/Frost.jpg",
-          },
         },
         {
           id: 8,
           playableClassName: "Druid",
           classIcon: Druid,
           classColor: "#FF7D0A",
-          spec1: {
-            name: "Balance",
-            bg: "assets/images/talents/Druid/Background/Balance.jpg",
-          },
-          spec2: {
-            name: "Feral Combat",
-            bg: "assets/images/talents/Druid/Background/Feral Combat.jpg",
-          },
-          spec3: {
-            name: "Restoration",
-            bg: "assets/images/talents/Druid/Background/Restoration.jpg",
-          },
         },
       ],
     };
   }
 
   render() {
-    const classSelector = this.state.classes.map((playableClass) => {
-      return (
+    const arrayOfClassIcons = [];
+    for (const [index, item] of this.state.classes.entries()) {
+      arrayOfClassIcons.push(
         <div
           className="col mt-5 hovereffect"
           style={{ height: "130px", width: "130px" }}
         >
           <img
-            src={playableClass.classIcon}
-            alt={playableClass.playableClassName}
+            src={this.state.classes[index].classIcon}
+            alt={this.state.classes[index].playableClassName}
             className="classIcon img-fluid"
-            style={{ border: `2px solid ${playableClass.classColor}` }}
+            style={{
+              border: `2px solid ${this.state.classes[index].classColor}`,
+            }}
           />
-          <h4 style={{ color: playableClass.classColor }}>
-            {playableClass.playableClassName}
+          <h4 style={{ color: this.state.classes[index].classColor }}>
+            {this.state.classes[index].playableClassName}
           </h4>
           <div class="overlay" style={{ height: "100%", width: "100%" }}>
             <Link
-              to={"/" + playableClass.playableClassName}
+              to={"/" + this.state.classes[index].playableClassName}
               class="info"
-              id={playableClass.playableClassName + "Link"}
+              id={this.state.classes[index].playableClassName + "Link"}
               style={{
-                color: playableClass.classColor,
-                boxShadow: `0 0 5px ${playableClass.classColor}`,
-                border: `2px solid ${playableClass.classColor}`,
+                color: this.state.classes[index].classColor,
+                boxShadow: `0 0 5px ${this.state.classes[index].classColor}`,
+                border: `2px solid ${this.state.classes[index].classColor}`,
               }}
             >
               Select
@@ -223,7 +118,31 @@ class ClassSelector extends Component {
           </div>
         </div>
       );
-    });
+    }
+
+    let classSelectorPart1 = [
+      arrayOfClassIcons[0],
+      arrayOfClassIcons[1],
+      arrayOfClassIcons[2],
+    ];
+    let classSelectorPart2 = [
+      arrayOfClassIcons[3],
+      arrayOfClassIcons[4],
+      arrayOfClassIcons[5],
+    ];
+    let classSelectorPart3 = [
+      arrayOfClassIcons[6],
+      arrayOfClassIcons[7],
+      arrayOfClassIcons[8],
+    ];
+
+    const classSelector = (
+      <>
+        <div className="row">{classSelectorPart1}</div>
+        <div className="row">{classSelectorPart2}</div>
+        <div className="row">{classSelectorPart3}</div>
+      </>
+    );
 
     return (
       <Router>
@@ -248,7 +167,7 @@ class ClassSelector extends Component {
           <div className="container mx-auto">
             <div className="row mx-auto">
               <div className="col-3 "></div>
-              <div className="col-6 col-md-6 col-xl-5 mb-4 ml-4">
+              <div className="col-6 col-md-6 col-xl-5 mb-4">
                 {classSelector}
               </div>
               <div className="col-3 "></div>
