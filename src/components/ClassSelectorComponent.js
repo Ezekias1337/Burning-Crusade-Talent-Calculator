@@ -88,8 +88,8 @@ class ClassSelector extends Component {
     for (const [index, item] of this.state.classes.entries()) {
       arrayOfClassIcons.push(
         <div
-          className="col mt-5 hovereffect"
-          style={{ height: "130px", width: "130px" }}
+          className="col col-4 mt-5 hovereffect"
+          /* style={{ height: "130px", width: "130px" }} */
         >
           <img
             src={this.state.classes[index].classIcon}
@@ -99,10 +99,10 @@ class ClassSelector extends Component {
               border: `2px solid ${this.state.classes[index].classColor}`,
             }}
           />
-          <h4 style={{ color: this.state.classes[index].classColor }}>
+          <h3 className="mt-2 playable-class-name" style={{ color: this.state.classes[index].classColor }}>
             {this.state.classes[index].playableClassName}
-          </h4>
-          <div class="overlay" style={{ height: "100%", width: "100%" }}>
+          </h3>
+          <div class="overlay class-icon">
             <Link
               to={"/" + this.state.classes[index].playableClassName}
               class="info"
@@ -166,11 +166,11 @@ class ClassSelector extends Component {
 
           <div className="container mx-auto">
             <div className="row mx-auto">
-              <div className="col-3 "></div>
-              <div className="col-6 col-md-6 col-xl-5 mb-4">
+              <div className="col-1 col-md-3"></div>
+              <div className="col-10 col-md-6 col-xl-5 mb-4">
                 {classSelector}
               </div>
-              <div className="col-3 "></div>
+              <div className="col-1 col-md-3"></div>
             </div>
           </div>
         </div>
