@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Burning-Crusade-Talent-Calculator/static/css/main.3b3f410e.chunk.css",
-    "main.js": "/Burning-Crusade-Talent-Calculator/static/js/main.1dae1fb1.chunk.js",
-    "main.js.map": "/Burning-Crusade-Talent-Calculator/static/js/main.1dae1fb1.chunk.js.map",
+    "main.js": "/Burning-Crusade-Talent-Calculator/static/js/main.9f0cbaa2.chunk.js",
+    "main.js.map": "/Burning-Crusade-Talent-Calculator/static/js/main.9f0cbaa2.chunk.js.map",
     "runtime-main.js": "/Burning-Crusade-Talent-Calculator/static/js/runtime-main.092e49a0.js",
     "runtime-main.js.map": "/Burning-Crusade-Talent-Calculator/static/js/runtime-main.092e49a0.js.map",
     "static/css/2.05cf3275.chunk.css": "/Burning-Crusade-Talent-Calculator/static/css/2.05cf3275.chunk.css",
@@ -50,6 +50,7 @@
     "static/media/Shaman_Icon.505be5cb.png": "/Burning-Crusade-Talent-Calculator/static/media/Shaman_Icon.505be5cb.png",
     "static/media/Subtlety.5525e3e4.jpg": "/Burning-Crusade-Talent-Calculator/static/media/Subtlety.5525e3e4.jpg",
     "static/media/Survival.e2669ebf.jpg": "/Burning-Crusade-Talent-Calculator/static/media/Survival.e2669ebf.jpg",
+    "static/media/Warlock_BG.c908c949.jpg": "/Burning-Crusade-Talent-Calculator/static/media/Warlock_BG.c908c949.jpg",
     "static/media/Warlock_Icon.a62f3ee0.png": "/Burning-Crusade-Talent-Calculator/static/media/Warlock_Icon.a62f3ee0.png",
     "static/media/Warrior_Icon.53fd8145.png": "/Burning-Crusade-Talent-Calculator/static/media/Warrior_Icon.53fd8145.png"
   },
@@ -58,6 +59,6 @@
     "static/css/2.05cf3275.chunk.css",
     "static/js/2.f7279580.chunk.js",
     "static/css/main.3b3f410e.chunk.css",
-    "static/js/main.1dae1fb1.chunk.js"
+    "static/js/main.9f0cbaa2.chunk.js"
   ]
 }
