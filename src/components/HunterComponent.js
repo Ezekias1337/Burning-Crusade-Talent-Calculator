@@ -10,22 +10,6 @@ import spec1Logo from "../images/talents/Hunter/Spec1Logo.jpg";
 import spec2Logo from "../images/talents/Hunter/Spec2Logo.jpg";
 import spec3Logo from "../images/talents/Hunter/Spec3Logo.jpg";
 
-/* 
-DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
-Things to update across all components
-1.) Make tooltip re-render on click
-2.) Make talent frames not spread far apart large viewport
-
-Hunter view looks different on mobile compared to warrior
-When removing points in shmana/hunter component in spec 2 from scatter/barrage,
-arrow turns silver even though subsReq is maxed out
-Warrior component has incorrect tooltips
-
-
-*/
-
-//consistent among classes
-
 import overlayImage from "../images/Item_Hover.png";
 
 import DownSilverSmall from "../images/DownSilverSmall.png";
@@ -8774,7 +8758,7 @@ class HunterComponent extends Component {
             <button
               onClick={this.resetPoints}
               type="button"
-              className="btn btn-success mb-2 mt-2"
+              className="btn btn-success btn-hunter mb-2 mt-2"
               style={{ display: "inline-block", marginLeft: "6px" }}
             >
               Reset

@@ -2,39 +2,12 @@ import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Paladin } from "../talentinfo/Paladin";
 
-// line 3702 fixed bug for arrow not turning gold on click spec 3 key is changing to inactive instead of active
-
-/* 
-DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
-Things to update across all components
-1.) Hardcoded images => Imported Images ✔
-a.) Don't forget Arrows ✔
-2.) Window.event.button[0] to handle left click on inactive talents
-3.) All functions handling Arrows
-  a.) arrowSizeParse in removeGreenBorder (s1,s2,s3)
-  b.) turnArrowGoldOnClick
-  c.) turnArrowGoldIndirectly (s1,s2,s3)
-  d.) window.event.button[2] where code looks at arrows source and subsequent switch
-      in code directly after .nextElementSibling.id.includes("Spec")
-      1.) first if statement (reference classname instead of src)
-      2.) switch directly after (change .src = to reference imported img)
-  e.) Reset Function (the for of loops, don't forget left/right/angle arrow)
-4.) Import Background image for each spec ✔
-5.) Change spec talent frame bootstrap breakpoints ✔
-6.) Update formulas for mobile ✔
-7.) Update HTML for Tooltip ✔
-8.) add mb-3 to talent frame wrapper div ✔
-
-*/
-
 import spec1BG from "../images/talents/Paladin/Background/Holy.jpg";
 import spec2BG from "../images/talents/Paladin/Background/Protection.jpg";
 import spec3BG from "../images/talents/Paladin/Background/Retribution.jpg";
 import spec1Logo from "../images/talents/Paladin/Spec1Logo.jpg";
 import spec2Logo from "../images/talents/Paladin/Spec2Logo.jpg";
 import spec3Logo from "../images/talents/Paladin/Spec3Logo.jpg";
-
-//consistent among classes
 
 import overlayImage from "../images/Item_Hover.png";
 
@@ -9939,7 +9912,7 @@ class PaladinComponent extends Component {
             <button
               onClick={this.resetPoints}
               type="button"
-              className="btn btn-success mb-2 mt-2"
+              className="btn btn-success btn-paladin mb-2 mt-2"
               style={{ display: "inline-block", marginLeft: "6px" }}
             >
               Reset

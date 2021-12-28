@@ -2,21 +2,12 @@ import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Shaman } from "../talentinfo/Shaman";
 
-/* 
-DON'T FORGET TO IMPORT BACKGROUND FOR EACH SPEC
-Things to update across all components
-1.) In Enhance tree prio talents unlocking early
-
-*/
-
 import spec1BG from "../images/talents/Shaman/Background/Elemental.jpg";
 import spec2BG from "../images/talents/Shaman/Background/Enhancement.jpg";
 import spec3BG from "../images/talents/Shaman/Background/Restoration.jpg";
 import spec1Logo from "../images/talents/Shaman/Spec1Logo.jpg";
 import spec2Logo from "../images/talents/Shaman/Spec2Logo.jpg";
 import spec3Logo from "../images/talents/Shaman/Spec3Logo.jpg";
-
-//consistent among classes
 
 import overlayImage from "../images/Item_Hover.png";
 
@@ -9919,7 +9910,7 @@ class ShamanComponent extends Component {
             <button
               onClick={this.resetPoints}
               type="button"
-              className="btn btn-success mb-2 mt-2"
+              className="btn btn-success btn-shaman mb-2 mt-2"
               style={{ display: "inline-block", marginLeft: "6px" }}
             >
               Reset
