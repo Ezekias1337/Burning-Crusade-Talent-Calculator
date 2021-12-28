@@ -52,45 +52,53 @@ body {
 }
 
 .navbar-collapse ul li a:hover {
-  /* background: rgba(255,255,255, 0.3);*/
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
 }
 
 .Hunter:hover {
-  background: rgba(171, 212, 115, 0.4);
+  background: rgba(171, 212, 115, 0.5);
+  border: 1px solid rgb(171, 212, 115);
 }
 
 .Shaman:hover {
-  background: rgba(0, 112, 222, 0.4);
+  background: rgba(0, 112, 222, 0.5);
+  border: 1px solid rgb(0, 112, 222);
 }
 
 .Warlock:hover {
-  background: rgba(148, 130, 201, 0.4);
+  background: rgba(148, 130, 201, 0.5);
+  border: 1px solid rgb(148, 130, 201);
 }
 
 .Warrior:hover {
-  background: rgba(199, 156, 110, 0.4);
+  background: rgba(199, 156, 110, 0.5);
+  border: 1px solid rgb(199, 156, 110);
 }
 
 .Rogue:hover {
-  background: rgba(255, 245, 105, 0.4);
+  background: rgba(255, 245, 105, 0.5);
+  border: 1px solid rgb(255, 245, 105);
 }
 
 .Priest:hover {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .Paladin:hover {
-  background: rgba(245, 140, 186, 0.4);
+  background: rgba(245, 140, 186, 0.5);
+  border: 1px solid rgb(245, 140, 186);
 }
 
 .Mage:hover {
-  background: rgba(105, 204, 240, 0.4);
+  background: rgba(105, 204, 240, 0.5);
+  border: 1px solid rgb(105, 204, 240);
 }
 
 .Druid:hover {
-  background: rgba(255, 125, 10, 0.4);
+  background: rgba(255, 125, 10, 0.5);
+  border: 1px solid rgb(255, 125, 10);
 }
 
 .nav-link {
@@ -272,6 +280,46 @@ body {
 
 .overlay {
   width: 100%;
+}
+
+.hovereffect:hover {
+  border-radius: 15px;
+}
+
+div[data-theme="Hunter"]:hover {
+  box-shadow: 0 0 0 0.15rem #abd473;
+}
+
+div[data-theme="Shaman"]:hover {
+  box-shadow: 0 0 0 0.15rem #0070de;
+}
+
+div[data-theme="Warlock"]:hover {
+  box-shadow: 0 0 0 0.15rem #9482c9;
+}
+
+div[data-theme="Warrior"]:hover {
+  box-shadow: 0 0 0 0.15rem #c79c6e;
+}
+
+div[data-theme="Rogue"]:hover {
+  box-shadow: 0 0 0 0.15rem #fff569;
+}
+
+div[data-theme="Priest"]:hover {
+  box-shadow: 0 0 0 0.15rem #ffffff;
+}
+
+div[data-theme="Paladin"]:hover {
+  box-shadow: 0 0 0 0.15rem #f58cba;
+}
+
+div[data-theme="Mage"]:hover {
+  box-shadow: 0 0 0 0.15rem #69ccf0;
+}
+
+div[data-theme="Druid"]:hover {
+  box-shadow: 0 0 0 0.15rem #ff7d0a;
 }
 
 .hovereffect .overlay {
