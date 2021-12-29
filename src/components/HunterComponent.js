@@ -29,6 +29,45 @@ import RightGoldSmall from "../images/RightGoldSmall.png";
 import AngleArrowSilver from "../images/AngleArrowSilver.png";
 import AngleArrowGold from "../images/AngleArrowGold.png";
 
+/* 
+  
+  - Replace standard alert with react-strap alert
+  - For all talents, when maxed out should say right-click to unlearn
+	- Warlock Shadow mastery not unlocking unless Siphon life has 
+		points maxed and then 25 pt threshold is met
+	- Warlock master conjuror tooltip in json file is wrong
+	- Warrior mace specialization needs to be cleaned up
+	- Warrior Improved mortal strike not unlocking, same issue
+		as warlock shadow mastery
+	- Warrior unbridled fury needs to be cleaned up
+	- Rogue master of deception needs to be cleaned up
+	- Rogue sinister calling not unlocking, same issue
+		as warlock shadow mastery
+	- Rogue premeditation Subtlety tree, one of the buttons triggers
+		adding a point to combat spec, maybe this is what is causing
+		the bug present in warlock and warrior trees
+	- Priest improved power word shield tooltip not updating onclick
+		until rehover
+	- Priest divine fury tooltip not updating onclick
+		until rehover
+	- Priest lightwell maxed out tooltip is undefined
+	- Priest shadowform arrow is not turning gold when talent 
+		is available
+	- Paladin Unyielding faith tooltip is wrong
+	- Paladin Improved Judgement tooltip not updating onclick
+		until rehover
+	- Paladin improved seal of the crusader tooltip not 
+		updating onclick until rehover
+	- Mage improved arcane missles tooltip not 
+		updating onclick until rehover
+	- Druid Improved tranquility not unlocking at all, even
+		though it has no pre-reqruisites
+
+*/
+
+
+
+
 //Spec1 Images
 
 import AnimalHandler from "../images/talents/Hunter/Progression/spec1/AnimalHandler.jpg";
@@ -8846,7 +8885,6 @@ class HunterComponent extends Component {
                   style={{ display: "none" }}
                   ref={(ref) => (this.ImprovedAspectHawkToolTip = ref)}
                   data-tip={Hunter[0].toolTip[0]}
-                  ref={(ref) => (this.fooRef = ref)}
                   id="1"
                 />
                 <img
