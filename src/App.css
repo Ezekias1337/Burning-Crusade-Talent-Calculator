@@ -416,6 +416,75 @@ body {
   box-shadow: 0 0 0 0.2rem rgba(255, 125, 10, 0.5) !important;
 }
 
+div[data-theme="Hunter"],
+div[data-theme="Shaman"],
+div[data-theme="Warlock"],
+div[data-theme="Warrior"],
+div[data-theme="Rogue"],
+div[data-theme="Priest"],
+div[data-theme="Paladin"],
+div[data-theme="Mage"],
+div[data-theme="Druid"] {
+  -webkit-animation-name: fade-in;
+  animation-name: fade-in;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  opacity: 0%;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+div[data-theme="Shaman"] {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+div[data-theme="Warlock"] {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+div[data-theme="Warrior"] {
+  -webkit-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+div[data-theme="Rogue"] {
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+}
+div[data-theme="Priest"] {
+  -webkit-animation-delay: 2.5s;
+  animation-delay: 2.5s;
+}
+div[data-theme="Paladin"] {
+  -webkit-animation-delay: 3s;
+  animation-delay: 3s;
+}
+div[data-theme="Mage"] {
+  -webkit-animation-delay: 3.5s;
+  animation-delay: 3.5s;
+}
+div[data-theme="Druid"] {
+  -webkit-animation-delay: 4s;
+  animation-delay: 4s;
+}
+
 div[data-theme="Hunter"]:hover {
   box-shadow: 0 0 0 0.15rem #abd473;
 }
