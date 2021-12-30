@@ -435,13 +435,13 @@ div[data-theme="Priest"],
 div[data-theme="Paladin"],
 div[data-theme="Mage"],
 div[data-theme="Druid"] {
- /*  -webkit-animation-name: fade-in;
+  -webkit-animation-name: fade-in;
   animation-name: fade-in;
   -webkit-animation-duration: 2s;
   animation-duration: 2s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  opacity: 0%; */
+  opacity: 0%;
 }
 
 @-webkit-keyframes fade-in {
@@ -449,7 +449,7 @@ div[data-theme="Druid"] {
     opacity: 0%;
   }
   to {
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
@@ -458,7 +458,7 @@ div[data-theme="Druid"] {
     opacity: 0%;
   }
   to {
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
@@ -598,7 +598,7 @@ div[data-theme="Druid"]:hover {
   transition-delay: 0.2s;
 }
 
-/* #Col1,
+#Col1,
 #Col2,
 #Col3, .btn-success {
   -webkit-animation-name: fade-in-talent-columns;
@@ -630,7 +630,7 @@ div[data-theme="Druid"]:hover {
     opacity: 0%;
   }
   to {
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
@@ -639,7 +639,6 @@ div[data-theme="Druid"]:hover {
     opacity: 0%;
   }
   to {
-    opacity: 100%;
+    opacity: 1;
   }
 }
- */
