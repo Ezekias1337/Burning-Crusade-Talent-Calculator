@@ -11530,13 +11530,13 @@ class PaladinComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
-                    ReactTooltip.show(this.SanctifiedSealsToolTip);
+                    ReactTooltip.show(this.ImprovedSealOfTheCrusaderToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
-                  ref={(ref) => (this.SanctifiedSealsToolTip = ref)}
+                  ref={(ref) => (this.ImprovedSealOfTheCrusaderToolTip = ref)}
                   data-tip={Paladin[45].toolTip[0]}
                   id="46"
                 />
@@ -11958,13 +11958,13 @@ class PaladinComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
-                    ReactTooltip.show(this.ImprovedJudgementToolTip);
+                    ReactTooltip.show(this.SanctifiedJudgementToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
-                  ref={(ref) => (this.ImprovedJudgementToolTip = ref)}
+                  ref={(ref) => (this.SanctifiedJudgementToolTip = ref)}
                   data-tip={Paladin[58].toolTip[0]}
                   id="59"
                 />

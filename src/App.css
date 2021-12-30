@@ -243,6 +243,16 @@ body {
   z-index: 1;
 }
 
+.angleArrow,
+.leftArrow,
+.rightArrow,
+.smArrow,
+.medArrow,
+.lgArrow,
+.lgArrowPaladin {
+  pointer-events: none;
+}
+
 .active-talent {
   border: 2px solid rgba(64, 191, 64, 0.8);
   border-radius: 3px;
@@ -586,4 +596,49 @@ div[data-theme="Druid"]:hover {
 
 .hovereffect:hover a.info {
   transition-delay: 0.2s;
+}
+
+#Col1,
+#Col2,
+#Col3, .btn-success {
+  -webkit-animation-name: fade-in-talent-columns;
+  animation-name: fade-in-talent-columns;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  opacity: 0%;
+}
+
+#Col2 {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+
+#Col3 {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.btn-success {
+  -webkit-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+
+@-webkit-keyframes fade-in-talent-columns {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes fade-in-talent-columns {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
 }

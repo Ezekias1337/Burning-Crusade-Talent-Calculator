@@ -10116,13 +10116,13 @@ class PriestComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
-                    ReactTooltip.show(this.ReflectiveShieldToolTip);
+                    ReactTooltip.show(this.ImprovedPowerWordShieldToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
                   src={overlayImage}
                   style={{ display: "none" }}
-                  ref={(ref) => (this.ReflectiveShieldToolTip = ref)}
+                  ref={(ref) => (this.ImprovedPowerWordShieldToolTip = ref)}
                   data-tip={Priest[4].toolTip[0]}
                   id="5"
                 />
@@ -10871,6 +10871,7 @@ class PriestComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
+                    ReactTooltip.show(this.DivineFuryToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"

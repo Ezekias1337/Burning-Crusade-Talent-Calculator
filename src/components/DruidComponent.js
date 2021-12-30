@@ -11771,7 +11771,7 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span id="prioReq1Spec3" className="talentPoints req-20-s3">
+                <span className="talentPoints req-20-s3">
                   0/2
                 </span>
               </div>

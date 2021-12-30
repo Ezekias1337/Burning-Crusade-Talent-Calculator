@@ -10450,11 +10450,11 @@ class MageComponent extends Component {
                   onMouseDown={() => {
                     this.talentClick();
                     this.toolTipFunction();
-                    ReactTooltip.show(this.ImprovedArcaneMisslesToolTip);
+                    ReactTooltip.show(this.EmpoweredArcaneMisslesToolTip);
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedArcaneMisslesToolTip = ref}
+                  src={overlayImage} style={{ display: "none" }} ref={ref => this.EmpoweredArcaneMisslesToolTip = ref}
                   data-tip={Mage[18].toolTip[0]}
                   id="19"
                 />
