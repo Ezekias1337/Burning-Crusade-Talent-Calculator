@@ -96,7 +96,6 @@ import LivingSpirit from "../images/talents/Druid/Progression/spec3/LivingSpirit
 import NaturesSwiftness from "../images/talents/Druid/Progression/spec3/NaturesSwiftness.jpg";
 import TreeOfLife from "../images/talents/Druid/Progression/spec3/TreeOfLife.jpg";
 
-//(Adjust section at line 6065)
 let i = 0;
 let iSpec1 = 0;
 let iSpec2 = 0;

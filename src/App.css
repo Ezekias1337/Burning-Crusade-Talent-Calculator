@@ -434,7 +434,8 @@ div[data-theme="Rogue"],
 div[data-theme="Priest"],
 div[data-theme="Paladin"],
 div[data-theme="Mage"],
-div[data-theme="Druid"] {
+div[data-theme="Druid"],
+h1#select-a-class {
   -webkit-animation-name: fade-in;
   animation-name: fade-in;
   -webkit-animation-duration: 2s;
@@ -493,6 +494,11 @@ div[data-theme="Mage"] {
 div[data-theme="Druid"] {
   -webkit-animation-delay: 4s;
   animation-delay: 4s;
+}
+
+h1#select-a-class {
+  -webkit-animation-delay: 4.5s;
+  animation-delay: 4.5s;
 }
 
 div[data-theme="Hunter"]:hover {
@@ -600,13 +606,14 @@ div[data-theme="Druid"]:hover {
 
 #Col1,
 #Col2,
-#Col3, .btn-success {
+#Col3,
+.btn-success {
   -webkit-animation-name: fade-in-talent-columns;
   animation-name: fade-in-talent-columns;
   -webkit-animation-duration: 2s;
   animation-duration: 2s;
   -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
   opacity: 0%;
 }
 

@@ -97,7 +97,7 @@ import Deflection from "../images/talents/Paladin/Progression/spec3/Deflection.j
 import ImprovedJudgement from "../images/talents/Paladin/Progression/spec3/ImprovedJudgement.jpg";
 import SanctityAura from "../images/talents/Paladin/Progression/spec3/SanctityAura.jpg";
 
-//(Adjust section at line 6065)
+
 let i = 0;
 let iSpec1 = 0;
 let iSpec2 = 0;

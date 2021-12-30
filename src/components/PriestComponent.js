@@ -107,7 +107,7 @@ inactive, it needs to also revert the arrow color
 
 // line 3702 fixed bug for arrow not turning gold on click spec 3 key is changing to inactive instead of active
 
-//(Adjust section at line 6065)
+
 let i = 0;
 let iSpec1 = 0;
 let iSpec2 = 0;

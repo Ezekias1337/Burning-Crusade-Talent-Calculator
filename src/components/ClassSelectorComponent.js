@@ -160,6 +160,7 @@ class ClassSelector extends Component {
                     color: "white",
                   }}
                   className="mt-2"
+                  id="select-a-class"
                 >
                   Select a Class
                 </h1>
