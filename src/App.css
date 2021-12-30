@@ -608,8 +608,8 @@ div[data-theme="Druid"]:hover {
 #Col2,
 #Col3,
 .btn-success {
-  -webkit-animation-name: fade-in-talent-columns;
-  animation-name: fade-in-talent-columns;
+  -webkit-animation-name: fade-in;
+  animation-name: fade-in;
   -webkit-animation-duration: 2s;
   animation-duration: 2s;
   -webkit-animation-fill-mode: forwards;
@@ -630,22 +630,4 @@ div[data-theme="Druid"]:hover {
 .btn-success {
   -webkit-animation-delay: 1.5s;
   animation-delay: 1.5s;
-}
-
-@-webkit-keyframes fade-in-talent-columns {
-  from {
-    opacity: 0%;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fade-in-talent-columns {
-  from {
-    opacity: 0%;
-  }
-  to {
-    opacity: 1;
-  }
 }
