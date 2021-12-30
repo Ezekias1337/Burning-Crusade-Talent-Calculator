@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/Burning-Crusade-Talent-Calculator/static/css/main.3c0b6c92.chunk.css",
-    "main.js": "/Burning-Crusade-Talent-Calculator/static/js/main.96456fa6.chunk.js",
-    "main.js.map": "/Burning-Crusade-Talent-Calculator/static/js/main.96456fa6.chunk.js.map",
+    "main.css": "/Burning-Crusade-Talent-Calculator/static/css/main.7e340bfa.chunk.css",
+    "main.js": "/Burning-Crusade-Talent-Calculator/static/js/main.d4d45ceb.chunk.js",
+    "main.js.map": "/Burning-Crusade-Talent-Calculator/static/js/main.d4d45ceb.chunk.js.map",
     "runtime-main.js": "/Burning-Crusade-Talent-Calculator/static/js/runtime-main.092e49a0.js",
     "runtime-main.js.map": "/Burning-Crusade-Talent-Calculator/static/js/runtime-main.092e49a0.js.map",
     "static/css/2.05cf3275.chunk.css": "/Burning-Crusade-Talent-Calculator/static/css/2.05cf3275.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.fc34497e.chunk.js.map": "/Burning-Crusade-Talent-Calculator/static/js/3.fc34497e.chunk.js.map",
     "index.html": "/Burning-Crusade-Talent-Calculator/index.html",
     "static/css/2.05cf3275.chunk.css.map": "/Burning-Crusade-Talent-Calculator/static/css/2.05cf3275.chunk.css.map",
-    "static/css/main.3c0b6c92.chunk.css.map": "/Burning-Crusade-Talent-Calculator/static/css/main.3c0b6c92.chunk.css.map",
+    "static/css/main.7e340bfa.chunk.css.map": "/Burning-Crusade-Talent-Calculator/static/css/main.7e340bfa.chunk.css.map",
     "static/js/2.f7279580.chunk.js.LICENSE.txt": "/Burning-Crusade-Talent-Calculator/static/js/2.f7279580.chunk.js.LICENSE.txt",
     "static/media/Affliction.077268c6.jpg": "/Burning-Crusade-Talent-Calculator/static/media/Affliction.077268c6.jpg",
     "static/media/Arcane.2f5aaaad.jpg": "/Burning-Crusade-Talent-Calculator/static/media/Arcane.2f5aaaad.jpg",
@@ -58,7 +58,7 @@
     "static/js/runtime-main.092e49a0.js",
     "static/css/2.05cf3275.chunk.css",
     "static/js/2.f7279580.chunk.js",
-    "static/css/main.3c0b6c92.chunk.css",
-    "static/js/main.96456fa6.chunk.js"
+    "static/css/main.7e340bfa.chunk.css",
+    "static/js/main.d4d45ceb.chunk.js"
   ]
 }
