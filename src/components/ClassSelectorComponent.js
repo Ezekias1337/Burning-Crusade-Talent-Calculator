@@ -9,6 +9,7 @@ import RogueComponent from "./RogueComponent";
 import ShamanComponent from "./ShamanComponent";
 import WarlockComponent from "./WarlockComponent";
 import WarriorComponent from "./WarriorComponent";
+import HunterTestComponent from "./Hunter-Test-Component";
 
 import Druid from "../images/Druid_Icon.png";
 import Hunter from "../images/Hunter_Icon.png";
@@ -206,6 +207,9 @@ class ClassSelector extends Component {
           </Route>
           <Route path="/Warrior">
             <WarriorComponent />
+          </Route>
+          <Route path="/Test-Hunter">
+            <HunterTestComponent />
           </Route>
         </Switch>
       </Router>

@@ -1,0 +1,3 @@
+const rebuildToolTip = () => {
+  ReactTooltip.rebuild();
+};
