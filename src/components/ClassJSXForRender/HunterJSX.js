@@ -1,4 +1,137 @@
-const hunterJSX = () => {
+import ReactTooltip from "react-tooltip";
+import { Hunter } from "../../talentinfo/Hunter";
+
+//Functions import
+import { addGreenBorder } from "../../functions/addGreenBorder";
+import { addYellowBorder } from "../../functions/addYellowBorder";
+import { removeGreenBorder } from "../../functions/removeGreenBorder";
+import { removeYellowBorder } from "../../functions/removeYellowBorder";
+
+import { arrowGold } from "../../functions/arrowGold";
+import { turnArrowGoldIndirectly } from "../../functions/turnArrowGoldIndirectly";
+import { turnArrowGoldOnClick } from "../../functions/turnArrowGoldOnClick";
+import { turnArrowSilver } from "../../functions/turnArrowSilver";
+import { arrowSizeParse } from "../../functions/arrowSizeParse";
+
+import { toolTipFunction } from "../../functions/toolTipFunction";
+import { displayMouseOverlay } from "../../functions/displayMouseOverlay";
+import { displayMouseOverlayInnerElement } from "../../functions/displayMouseOverlayInnerElement";
+import { displayOverlayMobile } from "../../functions/displayOverlayMobile";
+import { hideMouseOverlay } from "../../functions/hideMouseOverlay";
+import { hideMouseOverlayInnerElement } from "../../functions/hideMouseOverlayInnerElement";
+import { hideOverlayMobile } from "../../functions/hideOverlayMobile";
+
+import { idMatcherParse } from "../../functions/idMatcherParse";
+import { rebuildToolTip } from "../../functions/rebuildToolTip";
+
+import { disableTalentsAllPointsSpent } from "../../functions/disableTalentsAllPointsSpent";
+import { resetPoints } from "../../functions/resetPoints";
+
+import { smoothScrollComponent } from "../../functions/smoothScrollComponent";
+
+import { talentClick } from "../../functions/talentClick";
+
+//Consistent image import
+import overlayImage from "../../images/Item_Hover.png";
+
+import DownSilverSmall from "../../images/DownSilverSmall.png";
+import DownSilverMedium from "../../images/DownSilverMedium.png";
+import DownSilverLarge from "../../images/DownSilverLarge.png";
+
+import DownGoldSmall from "../../images/DownGoldSmall.png";
+import DownGoldMedium from "../../images/DownGoldMedium.png";
+import DownGoldLarge from "../../images/DownGoldLarge.png";
+
+import LeftSilverSmall from "../../images/LeftSilverSmall.png";
+import RightSilverSmall from "../../images/RightSilverSmall.png";
+
+import LeftGoldSmall from "../../images/LeftGoldSmall.png";
+import RightGoldSmall from "../../images/RightGoldSmall.png";
+
+import AngleArrowSilver from "../../images/AngleArrowSilver.png";
+import AngleArrowGold from "../../images/AngleArrowGold.png";
+
+//Class specific image import
+import spec1BG from "../../images/talents/Hunter/Background/BeastMastery.jpg";
+import spec2BG from "../../images/talents/Hunter/Background/Marksman.jpg";
+import spec3BG from "../../images/talents/Hunter/Background/Survival.jpg";
+import spec1Logo from "../../images/talents/Hunter/Spec1Logo.jpg";
+import spec2Logo from "../../images/talents/Hunter/Spec2Logo.jpg";
+import spec3Logo from "../../images/talents/Hunter/Spec3Logo.jpg";
+
+//Spec1 Images
+
+import AnimalHandler from "../../images/talents/Hunter/Progression/spec1/AnimalHandler.jpg";
+import CatlikeReflexes from "../../images/talents/Hunter/Progression/spec1/CatlikeReflexes.jpg";
+import Frenzy from "../../images/talents/Hunter/Progression/spec1/Frenzy.jpg";
+import Intimidation from "../../images/talents/Hunter/Progression/spec1/Intimidation.jpg";
+import UnleashedFury from "../../images/talents/Hunter/Progression/spec1/UnleashedFury.jpg";
+import EnduranceTraining from "../../images/talents/Hunter/Progression/spec1/EnduranceTraining.jpg";
+import ImprovedAspectHawk from "../../images/talents/Hunter/Progression/spec1/ImprovedAspectHawk.jpg";
+import Pathfinding from "../../images/talents/Hunter/Progression/spec1/Pathfinding.jpg";
+import BestialDiscipline from "../../images/talents/Hunter/Progression/spec1/BestialDiscipline.jpg";
+import FerociousInspiration from "../../images/talents/Hunter/Progression/spec1/FerociousInspiration.jpg";
+import ImprovedAspectMonkey from "../../images/talents/Hunter/Progression/spec1/ImprovedAspectMonkey.jpg";
+import SerpentsSwiftness from "../../images/talents/Hunter/Progression/spec1/SerpentsSwiftness.jpg";
+import BestialSwiftness from "../../images/talents/Hunter/Progression/spec1/BestialSwiftness.jpg";
+import Ferocity from "../../images/talents/Hunter/Progression/spec1/Ferocity.jpg";
+import ImprovedMendPet from "../../images/talents/Hunter/Progression/spec1/ImprovedMendPet.jpg";
+import SpiritBond from "../../images/talents/Hunter/Progression/spec1/SpiritBond.jpg";
+import FocusedFire from "../../images/talents/Hunter/Progression/spec1/FocusedFire.jpg";
+import ThickHide from "../../images/talents/Hunter/Progression/spec1/ThickHide.jpg";
+import ImprovedRevivePet from "../../images/talents/Hunter/Progression/spec1/ImprovedRevivePet.jpg";
+import BestialWrath from "../../images/talents/Hunter/Progression/spec1/BestialWrath.jpg";
+import TheBeastWithin from "../../images/talents/Hunter/Progression/spec1/BeastWithin.jpg";
+
+//Spec2 Images
+
+import AimedShot from "../../images/talents/Hunter/Progression/spec2/AimedShot.jpg";
+import Efficiency from "../../images/talents/Hunter/Progression/spec2/Efficiency.jpg";
+import ImprovedStings from "../../images/talents/Hunter/Progression/spec2/ImprovedStings.jpg";
+import RapidKilling from "../../images/talents/Hunter/Progression/spec2/RapidKilling.jpg";
+import BarrageAndImprovedBarrage from "../../images/talents/Hunter/Progression/spec2/BarrageAndImprovedBarrage.jpg";
+import GoForTheThroat from "../../images/talents/Hunter/Progression/spec2/GoForTheThroat.jpg";
+import LethalShots from "../../images/talents/Hunter/Progression/spec2/LethalShots.jpg";
+import ScatterShot from "../../images/talents/Hunter/Progression/spec2/ScatterShot.jpg";
+import CarefulAim from "../../images/talents/Hunter/Progression/spec2/CarefulAim.jpg";
+import ImprovedArcaneShot from "../../images/talents/Hunter/Progression/spec2/ImprovedArcaneShot.jpg";
+import MasterMarksman from "../../images/talents/Hunter/Progression/spec2/MasterMarksman.jpg";
+import SilencingShot from "../../images/talents/Hunter/Progression/spec2/SilencingShot.jpg";
+import CombatExperience from "../../images/talents/Hunter/Progression/spec2/CombatExperience.jpg";
+import ImprovedConcussiveShot from "../../images/talents/Hunter/Progression/spec2/ImprovedConcussiveShot.jpg";
+import MortalShots from "../../images/talents/Hunter/Progression/spec2/MortalShots.jpg";
+import TrueshotAura from "../../images/talents/Hunter/Progression/spec2/TrueshotAura.jpg";
+import ConcussiveBarrage from "../../images/talents/Hunter/Progression/spec2/ConcussiveBarrage.jpg";
+import ImprovedHuntersMark from "../../images/talents/Hunter/Progression/spec2/ImprovedHuntersMark.jpg";
+import RangedWeaponSpecialization from "../../images/talents/Hunter/Progression/spec2/RangedWeaponSpecialization.jpg";
+
+//Spec3 Images
+
+import CleverTraps from "../../images/talents/Hunter/Progression/spec3/CleverTraps.jpg";
+import ExposeWeakness from "../../images/talents/Hunter/Progression/spec3/ExposeWeakness.jpg";
+import KillerInstinct from "../../images/talents/Hunter/Progression/spec3/KillerInstinct.jpg";
+import Resourcefulness from "../../images/talents/Hunter/Progression/spec3/Resourcefulness.jpg";
+import ThrillOfTheHunt from "../../images/talents/Hunter/Progression/spec3/ThrillOfTheHunt.jpg";
+import Counterattack from "../../images/talents/Hunter/Progression/spec3/Counterattack.jpg";
+import HawkEye from "../../images/talents/Hunter/Progression/spec3/HawkEye.jpg";
+import LightningReflexes from "../../images/talents/Hunter/Progression/spec3/LightningReflexes.jpg";
+import SavageStrikes from "../../images/talents/Hunter/Progression/spec3/SavageStrikes.jpg";
+import TrapMastery from "../../images/talents/Hunter/Progression/spec3/TrapMastery.jpg";
+import Deflection from "../../images/talents/Hunter/Progression/spec3/Deflection.jpg";
+import HumanoidSlaying from "../../images/talents/Hunter/Progression/spec3/HumanoidSlaying.jpg";
+import MasterTactician from "../../images/talents/Hunter/Progression/spec3/MasterTactician.jpg";
+import Surefooted from "../../images/talents/Hunter/Progression/spec3/Surefooted.jpg";
+import WyvernSting from "../../images/talents/Hunter/Progression/spec3/WyvernSting.jpg";
+import Deterrence from "../../images/talents/Hunter/Progression/spec3/Deterrence.jpg";
+import ImprovedFeignDeath from "../../images/talents/Hunter/Progression/spec3/ImprovedFeignDeath.jpg";
+import MonsterSlaying from "../../images/talents/Hunter/Progression/spec3/MonsterSlaying.jpg";
+import SurvivalInstincts from "../../images/talents/Hunter/Progression/spec3/SurvivalInstincts.jpg";
+import Entrapment from "../../images/talents/Hunter/Progression/spec3/Entrapment.jpg";
+import ImprovedWingClip from "../../images/talents/Hunter/Progression/spec3/ImprovedWingClip.jpg";
+import Readiness from "../../images/talents/Hunter/Progression/spec3/Readiness.jpg";
+import Survivalist from "../../images/talents/Hunter/Progression/spec3/Survivalist.jpg";
+
+export const HunterJSX = () => {
   return (
     <div
       style={{ position: "relative", maxWidth: "1010px" }}
@@ -6,13 +139,13 @@ const hunterJSX = () => {
       className="frame-wrapper mx-auto"
       id="Hunter"
       onLoad={() => {
-        this.rebuildToolTip();
+        rebuildToolTip();
       }}
     >
       <div className="row" style={{ whiteSpace: "nowrap", overflow: "hidden" }}>
         <div className="col-sm-12">
           <button
-            onClick={this.resetPoints}
+            onClick={() => this.resetPoints()}
             type="button"
             className="btn btn-success btn-hunter mb-2 mt-2"
             style={{ display: "inline-block", marginLeft: "6px" }}
@@ -89,29 +222,29 @@ const hunterJSX = () => {
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ImprovedAspectHawkToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ImprovedAspectHawkToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ImprovedAspectHawkToolTip = ref)}
+                // ref={(ref) => (this.ImprovedAspectHawkToolTip = ref)}
                 data-tip={Hunter[0].toolTip[0]}
                 id="1"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton active-talent req-active"
                 src={ImprovedAspectHawk}
@@ -122,26 +255,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.EnduranceTrainingToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.EnduranceTrainingToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.EnduranceTrainingToolTip = ref)}
+                // ref={(ref) => (this.EnduranceTrainingToolTip = ref)}
                 data-tip={Hunter[1].toolTip[0]}
                 id="2"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton active-talent req-active"
                 src={EnduranceTraining}
@@ -155,26 +288,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.FocusedFireToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.FocusedFireToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.FocusedFireToolTip = ref)}
+                // ref={(ref) => (this.FocusedFireToolTip = ref)}
                 data-tip={Hunter[2].toolTip[0]}
                 id="3"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={FocusedFire}
@@ -185,26 +318,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ImprovedAspectMonkeyToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ImprovedAspectMonkeyToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ImprovedAspectMonkeyToolTip = ref)}
+                // ref={(ref) => (this.ImprovedAspectMonkeyToolTip = ref)}
                 data-tip={Hunter[3].toolTip[0]}
                 id="4"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={ImprovedAspectMonkey}
@@ -215,26 +348,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ThickHideToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ThickHideToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ThickHideToolTip = ref)}
+                // ref={(ref) => (this.ThickHideToolTip = ref)}
                 data-tip={Hunter[4].toolTip[0]}
                 id="5"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={ThickHide}
@@ -245,26 +378,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ImprovedRevivePetToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ImprovedRevivePetToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ImprovedRevivePetToolTip = ref)}
+                // ref={(ref) => (this.ImprovedRevivePetToolTip = ref)}
                 data-tip={Hunter[5].toolTip[0]}
                 id="6"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={ImprovedRevivePet}
@@ -277,26 +410,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.PathfindingToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.PathfindingToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.PathfindingToolTip = ref)}
+                // ref={(ref) => (this.PathfindingToolTip = ref)}
                 data-tip={Hunter[6].toolTip[0]}
                 id="7"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={Pathfinding}
@@ -307,26 +440,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.BestialSwiftnessToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.BestialSwiftnessToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.BestialSwiftnessToolTip = ref)}
+                // ref={(ref) => (this.BestialSwiftnessToolTip = ref)}
                 data-tip={Hunter[7].toolTip[0]}
                 id="8"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={BestialSwiftness}
@@ -337,26 +470,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.UnleashedFuryToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.UnleashedFuryToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.UnleashedFuryToolTip = ref)}
+                // ref={(ref) => (this.UnleashedFuryToolTip = ref)}
                 data-tip={Hunter[8].toolTip[0]}
                 id="9"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={UnleashedFury}
@@ -371,26 +504,26 @@ const hunterJSX = () => {
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ImprovedMendPetToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ImprovedMendPetToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ImprovedMendPetToolTip = ref)}
+                // ref={(ref) => (this.ImprovedMendPetToolTip = ref)}
                 data-tip={Hunter[9].toolTip[0]}
                 id="10"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={ImprovedMendPet}
@@ -401,26 +534,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.FerocityToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.FerocityToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.FerocityToolTip = ref)}
+                // ref={(ref) => (this.FerocityToolTip = ref)}
                 data-tip={Hunter[10].toolTip[0]}
                 id="11"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={Ferocity}
@@ -444,26 +577,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.SpiritBondToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.SpiritBondToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.SpiritBondToolTip = ref)}
+                // ref={(ref) => (this.SpiritBondToolTip = ref)}
                 data-tip={Hunter[11].toolTip[0]}
                 id="12"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={SpiritBond}
@@ -474,26 +607,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.IntimidationToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.IntimidationToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.IntimidationToolTip = ref)}
+                // ref={(ref) => (this.IntimidationToolTip = ref)}
                 data-tip={Hunter[12].toolTip[0]}
                 id="13"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={Intimidation}
@@ -513,26 +646,26 @@ const hunterJSX = () => {
             <div style={{ zIndex: "0" }} className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.BestialDisciplineToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.BestialDisciplineToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.BestialDisciplineToolTip = ref)}
+                // ref={(ref) => (this.BestialDisciplineToolTip = ref)}
                 data-tip={Hunter[13].toolTip[0]}
                 id="14"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={BestialDiscipline}
@@ -546,26 +679,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.AnimalHandlerToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.AnimalHandlerToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.AnimalHandlerToolTip = ref)}
+                // ref={(ref) => (this.AnimalHandlerToolTip = ref)}
                 data-tip={Hunter[14].toolTip[0]}
                 id="15"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={AnimalHandler}
@@ -577,26 +710,26 @@ const hunterJSX = () => {
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.FrenzyToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.FrenzyToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.FrenzyToolTip = ref)}
+                // ref={(ref) => (this.FrenzyToolTip = ref)}
                 data-tip={Hunter[15].toolTip[0]}
                 id="16"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={Frenzy}
@@ -612,26 +745,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.FerociousInspirationToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.FerociousInspirationToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.FerociousInspirationToolTip = ref)}
+                // ref={(ref) => (this.FerociousInspirationToolTip = ref)}
                 data-tip={Hunter[16].toolTip[0]}
                 id="17"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={FerociousInspiration}
@@ -642,26 +775,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.BestialWrathToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.BestialWrathToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.BestialWrathToolTip = ref)}
+                // ref={(ref) => (this.BestialWrathToolTip = ref)}
                 data-tip={Hunter[17].toolTip[0]}
                 id="18"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={BestialWrath}
@@ -683,26 +816,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.CatlikeReflexesToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.CatlikeReflexesToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.CatlikeReflexesToolTip = ref)}
+                // ref={(ref) => (this.CatlikeReflexesToolTip = ref)}
                 data-tip={Hunter[18].toolTip[0]}
                 id="19"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={CatlikeReflexes}
@@ -718,26 +851,26 @@ const hunterJSX = () => {
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.SerpentsSwiftnessToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.SerpentsSwiftnessToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.SerpentsSwiftnessToolTip = ref)}
+                // ref={(ref) => (this.SerpentsSwiftnessToolTip = ref)}
                 data-tip={Hunter[19].toolTip[0]}
                 id="20"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={SerpentsSwiftness}
@@ -752,26 +885,26 @@ const hunterJSX = () => {
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.BeastWithinToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.BeastWithinToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.BeastWithinToolTip = ref)}
+                // ref={(ref) => (this.BeastWithinToolTip = ref)}
                 data-tip={Hunter[20].toolTip[0]}
                 id="21"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec1 talentButton inactive-talent req-inactive"
                 src={TheBeastWithin}
@@ -819,26 +952,26 @@ const hunterJSX = () => {
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ImprovedConcussiveShotToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ImprovedConcussiveShotToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ImprovedConcussiveShotToolTip = ref)}
+                // ref={(ref) => (this.ImprovedConcussiveShotToolTip = ref)}
                 data-tip={Hunter[21].toolTip[0]}
                 id="22"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton active-talent req-active"
                 src={ImprovedConcussiveShot}
@@ -849,26 +982,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.LethalShotsToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.LethalShotsToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.LethalShotsToolTip = ref)}
+                // ref={(ref) => (this.LethalShotsToolTip = ref)}
                 data-tip={Hunter[22].toolTip[0]}
                 id="23"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton active-talent req-active"
                 src={LethalShots}
@@ -883,26 +1016,26 @@ const hunterJSX = () => {
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ImprovedHuntersMarkToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ImprovedHuntersMarkToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ImprovedHuntersMarkToolTip = ref)}
+                // ref={(ref) => (this.ImprovedHuntersMarkToolTip = ref)}
                 data-tip={Hunter[23].toolTip[0]}
                 id="24"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={ImprovedHuntersMark}
@@ -913,26 +1046,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.EfficiencyToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.EfficiencyToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.EfficiencyToolTip = ref)}
+                // ref={(ref) => (this.EfficiencyToolTip = ref)}
                 data-tip={Hunter[24].toolTip[0]}
                 id="25"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={Efficiency}
@@ -946,26 +1079,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.GoForTheThroatToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.GoForTheThroatToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.GoForTheThroatToolTip = ref)}
+                // ref={(ref) => (this.GoForTheThroatToolTip = ref)}
                 data-tip={Hunter[25].toolTip[0]}
                 id="26"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={GoForTheThroat}
@@ -976,26 +1109,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ImprovedArcaneShotToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ImprovedArcaneShotToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ImprovedArcaneShotToolTip = ref)}
+                // ref={(ref) => (this.ImprovedArcaneShotToolTip = ref)}
                 data-tip={Hunter[26].toolTip[0]}
                 id="27"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={ImprovedArcaneShot}
@@ -1006,26 +1139,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.AimedShotToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.AimedShotToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.AimedShotToolTip = ref)}
+                // ref={(ref) => (this.AimedShotToolTip = ref)}
                 data-tip={Hunter[27].toolTip[0]}
                 id="28"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={AimedShot}
@@ -1044,26 +1177,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.RapidKillingToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.RapidKillingToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.RapidKillingToolTip = ref)}
+                // ref={(ref) => (this.RapidKillingToolTip = ref)}
                 data-tip={Hunter[28].toolTip[0]}
                 id="29"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={RapidKilling}
@@ -1077,26 +1210,26 @@ const hunterJSX = () => {
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ImprovedStingsToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ImprovedStingsToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ImprovedStingsToolTip = ref)}
+                // ref={(ref) => (this.ImprovedStingsToolTip = ref)}
                 data-tip={Hunter[29].toolTip[0]}
                 id="30"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={ImprovedStings}
@@ -1107,26 +1240,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.MortalShotsToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.MortalShotsToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.MortalShotsToolTip = ref)}
+                // ref={(ref) => (this.MortalShotsToolTip = ref)}
                 data-tip={Hunter[30].toolTip[0]}
                 id="31"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={MortalShots}
@@ -1142,26 +1275,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ConcussiveBarrageToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ConcussiveBarrageToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ConcussiveBarrageToolTip = ref)}
+                // ref={(ref) => (this.ConcussiveBarrageToolTip = ref)}
                 data-tip={Hunter[31].toolTip[0]}
                 id="32"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={ConcussiveBarrage}
@@ -1172,26 +1305,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ScatterShotToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ScatterShotToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ScatterShotToolTip = ref)}
+                // ref={(ref) => (this.ScatterShotToolTip = ref)}
                 data-tip={Hunter[32].toolTip[0]}
                 id="33"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={ScatterShot}
@@ -1210,26 +1343,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.BarrageToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.BarrageToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.BarrageToolTip = ref)}
+                // ref={(ref) => (this.BarrageToolTip = ref)}
                 data-tip={Hunter[33].toolTip[0]}
                 id="34"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={BarrageAndImprovedBarrage}
@@ -1251,26 +1384,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.CombatExperienceToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.CombatExperienceToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.CombatExperienceToolTip = ref)}
+                // ref={(ref) => (this.CombatExperienceToolTip = ref)}
                 data-tip={Hunter[34].toolTip[0]}
                 id="35"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={CombatExperience}
@@ -1283,26 +1416,26 @@ const hunterJSX = () => {
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.RangedWeaponSpecializationToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.RangedWeaponSpecializationToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.RangedWeaponSpecializationToolTip = ref)}
+                // ref={(ref) => (this.RangedWeaponSpecializationToolTip = ref)}
                 data-tip={Hunter[35].toolTip[0]}
                 id="36"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={RangedWeaponSpecialization}
@@ -1315,26 +1448,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.CarefulAimToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.CarefulAimToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.CarefulAimToolTip = ref)}
+                // ref={(ref) => (this.CarefulAimToolTip = ref)}
                 data-tip={Hunter[36].toolTip[0]}
                 id="37"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={CarefulAim}
@@ -1345,26 +1478,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.TrueshotAuraToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.TrueshotAuraToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.TrueshotAuraToolTip = ref)}
+                // ref={(ref) => (this.TrueshotAuraToolTip = ref)}
                 data-tip={Hunter[37].toolTip[0]}
                 id="38"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={TrueshotAura}
@@ -1377,26 +1510,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.BarrageAndImprovedBarrageToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.BarrageAndImprovedBarrageToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.BarrageAndImprovedBarrageToolTip = ref)}
+                // ref={(ref) => (this.BarrageAndImprovedBarrageToolTip = ref)}
                 data-tip={Hunter[38].toolTip[0]}
                 id="39"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={BarrageAndImprovedBarrage}
@@ -1413,26 +1546,26 @@ const hunterJSX = () => {
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.MasterMarksmanToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.MasterMarksmanToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.MasterMarksmanToolTip = ref)}
+                // ref={(ref) => (this.MasterMarksmanToolTip = ref)}
                 data-tip={Hunter[39].toolTip[0]}
                 id="40"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={MasterMarksman}
@@ -1456,26 +1589,26 @@ const hunterJSX = () => {
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.SilencingShotToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.SilencingShotToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.SilencingShotToolTip = ref)}
+                // ref={(ref) => (this.SilencingShotToolTip = ref)}
                 data-tip={Hunter[40].toolTip[0]}
                 id="41"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec2 talentButton inactive-talent req-inactive"
                 src={SilencingShot}
@@ -1522,26 +1655,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.MonsterSlayingToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.MonsterSlayingToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.MonsterSlayingToolTip = ref)}
+                // ref={(ref) => (this.MonsterSlayingToolTip = ref)}
                 data-tip={Hunter[41].toolTip[0]}
                 id="42"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton active-talent req-active"
                 src={MonsterSlaying}
@@ -1552,26 +1685,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.HumanoidSlayingToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.HumanoidSlayingToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.HumanoidSlayingToolTip = ref)}
+                // ref={(ref) => (this.HumanoidSlayingToolTip = ref)}
                 data-tip={Hunter[42].toolTip[0]}
                 id="43"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton active-talent req-active"
                 src={HumanoidSlaying}
@@ -1582,26 +1715,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.HawkEyeToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.HawkEyeToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.HawkEyeToolTip = ref)}
+                // ref={(ref) => (this.HawkEyeToolTip = ref)}
                 data-tip={Hunter[43].toolTip[0]}
                 id="44"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton active-talent req-active"
                 src={HawkEye}
@@ -1612,26 +1745,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.SavageStrikesToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.SavageStrikesToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.SavageStrikesToolTip = ref)}
+                // ref={(ref) => (this.SavageStrikesToolTip = ref)}
                 data-tip={Hunter[44].toolTip[0]}
                 id="45"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile()
                 }}
                 className="spec3 talentButton active-talent req-active"
                 src={SavageStrikes}
@@ -1644,26 +1777,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.EntrapmentToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.EntrapmentToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.EntrapmentToolTip = ref)}
+                // ref={(ref) => (this.EntrapmentToolTip = ref)}
                 data-tip={Hunter[45].toolTip[0]}
                 id="46"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={Entrapment}
@@ -1674,26 +1807,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.DeflectionToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.DeflectionToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.DeflectionToolTip = ref)}
+                // ref={(ref) => (this.DeflectionToolTip = ref)}
                 data-tip={Hunter[46].toolTip[0]}
                 id="47"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={Deflection}
@@ -1704,26 +1837,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ImprovedWingClipToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ImprovedWingClipToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ImprovedWingClipToolTip = ref)}
+                // ref={(ref) => (this.ImprovedWingClipToolTip = ref)}
                 data-tip={Hunter[47].toolTip[0]}
                 id="48"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={ImprovedWingClip}
@@ -1737,26 +1870,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.CleverTrapsToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.CleverTrapsToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.CleverTrapsToolTip = ref)}
+                // ref={(ref) => (this.CleverTrapsToolTip = ref)}
                 data-tip={Hunter[48].toolTip[0]}
                 id="49"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={CleverTraps}
@@ -1767,26 +1900,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.SurvivalistToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.SurvivalistToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.SurvivalistToolTip = ref)}
+                // ref={(ref) => (this.SurvivalistToolTip = ref)}
                 data-tip={Hunter[49].toolTip[0]}
                 id="50"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={Survivalist}
@@ -1797,26 +1930,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.DeterrenceToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.DeterrenceToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.DeterrenceToolTip = ref)}
+                // ref={(ref) => (this.DeterrenceToolTip = ref)}
                 data-tip={Hunter[50].toolTip[0]}
                 id="51"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={Deterrence}
@@ -1838,26 +1971,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.TrapMasteryToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.TrapMasteryToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.TrapMasteryToolTip = ref)}
+                // ref={(ref) => (this.TrapMasteryToolTip = ref)}
                 data-tip={Hunter[51].toolTip[0]}
                 id="52"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={TrapMastery}
@@ -1868,26 +2001,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.SurefootedToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.SurefootedToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.SurefootedToolTip = ref)}
+                // ref={(ref) => (this.SurefootedToolTip = ref)}
                 data-tip={Hunter[52].toolTip[0]}
                 id="53"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={Surefooted}
@@ -1899,26 +2032,26 @@ const hunterJSX = () => {
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ImprovedFeignDeathToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ImprovedFeignDeathToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ImprovedFeignDeathToolTip = ref)}
+                // ref={(ref) => (this.ImprovedFeignDeathToolTip = ref)}
                 data-tip={Hunter[53].toolTip[0]}
                 id="54"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={ImprovedFeignDeath}
@@ -1931,26 +2064,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.SurvivalInstinctsToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.SurvivalInstinctsToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.SurvivalInstinctsToolTip = ref)}
+                // ref={(ref) => (this.SurvivalInstinctsToolTip = ref)}
                 data-tip={Hunter[54].toolTip[0]}
                 id="55"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={SurvivalInstincts}
@@ -1961,26 +2094,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.KillerInstinctToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.KillerInstinctToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.KillerInstinctToolTip = ref)}
+                // ref={(ref) => (this.KillerInstinctToolTip = ref)}
                 data-tip={Hunter[55].toolTip[0]}
                 id="56"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={KillerInstinct}
@@ -1999,26 +2132,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.CounterattackToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.CounterattackToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.CounterattackToolTip = ref)}
+                // ref={(ref) => (this.CounterattackToolTip = ref)}
                 data-tip={Hunter[56].toolTip[0]}
                 id="57"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={Counterattack}
@@ -2034,26 +2167,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ResourcefulnessToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ResourcefulnessToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ResourcefulnessToolTip = ref)}
+                // ref={(ref) => (this.ResourcefulnessToolTip = ref)}
                 data-tip={Hunter[57].toolTip[0]}
                 id="58"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={Resourcefulness}
@@ -2065,26 +2198,26 @@ const hunterJSX = () => {
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.LightningReflexesToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.LightningReflexesToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.LightningReflexesToolTip = ref)}
+                // ref={(ref) => (this.LightningReflexesToolTip = ref)}
                 data-tip={Hunter[58].toolTip[0]}
                 id="59"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={LightningReflexes}
@@ -2098,26 +2231,26 @@ const hunterJSX = () => {
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ThrillOfTheHuntToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ThrillOfTheHuntToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ThrillOfTheHuntToolTip = ref)}
+                // ref={(ref) => (this.ThrillOfTheHuntToolTip = ref)}
                 data-tip={Hunter[59].toolTip[0]}
                 id="60"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={ThrillOfTheHunt}
@@ -2128,26 +2261,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.WyvernStingToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.WyvernStingToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.WyvernStingToolTip = ref)}
+                // ref={(ref) => (this.WyvernStingToolTip = ref)}
                 data-tip={Hunter[60].toolTip[0]}
                 id="61"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={WyvernSting}
@@ -2160,26 +2293,26 @@ const hunterJSX = () => {
             </div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ExposeWeaknessToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ExposeWeaknessToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ExposeWeaknessToolTip = ref)}
+                // ref={(ref) => (this.ExposeWeaknessToolTip = ref)}
                 data-tip={Hunter[61].toolTip[0]}
                 id="62"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={ExposeWeakness}
@@ -2194,26 +2327,26 @@ const hunterJSX = () => {
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.MasterTacticianToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.MasterTacticianToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.MasterTacticianToolTip = ref)}
+                // ref={(ref) => (this.MasterTacticianToolTip = ref)}
                 data-tip={Hunter[62].toolTip[0]}
                 id="63"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={MasterTactician}
@@ -2237,26 +2370,26 @@ const hunterJSX = () => {
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3">
               <img
-                onMouseEnter={this.displayMouseOverlayInnerElement}
-                onMouseLeave={this.hideMouseOverlayInnerElement}
+                onMouseEnter={() => displayMouseOverlayInnerElement()}
+                onMouseLeave={() => hideMouseOverlayInnerElement()}
                 onMouseDown={() => {
-                  this.talentClick();
-                  this.toolTipFunction();
-                  ReactTooltip.show(this.ReadinessToolTip);
+                  talentClick();
+                  toolTipFunction();
+                  // ReactTooltip.show(this.ReadinessToolTip);
                 }}
-                onTouchEnd={this.talentClick}
+                onTouchEnd={() => this.talentClick()}
                 className="talentHover"
                 src={overlayImage}
                 style={{ display: "none" }}
-                ref={(ref) => (this.ReadinessToolTip = ref)}
+                // ref={(ref) => (this.ReadinessToolTip = ref)}
                 data-tip={Hunter[63].toolTip[0]}
                 id="64"
               />
               <img
-                onMouseEnter={this.displayMouseOverlay}
-                onMouseLeave={this.hideMouseOverlay}
+                onMouseEnter={() => displayMouseOverlay()}
+                onMouseLeave={() => hideMouseOverlay()}
                 onTouchStart={() => {
-                  this.displayOverlayMobile();
+                  displayOverlayMobile();
                 }}
                 className="spec3 talentButton inactive-talent req-inactive"
                 src={Readiness}

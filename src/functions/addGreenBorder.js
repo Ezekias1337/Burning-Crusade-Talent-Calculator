@@ -1,5 +1,5 @@
-const addGreenBorder = () => {
-  if (iSpec1 >= 40) {
+export const addGreenBorder = () => {
+  /* if (iSpec1 >= 40) {
     //Gather all elements in tree with 40 point requirement
     spec1Req40 = document.getElementsByClassName("req-40-s1");
     //Iterate through array of elements and push their previous sibling to
@@ -183,5 +183,5 @@ const addGreenBorder = () => {
         turnArrowGoldIndirectlySpec1();
       }
     }
-  }
+  } */
 };
