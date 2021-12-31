@@ -60,63 +60,63 @@ body {
   background: rgba(171, 212, 115, 0.5);
   border: 1px solid rgb(171, 212, 115);
   box-shadow: 0 0 1rem 0.1rem #abd473;
-  transition: all 0.30s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .Shaman:hover {
   background: rgba(0, 112, 222, 0.5);
   border: 1px solid rgb(0, 112, 222);
   box-shadow: 0 0 1rem 0.1rem #0070de;
-  transition: all 0.30s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .Warlock:hover {
   background: rgba(148, 130, 201, 0.5);
   border: 1px solid rgb(148, 130, 201);
   box-shadow: 0 0 1rem 0.1rem #9482c9;
-  transition: all 0.30s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .Warrior:hover {
   background: rgba(199, 156, 110, 0.5);
   border: 1px solid rgb(199, 156, 110);
   box-shadow: 0 0 1rem 0.1rem #c79c6e;
-  transition: all 0.30s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .Rogue:hover {
   background: rgba(255, 245, 105, 0.5);
   border: 1px solid rgb(255, 245, 105);
   box-shadow: 0 0 1rem 0.1rem #fff569;
-  transition: all 0.30s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .Priest:hover {
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid rgb(255, 255, 255);
   box-shadow: 0 0 1rem 0.1rem #ffffff;
-  transition: all 0.30s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .Paladin:hover {
   background: rgba(245, 140, 186, 0.5);
   border: 1px solid rgb(245, 140, 186);
   box-shadow: 0 0 1rem 0.1rem #f58cba;
-  transition: all 0.30s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .Mage:hover {
   background: rgba(105, 204, 240, 0.5);
   border: 1px solid rgb(105, 204, 240);
   box-shadow: 0 0 1rem 0.1rem #69ccf0;
-  transition: all 0.30s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .Druid:hover {
   background: rgba(255, 125, 10, 0.5);
   border: 1px solid rgb(255, 125, 10);
   box-shadow: 0 0 1rem 0.1rem #ff7d0a;
-  transition: all 0.30s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .nav-link {
@@ -147,10 +147,6 @@ body {
   border-radius: 4px;
   min-width: 305px;
   max-width: 305px;
-}
-
-.frame-wrappe {
-  position: relative;
 }
 
 .talent-row {
@@ -327,7 +323,7 @@ body {
   background-color: rgba(0, 0, 0, 0) !important;
   border: 1px solid #abd473 !important;
   color: #abd473 !important;
-  box-shadow: 0 0 0 0.2rem rgba(171, 212, 115, 0.5) !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(171, 212, 115, 0.5) !important;
 }
 
 .btn-shaman {
@@ -341,7 +337,7 @@ body {
   background-color: rgba(0, 0, 0, 0) !important;
   border: 1px solid #0070de !important;
   color: #0070de !important;
-  box-shadow: 0 0 0 0.2rem rgba(0, 112, 222, 0.5) !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(0, 112, 222, 0.5) !important;
 }
 
 .btn-warlock {
@@ -355,7 +351,7 @@ body {
   background-color: rgba(0, 0, 0, 0) !important;
   border: 1px solid #9482c9 !important;
   color: #9482c9 !important;
-  box-shadow: 0 0 0 0.2rem rgba(148, 130, 201, 0.5) !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(148, 130, 201, 0.5) !important;
 }
 
 .btn-warrior {
@@ -369,7 +365,7 @@ body {
   background-color: rgba(0, 0, 0, 0) !important;
   border: 1px solid #c79c6e !important;
   color: #c79c6e !important;
-  box-shadow: 0 0 0 0.2rem rgba(199, 156, 110, 0.5) !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(199, 156, 110, 0.5) !important;
 }
 
 .btn-rogue {
@@ -384,7 +380,7 @@ body {
   background-color: rgba(0, 0, 0, 0) !important;
   border: 1px solid #fff569 !important;
   color: #fff569 !important;
-  box-shadow: 0 0 0 0.2rem rgba(255, 245, 105, 0.5) !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(255, 245, 105, 0.5) !important;
 }
 
 .btn-priest {
@@ -399,7 +395,7 @@ body {
   background-color: rgba(0, 0, 0, 0) !important;
   border: 1px solid #ffffff !important;
   color: #ffffff !important;
-  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(255, 255, 255, 0.5) !important;
 }
 
 .btn-paladin {
@@ -413,7 +409,7 @@ body {
   background-color: rgba(0, 0, 0, 0) !important;
   border: 1px solid #f58cba !important;
   color: #f58cba !important;
-  box-shadow: 0 0 0 0.2rem rgba(245, 140, 186, 0.5) !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(245, 140, 186, 0.5) !important;
 }
 
 .btn-mage {
@@ -428,7 +424,7 @@ body {
   background-color: rgba(0, 0, 0, 0) !important;
   border: 1px solid #69ccf0 !important;
   color: #69ccf0 !important;
-  box-shadow: 0 0 0 0.2rem rgba(105, 204, 240, 0.5) !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(105, 204, 240, 0.5) !important;
 }
 
 .btn-druid {
@@ -442,7 +438,7 @@ body {
   background-color: rgba(0, 0, 0, 0) !important;
   border: 1px solid #ff7d0a !important;
   color: #ff7d0a !important;
-  box-shadow: 0 0 0 0.2rem rgba(255, 125, 10, 0.5) !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(255, 125, 10, 0.5) !important;
 }
 
 div[data-theme="Hunter"],
@@ -522,47 +518,65 @@ h1#select-a-class {
 
 div[data-theme="Hunter"]:hover {
   box-shadow: 0 0 2rem 0.02rem #abd473;
-  transition: box-shadow 0.6s ease-in-out;
+  border: 2px solid #abd473;
+  transition-property: box-shadow, border;
+  transition-duration: 0.6s;
 }
 
 div[data-theme="Shaman"]:hover {
   box-shadow: 0 0 2rem 0.02rem #0070de;
-  transition: box-shadow 0.6s ease-in-out;
+  border: 2px solid #0070de;
+  transition-property: box-shadow, border;
+  transition-duration: 0.6s;
 }
 
 div[data-theme="Warlock"]:hover {
   box-shadow: 0 0 2rem 0.02rem #9482c9;
-  transition: box-shadow 0.6s ease-in-out;
+  border: 2px solid #9482c9;
+  transition-property: box-shadow, border;
+  transition-duration: 0.6s;
 }
 
 div[data-theme="Warrior"]:hover {
   box-shadow: 0 0 2rem 0.02rem #c79c6e;
-  transition: box-shadow 0.6s ease-in-out;
+  border: 2px solid #c79c6e;
+  transition-property: box-shadow, border;
+  transition-duration: 0.6s;
 }
 
 div[data-theme="Rogue"]:hover {
   box-shadow: 0 0 2rem 0.02rem #fff569;
-  transition: box-shadow 0.6s ease-in-out;
+  border: 2px solid #fff569;
+  transition-property: box-shadow, border;
+  transition-duration: 0.6s;
 }
 
 div[data-theme="Priest"]:hover {
   box-shadow: 0 0 2rem 0.02rem #ffffff;
-  transition: box-shadow 0.6s ease-in-out;
+  border: 2px solid #ffffff;
+  transition-property: box-shadow, border;
+  transition-duration: 0.6s;
 }
 
 div[data-theme="Paladin"]:hover {
   box-shadow: 0 0 2rem 0.02rem #f58cba;
-  transition: box-shadow 0.6s ease-in-out;
+  border: 2px solid #f58cba;
+  transition-property: box-shadow, border;
+  transition-duration: 0.6s;
 }
 
 div[data-theme="Mage"]:hover {
   box-shadow: 0 0 2rem 0.02rem #69ccf0;
-  transition: box-shadow 0.6s ease-in-out;
+  border: 2px solid #69ccf0;
+  transition-property: box-shadow, border;
+  transition-duration: 0.6s;
 }
 
 div[data-theme="Druid"]:hover {
   box-shadow: 0 0 2rem 0.02rem #ff7d0a;
-  transition: box-shadow 0.6s ease-in-out;
+  border: 2px solid #ff7d0a;
+  transition-property: box-shadow, border;
+  transition-duration: 0.6s;
 }
 
 .hovereffect .overlay {

@@ -121,6 +121,8 @@ class ClassSelector extends Component {
                 color: this.state.classes[index].classColor,
                 boxShadow: `0 0 5px ${this.state.classes[index].classColor}`,
                 border: `2px solid ${this.state.classes[index].classColor}`,
+                borderRadius: '10px',
+                fontWeight: 'bold'
               }}
             >
               Select
