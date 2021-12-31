@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Burning-Crusade-Talent-Calculator/static/css/main.3d80007f.chunk.css",
-    "main.js": "/Burning-Crusade-Talent-Calculator/static/js/main.c3b4250a.chunk.js",
-    "main.js.map": "/Burning-Crusade-Talent-Calculator/static/js/main.c3b4250a.chunk.js.map",
+    "main.js": "/Burning-Crusade-Talent-Calculator/static/js/main.d13647ad.chunk.js",
+    "main.js.map": "/Burning-Crusade-Talent-Calculator/static/js/main.d13647ad.chunk.js.map",
     "runtime-main.js": "/Burning-Crusade-Talent-Calculator/static/js/runtime-main.092e49a0.js",
     "runtime-main.js.map": "/Burning-Crusade-Talent-Calculator/static/js/runtime-main.092e49a0.js.map",
     "static/css/2.05cf3275.chunk.css": "/Burning-Crusade-Talent-Calculator/static/css/2.05cf3275.chunk.css",
@@ -59,6 +59,6 @@
     "static/css/2.05cf3275.chunk.css",
     "static/js/2.467c4e7f.chunk.js",
     "static/css/main.3d80007f.chunk.css",
-    "static/js/main.c3b4250a.chunk.js"
+    "static/js/main.d13647ad.chunk.js"
   ]
 }
