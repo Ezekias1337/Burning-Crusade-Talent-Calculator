@@ -673,3 +673,25 @@ div[data-theme="Druid"]:hover {
   -webkit-animation-delay: 1.5s;
   animation-delay: 1.5s;
 }
+
+/* 
+  default no border: box-shadow: 0 0 0.5rem 0.2rem rgba(0, 0, 0, 0) !important;
+  Below CSS is for after refactoring is done, adding glow animation effect
+*/
+
+/* div.talent-row-inner div.col-xs-3 img.active-talent {
+  box-shadow: 0 0 0.5rem 0.2rem rgba(64, 191, 64, 0.8) !important
+}
+
+div.talent-row-inner div.col-xs-3 img.inactive-talent {
+  box-shadow: 0 0 0.5rem 0.2rem #c2c4c6 !important
+}
+
+div.talent-row-inner div.col-xs-3 img.maxeds {
+  box-shadow: 0 0 0.5rem 0.2rem #ffd100 !important
+}
+ */
+
+/* 
+  Need to handle adding animation delay with javascript
+*/
