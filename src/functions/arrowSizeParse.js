@@ -4,7 +4,7 @@
   rightArrow(for Druid), angleArrow(for Rogue)
 */
 
-export const arrowSizeParse = () => {
+export const arrowSizeParse = (arrowSrc) => {
   /* if (arrowSrc.className.includes("sm")) {
     arrowSrcSize = "sm";
   } else if (arrowSrc.className.includes("med")) {

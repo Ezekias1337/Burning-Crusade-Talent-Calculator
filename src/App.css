@@ -199,30 +199,8 @@ body {
   z-index: 2;
 }
 
-.angleArrow {
-  position: absolute;
-  z-index: 1;
-  width: 3.95rem;
-  height: 3.4rem;
-  top: 45%;
-  left: 76%;
-}
-
-.leftArrow {
-  position: absolute;
-  top: 40%;
-  right: 75%;
-  z-index: 1;
-}
-
-.rightArrow {
-  position: absolute;
-  top: 40%;
-  left: 75%;
-  z-index: 1;
-}
-
-.smArrow {
+.downSmallSilver,
+.downSmallGold {
   position: absolute;
   left: 42%;
   top: 85%;
@@ -231,7 +209,8 @@ body {
   z-index: 1;
 }
 
-.medArrow {
+.downMediumSilver,
+.downMediumGold {
   position: absolute;
   left: 42%;
   top: 85%;
@@ -240,7 +219,8 @@ body {
   z-index: 1;
 }
 
-.lgArrow {
+.downLargeSilver,
+.downLargeGold {
   position: absolute;
   left: 43%;
   top: 85%;
@@ -249,7 +229,8 @@ body {
   z-index: 1;
 }
 
-.lgArrowPaladin {
+.downExtraLargeSilver,
+.downExtraLargeGold {
   position: absolute;
   left: 43%;
   top: 85%;
@@ -258,13 +239,44 @@ body {
   z-index: 1;
 }
 
-.angleArrow,
-.leftArrow,
-.rightArrow,
-.smArrow,
-.medArrow,
-.lgArrow,
-.lgArrowPaladin {
+.angleArrowSilver,
+.angleArrowGold {
+  position: absolute;
+  z-index: 1;
+  width: 3.95rem;
+  height: 3.4rem;
+  top: 45%;
+  left: 76%;
+}
+
+.leftArrowSilver,
+.leftArrowGold {
+  position: absolute;
+  top: 40%;
+  right: 75%;
+  z-index: 1;
+}
+
+.rightArrowSilver,
+.rightArrowGold {
+  position: absolute;
+  top: 40%;
+  left: 75%;
+  z-index: 1;
+}
+
+.downSmallSilver,
+.downSmallGold,
+.downMediumSilver,
+.downMediumGold,
+.downLargeSilver,
+.downLargeGold,
+.downExtraLargeSilver,
+.downExtraLargeGold,
+.leftArrowSilver,
+.leftArrowGold,
+.rightArrowSilver,
+.rightArrowGold {
   pointer-events: none;
 }
 
@@ -672,6 +684,46 @@ div[data-theme="Druid"]:hover {
 .btn-success {
   -webkit-animation-delay: 1.5s;
   animation-delay: 1.5s;
+}
+
+/*
+  Tooltip Styling:
+*/
+
+.tooltip-table {
+  background-color: rgba(1, 9, 33, 204);
+  border: 1.5px solid white;
+  display: table;
+  border-collapse: separate;
+  border-spacing: 0px;
+  width: 15rem;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.tooltip-double-row {
+  white-space: nowrap;
+}
+
+table.tooltip-table tr td:first-of-type {
+  text-align: left;
+}
+
+table.tooltip-table tr td:nth-child(2) {
+  text-align: right;
+  margin-left: 0px;
+}
+
+.tooltip-gray {
+  color: #9d9d9d;
+}
+
+.tooltip-gold {
+  color: #ffd100;
+}
+
+.tooltip-green {
+  color: #1eff00;
 }
 
 /* 

@@ -8854,9 +8854,6 @@ class HunterComponent extends Component {
                   onTouchStart={() => {
                     this.displayOverlayMobile();
                   }}
-                  onTouchStart={() => {
-                    this.displayOverlayMobile();
-                  }}
                   className="spec1 talentButton active-talent req-active"
                   src={ImprovedAspectHawk}
                   alt=""

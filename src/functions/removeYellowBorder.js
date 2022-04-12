@@ -1,4 +1,4 @@
-export const removeYellowBorder = () => {
-  window.event.srcElement.nextElementSibling.className =
-    "spec1 talentButton active-talent req-active";
+export const removeYellowBorder = (spec) => {
+  const eventSource = window.event.target.nextElementSibling;
+  eventSource.className = "spec1 talentButton active-talent req-active";
 };

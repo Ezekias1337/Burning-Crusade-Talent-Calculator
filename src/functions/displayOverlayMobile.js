@@ -1,3 +1,4 @@
 export const displayOverlayMobile = () => {
-  window.event.target.previousElementSibling.style.display = "inline";
+  const eventSource = window.event.target.previousElementSibling;
+  eventSource.style.display = "inline";
 };

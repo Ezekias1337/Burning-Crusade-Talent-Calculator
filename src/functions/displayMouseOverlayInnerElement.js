@@ -1,5 +1,6 @@
 export const displayMouseOverlayInnerElement = () => {
-  if (window.event.target.previousElementSibling) {
-    window.event.target.previousElementSibling.style.display = "inline";
+  const eventSource = window.event.target.previousElementSibling;
+  if (eventSource) {
+    eventSource.style.display = "inline";
   }
 };

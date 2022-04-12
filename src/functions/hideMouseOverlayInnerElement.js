@@ -1,3 +1,4 @@
 export const hideMouseOverlayInnerElement = () => {
-  window.event.target.style.display = "none";
+  const eventSource = window.event.target;
+  eventSource.style.display = "none";
 };

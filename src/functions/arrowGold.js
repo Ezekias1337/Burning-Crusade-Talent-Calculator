@@ -4,29 +4,33 @@
   rightArrow(for Druid), angleArrow(for Rogue)
 */
 
-export const arrowGold = () => {
+export const arrowGold = (arrowChecker) => {
+  const eventSource =
+    window.event.target.nextElementSibling.nextElementSibling
+      .nextElementSibling;
+
   /* if (arrowChecker.includes("angle")) {
-    window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+    eventSource.src =
       AngleArrowGold;
   }
   if (arrowChecker.includes("left")) {
-    window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+    eventSource.src =
       LeftGoldSmall;
   }
   if (arrowChecker.includes("right")) {
-    window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+    eventSource.src =
       RightGoldSmall;
   }
   if (arrowChecker.includes("sm")) {
-    window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+    eventSource.src =
       DownGoldSmall;
   }
   if (arrowChecker.includes("med")) {
-    window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+    eventSource.src =
       DownGoldMedium;
   }
   if (arrowChecker.includes("lg")) {
-    window.event.srcElement.nextElementSibling.nextElementSibling.nextElementSibling.src =
+    eventSource.src =
       DownGoldLarge;
   } */
 };
