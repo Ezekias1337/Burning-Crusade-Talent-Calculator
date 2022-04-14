@@ -83,7 +83,18 @@ import ImprovedWingClip from "../../images/talents/Hunter/Progression/spec3/Impr
 import Readiness from "../../images/talents/Hunter/Progression/spec3/Readiness.jpg";
 import Survivalist from "../../images/talents/Hunter/Progression/spec3/Survivalist.jpg";
 
+import "../../css/vanilla_css/playable-class.css";
+
+import { useSelector, useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators } from "../../redux/allActions";
+
 export const HunterJSX = () => {
+  const state = useSelector((state) => state);
+  console.log(state);
+  const dispatch = useDispatch();
+  const { addPointsSpec1 } = bindActionCreators(actionCreators, dispatch);
+
   return (
     <div
       style={{ position: "relative", maxWidth: "1010px" }}
@@ -845,7 +856,9 @@ export const HunterJSX = () => {
               maxPoints="3"
               playableClass="Hunter"
               id="56"
-              arrows={[{arrowType: "downMediumSilver", reqNumber: "2", spec: "3"}]}
+              arrows={[
+                { arrowType: "downMediumSilver", reqNumber: "2", spec: "3" },
+              ]}
             />
             <TalentButton
               imgSrc={Counterattack}
@@ -859,7 +872,7 @@ export const HunterJSX = () => {
             <div className="col col-xs-3"></div>
           </div>
           <div className="row talent-row talent-row-inner">
-          <TalentButton
+            <TalentButton
               imgSrc={Resourcefulness}
               talentName="ResourcefulnessToolTip"
               req="25"
@@ -881,7 +894,7 @@ export const HunterJSX = () => {
             <div className="col col-xs-3"></div>
           </div>
           <div className="row talent-row talent-row-inner">
-          <TalentButton
+            <TalentButton
               imgSrc={ThrillOfTheHunt}
               talentName="ThrillOfTheHuntToolTip"
               req="30"
@@ -920,7 +933,9 @@ export const HunterJSX = () => {
               maxPoints="5"
               playableClass="Hunter"
               id="63"
-              arrows={[{arrowType: "downSmallSilver", reqNumber: "3", spec: "3"}]}
+              arrows={[
+                { arrowType: "downSmallSilver", reqNumber: "3", spec: "3" },
+              ]}
             />
             <div className="col col-xs-3"></div>
             <div className="col col-xs-3"></div>

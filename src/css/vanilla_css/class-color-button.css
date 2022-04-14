@@ -1,0 +1,111 @@
+.btn-hunter {
+  background-color: #abd473 !important;
+  color: #1f2229 !important;
+  border: 1px solid rgba(0, 0, 0, 0) !important; }
+
+.btn-hunter:hover,
+.btn-hunter:focus,
+.btn-hunter:active {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 1px solid #abd473 !important;
+  color: #abd473 !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(171, 212, 115, 0.5) !important; }
+
+.btn-shaman {
+  background-color: #0070de !important;
+  border: 1px solid rgba(0, 0, 0, 0) !important; }
+
+.btn-shaman:hover,
+.btn-shaman:focus,
+.btn-shaman:active {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 1px solid #0070de !important;
+  color: #0070de !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(0, 112, 222, 0.5) !important; }
+
+.btn-warlock {
+  background-color: #9482c9 !important;
+  border: 1px solid rgba(0, 0, 0, 0) !important; }
+
+.btn-warlock:hover,
+.btn-warlock:focus,
+.btn-warlock:active {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 1px solid #9482c9 !important;
+  color: #9482c9 !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(148, 130, 201, 0.5) !important; }
+
+.btn-warrior {
+  background-color: #c79c6e !important;
+  border: 1px solid rgba(0, 0, 0, 0) !important; }
+
+.btn-warrior:hover,
+.btn-warrior:focus,
+.btn-warrior:active {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 1px solid #c79c6e !important;
+  color: #c79c6e !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(199, 156, 110, 0.5) !important; }
+
+.btn-rogue {
+  background-color: #fff569 !important;
+  border: 1px solid rgba(0, 0, 0, 0) !important;
+  color: #1f2229 !important; }
+
+.btn-rogue:hover,
+.btn-rogue:focus,
+.btn-rogue:active {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 1px solid #fff569 !important;
+  color: #fff569 !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(255, 245, 105, 0.5) !important; }
+
+.btn-priest {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0) !important;
+  color: #1f2229 !important; }
+
+.btn-priest:hover,
+.btn-priest:focus,
+.btn-priest:active {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 1px solid #ffffff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(255, 255, 255, 0.5) !important; }
+
+.btn-paladin {
+  background-color: #f58cba !important;
+  border: 1px solid rgba(0, 0, 0, 0) !important; }
+
+.btn-paladin:hover,
+.btn-paladin:focus,
+.btn-paladin:active {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 1px solid #f58cba !important;
+  color: #f58cba !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(245, 140, 186, 0.5) !important; }
+
+.btn-mage {
+  background-color: #69ccf0 !important;
+  border: 1px solid rgba(0, 0, 0, 0) !important;
+  color: #1f2229 !important; }
+
+.btn-mage:hover,
+.btn-mage:focus,
+.btn-mage:active {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 1px solid #69ccf0 !important;
+  color: #69ccf0 !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(105, 204, 240, 0.5) !important; }
+
+.btn-druid {
+  background-color: #ff7d0a !important;
+  border: 1px solid rgba(0, 0, 0, 0) !important; }
+
+.btn-druid:hover,
+.btn-druid:focus,
+.btn-druid:active {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 1px solid #ff7d0a !important;
+  color: #ff7d0a !important;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(255, 125, 10, 0.5) !important; }

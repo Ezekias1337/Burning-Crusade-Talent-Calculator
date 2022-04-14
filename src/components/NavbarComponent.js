@@ -20,6 +20,7 @@ import PaladinLogo from "../images/Paladin_Icon.png";
 import MageLogo from "../images/Mage_Icon.png";
 import DruidLogo from "../images/Druid_Icon.png";
 import HeaderBG from "../images/BGs/Warlock_BG.jpg";
+import "../css/vanilla_css/navbar.css";
 
 const CustomNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);

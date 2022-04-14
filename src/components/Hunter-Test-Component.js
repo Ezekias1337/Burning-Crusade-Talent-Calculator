@@ -1,26 +1,11 @@
-/* 
-  Base Imports
-*/
-import React, { Component } from "react";
-import ReactTooltip from "react-tooltip";
-import { Alert } from "reactstrap";
-
-/* 
-  Class Specific Imports
-*/
-import { Hunter } from "../talentinfo/Hunter";
+import React from "react";
+import { useParams } from "react-router-dom"
 import { HunterJSX } from "./ClassJSXForRender/HunterJSX";
 
-class HunterTestComponent extends Component {
-  
-  
-  render() {
-    return (
-      <HunterJSX />
-    )
-  }
-}
+export const HunterTestComponent = (() => {
+  const talentBuildParams = useParams();
+  return (
+    <HunterJSX talentBuildParams={talentBuildParams}/>
+  )
+})
 
-<ReactTooltip data-html="true" type="warning" />;
-
-export default HunterTestComponent;

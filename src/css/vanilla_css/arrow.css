@@ -1,0 +1,72 @@
+.downSmallSilver,
+.downSmallGold {
+  position: absolute;
+  left: 42%;
+  top: 85%;
+  height: 1.9rem;
+  width: 0.8rem;
+  z-index: 1; }
+
+.downMediumSilver,
+.downMediumGold {
+  position: absolute;
+  left: 42%;
+  top: 85%;
+  height: 5.8rem;
+  width: 0.8rem;
+  z-index: 1; }
+
+.downLargeSilver,
+.downLargeGold {
+  position: absolute;
+  left: 43%;
+  top: 85%;
+  height: 13.65rem;
+  width: 0.8rem;
+  z-index: 1; }
+
+.downExtraLargeSilver,
+.downExtraLargeGold {
+  position: absolute;
+  left: 43%;
+  top: 85%;
+  height: 9.6rem;
+  width: 0.8rem;
+  z-index: 1; }
+
+.angleArrowSilver,
+.angleArrowGold {
+  position: absolute;
+  z-index: 1;
+  width: 3.95rem;
+  height: 3.4rem;
+  top: 45%;
+  left: 76%; }
+
+.leftArrowSilver,
+.leftArrowGold {
+  position: absolute;
+  top: 40%;
+  right: 75%;
+  z-index: 1; }
+
+.rightArrowSilver,
+.rightArrowGold {
+  position: absolute;
+  top: 40%;
+  left: 75%;
+  z-index: 1; }
+
+.downSmallSilver,
+.downSmallGold,
+.downMediumSilver,
+.downMediumGold,
+.downLargeSilver,
+.downLargeGold,
+.downExtraLargeSilver,
+.downExtraLargeGold,
+.leftArrowSilver,
+.leftArrowGold,
+.rightArrowSilver,
+.rightArrowGold {
+  pointer-events: none; }

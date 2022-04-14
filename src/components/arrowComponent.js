@@ -10,11 +10,10 @@ import leftArrowSilver from "../images/arrows/leftArrowSilver.png";
 import leftArrowGold from "../images/arrows/leftArrowGold.png";
 import rightArrowSilver from "../images/arrows/rightArrowSilver.png";
 import rightArrowGold from "../images/arrows/rightArrowGold.png";
+import "./../css/vanilla_css/arrow.css";
 
 export const Arrow = (props) => {
-  //const [arrowColor, setArrowColor] = useState("silver");
   let arrowSource;
-  console.log("arrowSource", arrowSource);
 
   switch (props.arrowType) {
     case "downSmallSilver":

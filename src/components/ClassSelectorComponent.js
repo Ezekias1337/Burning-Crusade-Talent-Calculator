@@ -9,7 +9,7 @@ import RogueComponent from "./RogueComponent";
 import ShamanComponent from "./ShamanComponent";
 import WarlockComponent from "./WarlockComponent";
 import WarriorComponent from "./WarriorComponent";
-import HunterTestComponent from "./Hunter-Test-Component";
+import { HunterTestComponent } from "./Hunter-Test-Component";
 
 import Druid from "../images/Druid_Icon.png";
 import Hunter from "../images/Hunter_Icon.png";
@@ -20,6 +20,8 @@ import Shaman from "../images/Shaman_Icon.png";
 import Warlock from "../images/Warlock_Icon.png";
 import Warrior from "../images/Warrior_Icon.png";
 import Priest from "../images/Priest_Icon.png";
+
+import "../css/vanilla_css/class-selector.css"
 
 class ClassSelector extends Component {
   constructor(props) {
@@ -121,8 +123,8 @@ class ClassSelector extends Component {
                 color: this.state.classes[index].classColor,
                 boxShadow: `0 0 5px ${this.state.classes[index].classColor}`,
                 border: `2px solid ${this.state.classes[index].classColor}`,
-                borderRadius: '10px',
-                fontWeight: 'bold'
+                borderRadius: "10px",
+                fontWeight: "bold",
               }}
             >
               Select
@@ -190,31 +192,58 @@ class ClassSelector extends Component {
           <Route path="/Hunter">
             <HunterComponent />
           </Route>
+          <Route path="/Hunter/:build">
+            <HunterComponent />
+          </Route>
           <Route path="/Druid">
+            <DruidComponent />
+          </Route>
+          <Route path="/Druid/:build">
             <DruidComponent />
           </Route>
           <Route path="/Mage">
             <MageComponent />
           </Route>
+          <Route path="/Mage/:build">
+            <MageComponent />
+          </Route>
           <Route path="/Paladin">
             <PaladinComponent />
           </Route>
-          <Route path="/Priest">
+          <Route path="/Paladin/:build">
+            <PaladinComponent />
+          </Route>
+          <Route path="/Priest/:build">
             <PriestComponent />
           </Route>
           <Route path="/Rogue">
             <RogueComponent />
           </Route>
+          <Route path="/Rogue/:build">
+            <RogueComponent />
+          </Route>
           <Route path="/Shaman">
+            <ShamanComponent />
+          </Route>
+          <Route path="/Shaman/:build">
             <ShamanComponent />
           </Route>
           <Route path="/Warlock">
             <WarlockComponent />
           </Route>
-          <Route path="/Warrior">
+          <Route path="/Warlock/:build">
+            <WarlockComponent />
+          </Route>
+          <Route path="/Warrior/:build">
+            <WarriorComponent />
+          </Route>
+          <Route path="/Warrior/:build">
             <WarriorComponent />
           </Route>
           <Route path="/Test-Hunter">
+            <HunterTestComponent />
+          </Route>
+          <Route path="/Test-Hunter/:build">
             <HunterTestComponent />
           </Route>
         </Switch>

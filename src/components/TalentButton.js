@@ -11,6 +11,8 @@ import {
   hideMouseOverlayInnerElement,
   displayMouseOverlayInnerElement
 } from "../functions/combinedFunctions/talentClickHelpers";
+import "../css/vanilla_css/talent-button.css"
+import "../css/vanilla_css/tooltip.css"
 
 /* 
 NEED TO HANDLE DESCENDANTS OF TALENTS THAT HAVE AN ARROW REQUIREMENT
@@ -51,7 +53,7 @@ export const TalentButton = (props) => {
         }}
         className={`spec1 talentButton ${startInactive ? "inactive" : "active"}-talent req-${startInactive ? "inactive" : "active"}`}
         src={props.imgSrc}
-        alt=""
+        alt="talent-button"
       />
 
       <span className={`talentPoints req-${props.req}-s${props.spec}`}>0/{props.maxPoints}</span>

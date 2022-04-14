@@ -1,0 +1,51 @@
+@import "variables/light-mode-variables";
+@import "variables/dark-mode-variables";
+
+#Col1,
+#Col2,
+#Col3,
+.btn-success {
+  -webkit-animation-name: fade-in;
+  animation-name: fade-in;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  opacity: 0%;
+}
+
+#Col2 {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+
+#Col3 {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+.btn-success {
+  -webkit-animation-delay: 1.5s;
+  animation-delay: 1.5s;
+}
+
+.talent-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.talent-frame {
+  border: 2px solid white;
+  color: white;
+  border-radius: 4px;
+  min-width: 305px;
+  max-width: 305px;
+}
+
+.talent-row {
+  display: flex;
+}
+
+.talent-row-inner {
+  position: relative;
+}

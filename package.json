@@ -22,9 +22,12 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "app": "concurrently --kill-others \"npm run watch-css\" \"npm run start\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "build-css": "node-sass ./src/css/sass_css/ -o ./src/css/vanilla_css/",
+	  "watch-css": "nodemon -e scss -x \"npm run build-css\"",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -48,6 +51,9 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3"
+    "concurrently": "^7.1.0",
+    "gh-pages": "^3.2.3",
+    "node-sass": "^6.0.1",
+    "nodemon": "^2.0.15"
   }
 }

@@ -1,0 +1,35 @@
+.tooltip-table {
+  background-color: rgba(1, 9, 33, 204);
+  border: 1.5px solid white;
+  display: table;
+  border-collapse: separate;
+  border-spacing: 0px;
+  width: 15rem;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.tooltip-double-row {
+  white-space: nowrap;
+}
+
+table.tooltip-table tr td:first-of-type {
+  text-align: left;
+}
+
+table.tooltip-table tr td:nth-child(2) {
+  text-align: right;
+  margin-left: 0px;
+}
+
+.tooltip-gray {
+  color: #9d9d9d;
+}
+
+.tooltip-gold {
+  color: #ffd100;
+}
+
+.tooltip-green {
+  color: #1eff00;
+}
