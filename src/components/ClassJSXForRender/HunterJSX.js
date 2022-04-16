@@ -1,5 +1,7 @@
 import { TalentButton } from "../../components/TalentButton";
-
+import { ClassColorButton } from "../../components/classColorButton";
+import { SpecCounter } from "../../components/specCounter";
+import { TotalCounter } from "../../components/totalCounter"
 //Functions import
 import { rebuildToolTip } from "../../functions/rebuildToolTip";
 
@@ -90,10 +92,10 @@ import { bindActionCreators } from "redux";
 import { actionCreators } from "../../redux/allActions";
 
 export const HunterJSX = () => {
-  const state = useSelector((state) => state);
+  /* const state = useSelector((state) => state);
   console.log(state);
   const dispatch = useDispatch();
-  const { addPointsSpec1 } = bindActionCreators(actionCreators, dispatch);
+  const { addPointsSpec1 } = bindActionCreators(actionCreators, dispatch); */
 
   return (
     <div
@@ -107,41 +109,10 @@ export const HunterJSX = () => {
     >
       <div className="row" style={{ whiteSpace: "nowrap", overflow: "hidden" }}>
         <div className="col-sm-12">
-          <button
-            onClick={() => this.resetPoints()}
-            type="button"
-            className="btn btn-success btn-hunter mb-2 mt-2"
-            style={{ display: "inline-block", marginLeft: "6px" }}
-          >
-            Reset
-          </button>
+          <ClassColorButton playableClass="hunter" />
         </div>
         <div className="col-sm-4"></div>
-        <div
-          className="col-sm-4 mx-auto"
-          style={{ overflow: "hidden", whiteSpace: "nowrap" }}
-        >
-          <h5
-            style={{
-              color: "white",
-              display: "inline-block",
-              marginLeft: "6px",
-            }}
-          >
-            Points Spent:
-          </h5>
-          <h5
-            id="total-points"
-            style={{
-              color: "white",
-              display: "inline-block",
-              marginLeft: "6px",
-              marginTop: "1px",
-            }}
-          >
-            0
-          </h5>
-        </div>
+        <TotalCounter />
         <div className="col-sm-4"></div>
       </div>
 
@@ -159,27 +130,7 @@ export const HunterJSX = () => {
           className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
           id="Col1"
         >
-          <h5 id="spec1" style={{ display: "inline-block" }}>
-            <img
-              style={{
-                marginRight: ".5rem",
-                borderRadius: "2px",
-                border: "1.3px solid white",
-              }}
-              src={spec1Logo}
-            />
-            Beast Mastery
-          </h5>
-          <h5
-            style={{
-              color: "white",
-              display: "inline-block",
-              marginLeft: "2px",
-            }}
-            id="point-counter1"
-          >
-            (0)
-          </h5>
+          <SpecCounter spec="1" specName="Beast Mastery" logo={spec1Logo} />
 
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3"></div>
@@ -427,27 +378,7 @@ export const HunterJSX = () => {
           className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
           id="Col2"
         >
-          <h5 id="spec2" style={{ display: "inline-block" }}>
-            <img
-              style={{
-                marginRight: ".5rem",
-                borderRadius: "2px",
-                border: "1.3px solid white",
-              }}
-              src={spec2Logo}
-            />
-            Marksmanship
-          </h5>
-          <h5
-            style={{
-              color: "white",
-              display: "inline-block",
-              marginLeft: "2px",
-            }}
-            id="point-counter2"
-          >
-            (0)
-          </h5>
+          <SpecCounter spec="2" specName="Marksmanship" logo={spec2Logo} />
           <div className="row talent-row talent-row-inner">
             <div className="col col-xs-3"></div>
             <TalentButton
@@ -683,27 +614,7 @@ export const HunterJSX = () => {
           className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
           id="Col3"
         >
-          <h5 id="spec3" style={{ display: "inline-block" }}>
-            <img
-              style={{
-                marginRight: ".5rem",
-                borderRadius: "2px",
-                border: "1.3px solid white",
-              }}
-              src={spec3Logo}
-            />
-            Survival
-          </h5>
-          <h5
-            style={{
-              color: "white",
-              display: "inline-block",
-              marginLeft: "2px",
-            }}
-            id="point-counter3"
-          >
-            (0)
-          </h5>
+          <SpecCounter spec="3" specName="Survival" logo={spec3Logo} />
           <div className="row talent-row talent-row-inner">
             <TalentButton
               imgSrc={MonsterSlaying}

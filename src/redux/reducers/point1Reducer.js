@@ -7,12 +7,20 @@ const point1Reducer = (
   switch (action.type) {
     case "addPointsSpec1":
       if (action?.payload !== undefined) {
-        return state.points + action.payload;
+        const newPoints = state.points + action.payload;
+        const newStateObject = {
+          points: newPoints
+        }
+        return newStateObject;
       }
       break;
     case "removePointsSpec1":
       if (action?.payload !== undefined) {
-        return state.points - action.payload;
+        const newPoints = state.points - action.payload;
+        const newStateObject = {
+          points: newPoints
+        }
+        return newStateObject;
       }
       break;
     default:

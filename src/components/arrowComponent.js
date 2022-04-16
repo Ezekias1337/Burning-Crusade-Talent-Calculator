@@ -1,20 +1,24 @@
-import downSmallSilver from "../images/arrows/downSmallSilver.png";
-import downSmallGold from "../images/arrows/downSmallGold.png";
-import downMediumSilver from "../images/arrows/downMediumSilver.png";
-import downMediumGold from "../images/arrows/downMediumGold.png";
-import downLargeSilver from "../images/arrows/downLargeSilver.png";
-import downLargeGold from "../images/arrows/downLargeGold.png";
-import angleArrowSilver from "../images/arrows/angleArrowSilver.png";
-import angleArrowGold from "../images/arrows/angleArrowGold.png";
-import leftArrowSilver from "../images/arrows/leftArrowSilver.png";
-import leftArrowGold from "../images/arrows/leftArrowGold.png";
-import rightArrowSilver from "../images/arrows/rightArrowSilver.png";
-import rightArrowGold from "../images/arrows/rightArrowGold.png";
+import downSmallSilver from "../images/arrows/downSmallSilver.jpg";
+import downSmallGold from "../images/arrows/downSmallGold.jpg";
+import downMediumSilver from "../images/arrows/downMediumSilver.jpg";
+import downMediumGold from "../images/arrows/downMediumGold.jpg";
+import downLargeSilver from "../images/arrows/downLargeSilver.jpg";
+import downLargeGold from "../images/arrows/downLargeGold.jpg";
+import angleArrowSilver from "../images/arrows/angleArrowSilver.jpg";
+import angleArrowGold from "../images/arrows/angleArrowGold.jpg";
+import leftArrowSilver from "../images/arrows/leftArrowSilver.jpg";
+import leftArrowGold from "../images/arrows/leftArrowGold.jpg";
+import rightArrowSilver from "../images/arrows/rightArrowSilver.jpg";
+import rightArrowGold from "../images/arrows/rightArrowGold.jpg";
 import "./../css/vanilla_css/arrow.css";
 
 export const Arrow = (props) => {
   let arrowSource;
 
+  /* 
+    Don't put the arrow state in redux, keep it for more high level things
+  */
+  
   switch (props.arrowType) {
     case "downSmallSilver":
       arrowSource = downSmallSilver;

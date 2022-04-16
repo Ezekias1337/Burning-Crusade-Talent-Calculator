@@ -1,8 +1,10 @@
+@import "variables/common-variables";
+
 .footer {
-  -webkit-text-stroke: 0.8px black;
+  -webkit-text-stroke: 0.8px $black;
   font-weight: bold;
 }
 
 .footerWrapper {
-  border-top: 1.4px solid white;
+  border-top: 1.4px solid $white;
 }

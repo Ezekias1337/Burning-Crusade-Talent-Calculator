@@ -1,3 +1,5 @@
+@import "variables/common-variables";
+
 .active-talent {
   border: 2px solid rgba(64, 191, 64, 0.8);
   border-radius: 3px;
@@ -49,13 +51,14 @@
   display: inline-block;
   z-index: 0;
   position: relative;
+  width: 35.944px;
 }
 
 .talentHover {
   z-index: 1;
   position: absolute;
   top: 20%;
-  left: 25%;
-  width: 51%;
+  left: 26%;
+  width: 35.944px;
   height: 62%;
 }

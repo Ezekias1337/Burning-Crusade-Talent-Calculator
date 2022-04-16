@@ -1,5 +1,4 @@
-@import "variables/light-mode-variables";
-@import "variables/dark-mode-variables";
+@import "variables/common-variables";
 
 .hovereffect {
   width: 100%;
@@ -95,64 +94,64 @@ h1#select-a-class {
 }
 
 div[data-theme="Hunter"]:hover {
-  box-shadow: 0 0 2rem 0.02rem #abd473;
-  border: 2px solid #abd473;
+  box-shadow: 0 0 2rem 0.02rem $hunter;
+  border: 2px solid $hunter;
   transition-property: box-shadow, border;
   transition-duration: 0.6s;
 }
 
 div[data-theme="Shaman"]:hover {
-  box-shadow: 0 0 2rem 0.02rem #0070de;
-  border: 2px solid #0070de;
+  box-shadow: 0 0 2rem 0.02rem $shaman;
+  border: 2px solid $shaman;
   transition-property: box-shadow, border;
   transition-duration: 0.6s;
 }
 
 div[data-theme="Warlock"]:hover {
-  box-shadow: 0 0 2rem 0.02rem #9482c9;
-  border: 2px solid #9482c9;
+  box-shadow: 0 0 2rem 0.02rem $warlock;
+  border: 2px solid $warlock;
   transition-property: box-shadow, border;
   transition-duration: 0.6s;
 }
 
 div[data-theme="Warrior"]:hover {
-  box-shadow: 0 0 2rem 0.02rem #c79c6e;
-  border: 2px solid #c79c6e;
+  box-shadow: 0 0 2rem 0.02rem $warrior;
+  border: 2px solid $warrior;
   transition-property: box-shadow, border;
   transition-duration: 0.6s;
 }
 
 div[data-theme="Rogue"]:hover {
-  box-shadow: 0 0 2rem 0.02rem #fff569;
-  border: 2px solid #fff569;
+  box-shadow: 0 0 2rem 0.02rem $rogue;
+  border: 2px solid $rogue;
   transition-property: box-shadow, border;
   transition-duration: 0.6s;
 }
 
 div[data-theme="Priest"]:hover {
-  box-shadow: 0 0 2rem 0.02rem #ffffff;
-  border: 2px solid #ffffff;
+  box-shadow: 0 0 2rem 0.02rem $priest;
+  border: 2px solid $priest;
   transition-property: box-shadow, border;
   transition-duration: 0.6s;
 }
 
 div[data-theme="Paladin"]:hover {
-  box-shadow: 0 0 2rem 0.02rem #f58cba;
-  border: 2px solid #f58cba;
+  box-shadow: 0 0 2rem 0.02rem $paladin;
+  border: 2px solid $paladin;
   transition-property: box-shadow, border;
   transition-duration: 0.6s;
 }
 
 div[data-theme="Mage"]:hover {
-  box-shadow: 0 0 2rem 0.02rem #69ccf0;
-  border: 2px solid #69ccf0;
+  box-shadow: 0 0 2rem 0.02rem $mage;
+  border: 2px solid $mage;
   transition-property: box-shadow, border;
   transition-duration: 0.6s;
 }
 
 div[data-theme="Druid"]:hover {
-  box-shadow: 0 0 2rem 0.02rem #ff7d0a;
-  border: 2px solid #ff7d0a;
+  box-shadow: 0 0 2rem 0.02rem $druid;
+  border: 2px solid $druid;
   transition-property: box-shadow, border;
   transition-duration: 0.6s;
 }
@@ -164,7 +163,7 @@ div[data-theme="Druid"]:hover {
   top: 0;
   left: 0;
   opacity: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: $transparent-black;
   border-radius: 15px;
   transition: all 0.4s ease-in-out;
 }
@@ -180,7 +179,7 @@ div[data-theme="Druid"]:hover {
   text-align: center;
   position: relative;
   font-size: 17px;
-  background: rgba(0, 0, 0, 0.6);
+  background: $transparent-black;
   transform: translatey(-100px);
   transition: all 0.2s ease-in-out;
   padding: 10px;
@@ -190,8 +189,8 @@ div[data-theme="Druid"]:hover {
   text-decoration: none;
   display: inline-block;
   text-transform: uppercase;
-  color: #fff;
-  border: 1px solid #fff;
+  color: $white;
+  border: 1px solid $white;
   background-color: transparent;
   opacity: 0;
   filter: alpha(opacity=0);
@@ -201,7 +200,7 @@ div[data-theme="Druid"]:hover {
 }
 
 .hovereffect a.info:hover {
-  box-shadow: 0 0 5px #fff;
+  box-shadow: 0 0 5px $white;
 }
 
 .hovereffect:hover img {

@@ -1,0 +1,19 @@
+@import "variables/common-variables";
+
+.total-counter-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.total-counter {
+  color: $white;
+  display: inline-block;
+  margin-left: 6px;
+}
+
+.total-points-value {
+  color: $white;
+  display: inline-block;
+  margin-left: 6px;
+  margin-top: 1px;
+}

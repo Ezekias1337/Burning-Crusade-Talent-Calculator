@@ -1,5 +1,4 @@
-@import "variables/light-mode-variables";
-@import "variables/dark-mode-variables";
+@import "variables/common-variables";
 
 #Col1,
 #Col2,
@@ -35,8 +34,8 @@
 }
 
 .talent-frame {
-  border: 2px solid white;
-  color: white;
+  border: 2px solid $white;
+  color: $white;
   border-radius: 4px;
   min-width: 305px;
   max-width: 305px;

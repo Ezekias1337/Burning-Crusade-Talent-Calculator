@@ -1,0 +1,14 @@
+.spec-header {
+  display: inline-block; }
+
+.spec-img {
+  margin-right: .5rem;
+  border-radius: 2px;
+  border: 1.3px solid white;
+  width: 17.99px;
+  height: 17.99px; }
+
+.point-counter {
+  color: white;
+  display: inline-block;
+  margin-left: 2px; }

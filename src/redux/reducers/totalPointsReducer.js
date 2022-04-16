@@ -7,13 +7,15 @@ const totalPointsReducer = (
   switch (action.type) {
     case "addTotalPoints":
       if (action?.payload !== undefined) {
-        return state.points + action.payload;
+        state.points = state.points + action.payload;
+        return state;
       }
       break;
 
     case "removeTotalPoints":
       if (action?.payload !== undefined) {
-        return state.points - action.payload;
+        state.points = state.points - action.payload;
+        return state;
       }
       break;
 

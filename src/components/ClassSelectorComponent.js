@@ -213,6 +213,9 @@ class ClassSelector extends Component {
           <Route path="/Paladin/:build">
             <PaladinComponent />
           </Route>
+          <Route path="/Priest">
+            <PriestComponent />
+          </Route>
           <Route path="/Priest/:build">
             <PriestComponent />
           </Route>

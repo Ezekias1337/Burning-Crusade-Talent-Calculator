@@ -1,6 +1,13 @@
 import * as helper from "./talentClickHelpers";
 
-export const talentClick = (maxPoints, playableClass, talentInfo, id) => {
+export const talentClick = (
+  maxPoints,
+  playableClass,
+  talentInfo,
+  id,
+  spec,
+  [addPointsSpec1, addPointsSpec2, addPointsSpec3, addTotalPoints]
+) => {
   let leftOrRightClick;
 
   if (window.event.button === 0) {
@@ -11,8 +18,8 @@ export const talentClick = (maxPoints, playableClass, talentInfo, id) => {
 
   if (leftOrRightClick === "left") {
     let exitFunction = helper.preventAddingPoint();
-    if(exitFunction === true) {
-      return
+    if (exitFunction === true) {
+      return;
     }
 
     /*
@@ -25,8 +32,22 @@ export const talentClick = (maxPoints, playableClass, talentInfo, id) => {
     */
 
     helper.addPoint(maxPoints);
-    helper.toolTipFunction("add", talentInfo, playableClass, id)
- 
+    helper.toolTipFunction("add", talentInfo, playableClass, id);
+    switch (spec) {
+      case "1":
+        addPointsSpec1(1);
+        addTotalPoints(1);
+        break;
+      case "2":
+        addPointsSpec2(1);
+        addTotalPoints(1);
+        break;
+      case "3":
+        addPointsSpec3(1);
+        addTotalPoints(1);
+        break;
+    }
+
     /*
         If new point threshold (increments of 5) is reached add green border
         to all elements in that level, need to add handling for druid
@@ -58,8 +79,8 @@ export const talentClick = (maxPoints, playableClass, talentInfo, id) => {
 
     /* 
       Need to update the tooltip to reflect the new points value
-    */ 
-        
+    */
+
     /*
         If new point threshold (increments of 5) is remove add green border
         to all elements in that level, need to add handling for druid
