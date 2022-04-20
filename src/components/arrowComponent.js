@@ -15,10 +15,6 @@ import "./../css/vanilla_css/arrow.css";
 export const Arrow = (props) => {
   let arrowSource;
 
-  /* 
-    Don't put the arrow state in redux, keep it for more high level things
-  */
-  
   switch (props.arrowType) {
     case "downSmallSilver":
       arrowSource = downSmallSilver;

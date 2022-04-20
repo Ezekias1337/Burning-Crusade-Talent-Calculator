@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import ReactTooltip from "react-tooltip";
 import { Druid } from "../talentinfo/Druid";
@@ -146,6 +145,8 @@ class DruidComponent extends Component {
               .setAttribute("data-tip", toolTipSelector);
 
             break;
+          default:
+            break;
         }
 
         break;
@@ -171,6 +172,8 @@ class DruidComponent extends Component {
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
+            break;
+          default:
             break;
         }
 
@@ -204,6 +207,8 @@ class DruidComponent extends Component {
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
+            break;
+          default:
             break;
         }
 
@@ -244,6 +249,8 @@ class DruidComponent extends Component {
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
+            break;
+          default:
             break;
         }
 
@@ -291,6 +298,8 @@ class DruidComponent extends Component {
               .getElementById(toolTipIDChecker)
               .setAttribute("data-tip", toolTipSelector);
 
+            break;
+          default:
             break;
         }
 
@@ -956,7 +965,7 @@ class DruidComponent extends Component {
       let arrowSrc;
       let arrowSrcSize;
       let spanID;
-      let shouldArrowBeSilver = "";
+      //let shouldArrowBeSilver = "";
 
       function idMatcherParse() {
         if (spanID.includes("prioReq1Spec1")) {
@@ -1008,6 +1017,8 @@ class DruidComponent extends Component {
 
           case "right":
             arrowSrc.src = RightSilverSmall;
+            break;
+          default:
             break;
         }
       }
@@ -1258,6 +1269,8 @@ class DruidComponent extends Component {
           case "right":
             arrowSrc.src = RightSilverSmall;
             break;
+          default:
+            break;
         }
       }
 
@@ -1500,6 +1513,8 @@ class DruidComponent extends Component {
 
           case "right":
             arrowSrc.src = RightSilverSmall;
+            break;
+          default:
             break;
         }
       }
@@ -2001,6 +2016,9 @@ class DruidComponent extends Component {
                     }
                   }
                 }
+                break;
+
+              default:
                 break;
             }
           }
@@ -8568,7 +8586,6 @@ class DruidComponent extends Component {
       }
 
       if (i === 61) {
-
         alert("You don't have any more points to spend");
         return;
       }
@@ -8577,9 +8594,7 @@ class DruidComponent extends Component {
       if (specString[4] === "1") {
         console.log("Point used in spec 1");
         iSpec1 = iSpec1 + 1;
-        document.getElementById(
-          "point-counter1"
-        ).innerText = `(${iSpec1})`;
+        document.getElementById("point-counter1").innerText = `(${iSpec1})`;
 
         addGreenBorderSpec1();
       }
@@ -8587,9 +8602,7 @@ class DruidComponent extends Component {
       else if (specString[4] === "2") {
         console.log("Point used in spec 2");
         iSpec2 = iSpec2 + 1;
-        document.getElementById(
-          "point-counter2"
-        ).innerText = `(${iSpec2})`;
+        document.getElementById("point-counter2").innerText = `(${iSpec2})`;
 
         addGreenBorderSpec2();
       }
@@ -8597,9 +8610,7 @@ class DruidComponent extends Component {
       else if (specString[4] === "3") {
         console.log("Point used in spec 3");
         iSpec3 = iSpec3 + 1;
-        document.getElementById(
-          "point-counter3"
-        ).innerText = `(${iSpec3})`;
+        document.getElementById("point-counter3").innerText = `(${iSpec3})`;
 
         addGreenBorderSpec3();
       }
@@ -8875,16 +8886,12 @@ class DruidComponent extends Component {
             iSpec1 = iSpec1 - 1;
             i = 61;
             loopHappenedBefore = true;
-            document.getElementById(
-              "point-counter1"
-            ).innerText = `(${iSpec1})`;
+            document.getElementById("point-counter1").innerText = `(${iSpec1})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec1 = iSpec1 - 1;
             i = 61;
-            document.getElementById(
-              "point-counter1"
-            ).innerText = `(${iSpec1})`;
+            document.getElementById("point-counter1").innerText = `(${iSpec1})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -8893,16 +8900,12 @@ class DruidComponent extends Component {
             iSpec2 = iSpec2 - 1;
             i = 61;
             loopHappenedBefore = true;
-            document.getElementById(
-              "point-counter2"
-            ).innerText = `(${iSpec2})`;
+            document.getElementById("point-counter2").innerText = `(${iSpec2})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec2 = iSpec2 - 1;
             i = 61;
-            document.getElementById(
-              "point-counter2"
-            ).innerText = `(${iSpec2})`;
+            document.getElementById("point-counter2").innerText = `(${iSpec2})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -8911,16 +8914,12 @@ class DruidComponent extends Component {
             iSpec3 = iSpec3 - 1;
             i = 61;
             loopHappenedBefore = true;
-            document.getElementById(
-              "point-counter3"
-            ).innerText = `(${iSpec3})`;
+            document.getElementById("point-counter3").innerText = `(${iSpec3})`;
             document.getElementById("total-points").innerText = `${i}`;
           } else {
             iSpec3 = iSpec3 - 1;
             i = 61;
-            document.getElementById(
-              "point-counter3"
-            ).innerText = `(${iSpec3})`;
+            document.getElementById("point-counter3").innerText = `(${iSpec3})`;
             document.getElementById("total-points").innerText = `${i}`;
           }
         }
@@ -9379,9 +9378,7 @@ class DruidComponent extends Component {
           iSpec1 = iSpec1 - 1;
         }
 
-        document.getElementById(
-          "point-counter1"
-        ).innerText = `(${iSpec1})`;
+        document.getElementById("point-counter1").innerText = `(${iSpec1})`;
         removeGreenBorderSpec1();
         turnArrowSilverSpec1();
       } else if (specString[4] === "2") {
@@ -9389,17 +9386,13 @@ class DruidComponent extends Component {
         if (iSpec2 > 0) {
           iSpec2 = iSpec2 - 1;
         }
-        document.getElementById(
-          "point-counter2"
-        ).innerText = `(${iSpec2})`;
+        document.getElementById("point-counter2").innerText = `(${iSpec2})`;
         removeGreenBorderSpec2();
       } else if (specString[4] === "3") {
         console.log("Point taken from spec 3");
         if (iSpec3 > 0) {
           iSpec3 = iSpec3 - 1;
-          document.getElementById(
-            "point-counter3"
-          ).innerText = `(${iSpec3})`;
+          document.getElementById("point-counter3").innerText = `(${iSpec3})`;
           removeGreenBorderSpec3();
         }
       }
@@ -9883,8 +9876,7 @@ class DruidComponent extends Component {
     console.log("Reset Points!");
   }
 
-
-  componentDidMount(){
+  componentDidMount() {
     const anchor = document.getElementsByClassName("btn")[0];
     anchor.scrollIntoView({ behavior: "smooth", block: "start" });
   }
@@ -9952,14 +9944,12 @@ class DruidComponent extends Component {
               backgroundImage: `url(${spec1BG})`,
               maxWidth: "305px",
               overflow: "hidden",
-              whiteSpace: "nowrap"
+              whiteSpace: "nowrap",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col1"
           >
-            <h5 id="spec1"
-              style={{display: "inline-block"}}
-            >
+            <h5 id="spec1" style={{ display: "inline-block" }}>
               <img
                 style={{
                   marginRight: ".5rem",
@@ -9970,7 +9960,14 @@ class DruidComponent extends Component {
               />
               Balance
             </h5>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter1">
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "2px",
+              }}
+              id="point-counter1"
+            >
               (0)
             </h5>
             <div className="row talent-row talent-row-inner">
@@ -9985,7 +9982,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.StarlightWrathToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.StarlightWrathToolTip = ref)}
                   data-tip={Druid[0].toolTip[0]}
                   id="1"
                 />
@@ -10013,7 +10012,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.NaturesGraspToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.NaturesGraspToolTip = ref)}
                   data-tip={Druid[1].toolTip[0]}
                   id="2"
                 />
@@ -10084,7 +10085,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ControlOfNatureToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.ControlOfNatureToolTip = ref)}
                   data-tip={Druid[3].toolTip[0]}
                   id="4"
                 />
@@ -10112,7 +10115,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.FocusedStarlightToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.FocusedStarlightToolTip = ref)}
                   data-tip={Druid[4].toolTip[0]}
                   id="5"
                 />
@@ -10148,7 +10153,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedMoonfireToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedMoonfireToolTip = ref)}
                   data-tip={Druid[5].toolTip[0]}
                   id="6"
                 />
@@ -10180,7 +10187,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.BramblesToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.BramblesToolTip = ref)}
                   data-tip={Druid[6].toolTip[0]}
                   id="7"
                 />
@@ -10209,7 +10218,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.InsectSwarmToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.InsectSwarmToolTip = ref)}
                   data-tip={Druid[7].toolTip[0]}
                   id="8"
                 />
@@ -10238,7 +10249,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.NaturesReachToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.NaturesReachToolTip = ref)}
                   data-tip={Druid[8].toolTip[0]}
                   id="9"
                 />
@@ -10269,7 +10282,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.VengeanceToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.VengeanceToolTip = ref)}
                   data-tip={Druid[9].toolTip[0]}
                   id="10"
                 />
@@ -10299,7 +10314,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.CelestialFocusToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.CelestialFocusToolTip = ref)}
                   data-tip={Druid[10].toolTip[0]}
                   id="11"
                 />
@@ -10334,7 +10351,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.LunarGuidanceToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.LunarGuidanceToolTip = ref)}
                   data-tip={Druid[11].toolTip[0]}
                   id="12"
                 />
@@ -10362,7 +10381,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.NaturesGraceToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.NaturesGraceToolTip = ref)}
                   data-tip={Druid[12].toolTip[0]}
                   id="13"
                 />
@@ -10399,7 +10420,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.MoonGlowToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.MoonGlowToolTip = ref)}
                   data-tip={Druid[13].toolTip[0]}
                   id="14"
                 />
@@ -10433,7 +10456,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.MoonfuryToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.MoonfuryToolTip = ref)}
                   data-tip={Druid[14].toolTip[0]}
                   id="15"
                 />
@@ -10464,7 +10489,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.BalanceOfPowerToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.BalanceOfPowerToolTip = ref)}
                   data-tip={Druid[15].toolTip[0]}
                   id="16"
                 />
@@ -10497,7 +10524,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.DreamstateToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.DreamstateToolTip = ref)}
                   data-tip={Druid[16].toolTip[0]}
                   id="17"
                 />
@@ -10525,7 +10554,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.MoonkinFormToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.MoonkinFormToolTip = ref)}
                   data-tip={Druid[17].toolTip[0]}
                   id="18"
                 />
@@ -10553,7 +10584,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedFaerieFireToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedFaerieFireToolTip = ref)}
                   data-tip={Druid[18].toolTip[0]}
                   id="19"
                 />
@@ -10586,7 +10619,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.WrathOfCenariusToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.WrathOfCenariusToolTip = ref)}
                   data-tip={Druid[19].toolTip[0]}
                   id="20"
                 />
@@ -10619,7 +10654,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ForceOfNatureToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.ForceOfNatureToolTip = ref)}
                   data-tip={Druid[20].toolTip[0]}
                   id="21"
                 />
@@ -10645,14 +10682,12 @@ class DruidComponent extends Component {
               backgroundImage: `url(${spec2BG})`,
               maxWidth: "305px",
               overflow: "hidden",
-              whiteSpace: "nowrap"
+              whiteSpace: "nowrap",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col2"
           >
-            <h5 id="spec2"
-              style={{display: "inline-block"}}
-            >
+            <h5 id="spec2" style={{ display: "inline-block" }}>
               <img
                 style={{
                   marginRight: ".5rem",
@@ -10663,7 +10698,14 @@ class DruidComponent extends Component {
               />
               Feral Combat
             </h5>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter2">
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "2px",
+              }}
+              id="point-counter2"
+            >
               (0)
             </h5>
             <div className="row talent-row talent-row-inner">
@@ -10679,7 +10721,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.FerocityToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.FerocityToolTip = ref)}
                   data-tip={Druid[21].toolTip[0]}
                   id="22"
                 />
@@ -10707,7 +10751,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.FeralAggressionToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.FeralAggressionToolTip = ref)}
                   data-tip={Druid[22].toolTip[0]}
                   id="23"
                 />
@@ -10738,7 +10784,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.FeralInstinctToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.FeralInstinctToolTip = ref)}
                   data-tip={Druid[23].toolTip[0]}
                   id="24"
                 />
@@ -10766,7 +10814,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.BrutalImpactToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.BrutalImpactToolTip = ref)}
                   data-tip={Druid[24].toolTip[0]}
                   id="25"
                 />
@@ -10794,7 +10844,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ThickHideToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.ThickHideToolTip = ref)}
                   data-tip={Druid[25].toolTip[0]}
                   id="26"
                 />
@@ -10825,7 +10877,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.FeralSwiftnessToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.FeralSwiftnessToolTip = ref)}
                   data-tip={Druid[26].toolTip[0]}
                   id="27"
                 />
@@ -10853,7 +10907,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.FeralChargeToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.FeralChargeToolTip = ref)}
                   data-tip={Druid[27].toolTip[0]}
                   id="28"
                 />
@@ -10881,7 +10937,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.SharpenedClawsToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.SharpenedClawsToolTip = ref)}
                   data-tip={Druid[28].toolTip[0]}
                   id="29"
                 />
@@ -10920,7 +10978,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ShreddingAttacksToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.ShreddingAttacksToolTip = ref)}
                   data-tip={Druid[29].toolTip[0]}
                   id="30"
                 />
@@ -10948,7 +11008,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.PredatoryStrikesToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.PredatoryStrikesToolTip = ref)}
                   data-tip={Druid[30].toolTip[0]}
                   id="31"
                 />
@@ -10984,7 +11046,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.PrimalFuryToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.PrimalFuryToolTip = ref)}
                   data-tip={Druid[31].toolTip[0]}
                   id="32"
                 />
@@ -11017,7 +11081,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.SavageFuryToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.SavageFuryToolTip = ref)}
                   data-tip={Druid[32].toolTip[0]}
                   id="33"
                 />
@@ -11078,7 +11144,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.NurturingInstinctToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.NurturingInstinctToolTip = ref)}
                   data-tip={Druid[34].toolTip[0]}
                   id="35"
                 />
@@ -11109,7 +11177,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.HeartOfTheWildToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.HeartOfTheWildToolTip = ref)}
                   data-tip={Druid[35].toolTip[0]}
                   id="36"
                 />
@@ -11140,7 +11210,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.SurvivalOfTheFittestToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.SurvivalOfTheFittestToolTip = ref)}
                   data-tip={Druid[36].toolTip[0]}
                   id="37"
                 />
@@ -11171,7 +11243,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.PrimalTenacityToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.PrimalTenacityToolTip = ref)}
                   data-tip={Druid[37].toolTip[0]}
                   id="38"
                 />
@@ -11199,7 +11273,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.LeaderOfThePackToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.LeaderOfThePackToolTip = ref)}
                   data-tip={Druid[38].toolTip[0]}
                   id="39"
                 />
@@ -11281,7 +11357,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.PredatoryInstinctsToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.PredatoryInstinctsToolTip = ref)}
                   data-tip={Druid[40].toolTip[0]}
                   id="41"
                 />
@@ -11314,7 +11392,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.MangleToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.MangleToolTip = ref)}
                   data-tip={Druid[41].toolTip[0]}
                   id="42"
                 />
@@ -11342,14 +11422,12 @@ class DruidComponent extends Component {
               backgroundImage: `url(${spec3BG})`,
               maxWidth: "305px",
               overflow: "hidden",
-              whiteSpace: "nowrap"
+              whiteSpace: "nowrap",
             }}
             className="mb-2 mx-auto col-10 col-sm-8 col-xs-4 col-md-6 col-lg-4 col-xl-4 talent-frame talent-bg"
             id="Col3"
           >
-            <h5 id="spec3"
-              style={{display: "inline-block"}}
-            >
+            <h5 id="spec3" style={{ display: "inline-block" }}>
               <img
                 style={{
                   marginRight: ".5rem",
@@ -11360,7 +11438,14 @@ class DruidComponent extends Component {
               />
               Restoration
             </h5>
-            <h5 style={{ color: "white", display: "inline-block", marginLeft: "2px" }} id="point-counter3">
+            <h5
+              style={{
+                color: "white",
+                display: "inline-block",
+                marginLeft: "2px",
+              }}
+              id="point-counter3"
+            >
               (0)
             </h5>
             <div className="row talent-row talent-row-inner">
@@ -11376,7 +11461,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedMarkOfTheWildToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedMarkOfTheWildToolTip = ref)}
                   data-tip={Druid[42].toolTip[0]}
                   id="43"
                 />
@@ -11404,7 +11491,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.FurorToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.FurorToolTip = ref)}
                   data-tip={Druid[43].toolTip[0]}
                   id="44"
                 />
@@ -11435,7 +11524,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.NaturalistToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.NaturalistToolTip = ref)}
                   data-tip={Druid[44].toolTip[0]}
                   id="45"
                 />
@@ -11463,7 +11554,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.NaturesFocusToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.NaturesFocusToolTip = ref)}
                   data-tip={Druid[45].toolTip[0]}
                   id="46"
                 />
@@ -11491,7 +11584,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.NaturalShapeshifterToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.NaturalShapeshifterToolTip = ref)}
                   data-tip={Druid[46].toolTip[0]}
                   id="47"
                 />
@@ -11522,7 +11617,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.IntensityToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.IntensityToolTip = ref)}
                   data-tip={Druid[47].toolTip[0]}
                   id="48"
                 />
@@ -11558,7 +11655,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.SubtletyToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.SubtletyToolTip = ref)}
                   data-tip={Druid[48].toolTip[0]}
                   id="49"
                 />
@@ -11586,7 +11685,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.OmenOfClarityToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.OmenOfClarityToolTip = ref)}
                   data-tip={Druid[49].toolTip[0]}
                   id="50"
                 />
@@ -11620,7 +11721,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.TranquilSpiritToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.TranquilSpiritToolTip = ref)}
                   data-tip={Druid[50].toolTip[0]}
                   id="51"
                 />
@@ -11648,7 +11751,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedRejuvenationToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedRejuvenationToolTip = ref)}
                   data-tip={Druid[51].toolTip[0]}
                   id="52"
                 />
@@ -11688,7 +11793,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.NaturesSwiftnessToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.NaturesSwiftnessToolTip = ref)}
                   data-tip={Druid[52].toolTip[0]}
                   id="53"
                 />
@@ -11718,7 +11825,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.GiftOfNatureToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.GiftOfNatureToolTip = ref)}
                   data-tip={Druid[53].toolTip[0]}
                   id="54"
                 />
@@ -11755,7 +11864,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedTranquilityToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedTranquilityToolTip = ref)}
                   data-tip={Druid[54].toolTip[0]}
                   id="55"
                 />
@@ -11770,9 +11881,7 @@ class DruidComponent extends Component {
                   alt=""
                 />
 
-                <span className="talentPoints req-20-s3">
-                  0/2
-                </span>
+                <span className="talentPoints req-20-s3">0/2</span>
               </div>
             </div>
             <div className="row talent-row talent-row-inner">
@@ -11787,7 +11896,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.EmpoweredtouchToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.EmpoweredtouchToolTip = ref)}
                   data-tip={Druid[55].toolTip[0]}
                   id="56"
                 />
@@ -11816,7 +11927,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.ImprovedRegrowthToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.ImprovedRegrowthToolTip = ref)}
                   data-tip={Druid[56].toolTip[0]}
                   id="57"
                 />
@@ -11849,7 +11962,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.LivingSpiritToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.LivingSpiritToolTip = ref)}
                   data-tip={Druid[57].toolTip[0]}
                   id="58"
                 />
@@ -11877,7 +11992,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.SwiftmendToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.SwiftmendToolTip = ref)}
                   data-tip={Druid[58].toolTip[0]}
                   id="59"
                 />
@@ -11907,7 +12024,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.NaturalPerfectionToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.NaturalPerfectionToolTip = ref)}
                   data-tip={Druid[59].toolTip[0]}
                   id="60"
                 />
@@ -11939,7 +12058,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.EmpoweredRejuvenationToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.EmpoweredRejuvenationToolTip = ref)}
                   data-tip={Druid[60].toolTip[0]}
                   id="61"
                 />
@@ -11980,7 +12101,9 @@ class DruidComponent extends Component {
                   }}
                   onTouchEnd={this.talentClick}
                   className="talentHover"
-                  src={overlayImage} style={{ display: "none" }} ref={ref => this.TreeOfLifeToolTip = ref}
+                  src={overlayImage}
+                  style={{ display: "none" }}
+                  ref={(ref) => (this.TreeOfLifeToolTip = ref)}
                   data-tip={Druid[61].toolTip[0]}
                   id="62"
                 />

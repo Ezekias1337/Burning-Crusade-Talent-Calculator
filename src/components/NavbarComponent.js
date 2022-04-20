@@ -40,7 +40,7 @@ const CustomNavbar = (props) => {
       <Router>
         <Navbar dark expand="md">
           <NavbarBrand
-            style={{ fontSize: "2rem", fontWeight: "bold", color: "white" }}
+            tag="div" style={{ fontSize: "2rem", fontWeight: "bold", color: "white" }}
           >
             <Link to="/">
               <img

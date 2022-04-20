@@ -1,12 +1,11 @@
 import * as helper from "./talentClickHelpers";
 
 export const talentClick = (
-  maxPoints,
-  playableClass,
+  props,
+  state,
+  [addPointsSpec1, addPointsSpec2, addPointsSpec3, addTotalPoints],
   talentInfo,
-  id,
-  spec,
-  [addPointsSpec1, addPointsSpec2, addPointsSpec3, addTotalPoints]
+  pointsSpent
 ) => {
   let leftOrRightClick;
 
@@ -26,14 +25,20 @@ export const talentClick = (
         Need to prevent adding points if user has spent 61 points already
     */
 
+    if (state?.totalPoints?.points === 61) {
+      return;
+    }
+    
     /*
         Need to update spec specific counter depending on which tree the
         points are added to and the main point counter
     */
 
-    helper.addPoint(maxPoints);
-    helper.toolTipFunction("add", talentInfo, playableClass, id);
-    switch (spec) {
+    helper.toolTipFunction(
+      "add",
+      talentInfo
+    );
+    switch (props.spec) {
       case "1":
         addPointsSpec1(1);
         addTotalPoints(1);

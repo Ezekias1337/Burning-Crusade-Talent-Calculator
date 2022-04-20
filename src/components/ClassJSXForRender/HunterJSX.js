@@ -86,14 +86,13 @@ import Readiness from "../../images/talents/Hunter/Progression/spec3/Readiness.j
 import Survivalist from "../../images/talents/Hunter/Progression/spec3/Survivalist.jpg";
 
 import "../../css/vanilla_css/playable-class.css";
-
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { bindActionCreators } from "redux";
-import { actionCreators } from "../../redux/allActions";
+/* import { bindActionCreators } from "redux";
+import { actionCreators } from "../../redux/allActions"; */
 
 export const HunterJSX = () => {
   /* const state = useSelector((state) => state);
-  console.log(state);
   const dispatch = useDispatch();
   const { addPointsSpec1 } = bindActionCreators(actionCreators, dispatch); */
 
@@ -137,7 +136,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={ImprovedAspectHawk}
               talentName="ImprovedAspectHawkToolTip"
-              req="00"
+              req="0"
               spec="1"
               maxPoints="5"
               playableClass="Hunter"
@@ -146,7 +145,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={EnduranceTraining}
               talentName="EnduranceTrainingToolTip"
-              req="00"
+              req="0"
               spec="1"
               maxPoints="5"
               playableClass="Hunter"
@@ -158,7 +157,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={FocusedFire}
               talentName="FocusedFireToolTip"
-              req="05"
+              req="5"
               spec="1"
               maxPoints="2"
               playableClass="Hunter"
@@ -167,7 +166,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={ImprovedAspectMonkey}
               talentName="ImprovedAspectMonkeyToolTip"
-              req="05"
+              req="5"
               spec="1"
               maxPoints="3"
               playableClass="Hunter"
@@ -176,7 +175,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={ThickHide}
               talentName="ThickHideToolTip"
-              req="05"
+              req="5"
               spec="1"
               maxPoints="3"
               playableClass="Hunter"
@@ -185,7 +184,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={ImprovedRevivePet}
               talentName="ImprovedRevivePetToolTip"
-              req="05"
+              req="5"
               spec="1"
               maxPoints="2"
               playableClass="Hunter"
@@ -300,6 +299,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="5"
               playableClass="Hunter"
+              reqNumber="1"
               id="16"
             />
             <div className="col col-xs-3"></div>
@@ -321,6 +321,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="1"
               playableClass="Hunter"
+              reqNumber="2"
               arrows={[
                 { arrowType: "downMediumSilver", reqNumber: "3", spec: "1" },
               ]}
@@ -364,6 +365,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="5"
               playableClass="Hunter"
+              reqNumber="3"
               id="21"
             />
             <div className="col col-xs-3"></div>
@@ -384,7 +386,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={ImprovedConcussiveShot}
               talentName="ImprovedConcussiveShotToolTip"
-              req="00"
+              req="0"
               spec="2"
               maxPoints="5"
               playableClass="Hunter"
@@ -393,7 +395,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={LethalShots}
               talentName="LethalShotsToolTip"
-              req="00"
+              req="0"
               spec="2"
               maxPoints="5"
               playableClass="Hunter"
@@ -406,7 +408,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={ImprovedHuntersMark}
               talentName="ImprovedHuntersMarkToolTip"
-              req="05"
+              req="5"
               spec="2"
               maxPoints="5"
               playableClass="Hunter"
@@ -415,7 +417,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={Efficiency}
               talentName="EfficiencyToolTip"
-              req="05"
+              req="5"
               spec="2"
               maxPoints="5"
               playableClass="Hunter"
@@ -482,6 +484,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="5"
               playableClass="Hunter"
+              reqNumber="1"
               id="31"
             />
             <div className="col col-xs-3"></div>
@@ -561,6 +564,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="1"
               playableClass="Hunter"
+              reqNumber="2"
               id="38"
             />
             <TalentButton
@@ -570,6 +574,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="3"
               playableClass="Hunter"
+              reqNumber="3"
               id="39"
             />
             <div className="col col-xs-3"></div>
@@ -600,6 +605,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="1"
               playableClass="Hunter"
+              reqNumber="4"
               id="41"
             />
             <div className="col col-xs-3"></div>
@@ -619,7 +625,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={MonsterSlaying}
               talentName="MonsterSlayingToolTip"
-              req="00"
+              req="0"
               spec="3"
               maxPoints="3"
               playableClass="Hunter"
@@ -628,7 +634,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={HumanoidSlaying}
               talentName="HumanoidSlayingToolTip"
-              req="00"
+              req="0"
               spec="3"
               maxPoints="3"
               playableClass="Hunter"
@@ -637,7 +643,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={HawkEye}
               talentName="HawkEyeToolTip"
-              req="00"
+              req="0"
               spec="3"
               maxPoints="3"
               playableClass="Hunter"
@@ -646,7 +652,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={SavageStrikes}
               talentName="SavageStrikesToolTip"
-              req="00"
+              req="0"
               spec="3"
               maxPoints="2"
               playableClass="Hunter"
@@ -657,7 +663,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={Entrapment}
               talentName="EntrapmentToolTip"
-              req="05"
+              req="5"
               spec="3"
               maxPoints="3"
               playableClass="Hunter"
@@ -666,7 +672,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={Deflection}
               talentName="DeflectionToolTip"
-              req="05"
+              req="5"
               spec="3"
               maxPoints="5"
               playableClass="Hunter"
@@ -675,7 +681,7 @@ export const HunterJSX = () => {
             <TalentButton
               imgSrc={ImprovedWingClip}
               talentName="ImprovedWingClipToolTip"
-              req="05"
+              req="5"
               spec="3"
               maxPoints="3"
               playableClass="Hunter"
@@ -778,6 +784,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="1"
               playableClass="Hunter"
+              reqNumber="1"
               id="57"
             />
             <div className="col col-xs-3"></div>
@@ -821,6 +828,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="1"
               playableClass="Hunter"
+              reqNumber="2"
               id="61"
             />
             <TalentButton
@@ -860,6 +868,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="1"
               playableClass="Hunter"
+              reqNumber="3"
               id="64"
             />
             <div className="col col-xs-3"></div>

@@ -6,8 +6,7 @@ import {
   fivePointArray,
 } from "../talentinfo/combined/pointArrays";
 
-export const addPoint = (maxPoints) => {
-  const eventSource = window.event.target.nextElementSibling.nextElementSibling;
+export const addPoint = (maxPoints, pointsSpent) => {
   let arrayToFilter;
 
   /* 
@@ -38,7 +37,7 @@ export const addPoint = (maxPoints) => {
     Get first value in array that is greater than current value 
   */
   const newPointValue = arrayToFilter.filter(
-    (bracket) => bracket > eventSource.innerText
+    (bracket) => bracket > pointsSpent
   );
 
   /*
@@ -48,6 +47,8 @@ export const addPoint = (maxPoints) => {
   */
 
   if (typeof newPointValue[0] !== "undefined") {
-    eventSource.innerText = newPointValue[0];
+    return newPointValue[0];
+  } else {
+    return arrayToFilter[arrayToFilter.length - 1]
   }
 };
