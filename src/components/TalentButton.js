@@ -24,6 +24,7 @@ export const TalentButton = (props) => {
   const [isMaxed, setIsMaxed] = useState(false);
   const [pointsSpent, setPointsSpent] = useState(0);
   const [stringForBorderColor, setStringForBorderColor] = useState("inactive");
+  const [arrowColor, setArrowColor] = useState("silver");
 
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ export const TalentButton = (props) => {
   useEffect(() => {
     if (isMaxed === true) {
       setStringForBorderColor("maxeds");
+      //setArrowColor("gold");
     } else if (isEnabled === true) {
       setStringForBorderColor("active-talent");
     } else {
@@ -53,7 +55,7 @@ export const TalentButton = (props) => {
       currentPoints = state.pointsSpec3.points;
     }
 
-    if (props?.reqNumber === undefined) {
+    if (props?.parentTalent === undefined) {
       const thisTalentButtonRequirement = props.req;
       if (currentPoints >= thisTalentButtonRequirement) {
         setIsEnabled(true);
@@ -62,6 +64,9 @@ export const TalentButton = (props) => {
         setIsMaxed(true);
       }
     } else {
+      /* 
+        Need to figure out logic to enable talents with parent Talent prop
+      */
     }
   });
 
@@ -76,9 +81,9 @@ export const TalentButton = (props) => {
             state,
             [addPointsSpec1, addPointsSpec2, addPointsSpec3, addTotalPoints],
             talentInfo[props.playableClass][parseInt(props.id) - 1].toolTip,
-            pointsSpent
+            pointsSpent,
+            setPointsSpent
           );
-          setPointsSpent(helper.addPoint(props.maxPoints, pointsSpent));
           ReactTooltip.show(talentName);
         }}
         onTouchEnd={() => talentClick(props.maxPoints)}
@@ -113,7 +118,8 @@ export const TalentButton = (props) => {
         return (
           <Arrow
             arrowType={item.arrowType}
-            reqNumber={item.reqNumber}
+            color={arrowColor}
+            parentTalent={item.parentTalent}
             spec={item.spec}
             key={item}
           />

@@ -20,12 +20,16 @@ export const SpecCounter = (props) => {
       default:
         break;
     }
-  }, [state]);
+  }, [state, props.spec]);
 
   return (
     <>
       <h5 className="spec-header" id={props.spec}>
-        <img className="spec-img" src={props.logo} />
+        <img
+          className="spec-img"
+          src={props.logo}
+          alt={`${props.specName} logo`}
+        />
         {props.specName}
       </h5>
       <h5 className="point-counter" id={props.spec + "counter"}>

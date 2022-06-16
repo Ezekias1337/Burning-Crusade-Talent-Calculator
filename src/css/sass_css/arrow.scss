@@ -1,7 +1,4 @@
-@import "variables/common-variables";
-
-.downSmallSilver,
-.downSmallGold {
+.downSmall {
   position: absolute;
   left: 42%;
   top: 85%;
@@ -10,8 +7,7 @@
   z-index: 1;
 }
 
-.downMediumSilver,
-.downMediumGold {
+.downMedium {
   position: absolute;
   left: 42%;
   top: 80%;
@@ -20,8 +16,7 @@
   z-index: 1;
 }
 
-.downLargeSilver,
-.downLargeGold {
+.downLarge {
   position: absolute;
   left: 43%;
   top: 85%;
@@ -30,8 +25,7 @@
   z-index: 1;
 }
 
-.downExtraLargeSilver,
-.downExtraLargeGold {
+.downExtraLarge {
   position: absolute;
   left: 43%;
   top: 85%;
@@ -40,8 +34,7 @@
   z-index: 1;
 }
 
-.angleArrowSilver,
-.angleArrowGold {
+.angleArrow {
   position: absolute;
   z-index: 1;
   width: 3.95rem;
@@ -50,33 +43,24 @@
   left: 76%;
 }
 
-.leftArrowSilver,
-.leftArrowGold {
+.leftArrow {
   position: absolute;
   top: 40%;
   right: 75%;
   z-index: 1;
 }
 
-.rightArrowSilver,
-.rightArrowGold {
+.rightArrow {
   position: absolute;
   top: 40%;
   left: 75%;
   z-index: 1;
 }
 
-.downSmallSilver,
-.downSmallGold,
-.downMediumSilver,
-.downMediumGold,
-.downLargeSilver,
-.downLargeGold,
-.downExtraLargeSilver,
-.downExtraLargeGold,
-.leftArrowSilver,
-.leftArrowGold,
-.rightArrowSilver,
-.rightArrowGold {
+.downSmall,
+.downMedium,
+.downLarge,
+.leftArrow,
+.rightArrow {
   pointer-events: none;
 }

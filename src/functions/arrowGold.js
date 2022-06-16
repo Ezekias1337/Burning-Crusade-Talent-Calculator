@@ -5,9 +5,9 @@
 */
 
 export const arrowGold = (arrowChecker) => {
-  const eventSource =
+  /* const eventSource =
     window.event.target.nextElementSibling.nextElementSibling
-      .nextElementSibling;
+      .nextElementSibling; */
 
   /* if (arrowChecker.includes("angle")) {
     eventSource.src =

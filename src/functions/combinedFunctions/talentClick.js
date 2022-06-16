@@ -5,7 +5,8 @@ export const talentClick = (
   state,
   [addPointsSpec1, addPointsSpec2, addPointsSpec3, addTotalPoints],
   talentInfo,
-  pointsSpent
+  pointsSpent,
+  setPointsSpent
 ) => {
   let leftOrRightClick;
 
@@ -16,28 +17,32 @@ export const talentClick = (
   }
 
   if (leftOrRightClick === "left") {
+    /* 
+      Prevent adding points if talent is unlocked or already maxed
+    */
     let exitFunction = helper.preventAddingPoint();
     if (exitFunction === true) {
       return;
     }
-
     /*
-        Need to prevent adding points if user has spent 61 points already
+        Prevent adding points if user has spent 61 points already
     */
-
     if (state?.totalPoints?.points === 61) {
+      console.log("61 points already!");
       return;
     }
-    
+    /* 
+      Update the tooltip
+    */
+    helper.toolTipFunction("add", talentInfo);
     /*
-        Need to update spec specific counter depending on which tree the
+        Update the point tracker span next to the button
+    */
+    setPointsSpent(helper.addPoint(props.maxPoints, pointsSpent));
+    /*
+        Update spec specific counter depending on which tree the
         points are added to and the main point counter
     */
-
-    helper.toolTipFunction(
-      "add",
-      talentInfo
-    );
     switch (props.spec) {
       case "1":
         addPointsSpec1(1);
@@ -51,18 +56,9 @@ export const talentClick = (
         addPointsSpec3(1);
         addTotalPoints(1);
         break;
+      default:
+        break;
     }
-
-    /*
-        If new point threshold (increments of 5) is reached add green border
-        to all elements in that level, need to add handling for druid
-        first row
-    */
-
-    /*
-        If talent is maxed out, give it a gold border. If it has an arrow 
-        attached to it, turn it gold
-    */
   } else if (leftOrRightClick === "right") {
     helper.preventRemovingPoint();
 

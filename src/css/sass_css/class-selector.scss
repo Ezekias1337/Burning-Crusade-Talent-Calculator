@@ -27,6 +27,7 @@ div[data-theme="Priest"],
 div[data-theme="Paladin"],
 div[data-theme="Mage"],
 div[data-theme="Druid"],
+div[data-theme="Death Knight"],
 h1#select-a-class {
   -webkit-animation-name: fade-in;
   animation-name: fade-in;
@@ -87,10 +88,14 @@ div[data-theme="Druid"] {
   -webkit-animation-delay: 4s;
   animation-delay: 4s;
 }
-
-h1#select-a-class {
+div[data-theme="Death Knight"] {
   -webkit-animation-delay: 4.5s;
   animation-delay: 4.5s;
+}
+
+h1#select-a-class {
+  -webkit-animation-delay: 4.75s;
+  animation-delay: 4.75s;
 }
 
 div[data-theme="Hunter"]:hover {
@@ -152,6 +157,13 @@ div[data-theme="Mage"]:hover {
 div[data-theme="Druid"]:hover {
   box-shadow: 0 0 2rem 0.02rem $druid;
   border: 2px solid $druid;
+  transition-property: box-shadow, border;
+  transition-duration: 0.6s;
+}
+
+div[data-theme="Death Knight"]:hover {
+  box-shadow: 0 0 2rem 0.02rem $death-knight;
+  border: 2px solid $death-knight;
   transition-property: box-shadow, border;
   transition-duration: 0.6s;
 }
@@ -227,7 +239,6 @@ div[data-theme="Druid"]:hover {
   border-radius: 25px;
 }
 
-
 .class-icon {
   height: 80%;
   width: 100%;
@@ -236,7 +247,6 @@ div[data-theme="Druid"]:hover {
 
 @media screen and (max-width: 576px) {
   .class-icon {
-
     width: 100%;
   }
   a.info {

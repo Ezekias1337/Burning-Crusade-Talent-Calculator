@@ -11,63 +11,67 @@ import leftArrowGold from "../images/arrows/leftArrowGold.jpg";
 import rightArrowSilver from "../images/arrows/rightArrowSilver.jpg";
 import rightArrowGold from "../images/arrows/rightArrowGold.jpg";
 import "./../css/vanilla_css/arrow.css";
+import { useEffect, useState } from "react";
 
 export const Arrow = (props) => {
-  let arrowSource;
+  const [arrowSource, setArrowSource] = useState();
+  console.log("props", props);
 
-  switch (props.arrowType) {
-    case "downSmallSilver":
-      arrowSource = downSmallSilver;
-      break;
-    case "downSmallGold":
-      arrowSource = downSmallGold;
-      break;
-    case "downMediumSilver":
-      arrowSource = downMediumSilver;
-      break;
-    case "downMediumGold":
-      arrowSource = downMediumGold;
-      break;
-    case "downLargeSilver":
-      arrowSource = downLargeSilver;
-      break;
-    case "downLargeGold":
-      arrowSource = downLargeGold;
-      break;
-    case "downExtraLargeSilver":
-      arrowSource = downLargeSilver;
-      break;
-    case "downExtraLargeGold":
-      arrowSource = downLargeGold;
-      break;
-    case "angleArrowSilver":
-      arrowSource = angleArrowSilver;
-      break;
-    case "angleArrowGold":
-      arrowSource = angleArrowGold;
-      break;
-    case "leftArrowSilver":
-      arrowSource = leftArrowSilver;
-      break;
-    case "leftArrowGold":
-      arrowSource = leftArrowGold;
-      break;
-    case "rightArrowSilver":
-      arrowSource = rightArrowSilver;
-      break;
-    case "rightArrowGold":
-      arrowSource = rightArrowGold;
-      break;
-    default:
-      console.log("No matching arrow type, check your spelling.");
-  }
+  useEffect(() => {
+    switch (props.arrowType) {
+      case "downSmall":
+        if (props.color === "silver") {
+          setArrowSource(downSmallSilver);
+        } else if (props.color === "gold") {
+          setArrowSource(downSmallGold);
+        }
+        break;
+      case "downMedium":
+        if (props.color === "silver") {
+          setArrowSource(downMediumSilver);
+        } else if (props.color === "gold") {
+          setArrowSource(downMediumGold);
+        }
+        break;
+      case "downLarge":
+        if (props.color === "silver") {
+          setArrowSource(downLargeSilver);
+        } else if (props.color === "gold") {
+          setArrowSource(downLargeGold);
+        }
+        break;
+      case "angleArrow":
+        if (props.color === "silver") {
+          setArrowSource(angleArrowSilver);
+        } else if (props.color === "gold") {
+          setArrowSource(angleArrowGold);
+        }
+        break;
+      case "leftArrow":
+        if (props.color === "silver") {
+          setArrowSource(leftArrowSilver);
+        } else if (props.color === "gold") {
+          setArrowSource(leftArrowGold);
+        }
+        break;
+      case "rightArrow":
+        if (props.color === "silver") {
+          setArrowSource(rightArrowSilver);
+        } else if (props.color === "gold") {
+          setArrowSource(rightArrowGold);
+        }
+        break;
+      default:
+        console.log("No matching arrow type, check your spelling.");
+    }
+  }, [props.color, props.arrowType]);
 
   return (
     <img
       className={props.arrowType}
       src={arrowSource}
       alt={props.arrowType}
-      id={`arrwReq${props.reqNumber}Spec${props.spec}`}
+      id={`arrwReq${props.parentTalent}Spec${props.spec}`}
     />
   );
 };

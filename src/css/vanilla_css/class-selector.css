@@ -22,6 +22,7 @@ div[data-theme="Priest"],
 div[data-theme="Paladin"],
 div[data-theme="Mage"],
 div[data-theme="Druid"],
+div[data-theme="Death Knight"],
 h1#select-a-class {
   -webkit-animation-name: fade-in;
   animation-name: fade-in;
@@ -75,9 +76,13 @@ div[data-theme="Druid"] {
   -webkit-animation-delay: 4s;
   animation-delay: 4s; }
 
-h1#select-a-class {
+div[data-theme="Death Knight"] {
   -webkit-animation-delay: 4.5s;
   animation-delay: 4.5s; }
+
+h1#select-a-class {
+  -webkit-animation-delay: 4.75s;
+  animation-delay: 4.75s; }
 
 div[data-theme="Hunter"]:hover {
   box-shadow: 0 0 2rem 0.02rem #abd473;
@@ -130,6 +135,12 @@ div[data-theme="Mage"]:hover {
 div[data-theme="Druid"]:hover {
   box-shadow: 0 0 2rem 0.02rem #ff7d0a;
   border: 2px solid #ff7d0a;
+  transition-property: box-shadow, border;
+  transition-duration: 0.6s; }
+
+div[data-theme="Death Knight"]:hover {
+  box-shadow: 0 0 2rem 0.02rem #c41e3a;
+  border: 2px solid #c41e3a;
   transition-property: box-shadow, border;
   transition-duration: 0.6s; }
 
