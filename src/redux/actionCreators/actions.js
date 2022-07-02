@@ -112,7 +112,7 @@ export const lockSpec1Req1 = () => {
 export const unlockSpec1Req2 = () => {
   return (dispatch) => {
     dispatch({
-      type: "spec1Req1Unlock",
+      type: "spec1Req2Unlock",
       payload: true,
     });
   };
@@ -121,7 +121,7 @@ export const unlockSpec1Req2 = () => {
 export const lockSpec1Req2 = () => {
   return (dispatch) => {
     dispatch({
-      type: "spec1Req1Lock",
+      type: "spec1Req2Lock",
       payload: false,
     });
   };
@@ -130,7 +130,7 @@ export const lockSpec1Req2 = () => {
 export const unlockSpec1Req3 = () => {
   return (dispatch) => {
     dispatch({
-      type: "spec1Req1Unlock",
+      type: "spec1Req3Unlock",
       payload: true,
     });
   };
@@ -139,7 +139,7 @@ export const unlockSpec1Req3 = () => {
 export const lockSpec1Req3 = () => {
   return (dispatch) => {
     dispatch({
-      type: "spec1Req1Lock",
+      type: "spec1Req3Lock",
       payload: false,
     });
   };
@@ -148,7 +148,7 @@ export const lockSpec1Req3 = () => {
 export const unlockSpec1Req4 = () => {
   return (dispatch) => {
     dispatch({
-      type: "spec1Req1Unlock",
+      type: "spec1Req4Unlock",
       payload: true,
     });
   };
@@ -157,7 +157,7 @@ export const unlockSpec1Req4 = () => {
 export const lockSpec1Req4 = () => {
   return (dispatch) => {
     dispatch({
-      type: "spec1Req1Lock",
+      type: "spec1Req4Lock",
       payload: false,
     });
   };
@@ -166,7 +166,7 @@ export const lockSpec1Req4 = () => {
 export const unlockSpec1Req5 = () => {
   return (dispatch) => {
     dispatch({
-      type: "spec1Req1Unlock",
+      type: "spec1Req5Unlock",
       payload: true,
     });
   };
@@ -175,7 +175,7 @@ export const unlockSpec1Req5 = () => {
 export const lockSpec1Req5 = () => {
   return (dispatch) => {
     dispatch({
-      type: "spec1Req1Lock",
+      type: "spec1Req5Lock",
       payload: false,
     });
   };
@@ -184,7 +184,7 @@ export const lockSpec1Req5 = () => {
 export const unlockSpec1Req6 = () => {
   return (dispatch) => {
     dispatch({
-      type: "spec1Req1Unlock",
+      type: "spec1Req6Unlock",
       payload: true,
     });
   };
@@ -193,7 +193,7 @@ export const unlockSpec1Req6 = () => {
 export const lockSpec1Req6 = () => {
   return (dispatch) => {
     dispatch({
-      type: "spec1Req1Lock",
+      type: "spec1Req6Lock",
       payload: false,
     });
   };
@@ -202,7 +202,7 @@ export const lockSpec1Req6 = () => {
 export const unlockSpec1Req7 = () => {
   return (dispatch) => {
     dispatch({
-      type: "spec1Req1Unlock",
+      type: "spec1Req7Unlock",
       payload: true,
     });
   };
@@ -211,7 +211,7 @@ export const unlockSpec1Req7 = () => {
 export const lockSpec1Req7 = () => {
   return (dispatch) => {
     dispatch({
-      type: "spec1Req1Lock",
+      type: "spec1Req7Lock",
       payload: false,
     });
   };
@@ -226,7 +226,7 @@ export const lockSpec1Req7 = () => {
 export const unlockSpec2Req1 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec2Req1Unlock",
+      type: "spec2Req1Unlock",
       payload: true,
     });
   };
@@ -235,7 +235,7 @@ export const unlockSpec2Req1 = () => {
 export const lockSpec2Req1 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec2Req1Lock",
+      type: "spec2Req1Lock",
       payload: false,
     });
   };
@@ -244,7 +244,7 @@ export const lockSpec2Req1 = () => {
 export const unlockSpec2Req2 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec2Req1Unlock",
+      type: "spec2Req2Unlock",
       payload: true,
     });
   };
@@ -253,7 +253,7 @@ export const unlockSpec2Req2 = () => {
 export const lockSpec2Req2 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec2Req1Lock",
+      type: "spec2Req2Lock",
       payload: false,
     });
   };
@@ -262,7 +262,7 @@ export const lockSpec2Req2 = () => {
 export const unlockSpec2Req3 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec2Req1Unlock",
+      type: "spec2Req3Unlock",
       payload: true,
     });
   };
@@ -271,7 +271,7 @@ export const unlockSpec2Req3 = () => {
 export const lockSpec2Req3 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec2Req1Lock",
+      type: "spec2Req3Lock",
       payload: false,
     });
   };
@@ -280,7 +280,7 @@ export const lockSpec2Req3 = () => {
 export const unlockSpec2Req4 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec2Req1Unlock",
+      type: "spec2Req4Unlock",
       payload: true,
     });
   };
@@ -289,7 +289,7 @@ export const unlockSpec2Req4 = () => {
 export const lockSpec2Req4 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec2Req1Lock",
+      type: "spec2Req4Lock",
       payload: false,
     });
   };
@@ -298,7 +298,7 @@ export const lockSpec2Req4 = () => {
 export const unlockSpec2Req5 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec2Req1Unlock",
+      type: "spec2Req5Unlock",
       payload: true,
     });
   };
@@ -307,7 +307,7 @@ export const unlockSpec2Req5 = () => {
 export const lockSpec2Req5 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec2Req1Lock",
+      type: "spec2Req5Lock",
       payload: false,
     });
   };
@@ -316,7 +316,7 @@ export const lockSpec2Req5 = () => {
 export const unlockSpec2Req6 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec2Req1Unlock",
+      type: "spec2Req6Unlock",
       payload: true,
     });
   };
@@ -325,7 +325,7 @@ export const unlockSpec2Req6 = () => {
 export const lockSpec2Req6 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec2Req1Lock",
+      type: "spec2Req6Lock",
       payload: false,
     });
   };
@@ -334,7 +334,7 @@ export const lockSpec2Req6 = () => {
 export const unlockSpec2Req7 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec2Req1Unlock",
+      type: "spec2Req7Unlock",
       payload: true,
     });
   };
@@ -343,7 +343,7 @@ export const unlockSpec2Req7 = () => {
 export const lockSpec2Req7 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec2Req1Lock",
+      type: "spec2Req7Lock",
       payload: false,
     });
   };
@@ -358,7 +358,7 @@ export const lockSpec2Req7 = () => {
 export const unlockSpec3Req1 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec3Req1Unlock",
+      type: "spec3Req1Unlock",
       payload: true,
     });
   };
@@ -367,7 +367,7 @@ export const unlockSpec3Req1 = () => {
 export const lockSpec3Req1 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec3Req1Lock",
+      type: "spec3Req1Lock",
       payload: false,
     });
   };
@@ -376,7 +376,7 @@ export const lockSpec3Req1 = () => {
 export const unlockSpec3Req2 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec3Req1Unlock",
+      type: "spec3Req2Unlock",
       payload: true,
     });
   };
@@ -385,7 +385,7 @@ export const unlockSpec3Req2 = () => {
 export const lockSpec3Req2 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec3Req1Lock",
+      type: "spec3Req2Lock",
       payload: false,
     });
   };
@@ -394,7 +394,7 @@ export const lockSpec3Req2 = () => {
 export const unlockSpec3Req3 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec3Req1Unlock",
+      type: "spec3Req3Unlock",
       payload: true,
     });
   };
@@ -403,7 +403,7 @@ export const unlockSpec3Req3 = () => {
 export const lockSpec3Req3 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec3Req1Lock",
+      type: "spec3Req3Lock",
       payload: false,
     });
   };
@@ -412,7 +412,7 @@ export const lockSpec3Req3 = () => {
 export const unlockSpec3Req4 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec3Req1Unlock",
+      type: "spec3Req4Unlock",
       payload: true,
     });
   };
@@ -421,7 +421,7 @@ export const unlockSpec3Req4 = () => {
 export const lockSpec3Req4 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec3Req1Lock",
+      type: "spec3Req4Lock",
       payload: false,
     });
   };
@@ -430,7 +430,7 @@ export const lockSpec3Req4 = () => {
 export const unlockSpec3Req5 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec3Req1Unlock",
+      type: "spec3Req5Unlock",
       payload: true,
     });
   };
@@ -439,7 +439,7 @@ export const unlockSpec3Req5 = () => {
 export const lockSpec3Req5 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec3Req1Lock",
+      type: "spec3Req5Lock",
       payload: false,
     });
   };
@@ -448,7 +448,7 @@ export const lockSpec3Req5 = () => {
 export const unlockSpec3Req6 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec3Req1Unlock",
+      type: "spec3Req6Unlock",
       payload: true,
     });
   };
@@ -457,7 +457,7 @@ export const unlockSpec3Req6 = () => {
 export const lockSpec3Req6 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec3Req1Lock",
+      type: "spec3Req6Lock",
       payload: false,
     });
   };
@@ -466,7 +466,7 @@ export const lockSpec3Req6 = () => {
 export const unlockSpec3Req7 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec3Req1Unlock",
+      type: "spec3Req7Unlock",
       payload: true,
     });
   };
@@ -475,7 +475,7 @@ export const unlockSpec3Req7 = () => {
 export const lockSpec3Req7 = () => {
   return (dispatch) => {
     dispatch({
-      type: "Spec3Req1Lock",
+      type: "spec3Req7Lock",
       payload: false,
     });
   };

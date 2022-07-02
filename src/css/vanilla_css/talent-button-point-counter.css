@@ -1,0 +1,15 @@
+.talentPoints {
+  background-color: black;
+  border: black;
+  border-radius: 2px !important;
+  color: white;
+  cursor: pointer;
+  font-size: 0.7rem;
+  position: absolute;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  left: 60%;
+  bottom: 5%;
+  z-index: 2; }

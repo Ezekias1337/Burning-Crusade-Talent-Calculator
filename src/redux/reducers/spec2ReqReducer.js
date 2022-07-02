@@ -31,7 +31,7 @@ const spec2ReqReducer = (
     case "spec2Req2Unlock":
       if (action?.payload !== undefined) {
         const newState = state;
-        newState.spec2Req1 = action.payload;
+        newState.spec2Req2 = action.payload;
 
         return newState;
       }
@@ -39,7 +39,7 @@ const spec2ReqReducer = (
     case "spec2Req2Lock":
       if (action?.payload !== undefined) {
         const newState = state;
-        newState.spec2Req1 = false;
+        newState.spec2Req2 = false;
 
         return newState;
       }
@@ -47,7 +47,7 @@ const spec2ReqReducer = (
     case "spec2Req3Unlock":
       if (action?.payload !== undefined) {
         const newState = state;
-        newState.spec2Req1 = action.payload;
+        newState.spec2Req3 = action.payload;
 
         return newState;
       }
@@ -55,7 +55,7 @@ const spec2ReqReducer = (
     case "spec2Req3Lock":
       if (action?.payload !== undefined) {
         const newState = state;
-        newState.spec2Req1 = false;
+        newState.spec2Req3 = false;
 
         return newState;
       }
@@ -63,7 +63,7 @@ const spec2ReqReducer = (
     case "spec2Req4Unlock":
       if (action?.payload !== undefined) {
         const newState = state;
-        newState.spec2Req1 = action.payload;
+        newState.spec2Req4 = action.payload;
 
         return newState;
       }
@@ -71,7 +71,7 @@ const spec2ReqReducer = (
     case "spec2Req4Lock":
       if (action?.payload !== undefined) {
         const newState = state;
-        newState.spec2Req1 = false;
+        newState.spec2Req4 = false;
 
         return newState;
       }
@@ -79,7 +79,7 @@ const spec2ReqReducer = (
     case "spec2Req5Unlock":
       if (action?.payload !== undefined) {
         const newState = state;
-        newState.spec2Req1 = action.payload;
+        newState.spec2Req5 = action.payload;
 
         return newState;
       }
@@ -87,7 +87,7 @@ const spec2ReqReducer = (
     case "spec2Req5Lock":
       if (action?.payload !== undefined) {
         const newState = state;
-        newState.spec2Req1 = false;
+        newState.spec2Req5 = false;
 
         return newState;
       }
@@ -95,7 +95,7 @@ const spec2ReqReducer = (
     case "spec2Req6Unlock":
       if (action?.payload !== undefined) {
         const newState = state;
-        newState.spec2Req1 = action.payload;
+        newState.spec2Req6 = action.payload;
 
         return newState;
       }
@@ -103,7 +103,7 @@ const spec2ReqReducer = (
     case "spec2Req6Lock":
       if (action?.payload !== undefined) {
         const newState = state;
-        newState.spec2Req1 = false;
+        newState.spec2Req6 = false;
 
         return newState;
       }
@@ -111,7 +111,7 @@ const spec2ReqReducer = (
     case "spec2Req7Unlock":
       if (action?.payload !== undefined) {
         const newState = state;
-        newState.spec2Req1 = action.payload;
+        newState.spec2Req7 = action.payload;
 
         return newState;
       }
@@ -119,7 +119,7 @@ const spec2ReqReducer = (
     case "spec2Req7Lock":
       if (action?.payload !== undefined) {
         const newState = state;
-        newState.spec2Req1 = false;
+        newState.spec2Req7 = false;
 
         return newState;
       }

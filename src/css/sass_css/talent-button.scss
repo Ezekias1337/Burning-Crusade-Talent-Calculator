@@ -1,17 +1,18 @@
 @import "variables/common-variables";
+@import "variables/talent-button-variables";
 
 .active-talent {
-  border: 2px solid rgba(64, 191, 64, 0.8);
+  border: 2px solid $active-talent;
   border-radius: 3px;
 }
 
 .inactive-talent {
-  border: 2px solid #c2c4c6;
+  border: 2px solid $inactive-talent;
   border-radius: 3px;
 }
 
 .maxeds {
-  border: 2px solid #ffd100;
+  border: 2px solid $maxed-talent;
   border-radius: 3px;
 }
 
@@ -23,23 +24,6 @@
 .req-active {
   -webkit-filter: grayscale(0%);
   filter: grayscale(0%);
-}
-
-.talentPoints {
-  background-color: #000;
-  border: #333;
-  border-radius: 2px !important;
-  color: #ffffff;
-  cursor: pointer;
-  font-size: 0.7rem;
-  position: absolute;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  left: 60%;
-  bottom: 5%;
-  z-index: 2;
 }
 
 .talentHover {

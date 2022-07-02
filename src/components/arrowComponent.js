@@ -15,7 +15,6 @@ import { useEffect, useState } from "react";
 
 export const Arrow = (props) => {
   const [arrowSource, setArrowSource] = useState();
-  console.log("props", props);
 
   useEffect(() => {
     switch (props.arrowType) {
