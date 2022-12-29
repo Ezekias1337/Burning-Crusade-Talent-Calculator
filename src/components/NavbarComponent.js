@@ -9,7 +9,7 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
-import BCLogo from "../images/BC_Logo.png";
+import BCLogo from "../images/Burning_Crusade_Murloc.png";
 import HunterLogo from "../images/Hunter_Icon.png";
 import ShamanLogo from "../images/Shaman_Icon.png";
 import WarlockLogo from "../images/Warlock_Icon.png";
@@ -45,7 +45,7 @@ const CustomNavbar = (props) => {
             <Link to="/">
               <img
                 className="mx-auto"
-                style={{ width: "250px", display: "block" }}
+                style={{ width: "150px", display: "block" }}
                 src={BCLogo}
               />
             </Link>

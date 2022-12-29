@@ -6,6 +6,9 @@ import totalPointsReducer from "./totalPointsReducer";
 import spec1ReqReducer from "./spec1ReqReducer";
 import spec2ReqReducer from "./spec2ReqReducer";
 import spec3ReqReducer from "./spec3ReqReducer";
+import spec1ArrowReducer from "./spec1ArrowReducer";
+import spec2ArrowReducer from "./spec2ArrowReducer";
+import spec3ArrowReducer from "./spec3ArrowReducer";
 
 const reducers = combineReducers({
   pointsSpec1: point1Reducer,
@@ -15,6 +18,9 @@ const reducers = combineReducers({
   spec1Requirements: spec1ReqReducer,
   spec2Requirements: spec2ReqReducer,
   spec3Requirements: spec3ReqReducer,
+  spec1Arrows: spec1ArrowReducer,
+  spec2Arrows: spec2ArrowReducer,
+  spec3Arrows: spec3ArrowReducer,
 });
 
 export default reducers;

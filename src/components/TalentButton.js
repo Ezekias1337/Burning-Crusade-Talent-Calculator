@@ -38,7 +38,7 @@ export const TalentButton = (props) => {
   //  Handle Unlocking when points are spent
   useEffect(() => {
     if (isMaxed === true) {
-      setStringForBorderColor("maxeds");
+      setStringForBorderColor("maxed-talent");
     } else if (isEnabled === true) {
       setStringForBorderColor("active-talent");
     } else {
@@ -180,7 +180,7 @@ export const TalentButton = (props) => {
 
         if (prereqCheckPassed === true && pointReqCheckPassed === true) {
           if (resultsFromPointReqCheck === "maxed") {
-            setStringForBorderColor("maxeds");
+            setStringForBorderColor("maxed-talent");
           } else if (resultsFromPointReqCheck === "active") {
             setStringForBorderColor("active-talent");
             setIsEnabled(true);

@@ -87,13 +87,13 @@ import Survivalist from "../../images/talents/Hunter/Progression/spec3/Survivali
 
 import "../../css/vanilla_css/playable-class.css";
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 /* import { bindActionCreators } from "redux";
 import { actionCreators } from "../../redux/allActions"; */
 
 export const HunterJSX = () => {
-  /* const state = useSelector((state) => state);
-  const dispatch = useDispatch();
+ const state = useSelector((state) => state);
+   /* const dispatch = useDispatch();
   const { addPointsSpec1 } = bindActionCreators(actionCreators, dispatch); */
 
   return (
@@ -140,6 +140,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="1"
             />
             <TalentButton
@@ -149,6 +150,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="2"
             />
             <div className="col col-xs-3"></div>
@@ -161,6 +163,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="2"
               playableClass="Hunter"
+              state={state}
               id="3"
             />
             <TalentButton
@@ -170,6 +173,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="4"
             />
             <TalentButton
@@ -179,6 +183,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="5"
             />
             <TalentButton
@@ -188,6 +193,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="2"
               playableClass="Hunter"
+              state={state}
               id="6"
             />
           </div>
@@ -199,6 +205,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="2"
               playableClass="Hunter"
+              state={state}
               id="7"
             />
             <TalentButton
@@ -208,6 +215,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="1"
               playableClass="Hunter"
+              state={state}
               id="8"
             />
             <TalentButton
@@ -217,6 +225,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="9"
             />
             <div className="col col-xs-3"></div>
@@ -230,6 +239,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="2"
               playableClass="Hunter"
+              state={state}
               id="10"
             />
             <TalentButton
@@ -239,6 +249,8 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
+              testProp={state.totalPoints.points + 2}
               parentTalent={["1"]}
               arrows={[
                 {
@@ -261,6 +273,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="2"
               playableClass="Hunter"
+              state={state}
               id="12"
             />
             <TalentButton
@@ -270,6 +283,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="1"
               playableClass="Hunter"
+              state={state}
               parentTalent={["2"]}
               arrows={[
                 {
@@ -289,6 +303,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="2"
               playableClass="Hunter"
+              state={state}
               id="14"
             />
           </div>
@@ -301,6 +316,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="2"
               playableClass="Hunter"
+              state={state}
               id="15"
             />
             <div style={{ zIndex: "0" }} className="col col-xs-3"></div>
@@ -311,6 +327,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               childTalent={["1"]}
               id="16"
             />
@@ -324,6 +341,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="17"
             />
             <TalentButton
@@ -333,6 +351,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="1"
               playableClass="Hunter"
+              state={state}
               childTalent={["2"]}
               parentTalent={["3"]}
               arrows={[
@@ -352,6 +371,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="19"
             />
 
@@ -370,6 +390,7 @@ export const HunterJSX = () => {
               spec="1"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="20"
             />
             <div className="col col-xs-3"></div>
@@ -381,8 +402,9 @@ export const HunterJSX = () => {
               talentName="TheBeastWithinToolTip"
               req="40"
               spec="1"
-              maxPoints="5"
+              maxPoints="1"
               playableClass="Hunter"
+              state={state}
               childTalent={["3"]}
               id="21"
             />
@@ -408,6 +430,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="22"
             />
             <TalentButton
@@ -417,6 +440,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="23"
             />
             <div className="col col-xs-3"></div>
@@ -430,6 +454,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="24"
             />
             <TalentButton
@@ -439,6 +464,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="25"
             />
             <div className="col col-xs-3"></div>
@@ -451,6 +477,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="2"
               playableClass="Hunter"
+              state={state}
               id="26"
             />
             <TalentButton
@@ -460,6 +487,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="27"
             />
             <TalentButton
@@ -469,6 +497,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="1"
               playableClass="Hunter"
+              state={state}
               id="28"
               parentTalent={["1"]}
               arrows={[
@@ -487,6 +516,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="2"
               playableClass="Hunter"
+              state={state}
               id="29"
             />
           </div>
@@ -499,6 +529,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="30"
             />
             <TalentButton
@@ -508,6 +539,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               childTalent={["1"]}
               id="31"
             />
@@ -521,6 +553,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="32"
             />
             <TalentButton
@@ -530,6 +563,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="1"
               playableClass="Hunter"
+              state={state}
               id="33"
               parentTalent={["2"]}
               arrows={[
@@ -548,6 +582,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="34"
               parentTalent={["3"]}
               arrows={[
@@ -569,6 +604,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="2"
               playableClass="Hunter"
+              state={state}
               id="35"
             />
             <div className="col col-xs-3"></div>
@@ -580,6 +616,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="36"
             />
           </div>
@@ -591,6 +628,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="37"
             />
             <TalentButton
@@ -600,6 +638,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="1"
               playableClass="Hunter"
+              state={state}
               childTalent={["2"]}
               id="38"
             />
@@ -610,6 +649,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               childTalent={["3"]}
               id="39"
             />
@@ -624,6 +664,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="40"
               parentTalent={["4"]}
               arrows={[
@@ -647,6 +688,7 @@ export const HunterJSX = () => {
               spec="2"
               maxPoints="1"
               playableClass="Hunter"
+              state={state}
               childTalent={["4"]}
               id="41"
             />
@@ -671,6 +713,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="42"
             />
             <TalentButton
@@ -680,6 +723,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="43"
             />
             <TalentButton
@@ -689,6 +733,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="44"
             />
             <TalentButton
@@ -698,6 +743,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="2"
               playableClass="Hunter"
+              state={state}
               id="45"
             />
           </div>
@@ -709,6 +755,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="46"
             />
             <TalentButton
@@ -718,6 +765,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="47"
             />
             <TalentButton
@@ -727,6 +775,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="48"
             />
 
@@ -740,6 +789,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="2"
               playableClass="Hunter"
+              state={state}
               id="49"
             />
             <TalentButton
@@ -749,6 +799,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="50"
             />
             <TalentButton
@@ -758,6 +809,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="1"
               playableClass="Hunter"
+              state={state}
               id="51"
               parentTalent={["1"]}
               arrows={[
@@ -780,6 +832,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="2"
               playableClass="Hunter"
+              state={state}
               id="52"
             />
             <TalentButton
@@ -789,6 +842,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="53"
             />
 
@@ -800,6 +854,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="2"
               playableClass="Hunter"
+              state={state}
               id="54"
             />
           </div>
@@ -811,6 +866,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="2"
               playableClass="Hunter"
+              state={state}
               id="55"
             />
             <TalentButton
@@ -820,6 +876,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="56"
               parentTalent={["2"]}
               arrows={[
@@ -838,6 +895,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="1"
               playableClass="Hunter"
+              state={state}
               childTalent={["1"]}
               id="57"
             />
@@ -851,6 +909,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="58"
             />
             <div className="col col-xs-3"></div>
@@ -861,6 +920,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="59"
             />
             <div className="col col-xs-3"></div>
@@ -873,6 +933,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="60"
             />
             <TalentButton
@@ -882,6 +943,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="1"
               playableClass="Hunter"
+              state={state}
               childTalent={["2"]}
               id="61"
             />
@@ -892,6 +954,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="3"
               playableClass="Hunter"
+              state={state}
               id="62"
             />
             <div className="col col-xs-3"></div>
@@ -905,6 +968,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="5"
               playableClass="Hunter"
+              state={state}
               id="63"
               parentTalent={["3"]}
               arrows={[
@@ -928,6 +992,7 @@ export const HunterJSX = () => {
               spec="3"
               maxPoints="1"
               playableClass="Hunter"
+              state={state}
               childTalent={["3"]}
               id="64"
             />

@@ -480,3 +480,357 @@ export const lockSpec3Req7 = () => {
     });
   };
 };
+
+/* 
+-----------------------------------------------------------------------------
+    Handle silver/gold of arrows Spec 1
+-----------------------------------------------------------------------------
+*/
+
+export const spec1Req1ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec1Req1ArrowGold",
+    });
+  };
+};
+
+export const spec1Req1ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec1Req1ArrowSilver",
+    });
+  };
+};
+
+export const spec1Req2ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec1Req2ArrowGold",
+    });
+  };
+};
+
+export const spec1Req2ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec1Req2ArrowSilver",
+    });
+  };
+};
+
+export const spec1Req3ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec1Req3ArrowGold",
+    });
+  };
+};
+
+export const spec1Req3ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec1Req3ArrowSilver",
+    });
+  };
+};
+
+export const spec1Req4ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec1Req4ArrowGold",
+    });
+  };
+};
+
+export const spec1Req4ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec1Req4ArrowSilver",
+    });
+  };
+};
+
+export const spec1Req5ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec1Req5ArrowGold",
+    });
+  };
+};
+
+export const spec1Req5ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec1Req5ArrowSilver",
+    });
+  };
+};
+
+export const spec1Req6ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec1Req6ArrowGold",
+    });
+  };
+};
+
+export const spec1Req6ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec1Req6ArrowSilver",
+    });
+  };
+};
+
+export const spec1Req7ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec1Req7ArrowGold",
+    });
+  };
+};
+
+export const spec1Req7ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec1Req7ArrowSilver",
+    });
+  };
+};
+
+/* 
+-----------------------------------------------------------------------------
+    Handle silver/gold of arrows Spec 2
+-----------------------------------------------------------------------------
+*/
+
+export const spec2Req1ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec2Req1ArrowGold",
+    });
+  };
+};
+
+export const spec2Req1ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec2Req1ArrowSilver",
+    });
+  };
+};
+
+export const spec2Req2ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec2Req2ArrowGold",
+    });
+  };
+};
+
+export const spec2Req2ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec2Req2ArrowSilver",
+    });
+  };
+};
+
+export const spec2Req3ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec2Req3ArrowGold",
+    });
+  };
+};
+
+export const spec2Req3ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec2Req3ArrowSilver",
+    });
+  };
+};
+
+export const spec2Req4ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec2Req4ArrowGold",
+    });
+  };
+};
+
+export const spec2Req4ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec2Req4ArrowSilver",
+    });
+  };
+};
+
+export const spec2Req5ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec2Req5ArrowGold",
+    });
+  };
+};
+
+export const spec2Req5ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec2Req5ArrowSilver",
+    });
+  };
+};
+
+export const spec2Req6ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec2Req6ArrowGold",
+    });
+  };
+};
+
+export const spec2Req6ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec2Req6ArrowSilver",
+    });
+  };
+};
+
+export const spec2Req7ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec2Req7ArrowGold",
+    });
+  };
+};
+
+export const spec2Req7ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec2Req7ArrowSilver",
+    });
+  };
+};
+
+/* 
+-----------------------------------------------------------------------------
+    Handle silver/gold of arrows Spec 3
+-----------------------------------------------------------------------------
+*/
+
+export const spec3Req1ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec3Req1ArrowGold",
+    });
+  };
+};
+
+export const spec3Req1ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec3Req1ArrowSilver",
+    });
+  };
+};
+
+export const spec3Req2ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec3Req2ArrowGold",
+    });
+  };
+};
+
+export const spec3Req2ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec3Req2ArrowSilver",
+    });
+  };
+};
+
+export const spec3Req3ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec3Req3ArrowGold",
+    });
+  };
+};
+
+export const spec3Req3ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec3Req3ArrowSilver",
+    });
+  };
+};
+
+export const spec3Req4ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec3Req4ArrowGold",
+    });
+  };
+};
+
+export const spec3Req4ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec3Req4ArrowSilver",
+    });
+  };
+};
+
+export const spec3Req5ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec3Req5ArrowGold",
+    });
+  };
+};
+
+export const spec3Req5ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec3Req5ArrowSilver",
+    });
+  };
+};
+
+export const spec3Req6ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec3Req6ArrowGold",
+    });
+  };
+};
+
+export const spec3Req6ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec3Req6ArrowSilver",
+    });
+  };
+};
+
+export const spec3Req7ArrowGold = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec3Req7ArrowGold",
+    });
+  };
+};
+
+export const spec3Req7ArrowSilver = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "spec3Req7ArrowSilver",
+    });
+  };
+};
